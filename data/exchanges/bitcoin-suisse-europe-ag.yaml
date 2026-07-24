@@ -1,0 +1,160 @@
+id: bitcoin-suisse-europe-ag
+brand: Bitcoin Suisse (Europe) AG
+eu_status: authorised
+sources:
+- name: ESMA interim MiCA register (CASPS.csv)
+  url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
+  retrieved: '2026-07-24'
+entities:
+- lei: 5067009TZLDD94Q3W662
+  legal_name: Bitcoin Suisse (Europe) AG
+  commercial_name: Bitcoin Suisse (Europe) AG
+  home_state: LI
+  regulator: Finanzmarktaufsicht (FMA)
+  website: https://www.bitcoinsuisse.com
+  records:
+  - authorised: '2026-06-22'
+    withdrawn: null
+    status: authorised
+    services:
+    - a
+    - c
+    - d
+    - e
+    - g
+    - j
+    passported_to:
+    - AT
+    - BE
+    - CY
+    - CZ
+    - DE
+    - DK
+    - ES
+    - FI
+    - FR
+    - GR
+    - HR
+    - IE
+    - IT
+    - LI
+    - LU
+    - NL
+    - 'NO'
+    - PT
+    - RO
+    - SE
+    - SI
+    - SK
+    last_update: '2026-06-24'
+countries:
+  AT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Bitcoin Suisse (Europe) AG
+  BE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Bitcoin Suisse (Europe) AG
+  CY:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Bitcoin Suisse (Europe) AG
+  CZ:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Bitcoin Suisse (Europe) AG
+  DE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Bitcoin Suisse (Europe) AG
+  DK:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Bitcoin Suisse (Europe) AG
+  ES:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Bitcoin Suisse (Europe) AG
+  FI:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Bitcoin Suisse (Europe) AG
+  FR:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Bitcoin Suisse (Europe) AG
+  GR:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Bitcoin Suisse (Europe) AG
+  HR:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Bitcoin Suisse (Europe) AG
+  IE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Bitcoin Suisse (Europe) AG
+  IT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Bitcoin Suisse (Europe) AG
+  LI:
+    status: licensed
+    regime: MiCA
+    via: home_state
+    entity: Bitcoin Suisse (Europe) AG
+  LU:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Bitcoin Suisse (Europe) AG
+  NL:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Bitcoin Suisse (Europe) AG
+  'NO':
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Bitcoin Suisse (Europe) AG
+  PT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Bitcoin Suisse (Europe) AG
+  RO:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Bitcoin Suisse (Europe) AG
+  SE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Bitcoin Suisse (Europe) AG
+  SI:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Bitcoin Suisse (Europe) AG
+  SK:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Bitcoin Suisse (Europe) AG

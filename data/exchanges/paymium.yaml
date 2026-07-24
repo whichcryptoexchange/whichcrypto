@@ -1,0 +1,207 @@
+id: paymium
+brand: Paymium
+eu_status: authorised
+sources:
+- name: ESMA interim MiCA register (CASPS.csv)
+  url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
+  retrieved: '2026-07-24'
+entities:
+- lei: 969500D241WXU9J7MI33
+  legal_name: PAYMIUM SAS
+  commercial_name: PAYMIUM
+  home_state: FR
+  regulator: Autorité des Marchés Financiers (AMF)
+  website: https://www.paymium.com/
+  records:
+  - authorised: '2026-06-22'
+    withdrawn: null
+    status: authorised
+    services:
+    - a
+    - b
+    - c
+    - d
+    - e
+    - j
+    passported_to:
+    - AT
+    - BE
+    - BG
+    - CY
+    - CZ
+    - DE
+    - DK
+    - EE
+    - ES
+    - FI
+    - GR
+    - HR
+    - HU
+    - IE
+    - IS
+    - IT
+    - LI
+    - LT
+    - LU
+    - LV
+    - MT
+    - NL
+    - 'NO'
+    - PL
+    - PT
+    - RO
+    - SE
+    - SI
+    - SK
+    last_update: '2026-06-22'
+countries:
+  AT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: PAYMIUM SAS
+  BE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: PAYMIUM SAS
+  BG:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: PAYMIUM SAS
+  CY:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: PAYMIUM SAS
+  CZ:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: PAYMIUM SAS
+  DE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: PAYMIUM SAS
+  DK:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: PAYMIUM SAS
+  EE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: PAYMIUM SAS
+  ES:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: PAYMIUM SAS
+  FI:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: PAYMIUM SAS
+  FR:
+    status: licensed
+    regime: MiCA
+    via: home_state
+    entity: PAYMIUM SAS
+  GR:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: PAYMIUM SAS
+  HR:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: PAYMIUM SAS
+  HU:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: PAYMIUM SAS
+  IE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: PAYMIUM SAS
+  IS:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: PAYMIUM SAS
+  IT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: PAYMIUM SAS
+  LI:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: PAYMIUM SAS
+  LT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: PAYMIUM SAS
+  LU:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: PAYMIUM SAS
+  LV:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: PAYMIUM SAS
+  MT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: PAYMIUM SAS
+  NL:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: PAYMIUM SAS
+  'NO':
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: PAYMIUM SAS
+  PL:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: PAYMIUM SAS
+  PT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: PAYMIUM SAS
+  RO:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: PAYMIUM SAS
+  SE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: PAYMIUM SAS
+  SI:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: PAYMIUM SAS
+  SK:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: PAYMIUM SAS

@@ -1,0 +1,29 @@
+id: westerwald-bank-eg-volks-und-raiffeisenbank
+brand: Westerwald Bank eG Volks- und Raiffeisenbank
+eu_status: authorised
+sources:
+- name: ESMA interim MiCA register (CASPS.csv)
+  url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
+  retrieved: '2026-07-24'
+entities:
+- lei: 52990071YX99SH321F74
+  legal_name: Westerwald Bank eG Volks- und Raiffeisenbank
+  commercial_name: Westerwald Bank eG Volks- und Raiffeisenbank
+  home_state: DE
+  regulator: Federal Financial Supervisory Authority (BaFin)
+  website: www.westerwaldbank.de
+  records:
+  - authorised: '2025-12-11'
+    withdrawn: null
+    status: authorised
+    services:
+    - e
+    passported_to:
+    - DE
+    last_update: '2025-12-11'
+countries:
+  DE:
+    status: licensed
+    regime: MiCA
+    via: home_state
+    entity: Westerwald Bank eG Volks- und Raiffeisenbank

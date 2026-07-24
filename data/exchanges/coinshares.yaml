@@ -1,0 +1,71 @@
+id: coinshares
+brand: CoinShares
+eu_status: authorised
+sources:
+- name: ESMA interim MiCA register (CASPS.csv)
+  url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
+  retrieved: '2026-07-24'
+entities:
+- lei: 969500DBF3ZL9U0KUA51
+  legal_name: COINSHARES ASSET MANAGEMENT
+  commercial_name: COINSHARES ASSET MANAGEMENT
+  home_state: FR
+  regulator: Autorité des Marchés Financiers (AMF)
+  website: https://coinshares.com/
+  records:
+  - authorised: '2025-07-17'
+    withdrawn: null
+    status: authorised
+    services:
+    - h
+    - i
+    passported_to:
+    - CY
+    - DE
+    - IE
+    - LT
+    - LU
+    - MT
+    - NL
+    last_update: '2025-07-17'
+countries:
+  CY:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: COINSHARES ASSET MANAGEMENT
+  DE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: COINSHARES ASSET MANAGEMENT
+  FR:
+    status: licensed
+    regime: MiCA
+    via: home_state
+    entity: COINSHARES ASSET MANAGEMENT
+  IE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: COINSHARES ASSET MANAGEMENT
+  LT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: COINSHARES ASSET MANAGEMENT
+  LU:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: COINSHARES ASSET MANAGEMENT
+  MT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: COINSHARES ASSET MANAGEMENT
+  NL:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: COINSHARES ASSET MANAGEMENT

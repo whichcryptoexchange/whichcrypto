@@ -1,0 +1,190 @@
+id: goin
+brand: Goin
+eu_status: authorised
+sources:
+- name: ESMA interim MiCA register (CASPS.csv)
+  url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
+  retrieved: '2026-07-24'
+entities:
+- lei: 894500LM6DICD790FQ34
+  legal_name: GOin SAS
+  commercial_name: GOIN
+  home_state: FR
+  regulator: Autorité des Marchés Financiers (AMF)
+  website: https://goin-invest.com
+  records:
+  - authorised: '2025-06-19'
+    withdrawn: null
+    status: authorised
+    services:
+    - a
+    - c
+    - d
+    - e
+    - h
+    - i
+    - j
+    passported_to:
+    - AT
+    - BE
+    - BG
+    - CY
+    - CZ
+    - DE
+    - DK
+    - EE
+    - ES
+    - FI
+    - GR
+    - HR
+    - HU
+    - IE
+    - IT
+    - LT
+    - LU
+    - LV
+    - MT
+    - NL
+    - PL
+    - PT
+    - RO
+    - SE
+    - SI
+    - SK
+    last_update: '2025-06-19'
+countries:
+  AT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: GOin SAS
+  BE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: GOin SAS
+  BG:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: GOin SAS
+  CY:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: GOin SAS
+  CZ:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: GOin SAS
+  DE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: GOin SAS
+  DK:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: GOin SAS
+  EE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: GOin SAS
+  ES:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: GOin SAS
+  FI:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: GOin SAS
+  FR:
+    status: licensed
+    regime: MiCA
+    via: home_state
+    entity: GOin SAS
+  GR:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: GOin SAS
+  HR:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: GOin SAS
+  HU:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: GOin SAS
+  IE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: GOin SAS
+  IT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: GOin SAS
+  LT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: GOin SAS
+  LU:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: GOin SAS
+  LV:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: GOin SAS
+  MT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: GOin SAS
+  NL:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: GOin SAS
+  PL:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: GOin SAS
+  PT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: GOin SAS
+  RO:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: GOin SAS
+  SE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: GOin SAS
+  SI:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: GOin SAS
+  SK:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: GOin SAS

@@ -1,0 +1,85 @@
+id: rulematch
+brand: Rulematch
+eu_status: authorised
+sources:
+- name: ESMA interim MiCA register (CASPS.csv)
+  url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
+  retrieved: '2026-07-24'
+entities:
+- lei: 529900PEBGKH34UTD845
+  legal_name: RULEMATCH Europe AG
+  commercial_name: RULEMATCH
+  home_state: LI
+  regulator: Finanzmarktaufsicht (FMA)
+  website: https://www.rulematch.com/europe
+  records:
+  - authorised: '2026-06-01'
+    withdrawn: null
+    status: authorised
+    services:
+    - a
+    - b
+    - j
+    passported_to:
+    - AT
+    - CZ
+    - DE
+    - FR
+    - IT
+    - LI
+    - LU
+    - MT
+    - NL
+    - SI
+    last_update: '2026-06-15'
+countries:
+  AT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: RULEMATCH Europe AG
+  CZ:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: RULEMATCH Europe AG
+  DE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: RULEMATCH Europe AG
+  FR:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: RULEMATCH Europe AG
+  IT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: RULEMATCH Europe AG
+  LI:
+    status: licensed
+    regime: MiCA
+    via: home_state
+    entity: RULEMATCH Europe AG
+  LU:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: RULEMATCH Europe AG
+  MT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: RULEMATCH Europe AG
+  NL:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: RULEMATCH Europe AG
+  SI:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: RULEMATCH Europe AG

@@ -1,0 +1,207 @@
+id: smart-valor
+brand: SMART VALOR
+eu_status: authorised
+sources:
+- name: ESMA interim MiCA register (CASPS.csv)
+  url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
+  retrieved: '2026-07-24'
+entities:
+- lei: 254900S56908SP1E8O53
+  legal_name: SMART VALOR AG
+  commercial_name: SMART VALOR
+  home_state: LI
+  regulator: Finanzmarktaufsicht (FMA)
+  website: https://smartvalor.com/en/
+  records:
+  - authorised: '2026-07-01'
+    withdrawn: null
+    status: authorised
+    services:
+    - a
+    - b
+    - c
+    - d
+    - j
+    passported_to:
+    - AT
+    - BE
+    - BG
+    - CY
+    - CZ
+    - DE
+    - DK
+    - EE
+    - ES
+    - FI
+    - FR
+    - GR
+    - HR
+    - HU
+    - IE
+    - IS
+    - IT
+    - LI
+    - LT
+    - LU
+    - LV
+    - MT
+    - NL
+    - 'NO'
+    - PL
+    - PT
+    - RO
+    - SE
+    - SI
+    - SK
+    last_update: '2026-07-03'
+countries:
+  AT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: SMART VALOR AG
+  BE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: SMART VALOR AG
+  BG:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: SMART VALOR AG
+  CY:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: SMART VALOR AG
+  CZ:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: SMART VALOR AG
+  DE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: SMART VALOR AG
+  DK:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: SMART VALOR AG
+  EE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: SMART VALOR AG
+  ES:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: SMART VALOR AG
+  FI:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: SMART VALOR AG
+  FR:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: SMART VALOR AG
+  GR:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: SMART VALOR AG
+  HR:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: SMART VALOR AG
+  HU:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: SMART VALOR AG
+  IE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: SMART VALOR AG
+  IS:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: SMART VALOR AG
+  IT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: SMART VALOR AG
+  LI:
+    status: licensed
+    regime: MiCA
+    via: home_state
+    entity: SMART VALOR AG
+  LT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: SMART VALOR AG
+  LU:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: SMART VALOR AG
+  LV:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: SMART VALOR AG
+  MT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: SMART VALOR AG
+  NL:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: SMART VALOR AG
+  'NO':
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: SMART VALOR AG
+  PL:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: SMART VALOR AG
+  PT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: SMART VALOR AG
+  RO:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: SMART VALOR AG
+  SE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: SMART VALOR AG
+  SI:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: SMART VALOR AG
+  SK:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: SMART VALOR AG

@@ -1,0 +1,31 @@
+id: kbc
+brand: KBC
+eu_status: authorised
+sources:
+- name: ESMA interim MiCA register (CASPS.csv)
+  url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
+  retrieved: '2026-07-24'
+entities:
+- lei: 6B2PBRV1FCJDMR45RZ53
+  legal_name: KBC Bank NV
+  commercial_name: KBC
+  home_state: BE
+  regulator: National Bank of Belgium (NBB)
+  website: www.kbc.com
+  records:
+  - authorised: null
+    withdrawn: null
+    status: authorised
+    services:
+    - a
+    - e
+    - j
+    passported_to:
+    - BE
+    last_update: '2026-05-13'
+countries:
+  BE:
+    status: licensed
+    regime: MiCA
+    via: home_state
+    entity: KBC Bank NV

@@ -1,0 +1,31 @@
+id: bbva
+brand: BBVA
+eu_status: authorised
+sources:
+- name: ESMA interim MiCA register (CASPS.csv)
+  url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
+  retrieved: '2026-07-24'
+entities:
+- lei: K8MS7FD7N5Z2WQ51AZ71
+  legal_name: Banco Bilbao Vizcaya Argentaria S.A
+  commercial_name: BBVA
+  home_state: ES
+  regulator: Comisión Nacional del Mercado de Valores (CNMV)
+  website: www.bbva.es
+  records:
+  - authorised: '2025-03-05'
+    withdrawn: null
+    status: authorised
+    services:
+    - a
+    - e
+    - j
+    passported_to:
+    - ES
+    last_update: '2026-03-07'
+countries:
+  ES:
+    status: licensed
+    regime: MiCA
+    via: home_state
+    entity: Banco Bilbao Vizcaya Argentaria S.A

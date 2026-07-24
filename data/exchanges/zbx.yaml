@@ -1,0 +1,209 @@
+id: zbx
+brand: ZBX
+eu_status: authorised
+sources:
+- name: ESMA interim MiCA register (CASPS.csv)
+  url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
+  retrieved: '2026-07-24'
+entities:
+- lei: 254900FESD7AF56FOQ37
+  legal_name: Zillion Bits Limited
+  commercial_name: ZBX
+  home_state: MT
+  regulator: Malta Financial Services Authority (MFSA)
+  website: www.zbx.com
+  records:
+  - authorised: '2025-02-06'
+    withdrawn: null
+    status: authorised
+    services:
+    - a
+    - b
+    - c
+    - d
+    - e
+    - f
+    - g
+    - j
+    passported_to:
+    - AT
+    - BE
+    - BG
+    - CY
+    - CZ
+    - DE
+    - DK
+    - EE
+    - ES
+    - FI
+    - FR
+    - GR
+    - HR
+    - HU
+    - IE
+    - IS
+    - IT
+    - LI
+    - LT
+    - LU
+    - LV
+    - NL
+    - 'NO'
+    - PL
+    - PT
+    - RO
+    - SE
+    - SI
+    - SK
+    last_update: '2025-03-28'
+countries:
+  AT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Zillion Bits Limited
+  BE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Zillion Bits Limited
+  BG:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Zillion Bits Limited
+  CY:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Zillion Bits Limited
+  CZ:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Zillion Bits Limited
+  DE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Zillion Bits Limited
+  DK:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Zillion Bits Limited
+  EE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Zillion Bits Limited
+  ES:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Zillion Bits Limited
+  FI:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Zillion Bits Limited
+  FR:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Zillion Bits Limited
+  GR:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Zillion Bits Limited
+  HR:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Zillion Bits Limited
+  HU:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Zillion Bits Limited
+  IE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Zillion Bits Limited
+  IS:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Zillion Bits Limited
+  IT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Zillion Bits Limited
+  LI:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Zillion Bits Limited
+  LT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Zillion Bits Limited
+  LU:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Zillion Bits Limited
+  LV:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Zillion Bits Limited
+  MT:
+    status: licensed
+    regime: MiCA
+    via: home_state
+    entity: Zillion Bits Limited
+  NL:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Zillion Bits Limited
+  'NO':
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Zillion Bits Limited
+  PL:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Zillion Bits Limited
+  PT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Zillion Bits Limited
+  RO:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Zillion Bits Limited
+  SE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Zillion Bits Limited
+  SI:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Zillion Bits Limited
+  SK:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Zillion Bits Limited

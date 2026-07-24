@@ -1,0 +1,31 @@
+id: iceblock
+brand: Iceblock
+eu_status: authorised
+sources:
+- name: ESMA interim MiCA register (CASPS.csv)
+  url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
+  retrieved: '2026-07-24'
+entities:
+- lei: 9695005CVRZDK63ZST85
+  legal_name: ICEBLOCK SAS
+  commercial_name: ICEBLOCK
+  home_state: FR
+  regulator: Autorité des Marchés Financiers (AMF)
+  website: https://www.iceblockinvestments.com/
+  records:
+  - authorised: '2026-06-30'
+    withdrawn: null
+    status: authorised
+    services:
+    - a
+    - i
+    - j
+    passported_to:
+    - FR
+    last_update: '2026-06-30'
+countries:
+  FR:
+    status: licensed
+    regime: MiCA
+    via: home_state
+    entity: ICEBLOCK SAS

@@ -1,0 +1,206 @@
+id: kaiser-partner-privatbank
+brand: Kaiser Partner Privatbank
+eu_status: authorised
+sources:
+- name: ESMA interim MiCA register (CASPS.csv)
+  url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
+  retrieved: '2026-07-24'
+entities:
+- lei: 529900DPOQPLDSF3R482
+  legal_name: Kaiser Partner Privatbank AG
+  commercial_name: Kaiser Partner Privatbank
+  home_state: LI
+  regulator: Finanzmarktaufsicht (FMA)
+  website: https://kaiserpartner.bank
+  records:
+  - authorised: '2026-06-29'
+    withdrawn: null
+    status: authorised
+    services:
+    - a
+    - g
+    - i
+    - j
+    passported_to:
+    - AT
+    - BE
+    - BG
+    - CY
+    - CZ
+    - DE
+    - DK
+    - EE
+    - ES
+    - FI
+    - FR
+    - GR
+    - HR
+    - HU
+    - IE
+    - IS
+    - IT
+    - LI
+    - LT
+    - LU
+    - LV
+    - MT
+    - NL
+    - 'NO'
+    - PL
+    - PT
+    - RO
+    - SE
+    - SI
+    - SK
+    last_update: '2026-07-15'
+countries:
+  AT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Kaiser Partner Privatbank AG
+  BE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Kaiser Partner Privatbank AG
+  BG:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Kaiser Partner Privatbank AG
+  CY:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Kaiser Partner Privatbank AG
+  CZ:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Kaiser Partner Privatbank AG
+  DE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Kaiser Partner Privatbank AG
+  DK:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Kaiser Partner Privatbank AG
+  EE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Kaiser Partner Privatbank AG
+  ES:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Kaiser Partner Privatbank AG
+  FI:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Kaiser Partner Privatbank AG
+  FR:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Kaiser Partner Privatbank AG
+  GR:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Kaiser Partner Privatbank AG
+  HR:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Kaiser Partner Privatbank AG
+  HU:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Kaiser Partner Privatbank AG
+  IE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Kaiser Partner Privatbank AG
+  IS:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Kaiser Partner Privatbank AG
+  IT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Kaiser Partner Privatbank AG
+  LI:
+    status: licensed
+    regime: MiCA
+    via: home_state
+    entity: Kaiser Partner Privatbank AG
+  LT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Kaiser Partner Privatbank AG
+  LU:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Kaiser Partner Privatbank AG
+  LV:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Kaiser Partner Privatbank AG
+  MT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Kaiser Partner Privatbank AG
+  NL:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Kaiser Partner Privatbank AG
+  'NO':
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Kaiser Partner Privatbank AG
+  PL:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Kaiser Partner Privatbank AG
+  PT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Kaiser Partner Privatbank AG
+  RO:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Kaiser Partner Privatbank AG
+  SE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Kaiser Partner Privatbank AG
+  SI:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Kaiser Partner Privatbank AG
+  SK:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Kaiser Partner Privatbank AG

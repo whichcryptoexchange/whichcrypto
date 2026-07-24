@@ -1,0 +1,29 @@
+id: vr-bank-rottal-inn-eg
+brand: VR-Bank Rottal-Inn eG
+eu_status: authorised
+sources:
+- name: ESMA interim MiCA register (CASPS.csv)
+  url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
+  retrieved: '2026-07-24'
+entities:
+- lei: 529900APX10RF2PBTB22
+  legal_name: VR-Bank Rottal-Inn eG
+  commercial_name: VR-Bank Rottal-Inn eG
+  home_state: DE
+  regulator: Federal Financial Supervisory Authority (BaFin)
+  website: www.vrbk.de
+  records:
+  - authorised: '2025-12-16'
+    withdrawn: null
+    status: authorised
+    services:
+    - e
+    passported_to:
+    - DE
+    last_update: '2025-12-16'
+countries:
+  DE:
+    status: licensed
+    regime: MiCA
+    via: home_state
+    entity: VR-Bank Rottal-Inn eG

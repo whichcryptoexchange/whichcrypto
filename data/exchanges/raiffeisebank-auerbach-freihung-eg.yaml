@@ -1,0 +1,29 @@
+id: raiffeisebank-auerbach-freihung-eg
+brand: Raiffeisebank Auerbach-Freihung eG
+eu_status: authorised
+sources:
+- name: ESMA interim MiCA register (CASPS.csv)
+  url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
+  retrieved: '2026-07-24'
+entities:
+- lei: 529900R1A7TN1LM06875
+  legal_name: Raiffeisebank Auerbach-Freihung eG
+  commercial_name: Raiffeisebank Auerbach-Freihung eG
+  home_state: DE
+  regulator: Federal Financial Supervisory Authority (BaFin)
+  website: www.rb-af.de
+  records:
+  - authorised: '2026-06-19'
+    withdrawn: null
+    status: authorised
+    services:
+    - e
+    passported_to:
+    - DE
+    last_update: '2026-06-19'
+countries:
+  DE:
+    status: licensed
+    regime: MiCA
+    via: home_state
+    entity: Raiffeisebank Auerbach-Freihung eG

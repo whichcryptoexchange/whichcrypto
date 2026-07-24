@@ -1,0 +1,204 @@
+id: swissquote
+brand: Swissquote
+eu_status: authorised
+sources:
+- name: ESMA interim MiCA register (CASPS.csv)
+  url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
+  retrieved: '2026-07-24'
+entities:
+- lei: 549300M2IHOB9P5WE714
+  legal_name: Swissquote Bank Europe SA
+  commercial_name: Swissquote
+  home_state: LU
+  regulator: Commission de Surveillance du Secteur Financier (CSSF)
+  website: https://www.swissquote.com/en-lu/private
+  records:
+  - authorised: '2026-04-24'
+    withdrawn: null
+    status: authorised
+    services:
+    - a
+    - e
+    - j
+    passported_to:
+    - AT
+    - BE
+    - BG
+    - CY
+    - CZ
+    - DE
+    - DK
+    - EE
+    - ES
+    - FI
+    - FR
+    - GR
+    - HR
+    - HU
+    - IE
+    - IS
+    - IT
+    - LI
+    - LT
+    - LV
+    - MT
+    - NL
+    - 'NO'
+    - PL
+    - PT
+    - RO
+    - SE
+    - SI
+    - SK
+    last_update: '2026-04-30'
+countries:
+  AT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Swissquote Bank Europe SA
+  BE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Swissquote Bank Europe SA
+  BG:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Swissquote Bank Europe SA
+  CY:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Swissquote Bank Europe SA
+  CZ:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Swissquote Bank Europe SA
+  DE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Swissquote Bank Europe SA
+  DK:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Swissquote Bank Europe SA
+  EE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Swissquote Bank Europe SA
+  ES:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Swissquote Bank Europe SA
+  FI:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Swissquote Bank Europe SA
+  FR:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Swissquote Bank Europe SA
+  GR:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Swissquote Bank Europe SA
+  HR:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Swissquote Bank Europe SA
+  HU:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Swissquote Bank Europe SA
+  IE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Swissquote Bank Europe SA
+  IS:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Swissquote Bank Europe SA
+  IT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Swissquote Bank Europe SA
+  LI:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Swissquote Bank Europe SA
+  LT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Swissquote Bank Europe SA
+  LU:
+    status: licensed
+    regime: MiCA
+    via: home_state
+    entity: Swissquote Bank Europe SA
+  LV:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Swissquote Bank Europe SA
+  MT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Swissquote Bank Europe SA
+  NL:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Swissquote Bank Europe SA
+  'NO':
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Swissquote Bank Europe SA
+  PL:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Swissquote Bank Europe SA
+  PT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Swissquote Bank Europe SA
+  RO:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Swissquote Bank Europe SA
+  SE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Swissquote Bank Europe SA
+  SI:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Swissquote Bank Europe SA
+  SK:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Swissquote Bank Europe SA

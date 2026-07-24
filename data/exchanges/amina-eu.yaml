@@ -1,0 +1,207 @@
+id: amina-eu
+brand: AMINA EU
+eu_status: authorised
+sources:
+- name: ESMA interim MiCA register (CASPS.csv)
+  url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
+  retrieved: '2026-07-24'
+entities:
+- lei: 5299005I4LYIFW7GKB54
+  legal_name: AMINA (Austria) AG
+  commercial_name: AMINA EU
+  home_state: AT
+  regulator: Austrian Financial Market Authority (FMA)
+  website: https://eu.aminagroup.com
+  records:
+  - authorised: '2025-10-29'
+    withdrawn: null
+    status: authorised
+    services:
+    - a
+    - c
+    - d
+    - i
+    - j
+    passported_to:
+    - AT
+    - BE
+    - BG
+    - CY
+    - CZ
+    - DE
+    - DK
+    - EE
+    - ES
+    - FI
+    - FR
+    - GR
+    - HR
+    - HU
+    - IE
+    - IS
+    - IT
+    - LI
+    - LT
+    - LU
+    - LV
+    - MT
+    - NL
+    - 'NO'
+    - PL
+    - PT
+    - RO
+    - SE
+    - SI
+    - SK
+    last_update: '2026-05-28'
+countries:
+  AT:
+    status: licensed
+    regime: MiCA
+    via: home_state
+    entity: AMINA (Austria) AG
+  BE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: AMINA (Austria) AG
+  BG:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: AMINA (Austria) AG
+  CY:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: AMINA (Austria) AG
+  CZ:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: AMINA (Austria) AG
+  DE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: AMINA (Austria) AG
+  DK:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: AMINA (Austria) AG
+  EE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: AMINA (Austria) AG
+  ES:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: AMINA (Austria) AG
+  FI:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: AMINA (Austria) AG
+  FR:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: AMINA (Austria) AG
+  GR:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: AMINA (Austria) AG
+  HR:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: AMINA (Austria) AG
+  HU:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: AMINA (Austria) AG
+  IE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: AMINA (Austria) AG
+  IS:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: AMINA (Austria) AG
+  IT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: AMINA (Austria) AG
+  LI:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: AMINA (Austria) AG
+  LT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: AMINA (Austria) AG
+  LU:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: AMINA (Austria) AG
+  LV:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: AMINA (Austria) AG
+  MT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: AMINA (Austria) AG
+  NL:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: AMINA (Austria) AG
+  'NO':
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: AMINA (Austria) AG
+  PL:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: AMINA (Austria) AG
+  PT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: AMINA (Austria) AG
+  RO:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: AMINA (Austria) AG
+  SE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: AMINA (Austria) AG
+  SI:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: AMINA (Austria) AG
+  SK:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: AMINA (Austria) AG

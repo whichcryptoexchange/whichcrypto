@@ -1,0 +1,29 @@
+id: coinflip
+brand: CoinFlip
+eu_status: authorised
+sources:
+- name: ESMA interim MiCA register (CASPS.csv)
+  url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
+  retrieved: '2026-07-24'
+entities:
+- lei: 81560042B094A85D8F89
+  legal_name: OLLIV ITALIA S.R.L
+  commercial_name: CoinFlip
+  home_state: IT
+  regulator: Commissione Nazionale per le Societa e la Borsa (CONSOB)
+  website: https://coinflip.tech/it-IT
+  records:
+  - authorised: '2026-06-04'
+    withdrawn: null
+    status: authorised
+    services:
+    - c
+    passported_to:
+    - IT
+    last_update: '2026-06-05'
+countries:
+  IT:
+    status: licensed
+    regime: MiCA
+    via: home_state
+    entity: OLLIV ITALIA S.R.L

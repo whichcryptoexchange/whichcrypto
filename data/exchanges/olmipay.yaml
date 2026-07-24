@@ -1,0 +1,33 @@
+id: olmipay
+brand: Olmipay
+eu_status: authorised
+sources:
+- name: ESMA interim MiCA register (CASPS.csv)
+  url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
+  retrieved: '2026-07-24'
+entities:
+- lei: 984500F9M4XF7C5E5E25
+  legal_name: Olmipay Limited
+  commercial_name: Olmipay
+  home_state: MT
+  regulator: Malta Financial Services Authority (MFSA)
+  website: Olmipay.com  (upcoming)
+  records:
+  - authorised: '2026-05-29'
+    withdrawn: null
+    status: authorised
+    services:
+    - a
+    - e
+    - f
+    - g
+    - j
+    passported_to:
+    - MT
+    last_update: '2026-05-29'
+countries:
+  MT:
+    status: licensed
+    regime: MiCA
+    via: home_state
+    entity: Olmipay Limited

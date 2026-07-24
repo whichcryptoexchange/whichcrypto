@@ -25,8 +25,9 @@ entities:
     - h
     - i
     - j
-    passported_to: []
-    last_update: '2026-06-16'
+    passported_to:
+    - CY
+    last_update: '2026-07-15'
 countries:
   CY:
     status: licensed

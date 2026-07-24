@@ -1,0 +1,52 @@
+id: coinhouse
+brand: Coinhouse
+eu_status: authorised
+sources:
+- name: ESMA interim MiCA register (CASPS.csv)
+  url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
+  retrieved: '2026-07-24'
+entities:
+- lei: 969500E5GFHK2RKF8251
+  legal_name: COINHOUSE SAS
+  commercial_name: COINHOUSE
+  home_state: FR
+  regulator: Autorité des Marchés Financiers (AMF)
+  website: https://www.coinhouse.com/
+  records:
+  - authorised: '2026-05-07'
+    withdrawn: null
+    status: authorised
+    services:
+    - a
+    - c
+    - d
+    - e
+    - h
+    - i
+    - j
+    passported_to:
+    - BE
+    - ES
+    - LU
+    last_update: '2026-05-07'
+countries:
+  BE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: COINHOUSE SAS
+  ES:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: COINHOUSE SAS
+  FR:
+    status: licensed
+    regime: MiCA
+    via: home_state
+    entity: COINHOUSE SAS
+  LU:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: COINHOUSE SAS

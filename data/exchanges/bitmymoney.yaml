@@ -1,0 +1,38 @@
+id: bitmymoney
+brand: Bitmymoney
+eu_status: authorised
+sources:
+- name: ESMA interim MiCA register (CASPS.csv)
+  url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
+  retrieved: '2026-07-24'
+entities:
+- lei: 724500H1WRSMD7CAS549
+  legal_name: Bitmymoney B.V
+  commercial_name: Bitmymoney B.V
+  home_state: NL
+  regulator: Netherlands Authority for the Financial Markets (AFM)
+  website: https://www.bitmymoney.com/
+  records:
+  - authorised: '2025-11-20'
+    withdrawn: null
+    status: authorised
+    services:
+    - a
+    - c
+    - d
+    - j
+    passported_to:
+    - BE
+    - NL
+    last_update: '2025-11-24'
+countries:
+  BE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Bitmymoney B.V
+  NL:
+    status: licensed
+    regime: MiCA
+    via: home_state
+    entity: Bitmymoney B.V

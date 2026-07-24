@@ -1,0 +1,30 @@
+id: bny
+brand: BNY
+eu_status: authorised
+sources:
+- name: ESMA interim MiCA register (CASPS.csv)
+  url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
+  retrieved: '2026-07-24'
+entities:
+- lei: MMYX0N4ZEZ13Z4XCG897
+  legal_name: BNY SA/NV
+  commercial_name: BNY
+  home_state: BE
+  regulator: National Bank of Belgium (NBB)
+  website: www.bny.com
+  records:
+  - authorised: '2026-07-20'
+    withdrawn: null
+    status: authorised
+    services:
+    - a
+    - j
+    passported_to:
+    - BE
+    last_update: '2026-07-20'
+countries:
+  BE:
+    status: licensed
+    regime: MiCA
+    via: home_state
+    entity: BNY SA/NV

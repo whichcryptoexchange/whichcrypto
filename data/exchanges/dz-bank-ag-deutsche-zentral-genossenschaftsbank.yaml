@@ -1,0 +1,31 @@
+id: dz-bank-ag-deutsche-zentral-genossenschaftsbank
+brand: DZ BANK AG Deutsche Zentral-Genossenschaftsbank
+eu_status: authorised
+sources:
+- name: ESMA interim MiCA register (CASPS.csv)
+  url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
+  retrieved: '2026-07-24'
+entities:
+- lei: 529900HNOAA1KXQJUQ27
+  legal_name: DZ BANK AG Deutsche Zentral-Genossenschaftsbank
+  commercial_name: DZ BANK AG Deutsche Zentral-Genossenschaftsbank
+  home_state: DE
+  regulator: Federal Financial Supervisory Authority (BaFin)
+  website: https://www.dzbank.de
+  records:
+  - authorised: '2025-12-23'
+    withdrawn: null
+    status: authorised
+    services:
+    - a
+    - e
+    - j
+    passported_to:
+    - DE
+    last_update: '2026-03-02'
+countries:
+  DE:
+    status: licensed
+    regime: MiCA
+    via: home_state
+    entity: DZ BANK AG Deutsche Zentral-Genossenschaftsbank

@@ -1,0 +1,204 @@
+id: paymonade
+brand: Paymonade
+eu_status: authorised
+sources:
+- name: ESMA interim MiCA register (CASPS.csv)
+  url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
+  retrieved: '2026-07-24'
+entities:
+- lei: 529900AAZRC5LYVR7134
+  legal_name: Damoon Technology (Europe) AG
+  commercial_name: Paymonade
+  home_state: LI
+  regulator: Finanzmarktaufsicht (FMA)
+  website: www.paymonade.tech
+  records:
+  - authorised: '2026-07-10'
+    withdrawn: null
+    status: authorised
+    services:
+    - c
+    - j
+    passported_to:
+    - AT
+    - BE
+    - BG
+    - CY
+    - CZ
+    - DE
+    - DK
+    - EE
+    - ES
+    - FI
+    - FR
+    - GR
+    - HR
+    - HU
+    - IE
+    - IS
+    - IT
+    - LI
+    - LT
+    - LU
+    - LV
+    - MT
+    - NL
+    - 'NO'
+    - PL
+    - PT
+    - RO
+    - SE
+    - SI
+    - SK
+    last_update: '2026-07-15'
+countries:
+  AT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Damoon Technology (Europe) AG
+  BE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Damoon Technology (Europe) AG
+  BG:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Damoon Technology (Europe) AG
+  CY:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Damoon Technology (Europe) AG
+  CZ:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Damoon Technology (Europe) AG
+  DE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Damoon Technology (Europe) AG
+  DK:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Damoon Technology (Europe) AG
+  EE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Damoon Technology (Europe) AG
+  ES:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Damoon Technology (Europe) AG
+  FI:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Damoon Technology (Europe) AG
+  FR:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Damoon Technology (Europe) AG
+  GR:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Damoon Technology (Europe) AG
+  HR:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Damoon Technology (Europe) AG
+  HU:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Damoon Technology (Europe) AG
+  IE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Damoon Technology (Europe) AG
+  IS:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Damoon Technology (Europe) AG
+  IT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Damoon Technology (Europe) AG
+  LI:
+    status: licensed
+    regime: MiCA
+    via: home_state
+    entity: Damoon Technology (Europe) AG
+  LT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Damoon Technology (Europe) AG
+  LU:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Damoon Technology (Europe) AG
+  LV:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Damoon Technology (Europe) AG
+  MT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Damoon Technology (Europe) AG
+  NL:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Damoon Technology (Europe) AG
+  'NO':
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Damoon Technology (Europe) AG
+  PL:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Damoon Technology (Europe) AG
+  PT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Damoon Technology (Europe) AG
+  RO:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Damoon Technology (Europe) AG
+  SE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Damoon Technology (Europe) AG
+  SI:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Damoon Technology (Europe) AG
+  SK:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Damoon Technology (Europe) AG

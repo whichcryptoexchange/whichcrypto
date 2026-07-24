@@ -1,0 +1,51 @@
+id: ilavo-group-a-s
+brand: ILAVO GROUP a.s
+eu_status: authorised
+sources:
+- name: ESMA interim MiCA register (CASPS.csv)
+  url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
+  retrieved: '2026-07-24'
+entities:
+- lei: 315700DWN9FHXPPTHD55
+  legal_name: ILAVO GROUP a.s
+  commercial_name: null
+  home_state: CZ
+  regulator: Czech National Bank (CNB)
+  website: https://www.ilavo.cz/cs
+  records:
+  - authorised: '2026-02-12'
+    withdrawn: null
+    status: authorised
+    services:
+    - a
+    - c
+    - d
+    - e
+    - g
+    - j
+    passported_to:
+    - HU
+    - PL
+    - SK
+    last_update: '2026-03-02'
+countries:
+  CZ:
+    status: licensed
+    regime: MiCA
+    via: home_state
+    entity: ILAVO GROUP a.s
+  HU:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: ILAVO GROUP a.s
+  PL:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: ILAVO GROUP a.s
+  SK:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: ILAVO GROUP a.s

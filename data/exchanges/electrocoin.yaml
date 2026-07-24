@@ -1,0 +1,205 @@
+id: electrocoin
+brand: Electrocoin
+eu_status: authorised
+sources:
+- name: ESMA interim MiCA register (CASPS.csv)
+  url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
+  retrieved: '2026-07-24'
+entities:
+- lei: 747800R015JVW1T4WZ71
+  legal_name: ELECTROCOIN Ltd for services
+  commercial_name: ELECTROCOIN
+  home_state: HR
+  regulator: Croatian Financial Services Supervisory Agency (HANFA)
+  website: https://electrocoin.eu/hr
+  records:
+  - authorised: '2026-04-09'
+    withdrawn: null
+    status: authorised
+    services:
+    - a
+    - c
+    - d
+    passported_to:
+    - AT
+    - BE
+    - BG
+    - CY
+    - CZ
+    - DE
+    - DK
+    - EE
+    - ES
+    - FI
+    - FR
+    - GR
+    - HR
+    - HU
+    - IE
+    - IS
+    - IT
+    - LI
+    - LT
+    - LU
+    - LV
+    - MT
+    - NL
+    - 'NO'
+    - PL
+    - PT
+    - RO
+    - SE
+    - SI
+    - SK
+    last_update: '2026-06-25'
+countries:
+  AT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: ELECTROCOIN Ltd for services
+  BE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: ELECTROCOIN Ltd for services
+  BG:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: ELECTROCOIN Ltd for services
+  CY:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: ELECTROCOIN Ltd for services
+  CZ:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: ELECTROCOIN Ltd for services
+  DE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: ELECTROCOIN Ltd for services
+  DK:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: ELECTROCOIN Ltd for services
+  EE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: ELECTROCOIN Ltd for services
+  ES:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: ELECTROCOIN Ltd for services
+  FI:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: ELECTROCOIN Ltd for services
+  FR:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: ELECTROCOIN Ltd for services
+  GR:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: ELECTROCOIN Ltd for services
+  HR:
+    status: licensed
+    regime: MiCA
+    via: home_state
+    entity: ELECTROCOIN Ltd for services
+  HU:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: ELECTROCOIN Ltd for services
+  IE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: ELECTROCOIN Ltd for services
+  IS:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: ELECTROCOIN Ltd for services
+  IT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: ELECTROCOIN Ltd for services
+  LI:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: ELECTROCOIN Ltd for services
+  LT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: ELECTROCOIN Ltd for services
+  LU:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: ELECTROCOIN Ltd for services
+  LV:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: ELECTROCOIN Ltd for services
+  MT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: ELECTROCOIN Ltd for services
+  NL:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: ELECTROCOIN Ltd for services
+  'NO':
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: ELECTROCOIN Ltd for services
+  PL:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: ELECTROCOIN Ltd for services
+  PT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: ELECTROCOIN Ltd for services
+  RO:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: ELECTROCOIN Ltd for services
+  SE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: ELECTROCOIN Ltd for services
+  SI:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: ELECTROCOIN Ltd for services
+  SK:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: ELECTROCOIN Ltd for services

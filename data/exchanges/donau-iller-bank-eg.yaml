@@ -1,0 +1,29 @@
+id: donau-iller-bank-eg
+brand: Donau-Iller-Bank eG
+eu_status: authorised
+sources:
+- name: ESMA interim MiCA register (CASPS.csv)
+  url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
+  retrieved: '2026-07-24'
+entities:
+- lei: 529900P8OKWO25XE4251
+  legal_name: Donau-Iller-Bank eG
+  commercial_name: Donau-Iller-Bank eG
+  home_state: DE
+  regulator: Federal Financial Supervisory Authority (BaFin)
+  website: www.donau-iller-bank.de
+  records:
+  - authorised: '2026-07-01'
+    withdrawn: null
+    status: authorised
+    services:
+    - e
+    passported_to:
+    - DE
+    last_update: '2026-07-01'
+countries:
+  DE:
+    status: licensed
+    regime: MiCA
+    via: home_state
+    entity: Donau-Iller-Bank eG

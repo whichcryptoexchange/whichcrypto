@@ -1,0 +1,29 @@
+id: vr-teilhaberbank-metropolregion-n-rnberg-eg
+brand: VR TeilhaberBank Metropolregion Nürnberg eG
+eu_status: authorised
+sources:
+- name: ESMA interim MiCA register (CASPS.csv)
+  url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
+  retrieved: '2026-07-24'
+entities:
+- lei: 529900ZMDTSQYEYCKL45
+  legal_name: VR TeilhaberBank Metropolregion Nürnberg eG
+  commercial_name: VR TeilhaberBank Metropolregion Nürnberg eG
+  home_state: DE
+  regulator: Federal Financial Supervisory Authority (BaFin)
+  website: www.vr-teilhaberbank.de
+  records:
+  - authorised: '2025-12-12'
+    withdrawn: null
+    status: authorised
+    services:
+    - e
+    passported_to:
+    - DE
+    last_update: '2025-12-12'
+countries:
+  DE:
+    status: licensed
+    regime: MiCA
+    via: home_state
+    entity: VR TeilhaberBank Metropolregion Nürnberg eG

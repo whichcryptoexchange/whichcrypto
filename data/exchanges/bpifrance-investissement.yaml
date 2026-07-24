@@ -1,0 +1,29 @@
+id: bpifrance-investissement
+brand: Bpifrance Investissement
+eu_status: authorised
+sources:
+- name: ESMA interim MiCA register (CASPS.csv)
+  url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
+  retrieved: '2026-07-24'
+entities:
+- lei: 96950082Z6KUVA6TW686
+  legal_name: Bpifrance Investissement
+  commercial_name: Bpifrance Investissement
+  home_state: FR
+  regulator: Autorité des Marchés Financiers (AMF)
+  website: https://www.bpifrance.fr/
+  records:
+  - authorised: '2026-06-18'
+    withdrawn: null
+    status: authorised
+    services:
+    - h
+    passported_to:
+    - FR
+    last_update: '2026-06-18'
+countries:
+  FR:
+    status: licensed
+    regime: MiCA
+    via: home_state
+    entity: Bpifrance Investissement

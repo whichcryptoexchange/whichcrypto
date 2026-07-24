@@ -1,0 +1,207 @@
+id: blockben
+brand: BlockBen
+eu_status: authorised
+sources:
+- name: ESMA interim MiCA register (CASPS.csv)
+  url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
+  retrieved: '2026-07-24'
+entities:
+- lei: 254900BBV7FA7LUG5913
+  legal_name: BlockBen SIA
+  commercial_name: BlockBen
+  home_state: LV
+  regulator: Latvijas Banka
+  website: https://blockben.com/en/
+  records:
+  - authorised: '2025-12-03'
+    withdrawn: null
+    status: authorised
+    services:
+    - a
+    - c
+    - d
+    - f
+    - j
+    passported_to:
+    - AT
+    - BE
+    - BG
+    - CY
+    - CZ
+    - DE
+    - DK
+    - EE
+    - ES
+    - FI
+    - FR
+    - GR
+    - HR
+    - HU
+    - IE
+    - IS
+    - IT
+    - LI
+    - LT
+    - LU
+    - LV
+    - MT
+    - NL
+    - 'NO'
+    - PL
+    - PT
+    - RO
+    - SE
+    - SI
+    - SK
+    last_update: '2025-12-04'
+countries:
+  AT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: BlockBen SIA
+  BE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: BlockBen SIA
+  BG:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: BlockBen SIA
+  CY:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: BlockBen SIA
+  CZ:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: BlockBen SIA
+  DE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: BlockBen SIA
+  DK:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: BlockBen SIA
+  EE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: BlockBen SIA
+  ES:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: BlockBen SIA
+  FI:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: BlockBen SIA
+  FR:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: BlockBen SIA
+  GR:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: BlockBen SIA
+  HR:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: BlockBen SIA
+  HU:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: BlockBen SIA
+  IE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: BlockBen SIA
+  IS:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: BlockBen SIA
+  IT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: BlockBen SIA
+  LI:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: BlockBen SIA
+  LT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: BlockBen SIA
+  LU:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: BlockBen SIA
+  LV:
+    status: licensed
+    regime: MiCA
+    via: home_state
+    entity: BlockBen SIA
+  MT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: BlockBen SIA
+  NL:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: BlockBen SIA
+  'NO':
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: BlockBen SIA
+  PL:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: BlockBen SIA
+  PT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: BlockBen SIA
+  RO:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: BlockBen SIA
+  SE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: BlockBen SIA
+  SI:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: BlockBen SIA
+  SK:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: BlockBen SIA

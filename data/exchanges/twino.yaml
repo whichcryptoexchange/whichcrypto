@@ -1,0 +1,97 @@
+id: twino
+brand: Twino
+eu_status: authorised
+sources:
+- name: ESMA interim MiCA register (CASPS.csv)
+  url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
+  retrieved: '2026-07-24'
+entities:
+- lei: 984500856AF4DF5FAT57
+  legal_name: AS TWINO Investments
+  commercial_name: Twino
+  home_state: LV
+  regulator: Latvijas Banka
+  website: https://www.twino.eu/en
+  records:
+  - authorised: '2026-06-04'
+    withdrawn: null
+    status: authorised
+    services:
+    - a
+    - c
+    - d
+    - e
+    passported_to:
+    - AT
+    - BE
+    - CZ
+    - DE
+    - EE
+    - ES
+    - FR
+    - IT
+    - LT
+    - NL
+    - PT
+    last_update: '2026-06-05'
+countries:
+  AT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: AS TWINO Investments
+  BE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: AS TWINO Investments
+  CZ:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: AS TWINO Investments
+  DE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: AS TWINO Investments
+  EE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: AS TWINO Investments
+  ES:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: AS TWINO Investments
+  FR:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: AS TWINO Investments
+  IT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: AS TWINO Investments
+  LT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: AS TWINO Investments
+  LV:
+    status: licensed
+    regime: MiCA
+    via: home_state
+    entity: AS TWINO Investments
+  NL:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: AS TWINO Investments
+  PT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: AS TWINO Investments

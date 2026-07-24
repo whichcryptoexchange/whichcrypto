@@ -1,0 +1,31 @@
+id: anceka-verm-gensbetreuungs-aktiengesellschaft
+brand: AnCeKa Vermögensbetreuungs Aktiengesellschaft
+eu_status: authorised
+sources:
+- name: ESMA interim MiCA register (CASPS.csv)
+  url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
+  retrieved: '2026-07-24'
+entities:
+- lei: 529900FNJE1H184JV164
+  legal_name: AnCeKa Vermögensbetreuungs Aktiengesellschaft
+  commercial_name: AnCeKa Vermögensbetreuungs Aktiengesellschaft
+  home_state: DE
+  regulator: Federal Financial Supervisory Authority (BaFin)
+  website: www.anceka.de
+  records:
+  - authorised: '2026-03-04'
+    withdrawn: null
+    status: authorised
+    services:
+    - g
+    - h
+    - i
+    passported_to:
+    - DE
+    last_update: '2026-03-04'
+countries:
+  DE:
+    status: licensed
+    regime: MiCA
+    via: home_state
+    entity: AnCeKa Vermögensbetreuungs Aktiengesellschaft

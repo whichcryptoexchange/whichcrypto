@@ -1,0 +1,99 @@
+id: crypto-finance-deutschland-gmbh
+brand: Crypto Finance (Deutschland) GmbH
+eu_status: authorised
+sources:
+- name: ESMA interim MiCA register (CASPS.csv)
+  url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
+  retrieved: '2026-07-24'
+entities:
+- lei: 3912009ZGE8258OMPE28
+  legal_name: Crypto Finance (Deutschland) GmbH
+  commercial_name: Crypto Finance (Deutschland) GmbH
+  home_state: DE
+  regulator: Federal Financial Supervisory Authority (BaFin)
+  website: https://www.crypto-finance.com/germany/de/
+  records:
+  - authorised: '2025-01-24'
+    withdrawn: null
+    status: authorised
+    services:
+    - a
+    - c
+    - d
+    - e
+    - j
+    passported_to:
+    - BE
+    - DE
+    - ES
+    - FR
+    - GR
+    - IT
+    - LI
+    - LU
+    - MT
+    - NL
+    - PL
+    - PT
+    last_update: '2025-05-23'
+countries:
+  BE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Crypto Finance (Deutschland) GmbH
+  DE:
+    status: licensed
+    regime: MiCA
+    via: home_state
+    entity: Crypto Finance (Deutschland) GmbH
+  ES:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Crypto Finance (Deutschland) GmbH
+  FR:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Crypto Finance (Deutschland) GmbH
+  GR:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Crypto Finance (Deutschland) GmbH
+  IT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Crypto Finance (Deutschland) GmbH
+  LI:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Crypto Finance (Deutschland) GmbH
+  LU:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Crypto Finance (Deutschland) GmbH
+  MT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Crypto Finance (Deutschland) GmbH
+  NL:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Crypto Finance (Deutschland) GmbH
+  PL:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Crypto Finance (Deutschland) GmbH
+  PT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Crypto Finance (Deutschland) GmbH

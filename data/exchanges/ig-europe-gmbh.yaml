@@ -1,0 +1,188 @@
+id: ig-europe-gmbh
+brand: IG Europe GmbH
+eu_status: authorised
+sources:
+- name: ESMA interim MiCA register (CASPS.csv)
+  url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
+  retrieved: '2026-07-24'
+entities:
+- lei: 213800HFC5G4V293BN91
+  legal_name: IG Europe GmbH
+  commercial_name: IG Europe GmbH
+  home_state: DE
+  regulator: Federal Financial Supervisory Authority (BaFin)
+  website: https://www.ig.com/de
+  records:
+  - authorised: '2025-11-21'
+    withdrawn: null
+    status: authorised
+    services:
+    - a
+    - c
+    - d
+    - e
+    passported_to:
+    - AT
+    - CY
+    - CZ
+    - DE
+    - DK
+    - EE
+    - ES
+    - FI
+    - FR
+    - GR
+    - HR
+    - HU
+    - IE
+    - IT
+    - LI
+    - LT
+    - LU
+    - LV
+    - MT
+    - NL
+    - 'NO'
+    - PL
+    - PT
+    - RO
+    - SE
+    - SI
+    - SK
+    last_update: '2025-12-12'
+countries:
+  AT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: IG Europe GmbH
+  CY:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: IG Europe GmbH
+  CZ:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: IG Europe GmbH
+  DE:
+    status: licensed
+    regime: MiCA
+    via: home_state
+    entity: IG Europe GmbH
+  DK:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: IG Europe GmbH
+  EE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: IG Europe GmbH
+  ES:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: IG Europe GmbH
+  FI:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: IG Europe GmbH
+  FR:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: IG Europe GmbH
+  GR:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: IG Europe GmbH
+  HR:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: IG Europe GmbH
+  HU:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: IG Europe GmbH
+  IE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: IG Europe GmbH
+  IT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: IG Europe GmbH
+  LI:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: IG Europe GmbH
+  LT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: IG Europe GmbH
+  LU:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: IG Europe GmbH
+  LV:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: IG Europe GmbH
+  MT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: IG Europe GmbH
+  NL:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: IG Europe GmbH
+  'NO':
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: IG Europe GmbH
+  PL:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: IG Europe GmbH
+  PT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: IG Europe GmbH
+  RO:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: IG Europe GmbH
+  SE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: IG Europe GmbH
+  SI:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: IG Europe GmbH
+  SK:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: IG Europe GmbH

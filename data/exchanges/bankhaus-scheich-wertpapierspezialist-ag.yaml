@@ -1,0 +1,35 @@
+id: bankhaus-scheich-wertpapierspezialist-ag
+brand: Bankhaus Scheich Wertpapierspezialist AG
+eu_status: authorised
+sources:
+- name: ESMA interim MiCA register (CASPS.csv)
+  url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
+  retrieved: '2026-07-24'
+entities:
+- lei: 54930079HJ1JTMKTW637
+  legal_name: Bankhaus Scheich Wertpapierspezialist AG
+  commercial_name: Bankhaus Scheich Wertpapierspezialist AG
+  home_state: DE
+  regulator: Federal Financial Supervisory Authority (BaFin)
+  website: www.bankhaus-scheich.de
+  records:
+  - authorised: '2025-08-07'
+    withdrawn: null
+    status: authorised
+    services:
+    - c
+    - d
+    - e
+    - f
+    - g
+    - h
+    - i
+    passported_to:
+    - DE
+    last_update: '2025-10-14'
+countries:
+  DE:
+    status: licensed
+    regime: MiCA
+    via: home_state
+    entity: Bankhaus Scheich Wertpapierspezialist AG

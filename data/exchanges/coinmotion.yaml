@@ -1,0 +1,38 @@
+id: coinmotion
+brand: Coinmotion
+eu_status: authorised
+sources:
+- name: ESMA interim MiCA register (CASPS.csv)
+  url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
+  retrieved: '2026-07-24'
+entities:
+- lei: 743700PZG5RRF7SA4Q58
+  legal_name: Coinmotion Oy
+  commercial_name: Coinmotion
+  home_state: FI
+  regulator: Finanssivalvonta (FIN-FSA)
+  website: https://coinmotion.com
+  records:
+  - authorised: '2025-07-02'
+    withdrawn: null
+    status: authorised
+    services:
+    - a
+    - c
+    - e
+    - j
+    passported_to:
+    - FI
+    - SE
+    last_update: '2025-07-16'
+countries:
+  FI:
+    status: licensed
+    regime: MiCA
+    via: home_state
+    entity: Coinmotion Oy
+  SE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Coinmotion Oy

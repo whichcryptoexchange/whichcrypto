@@ -1,0 +1,30 @@
+id: dietrich-richter-private-asset-management-ag
+brand: Dietrich & Richter Private Asset Management AG
+eu_status: authorised
+sources:
+- name: ESMA interim MiCA register (CASPS.csv)
+  url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
+  retrieved: '2026-07-24'
+entities:
+- lei: 98450068F88BDF3E8D32
+  legal_name: Dietrich & Richter Private Asset Management AG
+  commercial_name: Dietrich & Richter Private Asset Management AG
+  home_state: DE
+  regulator: Federal Financial Supervisory Authority (BaFin)
+  website: https://www.drpam.de/
+  records:
+  - authorised: '2025-08-18'
+    withdrawn: null
+    status: authorised
+    services:
+    - h
+    - i
+    passported_to:
+    - DE
+    last_update: '2025-08-18'
+countries:
+  DE:
+    status: licensed
+    regime: MiCA
+    via: home_state
+    entity: Dietrich & Richter Private Asset Management AG

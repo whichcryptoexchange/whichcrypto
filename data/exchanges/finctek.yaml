@@ -1,0 +1,75 @@
+id: finctek
+brand: FINCTEK
+eu_status: authorised
+sources:
+- name: ESMA interim MiCA register (CASPS.csv)
+  url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
+  retrieved: '2026-07-24'
+entities:
+- lei: 969500PTJJZTCE0I3B60
+  legal_name: FINCTEK UE SAS
+  commercial_name: FINCTEK
+  home_state: FR
+  regulator: Autorité des Marchés Financiers (AMF)
+  website: https://finctek.com
+  records:
+  - authorised: '2025-09-11'
+    withdrawn: null
+    status: authorised
+    services:
+    - a
+    - c
+    - d
+    - e
+    - f
+    - j
+    passported_to:
+    - BE
+    - DE
+    - ES
+    - IT
+    - LU
+    - NL
+    - PT
+    last_update: '2025-09-11'
+countries:
+  BE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: FINCTEK UE SAS
+  DE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: FINCTEK UE SAS
+  ES:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: FINCTEK UE SAS
+  FR:
+    status: licensed
+    regime: MiCA
+    via: home_state
+    entity: FINCTEK UE SAS
+  IT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: FINCTEK UE SAS
+  LU:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: FINCTEK UE SAS
+  NL:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: FINCTEK UE SAS
+  PT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: FINCTEK UE SAS

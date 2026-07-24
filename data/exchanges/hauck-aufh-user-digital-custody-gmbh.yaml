@@ -1,0 +1,30 @@
+id: hauck-aufh-user-digital-custody-gmbh
+brand: Hauck Aufhäuser Digital Custody GmbH
+eu_status: authorised
+sources:
+- name: ESMA interim MiCA register (CASPS.csv)
+  url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
+  retrieved: '2026-07-24'
+entities:
+- lei: 391200LACJ601I2ONV49
+  legal_name: Hauck Aufhäuser Digital Custody GmbH
+  commercial_name: Hauck Aufhäuser Digital Custody GmbH
+  home_state: DE
+  regulator: Federal Financial Supervisory Authority (BaFin)
+  website: https://www.hal-privatbank.com/asset-servicing/digitale-assets/regulierte-kryptoverwahrung
+  records:
+  - authorised: '2025-11-28'
+    withdrawn: null
+    status: authorised
+    services:
+    - a
+    - j
+    passported_to:
+    - DE
+    last_update: '2025-12-03'
+countries:
+  DE:
+    status: licensed
+    regime: MiCA
+    via: home_state
+    entity: Hauck Aufhäuser Digital Custody GmbH

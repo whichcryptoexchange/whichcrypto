@@ -1,0 +1,190 @@
+id: fumbi
+brand: Fumbi
+eu_status: authorised
+sources:
+- name: ESMA interim MiCA register (CASPS.csv)
+  url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
+  retrieved: '2026-07-24'
+entities:
+- lei: 097900CAKA0000269926
+  legal_name: FUMBI, s.r.o
+  commercial_name: FUMBI
+  home_state: SK
+  regulator: National Bank of Slovakia (NBS)
+  website: https://fumbi.network/sk/
+  records:
+  - authorised: '2025-12-18'
+    withdrawn: null
+    status: authorised
+    services:
+    - a
+    - c
+    - d
+    - h
+    - i
+    - j
+    passported_to:
+    - AT
+    - BE
+    - BG
+    - CY
+    - CZ
+    - DE
+    - DK
+    - EE
+    - ES
+    - FI
+    - FR
+    - GR
+    - HR
+    - HU
+    - IE
+    - IT
+    - LT
+    - LU
+    - LV
+    - MT
+    - NL
+    - PL
+    - PT
+    - RO
+    - SE
+    - SI
+    - SK
+    last_update: '2026-03-02'
+countries:
+  AT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: FUMBI, s.r.o
+  BE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: FUMBI, s.r.o
+  BG:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: FUMBI, s.r.o
+  CY:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: FUMBI, s.r.o
+  CZ:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: FUMBI, s.r.o
+  DE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: FUMBI, s.r.o
+  DK:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: FUMBI, s.r.o
+  EE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: FUMBI, s.r.o
+  ES:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: FUMBI, s.r.o
+  FI:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: FUMBI, s.r.o
+  FR:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: FUMBI, s.r.o
+  GR:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: FUMBI, s.r.o
+  HR:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: FUMBI, s.r.o
+  HU:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: FUMBI, s.r.o
+  IE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: FUMBI, s.r.o
+  IT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: FUMBI, s.r.o
+  LT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: FUMBI, s.r.o
+  LU:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: FUMBI, s.r.o
+  LV:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: FUMBI, s.r.o
+  MT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: FUMBI, s.r.o
+  NL:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: FUMBI, s.r.o
+  PL:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: FUMBI, s.r.o
+  PT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: FUMBI, s.r.o
+  RO:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: FUMBI, s.r.o
+  SE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: FUMBI, s.r.o
+  SI:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: FUMBI, s.r.o
+  SK:
+    status: licensed
+    regime: MiCA
+    via: home_state
+    entity: FUMBI, s.r.o

@@ -1,0 +1,41 @@
+id: lunar-block
+brand: Lunar Block
+eu_status: authorised
+sources:
+- name: ESMA interim MiCA register (CASPS.csv)
+  url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
+  retrieved: '2026-07-24'
+entities:
+- lei: 984500DD714F66B77454
+  legal_name: Lunar Block A/S
+  commercial_name: Lunar Block
+  home_state: DK
+  regulator: Finanstilsynet
+  website: https://www.lunar.app/dk/privat/krypto
+  records:
+  - authorised: '2025-09-15'
+    withdrawn: null
+    status: authorised
+    services:
+    - a
+    - e
+    passported_to:
+    - 'NO'
+    - SE
+    last_update: '2026-03-04'
+countries:
+  DK:
+    status: licensed
+    regime: MiCA
+    via: home_state
+    entity: Lunar Block A/S
+  'NO':
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Lunar Block A/S
+  SE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Lunar Block A/S

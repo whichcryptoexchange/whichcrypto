@@ -1,0 +1,32 @@
+id: caixabank
+brand: CAIXABANK
+eu_status: authorised
+sources:
+- name: ESMA interim MiCA register (CASPS.csv)
+  url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
+  retrieved: '2026-07-24'
+entities:
+- lei: 7CUNS533WID6K7DGFI87
+  legal_name: CAIXABANK S.A
+  commercial_name: CAIXABANK
+  home_state: ES
+  regulator: Comisión Nacional del Mercado de Valores (CNMV)
+  website: https://caixabank.es
+  records:
+  - authorised: '2026-03-27'
+    withdrawn: null
+    status: authorised
+    services:
+    - a
+    - e
+    - g
+    - j
+    passported_to:
+    - ES
+    last_update: '2026-03-27'
+countries:
+  ES:
+    status: licensed
+    regime: MiCA
+    via: home_state
+    entity: CAIXABANK S.A

@@ -1,0 +1,203 @@
+id: calamatta-cuschieri
+brand: Calamatta Cuschieri
+eu_status: authorised
+sources:
+- name: ESMA interim MiCA register (CASPS.csv)
+  url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
+  retrieved: '2026-07-24'
+entities:
+- lei: 391200EKTIW0OR813R66
+  legal_name: Calamatta Cuschieri Investment Services Limited
+  commercial_name: Calamatta Cuschieri Investment Services Limited
+  home_state: MT
+  regulator: Malta Financial Services Authority (MFSA)
+  website: https://cc.com.mt
+  records:
+  - authorised: '2026-03-03'
+    withdrawn: null
+    status: authorised
+    services:
+    - a
+    - e
+    passported_to:
+    - AT
+    - BE
+    - BG
+    - CY
+    - CZ
+    - DE
+    - DK
+    - EE
+    - ES
+    - FI
+    - FR
+    - GR
+    - HR
+    - HU
+    - IE
+    - IS
+    - IT
+    - LI
+    - LT
+    - LU
+    - LV
+    - NL
+    - 'NO'
+    - PL
+    - PT
+    - RO
+    - SE
+    - SI
+    - SK
+    last_update: '2026-07-06'
+countries:
+  AT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Calamatta Cuschieri Investment Services Limited
+  BE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Calamatta Cuschieri Investment Services Limited
+  BG:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Calamatta Cuschieri Investment Services Limited
+  CY:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Calamatta Cuschieri Investment Services Limited
+  CZ:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Calamatta Cuschieri Investment Services Limited
+  DE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Calamatta Cuschieri Investment Services Limited
+  DK:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Calamatta Cuschieri Investment Services Limited
+  EE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Calamatta Cuschieri Investment Services Limited
+  ES:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Calamatta Cuschieri Investment Services Limited
+  FI:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Calamatta Cuschieri Investment Services Limited
+  FR:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Calamatta Cuschieri Investment Services Limited
+  GR:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Calamatta Cuschieri Investment Services Limited
+  HR:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Calamatta Cuschieri Investment Services Limited
+  HU:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Calamatta Cuschieri Investment Services Limited
+  IE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Calamatta Cuschieri Investment Services Limited
+  IS:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Calamatta Cuschieri Investment Services Limited
+  IT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Calamatta Cuschieri Investment Services Limited
+  LI:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Calamatta Cuschieri Investment Services Limited
+  LT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Calamatta Cuschieri Investment Services Limited
+  LU:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Calamatta Cuschieri Investment Services Limited
+  LV:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Calamatta Cuschieri Investment Services Limited
+  MT:
+    status: licensed
+    regime: MiCA
+    via: home_state
+    entity: Calamatta Cuschieri Investment Services Limited
+  NL:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Calamatta Cuschieri Investment Services Limited
+  'NO':
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Calamatta Cuschieri Investment Services Limited
+  PL:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Calamatta Cuschieri Investment Services Limited
+  PT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Calamatta Cuschieri Investment Services Limited
+  RO:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Calamatta Cuschieri Investment Services Limited
+  SE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Calamatta Cuschieri Investment Services Limited
+  SI:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Calamatta Cuschieri Investment Services Limited
+  SK:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Calamatta Cuschieri Investment Services Limited

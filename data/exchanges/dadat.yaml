@@ -1,0 +1,29 @@
+id: dadat
+brand: DADAT
+eu_status: authorised
+sources:
+- name: ESMA interim MiCA register (CASPS.csv)
+  url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
+  retrieved: '2026-07-24'
+entities:
+- lei: 529900KTP3Y86BZKY754
+  legal_name: DADAT Krypto GmbH
+  commercial_name: DADAT
+  home_state: AT
+  regulator: Austrian Financial Market Authority (FMA)
+  website: https://www.dad.at
+  records:
+  - authorised: '2025-12-16'
+    withdrawn: null
+    status: authorised
+    services:
+    - e
+    passported_to:
+    - AT
+    last_update: '2025-12-19'
+countries:
+  AT:
+    status: licensed
+    regime: MiCA
+    via: home_state
+    entity: DADAT Krypto GmbH

@@ -1,0 +1,30 @@
+id: bv-p-verm-gen-ag
+brand: BV & P Vermögen AG
+eu_status: authorised
+sources:
+- name: ESMA interim MiCA register (CASPS.csv)
+  url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
+  retrieved: '2026-07-24'
+entities:
+- lei: 529900R4Q9UCQ25IAA05
+  legal_name: BV & P Vermögen AG
+  commercial_name: BV & P Vermögen AG
+  home_state: DE
+  regulator: Federal Financial Supervisory Authority (BaFin)
+  website: www.bvp-vermoegen.de
+  records:
+  - authorised: '2026-03-13'
+    withdrawn: null
+    status: authorised
+    services:
+    - g
+    - i
+    passported_to:
+    - DE
+    last_update: '2026-03-13'
+countries:
+  DE:
+    status: licensed
+    regime: MiCA
+    via: home_state
+    entity: BV & P Vermögen AG

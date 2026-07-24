@@ -1,0 +1,197 @@
+id: baader-bank-ag
+brand: Baader Bank AG
+eu_status: authorised
+sources:
+- name: ESMA interim MiCA register (CASPS.csv)
+  url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
+  retrieved: '2026-07-24'
+entities:
+- lei: 529900JFOPPEDUR61H13
+  legal_name: Baader Bank Aktiengesellschaft
+  commercial_name: Baader Bank AG
+  home_state: DE
+  regulator: Federal Financial Supervisory Authority (BaFin)
+  website: https://www.baaderbank.de/
+  records:
+  - authorised: '2025-05-16'
+    withdrawn: null
+    status: authorised
+    services:
+    - e
+    passported_to:
+    - AT
+    - BE
+    - BG
+    - CY
+    - CZ
+    - DE
+    - DK
+    - EE
+    - ES
+    - FI
+    - FR
+    - GR
+    - HR
+    - HU
+    - IE
+    - IT
+    - LI
+    - LT
+    - LU
+    - LV
+    - MT
+    - NL
+    - 'NO'
+    - PL
+    - PT
+    - RO
+    - SE
+    - SI
+    - SK
+    last_update: '2025-05-16'
+countries:
+  AT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Baader Bank Aktiengesellschaft
+  BE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Baader Bank Aktiengesellschaft
+  BG:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Baader Bank Aktiengesellschaft
+  CY:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Baader Bank Aktiengesellschaft
+  CZ:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Baader Bank Aktiengesellschaft
+  DE:
+    status: licensed
+    regime: MiCA
+    via: home_state
+    entity: Baader Bank Aktiengesellschaft
+  DK:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Baader Bank Aktiengesellschaft
+  EE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Baader Bank Aktiengesellschaft
+  ES:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Baader Bank Aktiengesellschaft
+  FI:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Baader Bank Aktiengesellschaft
+  FR:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Baader Bank Aktiengesellschaft
+  GR:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Baader Bank Aktiengesellschaft
+  HR:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Baader Bank Aktiengesellschaft
+  HU:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Baader Bank Aktiengesellschaft
+  IE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Baader Bank Aktiengesellschaft
+  IT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Baader Bank Aktiengesellschaft
+  LI:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Baader Bank Aktiengesellschaft
+  LT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Baader Bank Aktiengesellschaft
+  LU:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Baader Bank Aktiengesellschaft
+  LV:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Baader Bank Aktiengesellschaft
+  MT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Baader Bank Aktiengesellschaft
+  NL:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Baader Bank Aktiengesellschaft
+  'NO':
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Baader Bank Aktiengesellschaft
+  PL:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Baader Bank Aktiengesellschaft
+  PT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Baader Bank Aktiengesellschaft
+  RO:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Baader Bank Aktiengesellschaft
+  SE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Baader Bank Aktiengesellschaft
+  SI:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Baader Bank Aktiengesellschaft
+  SK:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Baader Bank Aktiengesellschaft

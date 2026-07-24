@@ -1,0 +1,206 @@
+id: ilirika
+brand: Ilirika
+eu_status: authorised
+sources:
+- name: ESMA interim MiCA register (CASPS.csv)
+  url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
+  retrieved: '2026-07-24'
+entities:
+- lei: 529900OSVFQK3XISEQ85
+  legal_name: ILIRIKA borzno posredniška hiša d.d
+  commercial_name: Ilirika
+  home_state: SI
+  regulator: Securities Market Agency (ATVP)
+  website: https://www.ilirika.si/
+  records:
+  - authorised: '2025-09-20'
+    withdrawn: null
+    status: authorised
+    services:
+    - a
+    - e
+    - g
+    - i
+    passported_to:
+    - AT
+    - BE
+    - BG
+    - CY
+    - CZ
+    - DE
+    - DK
+    - EE
+    - ES
+    - FI
+    - FR
+    - GR
+    - HR
+    - HU
+    - IE
+    - IS
+    - IT
+    - LI
+    - LT
+    - LU
+    - LV
+    - MT
+    - NL
+    - 'NO'
+    - PL
+    - PT
+    - RO
+    - SE
+    - SI
+    - SK
+    last_update: '2025-10-22'
+countries:
+  AT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: ILIRIKA borzno posredniška hiša d.d
+  BE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: ILIRIKA borzno posredniška hiša d.d
+  BG:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: ILIRIKA borzno posredniška hiša d.d
+  CY:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: ILIRIKA borzno posredniška hiša d.d
+  CZ:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: ILIRIKA borzno posredniška hiša d.d
+  DE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: ILIRIKA borzno posredniška hiša d.d
+  DK:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: ILIRIKA borzno posredniška hiša d.d
+  EE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: ILIRIKA borzno posredniška hiša d.d
+  ES:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: ILIRIKA borzno posredniška hiša d.d
+  FI:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: ILIRIKA borzno posredniška hiša d.d
+  FR:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: ILIRIKA borzno posredniška hiša d.d
+  GR:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: ILIRIKA borzno posredniška hiša d.d
+  HR:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: ILIRIKA borzno posredniška hiša d.d
+  HU:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: ILIRIKA borzno posredniška hiša d.d
+  IE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: ILIRIKA borzno posredniška hiša d.d
+  IS:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: ILIRIKA borzno posredniška hiša d.d
+  IT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: ILIRIKA borzno posredniška hiša d.d
+  LI:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: ILIRIKA borzno posredniška hiša d.d
+  LT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: ILIRIKA borzno posredniška hiša d.d
+  LU:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: ILIRIKA borzno posredniška hiša d.d
+  LV:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: ILIRIKA borzno posredniška hiša d.d
+  MT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: ILIRIKA borzno posredniška hiša d.d
+  NL:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: ILIRIKA borzno posredniška hiša d.d
+  'NO':
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: ILIRIKA borzno posredniška hiša d.d
+  PL:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: ILIRIKA borzno posredniška hiša d.d
+  PT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: ILIRIKA borzno posredniška hiša d.d
+  RO:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: ILIRIKA borzno posredniška hiša d.d
+  SE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: ILIRIKA borzno posredniška hiša d.d
+  SI:
+    status: licensed
+    regime: MiCA
+    via: home_state
+    entity: ILIRIKA borzno posredniška hiša d.d
+  SK:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: ILIRIKA borzno posredniška hiša d.d

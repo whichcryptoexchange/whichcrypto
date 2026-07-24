@@ -1,0 +1,206 @@
+id: bridge
+brand: Bridge
+eu_status: authorised
+sources:
+- name: ESMA interim MiCA register (CASPS.csv)
+  url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
+  retrieved: '2026-07-24'
+entities:
+- lei: 254900MVWQXMF77YZP65
+  legal_name: Bridge Building S.A
+  commercial_name: Bridge
+  home_state: LU
+  regulator: Commission de Surveillance du Secteur Financier (CSSF)
+  website: www.bridge.xyz
+  records:
+  - authorised: '2026-06-29'
+    withdrawn: null
+    status: authorised
+    services:
+    - a
+    - c
+    - d
+    - e
+    - j
+    passported_to:
+    - AT
+    - BE
+    - BG
+    - CY
+    - CZ
+    - DE
+    - DK
+    - EE
+    - ES
+    - FI
+    - FR
+    - GR
+    - HR
+    - HU
+    - IE
+    - IS
+    - IT
+    - LI
+    - LT
+    - LV
+    - MT
+    - NL
+    - 'NO'
+    - PL
+    - PT
+    - RO
+    - SE
+    - SI
+    - SK
+    last_update: '2026-07-01'
+countries:
+  AT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Bridge Building S.A
+  BE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Bridge Building S.A
+  BG:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Bridge Building S.A
+  CY:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Bridge Building S.A
+  CZ:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Bridge Building S.A
+  DE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Bridge Building S.A
+  DK:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Bridge Building S.A
+  EE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Bridge Building S.A
+  ES:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Bridge Building S.A
+  FI:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Bridge Building S.A
+  FR:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Bridge Building S.A
+  GR:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Bridge Building S.A
+  HR:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Bridge Building S.A
+  HU:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Bridge Building S.A
+  IE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Bridge Building S.A
+  IS:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Bridge Building S.A
+  IT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Bridge Building S.A
+  LI:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Bridge Building S.A
+  LT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Bridge Building S.A
+  LU:
+    status: licensed
+    regime: MiCA
+    via: home_state
+    entity: Bridge Building S.A
+  LV:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Bridge Building S.A
+  MT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Bridge Building S.A
+  NL:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Bridge Building S.A
+  'NO':
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Bridge Building S.A
+  PL:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Bridge Building S.A
+  PT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Bridge Building S.A
+  RO:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Bridge Building S.A
+  SE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Bridge Building S.A
+  SI:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Bridge Building S.A
+  SK:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Bridge Building S.A

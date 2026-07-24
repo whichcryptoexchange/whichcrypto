@@ -1,0 +1,204 @@
+id: paytop
+brand: Paytop
+eu_status: authorised
+sources:
+- name: ESMA interim MiCA register (CASPS.csv)
+  url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
+  retrieved: '2026-07-24'
+entities:
+- lei: 969500VA4A8CRCS2N988
+  legal_name: PAYTOP SAS
+  commercial_name: PAYTOP
+  home_state: FR
+  regulator: Autorité des Marchés Financiers (AMF)
+  website: https://www.paytop.com/
+  records:
+  - authorised: '2026-05-21'
+    withdrawn: null
+    status: authorised
+    services:
+    - a
+    - c
+    - j
+    passported_to:
+    - AT
+    - BE
+    - BG
+    - CY
+    - CZ
+    - DE
+    - DK
+    - EE
+    - ES
+    - FI
+    - GR
+    - HR
+    - HU
+    - IE
+    - IS
+    - IT
+    - LI
+    - LT
+    - LU
+    - LV
+    - MT
+    - NL
+    - 'NO'
+    - PL
+    - PT
+    - RO
+    - SE
+    - SI
+    - SK
+    last_update: '2026-05-21'
+countries:
+  AT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: PAYTOP SAS
+  BE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: PAYTOP SAS
+  BG:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: PAYTOP SAS
+  CY:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: PAYTOP SAS
+  CZ:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: PAYTOP SAS
+  DE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: PAYTOP SAS
+  DK:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: PAYTOP SAS
+  EE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: PAYTOP SAS
+  ES:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: PAYTOP SAS
+  FI:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: PAYTOP SAS
+  FR:
+    status: licensed
+    regime: MiCA
+    via: home_state
+    entity: PAYTOP SAS
+  GR:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: PAYTOP SAS
+  HR:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: PAYTOP SAS
+  HU:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: PAYTOP SAS
+  IE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: PAYTOP SAS
+  IS:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: PAYTOP SAS
+  IT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: PAYTOP SAS
+  LI:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: PAYTOP SAS
+  LT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: PAYTOP SAS
+  LU:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: PAYTOP SAS
+  LV:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: PAYTOP SAS
+  MT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: PAYTOP SAS
+  NL:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: PAYTOP SAS
+  'NO':
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: PAYTOP SAS
+  PL:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: PAYTOP SAS
+  PT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: PAYTOP SAS
+  RO:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: PAYTOP SAS
+  SE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: PAYTOP SAS
+  SI:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: PAYTOP SAS
+  SK:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: PAYTOP SAS

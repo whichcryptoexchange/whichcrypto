@@ -1,0 +1,32 @@
+id: fels-wealth-gmbh
+brand: Fels wealth GmbH
+eu_status: authorised
+sources:
+- name: ESMA interim MiCA register (CASPS.csv)
+  url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
+  retrieved: '2026-07-24'
+entities:
+- lei: 391200LUYJY880GPSY38
+  legal_name: Fels wealth GmbH
+  commercial_name: Fels wealth GmbH
+  home_state: DE
+  regulator: Federal Financial Supervisory Authority (BaFin)
+  website: https://followmymoney.de/
+  records:
+  - authorised: '2025-12-10'
+    withdrawn: null
+    status: authorised
+    services:
+    - e
+    - g
+    - h
+    - i
+    passported_to:
+    - DE
+    last_update: '2025-12-10'
+countries:
+  DE:
+    status: licensed
+    regime: MiCA
+    via: home_state
+    entity: Fels wealth GmbH

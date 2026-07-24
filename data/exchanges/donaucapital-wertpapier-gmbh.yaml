@@ -1,0 +1,29 @@
+id: donaucapital-wertpapier-gmbh
+brand: DonauCapital Wertpapier GmbH
+eu_status: authorised
+sources:
+- name: ESMA interim MiCA register (CASPS.csv)
+  url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
+  retrieved: '2026-07-24'
+entities:
+- lei: 894500C1QM5XBU31PT95
+  legal_name: DonauCapital Wertpapier GmbH
+  commercial_name: DonauCapital Wertpapier GmbH
+  home_state: DE
+  regulator: Federal Financial Supervisory Authority (BaFin)
+  website: https://www.donaucapital.de
+  records:
+  - authorised: '2025-10-27'
+    withdrawn: null
+    status: authorised
+    services:
+    - g
+    passported_to:
+    - DE
+    last_update: '2025-10-27'
+countries:
+  DE:
+    status: licensed
+    regime: MiCA
+    via: home_state
+    entity: DonauCapital Wertpapier GmbH

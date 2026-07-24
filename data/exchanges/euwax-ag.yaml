@@ -1,0 +1,80 @@
+id: euwax-ag
+brand: EUWAX AG
+eu_status: authorised
+sources:
+- name: ESMA interim MiCA register (CASPS.csv)
+  url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
+  retrieved: '2026-07-24'
+entities:
+- lei: 529900032TYR45XIEW79
+  legal_name: EUWAX AG
+  commercial_name: EUWAX AG
+  home_state: DE
+  regulator: Federal Financial Supervisory Authority (BaFin)
+  website: www.euwax-ag.de
+  records:
+  - authorised: '2025-04-01'
+    withdrawn: null
+    status: authorised
+    services:
+    - c
+    - d
+    passported_to:
+    - AT
+    - DE
+    - ES
+    - FR
+    - GR
+    - IT
+    - SI
+    - SK
+    last_update: '2025-11-21'
+  - authorised: '2025-11-21'
+    withdrawn: null
+    status: authorised
+    services:
+    - e
+    passported_to:
+    - DE
+    last_update: '2025-11-21'
+countries:
+  AT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: EUWAX AG
+  DE:
+    status: licensed
+    regime: MiCA
+    via: home_state
+    entity: EUWAX AG
+  ES:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: EUWAX AG
+  FR:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: EUWAX AG
+  GR:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: EUWAX AG
+  IT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: EUWAX AG
+  SI:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: EUWAX AG
+  SK:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: EUWAX AG

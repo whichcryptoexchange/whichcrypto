@@ -1,0 +1,29 @@
+id: nodu-digital
+brand: Nodu Digital
+eu_status: authorised
+sources:
+- name: ESMA interim MiCA register (CASPS.csv)
+  url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
+  retrieved: '2026-07-24'
+entities:
+- lei: 98450065E59FDCD93R40
+  legal_name: Nodu Digital, SIA
+  commercial_name: Nodu Digital
+  home_state: LV
+  regulator: Latvijas Banka
+  website: null
+  records:
+  - authorised: '2026-07-08'
+    withdrawn: null
+    status: authorised
+    services:
+    - c
+    - j
+    passported_to: []
+    last_update: '2026-07-14'
+countries:
+  LV:
+    status: licensed
+    regime: MiCA
+    via: home_state
+    entity: Nodu Digital, SIA

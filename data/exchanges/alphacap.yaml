@@ -1,0 +1,32 @@
+id: alphacap
+brand: ALPHACAP
+eu_status: authorised
+sources:
+- name: ESMA interim MiCA register (CASPS.csv)
+  url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
+  retrieved: '2026-07-24'
+entities:
+- lei: 969500ULPB59U51BG334
+  legal_name: ALPHACAP DIGITAL ASSETS SAS
+  commercial_name: ALPHACAP
+  home_state: FR
+  regulator: Autorité des Marchés Financiers (AMF)
+  website: https://alphacap.fr/
+  records:
+  - authorised: '2026-06-25'
+    withdrawn: null
+    status: authorised
+    services:
+    - a
+    - h
+    - i
+    - j
+    passported_to:
+    - FR
+    last_update: '2026-06-25'
+countries:
+  FR:
+    status: licensed
+    regime: MiCA
+    via: home_state
+    entity: ALPHACAP DIGITAL ASSETS SAS

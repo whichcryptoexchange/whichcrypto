@@ -1,0 +1,204 @@
+id: b2c2
+brand: B2C2
+eu_status: authorised
+sources:
+- name: ESMA interim MiCA register (CASPS.csv)
+  url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
+  retrieved: '2026-07-24'
+entities:
+- lei: 969500OA6NVZB5BXAB29
+  legal_name: B2C2 Europe Sarl
+  commercial_name: B2C2
+  home_state: LU
+  regulator: Commission de Surveillance du Secteur Financier (CSSF)
+  website: https://www.b2c2.com/
+  records:
+  - authorised: '2026-05-13'
+    withdrawn: null
+    status: authorised
+    services:
+    - c
+    - d
+    - e
+    passported_to:
+    - AT
+    - BE
+    - BG
+    - CY
+    - CZ
+    - DE
+    - DK
+    - EE
+    - ES
+    - FI
+    - FR
+    - GR
+    - HR
+    - HU
+    - IE
+    - IS
+    - IT
+    - LI
+    - LT
+    - LV
+    - MT
+    - NL
+    - 'NO'
+    - PL
+    - PT
+    - RO
+    - SE
+    - SI
+    - SK
+    last_update: '2026-05-21'
+countries:
+  AT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: B2C2 Europe Sarl
+  BE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: B2C2 Europe Sarl
+  BG:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: B2C2 Europe Sarl
+  CY:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: B2C2 Europe Sarl
+  CZ:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: B2C2 Europe Sarl
+  DE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: B2C2 Europe Sarl
+  DK:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: B2C2 Europe Sarl
+  EE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: B2C2 Europe Sarl
+  ES:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: B2C2 Europe Sarl
+  FI:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: B2C2 Europe Sarl
+  FR:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: B2C2 Europe Sarl
+  GR:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: B2C2 Europe Sarl
+  HR:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: B2C2 Europe Sarl
+  HU:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: B2C2 Europe Sarl
+  IE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: B2C2 Europe Sarl
+  IS:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: B2C2 Europe Sarl
+  IT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: B2C2 Europe Sarl
+  LI:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: B2C2 Europe Sarl
+  LT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: B2C2 Europe Sarl
+  LU:
+    status: licensed
+    regime: MiCA
+    via: home_state
+    entity: B2C2 Europe Sarl
+  LV:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: B2C2 Europe Sarl
+  MT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: B2C2 Europe Sarl
+  NL:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: B2C2 Europe Sarl
+  'NO':
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: B2C2 Europe Sarl
+  PL:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: B2C2 Europe Sarl
+  PT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: B2C2 Europe Sarl
+  RO:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: B2C2 Europe Sarl
+  SE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: B2C2 Europe Sarl
+  SI:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: B2C2 Europe Sarl
+  SK:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: B2C2 Europe Sarl

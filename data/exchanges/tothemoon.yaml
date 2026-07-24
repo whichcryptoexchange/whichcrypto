@@ -1,0 +1,35 @@
+id: tothemoon
+brand: tothemoon
+eu_status: authorised
+sources:
+- name: ESMA interim MiCA register (CASPS.csv)
+  url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
+  retrieved: '2026-07-24'
+entities:
+- lei: 9845009846V10FGD4840
+  legal_name: Brilliantscope Trading Limited
+  commercial_name: tothemoon
+  home_state: CY
+  regulator: Cyprus Securities and Exchange Commission (CySEC)
+  website: https://tothemoon.com
+  records:
+  - authorised: '2026-06-29'
+    withdrawn: null
+    status: authorised
+    services:
+    - a
+    - c
+    - d
+    - e
+    - f
+    - g
+    - j
+    passported_to:
+    - CY
+    last_update: '2026-07-15'
+countries:
+  CY:
+    status: licensed
+    regime: MiCA
+    via: home_state
+    entity: Brilliantscope Trading Limited

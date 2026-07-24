@@ -1,0 +1,34 @@
+id: qwarks
+brand: Qwarks
+eu_status: authorised
+sources:
+- name: ESMA interim MiCA register (CASPS.csv)
+  url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
+  retrieved: '2026-07-24'
+entities:
+- lei: 969500CMLNBIVUUD9A09
+  legal_name: QWARKS SAS
+  commercial_name: QWARKS
+  home_state: FR
+  regulator: Autorité des Marchés Financiers (AMF)
+  website: https://www.qwarks.fr/
+  records:
+  - authorised: '2026-05-21'
+    withdrawn: null
+    status: authorised
+    services:
+    - a
+    - c
+    - d
+    - e
+    - i
+    - j
+    passported_to:
+    - FR
+    last_update: '2026-05-21'
+countries:
+  FR:
+    status: licensed
+    regime: MiCA
+    via: home_state
+    entity: QWARKS SAS

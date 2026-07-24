@@ -1,0 +1,150 @@
+id: cometh
+brand: Cometh
+eu_status: authorised
+sources:
+- name: ESMA interim MiCA register (CASPS.csv)
+  url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
+  retrieved: '2026-07-24'
+entities:
+- lei: 894500R5KSX3ZKIHSA46
+  legal_name: COMETH SAS
+  commercial_name: COMETH
+  home_state: FR
+  regulator: Autorité des Marchés Financiers (AMF)
+  website: https://cometh.io/
+  records:
+  - authorised: '2025-12-04'
+    withdrawn: null
+    status: authorised
+    services:
+    - a
+    - d
+    - j
+    passported_to:
+    - AT
+    - BE
+    - BG
+    - CY
+    - DE
+    - EE
+    - ES
+    - FI
+    - GR
+    - HR
+    - IE
+    - IT
+    - LT
+    - LU
+    - LV
+    - MT
+    - NL
+    - PT
+    - SI
+    - SK
+    last_update: '2025-12-04'
+countries:
+  AT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: COMETH SAS
+  BE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: COMETH SAS
+  BG:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: COMETH SAS
+  CY:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: COMETH SAS
+  DE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: COMETH SAS
+  EE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: COMETH SAS
+  ES:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: COMETH SAS
+  FI:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: COMETH SAS
+  FR:
+    status: licensed
+    regime: MiCA
+    via: home_state
+    entity: COMETH SAS
+  GR:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: COMETH SAS
+  HR:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: COMETH SAS
+  IE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: COMETH SAS
+  IT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: COMETH SAS
+  LT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: COMETH SAS
+  LU:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: COMETH SAS
+  LV:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: COMETH SAS
+  MT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: COMETH SAS
+  NL:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: COMETH SAS
+  PT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: COMETH SAS
+  SI:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: COMETH SAS
+  SK:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: COMETH SAS

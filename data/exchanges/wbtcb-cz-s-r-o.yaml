@@ -1,0 +1,29 @@
+id: wbtcb-cz-s-r-o
+brand: wBTCb.cz, s.r.o
+eu_status: authorised
+sources:
+- name: ESMA interim MiCA register (CASPS.csv)
+  url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
+  retrieved: '2026-07-24'
+entities:
+- lei: 3157009R9J4OHLL5NY32
+  legal_name: wBTCb.cz, s.r.o
+  commercial_name: null
+  home_state: CZ
+  regulator: Czech National Bank (CNB)
+  website: https://bit.plus
+  records:
+  - authorised: '2026-06-26'
+    withdrawn: null
+    status: authorised
+    services:
+    - c
+    passported_to:
+    - CZ
+    last_update: '2026-06-26'
+countries:
+  CZ:
+    status: licensed
+    regime: MiCA
+    via: home_state
+    entity: wBTCb.cz, s.r.o

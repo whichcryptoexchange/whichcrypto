@@ -1,0 +1,203 @@
+id: circle
+brand: Circle
+eu_status: authorised
+sources:
+- name: ESMA interim MiCA register (CASPS.csv)
+  url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
+  retrieved: '2026-07-24'
+entities:
+- lei: 969500OYUDADGZKCR583
+  legal_name: CIRCLE INTERNET FINANCIAL EUROPE SAS
+  commercial_name: CIRCLE
+  home_state: FR
+  regulator: Autorité des Marchés Financiers (AMF)
+  website: https://www.circle.com/en/
+  records:
+  - authorised: '2026-04-23'
+    withdrawn: null
+    status: authorised
+    services:
+    - a
+    - j
+    passported_to:
+    - AT
+    - BE
+    - BG
+    - CY
+    - CZ
+    - DE
+    - DK
+    - EE
+    - ES
+    - FI
+    - GR
+    - HR
+    - HU
+    - IE
+    - IS
+    - IT
+    - LI
+    - LT
+    - LU
+    - LV
+    - MT
+    - NL
+    - 'NO'
+    - PL
+    - PT
+    - RO
+    - SE
+    - SI
+    - SK
+    last_update: '2026-04-23'
+countries:
+  AT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: CIRCLE INTERNET FINANCIAL EUROPE SAS
+  BE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: CIRCLE INTERNET FINANCIAL EUROPE SAS
+  BG:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: CIRCLE INTERNET FINANCIAL EUROPE SAS
+  CY:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: CIRCLE INTERNET FINANCIAL EUROPE SAS
+  CZ:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: CIRCLE INTERNET FINANCIAL EUROPE SAS
+  DE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: CIRCLE INTERNET FINANCIAL EUROPE SAS
+  DK:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: CIRCLE INTERNET FINANCIAL EUROPE SAS
+  EE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: CIRCLE INTERNET FINANCIAL EUROPE SAS
+  ES:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: CIRCLE INTERNET FINANCIAL EUROPE SAS
+  FI:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: CIRCLE INTERNET FINANCIAL EUROPE SAS
+  FR:
+    status: licensed
+    regime: MiCA
+    via: home_state
+    entity: CIRCLE INTERNET FINANCIAL EUROPE SAS
+  GR:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: CIRCLE INTERNET FINANCIAL EUROPE SAS
+  HR:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: CIRCLE INTERNET FINANCIAL EUROPE SAS
+  HU:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: CIRCLE INTERNET FINANCIAL EUROPE SAS
+  IE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: CIRCLE INTERNET FINANCIAL EUROPE SAS
+  IS:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: CIRCLE INTERNET FINANCIAL EUROPE SAS
+  IT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: CIRCLE INTERNET FINANCIAL EUROPE SAS
+  LI:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: CIRCLE INTERNET FINANCIAL EUROPE SAS
+  LT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: CIRCLE INTERNET FINANCIAL EUROPE SAS
+  LU:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: CIRCLE INTERNET FINANCIAL EUROPE SAS
+  LV:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: CIRCLE INTERNET FINANCIAL EUROPE SAS
+  MT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: CIRCLE INTERNET FINANCIAL EUROPE SAS
+  NL:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: CIRCLE INTERNET FINANCIAL EUROPE SAS
+  'NO':
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: CIRCLE INTERNET FINANCIAL EUROPE SAS
+  PL:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: CIRCLE INTERNET FINANCIAL EUROPE SAS
+  PT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: CIRCLE INTERNET FINANCIAL EUROPE SAS
+  RO:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: CIRCLE INTERNET FINANCIAL EUROPE SAS
+  SE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: CIRCLE INTERNET FINANCIAL EUROPE SAS
+  SI:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: CIRCLE INTERNET FINANCIAL EUROPE SAS
+  SK:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: CIRCLE INTERNET FINANCIAL EUROPE SAS

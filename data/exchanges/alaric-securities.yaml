@@ -1,0 +1,37 @@
+id: alaric-securities
+brand: Alaric Securities
+eu_status: authorised
+sources:
+- name: ESMA interim MiCA register (CASPS.csv)
+  url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
+  retrieved: '2026-07-24'
+entities:
+- lei: 549300I48OJHSE9OZS95
+  legal_name: Alaric Securities OOD
+  commercial_name: Alaric Securities
+  home_state: BG
+  regulator: Financial Supervision Commission (FSC)
+  website: https://alaricsecurities.com/
+  records:
+  - authorised: '2025-12-22'
+    withdrawn: null
+    status: authorised
+    services:
+    - a
+    - c
+    - d
+    - e
+    - f
+    - g
+    - h
+    - i
+    - j
+    passported_to:
+    - BG
+    last_update: '2025-12-22'
+countries:
+  BG:
+    status: licensed
+    regime: MiCA
+    via: home_state
+    entity: Alaric Securities OOD

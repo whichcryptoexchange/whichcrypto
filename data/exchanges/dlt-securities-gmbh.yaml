@@ -1,0 +1,35 @@
+id: dlt-securities-gmbh
+brand: DLT Securities GmbH
+eu_status: authorised
+sources:
+- name: ESMA interim MiCA register (CASPS.csv)
+  url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
+  retrieved: '2026-07-24'
+entities:
+- lei: 391200EYHDBM1YQI7A32
+  legal_name: DLT Securities GmbH
+  commercial_name: DLT Securities GmbH
+  home_state: DE
+  regulator: Federal Financial Supervisory Authority (BaFin)
+  website: www.dlt-finance.com
+  records:
+  - authorised: '2025-12-18'
+    withdrawn: null
+    status: authorised
+    services:
+    - c
+    - d
+    - e
+    - f
+    - g
+    - h
+    - i
+    passported_to:
+    - DE
+    last_update: '2026-04-01'
+countries:
+  DE:
+    status: licensed
+    regime: MiCA
+    via: home_state
+    entity: DLT Securities GmbH

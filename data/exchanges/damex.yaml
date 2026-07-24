@@ -1,0 +1,206 @@
+id: damex
+brand: Damex
+eu_status: authorised
+sources:
+- name: ESMA interim MiCA register (CASPS.csv)
+  url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
+  retrieved: '2026-07-24'
+entities:
+- lei: 9845008E8QA4CCFE5F68
+  legal_name: Damex Digital LTD
+  commercial_name: Damex
+  home_state: MT
+  regulator: Malta Financial Services Authority (MFSA)
+  website: www.damex.io
+  records:
+  - authorised: '2026-01-29'
+    withdrawn: null
+    status: authorised
+    services:
+    - a
+    - c
+    - d
+    - e
+    - j
+    passported_to:
+    - AT
+    - BE
+    - BG
+    - CY
+    - CZ
+    - DE
+    - DK
+    - EE
+    - ES
+    - FI
+    - FR
+    - GR
+    - HR
+    - HU
+    - IE
+    - IS
+    - IT
+    - LI
+    - LT
+    - LU
+    - LV
+    - NL
+    - 'NO'
+    - PL
+    - PT
+    - RO
+    - SE
+    - SI
+    - SK
+    last_update: '2026-06-18'
+countries:
+  AT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Damex Digital LTD
+  BE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Damex Digital LTD
+  BG:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Damex Digital LTD
+  CY:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Damex Digital LTD
+  CZ:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Damex Digital LTD
+  DE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Damex Digital LTD
+  DK:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Damex Digital LTD
+  EE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Damex Digital LTD
+  ES:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Damex Digital LTD
+  FI:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Damex Digital LTD
+  FR:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Damex Digital LTD
+  GR:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Damex Digital LTD
+  HR:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Damex Digital LTD
+  HU:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Damex Digital LTD
+  IE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Damex Digital LTD
+  IS:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Damex Digital LTD
+  IT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Damex Digital LTD
+  LI:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Damex Digital LTD
+  LT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Damex Digital LTD
+  LU:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Damex Digital LTD
+  LV:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Damex Digital LTD
+  MT:
+    status: licensed
+    regime: MiCA
+    via: home_state
+    entity: Damex Digital LTD
+  NL:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Damex Digital LTD
+  'NO':
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Damex Digital LTD
+  PL:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Damex Digital LTD
+  PT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Damex Digital LTD
+  RO:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Damex Digital LTD
+  SE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Damex Digital LTD
+  SI:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Damex Digital LTD
+  SK:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Damex Digital LTD

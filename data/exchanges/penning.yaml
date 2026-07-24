@@ -1,0 +1,208 @@
+id: penning
+brand: Penning
+eu_status: authorised
+sources:
+- name: ESMA interim MiCA register (CASPS.csv)
+  url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
+  retrieved: '2026-07-24'
+entities:
+- lei: 9845000E4A7414709361
+  legal_name: Penning Financial Services ApS
+  commercial_name: Penning
+  home_state: DK
+  regulator: Finanstilsynet
+  website: www.penning.io
+  records:
+  - authorised: '2026-01-15'
+    withdrawn: null
+    status: authorised
+    services:
+    - a
+    - c
+    - d
+    - e
+    - g
+    - i
+    - j
+    passported_to:
+    - AT
+    - BE
+    - BG
+    - CY
+    - CZ
+    - DE
+    - EE
+    - ES
+    - FI
+    - FR
+    - GR
+    - HR
+    - HU
+    - IE
+    - IS
+    - IT
+    - LI
+    - LT
+    - LU
+    - LV
+    - MT
+    - NL
+    - 'NO'
+    - PL
+    - PT
+    - RO
+    - SE
+    - SI
+    - SK
+    last_update: '2026-03-04'
+countries:
+  AT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Penning Financial Services ApS
+  BE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Penning Financial Services ApS
+  BG:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Penning Financial Services ApS
+  CY:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Penning Financial Services ApS
+  CZ:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Penning Financial Services ApS
+  DE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Penning Financial Services ApS
+  DK:
+    status: licensed
+    regime: MiCA
+    via: home_state
+    entity: Penning Financial Services ApS
+  EE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Penning Financial Services ApS
+  ES:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Penning Financial Services ApS
+  FI:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Penning Financial Services ApS
+  FR:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Penning Financial Services ApS
+  GR:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Penning Financial Services ApS
+  HR:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Penning Financial Services ApS
+  HU:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Penning Financial Services ApS
+  IE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Penning Financial Services ApS
+  IS:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Penning Financial Services ApS
+  IT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Penning Financial Services ApS
+  LI:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Penning Financial Services ApS
+  LT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Penning Financial Services ApS
+  LU:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Penning Financial Services ApS
+  LV:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Penning Financial Services ApS
+  MT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Penning Financial Services ApS
+  NL:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Penning Financial Services ApS
+  'NO':
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Penning Financial Services ApS
+  PL:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Penning Financial Services ApS
+  PT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Penning Financial Services ApS
+  RO:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Penning Financial Services ApS
+  SE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Penning Financial Services ApS
+  SI:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Penning Financial Services ApS
+  SK:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Penning Financial Services ApS

@@ -1,0 +1,75 @@
+id: deskoin
+brand: Deskoin
+eu_status: authorised
+sources:
+- name: ESMA interim MiCA register (CASPS.csv)
+  url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
+  retrieved: '2026-07-24'
+entities:
+- lei: 969500QH6WD4FO79B261
+  legal_name: DESKOIN SAS
+  commercial_name: DESKOIN
+  home_state: FR
+  regulator: Autorité des Marchés Financiers (AMF)
+  website: https://www.deskoin.com/
+  records:
+  - authorised: '2026-04-28'
+    withdrawn: null
+    status: authorised
+    services:
+    - a
+    - c
+    - d
+    - e
+    - h
+    - j
+    passported_to:
+    - BE
+    - DE
+    - ES
+    - IT
+    - LU
+    - NL
+    - PT
+    last_update: '2026-04-28'
+countries:
+  BE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: DESKOIN SAS
+  DE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: DESKOIN SAS
+  ES:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: DESKOIN SAS
+  FR:
+    status: licensed
+    regime: MiCA
+    via: home_state
+    entity: DESKOIN SAS
+  IT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: DESKOIN SAS
+  LU:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: DESKOIN SAS
+  NL:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: DESKOIN SAS
+  PT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: DESKOIN SAS

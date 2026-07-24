@@ -1,0 +1,34 @@
+id: berenberg
+brand: Berenberg
+eu_status: authorised
+sources:
+- name: ESMA interim MiCA register (CASPS.csv)
+  url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
+  retrieved: '2026-07-24'
+entities:
+- lei: 529900UC2OD7II24Z667
+  legal_name: Joh. Berenberg, Gossler & Co. KG
+  commercial_name: Joh. Berenberg, Gossler & Co. KG
+  home_state: DE
+  regulator: Federal Financial Supervisory Authority (BaFin)
+  website: www.berenberg.de
+  records:
+  - authorised: '2026-03-06'
+    withdrawn: null
+    status: authorised
+    services:
+    - a
+    - c
+    - d
+    - e
+    - g
+    - j
+    passported_to:
+    - DE
+    last_update: '2026-03-06'
+countries:
+  DE:
+    status: licensed
+    regime: MiCA
+    via: home_state
+    entity: Joh. Berenberg, Gossler & Co. KG

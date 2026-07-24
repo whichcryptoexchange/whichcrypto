@@ -1,0 +1,86 @@
+id: rufiji
+brand: Rufiji
+eu_status: authorised
+sources:
+- name: ESMA interim MiCA register (CASPS.csv)
+  url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
+  retrieved: '2026-07-24'
+entities:
+- lei: 969500FUWSKQEO5J7H72
+  legal_name: RUFIJI CAPITAL SAS
+  commercial_name: RUFIJI
+  home_state: FR
+  regulator: Autorité des Marchés Financiers (AMF)
+  website: https://www.rufiji.capital/
+  records:
+  - authorised: '2026-06-12'
+    withdrawn: null
+    status: authorised
+    services:
+    - a
+    - e
+    - h
+    - i
+    - j
+    passported_to:
+    - AT
+    - BE
+    - DE
+    - ES
+    - IE
+    - IT
+    - LU
+    - NL
+    - PT
+    last_update: '2026-06-12'
+countries:
+  AT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: RUFIJI CAPITAL SAS
+  BE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: RUFIJI CAPITAL SAS
+  DE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: RUFIJI CAPITAL SAS
+  ES:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: RUFIJI CAPITAL SAS
+  FR:
+    status: licensed
+    regime: MiCA
+    via: home_state
+    entity: RUFIJI CAPITAL SAS
+  IE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: RUFIJI CAPITAL SAS
+  IT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: RUFIJI CAPITAL SAS
+  LU:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: RUFIJI CAPITAL SAS
+  NL:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: RUFIJI CAPITAL SAS
+  PT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: RUFIJI CAPITAL SAS
