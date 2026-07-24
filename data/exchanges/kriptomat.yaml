@@ -1,0 +1,29 @@
+id: kriptomat
+brand: KRIPTOMAT
+eu_status: authorised
+sources:
+- name: ESMA interim MiCA register (CASPS.csv)
+  url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
+  retrieved: '2026-07-24'
+entities:
+- lei: 9845006A6CAABE4C0347
+  legal_name: Bitblock Ltd. for Services
+  commercial_name: KRIPTOMAT
+  home_state: HR
+  regulator: Croatian Financial Services Supervisory Agency (HANFA)
+  website: https://kriptomat.hr/
+  records:
+  - authorised: '2026-06-17'
+    withdrawn: null
+    status: authorised
+    services:
+    - c
+    passported_to:
+    - HR
+    last_update: '2026-06-18'
+countries:
+  HR:
+    status: licensed
+    regime: MiCA
+    via: home_state
+    entity: Bitblock Ltd. for Services

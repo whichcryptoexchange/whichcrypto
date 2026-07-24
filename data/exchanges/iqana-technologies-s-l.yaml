@@ -1,0 +1,41 @@
+id: iqana-technologies-s-l
+brand: IQANA TECHNOLOGIES S.L
+eu_status: authorised
+sources:
+- name: ESMA interim MiCA register (CASPS.csv)
+  url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
+  retrieved: '2026-07-24'
+entities:
+- lei: 959800AZT2DVBLZQY241
+  legal_name: IQANA TECHNOLOGIES S.L
+  commercial_name: IQANA TECHNOLOGIES S.L
+  home_state: ES
+  regulator: Comisión Nacional del Mercado de Valores (CNMV)
+  website: https://iqana.io/
+  records:
+  - authorised: '2026-07-10'
+    withdrawn: null
+    status: authorised
+    services:
+    - i
+    passported_to:
+    - DE
+    - ES
+    - PT
+    last_update: '2026-07-10'
+countries:
+  DE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: IQANA TECHNOLOGIES S.L
+  ES:
+    status: licensed
+    regime: MiCA
+    via: home_state
+    entity: IQANA TECHNOLOGIES S.L
+  PT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: IQANA TECHNOLOGIES S.L

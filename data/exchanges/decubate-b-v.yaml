@@ -1,0 +1,55 @@
+id: decubate-b-v
+brand: Decubate B.V
+eu_status: withdrawn
+sources:
+- name: ESMA interim MiCA register (CASPS.csv)
+  url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
+  retrieved: '2026-07-24'
+entities:
+- lei: 894500ZVOL3A9LO8LN34
+  legal_name: Decubate B.V
+  commercial_name: Decubate B.V
+  home_state: NL
+  regulator: Netherlands Authority for the Financial Markets (AFM)
+  website: https://www.decubate.com/ | https://platform.decubate.com/
+  records:
+  - authorised: '2025-07-31'
+    withdrawn: '2026-03-26'
+    status: withdrawn
+    services:
+    - a
+    - e
+    - f
+    passported_to:
+    - AT
+    - BE
+    - BG
+    - CY
+    - CZ
+    - DE
+    - DK
+    - EE
+    - ES
+    - FI
+    - FR
+    - GR
+    - HR
+    - HU
+    - IE
+    - IS
+    - IT
+    - LI
+    - LT
+    - LU
+    - LV
+    - MT
+    - NL
+    - 'NO'
+    - PL
+    - PT
+    - RO
+    - SE
+    - SI
+    - SK
+    last_update: '2026-04-30'
+countries: {}

@@ -1,45 +1,24 @@
-id: kraken
-brand: Kraken
+id: bank-frick-ag
+brand: Bank Frick AG
 eu_status: authorised
 sources:
 - name: ESMA interim MiCA register (CASPS.csv)
   url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
   retrieved: '2026-07-24'
 entities:
-- lei: 9845003D98SCC2851458
-  legal_name: Payward Global Solutions Limited
-  commercial_name: Kraken, Kraken Digital Asset Exchange
-  home_state: IE
-  regulator: Central Bank of Ireland (CBI)
-  website: https://www.kraken.com/
+- lei: 529900RQOBT3ZJMDRK43
+  legal_name: Bank Frick AG
+  commercial_name: Bank Frick AG
+  home_state: LI
+  regulator: Finanzmarktaufsicht (FMA)
+  website: https://www.bankfrick.li/en
   records:
-  - authorised: '2025-06-25'
-    withdrawn: null
-    status: authorised
-    services:
-    - b
-    passported_to:
-    - CY
-    - IE
-    last_update: '2025-06-25'
-- lei: 254900641D8KNHUZYX24
-  legal_name: Payward Europe Solutions Limited
-  commercial_name: Kraken Digital Asset Exchange (�Kraken�)
-  home_state: IE
-  regulator: Central Bank of Ireland (CBI)
-  website: https://www.kraken.com/
-  records:
-  - authorised: '2025-06-25'
+  - authorised: '2025-12-23'
     withdrawn: null
     status: authorised
     services:
     - a
-    - c
-    - d
     - e
-    - f
-    - g
-    - i
     - j
     passported_to:
     - AT
@@ -57,7 +36,6 @@ entities:
     - HR
     - HU
     - IE
-    - IS
     - IT
     - LI
     - LT
@@ -65,162 +43,151 @@ entities:
     - LV
     - MT
     - NL
-    - 'NO'
     - PL
     - PT
     - RO
     - SE
     - SI
     - SK
-    last_update: '2025-06-25'
+    last_update: '2026-02-24'
 countries:
   AT:
     status: licensed
     regime: MiCA
     via: mica_passporting
-    entity: Payward Europe Solutions Limited
+    entity: Bank Frick AG
   BE:
     status: licensed
     regime: MiCA
     via: mica_passporting
-    entity: Payward Europe Solutions Limited
+    entity: Bank Frick AG
   BG:
     status: licensed
     regime: MiCA
     via: mica_passporting
-    entity: Payward Europe Solutions Limited
+    entity: Bank Frick AG
   CY:
     status: licensed
     regime: MiCA
     via: mica_passporting
-    entity: Payward Global Solutions Limited
+    entity: Bank Frick AG
   CZ:
     status: licensed
     regime: MiCA
     via: mica_passporting
-    entity: Payward Europe Solutions Limited
+    entity: Bank Frick AG
   DE:
     status: licensed
     regime: MiCA
     via: mica_passporting
-    entity: Payward Europe Solutions Limited
+    entity: Bank Frick AG
   DK:
     status: licensed
     regime: MiCA
     via: mica_passporting
-    entity: Payward Europe Solutions Limited
+    entity: Bank Frick AG
   EE:
     status: licensed
     regime: MiCA
     via: mica_passporting
-    entity: Payward Europe Solutions Limited
+    entity: Bank Frick AG
   ES:
     status: licensed
     regime: MiCA
     via: mica_passporting
-    entity: Payward Europe Solutions Limited
+    entity: Bank Frick AG
   FI:
     status: licensed
     regime: MiCA
     via: mica_passporting
-    entity: Payward Europe Solutions Limited
+    entity: Bank Frick AG
   FR:
     status: licensed
     regime: MiCA
     via: mica_passporting
-    entity: Payward Europe Solutions Limited
+    entity: Bank Frick AG
   GR:
     status: licensed
     regime: MiCA
     via: mica_passporting
-    entity: Payward Europe Solutions Limited
+    entity: Bank Frick AG
   HR:
     status: licensed
     regime: MiCA
     via: mica_passporting
-    entity: Payward Europe Solutions Limited
+    entity: Bank Frick AG
   HU:
     status: licensed
     regime: MiCA
     via: mica_passporting
-    entity: Payward Europe Solutions Limited
+    entity: Bank Frick AG
   IE:
     status: licensed
     regime: MiCA
-    via: home_state
-    entity: Payward Global Solutions Limited
-  IS:
-    status: licensed
-    regime: MiCA
     via: mica_passporting
-    entity: Payward Europe Solutions Limited
+    entity: Bank Frick AG
   IT:
     status: licensed
     regime: MiCA
     via: mica_passporting
-    entity: Payward Europe Solutions Limited
+    entity: Bank Frick AG
   LI:
     status: licensed
     regime: MiCA
-    via: mica_passporting
-    entity: Payward Europe Solutions Limited
+    via: home_state
+    entity: Bank Frick AG
   LT:
     status: licensed
     regime: MiCA
     via: mica_passporting
-    entity: Payward Europe Solutions Limited
+    entity: Bank Frick AG
   LU:
     status: licensed
     regime: MiCA
     via: mica_passporting
-    entity: Payward Europe Solutions Limited
+    entity: Bank Frick AG
   LV:
     status: licensed
     regime: MiCA
     via: mica_passporting
-    entity: Payward Europe Solutions Limited
+    entity: Bank Frick AG
   MT:
     status: licensed
     regime: MiCA
     via: mica_passporting
-    entity: Payward Europe Solutions Limited
+    entity: Bank Frick AG
   NL:
     status: licensed
     regime: MiCA
     via: mica_passporting
-    entity: Payward Europe Solutions Limited
-  'NO':
-    status: licensed
-    regime: MiCA
-    via: mica_passporting
-    entity: Payward Europe Solutions Limited
+    entity: Bank Frick AG
   PL:
     status: licensed
     regime: MiCA
     via: mica_passporting
-    entity: Payward Europe Solutions Limited
+    entity: Bank Frick AG
   PT:
     status: licensed
     regime: MiCA
     via: mica_passporting
-    entity: Payward Europe Solutions Limited
+    entity: Bank Frick AG
   RO:
     status: licensed
     regime: MiCA
     via: mica_passporting
-    entity: Payward Europe Solutions Limited
+    entity: Bank Frick AG
   SE:
     status: licensed
     regime: MiCA
     via: mica_passporting
-    entity: Payward Europe Solutions Limited
+    entity: Bank Frick AG
   SI:
     status: licensed
     regime: MiCA
     via: mica_passporting
-    entity: Payward Europe Solutions Limited
+    entity: Bank Frick AG
   SK:
     status: licensed
     regime: MiCA
     via: mica_passporting
-    entity: Payward Europe Solutions Limited
+    entity: Bank Frick AG

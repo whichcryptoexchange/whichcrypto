@@ -1,0 +1,65 @@
+id: rcube-asset-management
+brand: RCUBE ASSET MANAGEMENT
+eu_status: authorised
+sources:
+- name: ESMA interim MiCA register (CASPS.csv)
+  url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
+  retrieved: '2026-07-24'
+entities:
+- lei: 529900X4PRL0DZNPT990
+  legal_name: RCUBE ASSET MANAGEMENT
+  commercial_name: RCUBE ASSET MANAGEMENT
+  home_state: FR
+  regulator: Autorité des Marchés Financiers (AMF)
+  website: https://rcube.com/
+  records:
+  - authorised: '2026-06-18'
+    withdrawn: null
+    status: authorised
+    services:
+    - h
+    - i
+    passported_to:
+    - BE
+    - DE
+    - ES
+    - IT
+    - LU
+    - NL
+    last_update: '2026-06-18'
+countries:
+  BE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: RCUBE ASSET MANAGEMENT
+  DE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: RCUBE ASSET MANAGEMENT
+  ES:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: RCUBE ASSET MANAGEMENT
+  FR:
+    status: licensed
+    regime: MiCA
+    via: home_state
+    entity: RCUBE ASSET MANAGEMENT
+  IT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: RCUBE ASSET MANAGEMENT
+  LU:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: RCUBE ASSET MANAGEMENT
+  NL:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: RCUBE ASSET MANAGEMENT

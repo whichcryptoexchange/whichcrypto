@@ -1,0 +1,41 @@
+id: altarius-asset-management-limited
+brand: Altarius Asset Management Limited
+eu_status: authorised
+sources:
+- name: ESMA interim MiCA register (CASPS.csv)
+  url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
+  retrieved: '2026-07-24'
+entities:
+- lei: 5299000X84JRI8MS7D35
+  legal_name: Altarius Asset Management Limited
+  commercial_name: Altarius Asset Management Limited
+  home_state: MT
+  regulator: Malta Financial Services Authority (MFSA)
+  website: www.altariusgroup.com
+  records:
+  - authorised: '2025-03-24'
+    withdrawn: null
+    status: authorised
+    services:
+    - g
+    - i
+    passported_to:
+    - DE
+    - LU
+    last_update: '2025-03-24'
+countries:
+  DE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Altarius Asset Management Limited
+  LU:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Altarius Asset Management Limited
+  MT:
+    status: licensed
+    regime: MiCA
+    via: home_state
+    entity: Altarius Asset Management Limited

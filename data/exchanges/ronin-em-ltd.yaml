@@ -1,30 +1,23 @@
-id: naga-x
-brand: NAGA X
+id: ronin-em-ltd
+brand: Ronin EM Ltd
 eu_status: authorised
 sources:
 - name: ESMA interim MiCA register (CASPS.csv)
   url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
   retrieved: '2026-07-24'
 entities:
-- lei: 984500DCB2AF415E5Y71
-  legal_name: NAGA X
+- lei: 213800V83W83UL8WR118
+  legal_name: Ronin EM Ltd
   commercial_name: null
   home_state: CY
   regulator: Cyprus Securities and Exchange Commission (CySEC)
-  website: www.nagax.com/eu/
+  website: https://em.ron.in/
   records:
-  - authorised: '2026-06-08'
+  - authorised: '2026-06-22'
     withdrawn: null
     status: authorised
     services:
     - a
-    - c
-    - d
-    - e
-    - g
-    - h
-    - i
-    - j
     passported_to:
     - CY
     last_update: '2026-07-15'
@@ -33,4 +26,4 @@ countries:
     status: licensed
     regime: MiCA
     via: home_state
-    entity: NAGA X
+    entity: Ronin EM Ltd

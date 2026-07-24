@@ -1,0 +1,29 @@
+id: volksbank-raiffeisenbank-w-rzburg-eg
+brand: Volksbank Raiffeisenbank Würzburg eG
+eu_status: authorised
+sources:
+- name: ESMA interim MiCA register (CASPS.csv)
+  url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
+  retrieved: '2026-07-24'
+entities:
+- lei: 529900YT5VCRYQ5WI821
+  legal_name: Volksbank Raiffeisenbank Würzburg eG
+  commercial_name: Volksbank Raiffeisenbank Würzburg eG
+  home_state: DE
+  regulator: Federal Financial Supervisory Authority (BaFin)
+  website: https://www.vr-bank-wuerzburg.de
+  records:
+  - authorised: '2025-12-17'
+    withdrawn: null
+    status: authorised
+    services:
+    - e
+    passported_to:
+    - DE
+    last_update: '2025-12-17'
+countries:
+  DE:
+    status: licensed
+    regime: MiCA
+    via: home_state
+    entity: Volksbank Raiffeisenbank Würzburg eG

@@ -1,0 +1,29 @@
+id: volksbank-schwarzwald-donau-neckar-eg
+brand: Volksbank Schwarzwald-Donau-Neckar eG
+eu_status: authorised
+sources:
+- name: ESMA interim MiCA register (CASPS.csv)
+  url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
+  retrieved: '2026-07-24'
+entities:
+- lei: 5299009ADJ9XFQVUKZ50
+  legal_name: Volksbank Schwarzwald-Donau-Neckar eG
+  commercial_name: Volksbank Schwarzwald-Donau-Neckar eG
+  home_state: DE
+  regulator: Federal Financial Supervisory Authority (BaFin)
+  website: www.vbsdn.de
+  records:
+  - authorised: '2026-07-02'
+    withdrawn: null
+    status: authorised
+    services:
+    - e
+    passported_to:
+    - DE
+    last_update: '2026-07-02'
+countries:
+  DE:
+    status: licensed
+    regime: MiCA
+    via: home_state
+    entity: Volksbank Schwarzwald-Donau-Neckar eG

@@ -1,0 +1,66 @@
+id: bison-bank
+brand: Bison Bank
+eu_status: authorised
+sources:
+- name: ESMA interim MiCA register (CASPS.csv)
+  url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
+  retrieved: '2026-07-24'
+entities:
+- lei: 549300V4H4USWZUCE073
+  legal_name: Bison Bank, S.A
+  commercial_name: Bison Bank
+  home_state: PT
+  regulator: Banco de Portugal
+  website: https://bisonbank.com/
+  records:
+  - authorised: '2026-05-19'
+    withdrawn: null
+    status: authorised
+    services:
+    - a
+    - c
+    - d
+    - e
+    - f
+    - g
+    - h
+    - j
+    passported_to:
+    - DE
+    - ES
+    - FR
+    - IT
+    - NL
+    - PT
+    last_update: '2026-05-19'
+countries:
+  DE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Bison Bank, S.A
+  ES:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Bison Bank, S.A
+  FR:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Bison Bank, S.A
+  IT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Bison Bank, S.A
+  NL:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Bison Bank, S.A
+  PT:
+    status: licensed
+    regime: MiCA
+    via: home_state
+    entity: Bison Bank, S.A

@@ -1,0 +1,29 @@
+id: plutos-verm-gensverwaltung-ag
+brand: Plutos Vermögensverwaltung AG
+eu_status: authorised
+sources:
+- name: ESMA interim MiCA register (CASPS.csv)
+  url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
+  retrieved: '2026-07-24'
+entities:
+- lei: 391200PNJ2SKONA02N07
+  legal_name: Plutos Vermögensverwaltung AG
+  commercial_name: Plutos Vermögensverwaltung AG
+  home_state: DE
+  regulator: Federal Financial Supervisory Authority (BaFin)
+  website: www.plutos.de
+  records:
+  - authorised: '2026-02-25'
+    withdrawn: null
+    status: authorised
+    services:
+    - i
+    passported_to:
+    - DE
+    last_update: '2026-02-25'
+countries:
+  DE:
+    status: licensed
+    regime: MiCA
+    via: home_state
+    entity: Plutos Vermögensverwaltung AG

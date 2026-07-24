@@ -1,0 +1,89 @@
+id: hyphe-markets-gmbh
+brand: Hyphe Markets GmbH
+eu_status: authorised
+sources:
+- name: ESMA interim MiCA register (CASPS.csv)
+  url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
+  retrieved: '2026-07-24'
+entities:
+- lei: 3912000K5NAA00M4HH04
+  legal_name: Hyphe Markets GmbH
+  commercial_name: Hyphe Markets GmbH
+  home_state: DE
+  regulator: Federal Financial Supervisory Authority (BaFin)
+  website: https://hyphe.com/
+  records:
+  - authorised: '2025-11-24'
+    withdrawn: null
+    status: authorised
+    services:
+    - c
+    passported_to:
+    - AT
+    - BE
+    - CZ
+    - DE
+    - IT
+    - LI
+    - LT
+    - LU
+    - NL
+    - PL
+    - SI
+    last_update: '2025-11-25'
+countries:
+  AT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Hyphe Markets GmbH
+  BE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Hyphe Markets GmbH
+  CZ:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Hyphe Markets GmbH
+  DE:
+    status: licensed
+    regime: MiCA
+    via: home_state
+    entity: Hyphe Markets GmbH
+  IT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Hyphe Markets GmbH
+  LI:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Hyphe Markets GmbH
+  LT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Hyphe Markets GmbH
+  LU:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Hyphe Markets GmbH
+  NL:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Hyphe Markets GmbH
+  PL:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Hyphe Markets GmbH
+  SI:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Hyphe Markets GmbH

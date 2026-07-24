@@ -1,0 +1,29 @@
+id: wsw-portfoliomanagement-ag
+brand: wSw PortfolioManagement AG
+eu_status: authorised
+sources:
+- name: ESMA interim MiCA register (CASPS.csv)
+  url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
+  retrieved: '2026-07-24'
+entities:
+- lei: 3912005CEQV0XYGFEO78
+  legal_name: wSw PortfolioManagement AG
+  commercial_name: wSw PortfolioManagement AG
+  home_state: DE
+  regulator: Federal Financial Supervisory Authority (BaFin)
+  website: www.wsw-pm.de
+  records:
+  - authorised: '2025-12-19'
+    withdrawn: null
+    status: authorised
+    services:
+    - g
+    passported_to:
+    - DE
+    last_update: '2025-12-19'
+countries:
+  DE:
+    status: licensed
+    regime: MiCA
+    via: home_state
+    entity: wSw PortfolioManagement AG

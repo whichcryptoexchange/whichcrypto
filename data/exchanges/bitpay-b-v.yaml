@@ -1,36 +1,30 @@
-id: naga-x
-brand: NAGA X
+id: bitpay-b-v
+brand: BitPay B.V
 eu_status: authorised
 sources:
 - name: ESMA interim MiCA register (CASPS.csv)
   url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
   retrieved: '2026-07-24'
 entities:
-- lei: 984500DCB2AF415E5Y71
-  legal_name: NAGA X
-  commercial_name: null
-  home_state: CY
-  regulator: Cyprus Securities and Exchange Commission (CySEC)
-  website: www.nagax.com/eu/
+- lei: 724500F2THLY5MHEIM78
+  legal_name: BitPay B.V
+  commercial_name: BitPay B.V
+  home_state: NL
+  regulator: Netherlands Authority for the Financial Markets (AFM)
+  website: https://www.bitpay.com/
   records:
-  - authorised: '2026-06-08'
+  - authorised: '2026-07-15'
     withdrawn: null
     status: authorised
     services:
-    - a
     - c
-    - d
-    - e
-    - g
-    - h
-    - i
     - j
     passported_to:
-    - CY
-    last_update: '2026-07-15'
+    - NL
+    last_update: '2026-07-16'
 countries:
-  CY:
+  NL:
     status: licensed
     regime: MiCA
     via: home_state
-    entity: NAGA X
+    entity: BitPay B.V

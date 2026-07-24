@@ -1,0 +1,28 @@
+id: blue-emi
+brand: BLUE EMI
+eu_status: authorised
+sources:
+- name: ESMA interim MiCA register (CASPS.csv)
+  url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
+  retrieved: '2026-07-24'
+entities:
+- lei: 254900XFMACGD0L7AI73
+  legal_name: UAB BLUE EMI LT
+  commercial_name: BLUE EMI
+  home_state: LT
+  regulator: Bank of Lithuania (LSC)
+  website: https://blueemi.com
+  records:
+  - authorised: '2025-05-13'
+    withdrawn: null
+    status: authorised
+    services:
+    - a
+    passported_to: []
+    last_update: '2026-03-26'
+countries:
+  LT:
+    status: licensed
+    regime: MiCA
+    via: home_state
+    entity: UAB BLUE EMI LT

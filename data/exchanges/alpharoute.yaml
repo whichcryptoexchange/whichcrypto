@@ -1,0 +1,94 @@
+id: alpharoute
+brand: AlphaRoute
+eu_status: authorised
+sources:
+- name: ESMA interim MiCA register (CASPS.csv)
+  url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
+  retrieved: '2026-07-24'
+entities:
+- lei: 259400JCJJ78A4ZCXP93
+  legal_name: SIA AlphaRoute
+  commercial_name: AlphaRoute
+  home_state: LV
+  regulator: Latvijas Banka
+  website: https://www.kangaexchange.eu/
+  records:
+  - authorised: '2026-06-18'
+    withdrawn: null
+    status: authorised
+    services:
+    - a
+    - b
+    - c
+    - d
+    - f
+    - j
+    passported_to:
+    - BG
+    - CZ
+    - EE
+    - HR
+    - HU
+    - LT
+    - LV
+    - PL
+    - RO
+    - SI
+    - SK
+    last_update: '2026-06-26'
+countries:
+  BG:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: SIA AlphaRoute
+  CZ:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: SIA AlphaRoute
+  EE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: SIA AlphaRoute
+  HR:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: SIA AlphaRoute
+  HU:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: SIA AlphaRoute
+  LT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: SIA AlphaRoute
+  LV:
+    status: licensed
+    regime: MiCA
+    via: home_state
+    entity: SIA AlphaRoute
+  PL:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: SIA AlphaRoute
+  RO:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: SIA AlphaRoute
+  SI:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: SIA AlphaRoute
+  SK:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: SIA AlphaRoute

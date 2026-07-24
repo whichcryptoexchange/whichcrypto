@@ -1,0 +1,38 @@
+id: firefish
+brand: Firefish
+eu_status: authorised
+sources:
+- name: ESMA interim MiCA register (CASPS.csv)
+  url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
+  retrieved: '2026-07-24'
+entities:
+- lei: 9845004E55FCFA069549
+  legal_name: Firefish Europe s.r.o
+  commercial_name: Firefish
+  home_state: SK
+  regulator: National Bank of Slovakia (NBS)
+  website: https://firefish.io/
+  records:
+  - authorised: '2026-01-02'
+    withdrawn: null
+    status: authorised
+    services:
+    - a
+    - c
+    - d
+    - j
+    passported_to:
+    - CZ
+    - SK
+    last_update: '2026-01-05'
+countries:
+  CZ:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Firefish Europe s.r.o
+  SK:
+    status: licensed
+    regime: MiCA
+    via: home_state
+    entity: Firefish Europe s.r.o

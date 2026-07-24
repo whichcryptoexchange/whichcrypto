@@ -1,0 +1,51 @@
+id: coinfinity
+brand: Coinfinity
+eu_status: authorised
+sources:
+- name: ESMA interim MiCA register (CASPS.csv)
+  url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
+  retrieved: '2026-07-24'
+entities:
+- lei: 529900BSNR4XPZ6WBK17
+  legal_name: Coinfinity GmbH
+  commercial_name: Coinfinity
+  home_state: AT
+  regulator: Austrian Financial Market Authority (FMA)
+  website: https://coinfinity.co
+  records:
+  - authorised: '2025-12-19'
+    withdrawn: null
+    status: authorised
+    services:
+    - a
+    - c
+    - d
+    - h
+    - j
+    passported_to:
+    - AT
+    - DE
+    - LI
+    - LU
+    last_update: '2025-12-19'
+countries:
+  AT:
+    status: licensed
+    regime: MiCA
+    via: home_state
+    entity: Coinfinity GmbH
+  DE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Coinfinity GmbH
+  LI:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Coinfinity GmbH
+  LU:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Coinfinity GmbH

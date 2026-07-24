@@ -1,0 +1,50 @@
+id: webot
+brand: Webot
+eu_status: authorised
+sources:
+- name: ESMA interim MiCA register (CASPS.csv)
+  url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
+  retrieved: '2026-07-24'
+entities:
+- lei: 984500FD0NZ8949F4363
+  legal_name: Pionew Ireland Limited
+  commercial_name: Webot
+  home_state: IE
+  regulator: Central Bank of Ireland (CBI)
+  website: www.webot.com/eu
+  records:
+  - authorised: '2025-12-18'
+    withdrawn: null
+    status: authorised
+    services:
+    - a
+    - b
+    - c
+    - j
+    passported_to:
+    - DE
+    - FR
+    - IE
+    - LT
+    last_update: '2025-12-18'
+countries:
+  DE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Pionew Ireland Limited
+  FR:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Pionew Ireland Limited
+  IE:
+    status: licensed
+    regime: MiCA
+    via: home_state
+    entity: Pionew Ireland Limited
+  LT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Pionew Ireland Limited

@@ -1,0 +1,43 @@
+id: incrementum
+brand: Incrementum
+eu_status: authorised
+sources:
+- name: ESMA interim MiCA register (CASPS.csv)
+  url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
+  retrieved: '2026-07-24'
+entities:
+- lei: 485100UM87L7ILR4L484
+  legal_name: INCREMENTUM družba za izvajanje storitev v zvezi s kriptosredstvi d.o.o
+  commercial_name: Incrementum
+  home_state: SI
+  regulator: Securities Market Agency (ATVP)
+  website: https://incrementum.si/
+  records:
+  - authorised: '2025-11-06'
+    withdrawn: null
+    status: authorised
+    services:
+    - a
+    - h
+    - i
+    passported_to:
+    - HR
+    - IT
+    - SI
+    last_update: '2026-03-04'
+countries:
+  HR:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: INCREMENTUM družba za izvajanje storitev v zvezi s kriptosredstvi d.o.o
+  IT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: INCREMENTUM družba za izvajanje storitev v zvezi s kriptosredstvi d.o.o
+  SI:
+    status: licensed
+    regime: MiCA
+    via: home_state
+    entity: INCREMENTUM družba za izvajanje storitev v zvezi s kriptosredstvi d.o.o

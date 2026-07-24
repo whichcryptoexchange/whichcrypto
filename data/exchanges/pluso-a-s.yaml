@@ -1,36 +1,32 @@
-id: naga-x
-brand: NAGA X
+id: pluso-a-s
+brand: Pluso a.s
 eu_status: authorised
 sources:
 - name: ESMA interim MiCA register (CASPS.csv)
   url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
   retrieved: '2026-07-24'
 entities:
-- lei: 984500DCB2AF415E5Y71
-  legal_name: NAGA X
+- lei: 315700GXG7KIZFLV9R66
+  legal_name: Pluso a.s
   commercial_name: null
-  home_state: CY
-  regulator: Cyprus Securities and Exchange Commission (CySEC)
-  website: www.nagax.com/eu/
+  home_state: CZ
+  regulator: Czech National Bank (CNB)
+  website: https://www.pluso.cz/
   records:
-  - authorised: '2026-06-08'
+  - authorised: '2026-02-27'
     withdrawn: null
     status: authorised
     services:
     - a
     - c
     - d
-    - e
-    - g
-    - h
-    - i
     - j
     passported_to:
-    - CY
-    last_update: '2026-07-15'
+    - CZ
+    last_update: '2026-03-02'
 countries:
-  CY:
+  CZ:
     status: licensed
     regime: MiCA
     via: home_state
-    entity: NAGA X
+    entity: Pluso a.s

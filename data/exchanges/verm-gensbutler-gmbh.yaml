@@ -1,0 +1,30 @@
+id: verm-gensbutler-gmbh
+brand: Vermögensbutler GmbH
+eu_status: authorised
+sources:
+- name: ESMA interim MiCA register (CASPS.csv)
+  url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
+  retrieved: '2026-07-24'
+entities:
+- lei: 529900ADW3Q5TWADIL41
+  legal_name: Vermögensbutler GmbH
+  commercial_name: Vermögensbutler GmbH
+  home_state: DE
+  regulator: Federal Financial Supervisory Authority (BaFin)
+  website: www.vermoegensbutler.de
+  records:
+  - authorised: '2026-05-06'
+    withdrawn: null
+    status: authorised
+    services:
+    - g
+    - h
+    passported_to:
+    - DE
+    last_update: '2026-05-12'
+countries:
+  DE:
+    status: licensed
+    regime: MiCA
+    via: home_state
+    entity: Vermögensbutler GmbH

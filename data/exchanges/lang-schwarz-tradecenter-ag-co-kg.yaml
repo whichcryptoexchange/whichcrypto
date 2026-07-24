@@ -1,0 +1,30 @@
+id: lang-schwarz-tradecenter-ag-co-kg
+brand: Lang & Schwarz TradeCenter AG & Co. KG
+eu_status: authorised
+sources:
+- name: ESMA interim MiCA register (CASPS.csv)
+  url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
+  retrieved: '2026-07-24'
+entities:
+- lei: 5299000TZ4OSOOGU1120
+  legal_name: Lang & Schwarz TradeCenter AG & Co. KG
+  commercial_name: Lang & Schwarz TradeCenter AG & Co. KG
+  home_state: DE
+  regulator: Federal Financial Supervisory Authority (BaFin)
+  website: https://www.ls-tc.de/de/
+  records:
+  - authorised: '2025-10-22'
+    withdrawn: null
+    status: authorised
+    services:
+    - c
+    - d
+    passported_to:
+    - DE
+    last_update: '2025-10-22'
+countries:
+  DE:
+    status: licensed
+    regime: MiCA
+    via: home_state
+    entity: Lang & Schwarz TradeCenter AG & Co. KG

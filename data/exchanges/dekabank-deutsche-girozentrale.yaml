@@ -1,0 +1,39 @@
+id: dekabank-deutsche-girozentrale
+brand: DekaBank Deutsche Girozentrale
+eu_status: authorised
+sources:
+- name: ESMA interim MiCA register (CASPS.csv)
+  url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
+  retrieved: '2026-07-24'
+entities:
+- lei: 0W2PZJM8XOY22M4GG883
+  legal_name: DekaBank Deutsche Girozentrale
+  commercial_name: DekaBank Deutsche Girozentrale
+  home_state: DE
+  regulator: Federal Financial Supervisory Authority (BaFin)
+  website: https://www.deka.de/deka-gruppe
+  records:
+  - authorised: '2025-12-01'
+    withdrawn: null
+    status: authorised
+    services:
+    - a
+    - e
+    - j
+    passported_to:
+    - DE
+    last_update: '2025-12-01'
+  - authorised: '2026-06-25'
+    withdrawn: null
+    status: authorised
+    services:
+    - c
+    passported_to:
+    - DE
+    last_update: '2026-06-25'
+countries:
+  DE:
+    status: licensed
+    regime: MiCA
+    via: home_state
+    entity: DekaBank Deutsche Girozentrale

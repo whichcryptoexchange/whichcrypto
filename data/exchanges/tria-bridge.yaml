@@ -1,19 +1,19 @@
-id: naga-x
-brand: NAGA X
+id: tria-bridge
+brand: TRIA BRIDGE
 eu_status: authorised
 sources:
 - name: ESMA interim MiCA register (CASPS.csv)
   url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
   retrieved: '2026-07-24'
 entities:
-- lei: 984500DCB2AF415E5Y71
-  legal_name: NAGA X
-  commercial_name: null
+- lei: 9845007E2C96JA7B8653
+  legal_name: TRIA BRIDGE LIMITED (ex Tokenomica Bridge Ltd)
+  commercial_name: TRIA BRIDGE
   home_state: CY
   regulator: Cyprus Securities and Exchange Commission (CySEC)
-  website: www.nagax.com/eu/
+  website: https://triabridge.com/
   records:
-  - authorised: '2026-06-08'
+  - authorised: '2026-06-29'
     withdrawn: null
     status: authorised
     services:
@@ -21,7 +21,6 @@ entities:
     - c
     - d
     - e
-    - g
     - h
     - i
     - j
@@ -33,4 +32,4 @@ countries:
     status: licensed
     regime: MiCA
     via: home_state
-    entity: NAGA X
+    entity: TRIA BRIDGE LIMITED (ex Tokenomica Bridge Ltd)

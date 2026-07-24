@@ -1,0 +1,43 @@
+id: hexarq
+brand: HEXARQ
+eu_status: authorised
+sources:
+- name: ESMA interim MiCA register (CASPS.csv)
+  url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
+  retrieved: '2026-07-24'
+entities:
+- lei: 969500TD4VXAOPXPVW02
+  legal_name: HEXARQ SAS
+  commercial_name: HEXARQ
+  home_state: FR
+  regulator: Autorité des Marchés Financiers (AMF)
+  website: https://www.hexarq.com/
+  records:
+  - authorised: '2026-02-05'
+    withdrawn: null
+    status: authorised
+    services:
+    - a
+    - c
+    - e
+    - j
+    passported_to:
+    - BE
+    - PT
+    last_update: '2026-02-05'
+countries:
+  BE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: HEXARQ SAS
+  FR:
+    status: licensed
+    regime: MiCA
+    via: home_state
+    entity: HEXARQ SAS
+  PT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: HEXARQ SAS

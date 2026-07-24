@@ -1,45 +1,25 @@
-id: kraken
-brand: Kraken
+id: trade-republic-bank-gmbh
+brand: Trade Republic Bank GmbH
 eu_status: authorised
 sources:
 - name: ESMA interim MiCA register (CASPS.csv)
   url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
   retrieved: '2026-07-24'
 entities:
-- lei: 9845003D98SCC2851458
-  legal_name: Payward Global Solutions Limited
-  commercial_name: Kraken, Kraken Digital Asset Exchange
-  home_state: IE
-  regulator: Central Bank of Ireland (CBI)
-  website: https://www.kraken.com/
+- lei: 5299009IFX1XTKDY4568
+  legal_name: Trade Republic Bank GmbH
+  commercial_name: Trade Republic Bank GmbH
+  home_state: DE
+  regulator: Federal Financial Supervisory Authority (BaFin)
+  website: https://traderepublic.com/
   records:
-  - authorised: '2025-06-25'
-    withdrawn: null
-    status: authorised
-    services:
-    - b
-    passported_to:
-    - CY
-    - IE
-    last_update: '2025-06-25'
-- lei: 254900641D8KNHUZYX24
-  legal_name: Payward Europe Solutions Limited
-  commercial_name: Kraken Digital Asset Exchange (�Kraken�)
-  home_state: IE
-  regulator: Central Bank of Ireland (CBI)
-  website: https://www.kraken.com/
-  records:
-  - authorised: '2025-06-25'
+  - authorised: '2025-04-28'
     withdrawn: null
     status: authorised
     services:
     - a
-    - c
-    - d
     - e
-    - f
     - g
-    - i
     - j
     passported_to:
     - AT
@@ -72,155 +52,155 @@ entities:
     - SE
     - SI
     - SK
-    last_update: '2025-06-25'
+    last_update: '2025-04-24'
 countries:
   AT:
     status: licensed
     regime: MiCA
     via: mica_passporting
-    entity: Payward Europe Solutions Limited
+    entity: Trade Republic Bank GmbH
   BE:
     status: licensed
     regime: MiCA
     via: mica_passporting
-    entity: Payward Europe Solutions Limited
+    entity: Trade Republic Bank GmbH
   BG:
     status: licensed
     regime: MiCA
     via: mica_passporting
-    entity: Payward Europe Solutions Limited
+    entity: Trade Republic Bank GmbH
   CY:
     status: licensed
     regime: MiCA
     via: mica_passporting
-    entity: Payward Global Solutions Limited
+    entity: Trade Republic Bank GmbH
   CZ:
     status: licensed
     regime: MiCA
     via: mica_passporting
-    entity: Payward Europe Solutions Limited
+    entity: Trade Republic Bank GmbH
   DE:
     status: licensed
     regime: MiCA
-    via: mica_passporting
-    entity: Payward Europe Solutions Limited
+    via: home_state
+    entity: Trade Republic Bank GmbH
   DK:
     status: licensed
     regime: MiCA
     via: mica_passporting
-    entity: Payward Europe Solutions Limited
+    entity: Trade Republic Bank GmbH
   EE:
     status: licensed
     regime: MiCA
     via: mica_passporting
-    entity: Payward Europe Solutions Limited
+    entity: Trade Republic Bank GmbH
   ES:
     status: licensed
     regime: MiCA
     via: mica_passporting
-    entity: Payward Europe Solutions Limited
+    entity: Trade Republic Bank GmbH
   FI:
     status: licensed
     regime: MiCA
     via: mica_passporting
-    entity: Payward Europe Solutions Limited
+    entity: Trade Republic Bank GmbH
   FR:
     status: licensed
     regime: MiCA
     via: mica_passporting
-    entity: Payward Europe Solutions Limited
+    entity: Trade Republic Bank GmbH
   GR:
     status: licensed
     regime: MiCA
     via: mica_passporting
-    entity: Payward Europe Solutions Limited
+    entity: Trade Republic Bank GmbH
   HR:
     status: licensed
     regime: MiCA
     via: mica_passporting
-    entity: Payward Europe Solutions Limited
+    entity: Trade Republic Bank GmbH
   HU:
     status: licensed
     regime: MiCA
     via: mica_passporting
-    entity: Payward Europe Solutions Limited
+    entity: Trade Republic Bank GmbH
   IE:
     status: licensed
     regime: MiCA
-    via: home_state
-    entity: Payward Global Solutions Limited
+    via: mica_passporting
+    entity: Trade Republic Bank GmbH
   IS:
     status: licensed
     regime: MiCA
     via: mica_passporting
-    entity: Payward Europe Solutions Limited
+    entity: Trade Republic Bank GmbH
   IT:
     status: licensed
     regime: MiCA
     via: mica_passporting
-    entity: Payward Europe Solutions Limited
+    entity: Trade Republic Bank GmbH
   LI:
     status: licensed
     regime: MiCA
     via: mica_passporting
-    entity: Payward Europe Solutions Limited
+    entity: Trade Republic Bank GmbH
   LT:
     status: licensed
     regime: MiCA
     via: mica_passporting
-    entity: Payward Europe Solutions Limited
+    entity: Trade Republic Bank GmbH
   LU:
     status: licensed
     regime: MiCA
     via: mica_passporting
-    entity: Payward Europe Solutions Limited
+    entity: Trade Republic Bank GmbH
   LV:
     status: licensed
     regime: MiCA
     via: mica_passporting
-    entity: Payward Europe Solutions Limited
+    entity: Trade Republic Bank GmbH
   MT:
     status: licensed
     regime: MiCA
     via: mica_passporting
-    entity: Payward Europe Solutions Limited
+    entity: Trade Republic Bank GmbH
   NL:
     status: licensed
     regime: MiCA
     via: mica_passporting
-    entity: Payward Europe Solutions Limited
+    entity: Trade Republic Bank GmbH
   'NO':
     status: licensed
     regime: MiCA
     via: mica_passporting
-    entity: Payward Europe Solutions Limited
+    entity: Trade Republic Bank GmbH
   PL:
     status: licensed
     regime: MiCA
     via: mica_passporting
-    entity: Payward Europe Solutions Limited
+    entity: Trade Republic Bank GmbH
   PT:
     status: licensed
     regime: MiCA
     via: mica_passporting
-    entity: Payward Europe Solutions Limited
+    entity: Trade Republic Bank GmbH
   RO:
     status: licensed
     regime: MiCA
     via: mica_passporting
-    entity: Payward Europe Solutions Limited
+    entity: Trade Republic Bank GmbH
   SE:
     status: licensed
     regime: MiCA
     via: mica_passporting
-    entity: Payward Europe Solutions Limited
+    entity: Trade Republic Bank GmbH
   SI:
     status: licensed
     regime: MiCA
     via: mica_passporting
-    entity: Payward Europe Solutions Limited
+    entity: Trade Republic Bank GmbH
   SK:
     status: licensed
     regime: MiCA
     via: mica_passporting
-    entity: Payward Europe Solutions Limited
+    entity: Trade Republic Bank GmbH

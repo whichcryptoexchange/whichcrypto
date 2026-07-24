@@ -1,19 +1,19 @@
-id: naga-x
-brand: NAGA X
+id: alaric-securities
+brand: Alaric Securities
 eu_status: authorised
 sources:
 - name: ESMA interim MiCA register (CASPS.csv)
   url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
   retrieved: '2026-07-24'
 entities:
-- lei: 984500DCB2AF415E5Y71
-  legal_name: NAGA X
-  commercial_name: null
-  home_state: CY
-  regulator: Cyprus Securities and Exchange Commission (CySEC)
-  website: www.nagax.com/eu/
+- lei: 549300I48OJHSE9OZS95
+  legal_name: Alaric Securities OOD
+  commercial_name: Alaric Securities
+  home_state: BG
+  regulator: Financial Supervision Commission (FSC)
+  website: https://alaricsecurities.com/
   records:
-  - authorised: '2026-06-08'
+  - authorised: '2025-12-22'
     withdrawn: null
     status: authorised
     services:
@@ -21,16 +21,17 @@ entities:
     - c
     - d
     - e
+    - f
     - g
     - h
     - i
     - j
     passported_to:
-    - CY
-    last_update: '2026-07-15'
+    - BG
+    last_update: '2025-12-22'
 countries:
-  CY:
+  BG:
     status: licensed
     regime: MiCA
     via: home_state
-    entity: NAGA X
+    entity: Alaric Securities OOD

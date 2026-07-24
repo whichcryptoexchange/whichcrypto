@@ -1,36 +1,35 @@
-id: naga-x
-brand: NAGA X
+id: dlt-securities-gmbh
+brand: DLT Securities GmbH
 eu_status: authorised
 sources:
 - name: ESMA interim MiCA register (CASPS.csv)
   url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
   retrieved: '2026-07-24'
 entities:
-- lei: 984500DCB2AF415E5Y71
-  legal_name: NAGA X
-  commercial_name: null
-  home_state: CY
-  regulator: Cyprus Securities and Exchange Commission (CySEC)
-  website: www.nagax.com/eu/
+- lei: 391200EYHDBM1YQI7A32
+  legal_name: DLT Securities GmbH
+  commercial_name: DLT Securities GmbH
+  home_state: DE
+  regulator: Federal Financial Supervisory Authority (BaFin)
+  website: www.dlt-finance.com
   records:
-  - authorised: '2026-06-08'
+  - authorised: '2025-12-18'
     withdrawn: null
     status: authorised
     services:
-    - a
     - c
     - d
     - e
+    - f
     - g
     - h
     - i
-    - j
     passported_to:
-    - CY
-    last_update: '2026-07-15'
+    - DE
+    last_update: '2026-04-01'
 countries:
-  CY:
+  DE:
     status: licensed
     regime: MiCA
     via: home_state
-    entity: NAGA X
+    entity: DLT Securities GmbH

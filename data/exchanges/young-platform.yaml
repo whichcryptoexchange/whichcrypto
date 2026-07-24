@@ -1,0 +1,42 @@
+id: young-platform
+brand: Young Platform
+eu_status: authorised
+sources:
+- name: ESMA interim MiCA register (CASPS.csv)
+  url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
+  retrieved: '2026-07-24'
+entities:
+- lei: 815600F1E30AAB016171
+  legal_name: YOUNG PLATFORM S.P.A
+  commercial_name: Young Platform
+  home_state: IT
+  regulator: Commissione Nazionale per le Societa e la Borsa (CONSOB)
+  website: https://youngplatform.com
+  records:
+  - authorised: '2026-06-30'
+    withdrawn: null
+    status: authorised
+    services:
+    - a
+    - c
+    - d
+    - e
+    - f
+    - h
+    - i
+    - j
+    passported_to:
+    - FR
+    - IT
+    last_update: '2026-06-30'
+countries:
+  FR:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: YOUNG PLATFORM S.P.A
+  IT:
+    status: licensed
+    regime: MiCA
+    via: home_state
+    entity: YOUNG PLATFORM S.P.A

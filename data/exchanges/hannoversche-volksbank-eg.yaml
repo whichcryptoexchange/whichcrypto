@@ -1,0 +1,29 @@
+id: hannoversche-volksbank-eg
+brand: Hannoversche Volksbank eG
+eu_status: authorised
+sources:
+- name: ESMA interim MiCA register (CASPS.csv)
+  url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
+  retrieved: '2026-07-24'
+entities:
+- lei: 529900MQJIQGD8N3YV53
+  legal_name: Hannoversche Volksbank eG
+  commercial_name: Hannoversche Volksbank eG
+  home_state: DE
+  regulator: Federal Financial Supervisory Authority (BaFin)
+  website: https://www.hannoversche-volksbank.de/
+  records:
+  - authorised: '2025-12-12'
+    withdrawn: null
+    status: authorised
+    services:
+    - e
+    passported_to:
+    - DE
+    last_update: '2025-12-12'
+countries:
+  DE:
+    status: licensed
+    regime: MiCA
+    via: home_state
+    entity: Hannoversche Volksbank eG

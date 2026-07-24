@@ -1,0 +1,72 @@
+id: caceis-bank
+brand: CACEIS BANK
+eu_status: authorised
+sources:
+- name: ESMA interim MiCA register (CASPS.csv)
+  url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
+  retrieved: '2026-07-24'
+entities:
+- lei: 96950023SCR9X9F3L662
+  legal_name: CACEIS BANK
+  commercial_name: CACEIS BANK
+  home_state: FR
+  regulator: Autorité des Marchés Financiers (AMF)
+  website: http://www.caceis.com
+  records:
+  - authorised: '2025-06-23'
+    withdrawn: null
+    status: authorised
+    services:
+    - a
+    - g
+    - j
+    passported_to:
+    - BE
+    - DE
+    - ES
+    - IE
+    - IT
+    - LU
+    - NL
+    last_update: '2025-06-23'
+countries:
+  BE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: CACEIS BANK
+  DE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: CACEIS BANK
+  ES:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: CACEIS BANK
+  FR:
+    status: licensed
+    regime: MiCA
+    via: home_state
+    entity: CACEIS BANK
+  IE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: CACEIS BANK
+  IT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: CACEIS BANK
+  LU:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: CACEIS BANK
+  NL:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: CACEIS BANK

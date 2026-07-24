@@ -1,0 +1,65 @@
+id: crypto-am
+brand: CRYPTO-AM
+eu_status: authorised
+sources:
+- name: ESMA interim MiCA register (CASPS.csv)
+  url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
+  retrieved: '2026-07-24'
+entities:
+- lei: 969500USEY22T9ZZRQ98
+  legal_name: MEREAU FINANCE SAS
+  commercial_name: CRYPTO-AM
+  home_state: FR
+  regulator: Autorité des Marchés Financiers (AMF)
+  website: https://crypto-assets-management.com/
+  records:
+  - authorised: '2026-06-30'
+    withdrawn: null
+    status: authorised
+    services:
+    - h
+    - i
+    passported_to:
+    - BE
+    - DE
+    - ES
+    - IT
+    - LU
+    - NL
+    last_update: '2026-06-30'
+countries:
+  BE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: MEREAU FINANCE SAS
+  DE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: MEREAU FINANCE SAS
+  ES:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: MEREAU FINANCE SAS
+  FR:
+    status: licensed
+    regime: MiCA
+    via: home_state
+    entity: MEREAU FINANCE SAS
+  IT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: MEREAU FINANCE SAS
+  LU:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: MEREAU FINANCE SAS
+  NL:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: MEREAU FINANCE SAS

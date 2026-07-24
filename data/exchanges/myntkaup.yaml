@@ -1,36 +1,32 @@
-id: naga-x
-brand: NAGA X
+id: myntkaup
+brand: Myntkaup
 eu_status: authorised
 sources:
 - name: ESMA interim MiCA register (CASPS.csv)
   url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
   retrieved: '2026-07-24'
 entities:
-- lei: 984500DCB2AF415E5Y71
-  legal_name: NAGA X
-  commercial_name: null
-  home_state: CY
-  regulator: Cyprus Securities and Exchange Commission (CySEC)
-  website: www.nagax.com/eu/
+- lei: 636700BAJ82J2GWSP231
+  legal_name: Myntkaup ehf
+  commercial_name: Myntkaup
+  home_state: IS
+  regulator: Central Bank of Iceland
+  website: https://myntkaup.is/
   records:
-  - authorised: '2026-06-08'
+  - authorised: '2026-06-25'
     withdrawn: null
     status: authorised
     services:
     - a
     - c
     - d
-    - e
-    - g
-    - h
-    - i
     - j
     passported_to:
-    - CY
-    last_update: '2026-07-15'
+    - IS
+    last_update: '2026-06-25'
 countries:
-  CY:
+  IS:
     status: licensed
     regime: MiCA
     via: home_state
-    entity: NAGA X
+    entity: Myntkaup ehf
