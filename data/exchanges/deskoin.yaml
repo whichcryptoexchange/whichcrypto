@@ -1,5 +1,5 @@
 id: deskoin
-brand: DESKOIN
+brand: Deskoin
 eu_status: authorised
 sources:
 - name: ESMA interim MiCA register (CASPS.csv)
@@ -19,6 +19,7 @@ entities:
     services:
     - a
     - c
+    - d
     - e
     - h
     - j

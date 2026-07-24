@@ -1,0 +1,30 @@
+id: stable-mint
+brand: Stable Mint
+eu_status: authorised
+sources:
+- name: ESMA interim MiCA register (CASPS.csv)
+  url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
+  retrieved: '2026-07-24'
+entities:
+- lei: 984500A64C0EA64BC554
+  legal_name: Stable Mint Ltd
+  commercial_name: Stable Mint Ltd
+  home_state: MT
+  regulator: Malta Financial Services Authority (MFSA)
+  website: https://stablemint.io/
+  records:
+  - authorised: '2026-05-29'
+    withdrawn: null
+    status: authorised
+    services:
+    - a
+    - j
+    passported_to:
+    - MT
+    last_update: '2026-06-03'
+countries:
+  MT:
+    status: licensed
+    regime: MiCA
+    via: home_state
+    entity: Stable Mint Ltd

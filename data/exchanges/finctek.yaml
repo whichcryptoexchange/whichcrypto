@@ -19,6 +19,7 @@ entities:
     services:
     - a
     - c
+    - d
     - e
     - f
     - j

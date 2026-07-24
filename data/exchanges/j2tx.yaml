@@ -1,0 +1,210 @@
+id: j2tx
+brand: J2TX
+eu_status: authorised
+sources:
+- name: ESMA interim MiCA register (CASPS.csv)
+  url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
+  retrieved: '2026-07-24'
+entities:
+- lei: 213800186TP6OZSHUV17
+  legal_name: J2TX Ltd
+  commercial_name: null
+  home_state: CY
+  regulator: Cyprus Securities and Exchange Commission (CySEC)
+  website: www.j2tx.com
+  records:
+  - authorised: '2026-03-16'
+    withdrawn: null
+    status: authorised
+    services:
+    - a
+    - c
+    - d
+    - e
+    - g
+    - h
+    - i
+    - j
+    passported_to:
+    - AT
+    - BE
+    - BG
+    - CY
+    - CZ
+    - DE
+    - DK
+    - EE
+    - ES
+    - FI
+    - FR
+    - GR
+    - HR
+    - HU
+    - IE
+    - IS
+    - IT
+    - LI
+    - LT
+    - LU
+    - LV
+    - MT
+    - NL
+    - 'NO'
+    - PL
+    - PT
+    - RO
+    - SE
+    - SI
+    - SK
+    last_update: '2026-05-21'
+countries:
+  AT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: J2TX Ltd
+  BE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: J2TX Ltd
+  BG:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: J2TX Ltd
+  CY:
+    status: licensed
+    regime: MiCA
+    via: home_state
+    entity: J2TX Ltd
+  CZ:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: J2TX Ltd
+  DE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: J2TX Ltd
+  DK:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: J2TX Ltd
+  EE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: J2TX Ltd
+  ES:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: J2TX Ltd
+  FI:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: J2TX Ltd
+  FR:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: J2TX Ltd
+  GR:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: J2TX Ltd
+  HR:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: J2TX Ltd
+  HU:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: J2TX Ltd
+  IE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: J2TX Ltd
+  IS:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: J2TX Ltd
+  IT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: J2TX Ltd
+  LI:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: J2TX Ltd
+  LT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: J2TX Ltd
+  LU:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: J2TX Ltd
+  LV:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: J2TX Ltd
+  MT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: J2TX Ltd
+  NL:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: J2TX Ltd
+  'NO':
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: J2TX Ltd
+  PL:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: J2TX Ltd
+  PT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: J2TX Ltd
+  RO:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: J2TX Ltd
+  SE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: J2TX Ltd
+  SI:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: J2TX Ltd
+  SK:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: J2TX Ltd

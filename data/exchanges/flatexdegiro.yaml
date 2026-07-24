@@ -1,0 +1,226 @@
+id: flatexdegiro
+brand: flatexDEGIRO
+eu_status: authorised
+sources:
+- name: ESMA interim MiCA register (CASPS.csv)
+  url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
+  retrieved: '2026-07-24'
+entities:
+- lei: 529900MKYC1FZ83V3121
+  legal_name: flatexDEGIRO Bank AG
+  commercial_name: flatexDEGIRO Bank AG
+  home_state: DE
+  regulator: Federal Financial Supervisory Authority (BaFin)
+  website: www.flatexdegiro.com/de/flatexdegiro-bank/login
+  records:
+  - authorised: '2025-04-04'
+    withdrawn: null
+    status: authorised
+    services:
+    - e
+    passported_to:
+    - AT
+    - BE
+    - CZ
+    - DE
+    - DK
+    - ES
+    - FI
+    - FR
+    - GR
+    - IE
+    - IT
+    - NL
+    - PL
+    - PT
+    - SE
+    last_update: '2025-04-04'
+- lei: 529900P0204W9HA8JP36
+  legal_name: 360 Treasury Systems AG
+  commercial_name: flatexDEGIRO Bank AG
+  home_state: DE
+  regulator: Federal Financial Supervisory Authority (BaFin)
+  website: www.360t.com
+  records:
+  - authorised: '2025-04-02'
+    withdrawn: null
+    status: authorised
+    services:
+    - b
+    passported_to:
+    - AT
+    - BE
+    - BG
+    - CY
+    - CZ
+    - DE
+    - DK
+    - EE
+    - ES
+    - FI
+    - FR
+    - GR
+    - HR
+    - HU
+    - IE
+    - IT
+    - LI
+    - LT
+    - LU
+    - LV
+    - MT
+    - NL
+    - 'NO'
+    - PL
+    - PT
+    - RO
+    - SE
+    - SI
+    - SK
+    last_update: '2025-04-10'
+countries:
+  AT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: flatexDEGIRO Bank AG
+  BE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: flatexDEGIRO Bank AG
+  BG:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: 360 Treasury Systems AG
+  CY:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: 360 Treasury Systems AG
+  CZ:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: flatexDEGIRO Bank AG
+  DE:
+    status: licensed
+    regime: MiCA
+    via: home_state
+    entity: flatexDEGIRO Bank AG
+  DK:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: flatexDEGIRO Bank AG
+  EE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: 360 Treasury Systems AG
+  ES:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: flatexDEGIRO Bank AG
+  FI:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: flatexDEGIRO Bank AG
+  FR:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: flatexDEGIRO Bank AG
+  GR:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: flatexDEGIRO Bank AG
+  HR:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: 360 Treasury Systems AG
+  HU:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: 360 Treasury Systems AG
+  IE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: flatexDEGIRO Bank AG
+  IT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: flatexDEGIRO Bank AG
+  LI:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: 360 Treasury Systems AG
+  LT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: 360 Treasury Systems AG
+  LU:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: 360 Treasury Systems AG
+  LV:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: 360 Treasury Systems AG
+  MT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: 360 Treasury Systems AG
+  NL:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: flatexDEGIRO Bank AG
+  'NO':
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: 360 Treasury Systems AG
+  PL:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: flatexDEGIRO Bank AG
+  PT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: flatexDEGIRO Bank AG
+  RO:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: 360 Treasury Systems AG
+  SE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: flatexDEGIRO Bank AG
+  SI:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: 360 Treasury Systems AG
+  SK:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: 360 Treasury Systems AG

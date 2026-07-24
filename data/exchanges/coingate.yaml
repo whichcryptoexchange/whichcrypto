@@ -1,5 +1,5 @@
 id: coingate
-brand: Coingate
+brand: CoinGate
 eu_status: authorised
 sources:
 - name: ESMA interim MiCA register (CASPS.csv)

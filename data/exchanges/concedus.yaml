@@ -1,0 +1,30 @@
+id: concedus
+brand: Concedus
+eu_status: authorised
+sources:
+- name: ESMA interim MiCA register (CASPS.csv)
+  url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
+  retrieved: '2026-07-24'
+entities:
+- lei: 529900114Q5XQ6KLYR24
+  legal_name: CONCEDUS GmbH
+  commercial_name: CONCEDUS GmbH
+  home_state: DE
+  regulator: Federal Financial Supervisory Authority (BaFin)
+  website: https://concedus.com/
+  records:
+  - authorised: '2026-01-15'
+    withdrawn: null
+    status: authorised
+    services:
+    - g
+    - h
+    passported_to:
+    - DE
+    last_update: '2026-03-19'
+countries:
+  DE:
+    status: licensed
+    regime: MiCA
+    via: home_state
+    entity: CONCEDUS GmbH

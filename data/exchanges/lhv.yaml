@@ -1,0 +1,30 @@
+id: lhv
+brand: LHV
+eu_status: authorised
+sources:
+- name: ESMA interim MiCA register (CASPS.csv)
+  url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
+  retrieved: '2026-07-24'
+entities:
+- lei: 529900GJOSVHI055QR67
+  legal_name: AS LHV Pank
+  commercial_name: AS LHV Pank
+  home_state: EE
+  regulator: Estonian Financial Supervision Authority (EFSA)
+  website: https://www.lhv.ee
+  records:
+  - authorised: '2026-05-18'
+    withdrawn: null
+    status: authorised
+    services:
+    - a
+    - g
+    passported_to:
+    - EE
+    last_update: '2026-06-02'
+countries:
+  EE:
+    status: licensed
+    regime: MiCA
+    via: home_state
+    entity: AS LHV Pank

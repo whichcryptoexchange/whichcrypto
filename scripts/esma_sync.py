@@ -53,7 +53,7 @@ SERVICE_KEYWORDS = [
     ("custody and administration", "a"),
     ("operation of a trading platform", "b"),
     ("exchange of crypto-assets for funds", "c"),
-    ("for other crypto", "d"),          # catches "other crypto-assets" and "other crypto assets"
+    ("crypto-assets for other", "d"),  # covers AMF (FR) truncation ("...for other" with no suffix) and the "exchange for" vs "exchange of" typo
     ("execution of orders", "e"),
     ("placing of crypto-assets", "f"),
     ("reception and transmission", "g"),
@@ -83,6 +83,16 @@ LIST_SPLIT = re.compile(r"\s*\|\s*|\n+|\s+I\s+")
 
 def clean(s: str) -> str:
     return (s or "").replace("\ufeff", "").strip().strip(".").strip()
+
+
+def primary_alias(raw: str):
+    """Some rows list multiple trading names in one field (e.g. "Amdax B.V.|Amdax
+    Group|Novelist"). Take the first as the primary commercial name."""
+    for tok in LIST_SPLIT.split(raw or ""):
+        tok = clean(tok)
+        if tok:
+            return tok
+    return None
 
 
 def parse_date(raw: str):
@@ -173,7 +183,7 @@ def main():
         ent = entities.setdefault(key, {
             "lei": lei or None,
             "legal_name": legal_name,
-            "commercial_name": clean(row.get("ae_commercial_name", "")) or None,
+            "commercial_name": primary_alias(row.get("ae_commercial_name", "")),
             "home_state": clean(row.get("ae_homeMemberState", "")).upper() or None,
             "regulator": clean(row.get("ae_competentAuthority", "")) or None,
             "website": clean(row.get("ae_website", "")) or None,
@@ -228,6 +238,10 @@ def main():
 
     out_dir = DATA / "exchanges"
     out_dir.mkdir(parents=True, exist_ok=True)
+    current_ids = set(brands.keys())
+    for stale in out_dir.glob("*.yaml"):
+        if stale.stem not in current_ids:
+            stale.unlink()
     for bid, b in sorted(brands.items()):
         payload = {
             "id": b["id"],

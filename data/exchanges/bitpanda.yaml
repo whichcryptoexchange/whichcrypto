@@ -56,6 +56,53 @@ entities:
     - SI
     - SK
     last_update: '2025-04-18'
+- lei: 9845005X9B7N610K0093
+  legal_name: Bitpanda Asset Management GmbH
+  commercial_name: Bitpanda Asset Management GmbH
+  home_state: DE
+  regulator: Federal Financial Supervisory Authority (BaFin)
+  website: www.bitpanda.com
+  records:
+  - authorised: '2025-01-24'
+    withdrawn: null
+    status: authorised
+    services:
+    - a
+    - c
+    - d
+    - j
+    passported_to:
+    - AT
+    - BE
+    - BG
+    - CY
+    - CZ
+    - DE
+    - DK
+    - EE
+    - ES
+    - FI
+    - FR
+    - GR
+    - HR
+    - HU
+    - IE
+    - IS
+    - IT
+    - LI
+    - LT
+    - LU
+    - LV
+    - MT
+    - NL
+    - 'NO'
+    - PL
+    - PT
+    - RO
+    - SE
+    - SI
+    - SK
+    last_update: '2025-02-06'
 - lei: 984500DEID7B03J77118
   legal_name: BP23 CA Limited
   commercial_name: Bitpanda

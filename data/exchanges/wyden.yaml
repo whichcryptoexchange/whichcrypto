@@ -1,0 +1,29 @@
+id: wyden
+brand: Wyden
+eu_status: authorised
+sources:
+- name: ESMA interim MiCA register (CASPS.csv)
+  url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
+  retrieved: '2026-07-24'
+entities:
+- lei: 391200DN4V2D0IBP3S36
+  legal_name: Wyden Capital AG
+  commercial_name: Wyden Capital AG
+  home_state: LI
+  regulator: Finanzmarktaufsicht (FMA)
+  website: https://www.wydencapital.com/en/
+  records:
+  - authorised: '2026-02-12'
+    withdrawn: null
+    status: authorised
+    services:
+    - i
+    passported_to:
+    - LI
+    last_update: '2026-02-25'
+countries:
+  LI:
+    status: licensed
+    regime: MiCA
+    via: home_state
+    entity: Wyden Capital AG

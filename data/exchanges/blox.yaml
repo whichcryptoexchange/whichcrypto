@@ -1,0 +1,49 @@
+id: blox
+brand: BLOX
+eu_status: authorised
+sources:
+- name: ESMA interim MiCA register (CASPS.csv)
+  url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
+  retrieved: '2026-07-24'
+entities:
+- lei: 724500Z8JCXSX3351I94
+  legal_name: BLOX B.V
+  commercial_name: BLOX B.V
+  home_state: NL
+  regulator: Netherlands Authority for the Financial Markets (AFM)
+  website: https://weareblox.com/
+  records:
+  - authorised: '2025-09-30'
+    withdrawn: null
+    status: authorised
+    services:
+    - a
+    - c
+    - j
+    passported_to:
+    - BE
+    - DE
+    - ES
+    - NL
+    last_update: '2025-10-01'
+countries:
+  BE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: BLOX B.V
+  DE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: BLOX B.V
+  ES:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: BLOX B.V
+  NL:
+    status: licensed
+    regime: MiCA
+    via: home_state
+    entity: BLOX B.V

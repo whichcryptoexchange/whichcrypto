@@ -1,5 +1,5 @@
 id: fipto
-brand: FIPTO
+brand: Fipto
 eu_status: authorised
 sources:
 - name: ESMA interim MiCA register (CASPS.csv)
@@ -19,6 +19,7 @@ entities:
     services:
     - a
     - c
+    - d
     - e
     - j
     passported_to:

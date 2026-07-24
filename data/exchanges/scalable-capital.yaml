@@ -1,0 +1,29 @@
+id: scalable-capital
+brand: Scalable Capital
+eu_status: authorised
+sources:
+- name: ESMA interim MiCA register (CASPS.csv)
+  url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
+  retrieved: '2026-07-24'
+entities:
+- lei: 391200Y3EUNL4LTXRP94
+  legal_name: Scalable Capital Bank GmbH
+  commercial_name: Scalable Capital Bank GmbH
+  home_state: DE
+  regulator: Federal Financial Supervisory Authority (BaFin)
+  website: www.scalable.capital
+  records:
+  - authorised: '2026-03-02'
+    withdrawn: null
+    status: authorised
+    services:
+    - h
+    passported_to:
+    - DE
+    last_update: '2026-03-02'
+countries:
+  DE:
+    status: licensed
+    regime: MiCA
+    via: home_state
+    entity: Scalable Capital Bank GmbH

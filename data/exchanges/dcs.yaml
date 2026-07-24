@@ -1,0 +1,31 @@
+id: dcs
+brand: DCS
+eu_status: authorised
+sources:
+- name: ESMA interim MiCA register (CASPS.csv)
+  url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
+  retrieved: '2026-07-24'
+entities:
+- lei: 724500QZRWKCU8D2L569
+  legal_name: Digital Currency Services B.V
+  commercial_name: DCS
+  home_state: NL
+  regulator: Netherlands Authority for the Financial Markets (AFM)
+  website: https://happycoins.com/
+  records:
+  - authorised: '2026-06-30'
+    withdrawn: null
+    status: authorised
+    services:
+    - a
+    - c
+    - j
+    passported_to:
+    - NL
+    last_update: '2026-06-30'
+countries:
+  NL:
+    status: licensed
+    regime: MiCA
+    via: home_state
+    entity: Digital Currency Services B.V

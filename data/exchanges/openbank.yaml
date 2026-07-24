@@ -1,5 +1,5 @@
 id: openbank
-brand: OPENBANK
+brand: Openbank
 eu_status: authorised
 sources:
 - name: ESMA interim MiCA register (CASPS.csv)

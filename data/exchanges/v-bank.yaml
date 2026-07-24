@@ -1,0 +1,31 @@
+id: v-bank
+brand: V-Bank
+eu_status: authorised
+sources:
+- name: ESMA interim MiCA register (CASPS.csv)
+  url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
+  retrieved: '2026-07-24'
+entities:
+- lei: 529900FB29C36LKTAW50
+  legal_name: V-Bank AG
+  commercial_name: V-Bank AG
+  home_state: DE
+  regulator: Federal Financial Supervisory Authority (BaFin)
+  website: https://www.v-bank.com/
+  records:
+  - authorised: '2025-09-19'
+    withdrawn: null
+    status: authorised
+    services:
+    - a
+    - e
+    - j
+    passported_to:
+    - DE
+    last_update: '2025-09-19'
+countries:
+  DE:
+    status: licensed
+    regime: MiCA
+    via: home_state
+    entity: V-Bank AG

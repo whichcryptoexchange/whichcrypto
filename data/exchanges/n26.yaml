@@ -1,0 +1,65 @@
+id: n26
+brand: N26
+eu_status: authorised
+sources:
+- name: ESMA interim MiCA register (CASPS.csv)
+  url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
+  retrieved: '2026-07-24'
+entities:
+- lei: 529900JB9XYZ8E87N345
+  legal_name: N26 Bank SE
+  commercial_name: N26 Bank SE
+  home_state: DE
+  regulator: Federal Financial Supervisory Authority (BaFin)
+  website: N26 – Die erste Onlinebank, die du lieben wirst
+  records:
+  - authorised: '2025-05-14'
+    withdrawn: null
+    status: authorised
+    services:
+    - g
+    passported_to:
+    - AT
+    - BE
+    - DE
+    - ES
+    - FR
+    - IE
+    - PT
+    last_update: '2025-05-14'
+countries:
+  AT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: N26 Bank SE
+  BE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: N26 Bank SE
+  DE:
+    status: licensed
+    regime: MiCA
+    via: home_state
+    entity: N26 Bank SE
+  ES:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: N26 Bank SE
+  FR:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: N26 Bank SE
+  IE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: N26 Bank SE
+  PT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: N26 Bank SE

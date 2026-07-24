@@ -1,5 +1,5 @@
 id: paytop
-brand: PAYTOP
+brand: Paytop
 eu_status: authorised
 sources:
 - name: ESMA interim MiCA register (CASPS.csv)

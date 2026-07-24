@@ -1,5 +1,5 @@
 id: paymium
-brand: PAYMIUM
+brand: Paymium
 eu_status: authorised
 sources:
 - name: ESMA interim MiCA register (CASPS.csv)
@@ -20,6 +20,7 @@ entities:
     - a
     - b
     - c
+    - d
     - e
     - j
     passported_to:
