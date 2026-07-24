@@ -79,6 +79,7 @@ h1 {
 .stamp.gb-registered { color: var(--caution); }
 .stamp.gb-authorised { color: var(--ink-soft); }
 .gb-tier + .gb-tier { margin-top: 6px; }
+.stamp + .stamp { margin-left: 8px; }
 
 /* Country picker */
 .picker { margin: 0 0 44px; }
@@ -123,6 +124,7 @@ h1 {
 }
 .country-grid a:hover { border-color: var(--ink); }
 .country-grid .cc { font-family: var(--mono); font-size: 11px; color: var(--ink-soft); margin-right: 6px; }
+.country-grid .cc.flag { font-family: initial; font-size: 16px; line-height: 1; vertical-align: -2px; }
 
 /* Registry table */
 .registry { width: 100%; border-collapse: collapse; margin: 0 0 40px; background: var(--card); border: 1px solid var(--rule); }

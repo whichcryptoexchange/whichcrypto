@@ -1,5 +1,5 @@
 ---
-import { loadExchanges, countriesInData, COUNTRY_NAMES } from '../lib/data.js';
+import { loadExchanges, countriesInData, COUNTRY_NAMES, countryFlag } from '../lib/data.js';
 import '../styles/global.css';
 const exchanges = loadExchanges();
 const countries = countriesInData(exchanges);
@@ -38,7 +38,7 @@ const active = exchanges.filter((e) => e.eu_status === 'authorised').length;
 
     <ul class="country-grid">
       {countries.map((c) => (
-        <li><a href={`/${c.toLowerCase()}/`}><span class="cc">{c}</span>{COUNTRY_NAMES[c] ?? c}</a></li>
+        <li><a href={`/${c.toLowerCase()}/`}><span class="cc flag">{countryFlag(c)}</span>{COUNTRY_NAMES[c] ?? c}</a></li>
       ))}
     </ul>
   </main>

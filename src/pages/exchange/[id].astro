@@ -1,12 +1,14 @@
 ---
-import { loadExchanges, COUNTRY_NAMES, SERVICE_NAMES } from '../../lib/data.js';
+import { loadExchanges, COUNTRY_NAMES, SERVICE_NAMES, countryFlag } from '../../lib/data.js';
 import '../../styles/global.css';
 
 export function getStaticPaths() {
   return loadExchanges().map((ex) => ({ params: { id: ex.id }, props: { ex } }));
 }
 const { ex } = Astro.props;
-const countryCodes = Object.keys(ex.countries ?? {});
+const countryCodes = Object.keys(ex.countries ?? {})
+  .sort((a, b) => (COUNTRY_NAMES[a] ?? a).localeCompare(COUNTRY_NAMES[b] ?? b));
+const gbEntries = ex.countries?.GB;
 // Turnstile site keys are public by design (embedded in client HTML), so hardcoding
 // this as a fallback is safe. The env var still wins if the build environment sets it.
 const SITEKEY = import.meta.env.PUBLIC_TURNSTILE_SITEKEY || '0x4AAAAAAD84t4OWkoouLP3Y';
@@ -32,6 +34,11 @@ const SITEKEY = import.meta.env.PUBLIC_TURNSTILE_SITEKEY || '0x4AAAAAAD84t4OWkoo
       {ex.eu_status === 'authorised'
         ? <span class="stamp licensed">EU · MiCA Authorised</span>
         : <span class="stamp withdrawn">EU · Authorisation Withdrawn</span>}
+      {gbEntries && gbEntries.map((entry) => (
+        <span class={`stamp ${entry.status === 'registered' ? 'gb-registered' : 'gb-authorised'}`}>
+          UK · {entry.status === 'registered' ? 'Registered' : 'Authorised'}
+        </span>
+      ))}
     </p>
 
     {ex.entities.map((ent) => ent.records.map((rec) => (
@@ -52,7 +59,7 @@ const SITEKEY = import.meta.env.PUBLIC_TURNSTILE_SITEKEY || '0x4AAAAAAD84t4OWkoo
     <h3>Countries covered ({countryCodes.length})</h3>
     <ul class="country-grid">
       {countryCodes.map((c) => (
-        <li><a href={`/${c.toLowerCase()}/`}><span class="cc">{c}</span>{COUNTRY_NAMES[c] ?? c}</a></li>
+        <li><a href={`/${c.toLowerCase()}/`}><span class="cc flag">{countryFlag(c)}</span>{COUNTRY_NAMES[c] ?? c}</a></li>
       ))}
     </ul>
 

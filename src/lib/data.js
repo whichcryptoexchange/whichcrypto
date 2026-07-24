@@ -15,7 +15,15 @@ export function loadExchanges() {
 export function countriesInData(exchanges) {
   const set = new Set();
   for (const ex of exchanges) for (const c of Object.keys(ex.countries || {})) set.add(c);
-  return [...set].sort();
+  return [...set].sort((a, b) => (COUNTRY_NAMES[a] ?? a).localeCompare(COUNTRY_NAMES[b] ?? b));
+}
+
+// ISO 3166-1 alpha-2 -> flag emoji, via the regional indicator symbol trick
+// (each letter maps to U+1F1E6..U+1F1FF, offset from 'A').
+export function countryFlag(code) {
+  return [...code.toUpperCase()]
+    .map((c) => String.fromCodePoint(127397 + c.charCodeAt(0)))
+    .join('');
 }
 
 export const COUNTRY_NAMES = {
