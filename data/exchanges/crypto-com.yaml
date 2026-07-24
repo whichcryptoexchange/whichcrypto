@@ -5,6 +5,9 @@ sources:
 - name: ESMA interim MiCA register (CASPS.csv)
   url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
   retrieved: '2026-07-24'
+- name: UK FCA Register
+  url: https://register.fca.org.uk/
+  retrieved: '2026-07-24'
 entities:
 - lei: 2549005CVR5HH70FDO07
   legal_name: Foris DAX MT Limited
@@ -205,3 +208,10 @@ countries:
     regime: MiCA
     via: mica_passporting
     entity: Foris DAX MT Limited
+  GB:
+  - status: registered
+    regime: UK MLR registration
+    via: uk_register
+    entity: FORIS DAX UK LIMITED
+    frn: '941745'
+    since: '2022-08-16'

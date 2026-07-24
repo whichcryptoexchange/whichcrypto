@@ -5,6 +5,9 @@ sources:
 - name: ESMA interim MiCA register (CASPS.csv)
   url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
   retrieved: '2026-07-24'
+- name: UK FCA Register
+  url: https://register.fca.org.uk/
+  retrieved: '2026-07-24'
 entities:
 - lei: 2138002QAMX8PPKSO715
   legal_name: Gemini Intergalactic EU Ltd
@@ -206,3 +209,16 @@ countries:
     regime: MiCA
     via: mica_passporting
     entity: Gemini Intergalactic EU Ltd
+  GB:
+  - status: registered
+    regime: UK MLR registration
+    via: uk_register
+    entity: Gemini Payments UK, LTD
+    frn: '900988'
+    since: '2020-08-19'
+  - status: registered
+    regime: UK MLR registration
+    via: uk_register
+    entity: GEMINI INTERGALACTIC UK, LTD
+    frn: '921817'
+    since: '2020-08-19'

@@ -5,6 +5,9 @@ sources:
 - name: ESMA interim MiCA register (CASPS.csv)
   url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
   retrieved: '2026-07-24'
+- name: UK FCA Register
+  url: https://register.fca.org.uk/
+  retrieved: '2026-07-24'
 entities:
 - lei: 984500F14CA4571AAC11
   legal_name: Coinbase Luxembourg S.A
@@ -207,3 +210,10 @@ countries:
     regime: MiCA
     via: mica_passporting
     entity: Coinbase Luxembourg S.A
+  GB:
+  - status: registered
+    regime: UK MLR registration
+    via: uk_register
+    entity: CB Payments Ltd
+    frn: '900635'
+    since: '2025-02-03'

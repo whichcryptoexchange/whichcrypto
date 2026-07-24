@@ -72,6 +72,13 @@ h1 {
 .stamp.withdrawn { color: var(--warned); }
 .stamp.caution { color: var(--caution); }
 .stamp.neutral { color: var(--ink-soft); }
+/* UK tiers are deliberately NOT .licensed green: an MLR registration is AML
+   supervision, not a licence, and a full FCA authorisation here usually
+   covers a different (non-crypto) activity — neither should read as
+   equivalent to an EEA MiCA licence. */
+.stamp.gb-registered { color: var(--caution); }
+.stamp.gb-authorised { color: var(--ink-soft); }
+.gb-tier + .gb-tier { margin-top: 6px; }
 
 /* Country picker */
 .picker { margin: 0 0 44px; }

@@ -26,6 +26,7 @@ export const COUNTRY_NAMES = {
   LU: 'Luxembourg', LV: 'Latvia', MT: 'Malta', NL: 'Netherlands',
   NO: 'Norway', PL: 'Poland', PT: 'Portugal', RO: 'Romania', SE: 'Sweden',
   SI: 'Slovenia', SK: 'Slovakia',
+  GB: 'United Kingdom',
 };
 
 export const SERVICE_NAMES = {

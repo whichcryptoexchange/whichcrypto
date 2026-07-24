@@ -12,16 +12,24 @@ export function getStaticPaths() {
 
 const { code, exchanges } = Astro.props;
 const name = COUNTRY_NAMES[code] ?? code;
+const isGB = code === 'GB';
 const rows = exchanges
   .map((ex) => ({ ex, c: ex.countries?.[code] }))
   .filter((r) => r.c);
+const fcaRetrieved = exchanges
+  .flatMap((ex) => ex.sources ?? [])
+  .find((s) => s.name === 'UK FCA Register')?.retrieved;
 ---
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>{`Crypto exchanges licensed in ${name} (${new Date().getFullYear()}) | whichcryptoexchange.com`}</title>
-  <meta name="description" content={`${rows.length} crypto exchanges hold a licence covering ${name}, according to official regulator registers. See which entity, which regime, and since when.`} />
+  <title>{isGB
+    ? `Crypto exchanges registered or authorised in the UK (${new Date().getFullYear()}) | whichcryptoexchange.com`
+    : `Crypto exchanges licensed in ${name} (${new Date().getFullYear()}) | whichcryptoexchange.com`}</title>
+  <meta name="description" content={isGB
+    ? `${rows.length} crypto exchanges hold a UK FCA registration or authorisation, according to the official FCA Register. See which entity, which regime, and since when.`
+    : `${rows.length} crypto exchanges hold a licence covering ${name}, according to official regulator registers. See which entity, which regime, and since when.`} />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet" />
 </head>
@@ -32,16 +40,51 @@ const rows = exchanges
   </div></header>
 
   <main class="wrap">
-    <h1>Which crypto exchanges are licensed in {name}?</h1>
-    <p class="lede">{rows.length} exchanges in our register hold an authorisation covering {name},
-    per the official ESMA MiCA register. Licensed means the regulator says so — not us.</p>
+    {isGB ? (
+      <>
+        <h1>Which crypto exchanges are registered or authorised in the UK?</h1>
+        <p class="lede">{rows.length} exchanges in our register have a UK entity on the FCA Register.
+        The UK does not yet have a dedicated cryptoasset licensing regime — that opens for
+        applications 30 Sep 2026 and is expected to start 25 Oct 2027. Until then, most UK crypto
+        entities hold only an anti-money-laundering <strong>MLR registration</strong>, which is
+        <em> not</em> the same as a licence: it means the FCA supervises the firm for financial
+        crime purposes, not that the FCA has assessed or approved its products or conduct. A
+        smaller number of tracked brands also have a UK entity that is separately, fully
+        <strong> FCA-authorised</strong> — a broader regulatory regime overall, but typically for a
+        different activity (e.g. derivatives or general investment business) than the crypto
+        exchange itself. Both tiers are shown below, clearly labelled.</p>
+      </>
+    ) : (
+      <>
+        <h1>Which crypto exchanges are licensed in {name}?</h1>
+        <p class="lede">{rows.length} exchanges in our register hold an authorisation covering {name},
+        per the official ESMA MiCA register. Licensed means the regulator says so — not us.</p>
+      </>
+    )}
 
     <table class="registry">
       <thead><tr>
-        <th>Exchange</th><th>Status</th><th class="col-services">Services</th><th>Since</th>
+        <th>Exchange</th><th>Status</th>
+        {isGB ? <th>Entity</th> : <th class="col-services">Services</th>}
+        <th>Since</th>
       </tr></thead>
       <tbody>
-        {rows.map(({ ex, c }) => {
+        {isGB ? rows.map(({ ex, c }) => (
+          <tr>
+            <td class="brand"><a href={`/exchange/${ex.id}/`}>{ex.brand}</a></td>
+            <td>
+              {c.map((entry) => (
+                <div class="gb-tier">
+                  <span class={`stamp ${entry.status === 'registered' ? 'gb-registered' : 'gb-authorised'}`}>
+                    {entry.status === 'registered' ? 'Registered' : 'Authorised'} · {entry.regime}
+                  </span>
+                </div>
+              ))}
+            </td>
+            <td class="datum">{c.map((entry) => <div>{entry.entity}</div>)}</td>
+            <td class="datum">{c.map((entry) => <div>{entry.since ?? '—'}</div>)}</td>
+          </tr>
+        )) : rows.map(({ ex, c }) => {
           // Union of services and earliest authorisation date across ALL active
           // records whose reach (home state or passport list) covers this country.
           const covering = ex.entities.flatMap((ent) =>
@@ -69,9 +112,15 @@ const rows = exchanges
       </tbody>
     </table>
 
-    <p class="sourced">Source: <a href="https://www.esma.europa.eu/esmas-activities/digital-finance-and-innovation/markets-crypto-assets-regulation-mica">ESMA interim MiCA register</a>,
-    retrieved {exchanges[0]?.sources?.[0]?.retrieved}. An exchange missing from this list either
-    holds no authorisation covering {name} or is not yet in our register.</p>
+    {isGB ? (
+      <p class="sourced">Source: <a href="https://register.fca.org.uk/">UK FCA Register</a>,
+      retrieved {fcaRetrieved}. An exchange missing from this list either holds no UK FCA
+      registration or authorisation, or is not yet in our register.</p>
+    ) : (
+      <p class="sourced">Source: <a href="https://www.esma.europa.eu/esmas-activities/digital-finance-and-innovation/markets-crypto-assets-regulation-mica">ESMA interim MiCA register</a>,
+      retrieved {exchanges[0]?.sources?.[0]?.retrieved}. An exchange missing from this list either
+      holds no authorisation covering {name} or is not yet in our register.</p>
+    )}
   </main>
 
   <footer class="site"><div class="wrap">

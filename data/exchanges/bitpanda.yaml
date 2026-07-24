@@ -5,6 +5,9 @@ sources:
 - name: ESMA interim MiCA register (CASPS.csv)
   url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
   retrieved: '2026-07-24'
+- name: UK FCA Register
+  url: https://register.fca.org.uk/
+  retrieved: '2026-07-24'
 entities:
 - lei: 5493007WZ7IFULIL8G21
   legal_name: Bitpanda GmbH
@@ -273,3 +276,16 @@ countries:
     regime: MiCA
     via: mica_passporting
     entity: Bitpanda GmbH
+  GB:
+  - status: registered
+    regime: UK MLR registration
+    via: uk_register
+    entity: BITPANDA BROKER UK LTD
+    frn: '925234'
+    since: '2021-10-11'
+  - status: registered
+    regime: UK MLR registration
+    via: uk_register
+    entity: Bitpanda Custody Ltd
+    frn: '928556'
+    since: '2021-10-04'

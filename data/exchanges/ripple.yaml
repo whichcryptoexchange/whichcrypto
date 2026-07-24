@@ -5,6 +5,9 @@ sources:
 - name: ESMA interim MiCA register (CASPS.csv)
   url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
   retrieved: '2026-07-24'
+- name: UK FCA Register
+  url: https://register.fca.org.uk/
+  retrieved: '2026-07-24'
 entities:
 - lei: 2549000KEHDV2LWRRZ45
   legal_name: Ripple Payments Europe S.A
@@ -202,3 +205,16 @@ countries:
     regime: MiCA
     via: mica_passporting
     entity: Ripple Payments Europe S.A
+  GB:
+  - status: registered
+    regime: UK MLR registration
+    via: uk_register
+    entity: RIPPLE MARKETS UK LTD
+    frn: '1028021'
+    since: '2026-01-09'
+  - status: authorised
+    regime: UK FCA authorisation
+    via: uk_register
+    entity: Hidden Road Partners CIV UK Ltd
+    frn: '828692'
+    since: '2022-12-20'

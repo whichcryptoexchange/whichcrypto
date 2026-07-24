@@ -5,6 +5,9 @@ sources:
 - name: ESMA interim MiCA register (CASPS.csv)
   url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
   retrieved: '2026-07-24'
+- name: UK FCA Register
+  url: https://register.fca.org.uk/
+  retrieved: '2026-07-24'
 entities:
 - lei: 213800GIFQMSV7HROS23
   legal_name: eToro (Europe) Ltd
@@ -207,3 +210,10 @@ countries:
     regime: MiCA
     via: mica_passporting
     entity: eToro (Europe) Ltd
+  GB:
+  - status: authorised
+    regime: UK FCA authorisation
+    via: uk_register
+    entity: ETORO (UK) LIMITED
+    frn: '583263'
+    since: '2022-01-14'

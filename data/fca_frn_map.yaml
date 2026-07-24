@@ -1,0 +1,41 @@
+# Brand id -> list of UK legal entity FRNs (Firm Reference Numbers).
+# Verify each FRN on the official register before adding — no guesses.
+# https://register.fca.org.uk/s/search?predefined=CA
+#
+# fca_sync.py fetches live status/regime per FRN at sync time — this file
+# only pins identity, same curation pattern as brand_map.yaml pins LEIs.
+# A brand can have more than one FRN when the UK entity landscape includes
+# both an MLR-registered cryptoasset business and a separately FCA-authorised
+# entity (a fuller regime, but not crypto-specific) — see README-reports.md's
+# sibling note in fca_sync.py for how these render as two tiers.
+
+bitpanda:
+  - frn: "925234"   # Bitpanda Broker UK Ltd
+  - frn: "928556"   # Bitpanda Custody Ltd
+bitstamp:
+  - frn: "978690"   # Bitstamp UK Limited
+coinbase:
+  - frn: "900635"   # CB Payments Ltd
+crypto-com:
+  - frn: "941745"   # Foris DAX UK Limited
+etoro:
+  - frn: "583263"   # eToro (UK) Limited — FCA-authorised (general), not MLR crypto-registered
+gemini:
+  - frn: "900988"   # Gemini Payments UK, Ltd
+  - frn: "921817"   # Gemini Intergalactic UK, Ltd
+hidden-road:
+  - frn: "828692"   # Hidden Road Partners CIV UK Ltd — FCA-authorised (general)
+interactive-brokers:
+  - frn: "208159"   # Interactive Brokers (U.K.) Limited — FCA-authorised (general)
+keyrock:
+  - frn: "1021141"  # Keyrock UK Limited
+kraken:
+  - frn: "928768"   # Payward Ltd. — MLR-registered
+  - frn: "757895"   # Crypto Facilities Ltd — FCA-authorised (general), Kraken's derivatives subsidiary
+moonpay:
+  - frn: "944716"   # MoonPay (UK) Limited
+paysafe:
+  - frn: "900015"   # Paysafe Financial Services Limited
+ripple:
+  - frn: "1028021"  # Ripple Markets UK Ltd
+  - frn: "828692"   # Hidden Road Partners CIV UK Ltd — Ripple acquired Hidden Road in 2025

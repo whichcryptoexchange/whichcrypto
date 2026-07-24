@@ -243,6 +243,21 @@ def main():
         if stale.stem not in current_ids:
             stale.unlink()
     for bid, b in sorted(brands.items()):
+        countries = dict(b["countries"])
+        other_sources = []
+        # Non-EEA data (currently just GB, from fca_sync.py) lives outside
+        # this script's own source of truth. Preserve it across
+        # regenerations rather than silently dropping it.
+        existing_path = out_dir / f"{bid}.yaml"
+        if existing_path.exists():
+            existing = yaml.safe_load(existing_path.read_text()) or {}
+            for cc, entry in (existing.get("countries") or {}).items():
+                if cc not in EEA:
+                    countries[cc] = entry
+            other_sources = [s for s in (existing.get("sources") or [])
+                              if s.get("name") != "ESMA interim MiCA register (CASPS.csv)"]
+        countries = dict(sorted(countries.items()))
+
         payload = {
             "id": b["id"],
             "brand": b["brand"],
@@ -251,11 +266,11 @@ def main():
                 "name": "ESMA interim MiCA register (CASPS.csv)",
                 "url": "https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv",
                 "retrieved": args.as_of,
-            }],
+            }, *other_sources],
             "entities": b["entities"],
-            "countries": b["countries"],
+            "countries": countries,
         }
-        (out_dir / f"{bid}.yaml").write_text(
+        existing_path.write_text(
             yaml.safe_dump(payload, sort_keys=False, allow_unicode=True, width=100)
         )
 
