@@ -10,6 +10,7 @@
     "sync:esma": "python3 scripts/esma_sync.py --input /tmp/CASPS.csv"
   },
   "dependencies": {
+    "@astrojs/sitemap": "^3.2.1",
     "astro": "^4.16.0",
     "js-yaml": "^4.1.0"
   }
