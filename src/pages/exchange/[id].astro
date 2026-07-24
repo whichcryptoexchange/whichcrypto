@@ -7,7 +7,9 @@ export function getStaticPaths() {
 }
 const { ex } = Astro.props;
 const countryCodes = Object.keys(ex.countries ?? {});
-const SITEKEY = import.meta.env.PUBLIC_TURNSTILE_SITEKEY ?? '';
+// Turnstile site keys are public by design (embedded in client HTML), so hardcoding
+// this as a fallback is safe. The env var still wins if the build environment sets it.
+const SITEKEY = import.meta.env.PUBLIC_TURNSTILE_SITEKEY || '0x4AAAAAAD84t4OWkoouLP3Y';
 ---
 <html lang="en">
 <head>
