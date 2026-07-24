@@ -7,6 +7,7 @@ export function getStaticPaths() {
 }
 const { ex } = Astro.props;
 const countryCodes = Object.keys(ex.countries ?? {});
+const SITEKEY = import.meta.env.PUBLIC_TURNSTILE_SITEKEY ?? '';
 ---
 <html lang="en">
 <head>
@@ -53,9 +54,98 @@ const countryCodes = Object.keys(ex.countries ?? {});
       ))}
     </ul>
 
+    <section class="reports" id="reports">
+      <h3>User reports</h3>
+      <p class="sourced">Community-sourced and reviewed before publication. Kept strictly separate
+      from the regulator-sourced data above.</p>
+      <div id="report-aggregates" data-exchange={ex.id}><p class="sourced">Loading reports…</p></div>
+
+      {SITEKEY ? (
+        <details class="report-form">
+          <summary>Do you use {ex.brand} from your country? Report your experience</summary>
+          <form id="report-form">
+            <input type="hidden" name="exchange_id" value={ex.id} />
+            <label>Your country
+              <select name="country" required>
+                <option value="">Select…</option>
+                {Object.entries(COUNTRY_NAMES).map(([cc, n]) => <option value={cc}>{n}</option>)}
+                <option value="GB">United Kingdom</option>
+                <option value="US">United States</option>
+                <option value="AU">Australia</option>
+                <option value="NZ">New Zealand</option>
+                <option value="CA">Canada</option>
+              </select>
+            </label>
+            <label>What happened?
+              <select name="outcome" required>
+                <option value="">Select…</option>
+                <option value="signup_ok">Signed up successfully</option>
+                <option value="signup_blocked">Blocked at signup</option>
+                <option value="kyc_blocked">Blocked at KYC</option>
+                <option value="withdrawal_ok">Withdrawal succeeded</option>
+                <option value="withdrawal_delayed">Withdrawal delayed</option>
+                <option value="withdrawal_refused">Withdrawal refused</option>
+                <option value="account_closed">Account closed by exchange</option>
+                <option value="geo_blocked">Geo-blocked</option>
+              </select>
+            </label>
+            <label>When (optional) <input type="date" name="occurred_on" /></label>
+            <label>Details (optional) <textarea name="detail" maxlength="1000" rows="3"></textarea></label>
+            <div class="cf-turnstile" data-sitekey={SITEKEY}></div>
+            <button type="submit">Submit report</button>
+            <p class="form-msg sourced" role="status"></p>
+          </form>
+        </details>
+      ) : (
+        <p class="sourced">Report submissions are opening soon.</p>
+      )}
+    </section>
+
     <p class="sourced">Source: {ex.sources[0].name}, retrieved {ex.sources[0].retrieved} —
     <a href={ex.sources[0].url}>original file</a>.</p>
   </main>
+
+  {SITEKEY && <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>}
+  <script>
+    // Aggregates: fetched client-side because pages are static.
+    const box = document.getElementById('report-aggregates');
+    fetch('/api/reports/' + box.dataset.exchange)
+      .then((r) => r.ok ? r.json() : Promise.reject())
+      .then((d) => {
+        if (!d.total) { box.innerHTML = '<p class="sourced">No published reports yet — be the first.</p>'; return; }
+        const byCountry = {};
+        for (const row of d.rows) (byCountry[row.country] ??= []).push(row);
+        box.innerHTML = Object.entries(byCountry).map(([cc, rows]) =>
+          `<p><span class="datum">${cc}</span> — ` +
+          rows.map((r) => `${d.labels[r.outcome] ?? r.outcome}: ${r.n}`).join(' · ') + '</p>'
+        ).join('') + `<p class="sourced">${d.total} published report${d.total === 1 ? '' : 's'} in total.</p>`;
+      })
+      .catch(() => { box.innerHTML = '<p class="sourced">Reports unavailable right now.</p>'; });
+
+    // Submission
+    const form = document.getElementById('report-form');
+    form?.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const msg = form.querySelector('.form-msg');
+      const fd = new FormData(form);
+      const token = form.querySelector('[name="cf-turnstile-response"]')?.value;
+      msg.textContent = 'Submitting…';
+      try {
+        const res = await fetch('/api/report', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            exchange_id: fd.get('exchange_id'), country: fd.get('country'),
+            outcome: fd.get('outcome'), occurred_on: fd.get('occurred_on'),
+            detail: fd.get('detail'), turnstile_token: token,
+          }),
+        });
+        const data = await res.json();
+        msg.textContent = data.message ?? data.error ?? 'Something went wrong.';
+        if (res.ok) form.reset();
+      } catch { msg.textContent = 'Network error — please try again.'; }
+    });
+  </script>
 
   <footer class="site"><div class="wrap">
     <p>Independent register. Not affiliated with any regulator. Not financial advice.</p>

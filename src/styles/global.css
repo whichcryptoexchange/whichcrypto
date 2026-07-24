@@ -167,3 +167,20 @@ footer.site a { color: inherit; }
   .record dl { grid-template-columns: 1fr; }
   .registry .col-services { display: none; }
 }
+
+/* User reports */
+.reports { margin: 40px 0 0; }
+.report-form { background: var(--card); border: 1px solid var(--rule); border-radius: 4px; padding: 4px 16px 16px; }
+.report-form summary { cursor: pointer; font-family: var(--display); font-weight: 700; padding: 12px 0; }
+.report-form label { display: block; margin: 12px 0 0; font-size: 14px; }
+.report-form select, .report-form input, .report-form textarea {
+  display: block; width: 100%; max-width: 420px; margin-top: 4px;
+  font: 14px var(--mono); color: var(--ink); background: #fff;
+  border: 1px solid var(--rule); border-radius: 3px; padding: 8px;
+}
+.report-form button {
+  margin-top: 14px; font: 700 15px var(--display); color: #fff;
+  background: var(--ink); border: none; border-radius: 4px; padding: 10px 22px; cursor: pointer;
+}
+.report-form button:hover { background: var(--licensed); }
+.cf-turnstile { margin-top: 14px; }

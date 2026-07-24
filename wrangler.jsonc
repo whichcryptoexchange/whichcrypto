@@ -1,5 +1,19 @@
 {
-  "name": "whichcryptoexchange",
-  "compatibility_date": "2026-07-01",
-  "assets": { "directory": "./dist" }
+	// Static site + report API. Assets are served first; unmatched routes
+	// (the /api/report*, /admin/* paths) fall through to worker/index.js.
+	"name": "whichcryptoexchange",
+	"compatibility_date": "2026-07-01",
+	"main": "worker/index.js",
+	"assets": {
+		"directory": "./dist"
+	},
+	"d1_databases": [
+		{
+			"binding": "DB",
+			"database_name": "wce-reports",
+			"database_id": "ed4d71d1-1303-4212-8357-58279cbda910"
+		}
+	]
+	// Secrets (set via dashboard or `npx wrangler secret put NAME`):
+	//   TURNSTILE_SECRET, ADMIN_KEY, IP_SALT
 }
