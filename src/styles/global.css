@@ -81,6 +81,9 @@ h1 {
 .gb-tier + .gb-tier { margin-top: 6px; }
 .stamp + .stamp { margin-left: 8px; }
 
+.legend { margin: 20px 0 8px; }
+.legend-note { max-width: 62ch; margin: 0 0 32px; }
+
 /* Country picker */
 .picker { margin: 0 0 44px; }
 .picker label {
