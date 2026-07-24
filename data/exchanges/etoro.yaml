@@ -1,0 +1,209 @@
+id: etoro
+brand: eToro
+eu_status: authorised
+sources:
+- name: ESMA interim MiCA register (CASPS.csv)
+  url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
+  retrieved: '2026-07-24'
+entities:
+- lei: 213800GIFQMSV7HROS23
+  legal_name: eToro (Europe) Ltd
+  commercial_name: e Toro
+  home_state: CY
+  regulator: Cyprus Securities and Exchange Commission (CySEC)
+  website: www.etoro.com
+  records:
+  - authorised: '2025-01-16'
+    withdrawn: null
+    status: authorised
+    services:
+    - a
+    - c
+    - e
+    - g
+    - h
+    - i
+    - j
+    passported_to:
+    - AT
+    - BE
+    - BG
+    - CY
+    - CZ
+    - DE
+    - DK
+    - EE
+    - ES
+    - FI
+    - FR
+    - GR
+    - HR
+    - HU
+    - IE
+    - IS
+    - IT
+    - LI
+    - LT
+    - LU
+    - LV
+    - MT
+    - NL
+    - 'NO'
+    - PL
+    - PT
+    - RO
+    - SE
+    - SI
+    - SK
+    last_update: '2025-09-10'
+countries:
+  AT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: eToro (Europe) Ltd
+  BE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: eToro (Europe) Ltd
+  BG:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: eToro (Europe) Ltd
+  CY:
+    status: licensed
+    regime: MiCA
+    via: home_state
+    entity: eToro (Europe) Ltd
+  CZ:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: eToro (Europe) Ltd
+  DE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: eToro (Europe) Ltd
+  DK:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: eToro (Europe) Ltd
+  EE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: eToro (Europe) Ltd
+  ES:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: eToro (Europe) Ltd
+  FI:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: eToro (Europe) Ltd
+  FR:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: eToro (Europe) Ltd
+  GR:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: eToro (Europe) Ltd
+  HR:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: eToro (Europe) Ltd
+  HU:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: eToro (Europe) Ltd
+  IE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: eToro (Europe) Ltd
+  IS:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: eToro (Europe) Ltd
+  IT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: eToro (Europe) Ltd
+  LI:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: eToro (Europe) Ltd
+  LT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: eToro (Europe) Ltd
+  LU:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: eToro (Europe) Ltd
+  LV:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: eToro (Europe) Ltd
+  MT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: eToro (Europe) Ltd
+  NL:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: eToro (Europe) Ltd
+  'NO':
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: eToro (Europe) Ltd
+  PL:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: eToro (Europe) Ltd
+  PT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: eToro (Europe) Ltd
+  RO:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: eToro (Europe) Ltd
+  SE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: eToro (Europe) Ltd
+  SI:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: eToro (Europe) Ltd
+  SK:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: eToro (Europe) Ltd

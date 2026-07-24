@@ -1,0 +1,107 @@
+id: validvent
+brand: Validvent
+eu_status: authorised
+sources:
+- name: ESMA interim MiCA register (CASPS.csv)
+  url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
+  retrieved: '2026-07-24'
+entities:
+- lei: 9845002BEC2C588CC678
+  legal_name: Validvent Technology GmbH
+  commercial_name: Validvent
+  home_state: AT
+  regulator: Austrian Financial Market Authority (FMA)
+  website: https://validvent.com
+  records:
+  - authorised: '2026-04-15'
+    withdrawn: null
+    status: authorised
+    services:
+    - h
+    passported_to:
+    - AT
+    - BE
+    - CY
+    - CZ
+    - DE
+    - ES
+    - GR
+    - HU
+    - IE
+    - IT
+    - LU
+    - NL
+    - PT
+    - RO
+    last_update: '2026-04-15'
+countries:
+  AT:
+    status: licensed
+    regime: MiCA
+    via: home_state
+    entity: Validvent Technology GmbH
+  BE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Validvent Technology GmbH
+  CY:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Validvent Technology GmbH
+  CZ:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Validvent Technology GmbH
+  DE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Validvent Technology GmbH
+  ES:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Validvent Technology GmbH
+  GR:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Validvent Technology GmbH
+  HU:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Validvent Technology GmbH
+  IE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Validvent Technology GmbH
+  IT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Validvent Technology GmbH
+  LU:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Validvent Technology GmbH
+  NL:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Validvent Technology GmbH
+  PT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Validvent Technology GmbH
+  RO:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Validvent Technology GmbH

@@ -1,0 +1,60 @@
+---
+import { loadExchanges, countriesInData, COUNTRY_NAMES } from '../lib/data.js';
+import '../styles/global.css';
+const exchanges = loadExchanges();
+const countries = countriesInData(exchanges);
+const active = exchanges.filter((e) => e.eu_status === 'authorised').length;
+---
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Which crypto exchange can you use in your country? | whichcryptoexchange.com</title>
+  <meta name="description" content={`Check which crypto exchanges are licensed in your country. Built from official regulator registers — currently tracking ${exchanges.length} exchanges from the ESMA MiCA register.`} />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <header class="site"><div class="wrap">
+    <a class="logo" href="/">which<em>crypto</em>exchange</a>
+    <span class="sourced">source: official regulator registers</span>
+  </div></header>
+
+  <main class="wrap">
+    <h1>Which crypto exchange can you actually use where you live?</h1>
+    <p class="lede">Pick your country. We answer from the official registers — who is licensed,
+    through which entity, under which regime, and since when. No rankings, no stars. Receipts.</p>
+
+    <div class="picker">
+      <label for="country">Your country of residence</label>
+      <select id="country" onchange="if(this.value) location.href='/'+this.value.toLowerCase()+'/'">
+        <option value="">Select a country…</option>
+        {countries.map((c) => <option value={c}>{COUNTRY_NAMES[c] ?? c}</option>)}
+      </select>
+    </div>
+
+    <p class="sourced">Currently tracking {exchanges.length} exchanges · {active} with active EU (MiCA) authorisation ·
+    data from the <a href="https://www.esma.europa.eu/esmas-activities/digital-finance-and-innovation/markets-crypto-assets-regulation-mica">ESMA interim MiCA register</a></p>
+
+    <ul class="country-grid">
+      {countries.map((c) => (
+        <li><a href={`/${c.toLowerCase()}/`}><span class="cc">{c}</span>{COUNTRY_NAMES[c] ?? c}</a></li>
+      ))}
+    </ul>
+  </main>
+
+  <footer class="site"><div class="wrap">
+    <p>whichcryptoexchange.com is an independent register. We are not affiliated with ESMA or any regulator.
+    Licence status is drawn from official public registers and may lag regulator updates by up to a week.
+    Nothing here is financial advice.</p>
+  </div></footer>
+
+  <script>
+    // Geo-suggestion: a Cloudflare Worker sets a `user_country` cookie from
+    // CF-IPCountry. If present and we have a page for it, pre-select — never redirect.
+    const m = document.cookie.match(/(?:^|;\s*)user_country=([A-Z]{2})/);
+    const sel = document.getElementById('country');
+    if (m && sel && [...sel.options].some((o) => o.value === m[1])) sel.value = m[1];
+  </script>
+</body>
+</html>

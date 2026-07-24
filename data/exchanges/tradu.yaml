@@ -1,0 +1,55 @@
+id: tradu
+brand: Tradu
+eu_status: withdrawn
+sources:
+- name: ESMA interim MiCA register (CASPS.csv)
+  url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
+  retrieved: '2026-07-24'
+entities:
+- lei: 549300LZMQXXYV4JJ603
+  legal_name: Stratos Europe Ltd
+  commercial_name: Tradu
+  home_state: CY
+  regulator: Cyprus Securities and Exchange Commission (CySEC)
+  website: https://www.tradu.com/eu/
+  records:
+  - authorised: '2025-10-14'
+    withdrawn: '2026-04-24'
+    status: withdrawn
+    services:
+    - a
+    - c
+    - d
+    passported_to:
+    - AT
+    - BE
+    - BG
+    - CY
+    - CZ
+    - DE
+    - DK
+    - EE
+    - ES
+    - FI
+    - FR
+    - GR
+    - HR
+    - HU
+    - IE
+    - IS
+    - IT
+    - LI
+    - LT
+    - LU
+    - LV
+    - MT
+    - NL
+    - 'NO'
+    - PL
+    - PT
+    - RO
+    - SE
+    - SI
+    - SK
+    last_update: '2026-05-21'
+countries: {}

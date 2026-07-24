@@ -1,0 +1,81 @@
+---
+import { loadExchanges, countriesInData, COUNTRY_NAMES, SERVICE_NAMES } from '../lib/data.js';
+import '../styles/global.css';
+
+export function getStaticPaths() {
+  const exchanges = loadExchanges();
+  return countriesInData(exchanges).map((c) => ({
+    params: { country: c.toLowerCase() },
+    props: { code: c, exchanges },
+  }));
+}
+
+const { code, exchanges } = Astro.props;
+const name = COUNTRY_NAMES[code] ?? code;
+const rows = exchanges
+  .map((ex) => ({ ex, c: ex.countries?.[code] }))
+  .filter((r) => r.c);
+---
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{`Crypto exchanges licensed in ${name} (${new Date().getFullYear()}) | whichcryptoexchange.com`}</title>
+  <meta name="description" content={`${rows.length} crypto exchanges hold a licence covering ${name}, according to official regulator registers. See which entity, which regime, and since when.`} />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <header class="site"><div class="wrap">
+    <a class="logo" href="/">which<em>crypto</em>exchange</a>
+    <span class="sourced">source: official regulator registers</span>
+  </div></header>
+
+  <main class="wrap">
+    <h1>Which crypto exchanges are licensed in {name}?</h1>
+    <p class="lede">{rows.length} exchanges in our register hold an authorisation covering {name},
+    per the official ESMA MiCA register. Licensed means the regulator says so — not us.</p>
+
+    <table class="registry">
+      <thead><tr>
+        <th>Exchange</th><th>Status</th><th class="col-services">Services</th><th>Since</th>
+      </tr></thead>
+      <tbody>
+        {rows.map(({ ex, c }) => {
+          // Union of services and earliest authorisation date across ALL active
+          // records whose reach (home state or passport list) covers this country.
+          const covering = ex.entities.flatMap((ent) =>
+            ent.records
+              .filter((r) => r.status === 'authorised' &&
+                (ent.home_state === code || r.passported_to.includes(code)))
+          );
+          const services = [...new Set(covering.flatMap((r) => r.services))].sort();
+          const since = covering.map((r) => r.authorised).filter(Boolean).sort()[0] ?? '—';
+          return (
+            <tr>
+              <td class="brand">
+                <a href={`/exchange/${ex.id}/`}>{ex.brand}</a>
+                <div class="meta">{c.entity}</div>
+              </td>
+              <td>
+                <span class="stamp licensed">Licensed · {c.regime}</span>
+                <div class="meta">{c.via === 'home_state' ? 'home state authorisation' : 'EEA passporting'}</div>
+              </td>
+              <td class="col-services datum">{services.map((s) => SERVICE_NAMES[s]).join(' · ')}</td>
+              <td class="datum">{since}</td>
+            </tr>
+          );
+        })}
+      </tbody>
+    </table>
+
+    <p class="sourced">Source: <a href="https://www.esma.europa.eu/esmas-activities/digital-finance-and-innovation/markets-crypto-assets-regulation-mica">ESMA interim MiCA register</a>,
+    retrieved {exchanges[0]?.sources?.[0]?.retrieved}. An exchange missing from this list either
+    holds no authorisation covering {name} or is not yet in our register.</p>
+  </main>
+
+  <footer class="site"><div class="wrap">
+    <p>Independent register. Not affiliated with ESMA or any regulator. Not financial advice.</p>
+  </div></footer>
+</body>
+</html>

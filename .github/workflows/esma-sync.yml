@@ -1,0 +1,37 @@
+name: ESMA register sync
+on:
+  schedule:
+    - cron: '0 7 * * 1,4'   # Mon & Thu 07:00 UTC — ESMA republishes roughly weekly
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.12' }
+      - run: pip install pyyaml
+      - name: Fetch ESMA CASP register
+        run: |
+          curl -fsSL --retry 3 \
+            'https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv' \
+            -o /tmp/CASPS.csv
+      - name: Normalise into data files
+        run: python3 scripts/esma_sync.py --input /tmp/CASPS.csv
+      - name: Open PR if the register changed
+        uses: peter-evans/create-pull-request@v6
+        with:
+          commit-message: "data: ESMA register sync"
+          title: "ESMA register update — review changes"
+          body: |
+            Automated diff against the ESMA interim MiCA register.
+            Review before merging: new brands may need entries in
+            data/brand_map.yaml, and status changes are news-worthy —
+            consider a changelog entry.
+          branch: esma-sync
+          delete-branch: true

@@ -1,0 +1,209 @@
+id: coinbase
+brand: Coinbase
+eu_status: authorised
+sources:
+- name: ESMA interim MiCA register (CASPS.csv)
+  url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
+  retrieved: '2026-07-24'
+entities:
+- lei: 984500F14CA4571AAC11
+  legal_name: Coinbase Luxembourg S.A
+  commercial_name: Coinbase
+  home_state: LU
+  regulator: Commission de Surveillance du Secteur Financier (CSSF)
+  website: https.//coinbase.com
+  records:
+  - authorised: '2025-06-20'
+    withdrawn: null
+    status: authorised
+    services:
+    - a
+    - c
+    - d
+    - e
+    - f
+    - g
+    - j
+    passported_to:
+    - AT
+    - BE
+    - BG
+    - CY
+    - CZ
+    - DE
+    - DK
+    - EE
+    - ES
+    - FI
+    - FR
+    - GR
+    - HR
+    - HU
+    - IE
+    - IS
+    - IT
+    - LI
+    - LT
+    - LU
+    - LV
+    - MT
+    - NL
+    - 'NO'
+    - PL
+    - PT
+    - RO
+    - SE
+    - SI
+    - SK
+    last_update: '2026-01-22'
+countries:
+  AT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Coinbase Luxembourg S.A
+  BE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Coinbase Luxembourg S.A
+  BG:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Coinbase Luxembourg S.A
+  CY:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Coinbase Luxembourg S.A
+  CZ:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Coinbase Luxembourg S.A
+  DE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Coinbase Luxembourg S.A
+  DK:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Coinbase Luxembourg S.A
+  EE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Coinbase Luxembourg S.A
+  ES:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Coinbase Luxembourg S.A
+  FI:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Coinbase Luxembourg S.A
+  FR:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Coinbase Luxembourg S.A
+  GR:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Coinbase Luxembourg S.A
+  HR:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Coinbase Luxembourg S.A
+  HU:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Coinbase Luxembourg S.A
+  IE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Coinbase Luxembourg S.A
+  IS:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Coinbase Luxembourg S.A
+  IT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Coinbase Luxembourg S.A
+  LI:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Coinbase Luxembourg S.A
+  LT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Coinbase Luxembourg S.A
+  LU:
+    status: licensed
+    regime: MiCA
+    via: home_state
+    entity: Coinbase Luxembourg S.A
+  LV:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Coinbase Luxembourg S.A
+  MT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Coinbase Luxembourg S.A
+  NL:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Coinbase Luxembourg S.A
+  'NO':
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Coinbase Luxembourg S.A
+  PL:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Coinbase Luxembourg S.A
+  PT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Coinbase Luxembourg S.A
+  RO:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Coinbase Luxembourg S.A
+  SE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Coinbase Luxembourg S.A
+  SI:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Coinbase Luxembourg S.A
+  SK:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Coinbase Luxembourg S.A

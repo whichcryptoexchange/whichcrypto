@@ -1,0 +1,201 @@
+id: bybit
+brand: Bybit
+eu_status: authorised
+sources:
+- name: ESMA interim MiCA register (CASPS.csv)
+  url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
+  retrieved: '2026-07-24'
+entities:
+- lei: 5299005V5GBSN2A4C303
+  legal_name: Bybit EU GmbH
+  commercial_name: Bybit
+  home_state: AT
+  regulator: Austrian Financial Market Authority (FMA)
+  website: https://www.bybit.eu
+  records:
+  - authorised: '2025-05-28'
+    withdrawn: null
+    status: authorised
+    services:
+    - a
+    - c
+    - d
+    - f
+    - j
+    passported_to:
+    - AT
+    - BE
+    - BG
+    - CY
+    - CZ
+    - DE
+    - DK
+    - EE
+    - ES
+    - FI
+    - FR
+    - GR
+    - HR
+    - HU
+    - IE
+    - IS
+    - IT
+    - LI
+    - LT
+    - LU
+    - LV
+    - NL
+    - 'NO'
+    - PL
+    - PT
+    - RO
+    - SE
+    - SI
+    - SK
+    last_update: '2025-05-28'
+countries:
+  AT:
+    status: licensed
+    regime: MiCA
+    via: home_state
+    entity: Bybit EU GmbH
+  BE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Bybit EU GmbH
+  BG:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Bybit EU GmbH
+  CY:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Bybit EU GmbH
+  CZ:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Bybit EU GmbH
+  DE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Bybit EU GmbH
+  DK:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Bybit EU GmbH
+  EE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Bybit EU GmbH
+  ES:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Bybit EU GmbH
+  FI:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Bybit EU GmbH
+  FR:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Bybit EU GmbH
+  GR:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Bybit EU GmbH
+  HR:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Bybit EU GmbH
+  HU:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Bybit EU GmbH
+  IE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Bybit EU GmbH
+  IS:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Bybit EU GmbH
+  IT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Bybit EU GmbH
+  LI:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Bybit EU GmbH
+  LT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Bybit EU GmbH
+  LU:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Bybit EU GmbH
+  LV:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Bybit EU GmbH
+  NL:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Bybit EU GmbH
+  'NO':
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Bybit EU GmbH
+  PL:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Bybit EU GmbH
+  PT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Bybit EU GmbH
+  RO:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Bybit EU GmbH
+  SE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Bybit EU GmbH
+  SI:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Bybit EU GmbH
+  SK:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Bybit EU GmbH

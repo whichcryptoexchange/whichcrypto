@@ -1,0 +1,64 @@
+---
+import { loadExchanges, COUNTRY_NAMES, SERVICE_NAMES } from '../../lib/data.js';
+import '../../styles/global.css';
+
+export function getStaticPaths() {
+  return loadExchanges().map((ex) => ({ params: { id: ex.id }, props: { ex } }));
+}
+const { ex } = Astro.props;
+const countryCodes = Object.keys(ex.countries ?? {});
+---
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{`Is ${ex.brand} licensed? Registry record | whichcryptoexchange.com`}</title>
+  <meta name="description" content={`${ex.brand}: official licence records, legal entities, regulators, and the ${countryCodes.length} countries its authorisation covers.`} />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <header class="site"><div class="wrap">
+    <a class="logo" href="/">which<em>crypto</em>exchange</a>
+    <span class="sourced">source: official regulator registers</span>
+  </div></header>
+
+  <main class="wrap">
+    <h1>{ex.brand}</h1>
+    <p class="lede">
+      {ex.eu_status === 'authorised'
+        ? <span class="stamp licensed">EU · MiCA Authorised</span>
+        : <span class="stamp withdrawn">EU · Authorisation Withdrawn</span>}
+    </p>
+
+    {ex.entities.map((ent) => ent.records.map((rec) => (
+      <div class={`record ${rec.status}`}>
+        <h3>{ent.legal_name}</h3>
+        <dl>
+          <dt>Regulator</dt><dd>{ent.regulator}</dd>
+          <dt>Home state</dt><dd class="datum">{ent.home_state} — {COUNTRY_NAMES[ent.home_state] ?? ''}</dd>
+          {ent.lei && <><dt>LEI</dt><dd class="datum">{ent.lei}</dd></>}
+          <dt>Authorised</dt><dd class="datum">{rec.authorised ?? '—'}</dd>
+          {rec.withdrawn && <><dt>Withdrawn</dt><dd class="datum">{rec.withdrawn}</dd></>}
+          <dt>Services</dt><dd>{rec.services.map((s) => SERVICE_NAMES[s]).join(' · ')}</dd>
+          <dt>Passported to</dt><dd class="datum">{rec.passported_to.join(' · ') || '—'}</dd>
+        </dl>
+      </div>
+    )))}
+
+    <h3>Countries covered ({countryCodes.length})</h3>
+    <ul class="country-grid">
+      {countryCodes.map((c) => (
+        <li><a href={`/${c.toLowerCase()}/`}><span class="cc">{c}</span>{COUNTRY_NAMES[c] ?? c}</a></li>
+      ))}
+    </ul>
+
+    <p class="sourced">Source: {ex.sources[0].name}, retrieved {ex.sources[0].retrieved} —
+    <a href={ex.sources[0].url}>original file</a>.</p>
+  </main>
+
+  <footer class="site"><div class="wrap">
+    <p>Independent register. Not affiliated with any regulator. Not financial advice.</p>
+  </div></footer>
+</body>
+</html>

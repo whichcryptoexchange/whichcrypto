@@ -1,0 +1,169 @@
+/* whichcryptoexchange.com — registry design system
+   Palette: paper #F1F3F2 / ink #14202E / licensed #177245 / caution #9A6A00 / warned #AC2A20
+   Type: Archivo (display), system stack (body), IBM Plex Mono (all data values) */
+
+:root {
+  --paper: #f1f3f2;
+  --card: #ffffff;
+  --ink: #14202e;
+  --ink-soft: #4a5768;
+  --rule: #d5dad8;
+  --licensed: #177245;
+  --caution: #9a6a00;
+  --warned: #ac2a20;
+  --mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  --display: "Archivo", system-ui, sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font: 16px/1.55 system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+.wrap { max-width: 880px; margin: 0 auto; padding: 0 20px; }
+
+header.site {
+  border-bottom: 3px solid var(--ink);
+  padding: 18px 0;
+  margin-bottom: 36px;
+}
+header.site .wrap { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+.logo {
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: 20px;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  text-decoration: none;
+}
+.logo em { font-style: normal; color: var(--licensed); }
+.sourced { font-family: var(--mono); font-size: 12px; color: var(--ink-soft); }
+
+h1 {
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: clamp(28px, 5vw, 44px);
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  margin: 0 0 14px;
+}
+.lede { font-size: 18px; color: var(--ink-soft); max-width: 56ch; margin: 0 0 32px; }
+
+/* Signature element: the status stamp. Bordered, monospace, faintly rotated —
+   a passport-entry stamp, because passporting is the subject of this site. */
+.stamp {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 3px 9px;
+  border: 2px solid currentColor;
+  border-radius: 3px;
+  transform: rotate(-1.5deg);
+  white-space: nowrap;
+}
+.stamp.licensed { color: var(--licensed); }
+.stamp.withdrawn { color: var(--warned); }
+.stamp.caution { color: var(--caution); }
+.stamp.neutral { color: var(--ink-soft); }
+
+/* Country picker */
+.picker { margin: 0 0 44px; }
+.picker label {
+  display: block;
+  font-family: var(--mono);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--ink-soft);
+  margin-bottom: 8px;
+}
+.picker select {
+  font: 600 18px var(--display);
+  color: var(--ink);
+  background: var(--card);
+  border: 2px solid var(--ink);
+  border-radius: 4px;
+  padding: 12px 14px;
+  min-width: 280px;
+  cursor: pointer;
+}
+.picker select:focus-visible { outline: 3px solid var(--licensed); outline-offset: 2px; }
+
+.country-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 8px;
+  padding: 0;
+  margin: 0 0 48px;
+  list-style: none;
+}
+.country-grid a {
+  display: block;
+  background: var(--card);
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  padding: 10px 12px;
+  color: var(--ink);
+  text-decoration: none;
+  font-size: 14px;
+}
+.country-grid a:hover { border-color: var(--ink); }
+.country-grid .cc { font-family: var(--mono); font-size: 11px; color: var(--ink-soft); margin-right: 6px; }
+
+/* Registry table */
+.registry { width: 100%; border-collapse: collapse; margin: 0 0 40px; background: var(--card); border: 1px solid var(--rule); }
+.registry th {
+  font-family: var(--mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  text-align: left;
+  color: var(--ink-soft);
+  padding: 10px 14px;
+  border-bottom: 2px solid var(--ink);
+}
+.registry td { padding: 14px; border-bottom: 1px solid var(--rule); vertical-align: top; }
+.registry tr:last-child td { border-bottom: none; }
+.registry .brand a { font-family: var(--display); font-weight: 700; font-size: 17px; color: var(--ink); text-decoration: none; }
+.registry .brand a:hover { text-decoration: underline; }
+.registry .meta { font-family: var(--mono); font-size: 12px; color: var(--ink-soft); margin-top: 3px; }
+
+.datum { font-family: var(--mono); font-size: 13px; }
+
+/* Exchange page record blocks */
+.record {
+  background: var(--card);
+  border: 1px solid var(--rule);
+  border-left: 4px solid var(--licensed);
+  padding: 18px 20px;
+  margin: 0 0 18px;
+}
+.record.withdrawn { border-left-color: var(--warned); }
+.record h3 { margin: 0 0 6px; font-family: var(--display); font-size: 18px; }
+.record dl { display: grid; grid-template-columns: 160px 1fr; gap: 4px 16px; margin: 12px 0 0; font-size: 14px; }
+.record dt { font-family: var(--mono); font-size: 12px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--ink-soft); }
+.record dd { margin: 0; }
+
+footer.site {
+  border-top: 1px solid var(--rule);
+  margin-top: 60px;
+  padding: 24px 0 48px;
+  font-size: 13px;
+  color: var(--ink-soft);
+}
+footer.site a { color: inherit; }
+
+@media (prefers-reduced-motion: reduce) {
+  .stamp { transform: none; }
+}
+@media (max-width: 560px) {
+  .record dl { grid-template-columns: 1fr; }
+  .registry .col-services { display: none; }
+}

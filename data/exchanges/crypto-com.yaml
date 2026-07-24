@@ -1,0 +1,207 @@
+id: crypto-com
+brand: Crypto.com
+eu_status: authorised
+sources:
+- name: ESMA interim MiCA register (CASPS.csv)
+  url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
+  retrieved: '2026-07-24'
+entities:
+- lei: 2549005CVR5HH70FDO07
+  legal_name: Foris DAX MT Limited
+  commercial_name: Crypto.com
+  home_state: MT
+  regulator: Malta Financial Services Authority (MFSA)
+  website: crypto.com
+  records:
+  - authorised: '2025-01-27'
+    withdrawn: null
+    status: authorised
+    services:
+    - a
+    - c
+    - d
+    - e
+    - g
+    - j
+    passported_to:
+    - AT
+    - BE
+    - BG
+    - CY
+    - CZ
+    - DE
+    - DK
+    - EE
+    - ES
+    - FI
+    - FR
+    - GR
+    - HR
+    - HU
+    - IE
+    - IS
+    - IT
+    - LI
+    - LT
+    - LU
+    - LV
+    - NL
+    - 'NO'
+    - PL
+    - PT
+    - RO
+    - SE
+    - SI
+    - SK
+    last_update: '2025-02-06'
+countries:
+  AT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Foris DAX MT Limited
+  BE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Foris DAX MT Limited
+  BG:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Foris DAX MT Limited
+  CY:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Foris DAX MT Limited
+  CZ:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Foris DAX MT Limited
+  DE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Foris DAX MT Limited
+  DK:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Foris DAX MT Limited
+  EE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Foris DAX MT Limited
+  ES:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Foris DAX MT Limited
+  FI:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Foris DAX MT Limited
+  FR:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Foris DAX MT Limited
+  GR:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Foris DAX MT Limited
+  HR:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Foris DAX MT Limited
+  HU:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Foris DAX MT Limited
+  IE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Foris DAX MT Limited
+  IS:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Foris DAX MT Limited
+  IT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Foris DAX MT Limited
+  LI:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Foris DAX MT Limited
+  LT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Foris DAX MT Limited
+  LU:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Foris DAX MT Limited
+  LV:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Foris DAX MT Limited
+  MT:
+    status: licensed
+    regime: MiCA
+    via: home_state
+    entity: Foris DAX MT Limited
+  NL:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Foris DAX MT Limited
+  'NO':
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Foris DAX MT Limited
+  PL:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Foris DAX MT Limited
+  PT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Foris DAX MT Limited
+  RO:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Foris DAX MT Limited
+  SE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Foris DAX MT Limited
+  SI:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Foris DAX MT Limited
+  SK:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Foris DAX MT Limited

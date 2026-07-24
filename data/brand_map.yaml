@@ -1,0 +1,18 @@
+# Curated LEI -> consumer brand mapping.
+# This is the manual layer the raw ESMA file cannot provide: the register
+# lists legal entities (Payward Europe Solutions), users know brands (Kraken).
+# Every LEI below was verified against the ESMA CASPS.csv retrieved 2026-07-24.
+# Unmapped LEIs are auto-slugged from their commercial name by esma_sync.py.
+
+"9845003D98SCC2851458": {id: kraken, brand: Kraken}       # Payward Global Solutions Ltd (trading platform, IE)
+"254900641D8KNHUZYX24": {id: kraken, brand: Kraken}       # Payward Europe Solutions Ltd (retail services, IE)
+"984500F14CA4571AAC11": {id: coinbase, brand: Coinbase}   # Coinbase Luxembourg S.A.
+"549300XIBGTJ0PLIEO72": {id: bitstamp, brand: Bitstamp}   # Bitstamp Europe S.A.
+"5299005V5GBSN2A4C303": {id: bybit, brand: Bybit}         # Bybit EU GmbH (AT)
+"54930069NLWEIGLHXU42": {id: okx, brand: OKX}             # OKX Europe Limited (MT)
+"2549005CVR5HH70FDO07": {id: crypto-com, brand: Crypto.com}  # Foris DAX MT Limited
+"2138002QAMX8PPKSO715": {id: gemini, brand: Gemini}       # Gemini Intergalactic EU Ltd (MT)
+"213800GIFQMSV7HROS23": {id: etoro, brand: eToro}         # eToro (Europe) Ltd (CY)
+"254900GTP4UXQO1UMI36": {id: robinhood, brand: Robinhood} # Robinhood Europe UAB (LT)
+"529900B4G0EGK7Z9KT45": {id: kucoin, brand: KuCoin}       # KuCoin EU Exchange GmbH (AT)
+"549300LZMQXXYV4JJ603": {id: tradu, brand: Tradu}         # Stratos Europe Ltd (CY) — withdrawn 2026-04-24
