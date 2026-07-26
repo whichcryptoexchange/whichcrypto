@@ -7,7 +7,7 @@ sources:
   retrieved: '2026-07-24'
 - name: UK FCA Register
   url: https://register.fca.org.uk/
-  retrieved: '2026-07-24'
+  retrieved: '2026-07-26'
 entities:
 - lei: 549300XIBGTJ0PLIEO72
   legal_name: Bitstamp Europe S.A
