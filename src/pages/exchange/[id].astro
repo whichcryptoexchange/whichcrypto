@@ -9,10 +9,18 @@ const { ex } = Astro.props;
 const countryCodes = Object.keys(ex.countries ?? {})
   .sort((a, b) => (COUNTRY_NAMES[a] ?? a).localeCompare(COUNTRY_NAMES[b] ?? b));
 // Non-EEA jurisdictions (list-shaped countries.<CC>, unlike the single-object
-// EEA/MiCA shape) get a "<prefix> · Registered/Authorised" stamp each.
-const NON_EEA_PREFIX = { GB: 'UK', CA: 'CA' };
+// EEA/MiCA shape) get a "<prefix> · Registered/Authorised/Licensed" stamp each.
+const NON_EEA_PREFIX = { GB: 'UK', CA: 'CA', AE: 'Dubai' };
 const nonEEAEntries = Object.entries(NON_EEA_PREFIX)
   .flatMap(([cc, prefix]) => (ex.countries?.[cc] ?? []).map((entry) => ({ ...entry, prefix })));
+// registered/authorised (UK, CA) are AML-only tiers; licensed (AE/Dubai VARA)
+// is a genuine crypto-specific licence, so it gets the same green stamp as
+// EU MiCA rather than the cautious amber/grey UK-style tiers.
+const STATUS_STAMP = {
+  registered: { cls: 'gb-registered', label: 'Registered' },
+  authorised: { cls: 'gb-authorised', label: 'Authorised' },
+  licensed: { cls: 'licensed', label: 'Licensed' },
+};
 // Turnstile site keys are public by design (embedded in client HTML), so hardcoding
 // this as a fallback is safe. The env var still wins if the build environment sets it.
 const SITEKEY = import.meta.env.PUBLIC_TURNSTILE_SITEKEY || '0x4AAAAAAD84t4OWkoouLP3Y';
@@ -41,8 +49,8 @@ const SITEKEY = import.meta.env.PUBLIC_TURNSTILE_SITEKEY || '0x4AAAAAAD84t4OWkoo
         ? <span class="stamp licensed">EU · MiCA Authorised</span>
         : <span class="stamp withdrawn">EU · Authorisation Withdrawn</span>}
       {nonEEAEntries.map((entry) => (
-        <span class={`stamp ${entry.status === 'registered' ? 'gb-registered' : 'gb-authorised'}`}>
-          {entry.prefix} · {entry.status === 'registered' ? 'Registered' : 'Authorised'}
+        <span class={`stamp ${STATUS_STAMP[entry.status]?.cls ?? 'neutral'}`}>
+          {entry.prefix} · {STATUS_STAMP[entry.status]?.label ?? entry.status}
         </span>
       ))}
     </p>

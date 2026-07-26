@@ -52,6 +52,12 @@ h1 {
   margin: 0 0 14px;
 }
 .lede { font-size: 18px; color: var(--ink-soft); max-width: 56ch; margin: 0 0 32px; }
+.lede.caveat {
+  color: var(--warned);
+  font-weight: 600;
+  border-left: 3px solid var(--warned);
+  padding-left: 14px;
+}
 
 /* Signature element: the status stamp. Bordered, monospace, faintly rotated —
    a passport-entry stamp, because passporting is the subject of this site. */

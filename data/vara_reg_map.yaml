@@ -1,0 +1,23 @@
+# Brand id -> list of VARA (Dubai Virtual Assets Regulatory Authority) VASP
+# Licence references. Verify each reference against the live public register
+# before adding — no guesses.
+# https://www.vara.ae/en/licenses-and-register/public-register/
+#
+# IMPORTANT: VARA licenses cover DUBAI ONLY — not Abu Dhabi (ADGM/FSRA), not
+# Dubai's own DIFC free zone (DFSA), not the rest of the UAE (federal SCA).
+# There is no single UAE-wide crypto regulator. vara_sync.py and the /ae/
+# page must keep this scope caveat loud and explicit, every time — see
+# vara_sync.py's docstring for the framing this drives.
+#
+# vara_sync.py re-fetches the live public register at sync time and looks up
+# these references fresh — this file only pins identity, same curation
+# pattern as brand_map.yaml (LEI), fca_frn_map.yaml (FRN), and
+# fintrac_reg_map.yaml (MSB registration number).
+
+backpack:
+  - reference: "VL/23/07/001"  # Trek Labs Ltd FZE (Backpack)
+bitpanda:
+  - reference: "VL/25/04/006"  # Bitpanda Custody MENA DMCC
+  - reference: "VL/25/03/001"  # Bitpanda Broker MENA DMCC
+crypto-com:
+  - reference: "VL/23/10/003"  # Foris DAX Middle East FZE (Crypto.com)

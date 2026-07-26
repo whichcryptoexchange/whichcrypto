@@ -11,6 +11,9 @@ sources:
 - name: Canada FINTRAC MSB Registry
   url: https://fintrac-canafe.canada.ca/msb-esm/reg-eng
   retrieved: '2026-07-26'
+- name: Dubai VARA Public Register
+  url: https://www.vara.ae/en/licenses-and-register/public-register/
+  retrieved: '2026-07-26'
 entities:
 - lei: 2549005CVR5HH70FDO07
   legal_name: Foris DAX MT Limited
@@ -233,3 +236,12 @@ countries:
     reg_number: C100000094
     since: '2024-09-18'
     expires: '2027-06-30'
+  AE:
+  - status: licensed
+    regime: Dubai VARA VASP Licence
+    via: dubai_vara
+    entity: Foris DAX Middle East FZE (Crypto.com)
+    reference: VL/23/10/003
+    licensed_activities: Broker-Dealer Services Management and Investment Services Lending and Borrowing
+      Services Exchange Services (including VA Derivatives Trading)
+    since: '2024-04-03'

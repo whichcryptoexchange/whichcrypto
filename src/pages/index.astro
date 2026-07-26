@@ -8,6 +8,7 @@ const gbExchanges = exchanges.filter((e) => e.countries?.GB);
 const gbRegisteredCount = gbExchanges.filter((e) => e.countries.GB.some((g) => g.status === 'registered')).length;
 const gbAuthorisedCount = gbExchanges.filter((e) => e.countries.GB.some((g) => g.status === 'authorised')).length;
 const caExchanges = exchanges.filter((e) => e.countries?.CA);
+const aeExchanges = exchanges.filter((e) => e.countries?.AE);
 ---
 <html lang="en">
 <head>
@@ -16,7 +17,7 @@ const caExchanges = exchanges.filter((e) => e.countries?.CA);
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Which crypto exchange can you use in your country? | whichcryptoexchange.com</title>
-  <meta name="description" content={`Check which crypto exchanges are licensed in your country. Built from official regulator registers — currently tracking ${exchanges.length} exchanges across the ESMA MiCA register, the UK FCA Register, and the Canada FINTRAC MSB Registry.`} />
+  <meta name="description" content={`Check which crypto exchanges are licensed in your country. Built from official regulator registers — currently tracking ${exchanges.length} exchanges across the ESMA MiCA register, the UK FCA Register, the Canada FINTRAC MSB Registry, and Dubai's VARA Public Register.`} />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet" />
   <script src="https://analytics.ahrefs.com/analytics.js" data-key="QTM3lN9yt0oU0rxrj5zadA" async></script>
@@ -47,18 +48,21 @@ const caExchanges = exchanges.filter((e) => e.countries?.CA);
     <a href="/gb/">see the UK page</a> for what that distinction means</p>
     <p class="sourced">{caExchanges.length} also have a Canadian entity on the <a href="https://fintrac-canafe.canada.ca/msb-esm/reg-eng">FINTRAC MSB Registry</a> —
     <a href="/ca/">see the Canada page</a></p>
+    <p class="sourced">{aeExchanges.length} also hold a Dubai VARA VASP Licence — <strong>Dubai only, not the wider UAE</strong> —
+    <a href="/ae/">see the Dubai page</a> for the jurisdiction caveat</p>
 
     <div class="legend">
-      <span class="stamp licensed">EU · MiCA Authorised</span>
+      <span class="stamp licensed">EU · MiCA Authorised / Dubai · VARA Licensed</span>
       <span class="stamp gb-registered">UK/CA · Registered</span>
       <span class="stamp gb-authorised">UK · Authorised</span>
     </div>
-    <p class="sourced legend-note">MiCA Authorised and Registered are not equivalent: an EU MiCA
-    authorisation is a full licence; a UK MLR registration or Canada FINTRAC MSB registration is
-    anti-money-laundering supervision only — the UK's own cryptoasset licensing regime doesn't
-    open for applications until 30 Sep 2026, and Canada has no dedicated cryptoasset licence at
-    all. UK Authorised means a group entity is separately, fully FCA-authorised, usually for a
-    different (non-crypto) regulated activity.</p>
+    <p class="sourced legend-note">MiCA Authorised, Dubai VARA Licensed, and Registered are not all
+    equivalent: an EU MiCA authorisation and a Dubai VARA licence are both genuine crypto-specific
+    licences (Dubai's covers Dubai only — the UAE has no single national crypto regulator); a UK
+    MLR registration or Canada FINTRAC MSB registration is anti-money-laundering supervision only —
+    the UK's own cryptoasset licensing regime doesn't open for applications until 30 Sep 2026, and
+    Canada has no dedicated cryptoasset licence at all. UK Authorised means a group entity is
+    separately, fully FCA-authorised, usually for a different (non-crypto) regulated activity.</p>
 
     <ul class="country-grid">
       {countries.map((c) => (
@@ -69,9 +73,11 @@ const caExchanges = exchanges.filter((e) => e.countries?.CA);
 
   <footer class="site"><div class="wrap">
     <p>whichcryptoexchange.com is an independent register. We are not affiliated with ESMA, the FCA, FINTRAC,
-    or any regulator. Status is drawn from official public registers and may lag regulator updates by up to a
-    week. UK entries reflect FCA MLR registration or authorisation, and Canada entries reflect FINTRAC MSB
-    registration — neither is a cryptoasset licence, and neither jurisdiction has one yet. Nothing here is
+    VARA, or any regulator. Status is drawn from official public registers and may lag regulator updates by up
+    to a week. UK entries reflect FCA MLR registration or authorisation, and Canada entries reflect FINTRAC MSB
+    registration — neither is a cryptoasset licence, and neither jurisdiction has one yet. Dubai (AE) entries
+    reflect a Dubai VARA VASP Licence and cover Dubai only — VARA has no authority over Abu Dhabi, Dubai's own
+    DIFC free zone, or the rest of the UAE, and there is no single UAE-wide crypto regulator. Nothing here is
     financial advice.</p>
   </div></footer>
 

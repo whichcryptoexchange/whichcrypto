@@ -16,7 +16,8 @@ const name = COUNTRY_NAMES[code] ?? code;
 // more than one relevant entity/tier), unlike the single-object EEA/MiCA shape.
 const isGB = code === 'GB';
 const isCA = code === 'CA';
-const isNonEEA = isGB || isCA;
+const isAE = code === 'AE';
+const isNonEEA = isGB || isCA || isAE;
 const rows = exchanges
   .map((ex) => ({ ex, c: ex.countries?.[code] }))
   .filter((r) => r.c);
@@ -25,6 +26,15 @@ const sourceRetrieved = (name_) => exchanges
   .find((s) => s.name === name_)?.retrieved;
 const fcaRetrieved = sourceRetrieved('UK FCA Register');
 const fintracRetrieved = sourceRetrieved('Canada FINTRAC MSB Registry');
+const varaRetrieved = sourceRetrieved('Dubai VARA Public Register');
+// registered/authorised (UK, CA) are AML-only tiers; licensed (AE/Dubai VARA)
+// is a genuine crypto-specific licence, so it gets the same green stamp as
+// EU MiCA rather than the cautious amber/grey UK-style tiers.
+const STATUS_STAMP = {
+  registered: { cls: 'gb-registered', label: 'Registered' },
+  authorised: { cls: 'gb-authorised', label: 'Authorised' },
+  licensed: { cls: 'licensed', label: 'Licensed' },
+};
 ---
 <html lang="en">
 <head>
@@ -35,11 +45,15 @@ const fintracRetrieved = sourceRetrieved('Canada FINTRAC MSB Registry');
     ? `Crypto exchanges registered or authorised in the UK (${new Date().getFullYear()}) | whichcryptoexchange.com`
     : isCA
     ? `Crypto exchanges registered in Canada (${new Date().getFullYear()}) | whichcryptoexchange.com`
+    : isAE
+    ? `Crypto exchanges licensed in Dubai (${new Date().getFullYear()}) | whichcryptoexchange.com`
     : `Crypto exchanges licensed in ${name} (${new Date().getFullYear()}) | whichcryptoexchange.com`}</title>
   <meta name="description" content={isGB
     ? `${rows.length} crypto exchanges hold a UK FCA registration or authorisation, according to the official FCA Register. See which entity, which regime, and since when.`
     : isCA
     ? `${rows.length} crypto exchanges hold a Canada FINTRAC MSB registration, according to the official FINTRAC registry. See which entity and since when.`
+    : isAE
+    ? `${rows.length} crypto exchanges hold a VARA VASP Licence covering Dubai specifically — not the rest of the UAE. See which entity, which activities, and since when.`
     : `${rows.length} crypto exchanges hold a licence covering ${name}, according to official regulator registers. See which entity, which regime, and since when.`} />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet" />
@@ -78,6 +92,18 @@ const fintracRetrieved = sourceRetrieved('Canada FINTRAC MSB Registry');
         data isn't covered here, since there's no single national securities register to draw
         from.</p>
       </>
+    ) : isAE ? (
+      <>
+        <h1>Which crypto exchanges are licensed in Dubai?</h1>
+        <p class="lede caveat">This page covers Dubai only — not the UAE as a whole. Dubai's VARA
+        has no authority over Abu Dhabi (regulated separately by the ADGM), Dubai's own DIFC free
+        zone (regulated separately by the DFSA), or the rest of the UAE (federal SCA). There is no
+        single UAE-wide crypto regulator.</p>
+        <p class="lede">{rows.length} exchanges in our register hold a VARA VASP Licence, issued by
+        Dubai's Virtual Assets Regulatory Authority. Unlike the UK and Canada entries elsewhere on
+        this site, this <em>is</em> a genuine crypto-specific licence — Dubai built a dedicated
+        regulatory regime for virtual assets from scratch, not an AML add-on to existing rules.</p>
+      </>
     ) : (
       <>
         <h1>Which crypto exchanges are licensed in {name}?</h1>
@@ -99,8 +125,8 @@ const fintracRetrieved = sourceRetrieved('Canada FINTRAC MSB Registry');
             <td>
               {c.map((entry) => (
                 <div class="gb-tier">
-                  <span class={`stamp ${entry.status === 'registered' ? 'gb-registered' : 'gb-authorised'}`}>
-                    {entry.status === 'registered' ? 'Registered' : 'Authorised'} · {entry.regime}
+                  <span class={`stamp ${STATUS_STAMP[entry.status]?.cls ?? 'neutral'}`}>
+                    {STATUS_STAMP[entry.status]?.label ?? entry.status} · {entry.regime}
                   </span>
                 </div>
               ))}
@@ -144,6 +170,10 @@ const fintracRetrieved = sourceRetrieved('Canada FINTRAC MSB Registry');
       <p class="sourced">Source: <a href="https://fintrac-canafe.canada.ca/msb-esm/reg-eng">FINTRAC MSB Registry</a>,
       retrieved {fintracRetrieved}. An exchange missing from this list either holds no Canadian
       MSB registration for virtual currency services, or is not yet in our register.</p>
+    ) : isAE ? (
+      <p class="sourced">Source: <a href="https://www.vara.ae/en/licenses-and-register/public-register/">Dubai VARA Public Register</a>,
+      retrieved {varaRetrieved}. Covers Dubai only. An exchange missing from this list either holds
+      no Dubai VARA licence, or is not yet in our register.</p>
     ) : (
       <p class="sourced">Source: <a href="https://www.esma.europa.eu/esmas-activities/digital-finance-and-innovation/markets-crypto-assets-regulation-mica">ESMA interim MiCA register</a>,
       retrieved {exchanges[0]?.sources?.[0]?.retrieved}. An exchange missing from this list either

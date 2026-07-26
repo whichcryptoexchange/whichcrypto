@@ -8,6 +8,9 @@ sources:
 - name: UK FCA Register
   url: https://register.fca.org.uk/
   retrieved: '2026-07-24'
+- name: Dubai VARA Public Register
+  url: https://www.vara.ae/en/licenses-and-register/public-register/
+  retrieved: '2026-07-26'
 entities:
 - lei: 5493007WZ7IFULIL8G21
   legal_name: Bitpanda GmbH
@@ -289,3 +292,18 @@ countries:
     entity: Bitpanda Custody Ltd
     frn: '928556'
     since: '2021-10-04'
+  AE:
+  - status: licensed
+    regime: Dubai VARA VASP Licence
+    via: dubai_vara
+    entity: Bitpanda Custody MENA DMCC
+    reference: VL/25/04/006
+    licensed_activities: Custody Services [including custodial staking]
+    since: '2025-04-25'
+  - status: licensed
+    regime: Dubai VARA VASP Licence
+    via: dubai_vara
+    entity: Bitpanda Broker MENA DMCC
+    reference: VL/25/03/001
+    licensed_activities: Broker-Dealer Services
+    since: '2025-03-19'
