@@ -8,6 +8,9 @@ sources:
 - name: UK FCA Register
   url: https://register.fca.org.uk/
   retrieved: '2026-07-24'
+- name: Canada FINTRAC MSB Registry
+  url: https://fintrac-canafe.canada.ca/msb-esm/reg-eng
+  retrieved: '2026-07-26'
 entities:
 - lei: 2549005CVR5HH70FDO07
   legal_name: Foris DAX MT Limited
@@ -215,3 +218,18 @@ countries:
     entity: FORIS DAX UK LIMITED
     frn: '941745'
     since: '2022-08-16'
+  CA:
+  - status: registered
+    regime: Canada MSB registration
+    via: msb_register
+    entity: FORIS DAX INC.
+    reg_number: M21385577
+    since: '2021-02-18'
+    expires: '2026-12-18'
+  - status: registered
+    regime: Canada MSB registration
+    via: msb_register
+    entity: FORIS DAX CAN ULC
+    reg_number: C100000094
+    since: '2024-09-18'
+    expires: '2027-06-30'

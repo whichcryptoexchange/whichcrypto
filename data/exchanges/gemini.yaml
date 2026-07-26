@@ -8,6 +8,9 @@ sources:
 - name: UK FCA Register
   url: https://register.fca.org.uk/
   retrieved: '2026-07-24'
+- name: Canada FINTRAC MSB Registry
+  url: https://fintrac-canafe.canada.ca/msb-esm/reg-eng
+  retrieved: '2026-07-26'
 entities:
 - lei: 2138002QAMX8PPKSO715
   legal_name: Gemini Intergalactic EU Ltd
@@ -222,3 +225,11 @@ countries:
     entity: GEMINI INTERGALACTIC UK, LTD
     frn: '921817'
     since: '2020-08-19'
+  CA:
+  - status: registered
+    regime: Canada MSB registration
+    via: msb_register
+    entity: GEMINI TRUST COMPANY
+    reg_number: M20046728
+    since: '2020-06-19'
+    expires: '2027-02-07'

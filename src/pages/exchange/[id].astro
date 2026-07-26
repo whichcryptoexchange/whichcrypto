@@ -8,7 +8,11 @@ export function getStaticPaths() {
 const { ex } = Astro.props;
 const countryCodes = Object.keys(ex.countries ?? {})
   .sort((a, b) => (COUNTRY_NAMES[a] ?? a).localeCompare(COUNTRY_NAMES[b] ?? b));
-const gbEntries = ex.countries?.GB;
+// Non-EEA jurisdictions (list-shaped countries.<CC>, unlike the single-object
+// EEA/MiCA shape) get a "<prefix> · Registered/Authorised" stamp each.
+const NON_EEA_PREFIX = { GB: 'UK', CA: 'CA' };
+const nonEEAEntries = Object.entries(NON_EEA_PREFIX)
+  .flatMap(([cc, prefix]) => (ex.countries?.[cc] ?? []).map((entry) => ({ ...entry, prefix })));
 // Turnstile site keys are public by design (embedded in client HTML), so hardcoding
 // this as a fallback is safe. The env var still wins if the build environment sets it.
 const SITEKEY = import.meta.env.PUBLIC_TURNSTILE_SITEKEY || '0x4AAAAAAD84t4OWkoouLP3Y';
@@ -36,9 +40,9 @@ const SITEKEY = import.meta.env.PUBLIC_TURNSTILE_SITEKEY || '0x4AAAAAAD84t4OWkoo
       {ex.eu_status === 'authorised'
         ? <span class="stamp licensed">EU · MiCA Authorised</span>
         : <span class="stamp withdrawn">EU · Authorisation Withdrawn</span>}
-      {gbEntries && gbEntries.map((entry) => (
+      {nonEEAEntries.map((entry) => (
         <span class={`stamp ${entry.status === 'registered' ? 'gb-registered' : 'gb-authorised'}`}>
-          UK · {entry.status === 'registered' ? 'Registered' : 'Authorised'}
+          {entry.prefix} · {entry.status === 'registered' ? 'Registered' : 'Authorised'}
         </span>
       ))}
     </p>

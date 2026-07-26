@@ -5,6 +5,9 @@ sources:
 - name: ESMA interim MiCA register (CASPS.csv)
   url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
   retrieved: '2026-07-24'
+- name: Canada FINTRAC MSB Registry
+  url: https://fintrac-canafe.canada.ca/msb-esm/reg-eng
+  retrieved: '2026-07-26'
 entities:
 - lei: 724500F2THLY5MHEIM78
   legal_name: BitPay B.V
@@ -28,3 +31,11 @@ countries:
     regime: MiCA
     via: home_state
     entity: BitPay B.V
+  CA:
+  - status: registered
+    regime: Canada MSB registration
+    via: msb_register
+    entity: BITPAY INC.
+    reg_number: M23611454
+    since: '2023-11-21'
+    expires: '2026-06-30'

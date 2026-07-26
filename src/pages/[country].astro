@@ -12,13 +12,19 @@ export function getStaticPaths() {
 
 const { code, exchanges } = Astro.props;
 const name = COUNTRY_NAMES[code] ?? code;
+// Non-EEA jurisdictions store a LIST of entries per country (a brand can have
+// more than one relevant entity/tier), unlike the single-object EEA/MiCA shape.
 const isGB = code === 'GB';
+const isCA = code === 'CA';
+const isNonEEA = isGB || isCA;
 const rows = exchanges
   .map((ex) => ({ ex, c: ex.countries?.[code] }))
   .filter((r) => r.c);
-const fcaRetrieved = exchanges
+const sourceRetrieved = (name_) => exchanges
   .flatMap((ex) => ex.sources ?? [])
-  .find((s) => s.name === 'UK FCA Register')?.retrieved;
+  .find((s) => s.name === name_)?.retrieved;
+const fcaRetrieved = sourceRetrieved('UK FCA Register');
+const fintracRetrieved = sourceRetrieved('Canada FINTRAC MSB Registry');
 ---
 <html lang="en">
 <head>
@@ -27,9 +33,13 @@ const fcaRetrieved = exchanges
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>{isGB
     ? `Crypto exchanges registered or authorised in the UK (${new Date().getFullYear()}) | whichcryptoexchange.com`
+    : isCA
+    ? `Crypto exchanges registered in Canada (${new Date().getFullYear()}) | whichcryptoexchange.com`
     : `Crypto exchanges licensed in ${name} (${new Date().getFullYear()}) | whichcryptoexchange.com`}</title>
   <meta name="description" content={isGB
     ? `${rows.length} crypto exchanges hold a UK FCA registration or authorisation, according to the official FCA Register. See which entity, which regime, and since when.`
+    : isCA
+    ? `${rows.length} crypto exchanges hold a Canada FINTRAC MSB registration, according to the official FINTRAC registry. See which entity and since when.`
     : `${rows.length} crypto exchanges hold a licence covering ${name}, according to official regulator registers. See which entity, which regime, and since when.`} />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet" />
@@ -56,6 +66,18 @@ const fcaRetrieved = exchanges
         different activity (e.g. derivatives or general investment business) than the crypto
         exchange itself. Both tiers are shown below, clearly labelled.</p>
       </>
+    ) : isCA ? (
+      <>
+        <h1>Which crypto exchanges are registered in Canada?</h1>
+        <p class="lede">{rows.length} exchanges in our register have a Canadian entity registered
+        with FINTRAC as a Money Services Business (MSB) offering virtual currency services. As
+        FINTRAC's own registry states, this is <em>not</em> a licence: registration means FINTRAC
+        supervises the firm for anti-money-laundering purposes, not that it has assessed or
+        approved the firm's products or conduct. Crypto trading platforms serving Canadians may
+        also need separate registration as a securities dealer with a provincial regulator — that
+        data isn't covered here, since there's no single national securities register to draw
+        from.</p>
+      </>
     ) : (
       <>
         <h1>Which crypto exchanges are licensed in {name}?</h1>
@@ -67,11 +89,11 @@ const fcaRetrieved = exchanges
     <table class="registry">
       <thead><tr>
         <th>Exchange</th><th>Status</th>
-        {isGB ? <th>Entity</th> : <th class="col-services">Services</th>}
+        {isNonEEA ? <th>Entity</th> : <th class="col-services">Services</th>}
         <th>Since</th>
       </tr></thead>
       <tbody>
-        {isGB ? rows.map(({ ex, c }) => (
+        {isNonEEA ? rows.map(({ ex, c }) => (
           <tr>
             <td class="brand"><a href={`/exchange/${ex.id}/`}>{ex.brand}</a></td>
             <td>
@@ -118,6 +140,10 @@ const fcaRetrieved = exchanges
       <p class="sourced">Source: <a href="https://register.fca.org.uk/">UK FCA Register</a>,
       retrieved {fcaRetrieved}. An exchange missing from this list either holds no UK FCA
       registration or authorisation, or is not yet in our register.</p>
+    ) : isCA ? (
+      <p class="sourced">Source: <a href="https://fintrac-canafe.canada.ca/msb-esm/reg-eng">FINTRAC MSB Registry</a>,
+      retrieved {fintracRetrieved}. An exchange missing from this list either holds no Canadian
+      MSB registration for virtual currency services, or is not yet in our register.</p>
     ) : (
       <p class="sourced">Source: <a href="https://www.esma.europa.eu/esmas-activities/digital-finance-and-innovation/markets-crypto-assets-regulation-mica">ESMA interim MiCA register</a>,
       retrieved {exchanges[0]?.sources?.[0]?.retrieved}. An exchange missing from this list either

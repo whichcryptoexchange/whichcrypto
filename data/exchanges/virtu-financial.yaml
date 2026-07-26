@@ -5,6 +5,9 @@ sources:
 - name: ESMA interim MiCA register (CASPS.csv)
   url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
   retrieved: '2026-07-24'
+- name: Canada FINTRAC MSB Registry
+  url: https://fintrac-canafe.canada.ca/msb-esm/reg-eng
+  retrieved: '2026-07-26'
 entities:
 - lei: 549300XG5LFGN1IGYC71
   legal_name: Virtu Financial Ireland Limited
@@ -202,3 +205,11 @@ countries:
     regime: MiCA
     via: mica_passporting
     entity: Virtu Financial Ireland Limited
+  CA:
+  - status: registered
+    regime: Canada MSB registration
+    via: msb_register
+    entity: VIRTU FINANCIAL SINGAPORE PTE. LTD.
+    reg_number: C10001685
+    since: '2026-01-27'
+    expires: '2028-03-31'

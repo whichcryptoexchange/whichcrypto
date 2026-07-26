@@ -1,0 +1,27 @@
+# Brand id -> list of Canada FINTRAC MSB Registration Numbers.
+# Verify each number against the live registry before adding — no guesses.
+# https://fintrac-canafe.canada.ca/msb-esm/reg-eng (search UI + CSV/XLSX bulk export)
+#
+# fintrac_sync.py re-downloads the bulk CSV at sync time and looks up these
+# numbers fresh — this file only pins identity, same curation pattern as
+# brand_map.yaml (LEI) and fca_frn_map.yaml (FRN). All entities below were
+# cross-checked against their website field in the July 2026 export.
+
+bitpay:
+  - reg_number: "M23611454"   # Bitpay Inc.
+bullish:
+  - reg_number: "C100000016"  # Bullish (GI) Limited
+coinbase:
+  - reg_number: "M22815925"   # Coinbase Canada, Inc.
+  - reg_number: "C10001547"   # Coinbase, Inc.
+crypto-com:
+  - reg_number: "M21385577"   # Foris Dax Inc.
+  - reg_number: "C100000094"  # Foris Dax Can ULC
+gemini:
+  - reg_number: "M20046728"   # Gemini Trust Company, LLC
+kraken:
+  - reg_number: "M19343731"   # Payward Canada Inc.
+moonpay:
+  - reg_number: "C10001378"   # MoonPay Canada Inc.
+virtu-financial:
+  - reg_number: "C10001685"   # Virtu Financial Singapore Pte. Ltd. — their entity for CA registration, confirmed via virtu.com website field

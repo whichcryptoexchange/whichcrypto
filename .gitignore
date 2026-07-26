@@ -3,3 +3,4 @@ dist/
 .astro/
 __pycache__/
 .env
+admin_key.txt

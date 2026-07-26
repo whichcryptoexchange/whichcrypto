@@ -8,6 +8,9 @@ sources:
 - name: UK FCA Register
   url: https://register.fca.org.uk/
   retrieved: '2026-07-24'
+- name: Canada FINTRAC MSB Registry
+  url: https://fintrac-canafe.canada.ca/msb-esm/reg-eng
+  retrieved: '2026-07-26'
 entities:
 - lei: 254900KXWAZ3B1340G26
   legal_name: MoonPay Europe B.V
@@ -213,3 +216,11 @@ countries:
     entity: MoonPay (UK) Limited
     frn: '944716'
     since: '2022-12-09'
+  CA:
+  - status: registered
+    regime: Canada MSB registration
+    via: msb_register
+    entity: MOONPAY CANADA INC.
+    reg_number: C10001378
+    since: '2025-10-31'
+    expires: '2028-06-30'

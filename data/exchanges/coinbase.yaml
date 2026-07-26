@@ -8,6 +8,9 @@ sources:
 - name: UK FCA Register
   url: https://register.fca.org.uk/
   retrieved: '2026-07-24'
+- name: Canada FINTRAC MSB Registry
+  url: https://fintrac-canafe.canada.ca/msb-esm/reg-eng
+  retrieved: '2026-07-26'
 entities:
 - lei: 984500F14CA4571AAC11
   legal_name: Coinbase Luxembourg S.A
@@ -217,3 +220,18 @@ countries:
     entity: CB Payments Ltd
     frn: '900635'
     since: '2025-02-03'
+  CA:
+  - status: registered
+    regime: Canada MSB registration
+    via: msb_register
+    entity: COINBASE CANADA
+    reg_number: M22815925
+    since: '2022-12-09'
+    expires: '2027-03-06'
+  - status: registered
+    regime: Canada MSB registration
+    via: msb_register
+    entity: COINBASE
+    reg_number: C10001547
+    since: '2025-12-16'
+    expires: '2028-05-31'
