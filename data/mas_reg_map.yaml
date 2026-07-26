@@ -1,0 +1,45 @@
+# Brand id -> list of Singapore MAS Financial Institutions Directory
+# references (Major Payment Institution licence, Digital Payment Token
+# Service activity). Verify each reference against the live directory
+# before adding — no guesses.
+# https://eservices.mas.gov.sg/fid/institution?sector=Payments&category=Major+Payment+Institution&activity=Digital+Payment+Token+Service
+#
+# mas_sync.py re-fetches the live directory at sync time and looks up
+# these references fresh — this file only pins identity, same curation
+# pattern as brand_map.yaml (LEI), fca_frn_map.yaml (FRN),
+# fintrac_reg_map.yaml (MSB registration number), and vara_reg_map.yaml
+# (VARA licence reference).
+#
+# anchorage-digital, hashkey, paxos, upbit, and independent-reserve were
+# bootstrapped via scripts/bootstrap_brand.py — they have no EU entity at
+# all, so this is their only jurisdiction entry.
+
+bitgo:
+  - reference: "420728-BITGO-SINGAPORE-PTE-LTD"        # BitGo Singapore Pte. Ltd.
+bitstamp:
+  - reference: "254459-BITSTAMP-ASIA-PTE-LTD"           # Bitstamp Asia Pte. Ltd.
+blockchain-com:
+  - reference: "409117-BLOCKCHAIN-COM-SINGAPORE-PTE-LTD"  # Blockchain.com (Singapore) Pte. Ltd.
+circle:
+  - reference: "412248-CIRCLE-INTERNET-SINGAPORE-PTE-LTD"  # Circle Internet Singapore Pte. Ltd.
+coinbase:
+  - reference: "235467-COINBASE-SINGAPORE-PTE-LTD"      # Coinbase Singapore Pte. Ltd.
+crypto-com:
+  - reference: "250069-FORIS-DAX-ASIA-PTE-LTD"          # Foris Dax Asia Pte. Ltd. -- same naming pattern as their EU/UK/CA/AE entities
+okx:
+  - reference: "422854-OKX-SG-PTE-LTD"                  # OKX SG Pte. Ltd.
+ripple:
+  - reference: "415143-RIPPLE-MARKETS-APAC-PTE-LTD"     # Ripple Markets APAC Pte. Ltd.
+sygnum-europe:
+  - reference: "228260-SYGNUM-PTE-LTD"                  # Sygnum Pte. Ltd.
+anchorage-digital:
+  - reference: "427752-ANCHORAGE-DIGITAL-SINGAPORE-Pte-Ltd"  # Anchorage Digital Singapore Pte. Ltd.
+hashkey:
+  - reference: "422819-Hashkey-Technology-Services-Pte-Ltd"  # Hashkey Technology Services Pte. Ltd.
+paxos:
+  - reference: "420524-PAXOS-DIGITAL-SINGAPORE-PTE-LTD"  # Paxos Digital Singapore Pte. Ltd.
+  - reference: "408012-PAXOS-GLOBAL-PTE-LTD"             # Paxos Global Pte. Ltd.
+upbit:
+  - reference: "420457-UPBIT-SINGAPORE-PTE-LTD"          # Upbit Singapore Pte. Ltd.
+independent-reserve:
+  - reference: "243463-INDEPENDENT-RESERVE-SG-PTE-LTD"   # Independent Reserve SG Pte. Ltd.

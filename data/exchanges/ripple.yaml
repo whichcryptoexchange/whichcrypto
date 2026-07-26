@@ -4,9 +4,12 @@ eu_status: authorised
 sources:
 - name: ESMA interim MiCA register (CASPS.csv)
   url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
-  retrieved: '2026-07-24'
+  retrieved: '2026-07-26'
 - name: UK FCA Register
   url: https://register.fca.org.uk/
+  retrieved: '2026-07-26'
+- name: Singapore MAS Financial Institutions Directory
+  url: https://eservices.mas.gov.sg/fid/institution
   retrieved: '2026-07-26'
 entities:
 - lei: 2549000KEHDV2LWRRZ45
@@ -110,6 +113,19 @@ countries:
     regime: MiCA
     via: mica_passporting
     entity: Ripple Payments Europe S.A
+  GB:
+  - status: registered
+    regime: UK MLR registration
+    via: uk_register
+    entity: RIPPLE MARKETS UK LTD
+    frn: '1028021'
+    since: '2026-01-09'
+  - status: authorised
+    regime: UK FCA authorisation
+    via: uk_register
+    entity: Hidden Road Partners CIV UK Ltd
+    frn: '828692'
+    since: '2022-12-20'
   GR:
     status: licensed
     regime: MiCA
@@ -205,16 +221,10 @@ countries:
     regime: MiCA
     via: mica_passporting
     entity: Ripple Payments Europe S.A
-  GB:
-  - status: registered
-    regime: UK MLR registration
-    via: uk_register
-    entity: RIPPLE MARKETS UK LTD
-    frn: '1028021'
-    since: '2026-01-09'
-  - status: authorised
-    regime: UK FCA authorisation
-    via: uk_register
-    entity: Hidden Road Partners CIV UK Ltd
-    frn: '828692'
-    since: '2022-12-20'
+  SG:
+  - status: licensed
+    regime: Singapore MAS MPI Licence (DPT)
+    via: mas_register
+    entity: RIPPLE MARKETS APAC PTE. LTD.
+    reference: 415143-RIPPLE-MARKETS-APAC-PTE-LTD
+    since: null

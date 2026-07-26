@@ -1,0 +1,16 @@
+id: anchorage-digital
+brand: Anchorage Digital
+eu_status: no_eu_entity
+sources:
+- name: Singapore MAS Financial Institutions Directory
+  url: https://eservices.mas.gov.sg/fid/institution
+  retrieved: '2026-07-26'
+entities: []
+countries:
+  SG:
+  - status: licensed
+    regime: Singapore MAS MPI Licence (DPT)
+    via: mas_register
+    entity: ANCHORAGE DIGITAL SINGAPORE Pte. Ltd.
+    reference: 427752-ANCHORAGE-DIGITAL-SINGAPORE-Pte-Ltd
+    since: null

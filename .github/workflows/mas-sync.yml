@@ -1,0 +1,43 @@
+name: MAS register sync
+
+on:
+  schedule:
+    - cron: '0 8 * * 4'   # Thu 08:00 UTC — offset from the 07:00/07:30 ESMA/VARA runs
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.12' }
+      - run: pip install pyyaml
+      - name: Refresh MAS register data
+        run: python3 scripts/mas_sync.py
+      - name: Open PR if the register changed
+        uses: peter-evans/create-pull-request@v6
+        with:
+          commit-message: "data: MAS register sync"
+          title: "MAS (Singapore) register update — review changes"
+          body: |
+            Automated refresh of data/mas_reg_map.yaml's pinned directory
+            references against the live MAS Financial Institutions
+            Directory. This does NOT discover new brands — only re-fetches
+            status for entities already curated in mas_reg_map.yaml.
+            Review for:
+              - a reference no longer found (licence lapsed or reference
+                changed — the entry will be dropped from countries.SG)
+
+            Reminder: anchorage-digital, hashkey, paxos, upbit, and
+            independent-reserve have no EU entity at all (bootstrapped via
+            scripts/bootstrap_brand.py) — if one of those files is ever
+            missing from this diff when you'd expect it, check
+            esma_sync.py's stale-file cleanup didn't regress rather than
+            assuming it's fine.
+          branch: mas-sync
+          delete-branch: true

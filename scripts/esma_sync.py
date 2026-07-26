@@ -240,8 +240,18 @@ def main():
     out_dir.mkdir(parents=True, exist_ok=True)
     current_ids = set(brands.keys())
     for stale in out_dir.glob("*.yaml"):
-        if stale.stem not in current_ids:
-            stale.unlink()
+        if stale.stem in current_ids:
+            continue
+        # Brands bootstrapped by scripts/bootstrap_brand.py (no EU entity at
+        # all) are never in current_ids since they never appear in ESMA
+        # data — that's not staleness, don't delete them.
+        try:
+            existing = yaml.safe_load(stale.read_text()) or {}
+        except yaml.YAMLError:
+            existing = {}
+        if existing.get("eu_status") == "no_eu_entity":
+            continue
+        stale.unlink()
     for bid, b in sorted(brands.items()):
         countries = dict(b["countries"])
         other_sources = []

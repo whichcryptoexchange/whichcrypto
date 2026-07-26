@@ -4,7 +4,7 @@ eu_status: authorised
 sources:
 - name: ESMA interim MiCA register (CASPS.csv)
   url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
-  retrieved: '2026-07-24'
+  retrieved: '2026-07-26'
 entities:
 - lei: 529900B4G0EGK7Z9KT45
   legal_name: KuCoin EU Exchange GmbH

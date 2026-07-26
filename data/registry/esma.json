@@ -1,5 +1,5 @@
 {
-  "generated": "2026-07-24",
+  "generated": "2026-07-26",
   "source": "https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv",
   "brand_count": 302,
   "brands": [
@@ -37,7 +37,7 @@
     "bitcoin-suisse-europe-ag",
     "bitcoinmat",
     "bitflyer-europe",
-    "bitgo-europe-gmbh",
+    "bitgo",
     "bitmymoney",
     "bitonic",
     "bitpanda",

@@ -4,7 +4,7 @@ eu_status: authorised
 sources:
 - name: ESMA interim MiCA register (CASPS.csv)
   url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
-  retrieved: '2026-07-24'
+  retrieved: '2026-07-26'
 - name: Dubai VARA Public Register
   url: https://www.vara.ae/en/licenses-and-register/public-register/
   retrieved: '2026-07-26'
@@ -58,6 +58,14 @@ entities:
     - SK
     last_update: '2026-05-28'
 countries:
+  AE:
+  - status: licensed
+    regime: Dubai VARA VASP Licence
+    via: dubai_vara
+    entity: Trek Labs Ltd FZE (Backpack)
+    reference: VL/23/07/001
+    licensed_activities: Exchange Services
+    since: '2023-10-30'
   AT:
     status: licensed
     regime: MiCA
@@ -208,11 +216,3 @@ countries:
     regime: MiCA
     via: mica_passporting
     entity: '"Trek Technologies" SIA'
-  AE:
-  - status: licensed
-    regime: Dubai VARA VASP Licence
-    via: dubai_vara
-    entity: Trek Labs Ltd FZE (Backpack)
-    reference: VL/23/07/001
-    licensed_activities: Exchange Services
-    since: '2023-10-30'

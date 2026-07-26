@@ -4,7 +4,7 @@ eu_status: authorised
 sources:
 - name: ESMA interim MiCA register (CASPS.csv)
   url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
-  retrieved: '2026-07-24'
+  retrieved: '2026-07-26'
 - name: UK FCA Register
   url: https://register.fca.org.uk/
   retrieved: '2026-07-26'
@@ -13,6 +13,9 @@ sources:
   retrieved: '2026-07-26'
 - name: Dubai VARA Public Register
   url: https://www.vara.ae/en/licenses-and-register/public-register/
+  retrieved: '2026-07-26'
+- name: Singapore MAS Financial Institutions Directory
+  url: https://eservices.mas.gov.sg/fid/institution
   retrieved: '2026-07-26'
 entities:
 - lei: 2549005CVR5HH70FDO07
@@ -64,6 +67,15 @@ entities:
     - SK
     last_update: '2025-02-06'
 countries:
+  AE:
+  - status: licensed
+    regime: Dubai VARA VASP Licence
+    via: dubai_vara
+    entity: Foris DAX Middle East FZE (Crypto.com)
+    reference: VL/23/10/003
+    licensed_activities: Broker-Dealer Services Management and Investment Services Lending and Borrowing
+      Services Exchange Services (including VA Derivatives Trading)
+    since: '2024-04-03'
   AT:
     status: licensed
     regime: MiCA
@@ -79,6 +91,21 @@ countries:
     regime: MiCA
     via: mica_passporting
     entity: Foris DAX MT Limited
+  CA:
+  - status: registered
+    regime: Canada MSB registration
+    via: msb_register
+    entity: FORIS DAX INC.
+    reg_number: M21385577
+    since: '2021-02-18'
+    expires: '2026-12-18'
+  - status: registered
+    regime: Canada MSB registration
+    via: msb_register
+    entity: FORIS DAX CAN ULC
+    reg_number: C100000094
+    since: '2024-09-18'
+    expires: '2027-06-30'
   CY:
     status: licensed
     regime: MiCA
@@ -119,6 +146,13 @@ countries:
     regime: MiCA
     via: mica_passporting
     entity: Foris DAX MT Limited
+  GB:
+  - status: registered
+    regime: UK MLR registration
+    via: uk_register
+    entity: FORIS DAX UK LIMITED
+    frn: '941745'
+    since: '2022-08-16'
   GR:
     status: licensed
     regime: MiCA
@@ -214,34 +248,10 @@ countries:
     regime: MiCA
     via: mica_passporting
     entity: Foris DAX MT Limited
-  GB:
-  - status: registered
-    regime: UK MLR registration
-    via: uk_register
-    entity: FORIS DAX UK LIMITED
-    frn: '941745'
-    since: '2022-08-16'
-  CA:
-  - status: registered
-    regime: Canada MSB registration
-    via: msb_register
-    entity: FORIS DAX INC.
-    reg_number: M21385577
-    since: '2021-02-18'
-    expires: '2026-12-18'
-  - status: registered
-    regime: Canada MSB registration
-    via: msb_register
-    entity: FORIS DAX CAN ULC
-    reg_number: C100000094
-    since: '2024-09-18'
-    expires: '2027-06-30'
-  AE:
+  SG:
   - status: licensed
-    regime: Dubai VARA VASP Licence
-    via: dubai_vara
-    entity: Foris DAX Middle East FZE (Crypto.com)
-    reference: VL/23/10/003
-    licensed_activities: Broker-Dealer Services Management and Investment Services Lending and Borrowing
-      Services Exchange Services (including VA Derivatives Trading)
-    since: '2024-04-03'
+    regime: Singapore MAS MPI Licence (DPT)
+    via: mas_register
+    entity: FORIS DAX ASIA PTE. LTD.
+    reference: 250069-FORIS-DAX-ASIA-PTE-LTD
+    since: null

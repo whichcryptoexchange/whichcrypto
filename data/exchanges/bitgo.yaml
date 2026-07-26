@@ -1,10 +1,13 @@
-id: bitgo-europe-gmbh
-brand: BitGo Europe GmbH
+id: bitgo
+brand: BitGo
 eu_status: authorised
 sources:
 - name: ESMA interim MiCA register (CASPS.csv)
   url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
-  retrieved: '2026-07-24'
+  retrieved: '2026-07-26'
+- name: Singapore MAS Financial Institutions Directory
+  url: https://eservices.mas.gov.sg/fid/institution
+  retrieved: '2026-07-26'
 entities:
 - lei: 391200IJ3B1IP7993O16
   legal_name: BitGo Europe GmbH
@@ -206,3 +209,10 @@ countries:
     regime: MiCA
     via: mica_passporting
     entity: BitGo Europe GmbH
+  SG:
+  - status: licensed
+    regime: Singapore MAS MPI Licence (DPT)
+    via: mas_register
+    entity: BITGO SINGAPORE PTE. LTD.
+    reference: 420728-BITGO-SINGAPORE-PTE-LTD
+    since: null

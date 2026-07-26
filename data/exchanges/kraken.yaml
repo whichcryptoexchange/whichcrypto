@@ -4,7 +4,7 @@ eu_status: authorised
 sources:
 - name: ESMA interim MiCA register (CASPS.csv)
   url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
-  retrieved: '2026-07-24'
+  retrieved: '2026-07-26'
 - name: UK FCA Register
   url: https://register.fca.org.uk/
   retrieved: '2026-07-26'
@@ -95,6 +95,14 @@ countries:
     regime: MiCA
     via: mica_passporting
     entity: Payward Europe Solutions Limited
+  CA:
+  - status: registered
+    regime: Canada MSB registration
+    via: msb_register
+    entity: PAYWARD CANADA INC.
+    reg_number: M19343731
+    since: '2019-11-27'
+    expires: '2026-06-20'
   CY:
     status: licensed
     regime: MiCA
@@ -135,6 +143,19 @@ countries:
     regime: MiCA
     via: mica_passporting
     entity: Payward Europe Solutions Limited
+  GB:
+  - status: registered
+    regime: UK MLR registration
+    via: uk_register
+    entity: PAYWARD LTD.
+    frn: '928768'
+    since: '2021-11-23'
+  - status: authorised
+    regime: UK FCA authorisation
+    via: uk_register
+    entity: Crypto Facilities Ltd
+    frn: '757895'
+    since: '2021-11-17'
   GR:
     status: licensed
     regime: MiCA
@@ -230,24 +251,3 @@ countries:
     regime: MiCA
     via: mica_passporting
     entity: Payward Europe Solutions Limited
-  GB:
-  - status: registered
-    regime: UK MLR registration
-    via: uk_register
-    entity: PAYWARD LTD.
-    frn: '928768'
-    since: '2021-11-23'
-  - status: authorised
-    regime: UK FCA authorisation
-    via: uk_register
-    entity: Crypto Facilities Ltd
-    frn: '757895'
-    since: '2021-11-17'
-  CA:
-  - status: registered
-    regime: Canada MSB registration
-    via: msb_register
-    entity: PAYWARD CANADA INC.
-    reg_number: M19343731
-    since: '2019-11-27'
-    expires: '2026-06-20'

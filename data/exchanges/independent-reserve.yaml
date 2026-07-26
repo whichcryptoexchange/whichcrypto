@@ -1,0 +1,16 @@
+id: independent-reserve
+brand: Independent Reserve
+eu_status: no_eu_entity
+sources:
+- name: Singapore MAS Financial Institutions Directory
+  url: https://eservices.mas.gov.sg/fid/institution
+  retrieved: '2026-07-26'
+entities: []
+countries:
+  SG:
+  - status: licensed
+    regime: Singapore MAS MPI Licence (DPT)
+    via: mas_register
+    entity: INDEPENDENT RESERVE SG PTE. LTD.
+    reference: 243463-INDEPENDENT-RESERVE-SG-PTE-LTD
+    since: null

@@ -35,6 +35,7 @@ export const COUNTRY_NAMES = {
   NO: 'Norway', PL: 'Poland', PT: 'Portugal', RO: 'Romania', SE: 'Sweden',
   SI: 'Slovenia', SK: 'Slovakia',
   GB: 'United Kingdom', CA: 'Canada', AE: 'United Arab Emirates (Dubai only)',
+  SG: 'Singapore',
 };
 
 export const SERVICE_NAMES = {

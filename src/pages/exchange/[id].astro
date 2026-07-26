@@ -10,7 +10,7 @@ const countryCodes = Object.keys(ex.countries ?? {})
   .sort((a, b) => (COUNTRY_NAMES[a] ?? a).localeCompare(COUNTRY_NAMES[b] ?? b));
 // Non-EEA jurisdictions (list-shaped countries.<CC>, unlike the single-object
 // EEA/MiCA shape) get a "<prefix> · Registered/Authorised/Licensed" stamp each.
-const NON_EEA_PREFIX = { GB: 'UK', CA: 'CA', AE: 'Dubai' };
+const NON_EEA_PREFIX = { GB: 'UK', CA: 'CA', AE: 'Dubai', SG: 'SG' };
 const nonEEAEntries = Object.entries(NON_EEA_PREFIX)
   .flatMap(([cc, prefix]) => (ex.countries?.[cc] ?? []).map((entry) => ({ ...entry, prefix })));
 // registered/authorised (UK, CA) are AML-only tiers; licensed (AE/Dubai VARA)
@@ -45,9 +45,11 @@ const SITEKEY = import.meta.env.PUBLIC_TURNSTILE_SITEKEY || '0x4AAAAAAD84t4OWkoo
   <main class="wrap">
     <h1>{ex.brand}</h1>
     <p class="lede">
-      {ex.eu_status === 'authorised'
-        ? <span class="stamp licensed">EU · MiCA Authorised</span>
-        : <span class="stamp withdrawn">EU · Authorisation Withdrawn</span>}
+      {ex.eu_status === 'authorised' && <span class="stamp licensed">EU · MiCA Authorised</span>}
+      {ex.eu_status === 'withdrawn' && <span class="stamp withdrawn">EU · Authorisation Withdrawn</span>}
+      {/* no_eu_entity: this brand has never had an EU entity — omit the EU
+          stamp entirely rather than showing a misleading withdrawn/licensed
+          state either way. */}
       {nonEEAEntries.map((entry) => (
         <span class={`stamp ${STATUS_STAMP[entry.status]?.cls ?? 'neutral'}`}>
           {entry.prefix} · {STATUS_STAMP[entry.status]?.label ?? entry.status}

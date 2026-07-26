@@ -4,7 +4,7 @@ eu_status: authorised
 sources:
 - name: ESMA interim MiCA register (CASPS.csv)
   url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
-  retrieved: '2026-07-24'
+  retrieved: '2026-07-26'
 - name: UK FCA Register
   url: https://register.fca.org.uk/
   retrieved: '2026-07-26'
@@ -129,6 +129,21 @@ entities:
     passported_to: []
     last_update: '2025-06-05'
 countries:
+  AE:
+  - status: licensed
+    regime: Dubai VARA VASP Licence
+    via: dubai_vara
+    entity: Bitpanda Custody MENA DMCC
+    reference: VL/25/04/006
+    licensed_activities: Custody Services [including custodial staking]
+    since: '2025-04-25'
+  - status: licensed
+    regime: Dubai VARA VASP Licence
+    via: dubai_vara
+    entity: Bitpanda Broker MENA DMCC
+    reference: VL/25/03/001
+    licensed_activities: Broker-Dealer Services
+    since: '2025-03-19'
   AT:
     status: licensed
     regime: MiCA
@@ -184,6 +199,19 @@ countries:
     regime: MiCA
     via: mica_passporting
     entity: Bitpanda GmbH
+  GB:
+  - status: registered
+    regime: UK MLR registration
+    via: uk_register
+    entity: BITPANDA BROKER UK LTD
+    frn: '925234'
+    since: '2021-10-11'
+  - status: registered
+    regime: UK MLR registration
+    via: uk_register
+    entity: Bitpanda Custody Ltd
+    frn: '928556'
+    since: '2021-10-04'
   GR:
     status: licensed
     regime: MiCA
@@ -279,31 +307,3 @@ countries:
     regime: MiCA
     via: mica_passporting
     entity: Bitpanda GmbH
-  GB:
-  - status: registered
-    regime: UK MLR registration
-    via: uk_register
-    entity: BITPANDA BROKER UK LTD
-    frn: '925234'
-    since: '2021-10-11'
-  - status: registered
-    regime: UK MLR registration
-    via: uk_register
-    entity: Bitpanda Custody Ltd
-    frn: '928556'
-    since: '2021-10-04'
-  AE:
-  - status: licensed
-    regime: Dubai VARA VASP Licence
-    via: dubai_vara
-    entity: Bitpanda Custody MENA DMCC
-    reference: VL/25/04/006
-    licensed_activities: Custody Services [including custodial staking]
-    since: '2025-04-25'
-  - status: licensed
-    regime: Dubai VARA VASP Licence
-    via: dubai_vara
-    entity: Bitpanda Broker MENA DMCC
-    reference: VL/25/03/001
-    licensed_activities: Broker-Dealer Services
-    since: '2025-03-19'

@@ -4,7 +4,10 @@ eu_status: authorised
 sources:
 - name: ESMA interim MiCA register (CASPS.csv)
   url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
-  retrieved: '2026-07-24'
+  retrieved: '2026-07-26'
+- name: Singapore MAS Financial Institutions Directory
+  url: https://eservices.mas.gov.sg/fid/institution
+  retrieved: '2026-07-26'
 entities:
 - lei: 54930069NLWEIGLHXU42
   legal_name: OKX Europe Limited
@@ -208,3 +211,10 @@ countries:
     regime: MiCA
     via: mica_passporting
     entity: OKX Europe Limited
+  SG:
+  - status: licensed
+    regime: Singapore MAS MPI Licence (DPT)
+    via: mas_register
+    entity: OKX SG PTE. LTD.
+    reference: 422854-OKX-SG-PTE-LTD
+    since: null

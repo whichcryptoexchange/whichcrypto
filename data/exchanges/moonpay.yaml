@@ -4,7 +4,7 @@ eu_status: authorised
 sources:
 - name: ESMA interim MiCA register (CASPS.csv)
   url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
-  retrieved: '2026-07-24'
+  retrieved: '2026-07-26'
 - name: UK FCA Register
   url: https://register.fca.org.uk/
   retrieved: '2026-07-26'
@@ -74,6 +74,14 @@ countries:
     regime: MiCA
     via: mica_passporting
     entity: MoonPay Europe B.V
+  CA:
+  - status: registered
+    regime: Canada MSB registration
+    via: msb_register
+    entity: MOONPAY CANADA INC.
+    reg_number: C10001378
+    since: '2025-10-31'
+    expires: '2028-06-30'
   CY:
     status: licensed
     regime: MiCA
@@ -114,6 +122,13 @@ countries:
     regime: MiCA
     via: mica_passporting
     entity: MoonPay Europe B.V
+  GB:
+  - status: registered
+    regime: UK MLR registration
+    via: uk_register
+    entity: MoonPay (UK) Limited
+    frn: '944716'
+    since: '2022-12-09'
   GR:
     status: licensed
     regime: MiCA
@@ -209,18 +224,3 @@ countries:
     regime: MiCA
     via: mica_passporting
     entity: MoonPay Europe B.V
-  GB:
-  - status: registered
-    regime: UK MLR registration
-    via: uk_register
-    entity: MoonPay (UK) Limited
-    frn: '944716'
-    since: '2022-12-09'
-  CA:
-  - status: registered
-    regime: Canada MSB registration
-    via: msb_register
-    entity: MOONPAY CANADA INC.
-    reg_number: C10001378
-    since: '2025-10-31'
-    expires: '2028-06-30'

@@ -4,12 +4,15 @@ eu_status: authorised
 sources:
 - name: ESMA interim MiCA register (CASPS.csv)
   url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
-  retrieved: '2026-07-24'
+  retrieved: '2026-07-26'
 - name: UK FCA Register
   url: https://register.fca.org.uk/
   retrieved: '2026-07-26'
 - name: Canada FINTRAC MSB Registry
   url: https://fintrac-canafe.canada.ca/msb-esm/reg-eng
+  retrieved: '2026-07-26'
+- name: Singapore MAS Financial Institutions Directory
+  url: https://eservices.mas.gov.sg/fid/institution
   retrieved: '2026-07-26'
 entities:
 - lei: 984500F14CA4571AAC11
@@ -78,6 +81,21 @@ countries:
     regime: MiCA
     via: mica_passporting
     entity: Coinbase Luxembourg S.A
+  CA:
+  - status: registered
+    regime: Canada MSB registration
+    via: msb_register
+    entity: COINBASE CANADA
+    reg_number: M22815925
+    since: '2022-12-09'
+    expires: '2027-03-06'
+  - status: registered
+    regime: Canada MSB registration
+    via: msb_register
+    entity: COINBASE
+    reg_number: C10001547
+    since: '2025-12-16'
+    expires: '2028-05-31'
   CY:
     status: licensed
     regime: MiCA
@@ -118,6 +136,13 @@ countries:
     regime: MiCA
     via: mica_passporting
     entity: Coinbase Luxembourg S.A
+  GB:
+  - status: registered
+    regime: UK MLR registration
+    via: uk_register
+    entity: CB Payments Ltd
+    frn: '900635'
+    since: '2025-02-03'
   GR:
     status: licensed
     regime: MiCA
@@ -213,25 +238,10 @@ countries:
     regime: MiCA
     via: mica_passporting
     entity: Coinbase Luxembourg S.A
-  GB:
-  - status: registered
-    regime: UK MLR registration
-    via: uk_register
-    entity: CB Payments Ltd
-    frn: '900635'
-    since: '2025-02-03'
-  CA:
-  - status: registered
-    regime: Canada MSB registration
-    via: msb_register
-    entity: COINBASE CANADA
-    reg_number: M22815925
-    since: '2022-12-09'
-    expires: '2027-03-06'
-  - status: registered
-    regime: Canada MSB registration
-    via: msb_register
-    entity: COINBASE
-    reg_number: C10001547
-    since: '2025-12-16'
-    expires: '2028-05-31'
+  SG:
+  - status: licensed
+    regime: Singapore MAS MPI Licence (DPT)
+    via: mas_register
+    entity: COINBASE SINGAPORE PTE. LTD.
+    reference: 235467-COINBASE-SINGAPORE-PTE-LTD
+    since: null
