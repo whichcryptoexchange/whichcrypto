@@ -1,0 +1,37 @@
+name: FINTRAC register sync
+
+on:
+  schedule:
+    - cron: '0 7 * * 3'   # Wed 07:00 UTC — FINTRAC's own export updates monthly
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.12' }
+      - run: pip install pyyaml
+      - name: Refresh FINTRAC register data
+        run: python3 scripts/fintrac_sync.py
+      - name: Open PR if the register changed
+        uses: peter-evans/create-pull-request@v6
+        with:
+          commit-message: "data: FINTRAC register sync"
+          title: "FINTRAC register update — review changes"
+          body: |
+            Automated refresh of data/fintrac_reg_map.yaml's pinned MSB
+            registration numbers against the live FINTRAC bulk export. This
+            does NOT discover new brands — only re-fetches status/dates for
+            entities already curated in fintrac_reg_map.yaml. Review for:
+              - a status flip away from "Registered" (Expired/Ceased/
+                Revoked — the entry will be dropped from countries.CA;
+                confirm that's correct before merging)
+            Never describe an MSB registration as licensed in any copy.
+          branch: fintrac-sync
+          delete-branch: true

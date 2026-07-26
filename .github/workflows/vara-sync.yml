@@ -1,0 +1,40 @@
+name: VARA register sync
+
+on:
+  schedule:
+    - cron: '30 7 * * 4'   # Thu 07:30 UTC — offset from the 07:00 ESMA run
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.12' }
+      - run: pip install pyyaml
+      - name: Refresh Dubai VARA register data
+        run: python3 scripts/vara_sync.py
+      - name: Open PR if the register changed
+        uses: peter-evans/create-pull-request@v6
+        with:
+          commit-message: "data: VARA register sync"
+          title: "VARA (Dubai) register update — review changes"
+          body: |
+            Automated refresh of data/vara_reg_map.yaml's pinned licence
+            references against the live VARA public register. This does
+            NOT discover new brands — only re-fetches status/dates for
+            entities already curated in vara_reg_map.yaml. Review for:
+              - a reference no longer found (licence lapsed or reference
+                changed — the entry will be dropped from countries.AE)
+
+            Reminder for every review: VARA covers DUBAI ONLY, never the
+            wider UAE. Every countries.AE entry's regime string must say
+            "Dubai" explicitly, and any new copy referencing this data
+            must not imply UAE-wide coverage.
+          branch: vara-sync
+          delete-branch: true

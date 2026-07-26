@@ -1,0 +1,41 @@
+name: FCA register sync
+
+on:
+  schedule:
+    - cron: '0 7 * * 2'   # Tue 07:00 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.12' }
+      - run: pip install pyyaml
+      - name: Refresh FCA register data
+        env:
+          FCA_API_EMAIL: ${{ secrets.FCA_API_EMAIL }}
+          FCA_API_KEY: ${{ secrets.FCA_API_KEY }}
+        run: python3 scripts/fca_sync.py
+      - name: Open PR if the register changed
+        uses: peter-evans/create-pull-request@v6
+        with:
+          commit-message: "data: FCA register sync"
+          title: "FCA register update — review changes"
+          body: |
+            Automated refresh of data/fca_frn_map.yaml's pinned FRNs against
+            the live FCA Register. This does NOT discover new brands — only
+            re-fetches status/dates for entities already curated in
+            fca_frn_map.yaml. Review for:
+              - a status flip from Registered to something else (lapsed
+                MLR registration — may need dropping from the map)
+              - a status flip TO Authorised (a second-tier entry may need
+                adding, or an existing one may need re-checking)
+            Never describe a "registered" entry as licensed in any copy.
+          branch: fca-sync
+          delete-branch: true
