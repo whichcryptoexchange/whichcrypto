@@ -1,11 +1,14 @@
 // whichcryptoexchange worker: serves static assets (automatic) and handles
-// the user-report API + a minimal moderation view.
+// the user-report API, the contact form, and a minimal moderation view.
 //
 // Bindings required (see wrangler.jsonc + README-reports.md):
 //   DB              - D1 database
+//   SEND_EMAIL      - Email Routing send binding, destination jim@maxrespect.co.uk
 //   TURNSTILE_SECRET- secret: Cloudflare Turnstile secret key
 //   ADMIN_KEY       - secret: long random string gating /admin/reports
 //   IP_SALT         - secret: random string for privacy-preserving IP hashing
+
+import { EmailMessage } from 'cloudflare:email';
 
 const OUTCOMES = new Set([
   'signup_ok','signup_blocked','kyc_blocked',
@@ -79,6 +82,52 @@ async function handleSubmit(request, env) {
   return json({ ok: true, message: 'Thanks — your report is queued for review before publication.' });
 }
 
+function sanitizeHeader(s, max) {
+  return String(s ?? '').replace(/[\r\n]+/g, ' ').trim().slice(0, max);
+}
+
+async function handleContact(request, env) {
+  let body;
+  try { body = await request.json(); } catch { return json({ error: 'invalid JSON' }, 400); }
+
+  const ip = request.headers.get('CF-Connecting-IP') || '0.0.0.0';
+  if (!(await verifyTurnstile(body.turnstile_token, env.TURNSTILE_SECRET, ip))) {
+    return json({ error: 'verification failed — please retry the challenge' }, 403);
+  }
+
+  const name = sanitizeHeader(body.name, 100);
+  const email = sanitizeHeader(body.email, 200);
+  const message = String(body.message || '').trim().slice(0, 5000);
+
+  if (!name) return json({ error: 'name is required' }, 400);
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return json({ error: 'a valid email is required' }, 400);
+  if (!message) return json({ error: 'message is required' }, 400);
+
+  const raw = [
+    'From: whichcryptoexchange contact form <contact@whichcryptoexchange.com>',
+    `Reply-To: ${email}`,
+    'To: jim@maxrespect.co.uk',
+    `Subject: Contact form: ${name}`,
+    'Content-Type: text/plain; charset="UTF-8"',
+    '',
+    `From: ${name} <${email}>`,
+    '',
+    message,
+  ].join('\r\n');
+
+  try {
+    await env.SEND_EMAIL.send(new EmailMessage(
+      'contact@whichcryptoexchange.com',
+      'jim@maxrespect.co.uk',
+      raw,
+    ));
+  } catch {
+    return json({ error: 'could not send — please try again later' }, 502);
+  }
+
+  return json({ ok: true, message: 'Thanks — your message has been sent.' });
+}
+
 async function handleAggregates(env, exchangeId) {
   const { results } = await env.DB.prepare(
     `SELECT country, outcome, COUNT(*) AS n, MAX(created_at) AS latest
@@ -131,6 +180,7 @@ export default {
   async fetch(request, env) {
     const url = new URL(request.url);
     if (url.pathname === '/api/report' && request.method === 'POST') return handleSubmit(request, env);
+    if (url.pathname === '/api/contact' && request.method === 'POST') return handleContact(request, env);
     const agg = url.pathname.match(/^\/api\/reports\/([a-z0-9-]{1,60})$/);
     if (agg && request.method === 'GET') return handleAggregates(env, agg[1]);
     if (url.pathname === '/admin/reports') return handleAdmin(request, env, url);

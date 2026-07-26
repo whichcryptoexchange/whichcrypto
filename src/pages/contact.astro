@@ -1,0 +1,80 @@
+---
+import '../styles/global.css';
+// Turnstile site keys are public by design (embedded in client HTML), so hardcoding
+// this as a fallback is safe. The env var still wins if the build environment sets it.
+const SITEKEY = import.meta.env.PUBLIC_TURNSTILE_SITEKEY || '0x4AAAAAAD84t4OWkoouLP3Y';
+---
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact | whichcryptoexchange.com</title>
+  <meta name="description" content="Get in touch with whichcryptoexchange.com — corrections, questions, or anything else." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <script src="https://analytics.ahrefs.com/analytics.js" data-key="QTM3lN9yt0oU0rxrj5zadA" async></script>
+</head>
+<body>
+  <header class="site"><div class="wrap">
+    <a class="logo" href="/">which<em>crypto</em>exchange</a>
+    <span class="sourced">source: official regulator registers</span>
+  </div></header>
+
+  <main class="wrap">
+    <h1>Contact</h1>
+    <p class="lede">Spotted an error, have a correction, or something else on your mind? Send it
+    through below and it'll land directly in our inbox.</p>
+
+    {SITEKEY ? (
+      <form id="contact-form" class="report-form">
+        <label>Your name
+          <input type="text" name="name" required maxlength="100" />
+        </label>
+        <label>Your email
+          <input type="email" name="email" required maxlength="200" />
+        </label>
+        <label>Message
+          <textarea name="message" required maxlength="5000" rows="6"></textarea>
+        </label>
+        <div class="cf-turnstile" data-sitekey={SITEKEY}></div>
+        <button type="submit">Send message</button>
+        <p class="form-msg sourced" role="status"></p>
+      </form>
+    ) : (
+      <p class="sourced">The contact form is opening soon — in the meantime, email
+      contact@whichcryptoexchange.com directly.</p>
+    )}
+  </main>
+
+  <footer class="site"><div class="wrap">
+    <p><a href="/about/">About</a> · <a href="/contact/">Contact</a></p>
+    <p>Independent register. Not affiliated with any regulator. Not financial advice.</p>
+  </div></footer>
+
+  {SITEKEY && <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>}
+  <script>
+    const form = document.getElementById('contact-form');
+    form?.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const msg = form.querySelector('.form-msg');
+      const fd = new FormData(form);
+      const token = form.querySelector('[name="cf-turnstile-response"]')?.value;
+      msg.textContent = 'Sending…';
+      try {
+        const res = await fetch('/api/contact', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            name: fd.get('name'), email: fd.get('email'),
+            message: fd.get('message'), turnstile_token: token,
+          }),
+        });
+        const data = await res.json();
+        msg.textContent = data.message ?? data.error ?? 'Something went wrong.';
+        if (res.ok) form.reset();
+      } catch { msg.textContent = 'Network error — please try again.'; }
+    });
+  </script>
+</body>
+</html>

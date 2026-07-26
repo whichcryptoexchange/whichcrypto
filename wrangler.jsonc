@@ -13,6 +13,12 @@
 			"database_name": "wce-reports",
 			"database_id": "ed4d71d1-1303-4212-8357-58279cbda910"
 		}
+	],
+	"send_email": [
+		{
+			"name": "SEND_EMAIL",
+			"destination_address": "jim@maxrespect.co.uk"
+		}
 	]
 	// Secrets (set via dashboard or `npx wrangler secret put NAME`):
 	//   TURNSTILE_SECRET, ADMIN_KEY, IP_SALT
