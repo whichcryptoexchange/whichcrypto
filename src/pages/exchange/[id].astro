@@ -126,8 +126,13 @@ const SITEKEY = import.meta.env.PUBLIC_TURNSTILE_SITEKEY || '0x4AAAAAAD84t4OWkoo
       )}
     </section>
 
-    <p class="sourced">Source: {ex.sources[0].name}, retrieved {ex.sources[0].retrieved} —
-    <a href={ex.sources[0].url}>original file</a>.</p>
+    <p class="sourced">Sources:{' '}
+    {(ex.sources ?? []).map((s, i) => (
+      <>
+        {i > 0 && ' · '}
+        {s.name}, retrieved {s.retrieved} — <a href={s.url}>original file</a>
+      </>
+    ))}.</p>
   </main>
 
   {SITEKEY && <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>}
