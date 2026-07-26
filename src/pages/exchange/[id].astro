@@ -13,6 +13,18 @@ const countryCodes = Object.keys(ex.countries ?? {})
 const NON_EEA_PREFIX = { GB: 'UK', CA: 'CA', AE: 'Dubai', SG: 'SG' };
 const nonEEAEntries = Object.entries(NON_EEA_PREFIX)
   .flatMap(([cc, prefix]) => (ex.countries?.[cc] ?? []).map((entry) => ({ ...entry, prefix })));
+// A brand can have more than one legal entity with the same status in the
+// same jurisdiction (e.g. a separate broker entity and custody entity, both
+// FCA-registered) — collapse those into one badge with a count rather than
+// rendering visually-identical stamps with nothing to tell them apart.
+// Full per-entity detail (entity names) still lives on the country pages.
+const nonEEAGrouped = Object.values(
+  nonEEAEntries.reduce((acc, e) => {
+    const key = `${e.prefix}|${e.status}`;
+    (acc[key] ??= { prefix: e.prefix, status: e.status, count: 0 }).count++;
+    return acc;
+  }, {})
+);
 // registered/authorised (UK, CA) are AML-only tiers; licensed (AE/Dubai VARA)
 // is a genuine crypto-specific licence, so it gets the same green stamp as
 // EU MiCA rather than the cautious amber/grey UK-style tiers.
@@ -50,9 +62,9 @@ const SITEKEY = import.meta.env.PUBLIC_TURNSTILE_SITEKEY || '0x4AAAAAAD84t4OWkoo
       {/* no_eu_entity: this brand has never had an EU entity — omit the EU
           stamp entirely rather than showing a misleading withdrawn/licensed
           state either way. */}
-      {nonEEAEntries.map((entry) => (
+      {nonEEAGrouped.map((entry) => (
         <span class={`stamp ${STATUS_STAMP[entry.status]?.cls ?? 'neutral'}`}>
-          {entry.prefix} · {STATUS_STAMP[entry.status]?.label ?? entry.status}
+          {entry.prefix} · {STATUS_STAMP[entry.status]?.label ?? entry.status}{entry.count > 1 ? ` (${entry.count} entities)` : ''}
         </span>
       ))}
     </p>
