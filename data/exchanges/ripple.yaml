@@ -7,7 +7,7 @@ sources:
   retrieved: '2026-07-24'
 - name: UK FCA Register
   url: https://register.fca.org.uk/
-  retrieved: '2026-07-24'
+  retrieved: '2026-07-26'
 entities:
 - lei: 2549000KEHDV2LWRRZ45
   legal_name: Ripple Payments Europe S.A
