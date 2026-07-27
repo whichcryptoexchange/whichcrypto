@@ -184,6 +184,9 @@ export default {
     const agg = url.pathname.match(/^\/api\/reports\/([a-z0-9-]{1,60})$/);
     if (agg && request.method === 'GET') return handleAggregates(env, agg[1]);
     if (url.pathname === '/admin/reports') return handleAdmin(request, env, url);
-    return new Response('not found', { status: 404 });
+    // Genuine catch-all: no route matched and no static asset matched either.
+    // Serve the built 404 page with the right status rather than a bare 404.
+    const notFound = await env.ASSETS.fetch(new Request(new URL('/404.html', request.url), request));
+    return new Response(notFound.body, { status: 404, headers: notFound.headers });
   },
 };

@@ -1,0 +1,44 @@
+---
+import { loadExchanges, countriesInData, COUNTRY_NAMES, countryFlag } from '../lib/data.js';
+import '../styles/global.css';
+const countries = countriesInData(loadExchanges());
+---
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Page not found | whichcryptoexchange.com</title>
+  <meta name="robots" content="noindex" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <script src="https://analytics.ahrefs.com/analytics.js" data-key="QTM3lN9yt0oU0rxrj5zadA" async></script>
+</head>
+<body>
+  <header class="site"><div class="wrap">
+    <a class="logo" href="/">which<em>crypto</em>exchange</a>
+    <span class="sourced">source: official regulator registers</span>
+  </div></header>
+
+  <main class="wrap">
+    <h1>Page not found</h1>
+    <p class="lede">No record here — the exchange or country you're after may not be in our
+    register yet, or the link's out of date.</p>
+
+    <div class="picker">
+      <label for="country">Jump to a country</label>
+      <select id="country" onchange="if(this.value) location.href='/'+this.value.toLowerCase()+'/'">
+        <option value="">Select a country…</option>
+        {countries.map((c) => <option value={c}>{countryFlag(c)} {COUNTRY_NAMES[c] ?? c}</option>)}
+      </select>
+    </div>
+
+    <p class="sourced"><a href="/">Back to the homepage</a> · <a href="/contact/">Report a broken link</a></p>
+  </main>
+
+  <footer class="site"><div class="wrap">
+    <p><a href="/about/">About</a> · <a href="/contact/">Contact</a></p>
+    <p>Independent register. Not affiliated with any regulator. Not financial advice.</p>
+  </div></footer>
+</body>
+</html>
