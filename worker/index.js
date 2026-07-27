@@ -186,7 +186,7 @@ export default {
     if (url.pathname === '/admin/reports') return handleAdmin(request, env, url);
     // Genuine catch-all: no route matched and no static asset matched either.
     // Serve the built 404 page with the right status rather than a bare 404.
-    const notFound = await env.ASSETS.fetch(new Request(new URL('/404.html', request.url), request));
+    const notFound = await env.ASSETS.fetch(new Request(new URL('/404', request.url), request));
     return new Response(notFound.body, { status: 404, headers: notFound.headers });
   },
 };
