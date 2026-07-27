@@ -1,7 +1,15 @@
 ---
 import { loadExchanges, countriesInData, COUNTRY_NAMES, countryFlag } from '../lib/data.js';
 import '../styles/global.css';
-const countries = countriesInData(loadExchanges());
+const exchanges = loadExchanges();
+const countries = countriesInData(exchanges);
+const active = exchanges.filter((e) => e.eu_status === 'authorised').length;
+const gbExchanges = exchanges.filter((e) => e.countries?.GB);
+const gbRegisteredCount = gbExchanges.filter((e) => e.countries.GB.some((g) => g.status === 'registered')).length;
+const gbAuthorisedCount = gbExchanges.filter((e) => e.countries.GB.some((g) => g.status === 'authorised')).length;
+const caExchanges = exchanges.filter((e) => e.countries?.CA);
+const aeExchanges = exchanges.filter((e) => e.countries?.AE);
+const sgExchanges = exchanges.filter((e) => e.countries?.SG);
 ---
 <html lang="en">
 <head>
@@ -21,24 +29,57 @@ const countries = countriesInData(loadExchanges());
   </div></header>
 
   <main class="wrap">
-    <h1>Page not found</h1>
-    <p class="lede">No record here — the exchange or country you're after may not be in our
-    register yet, or the link's out of date.</p>
+    <p class="lede caveat">404 — that page doesn't exist. The exchange or country you're after may
+    not be in our register yet, or the link's out of date. Here's everything we do track:</p>
+
+    <h1>Which crypto exchanges are officially registered or licensed where you live?</h1>
+    <p class="lede">Pick your country. We answer from the official registers — who is licensed,
+    through which entity, under which regime, and since when. No rankings, no stars. Receipts.</p>
 
     <div class="picker">
-      <label for="country">Jump to a country</label>
+      <label for="country">Your country of residence</label>
       <select id="country" onchange="if(this.value) location.href='/'+this.value.toLowerCase()+'/'">
         <option value="">Select a country…</option>
-        {countries.map((c) => <option value={c}>{countryFlag(c)} {COUNTRY_NAMES[c] ?? c}</option>)}
+        {countries.map((c) => <option value={c}>{COUNTRY_NAMES[c] ?? c}</option>)}
       </select>
     </div>
 
-    <p class="sourced"><a href="/">Back to the homepage</a> · <a href="/contact/">Report a broken link</a></p>
+    <p class="sourced">Currently tracking {exchanges.length} exchanges · {active} with active EU (MiCA) authorisation ·
+    data from the <a href="https://www.esma.europa.eu/esmas-activities/digital-finance-and-innovation/markets-crypto-assets-regulation-mica">ESMA interim MiCA register</a></p>
+    <p class="sourced">{gbExchanges.length} also have a UK entity on the <a href="https://register.fca.org.uk/">FCA Register</a> ·
+    {gbRegisteredCount} MLR-registered · {gbAuthorisedCount} separately FCA-authorised —
+    <a href="/gb/">see the UK page</a> for what that distinction means</p>
+    <p class="sourced">{caExchanges.length} also have a Canadian entity on the <a href="https://fintrac-canafe.canada.ca/msb-esm/reg-eng">FINTRAC MSB Registry</a> —
+    <a href="/ca/">see the Canada page</a></p>
+    <p class="sourced">{aeExchanges.length} also hold a Dubai VARA VASP Licence — <strong>Dubai only, not the wider UAE</strong> —
+    <a href="/ae/">see the Dubai page</a> for the jurisdiction caveat</p>
+    <p class="sourced">{sgExchanges.length} also hold a Singapore MAS Major Payment Institution licence for Digital
+    Payment Token services — <a href="/sg/">see the Singapore page</a></p>
+
+    <div class="legend">
+      <span class="stamp licensed">EU · MiCA / Dubai · VARA / Singapore · MAS — Licensed</span>
+      <span class="stamp gb-registered">UK/CA · Registered</span>
+      <span class="stamp gb-authorised">UK · Authorised</span>
+    </div>
+
+    <ul class="country-grid">
+      {countries.map((c) => (
+        <li><a href={`/${c.toLowerCase()}/`}><span class="cc flag">{countryFlag(c)}</span>{COUNTRY_NAMES[c] ?? c}</a></li>
+      ))}
+    </ul>
+
+    <p class="sourced"><a href="/contact/">Think this is a broken link on our end? Let us know.</a></p>
   </main>
 
   <footer class="site"><div class="wrap">
     <p><a href="/about/">About</a> · <a href="/contact/">Contact</a></p>
     <p>Independent register. Not affiliated with any regulator. Not financial advice.</p>
   </div></footer>
+
+  <script>
+    const m = document.cookie.match(/(?:^|;\s*)user_country=([A-Z]{2})/);
+    const sel = document.getElementById('country');
+    if (m && sel && [...sel.options].some((o) => o.value === m[1])) sel.value = m[1];
+  </script>
 </body>
 </html>
