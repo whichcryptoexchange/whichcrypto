@@ -37,6 +37,15 @@ const STATUS_STAMP = {
   authorised: { cls: 'gb-authorised', label: 'Authorised' },
   licensed: { cls: 'licensed', label: 'Licensed' },
 };
+// "Jurisdictions" is a brand-wide fact (how many countries.* keys it has
+// across every source), not specific to this page's country — a genuine
+// regulatory fact (more registers saying yes), not a popularity guess.
+const jurisdictionCount = (ex) => Object.keys(ex.countries ?? {}).length;
+// Only show the tier filter (Registered vs Authorised vs Licensed) when a
+// page actually mixes more than one tier — GB does (both), CA/AE/SG don't.
+const tiersOnPage = isNonEEA
+  ? [...new Set(rows.flatMap(({ c }) => c.map((e) => e.status)))]
+  : [];
 ---
 <html lang="en">
 <head>
@@ -127,6 +136,26 @@ const STATUS_STAMP = {
       </>
     )}
 
+    <div class="table-controls">
+      <label>Sort by
+        <select id="sort-select">
+          <option value="brand">Brand (A–Z)</option>
+          <option value="since-desc">Newest first</option>
+          <option value="since-asc">Oldest first</option>
+          <option value="jurisdictions-desc">Most jurisdictions first</option>
+          {!isNonEEA && <option value="services-desc">Most services first</option>}
+        </select>
+      </label>
+      {tiersOnPage.length > 1 && (
+        <div class="tier-filter">
+          Show:
+          {tiersOnPage.map((t) => (
+            <label><input type="checkbox" class="tier-checkbox" value={t} checked /> {STATUS_STAMP[t]?.label ?? t}</label>
+          ))}
+        </div>
+      )}
+    </div>
+
     <div class="table-scroll">
     <table class="registry">
       <thead><tr>
@@ -135,22 +164,26 @@ const STATUS_STAMP = {
         <th>Since</th>
       </tr></thead>
       <tbody>
-        {isNonEEA ? rows.map(({ ex, c }) => (
-          <tr>
-            <td class="brand"><a href={`/exchange/${ex.id}/`}>{ex.brand}</a></td>
-            <td>
-              {c.map((entry) => (
-                <div class="gb-tier">
-                  <span class={`stamp ${STATUS_STAMP[entry.status]?.cls ?? 'neutral'}`}>
-                    {STATUS_STAMP[entry.status]?.label ?? entry.status} · {entry.regime}
-                  </span>
-                </div>
-              ))}
-            </td>
-            <td class="datum">{c.map((entry) => <div>{entry.entity}</div>)}</td>
-            <td class="datum">{c.map((entry) => <div>{entry.since ?? '—'}</div>)}</td>
-          </tr>
-        )) : rows.map(({ ex, c }) => {
+        {isNonEEA ? rows.map(({ ex, c }) => {
+          const since = c.map((e) => e.since).filter(Boolean).sort()[0] ?? '';
+          const tiers = [...new Set(c.map((e) => e.status))].join(' ');
+          return (
+            <tr data-since={since} data-jurisdictions={jurisdictionCount(ex)} data-tiers={tiers}>
+              <td class="brand"><a href={`/exchange/${ex.id}/`}>{ex.brand}</a></td>
+              <td>
+                {c.map((entry) => (
+                  <div class="gb-tier">
+                    <span class={`stamp ${STATUS_STAMP[entry.status]?.cls ?? 'neutral'}`}>
+                      {STATUS_STAMP[entry.status]?.label ?? entry.status} · {entry.regime}
+                    </span>
+                  </div>
+                ))}
+              </td>
+              <td class="datum">{c.map((entry) => <div>{entry.entity}</div>)}</td>
+              <td class="datum">{c.map((entry) => <div>{entry.since ?? '—'}</div>)}</td>
+            </tr>
+          );
+        }) : rows.map(({ ex, c }) => {
           // Union of services and earliest authorisation date across ALL active
           // records whose reach (home state or passport list) covers this country.
           const covering = ex.entities.flatMap((ent) =>
@@ -159,9 +192,9 @@ const STATUS_STAMP = {
                 (ent.home_state === code || r.passported_to.includes(code)))
           );
           const services = [...new Set(covering.flatMap((r) => r.services))].sort();
-          const since = covering.map((r) => r.authorised).filter(Boolean).sort()[0] ?? '—';
+          const sinceRaw = covering.map((r) => r.authorised).filter(Boolean).sort()[0] ?? '';
           return (
-            <tr>
+            <tr data-since={sinceRaw} data-jurisdictions={jurisdictionCount(ex)} data-services={services.length}>
               <td class="brand">
                 <a href={`/exchange/${ex.id}/`}>{ex.brand}</a>
                 <div class="meta">{c.entity}</div>
@@ -171,7 +204,7 @@ const STATUS_STAMP = {
                 <div class="meta">{c.via === 'home_state' ? 'home state authorisation' : 'EEA passporting'}</div>
               </td>
               <td class="col-services datum">{services.map((s) => SERVICE_NAMES[s]).join(' · ')}</td>
-              <td class="datum">{since}</td>
+              <td class="datum">{sinceRaw || '—'}</td>
             </tr>
           );
         })}
@@ -206,5 +239,55 @@ const STATUS_STAMP = {
     <p><a href="/about/">About</a> · <a href="/contact/">Contact</a></p>
     <p>Independent register. Not affiliated with ESMA or any regulator. Not financial advice.</p>
   </div></footer>
+
+  <script>
+    // Sort/filter is progressive enhancement over the already-rendered,
+    // server-sorted (alphabetical) table — no data is fetched, just
+    // reordered/hidden client-side from the data-* attributes on each row.
+    const tbody = document.querySelector('.registry tbody');
+    const sortSelect = document.getElementById('sort-select');
+    if (tbody && sortSelect) {
+      const originalRows = [...tbody.querySelectorAll('tr')];
+      const tierChecks = [...document.querySelectorAll('.tier-checkbox')];
+
+      const apply = () => {
+        let rows = [...originalRows];
+        switch (sortSelect.value) {
+          case 'since-desc':
+            rows.sort((a, b) => (b.dataset.since || '').localeCompare(a.dataset.since || ''));
+            break;
+          case 'since-asc':
+            rows.sort((a, b) => {
+              const av = a.dataset.since, bv = b.dataset.since;
+              if (!av) return 1;
+              if (!bv) return -1;
+              return av.localeCompare(bv);
+            });
+            break;
+          case 'jurisdictions-desc':
+            rows.sort((a, b) => Number(b.dataset.jurisdictions || 0) - Number(a.dataset.jurisdictions || 0));
+            break;
+          case 'services-desc':
+            rows.sort((a, b) => Number(b.dataset.services || 0) - Number(a.dataset.services || 0));
+            break;
+          default:
+            break; // 'brand': original server-rendered A–Z order
+        }
+
+        if (tierChecks.length) {
+          const active = new Set(tierChecks.filter((c) => c.checked).map((c) => c.value));
+          rows.forEach((r) => {
+            const tiers = (r.dataset.tiers || '').split(' ').filter(Boolean);
+            r.style.display = tiers.some((t) => active.has(t)) ? '' : 'none';
+          });
+        }
+
+        rows.forEach((r) => tbody.appendChild(r));
+      };
+
+      sortSelect.addEventListener('change', apply);
+      tierChecks.forEach((c) => c.addEventListener('change', apply));
+    }
+  </script>
 </body>
 </html>
