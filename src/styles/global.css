@@ -179,6 +179,24 @@ h1 {
 
 .datum { font-family: var(--mono); font-size: 13px; }
 
+/* Affiliate CTA — solid and visually distinct from the outlined .stamp
+   badges, so it never reads as an official regulator fact. */
+#affiliate-cta:empty { display: none; }
+.cta-button {
+  display: inline-block;
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 15px;
+  color: #fff;
+  background: var(--licensed);
+  padding: 12px 22px;
+  border-radius: 4px;
+  text-decoration: none;
+  margin: 4px 0 6px;
+}
+.cta-button:hover { background: #0f5a35; }
+.cta-disclosure { margin: 0 0 24px; }
+
 /* Exchange page record blocks */
 .record {
   background: var(--card);

@@ -4,3 +4,4 @@ dist/
 __pycache__/
 .env
 admin_key.txt
+.dev.vars

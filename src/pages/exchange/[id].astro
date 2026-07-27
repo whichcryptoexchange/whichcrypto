@@ -69,6 +69,8 @@ const SITEKEY = import.meta.env.PUBLIC_TURNSTILE_SITEKEY || '0x4AAAAAAD84t4OWkoo
       ))}
     </p>
 
+    <div id="affiliate-cta" data-exchange={ex.id} data-brand={ex.brand}></div>
+
     {ex.entities.map((ent) => ent.records.map((rec) => (
       <div class={`record ${rec.status}`}>
         <h3>{ent.legal_name}</h3>
@@ -149,6 +151,29 @@ const SITEKEY = import.meta.env.PUBLIC_TURNSTILE_SITEKEY || '0x4AAAAAAD84t4OWkoo
 
   {SITEKEY && <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>}
   <script>
+    // Affiliate link: fetched client-side and rendered only if one is set
+    // for this brand — commercial data, deliberately not baked into the
+    // static build (see /admin/links). Built with DOM APIs, not innerHTML,
+    // since the URL/label ultimately come from a database value.
+    (() => {
+      const box = document.getElementById('affiliate-cta');
+      fetch('/api/links/' + box.dataset.exchange)
+        .then((r) => (r.ok ? r.json() : Promise.reject()))
+        .then((d) => {
+          const a = document.createElement('a');
+          a.className = 'cta-button';
+          a.href = d.url;
+          a.target = '_blank';
+          a.rel = 'nofollow sponsored noopener';
+          a.textContent = d.label || `Visit ${box.dataset.brand} ↗`;
+          const note = document.createElement('p');
+          note.className = 'sourced cta-disclosure';
+          note.textContent = 'Affiliate link — we may earn a commission at no extra cost to you.';
+          box.append(a, note);
+        })
+        .catch(() => {});
+    })();
+
     // Aggregates: fetched client-side because pages are static.
     const box = document.getElementById('report-aggregates');
     fetch('/api/reports/' + box.dataset.exchange)
