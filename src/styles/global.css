@@ -186,6 +186,12 @@ footer.site a { color: inherit; }
 @media (max-width: 560px) {
   .record dl { grid-template-columns: 1fr; }
   .registry .col-services { display: none; }
+  /* Let stamps wrap instead of forcing horizontal scroll — a nowrap badge
+     like "REGISTERED · CANADA MSB REGISTRATION" was the single biggest
+     thing forcing the table wider than the viewport. */
+  .registry { min-width: 0; }
+  .registry td, .registry th { padding: 10px; }
+  .stamp { white-space: normal; transform: none; text-align: center; }
 }
 
 /* User reports */
