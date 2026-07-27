@@ -135,8 +135,10 @@ h1 {
 .country-grid .cc { font-family: var(--mono); font-size: 11px; color: var(--ink-soft); margin-right: 6px; }
 .country-grid .cc.flag { font-family: initial; font-size: 16px; line-height: 1; vertical-align: -2px; }
 
-/* Registry table */
-.registry { width: 100%; border-collapse: collapse; margin: 0 0 40px; background: var(--card); border: 1px solid var(--rule); }
+/* Registry table — scrolls horizontally within its own box on narrow
+   viewports rather than forcing the whole page to overflow sideways. */
+.table-scroll { overflow-x: auto; margin: 0 0 40px; -webkit-overflow-scrolling: touch; }
+.registry { width: 100%; min-width: 560px; border-collapse: collapse; margin: 0; background: var(--card); border: 1px solid var(--rule); }
 .registry th {
   font-family: var(--mono);
   font-size: 11px;
