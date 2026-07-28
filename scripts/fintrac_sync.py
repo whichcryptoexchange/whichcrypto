@@ -14,9 +14,12 @@ licenses the business." We therefore emit
   regime: "Canada MSB registration"
   status: "registered"
 and site copy must not describe these as "licensed". Crypto trading
-platforms may also need separate provincial securities-dealer registration
-(CSA/OSC/BCSC etc.) — there's no single national register for that, so it
-isn't covered here (same reasoning that ruled out a US country page).
+platforms may also need separate CIRO investment-dealer or provincial
+securities-dealer registration (CSA/OSC/BCSC etc.) — both the CSA's
+National Registration Search and CIRO's registrant lookup (even its
+static PDF dealer list) sit behind Cloudflare bot protection that blocks
+scripted requests outright, so there's no reliable way to sync that layer
+the way this script syncs FINTRAC. Not covered here.
 
 Each CA entry is appended to that brand's countries.CA list (a list, unlike
 EEA country entries in data/exchanges/*.yaml, which are single objects — a
