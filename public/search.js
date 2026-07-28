@@ -27,13 +27,13 @@
     if (!matches.length) { results.hidden = true; return; }
     for (const m of matches) {
       const a = document.createElement('a');
-      a.href = `/exchange/${m.id}/`;
+      a.href = m.href;
       a.className = 'site-search-item';
-      a.textContent = m.brand;
-      if (m.jurisdictions) {
+      a.textContent = m.label;
+      if (m.meta) {
         const span = document.createElement('span');
         span.className = 'site-search-meta';
-        span.textContent = `${m.jurisdictions} jurisdiction${m.jurisdictions === 1 ? '' : 's'}`;
+        span.textContent = m.meta;
         a.append(span);
       }
       results.append(a);
@@ -41,13 +41,21 @@
     results.hidden = false;
   };
 
+  // Countries surface first on an exact/prefix code match (typing "DE"
+  // should find Germany before any brand containing "de"), otherwise
+  // matches are ranked by how early the needle appears in the label.
   const search = (q) => {
     if (!q) { render([]); return; }
     const needle = q.toLowerCase();
     render(
       (index ?? [])
-        .filter((e) => e.brand.toLowerCase().includes(needle))
-        .sort((a, b) => a.brand.toLowerCase().indexOf(needle) - b.brand.toLowerCase().indexOf(needle))
+        .filter((e) => e.label.toLowerCase().includes(needle) || e.meta?.toLowerCase() === needle)
+        .sort((a, b) => {
+          const aCode = a.type === 'country' && a.meta.toLowerCase() === needle ? 0 : 1;
+          const bCode = b.type === 'country' && b.meta.toLowerCase() === needle ? 0 : 1;
+          if (aCode !== bCode) return aCode - bCode;
+          return a.label.toLowerCase().indexOf(needle) - b.label.toLowerCase().indexOf(needle);
+        })
         .slice(0, 8)
     );
   };
