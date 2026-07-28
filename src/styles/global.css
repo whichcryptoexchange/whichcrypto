@@ -31,7 +31,8 @@ header.site {
   padding: 18px 0;
   margin-bottom: 36px;
 }
-header.site .wrap { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+header.site .wrap { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; }
+.header-right { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
 .logo {
   font-family: var(--display);
   font-weight: 800;
@@ -42,6 +43,52 @@ header.site .wrap { display: flex; justify-content: space-between; align-items: 
 }
 .logo em { font-style: normal; color: var(--licensed); }
 .sourced { font-family: var(--mono); font-size: 12px; color: var(--ink-soft); }
+
+/* Site-wide brand search, in the header */
+.site-search { position: relative; width: 220px; }
+.site-search input {
+  width: 100%;
+  font: 13px var(--mono);
+  color: var(--ink);
+  background: var(--card);
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  padding: 7px 10px;
+}
+.site-search input:focus-visible { outline: 2px solid var(--licensed); outline-offset: 1px; }
+.site-search-results {
+  position: absolute;
+  top: calc(100% + 4px);
+  right: 0;
+  z-index: 10;
+  width: 260px;
+  max-height: 320px;
+  overflow-y: auto;
+  background: var(--card);
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  box-shadow: 0 6px 16px rgba(20, 32, 46, 0.14);
+}
+.site-search-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 10px;
+  padding: 9px 12px;
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--ink);
+  text-decoration: none;
+  border-bottom: 1px solid var(--rule);
+}
+.site-search-item:last-child { border-bottom: none; }
+.site-search-item:hover, .site-search-item.active { background: var(--paper); }
+.site-search-meta { font-family: var(--mono); font-size: 11px; color: var(--ink-soft); font-weight: 400; white-space: nowrap; }
+@media (max-width: 560px) {
+  .site-search { width: 140px; }
+  .site-search-results { width: 220px; }
+}
 
 h1 {
   font-family: var(--display);

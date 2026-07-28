@@ -83,7 +83,13 @@ const tiersOnPage = isNonEEA
 <body>
   <header class="site"><div class="wrap">
     <a class="logo" href="/">which<em>crypto</em>exchange</a>
-    <span class="sourced">source: official regulator registers</span>
+    <div class="header-right">
+      <div class="site-search">
+        <input type="search" id="site-search" placeholder="Search exchanges…" autocomplete="off" aria-label="Search exchanges" />
+        <div class="site-search-results" id="site-search-results" hidden></div>
+      </div>
+      <span class="sourced">source: official regulator registers</span>
+    </div>
   </div></header>
 
   <main class="wrap">
@@ -318,5 +324,7 @@ const tiersOnPage = isNonEEA
       tierChecks.forEach((c) => c.addEventListener('change', apply));
     }
   </script>
+
+  <script src="/search.js" defer></script>
 </body>
 </html>
