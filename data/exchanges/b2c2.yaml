@@ -5,6 +5,9 @@ sources:
 - name: ESMA interim MiCA register (CASPS.csv)
   url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
   retrieved: '2026-07-26'
+- name: US FinCEN MSB Registrant Search
+  url: https://msb.fincen.gov/
+  retrieved: '2026-07-27'
 entities:
 - lei: 969500OA6NVZB5BXAB29
   legal_name: B2C2 Europe Sarl
@@ -202,3 +205,16 @@ countries:
     regime: MiCA
     via: mica_passporting
     entity: B2C2 Europe Sarl
+  US:
+  - status: registered
+    regime: US FinCEN MSB registration
+    via: msb_register
+    entity: B2C2 Securities, LLC
+    reg_number: '29446350'
+    since: '2025-05-19'
+  - status: registered
+    regime: US FinCEN MSB registration
+    via: msb_register
+    entity: B2C2 USA, INC.
+    reg_number: '29441845'
+    since: '2024-12-31'

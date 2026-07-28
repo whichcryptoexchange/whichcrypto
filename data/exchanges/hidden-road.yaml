@@ -8,6 +8,9 @@ sources:
 - name: UK FCA Register
   url: https://register.fca.org.uk/
   retrieved: '2026-07-26'
+- name: US FinCEN MSB Registrant Search
+  url: https://msb.fincen.gov/
+  retrieved: '2026-07-27'
 entities:
 - lei: 549300OOZDNZ3F2XJW21
   legal_name: Hidden Road Partners CIV NL B.V
@@ -213,3 +216,10 @@ countries:
     regime: MiCA
     via: mica_passporting
     entity: Hidden Road Partners CIV NL B.V
+  US:
+  - status: registered
+    regime: US FinCEN MSB registration
+    via: msb_register
+    entity: Hidden Road Partners CIV UK Ltd.
+    reg_number: '29463279'
+    since: '2025-12-18'

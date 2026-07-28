@@ -5,6 +5,9 @@ sources:
 - name: ESMA interim MiCA register (CASPS.csv)
   url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
   retrieved: '2026-07-26'
+- name: US FinCEN MSB Registrant Search
+  url: https://msb.fincen.gov/
+  retrieved: '2026-07-27'
 entities:
 - lei: 9845009Q9DDAE03FDE38
   legal_name: Coinify ApS
@@ -204,3 +207,10 @@ countries:
     regime: MiCA
     via: mica_passporting
     entity: Coinify ApS
+  US:
+  - status: registered
+    regime: US FinCEN MSB registration
+    via: msb_register
+    entity: Coinify ApS
+    reg_number: '29470286'
+    since: '2026-06-16'

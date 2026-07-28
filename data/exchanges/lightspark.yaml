@@ -5,6 +5,9 @@ sources:
 - name: ESMA interim MiCA register (CASPS.csv)
   url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
   retrieved: '2026-07-26'
+- name: US FinCEN MSB Registrant Search
+  url: https://msb.fincen.gov/
+  retrieved: '2026-07-27'
 entities:
 - lei: 6488O0OC79779MZX1E44
   legal_name: Lightspark Payments Europe AS
@@ -204,3 +207,10 @@ countries:
     regime: MiCA
     via: mica_passporting
     entity: Lightspark Payments Europe AS
+  US:
+  - status: registered
+    regime: US FinCEN MSB registration
+    via: msb_register
+    entity: Lightspark Payments, LLC
+    reg_number: '29458741'
+    since: '2025-10-17'

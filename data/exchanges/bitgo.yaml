@@ -8,6 +8,9 @@ sources:
 - name: Singapore MAS Financial Institutions Directory
   url: https://eservices.mas.gov.sg/fid/institution
   retrieved: '2026-07-26'
+- name: US FinCEN MSB Registrant Search
+  url: https://msb.fincen.gov/
+  retrieved: '2026-07-27'
 entities:
 - lei: 391200IJ3B1IP7993O16
   legal_name: BitGo Europe GmbH
@@ -216,3 +219,16 @@ countries:
     entity: BITGO SINGAPORE PTE. LTD.
     reference: 420728-BITGO-SINGAPORE-PTE-LTD
     since: null
+  US:
+  - status: registered
+    regime: US FinCEN MSB registration
+    via: msb_register
+    entity: BitGo Technologies LLC
+    reg_number: '29470888'
+    since: '2026-07-07'
+  - status: registered
+    regime: US FinCEN MSB registration
+    via: msb_register
+    entity: BitGo; BitGo Financial Services, Inc.
+    reg_number: '29444541'
+    since: '2025-02-07'

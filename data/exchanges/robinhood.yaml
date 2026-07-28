@@ -5,6 +5,9 @@ sources:
 - name: ESMA interim MiCA register (CASPS.csv)
   url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
   retrieved: '2026-07-26'
+- name: US FinCEN MSB Registrant Search
+  url: https://msb.fincen.gov/
+  retrieved: '2026-07-27'
 entities:
 - lei: 254900GTP4UXQO1UMI36
   legal_name: Robinhood Europe UAB
@@ -203,3 +206,16 @@ countries:
     regime: MiCA
     via: mica_passporting
     entity: Robinhood Europe UAB
+  US:
+  - status: registered
+    regime: US FinCEN MSB registration
+    via: msb_register
+    entity: Robinhood Crypto, LLC
+    reg_number: '29469129'
+    since: '2026-05-06'
+  - status: registered
+    regime: US FinCEN MSB registration
+    via: msb_register
+    entity: Robinhood Money, LLC
+    reg_number: '29457019'
+    since: '2025-08-28'

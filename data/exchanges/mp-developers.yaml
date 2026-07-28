@@ -5,6 +5,9 @@ sources:
 - name: ESMA interim MiCA register (CASPS.csv)
   url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
   retrieved: '2026-07-26'
+- name: US FinCEN MSB Registrant Search
+  url: https://msb.fincen.gov/
+  retrieved: '2026-07-27'
 entities:
 - lei: 64889KAWPMO81X649843
   legal_name: MP Developers s.r.o
@@ -31,3 +34,10 @@ countries:
     regime: MiCA
     via: home_state
     entity: MP Developers s.r.o
+  US:
+  - status: registered
+    regime: US FinCEN MSB registration
+    via: msb_register
+    entity: Anycoin
+    reg_number: '29451553'
+    since: '2024-05-16'

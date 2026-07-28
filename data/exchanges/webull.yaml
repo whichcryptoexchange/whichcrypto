@@ -5,6 +5,9 @@ sources:
 - name: ESMA interim MiCA register (CASPS.csv)
   url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
   retrieved: '2026-07-26'
+- name: US FinCEN MSB Registrant Search
+  url: https://msb.fincen.gov/
+  retrieved: '2026-07-27'
 entities:
 - lei: 894500CUU8Y0ZBG8DX95
   legal_name: Webull Securities (Europe) B.V
@@ -28,3 +31,10 @@ countries:
     regime: MiCA
     via: home_state
     entity: Webull Securities (Europe) B.V
+  US:
+  - status: registered
+    regime: US FinCEN MSB registration
+    via: msb_register
+    entity: Webull Pay LLC
+    reg_number: '29469395'
+    since: '2026-05-14'

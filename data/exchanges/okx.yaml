@@ -8,6 +8,9 @@ sources:
 - name: Singapore MAS Financial Institutions Directory
   url: https://eservices.mas.gov.sg/fid/institution
   retrieved: '2026-07-26'
+- name: US FinCEN MSB Registrant Search
+  url: https://msb.fincen.gov/
+  retrieved: '2026-07-27'
 entities:
 - lei: 54930069NLWEIGLHXU42
   legal_name: OKX Europe Limited
@@ -218,3 +221,10 @@ countries:
     entity: OKX SG PTE. LTD.
     reference: 422854-OKX-SG-PTE-LTD
     since: null
+  US:
+  - status: registered
+    regime: US FinCEN MSB registration
+    via: msb_register
+    entity: OKX INC.
+    reg_number: '29459694'
+    since: '2025-11-03'

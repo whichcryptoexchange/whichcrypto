@@ -11,6 +11,9 @@ sources:
 - name: Canada FINTRAC MSB Registry
   url: https://fintrac-canafe.canada.ca/msb-esm/reg-eng
   retrieved: '2026-07-26'
+- name: US FinCEN MSB Registrant Search
+  url: https://msb.fincen.gov/
+  retrieved: '2026-07-27'
 entities:
 - lei: 254900KXWAZ3B1340G26
   legal_name: MoonPay Europe B.V
@@ -224,3 +227,10 @@ countries:
     regime: MiCA
     via: mica_passporting
     entity: MoonPay Europe B.V
+  US:
+  - status: registered
+    regime: US FinCEN MSB registration
+    via: msb_register
+    entity: MoonPay USA LLC
+    reg_number: '29453358'
+    since: '2025-06-02'

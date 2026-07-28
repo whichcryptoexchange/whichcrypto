@@ -8,6 +8,9 @@ sources:
 - name: Singapore MAS Financial Institutions Directory
   url: https://eservices.mas.gov.sg/fid/institution
   retrieved: '2026-07-26'
+- name: US FinCEN MSB Registrant Search
+  url: https://msb.fincen.gov/
+  retrieved: '2026-07-27'
 entities:
 - lei: 254900GDCT8070R2VV26
   legal_name: Blue Cube (Malta) Limited
@@ -214,3 +217,10 @@ countries:
     entity: BLOCKCHAIN.COM (SINGAPORE) PTE. LTD.
     reference: 409117-BLOCKCHAIN-COM-SINGAPORE-PTE-LTD
     since: null
+  US:
+  - status: registered
+    regime: US FinCEN MSB registration
+    via: msb_register
+    entity: Blockchain.com, Inc
+    reg_number: '29460378'
+    since: '2025-11-14'

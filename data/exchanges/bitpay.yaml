@@ -8,6 +8,9 @@ sources:
 - name: Canada FINTRAC MSB Registry
   url: https://fintrac-canafe.canada.ca/msb-esm/reg-eng
   retrieved: '2026-07-26'
+- name: US FinCEN MSB Registrant Search
+  url: https://msb.fincen.gov/
+  retrieved: '2026-07-27'
 entities:
 - lei: 724500F2THLY5MHEIM78
   legal_name: BitPay B.V
@@ -39,3 +42,10 @@ countries:
     regime: MiCA
     via: home_state
     entity: BitPay B.V
+  US:
+  - status: registered
+    regime: US FinCEN MSB registration
+    via: msb_register
+    entity: BitPay, Inc.
+    reg_number: '29455768'
+    since: '2025-07-23'

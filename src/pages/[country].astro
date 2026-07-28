@@ -18,7 +18,8 @@ const isGB = code === 'GB';
 const isCA = code === 'CA';
 const isAE = code === 'AE';
 const isSG = code === 'SG';
-const isNonEEA = isGB || isCA || isAE || isSG;
+const isUS = code === 'US';
+const isNonEEA = isGB || isCA || isAE || isSG || isUS;
 const rows = exchanges
   .map((ex) => ({ ex, c: ex.countries?.[code] }))
   .filter((r) => r.c);
@@ -29,6 +30,7 @@ const fcaRetrieved = sourceRetrieved('UK FCA Register');
 const fintracRetrieved = sourceRetrieved('Canada FINTRAC MSB Registry');
 const varaRetrieved = sourceRetrieved('Dubai VARA Public Register');
 const masRetrieved = sourceRetrieved('Singapore MAS Financial Institutions Directory');
+const fincenRetrieved = sourceRetrieved('US FinCEN MSB Registrant Search');
 // registered/authorised (UK, CA) are AML-only tiers; licensed (AE/Dubai VARA)
 // is a genuine crypto-specific licence, so it gets the same green stamp as
 // EU MiCA rather than the cautious amber/grey UK-style tiers.
@@ -60,6 +62,8 @@ const tiersOnPage = isNonEEA
     ? `Crypto exchanges licensed in Dubai (${new Date().getFullYear()}) | whichcryptoexchange.com`
     : isSG
     ? `Crypto exchanges licensed in Singapore (${new Date().getFullYear()}) | whichcryptoexchange.com`
+    : isUS
+    ? `Crypto exchanges registered with FinCEN in the US (${new Date().getFullYear()}) | whichcryptoexchange.com`
     : `Crypto exchanges licensed in ${name} (${new Date().getFullYear()}) | whichcryptoexchange.com`}</title>
   <meta name="description" content={isGB
     ? `${rows.length} crypto exchanges hold a UK FCA registration or authorisation, according to the official FCA Register. See which entity, which regime, and since when.`
@@ -69,6 +73,8 @@ const tiersOnPage = isNonEEA
     ? `${rows.length} crypto exchanges hold a VARA VASP Licence covering Dubai specifically — not the rest of the UAE. See which entity, which activities, and since when.`
     : isSG
     ? `${rows.length} crypto exchanges hold a MAS Major Payment Institution licence for Digital Payment Token services, according to the official MAS Financial Institutions Directory.`
+    : isUS
+    ? `${rows.length} crypto exchanges hold a US FinCEN MSB registration, according to the official FinCEN MSB Registrant Search. See which entity and since when.`
     : `${rows.length} crypto exchanges hold a licence covering ${name}, according to official regulator registers. See which entity, which regime, and since when.`} />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet" />
@@ -127,6 +133,23 @@ const tiersOnPage = isNonEEA
         Payment Token Service activity under the Payment Services Act 2019. Like Dubai's VARA
         licence, this <em>is</em> a genuine crypto-specific licence — not an AML-only registration
         like the UK/Canada entries elsewhere on this site.</p>
+      </>
+    ) : isUS ? (
+      <>
+        <h1>Which crypto exchanges are registered with FinCEN in the US?</h1>
+        <p class="lede">{rows.length} exchanges in our register have a US entity registered with
+        FinCEN as a Money Services Business (MSB) offering money transmission. As with Canada's
+        FINTRAC registry, this is <em>not</em> a licence: registration means FinCEN supervises the
+        firm for anti-money-laundering purposes under the Bank Secrecy Act, not that it has assessed
+        or approved the firm's products or conduct. Crypto firms serving US customers may also need
+        separate state-level money transmitter licensing — up to 50 different state regimes — which
+        isn't covered here, since there's no single national register for that layer.</p>
+        <p class="lede caveat">FinCEN's own register has a real fraud problem: its MSB Registrant
+        Search prominently warns that fraudsters register shell companies using recognisable brand
+        names to appear "FinCEN approved". We found and excluded a large cluster of exactly that —
+        near-identical shell filings claiming names like "Crypto.com Exchange Ltd" or "Interactive
+        Brokers Inc." out of a small number of Colorado addresses. Only entries independently
+        matched to a brand's real, known corporate structure are listed below.</p>
       </>
     ) : (
       <>
@@ -228,6 +251,10 @@ const tiersOnPage = isNonEEA
       <p class="sourced">Source: <a href="https://eservices.mas.gov.sg/fid/institution">MAS Financial Institutions Directory</a>,
       retrieved {masRetrieved}. An exchange missing from this list either holds no MAS DPT licence,
       or is not yet in our register.</p>
+    ) : isUS ? (
+      <p class="sourced">Source: <a href="https://msb.fincen.gov/">FinCEN MSB Registrant Search</a>,
+      retrieved {fincenRetrieved}. An exchange missing from this list either holds no US FinCEN MSB
+      registration we could independently verify, or is not yet in our register.</p>
     ) : (
       <p class="sourced">Source: <a href="https://www.esma.europa.eu/esmas-activities/digital-finance-and-innovation/markets-crypto-assets-regulation-mica">ESMA interim MiCA register</a>,
       retrieved {exchanges[0]?.sources?.[0]?.retrieved}. An exchange missing from this list either

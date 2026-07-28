@@ -1,0 +1,43 @@
+name: FinCEN register sync
+
+on:
+  schedule:
+    - cron: '0 9 * * 5'   # Fri 09:00 UTC — offset from the other jurisdictions' runs
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.12' }
+      - run: pip install pyyaml
+      - name: Refresh FinCEN register data
+        run: python3 scripts/fincen_sync.py
+      - name: Open PR if the register changed
+        uses: peter-evans/create-pull-request@v6
+        with:
+          commit-message: "data: FinCEN register sync"
+          title: "FinCEN register update — review changes"
+          body: |
+            Automated refresh of data/fincen_reg_map.yaml's pinned BSA IDs
+            against a live FinCEN MSB Registrant Search lookup (searched by
+            brand name, filtered down to the pinned ID — FinCEN has no bulk
+            export and no valid BSA-ID-only query). This does NOT discover
+            new brands or new BSA IDs — only re-fetches status/dates for
+            entities already curated in fincen_reg_map.yaml. Review for:
+              - a pinned BSA ID no longer found under that brand's name
+                search (entity renamed/deregistered — confirm before merging)
+              - a pinned entity that no longer lists Money Transmitter (409)
+                among its activities (dropped from countries.US — confirm
+                that's correct)
+            Never describe a FinCEN MSB registration as licensed in any copy.
+            Do not add new BSA IDs here without the same scrutiny used
+            originally — see the fraud-shell warning in fincen_reg_map.yaml.
+          branch: fincen-sync
+          delete-branch: true

@@ -8,6 +8,9 @@ sources:
 - name: Canada FINTRAC MSB Registry
   url: https://fintrac-canafe.canada.ca/msb-esm/reg-eng
   retrieved: '2026-07-26'
+- name: US FinCEN MSB Registrant Search
+  url: https://msb.fincen.gov/
+  retrieved: '2026-07-27'
 entities:
 - lei: 2549008CBASK5Q680X12
   legal_name: Bullish Europe GmbH
@@ -216,3 +219,16 @@ countries:
     regime: MiCA
     via: mica_passporting
     entity: Bullish Europe GmbH
+  US:
+  - status: registered
+    regime: US FinCEN MSB registration
+    via: msb_register
+    entity: Bullish (GI) Limited
+    reg_number: '29450723'
+    since: '2024-09-25'
+  - status: registered
+    regime: US FinCEN MSB registration
+    via: msb_register
+    entity: Bullish US Operations LLC
+    reg_number: '29466480'
+    since: '2026-02-11'

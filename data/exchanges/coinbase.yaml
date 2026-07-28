@@ -14,6 +14,9 @@ sources:
 - name: Singapore MAS Financial Institutions Directory
   url: https://eservices.mas.gov.sg/fid/institution
   retrieved: '2026-07-26'
+- name: US FinCEN MSB Registrant Search
+  url: https://msb.fincen.gov/
+  retrieved: '2026-07-27'
 entities:
 - lei: 984500F14CA4571AAC11
   legal_name: Coinbase Luxembourg S.A
@@ -245,3 +248,10 @@ countries:
     entity: COINBASE SINGAPORE PTE. LTD.
     reference: 235467-COINBASE-SINGAPORE-PTE-LTD
     since: null
+  US:
+  - status: registered
+    regime: US FinCEN MSB registration
+    via: msb_register
+    entity: Coinbase, Inc.
+    reg_number: '29454073'
+    since: '2024-11-01'

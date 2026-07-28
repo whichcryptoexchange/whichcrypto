@@ -11,6 +11,9 @@ sources:
 - name: Singapore MAS Financial Institutions Directory
   url: https://eservices.mas.gov.sg/fid/institution
   retrieved: '2026-07-26'
+- name: US FinCEN MSB Registrant Search
+  url: https://msb.fincen.gov/
+  retrieved: '2026-07-27'
 entities:
 - lei: 2549000KEHDV2LWRRZ45
   legal_name: Ripple Payments Europe S.A
@@ -228,3 +231,52 @@ countries:
     entity: RIPPLE MARKETS APAC PTE. LTD.
     reference: 415143-RIPPLE-MARKETS-APAC-PTE-LTD
     since: null
+  US:
+  - status: registered
+    regime: US FinCEN MSB registration
+    via: msb_register
+    entity: Ripple Labs (BVI) Ltd.
+    reg_number: '29461072'
+    since: '2025-11-24'
+  - status: registered
+    regime: US FinCEN MSB registration
+    via: msb_register
+    entity: Ripple Labs Cayman Ltd.
+    reg_number: '29460957'
+    since: '2025-11-21'
+  - status: registered
+    regime: US FinCEN MSB registration
+    via: msb_register
+    entity: Ripple Markets APAC Pte. Ltd.
+    reg_number: '29447882'
+    since: '2024-01-02'
+  - status: registered
+    regime: US FinCEN MSB registration
+    via: msb_register
+    entity: Ripple Markets Cayman Ltd.
+    reg_number: '29447883'
+    since: '2024-01-02'
+  - status: registered
+    regime: US FinCEN MSB registration
+    via: msb_register
+    entity: Ripple Markets DE LLC
+    reg_number: '29439613'
+    since: '2024-12-03'
+  - status: registered
+    regime: US FinCEN MSB registration
+    via: msb_register
+    entity: Ripple Markets UK Ltd.
+    reg_number: '29447884'
+    since: '2024-01-02'
+  - status: registered
+    regime: US FinCEN MSB registration
+    via: msb_register
+    entity: Ripple Markets WY LLC
+    reg_number: '29461827'
+    since: '2025-12-04'
+  - status: registered
+    regime: US FinCEN MSB registration
+    via: msb_register
+    entity: Ripple Switzerland GmbH
+    reg_number: '29448180'
+    since: '2024-01-02'

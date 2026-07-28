@@ -11,6 +11,9 @@ sources:
 - name: Singapore MAS Financial Institutions Directory
   url: https://eservices.mas.gov.sg/fid/institution
   retrieved: '2026-07-26'
+- name: US FinCEN MSB Registrant Search
+  url: https://msb.fincen.gov/
+  retrieved: '2026-07-27'
 entities:
 - lei: 549300XIBGTJ0PLIEO72
   legal_name: Bitstamp Europe S.A
@@ -227,3 +230,22 @@ countries:
     entity: BITSTAMP ASIA PTE. LTD.
     reference: 254459-BITSTAMP-ASIA-PTE-LTD
     since: null
+  US:
+  - status: registered
+    regime: US FinCEN MSB registration
+    via: msb_register
+    entity: Bitstamp
+    reg_number: '29441482'
+    since: '2025-02-13'
+  - status: registered
+    regime: US FinCEN MSB registration
+    via: msb_register
+    entity: Bitstamp USA Inc.
+    reg_number: '29455979'
+    since: '2025-07-30'
+  - status: registered
+    regime: US FinCEN MSB registration
+    via: msb_register
+    entity: Bitstamp Ltd.
+    reg_number: '29446839'
+    since: '2024-06-19'

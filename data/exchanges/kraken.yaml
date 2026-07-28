@@ -11,6 +11,9 @@ sources:
 - name: Canada FINTRAC MSB Registry
   url: https://fintrac-canafe.canada.ca/msb-esm/reg-eng
   retrieved: '2026-07-26'
+- name: US FinCEN MSB Registrant Search
+  url: https://msb.fincen.gov/
+  retrieved: '2026-07-27'
 entities:
 - lei: 9845003D98SCC2851458
   legal_name: Payward Global Solutions Limited
@@ -251,3 +254,10 @@ countries:
     regime: MiCA
     via: mica_passporting
     entity: Payward Europe Solutions Limited
+  US:
+  - status: registered
+    regime: US FinCEN MSB registration
+    via: msb_register
+    entity: Kraken Financial
+    reg_number: '29471458'
+    since: '2024-12-09'

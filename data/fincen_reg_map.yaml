@@ -1,0 +1,101 @@
+# Brand id -> list of FinCEN MSB Registrant Search BSA IDs.
+#
+# FinCEN has no bulk registry export (unlike FINTRAC's CSV) -- registrants
+# are only searchable one at a time via the MSB Registrant Search
+# (https://msb.fincen.gov/). fincen_sync.py looks each BSA ID up live and
+# pins identity the same way brand_map.yaml pins LEIs and fca_frn_map.yaml
+# pins FRNs.
+#
+# IMPORTANT -- this register has a real, material fraud problem: FinCEN's
+# own site prominently warns that fraudsters register shell companies using
+# well-known brand names to appear "FinCEN approved". During curation we
+# found dozens of exactly that pattern -- near-identical shell filings out of
+# Denver/Colorado Springs/Boulder CO and Kalispell MT, registered for every
+# possible MSB activity code, using names like "Crypto.com Exchange Ltd",
+# "Upbit", "Swissquote Ltd", "Interactive Brokers Inc.", and a literal
+# "Gate.io Binance Crypto BlackRock Ai decentralized". None of those are
+# included here. Only entries below were confirmed against a real, known
+# corporate address/structure for that brand -- do not add more without the
+# same scrutiny.
+#
+# MSB registration is anti-money-laundering supervision, not a licence --
+# same framing as Canada FINTRAC. There is also no single national US
+# register for state-level money transmitter licensing (50 separate
+# regimes) -- out of scope here, same reasoning as FINTRAC's provincial
+# securities-dealer caveat.
+
+b2c2:
+  - bsa_id: "29446350"  # B2C2 Securities, LLC
+  - bsa_id: "29441845"  # B2C2 USA, INC.
+bitgo:
+  - bsa_id: "29470888"  # BitGo Technologies LLC
+  - bsa_id: "29444541"  # BitGo Trust Company, Inc.
+bitpay:
+  - bsa_id: "29455768"  # BitPay, Inc.
+bitstamp:
+  - bsa_id: "29441482"  # Bitstamp
+  - bsa_id: "29455979"  # Bitstamp USA Inc.
+  - bsa_id: "29446839"  # Bitstamp Ltd.
+blockchain-com:
+  - bsa_id: "29460378"  # Blockchain.com, Inc
+bullish:
+  - bsa_id: "29450723"  # Bullish (GI) Limited
+  - bsa_id: "29466480"  # Bullish US Operations LLC
+circle:
+  - bsa_id: "29454267"  # Circle Internet Financial, LLC
+coinbase:
+  - bsa_id: "29454073"  # Coinbase, Inc.
+coinify:
+  - bsa_id: "29470286"  # Coinify ApS
+coinjar:
+  - bsa_id: "29467530"  # CoinJar, Inc.
+crossmint:
+  - bsa_id: "29469895"  # Crossmint Financial Services US, Inc.
+etoro:
+  - bsa_id: "29470747"  # eToro NY LLC
+  - bsa_id: "29470746"  # eToro USA LLC
+falconx:
+  - bsa_id: "29466916"  # FalconX Delta, Inc.
+gemini:
+  - bsa_id: "29463559"  # Gemini Trust Company, LLC (dba Gemini Exchange, LLC)
+hidden-road:
+  - bsa_id: "29463279"  # Hidden Road Partners CIV UK Ltd.
+hodleris:
+  - bsa_id: "29452459"  # UAB Hodleris
+kraken:
+  - bsa_id: "29471458"  # Payward Financial, Inc. dba Kraken Financial
+legend-trading:
+  - bsa_id: "29443931"  # Legend Trading Inc
+lightspark:
+  - bsa_id: "29458741"  # Lightspark Payments, LLC
+moonpay:
+  - bsa_id: "29453358"  # MoonPay USA LLC
+mp-developers:
+  - bsa_id: "29451553"  # MP Developers s.r.o. (dba Anycoin)
+okx:
+  - bsa_id: "29459694"  # OKX INC.
+paybis:
+  - bsa_id: "29445927"  # PAYBIS LTD
+  - bsa_id: "29445926"  # PAYBIS POLAND SPOLKA Z OGRANICZONA ODPOWIEDZIALNOS
+  - bsa_id: "29446948"  # PAYBIS USA LTD
+  - bsa_id: "29471110"  # SIA Paybis Europe
+push:
+  - bsa_id: "29469164"  # Push Virtual Assets LLC (dba Aave Push)
+ripple:
+  - bsa_id: "29461072"  # Ripple Labs (BVI) Ltd.
+  - bsa_id: "29460957"  # Ripple Labs Cayman Ltd.
+  - bsa_id: "29447882"  # Ripple Markets APAC Pte. Ltd.
+  - bsa_id: "29447883"  # Ripple Markets Cayman Ltd.
+  - bsa_id: "29439613"  # Ripple Markets DE LLC
+  - bsa_id: "29447884"  # Ripple Markets UK Ltd.
+  - bsa_id: "29461827"  # Ripple Markets WY LLC
+  - bsa_id: "29448180"  # Ripple Switzerland GmbH
+robinhood:
+  - bsa_id: "29469129"  # Robinhood Crypto, LLC
+  - bsa_id: "29457019"  # Robinhood Money, LLC
+stonex:
+  - bsa_id: "29461569"  # StoneX Digital LLC
+webull:
+  - bsa_id: "29469395"  # Webull Pay LLC
+zebedee:
+  - bsa_id: "29468325"  # Zebedee, LLC (dba ZBD)
