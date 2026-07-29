@@ -1,0 +1,63 @@
+# Public changelog, shown at /changelog/. Append newest entries at the top.
+# Written for an external reader (journalists, analysts, exchanges) --
+# describe what changed and why it matters, not the internal commit.
+- date: "2026-07-28"
+  title: "Site-wide search, covering both exchanges and countries"
+  body: >
+    Added a header search box across the whole site so you can jump straight
+    to any tracked exchange or country page, rather than only browsing via
+    the homepage picker.
+- date: "2026-07-27"
+  title: "Added the US as a fifth tracked jurisdiction (FinCEN MSB Registrant Search)"
+  body: >
+    29 brands now show a US entry, sourced from FinCEN's MSB Registrant
+    Search. Curation surfaced a real fraud pattern in that register: dozens
+    of shell-company filings impersonating well-known exchange brand names
+    (a fake "Gate.io Binance Crypto BlackRock Ai decentralized" registration,
+    a Denver, CO shell claiming to be "Interactive Brokers Inc.", and more),
+    concentrated around a handful of Colorado addresses. Those are excluded
+    on purpose -- see the About page and the US country page for the full
+    explanation. As with Canada, MSB registration is anti-money-laundering
+    supervision only, not a licence.
+- date: "2026-07-27"
+  title: "Sort and tier-filter controls on every country page"
+  body: >
+    Country tables can now be sorted by newest/oldest registration, by
+    number of jurisdictions held, or by services offered, and filtered by
+    regulatory tier (e.g. UK Registered vs Authorised) where a page mixes
+    more than one.
+- date: "2026-07-26"
+  title: "Added Singapore (MAS Financial Institutions Directory)"
+  body: >
+    Singapore MAS Major Payment Institution licences for Digital Payment
+    Token services are now tracked -- a genuine crypto-specific licence,
+    like Dubai's VARA licence and unlike the UK/Canada/US AML-only
+    registrations.
+- date: "2026-07-26"
+  title: "Added Dubai (VARA Public Register)"
+  body: >
+    Dubai's Virtual Assets Regulatory Authority licence is genuinely
+    crypto-specific, but covers Dubai only -- not Abu Dhabi, not Dubai's own
+    DIFC free zone, not the rest of the UAE. There is no single UAE-wide
+    crypto regulator, and the /ae/ page says so explicitly.
+- date: "2026-07-26"
+  title: "Added Canada (FINTRAC MSB Registry)"
+  body: >
+    Canada's Money Services Business registration is anti-money-laundering
+    supervision only, not a licence -- Canada has no dedicated cryptoasset
+    licensing regime at all.
+- date: "2026-07-24"
+  title: "Added the UK (FCA Register)"
+  body: >
+    Most UK crypto entities hold only an anti-money-laundering MLR
+    registration, not a licence -- the UK's own cryptoasset licensing regime
+    doesn't open for applications until 30 Sep 2026. A smaller number of
+    brands also have a UK entity that's separately, fully FCA-authorised,
+    usually for a different (non-crypto) activity. Both tiers are shown,
+    clearly labelled.
+- date: "2026-07-24"
+  title: "Launch: ESMA-fed MiCA register, 13 seeded brands, 30 EU/EEA country pages"
+  body: >
+    The initial release, drawing directly from ESMA's interim MiCA register
+    (CASPS.csv) with automated scheduled re-syncs and a reviewed
+    pull-request workflow for every data update.

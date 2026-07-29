@@ -12,6 +12,12 @@ export function loadExchanges() {
     .sort((a, b) => a.brand.localeCompare(b.brand));
 }
 
+export function loadChangelog() {
+  const file = path.resolve('data/changelog.yaml');
+  return (yaml.load(fs.readFileSync(file, 'utf8')) || [])
+    .sort((a, b) => b.date.localeCompare(a.date));
+}
+
 export function countriesInData(exchanges) {
   const set = new Set();
   for (const ex of exchanges) for (const c of Object.keys(ex.countries || {})) set.add(c);

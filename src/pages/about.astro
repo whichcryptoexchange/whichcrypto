@@ -1,5 +1,23 @@
 ---
+import { loadExchanges } from '../lib/data.js';
 import '../styles/global.css';
+
+const exchanges = loadExchanges();
+const sourceRetrieved = (name) => exchanges
+  .flatMap((ex) => ex.sources ?? [])
+  .filter((s) => s.name === name)
+  .map((s) => s.retrieved)
+  .sort()
+  .at(-1);
+
+const SOURCES = [
+  { name: 'ESMA interim MiCA register (CASPS.csv)', label: 'ESMA MiCA register', url: 'https://www.esma.europa.eu/esmas-activities/digital-finance-and-innovation/markets-crypto-assets-regulation-mica' },
+  { name: 'UK FCA Register', label: 'UK FCA Register', url: 'https://register.fca.org.uk/' },
+  { name: 'Canada FINTRAC MSB Registry', label: 'Canada FINTRAC MSB Registry', url: 'https://fintrac-canafe.canada.ca/msb-esm/reg-eng' },
+  { name: 'Dubai VARA Public Register', label: 'Dubai VARA Public Register', url: 'https://www.vara.ae/en/licenses-and-register/public-register/' },
+  { name: 'Singapore MAS Financial Institutions Directory', label: 'Singapore MAS Financial Institutions Directory', url: 'https://eservices.mas.gov.sg/fid/institution' },
+  { name: 'US FinCEN MSB Registrant Search', label: 'US FinCEN MSB Registrant Search', url: 'https://msb.fincen.gov/' },
+].map((s) => ({ ...s, retrieved: sourceRetrieved(s.name) }));
 ---
 <html lang="en">
 <head>
@@ -37,7 +55,7 @@ import '../styles/global.css';
     verify it yourself.</p>
 
     <h3>Where the data comes from</h3>
-    <p>We currently draw from five official sources, each with its own regime and its own meaning
+    <p>We currently draw from six official sources, each with its own regime and its own meaning
     of "licensed" (or, in some cases, deliberately <em>not</em> licensed):</p>
     <ul>
       <li><strong>ESMA</strong> — the interim MiCA register covering the EU/EEA. A MiCA
@@ -69,6 +87,18 @@ import '../styles/global.css';
     </ul>
     <p>Each exchange page cites every source that applies to it, with the date we last checked.</p>
 
+    <h3>Data freshness</h3>
+    <p>Each source syncs on its own schedule via an automated pull request we review before
+    merging — see each source's own page for exact cadence. Last synced, per source:</p>
+    <ul class="sourced">
+      {SOURCES.map((s) => (
+        <li><a href={s.url}>{s.label}</a> — {s.retrieved ?? 'not yet synced'}</li>
+      ))}
+    </ul>
+    <p>Want the full dataset? <a href="/api/exchanges.json">JSON</a> ·
+    <a href="/api/register-snapshot.csv">CSV snapshot</a> · see what's changed on the
+    <a href="/changelog/">changelog</a>.</p>
+
     <h3>How brands get curated</h3>
     <p>Official registers list legal entities — "Payward Europe Solutions Limited" — not consumer
     brands — "Kraken." We manually map legal entities to the brand name people actually search for,
@@ -99,7 +129,7 @@ import '../styles/global.css';
   </main>
 
   <footer class="site"><div class="wrap">
-    <p><a href="/about/">About</a> · <a href="/contact/">Contact</a></p>
+    <p><a href="/about/">About</a> · <a href="/contact/">Contact</a> · <a href="/changelog/">Changelog</a></p>
     <p>Independent register. Not affiliated with any regulator. Not financial advice.</p>
   </div></footer>
 

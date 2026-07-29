@@ -1,0 +1,59 @@
+---
+import { loadChangelog } from '../lib/data.js';
+import '../styles/global.css';
+
+const entries = loadChangelog();
+---
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Changelog | whichcryptoexchange.com</title>
+  <meta name="description" content="What's changed on whichcryptoexchange.com: new jurisdictions, new features, and notable findings from the official registers." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <script src="https://analytics.ahrefs.com/analytics.js" data-key="QTM3lN9yt0oU0rxrj5zadA" async></script>
+</head>
+<body>
+  <header class="site"><div class="wrap">
+    <a class="logo" href="/">which<em>crypto</em>exchange</a>
+    <div class="header-right">
+      <div class="site-search">
+        <input type="search" id="site-search" placeholder="Search exchanges or countries…" autocomplete="off" aria-label="Search exchanges" />
+        <div class="site-search-results" id="site-search-results" hidden></div>
+      </div>
+      <span class="sourced">source: official regulator registers</span>
+    </div>
+  </div></header>
+
+  <main class="wrap">
+    <h1>Changelog</h1>
+    <p class="lede">New jurisdictions, new features, and notable findings from the official
+    registers we track. Every regulatory data update goes through a reviewed pull request before
+    it ships — see the <a href="/about/">About page</a> for how sourcing and curation work.</p>
+
+    <ul class="changelog">
+      {entries.map((e) => (
+        <li class="changelog-entry">
+          <div class="changelog-date datum">{e.date}</div>
+          <div>
+            <h3>{e.title}</h3>
+            <p>{e.body}</p>
+          </div>
+        </li>
+      ))}
+    </ul>
+
+    <p class="sourced">Want the full dataset behind these changes? <a href="/api/exchanges.json">JSON</a> ·
+    <a href="/api/register-snapshot.csv">CSV snapshot</a>.</p>
+  </main>
+
+  <footer class="site"><div class="wrap">
+    <p><a href="/about/">About</a> · <a href="/contact/">Contact</a> · <a href="/changelog/">Changelog</a></p>
+    <p>Independent register. Not affiliated with any regulator. Not financial advice.</p>
+  </div></footer>
+
+  <script src="/search.js" defer></script>
+</body>
+</html>
