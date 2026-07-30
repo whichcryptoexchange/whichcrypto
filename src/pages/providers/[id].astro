@@ -41,7 +41,10 @@ const custodianEx = p.custodian ? exchanges.find((ex) => ex.id === p.custodian.b
     </div>
 
     <h1>{p.name}</h1>
-    <p class="lede"><span class="badge-unlicensed">Not independently licensed</span></p>
+    <p class="lede">
+      <span class="badge-unlicensed">Not independently licensed</span>
+      {p.website && <> · <a href={p.website} rel="nofollow noopener" target="_blank">Visit {p.name} ↗</a></>}
+    </p>
     <p class="lede">{p.overview}</p>
 
     {custodianEx && p.custodian && (
@@ -71,7 +74,9 @@ const custodianEx = p.custodian ? exchanges.find((ex) => ex.id === p.custodian.b
     <h3>Sources</h3>
     <ul class="sourced">
       {p.sources.map((s) => (
-        <li>{s.url ? <a href={s.url}>{s.label}</a> : s.label}
+        <li>{s.url
+          ? <a href={s.url} rel={s.verified ? undefined : 'nofollow noopener'}>{s.label}</a>
+          : s.label}
           {s.verified
             ? <span class="source-tag verified">Verified</span>
             : <span class="source-tag disclosed">Company disclosure</span>}

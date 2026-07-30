@@ -1,6 +1,6 @@
 id: cryptounity
 name: CryptoUnity
-website: null  # pending -- add once we have the exact URL
+website: https://cryptounity.eu/
 last_verified: "2026-07-30"
 overview: >
   A crypto trading app/technology layer that markets access to Europe and
@@ -23,7 +23,7 @@ countries_served:
     verified: false
 sources:
   - label: 'CryptoUnity company disclosure: "Custody and execution are provided by BitGo Europe GmbH, authorised as a Crypto-Asset Service Provider (CASP) under the EU Markets in Crypto-Assets Regulation (MiCA) by the German Federal Financial Supervisory Authority (BaFin). CryptoUnity is a technology provider and is not itself a licensed financial institution."'
-    url: null
+    url: https://cryptounity.eu/legal/disclaimer
     verified: false
   - label: BitGo Europe GmbH — ESMA interim MiCA register (CASPS.csv)
     url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
