@@ -11,6 +11,7 @@ const caExchanges = exchanges.filter((e) => e.countries?.CA);
 const aeExchanges = exchanges.filter((e) => e.countries?.AE);
 const sgExchanges = exchanges.filter((e) => e.countries?.SG);
 const usExchanges = exchanges.filter((e) => e.countries?.US);
+const hkExchanges = exchanges.filter((e) => e.countries?.HK);
 ---
 <html lang="en">
 <head>
@@ -19,7 +20,7 @@ const usExchanges = exchanges.filter((e) => e.countries?.US);
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Which crypto exchanges are officially registered or licensed where you live? | whichcryptoexchange.com</title>
-  <meta name="description" content={`Check which crypto exchanges are licensed in your country. Built from official regulator registers — currently tracking ${exchanges.length} exchanges across the ESMA MiCA register, the UK FCA Register, the Canada FINTRAC MSB Registry, Dubai's VARA Public Register, Singapore's MAS Financial Institutions Directory, and the US FinCEN MSB Registrant Search.`} />
+  <meta name="description" content={`Check which crypto exchanges are licensed in your country. Built from official regulator registers — currently tracking ${exchanges.length} exchanges across the ESMA MiCA register, the UK FCA Register, the Canada FINTRAC MSB Registry, Dubai's VARA Public Register, Singapore's MAS Financial Institutions Directory, the US FinCEN MSB Registrant Search, and the Hong Kong SFC VATP List.`} />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet" />
   <script src="https://analytics.ahrefs.com/analytics.js" data-key="QTM3lN9yt0oU0rxrj5zadA" async></script>
@@ -76,15 +77,18 @@ const usExchanges = exchanges.filter((e) => e.countries?.US);
     Payment Token services — <a href="/sg/">see the Singapore page</a></p>
     <p class="sourced">{usExchanges.length} also have a US entity on the <a href="https://msb.fincen.gov/">FinCEN MSB Registrant Search</a> —
     <a href="/us/">see the US page</a> for the fraud-shell caveat</p>
+    <p class="sourced">{hkExchanges.length} also hold a Hong Kong SFC Virtual Asset Trading Platform
+    licence — <a href="/hk/">see the Hong Kong page</a></p>
 
     <div class="legend">
-      <span class="stamp licensed">EU · MiCA / Dubai · VARA / Singapore · MAS — Licensed</span>
+      <span class="stamp licensed">EU · MiCA / Dubai · VARA / Singapore · MAS / Hong Kong · SFC — Licensed</span>
       <span class="stamp gb-registered">UK/CA/US · Registered</span>
       <span class="stamp gb-authorised">UK · Authorised</span>
     </div>
     <p class="sourced legend-note">MiCA, VARA, MAS, and Registered are not all equivalent: an EU MiCA
-    authorisation, a Dubai VARA licence, and a Singapore MAS licence are all genuine crypto-specific
-    licences (Dubai's covers Dubai only — the UAE has no single national crypto regulator); a UK
+    authorisation, a Dubai VARA licence, a Singapore MAS licence, and a Hong Kong SFC VATP licence are
+    all genuine crypto-specific licences (Dubai's covers Dubai only — the UAE has no single national
+    crypto regulator); a UK
     MLR registration, Canada FINTRAC MSB registration, or US FinCEN MSB registration is
     anti-money-laundering supervision only — the UK's own cryptoasset licensing regime doesn't open
     for applications until 30 Sep 2026, and neither Canada nor the US has a dedicated cryptoasset
@@ -104,13 +108,14 @@ const usExchanges = exchanges.filter((e) => e.countries?.US);
   <footer class="site"><div class="wrap">
     <p><a href="/about/">About</a> · <a href="/contact/">Contact</a> · <a href="/changelog/">Changelog</a> · <a href="/stats/">Stats</a> · <a href="https://x.com/whichcex">X</a></p>
     <p>whichcryptoexchange.com is an independent register. We are not affiliated with ESMA, the FCA, FINTRAC,
-    VARA, MAS, FinCEN, or any regulator. Status is drawn from official public registers and may lag regulator
-    updates by up to a week. UK entries reflect FCA MLR registration or authorisation, Canada entries reflect
-    FINTRAC MSB registration, and US entries reflect FinCEN MSB registration — none of these three is a
+    VARA, MAS, FinCEN, the SFC, or any regulator. Status is drawn from official public registers and may lag
+    regulator updates by up to a week. UK entries reflect FCA MLR registration or authorisation, Canada entries
+    reflect FINTRAC MSB registration, and US entries reflect FinCEN MSB registration — none of these three is a
     cryptoasset licence, and none of the three jurisdictions has one yet. Dubai (AE) entries reflect a Dubai
     VARA VASP Licence and cover Dubai only — VARA has no authority over Abu Dhabi, Dubai's own DIFC free zone,
     or the rest of the UAE, and there is no single UAE-wide crypto regulator. Singapore entries reflect a MAS
-    Major Payment Institution licence for Digital Payment Token services. Nothing here is financial advice.</p>
+    Major Payment Institution licence for Digital Payment Token services. Hong Kong entries reflect an SFC
+    Virtual Asset Trading Platform licence. Nothing here is financial advice.</p>
   </div></footer>
 
   <script>

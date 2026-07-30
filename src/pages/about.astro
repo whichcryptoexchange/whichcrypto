@@ -17,6 +17,7 @@ const SOURCES = [
   { name: 'Dubai VARA Public Register', label: 'Dubai VARA Public Register', url: 'https://www.vara.ae/en/licenses-and-register/public-register/' },
   { name: 'Singapore MAS Financial Institutions Directory', label: 'Singapore MAS Financial Institutions Directory', url: 'https://eservices.mas.gov.sg/fid/institution' },
   { name: 'US FinCEN MSB Registrant Search', label: 'US FinCEN MSB Registrant Search', url: 'https://msb.fincen.gov/' },
+  { name: 'Hong Kong SFC VATP List', label: 'Hong Kong SFC VATP List', url: 'https://www.sfc.hk/en/Welcome-to-the-Fintech-Contact-Point/Virtual-assets/Virtual-asset-trading-platforms-operators/Lists-of-virtual-asset-trading-platforms' },
 ].map((s) => ({ ...s, retrieved: sourceRetrieved(s.name) }));
 ---
 <html lang="en">
@@ -55,7 +56,7 @@ const SOURCES = [
     verify it yourself.</p>
 
     <h3>Where the data comes from</h3>
-    <p>We currently draw from six official sources, each with its own regime and its own meaning
+    <p>We currently draw from seven official sources, each with its own regime and its own meaning
     of "licensed" (or, in some cases, deliberately <em>not</em> licensed):</p>
     <ul>
       <li><strong>ESMA</strong> — the interim MiCA register covering the EU/EEA. A MiCA
@@ -84,6 +85,11 @@ const SOURCES = [
       recognisable brand names to appear "FinCEN approved". We found and excluded a cluster of
       exactly that pattern during curation; only entries independently matched to a brand's real
       corporate structure are listed.</li>
+      <li><strong>Hong Kong SFC VATP List</strong> — a Virtual Asset Trading Platform licence is a
+      genuine crypto-specific licence, mandatory since 2023 under the Securities and Futures
+      Ordinance — the same tier as Dubai's VARA licence and Singapore's MAS licence. The SFC also
+      publishes separate lists of applicants, returned/refused/withdrawn applicants, and
+      closing-down platforms; only the formally licensed list is used here.</li>
     </ul>
     <p>Each exchange page cites every source that applies to it, with the date we last checked.</p>
 

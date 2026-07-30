@@ -4,6 +4,7 @@
 # Every LEI below was verified against the ESMA CASPS.csv retrieved 2026-07-24.
 # Unmapped LEIs are auto-slugged from their commercial name by esma_sync.py.
 
+"8945001TKX2A5OJMNR45": {id: osl-eu, brand: OSL}          # OSL EU GmbH (AT) — auto-slugged as "OSL EU" from its own commercial_name; group is also SFC-licensed in Hong Kong under a different entity, so the brand name shouldn't carry an EU suffix
 "9845003D98SCC2851458": {id: kraken, brand: Kraken}       # Payward Global Solutions Ltd (trading platform, IE)
 "254900641D8KNHUZYX24": {id: kraken, brand: Kraken}       # Payward Europe Solutions Ltd (retail services, IE)
 "984500F14CA4571AAC11": {id: coinbase, brand: Coinbase}   # Coinbase Luxembourg S.A.

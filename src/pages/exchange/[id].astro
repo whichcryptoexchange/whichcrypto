@@ -10,7 +10,7 @@ const countryCodes = Object.keys(ex.countries ?? {})
   .sort((a, b) => (COUNTRY_NAMES[a] ?? a).localeCompare(COUNTRY_NAMES[b] ?? b));
 // Non-EEA jurisdictions (list-shaped countries.<CC>, unlike the single-object
 // EEA/MiCA shape) get a "<prefix> · Registered/Authorised/Licensed" stamp each.
-const NON_EEA_PREFIX = { GB: 'UK', CA: 'CA', AE: 'Dubai', SG: 'SG', US: 'US' };
+const NON_EEA_PREFIX = { GB: 'UK', CA: 'CA', AE: 'Dubai', SG: 'SG', US: 'US', HK: 'HK' };
 const nonEEAEntries = Object.entries(NON_EEA_PREFIX)
   .flatMap(([cc, prefix]) => (ex.countries?.[cc] ?? []).map((entry) => ({ ...entry, prefix })));
 // A brand can have more than one legal entity with the same status in the

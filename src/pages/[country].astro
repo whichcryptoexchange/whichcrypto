@@ -19,7 +19,8 @@ const isCA = code === 'CA';
 const isAE = code === 'AE';
 const isSG = code === 'SG';
 const isUS = code === 'US';
-const isNonEEA = isGB || isCA || isAE || isSG || isUS;
+const isHK = code === 'HK';
+const isNonEEA = isGB || isCA || isAE || isSG || isUS || isHK;
 const rows = exchanges
   .map((ex) => ({ ex, c: ex.countries?.[code] }))
   .filter((r) => r.c);
@@ -31,6 +32,7 @@ const fintracRetrieved = sourceRetrieved('Canada FINTRAC MSB Registry');
 const varaRetrieved = sourceRetrieved('Dubai VARA Public Register');
 const masRetrieved = sourceRetrieved('Singapore MAS Financial Institutions Directory');
 const fincenRetrieved = sourceRetrieved('US FinCEN MSB Registrant Search');
+const sfcRetrieved = sourceRetrieved('Hong Kong SFC VATP List');
 // registered/authorised (UK, CA) are AML-only tiers; licensed (AE/Dubai VARA)
 // is a genuine crypto-specific licence, so it gets the same green stamp as
 // EU MiCA rather than the cautious amber/grey UK-style tiers.
@@ -64,6 +66,8 @@ const tiersOnPage = isNonEEA
     ? `Crypto exchanges licensed in Singapore (${new Date().getFullYear()}) | whichcryptoexchange.com`
     : isUS
     ? `Crypto exchanges registered with FinCEN in the US (${new Date().getFullYear()}) | whichcryptoexchange.com`
+    : isHK
+    ? `Crypto exchanges licensed in Hong Kong (${new Date().getFullYear()}) | whichcryptoexchange.com`
     : `Crypto exchanges licensed in ${name} (${new Date().getFullYear()}) | whichcryptoexchange.com`}</title>
   <meta name="description" content={isGB
     ? `${rows.length} crypto exchanges hold a UK FCA registration or authorisation, according to the official FCA Register. See which entity, which regime, and since when.`
@@ -75,6 +79,8 @@ const tiersOnPage = isNonEEA
     ? `${rows.length} crypto exchanges hold a MAS Major Payment Institution licence for Digital Payment Token services, according to the official MAS Financial Institutions Directory.`
     : isUS
     ? `${rows.length} crypto exchanges hold a US FinCEN MSB registration, according to the official FinCEN MSB Registrant Search. See which entity and since when.`
+    : isHK
+    ? `${rows.length} crypto exchanges hold a Hong Kong SFC Virtual Asset Trading Platform licence, according to the official SFC list. See which entity and since when.`
     : `${rows.length} crypto exchanges hold a licence covering ${name}, according to official regulator registers. See which entity, which regime, and since when.`} />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet" />
@@ -166,6 +172,17 @@ const tiersOnPage = isNonEEA
         near-identical shell filings claiming names like "Crypto.com Exchange Ltd" or "Interactive
         Brokers Inc." out of a small number of Colorado addresses. Only entries independently
         matched to a brand's real, known corporate structure are listed below.</p>
+      </>
+    ) : isHK ? (
+      <>
+        <h1>Which crypto exchanges are licensed in Hong Kong?</h1>
+        <p class="lede">{rows.length} exchanges in our register hold a Virtual Asset Trading
+        Platform (VATP) licence from Hong Kong's Securities and Futures Commission (SFC), mandatory
+        since 2023 under the Securities and Futures Ordinance. Like Dubai's VARA licence and
+        Singapore's MAS licence, this <em>is</em> a genuine crypto-specific licence — not an
+        AML-only registration like the UK/Canada/US entries elsewhere on this site. The SFC also
+        publishes separate lists of applicants, returned/refused/withdrawn applicants, and
+        closing-down platforms — only the formally licensed list is shown here.</p>
       </>
     ) : (
       <>
@@ -271,6 +288,10 @@ const tiersOnPage = isNonEEA
       <p class="sourced">Source: <a href="https://msb.fincen.gov/">FinCEN MSB Registrant Search</a>,
       retrieved {fincenRetrieved}. An exchange missing from this list either holds no US FinCEN MSB
       registration we could independently verify, or is not yet in our register.</p>
+    ) : isHK ? (
+      <p class="sourced">Source: <a href="https://www.sfc.hk/en/Welcome-to-the-Fintech-Contact-Point/Virtual-assets/Virtual-asset-trading-platforms-operators/Lists-of-virtual-asset-trading-platforms">Hong Kong SFC VATP List</a>,
+      retrieved {sfcRetrieved}. An exchange missing from this list either holds no Hong Kong VATP
+      licence, or is not yet in our register.</p>
     ) : (
       <p class="sourced">Source: <a href="https://www.esma.europa.eu/esmas-activities/digital-finance-and-innovation/markets-crypto-assets-regulation-mica">ESMA interim MiCA register</a>,
       retrieved {exchanges[0]?.sources?.[0]?.retrieved}. An exchange missing from this list either

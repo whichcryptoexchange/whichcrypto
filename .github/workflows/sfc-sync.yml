@@ -1,0 +1,39 @@
+name: Hong Kong SFC VATP sync
+
+on:
+  schedule:
+    - cron: '0 10 * * 5'   # Fri 10:00 UTC — offset from the other jurisdictions' runs
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.12' }
+      - run: pip install pyyaml
+      - name: Refresh Hong Kong SFC VATP data
+        run: python3 scripts/sfc_sync.py
+      - name: Open PR if the register changed
+        uses: peter-evans/create-pull-request@v6
+        with:
+          commit-message: "data: Hong Kong SFC VATP sync"
+          title: "Hong Kong SFC VATP update — review changes"
+          body: |
+            Automated refresh of data/sfc_reg_map.yaml's pinned CE
+            References against the live SFC "List of licensed virtual
+            asset trading platforms" table. This does NOT discover new
+            brands or new CE References -- only re-fetches status/dates
+            for entities already curated in sfc_reg_map.yaml. Review for:
+              - a pinned CE Reference no longer found in the licensed
+                table (may have moved to the closing-down or
+                returned/refused/withdrawn list -- confirm before merging)
+            A VATP licence is a genuine crypto-specific licence (same tier
+            as VARA/MAS) -- never describe it as an AML-only registration.
+          branch: sfc-sync
+          delete-branch: true
