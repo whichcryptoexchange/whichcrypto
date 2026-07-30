@@ -1,0 +1,141 @@
+---
+import { loadExchanges, COUNTRY_NAMES, countryFlag } from '../lib/data.js';
+import '../styles/global.css';
+
+const exchanges = loadExchanges();
+const total = exchanges.length;
+
+const jurisdictionCount = (ex) => Object.keys(ex.countries ?? {}).length;
+
+const withGenuineLicence = exchanges.filter((ex) => {
+  if (ex.eu_status === 'authorised') return true;
+  return Object.values(ex.countries ?? {}).some((entry) =>
+    (Array.isArray(entry) ? entry : [entry]).some((e) => e.status === 'licensed'));
+}).length;
+const amlOnly = total - withGenuineLicence;
+
+const multiJurisdiction = exchanges.filter((ex) => jurisdictionCount(ex) > 1).length;
+const withdrawn = exchanges.filter((ex) => ex.eu_status === 'withdrawn').length;
+
+const maxJurisdictions = Math.max(...exchanges.map(jurisdictionCount));
+const topByJurisdictions = [...exchanges]
+  .sort((a, b) => jurisdictionCount(b) - jurisdictionCount(a))
+  .slice(0, 10);
+
+// Home-state distribution across EEA entities -- which national regulator
+// actually issues the most MiCA authorisations in our tracked set.
+const homeStateCounts = {};
+for (const ex of exchanges) {
+  for (const ent of ex.entities ?? []) {
+    if (ent.home_state) homeStateCounts[ent.home_state] = (homeStateCounts[ent.home_state] ?? 0) + 1;
+  }
+}
+const topHomeStates = Object.entries(homeStateCounts).sort((a, b) => b[1] - a[1]).slice(0, 10);
+
+// Per-jurisdiction breakdown (non-EEA sources), reusing the same
+// list-shaped countries.<CC> data the country pages render from.
+const nonEEA = [
+  { cc: 'GB', label: 'UK (FCA Register)' },
+  { cc: 'CA', label: 'Canada (FINTRAC)' },
+  { cc: 'AE', label: 'Dubai (VARA)' },
+  { cc: 'SG', label: 'Singapore (MAS)' },
+  { cc: 'US', label: 'US (FinCEN)' },
+].map(({ cc, label }) => ({
+  cc, label,
+  count: exchanges.filter((ex) => ex.countries?.[cc]).length,
+}));
+
+const activeMiCA = exchanges.filter((ex) => ex.eu_status === 'authorised').length;
+---
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Stats | whichcryptoexchange.com</title>
+  <meta name="description" content={`Live numbers from our register: ${total} exchanges tracked, ${withGenuineLicence} with a genuine crypto-specific licence, and which jurisdictions and legal entities lead the pack.`} />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <script src="https://analytics.ahrefs.com/analytics.js" data-key="QTM3lN9yt0oU0rxrj5zadA" async></script>
+</head>
+<body>
+  <header class="site"><div class="wrap">
+    <a class="logo" href="/">which<em>crypto</em>exchange</a>
+    <div class="header-right">
+      <div class="site-search">
+        <input type="search" id="site-search" placeholder="Search exchanges or countries…" autocomplete="off" aria-label="Search exchanges" />
+        <div class="site-search-results" id="site-search-results" hidden></div>
+      </div>
+      <span class="sourced">source: official regulator registers</span>
+    </div>
+  </div></header>
+
+  <main class="wrap">
+    <h1>Stats</h1>
+    <p class="lede">Live numbers computed directly from the register at build time — every figure
+    here updates automatically as the underlying data changes. See the
+    <a href="/changelog/">changelog</a> for what's new, or pull the
+    <a href="/api/register-snapshot.csv">full CSV</a> yourself.</p>
+
+    <div class="stat-grid">
+      <div class="stat-card"><div class="stat-num">{total}</div><div class="stat-label">Exchanges tracked across 6 official registers</div></div>
+      <div class="stat-card"><div class="stat-num">{withGenuineLicence}</div><div class="stat-label">Hold at least one genuine crypto-specific licence (EU MiCA, Dubai VARA, or Singapore MAS)</div></div>
+      <div class="stat-card"><div class="stat-num">{amlOnly}</div><div class="stat-label">Hold only AML-supervision registrations, no genuine licence anywhere</div></div>
+      <div class="stat-card"><div class="stat-num">{multiJurisdiction}</div><div class="stat-label">Registered or licensed in more than one jurisdiction</div></div>
+      <div class="stat-card"><div class="stat-num">{maxJurisdictions}</div><div class="stat-label">Most jurisdictions held by a single brand ({topByJurisdictions[0]?.brand})</div></div>
+      <div class="stat-card"><div class="stat-num">{withdrawn}</div><div class="stat-label">Have had an EU MiCA authorisation withdrawn</div></div>
+    </div>
+
+    <h3>By jurisdiction</h3>
+    <p>{activeMiCA} exchanges hold an active EU MiCA authorisation. Outside the EU/EEA, here's how
+    many of our tracked brands appear in each source:</p>
+    <table class="registry">
+      <thead><tr><th>Source</th><th>Exchanges</th></tr></thead>
+      <tbody>
+        {nonEEA.map((n) => (
+          <tr><td class="brand"><a href={`/${n.cc.toLowerCase()}/`}>{n.label}</a></td><td class="datum">{n.count}</td></tr>
+        ))}
+      </tbody>
+    </table>
+
+    <h3>Most jurisdictions held, by brand</h3>
+    <table class="registry">
+      <thead><tr><th>Exchange</th><th>Jurisdictions</th></tr></thead>
+      <tbody>
+        {topByJurisdictions.map((ex) => (
+          <tr><td class="brand"><a href={`/exchange/${ex.id}/`}>{ex.brand}</a></td><td class="datum">{jurisdictionCount(ex)}</td></tr>
+        ))}
+      </tbody>
+    </table>
+
+    <h3>Top EU/EEA home states</h3>
+    <p>Where tracked exchanges are actually headquartered and authorised (their "home state" under
+    MiCA passporting), not just where they passport <em>to</em>:</p>
+    <table class="registry">
+      <thead><tr><th>Country</th><th>Home-registered entities</th></tr></thead>
+      <tbody>
+        {topHomeStates.map(([cc, n]) => (
+          <tr><td class="brand"><a href={`/${cc.toLowerCase()}/`}><span class="cc flag">{countryFlag(cc)}</span> {COUNTRY_NAMES[cc] ?? cc}</a></td><td class="datum">{n}</td></tr>
+        ))}
+      </tbody>
+    </table>
+
+    <h3>A note on data integrity</h3>
+    <p>Not every official register is clean. Curating the US FinCEN layer, we found 113 candidate
+    filings across 47 brand-name searches — but a large share were shell companies impersonating
+    well-known exchange brands (see the <a href="/changelog/">changelog</a> and
+    <a href="/us/">US page</a>). Only 29 brands survived independent verification against a real,
+    known corporate structure. We'd rather list fewer, verified entries than pad the numbers.</p>
+
+    <p class="sourced">Questions about a number here, or want the underlying data?
+    <a href="/contact/">Get in touch</a>.</p>
+  </main>
+
+  <footer class="site"><div class="wrap">
+    <p><a href="/about/">About</a> · <a href="/contact/">Contact</a> · <a href="/changelog/">Changelog</a> · <a href="/stats/">Stats</a></p>
+    <p>Independent register. Not affiliated with any regulator. Not financial advice.</p>
+  </div></footer>
+
+  <script src="/search.js" defer></script>
+</body>
+</html>
