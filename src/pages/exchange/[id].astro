@@ -100,6 +100,28 @@ const SITEKEY = import.meta.env.PUBLIC_TURNSTILE_SITEKEY || '0x4AAAAAAD84t4OWkoo
       </div>
     )))}
 
+    {/* Non-EEA entity detail -- same level of detail as the EEA record
+        cards above, kept in a separate CSS class (non-eea-<status>) since
+        "authorised" means something different here (GB's separate,
+        non-crypto FCA authorisation) than it does for an EEA MiCA record,
+        and must not inherit that tier's green border. */}
+    {nonEEAEntries.map((entry) => (
+      <div class={`record non-eea-${entry.status}`}>
+        <h3>{entry.entity}</h3>
+        <dl>
+          <dt>Jurisdiction</dt><dd class="datum">{entry.prefix}</dd>
+          <dt>Regime</dt><dd>{entry.regime}</dd>
+          <dt>Status</dt><dd class="datum">{STATUS_STAMP[entry.status]?.label ?? entry.status}</dd>
+          {(entry.reg_number ?? entry.reference ?? entry.frn) && (
+            <><dt>Reference</dt><dd class="datum">{entry.reg_number ?? entry.reference ?? entry.frn}</dd></>
+          )}
+          <dt>Since</dt><dd class="datum">{entry.since ?? '—'}</dd>
+          {entry.expires && <><dt>Expires</dt><dd class="datum">{entry.expires}</dd></>}
+          {entry.licensed_activities && <><dt>Activities</dt><dd>{entry.licensed_activities}</dd></>}
+        </dl>
+      </div>
+    ))}
+
     <h3>Countries covered ({countryCodes.length})</h3>
     <ul class="country-grid">
       {countryCodes.map((c) => (

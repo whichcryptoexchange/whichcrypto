@@ -293,6 +293,12 @@ h1 {
   margin: 0 0 18px;
 }
 .record.withdrawn { border-left-color: var(--warned); }
+/* Non-EEA entity cards use their own status scale (see gb-registered/
+   gb-authorised stamp comment above) -- registered/authorised here are
+   AML-only tiers and must not read as a genuine green licence. */
+.record.non-eea-registered { border-left-color: var(--caution); }
+.record.non-eea-authorised { border-left-color: var(--ink-soft); }
+.record.non-eea-licensed { border-left-color: var(--licensed); }
 .record h3 { margin: 0 0 6px; font-family: var(--display); font-size: 18px; }
 .record dl { display: grid; grid-template-columns: 160px 1fr; gap: 4px 16px; margin: 12px 0 0; font-size: 14px; }
 .record dt { font-family: var(--mono); font-size: 12px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--ink-soft); }
