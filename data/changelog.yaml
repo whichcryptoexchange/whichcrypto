@@ -2,17 +2,20 @@
 # Written for an external reader (journalists, analysts, exchanges) --
 # describe what changed and why it matters, not the internal commit.
 - date: "2026-07-30"
-  title: "Added Hong Kong (SFC Virtual Asset Trading Platform licence)"
+  title: "Added Hong Kong (SFC Virtual Asset Trading Platform licence) — all 13 licensees"
   body: >
     Hong Kong's Securities and Futures Commission licence for virtual asset
     trading platforms, mandatory since 2023, is a genuine crypto-specific
     licence -- the same tier as Dubai's VARA licence and Singapore's MAS
-    licence, not an AML-only registration. Three tracked brands hold one so
-    far: Bullish, HashKey, and OSL (whose Hong Kong entity, OSL Digital
+    licence, not an AML-only registration. All 13 currently-licensed
+    platforms are now tracked, including 10 newly added as brands in their
+    own right (Accumulus, BGE, Bixin.com, DFX Labs, EX.IO, HKbitEX, HKVAX,
+    PantherTrade, VDX, YAX) alongside three brands we already tracked
+    (Bullish, HashKey, and OSL). OSL's Hong Kong entity, OSL Digital
     Securities Limited, is a different legal entity from its EU arm --
     curating this also fixed a naming quirk where that brand had been
     auto-labelled "OSL EU" everywhere on the site, including for its
-    non-EU activity).
+    non-EU activity.
 - date: "2026-07-30"
   title: "New /stats/ page, structured data, and a public X account"
   body: >

@@ -12,9 +12,29 @@
 # as brand_map.yaml (LEI), fca_frn_map.yaml (FRN), and fincen_reg_map.yaml
 # (BSA ID).
 
+accumulus:
+  - ce_reference: "BUA970"  # Accumulus GBA Technology (Hongkong) Co., Limited (Accumulus)
+bge:
+  - ce_reference: "BSI739"  # Hong Kong BGE Limited (BGE)
+bixin:
+  - ce_reference: "BUY737"  # NewBX Limited (Bixin.com)
 bullish:
   - ce_reference: "BUQ956"  # Bullish HK Markets Limited (Bullish)
+dfx-labs:
+  - ce_reference: "BUN619"  # DFX Labs Company Limited (DFX Labs)
+exio:
+  - ce_reference: "BUT670"  # EXIO Limited (EX.IO)
 hashkey:
   - ce_reference: "BPL992"  # Hash Blockchain Limited (HashKey Exchange)
+hkbitex:
+  - ce_reference: "BPO721"  # Hong Kong Digital Asset EX Limited (HKbitEX)
+hkvax:
+  - ce_reference: "BPW549"  # Hong Kong Virtual Asset Exchange Limited (HKVAX)
 osl-eu:
   - ce_reference: "BPJ213"  # OSL Digital Securities Limited (OSL Exchange)
+panthertrade:
+  - ce_reference: "BUY578"  # Panthertrade (Hong Kong) Limited (PantherTrade)
+vdx:
+  - ce_reference: "BTF116"  # Victory Fintech Company Limited (VDX)
+yax:
+  - ce_reference: "BUT913"  # YAX (Hong Kong) Limited (YAX)
