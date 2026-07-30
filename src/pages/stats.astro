@@ -46,6 +46,13 @@ const nonEEA = [
 }));
 
 const activeMiCA = exchanges.filter((ex) => ex.eu_status === 'authorised').length;
+
+const lastSynced = exchanges
+  .flatMap((ex) => ex.sources ?? [])
+  .map((s) => s.retrieved)
+  .filter(Boolean)
+  .sort()
+  .at(-1);
 ---
 <html lang="en">
 <head>
@@ -57,6 +64,20 @@ const activeMiCA = exchanges.filter((ex) => ex.eu_status === 'authorised').lengt
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet" />
   <script src="https://analytics.ahrefs.com/analytics.js" data-key="QTM3lN9yt0oU0rxrj5zadA" async></script>
+  <script type="application/ld+json" set:html={JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'Dataset',
+    name: 'whichcryptoexchange.com crypto exchange regulatory register',
+    description: `Which crypto exchanges hold which regulatory status, in which country, through which legal entity, and since when — sourced from six official regulator registers. ${total} exchanges tracked.`,
+    url: 'https://whichcryptoexchange.com/stats/',
+    license: 'https://whichcryptoexchange.com/about/',
+    dateModified: lastSynced,
+    creator: { '@type': 'Organization', name: 'whichcryptoexchange.com', url: 'https://whichcryptoexchange.com' },
+    distribution: [
+      { '@type': 'DataDownload', encodingFormat: 'application/json', contentUrl: 'https://whichcryptoexchange.com/api/exchanges.json' },
+      { '@type': 'DataDownload', encodingFormat: 'text/csv', contentUrl: 'https://whichcryptoexchange.com/api/register-snapshot.csv' },
+    ],
+  })} />
 </head>
 <body>
   <header class="site"><div class="wrap">
