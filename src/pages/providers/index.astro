@@ -1,0 +1,74 @@
+---
+import { loadProviders, loadExchanges } from '../../lib/data.js';
+import '../../styles/global.css';
+
+const exchanges = loadExchanges();
+const providers = loadProviders().map((p) => ({
+  ...p,
+  custodianEx: p.custodian ? exchanges.find((ex) => ex.id === p.custodian.brand_id) : null,
+}));
+---
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Technology Providers Using Licensed Custodians | whichcryptoexchange.com</title>
+  <meta name="description" content="Crypto apps and platforms that are not themselves licensed, but rely on a licensed custodian to actually hold and execute customer assets. Who really holds your crypto?" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <script src="https://analytics.ahrefs.com/analytics.js" data-key="QTM3lN9yt0oU0rxrj5zadA" async></script>
+</head>
+<body>
+  <header class="site"><div class="wrap">
+    <a class="logo" href="/">which<em>crypto</em>exchange</a>
+    <div class="header-right">
+      <div class="site-search">
+        <input type="search" id="site-search" placeholder="Search exchanges or countries…" autocomplete="off" aria-label="Search exchanges" />
+        <div class="site-search-results" id="site-search-results" hidden></div>
+      </div>
+      <span class="sourced">source: official regulator registers</span>
+    </div>
+  </div></header>
+
+  <main class="wrap">
+    <div class="editorial-banner">
+      <strong>Editorial content, not the register.</strong> These profiles are not licence records —
+      see <a href="/about/">how the register itself works</a> for that.
+    </div>
+
+    <h1>Who actually holds your crypto?</h1>
+    <p class="lede">Some crypto apps and platforms aren't licensed themselves — they're a
+    technology layer on top of a custodian or execution partner who is. That's not necessarily a
+    red flag, but it's a fact worth knowing plainly. Each profile below names the company, states
+    clearly that it isn't independently licensed, and identifies who actually holds and executes
+    customer assets — with a link through to that custodian's real, verified regulatory status.</p>
+
+    {providers.map((p) => (
+      <div class="provider-card">
+        <h3><a href={`/providers/${p.id}/`}>{p.name}</a> <span class="badge-unlicensed">Not independently licensed</span></h3>
+        <dl>
+          {p.custodianEx && p.custodian && (
+            <>
+              <dt>Custodian</dt><dd><a href={`/exchange/${p.custodianEx.id}/`}>{p.custodian.name}</a></dd>
+              <dt>Custodian licence</dt><dd class="datum">{p.custodian.licence}</dd>
+            </>
+          )}
+          <dt>Last verified</dt><dd class="datum">{p.last_verified}</dd>
+        </dl>
+      </div>
+    ))}
+
+    <p class="sourced">Is your company a technology provider relying on a licensed custodian, and
+    want a profile here? <a href="/contact/">Get in touch</a> — every fact we can't independently
+    verify is clearly tagged as a company disclosure, not a verified claim.</p>
+  </main>
+
+  <footer class="site"><div class="wrap">
+    <p><a href="/about/">About</a> · <a href="/contact/">Contact</a> · <a href="/changelog/">Changelog</a> · <a href="/stats/">Stats</a> · <a href="/providers/">Providers</a> · <a href="https://x.com/whichcex">X</a></p>
+    <p>Independent register. Not affiliated with any regulator. Not financial advice.</p>
+  </div></footer>
+
+  <script src="/search.js" defer></script>
+</body>
+</html>

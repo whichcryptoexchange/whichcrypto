@@ -1,0 +1,92 @@
+---
+import { loadProviders, loadExchanges } from '../../lib/data.js';
+import '../../styles/global.css';
+
+export function getStaticPaths() {
+  const exchanges = loadExchanges();
+  return loadProviders().map((p) => ({ params: { id: p.id }, props: { p, exchanges } }));
+}
+const { p, exchanges } = Astro.props;
+const custodianEx = p.custodian ? exchanges.find((ex) => ex.id === p.custodian.brand_id) : null;
+---
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{`${p.name}: technology provider profile | whichcryptoexchange.com`}</title>
+  <meta name="description" content={`${p.name} is not itself a licensed exchange. See who actually holds and executes customer assets, and whether that custodian is independently verified.`} />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <script src="https://analytics.ahrefs.com/analytics.js" data-key="QTM3lN9yt0oU0rxrj5zadA" async></script>
+</head>
+<body>
+  <header class="site"><div class="wrap">
+    <a class="logo" href="/">which<em>crypto</em>exchange</a>
+    <div class="header-right">
+      <div class="site-search">
+        <input type="search" id="site-search" placeholder="Search exchanges or countries…" autocomplete="off" aria-label="Search exchanges" />
+        <div class="site-search-results" id="site-search-results" hidden></div>
+      </div>
+      <span class="sourced">source: official regulator registers</span>
+    </div>
+  </div></header>
+
+  <main class="wrap">
+    <div class="editorial-banner">
+      <strong>Editorial content, not the register.</strong> This is a Technology Provider Profile —
+      it explains a company's business model and who actually holds/executes customer assets. It is
+      not a licence record. See <a href="/providers/">all provider profiles</a> or
+      <a href="/about/">how the register itself works</a>.
+    </div>
+
+    <h1>{p.name}</h1>
+    <p class="lede"><span class="badge-unlicensed">Not independently licensed</span></p>
+    <p class="lede">{p.overview}</p>
+
+    {custodianEx && p.custodian && (
+      <div class="provider-card">
+        <h3>Who actually holds and executes customer assets</h3>
+        <dl>
+          <dt>Custodian</dt>
+          <dd><a href={`/exchange/${custodianEx.id}/`}>{p.custodian.name}</a>
+            {p.custodian.verified && <span class="source-tag verified">Verified</span>}</dd>
+          <dt>Role</dt><dd>{p.custodian.role}</dd>
+          <dt>Custodian licence</dt><dd class="datum">{p.custodian.licence}</dd>
+        </dl>
+      </div>
+    )}
+
+    <h3>Countries served</h3>
+    <ul>
+      {p.countries_served.map((c) => (
+        <li><strong>{c.label}</strong> — {c.detail}
+          {c.verified
+            ? <span class="source-tag verified">Verified</span>
+            : <span class="source-tag disclosed">Company disclosure</span>}
+        </li>
+      ))}
+    </ul>
+
+    <h3>Sources</h3>
+    <ul class="sourced">
+      {p.sources.map((s) => (
+        <li>{s.url ? <a href={s.url}>{s.label}</a> : s.label}
+          {s.verified
+            ? <span class="source-tag verified">Verified</span>
+            : <span class="source-tag disclosed">Company disclosure</span>}
+        </li>
+      ))}
+    </ul>
+    <p class="sourced">Last verified {p.last_verified}. Something out of date, or are you {p.name}
+    and want to correct or add detail? <a href="/contact/">Get in touch</a>.</p>
+  </main>
+
+  <footer class="site"><div class="wrap">
+    <p><a href="/about/">About</a> · <a href="/contact/">Contact</a> · <a href="/changelog/">Changelog</a> · <a href="/stats/">Stats</a> · <a href="/providers/">Providers</a> · <a href="https://x.com/whichcex">X</a></p>
+    <p>Independent register. Not affiliated with any regulator. Not financial advice.</p>
+  </div></footer>
+
+  <script src="/search.js" defer></script>
+</body>
+</html>

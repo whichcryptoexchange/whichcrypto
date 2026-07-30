@@ -18,6 +18,23 @@ export function loadChangelog() {
     .sort((a, b) => b.date.localeCompare(a.date));
 }
 
+// Editorial "Technology Provider Profile" pages -- explicitly NOT part of
+// the regulator register. These cover companies that are not themselves
+// licensed/registered anywhere, but rely on a custodian/execution partner
+// that IS -- e.g. a wallet app whose assets are actually held by a
+// MiCA-licensed custodian. Every fact here is tagged verified (checked by
+// us against a primary source) or disclosed (the company's own claim,
+// unverified) -- see src/pages/providers/[id].astro.
+const PROVIDERS_DIR = path.resolve('data/providers');
+
+export function loadProviders() {
+  if (!fs.existsSync(PROVIDERS_DIR)) return [];
+  return fs.readdirSync(PROVIDERS_DIR)
+    .filter((f) => f.endsWith('.yaml'))
+    .map((f) => yaml.load(fs.readFileSync(path.join(PROVIDERS_DIR, f), 'utf8')))
+    .sort((a, b) => a.name.localeCompare(b.name));
+}
+
 export function countriesInData(exchanges) {
   const set = new Set();
   for (const ex of exchanges) for (const c of Object.keys(ex.countries || {})) set.add(c);
