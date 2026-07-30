@@ -1,6 +1,15 @@
 # Public changelog, shown at /changelog/. Append newest entries at the top.
 # Written for an external reader (journalists, analysts, exchanges) --
 # describe what changed and why it matters, not the internal commit.
+- date: "2026-07-30"
+  title: "New /stats/ page, structured data, and a public X account"
+  body: >
+    Added a stats page with live, build-time-computed numbers straight from
+    the register (genuine-licence vs AML-only split, jurisdiction
+    leaderboard, top EU/EEA home states, and the FinCEN fraud-cluster
+    finding). Also added schema.org structured data (Organization, Dataset,
+    BreadcrumbList) so search engines can parse the register as what it
+    actually is, and a public X account, @whichcex, for source updates.
 - date: "2026-07-28"
   title: "Site-wide search, covering both exchanges and countries"
   body: >
