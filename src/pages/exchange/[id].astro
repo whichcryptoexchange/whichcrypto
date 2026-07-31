@@ -196,7 +196,7 @@ const listJoin = (arr) => arr.length <= 1 ? (arr[0] ?? '')
       <div id="report-aggregates" data-exchange={ex.id}><p class="sourced">Loading reports…</p></div>
 
       {SITEKEY ? (
-        <details class="report-form">
+        <details class="report-form" open>
           <summary>Do you use {ex.brand} from your country? Report your experience</summary>
           <form id="report-form">
             <input type="hidden" name="exchange_id" value={ex.id} />
