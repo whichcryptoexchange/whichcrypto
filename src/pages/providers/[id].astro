@@ -7,7 +7,10 @@ export function getStaticPaths() {
   return loadProviders().map((p) => ({ params: { id: p.id }, props: { p, exchanges } }));
 }
 const { p, exchanges } = Astro.props;
-const custodianEx = p.custodian ? exchanges.find((ex) => ex.id === p.custodian.brand_id) : null;
+const partners = (p.partners ?? []).map((partner) => ({
+  ...partner,
+  ex: exchanges.find((ex) => ex.id === partner.brand_id),
+}));
 ---
 <html lang="en">
 <head>
@@ -15,7 +18,7 @@ const custodianEx = p.custodian ? exchanges.find((ex) => ex.id === p.custodian.b
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>{`${p.name}: technology provider profile | whichcryptoexchange.com`}</title>
-  <meta name="description" content={`${p.name} is not itself a licensed exchange. See who actually holds and executes customer assets, and whether that custodian is independently verified.`} />
+  <meta name="description" content={`${p.name} is not itself a licensed exchange. See who actually holds and executes customer assets, and whether those partners are independently verified.`} />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet" />
   <script src="https://analytics.ahrefs.com/analytics.js" data-key="QTM3lN9yt0oU0rxrj5zadA" async></script>
@@ -47,17 +50,21 @@ const custodianEx = p.custodian ? exchanges.find((ex) => ex.id === p.custodian.b
     </p>
     <p class="lede">{p.overview}</p>
 
-    {custodianEx && p.custodian && (
-      <div class="provider-card">
+    {partners.length > 0 && (
+      <>
         <h3>Who actually holds and executes customer assets</h3>
-        <dl>
-          <dt>Custodian</dt>
-          <dd><a href={`/exchange/${custodianEx.id}/`}>{p.custodian.name}</a>
-            {p.custodian.verified && <span class="source-tag verified">Verified</span>}</dd>
-          <dt>Role</dt><dd>{p.custodian.role}</dd>
-          <dt>Custodian licence</dt><dd class="datum">{p.custodian.licence}</dd>
-        </dl>
-      </div>
+        {partners.map((partner) => (
+          <div class="provider-card">
+            <dl>
+              <dt>Partner</dt>
+              <dd>{partner.ex ? <a href={`/exchange/${partner.ex.id}/`}>{partner.name}</a> : partner.name}
+                {partner.verified && <span class="source-tag verified">Verified</span>}</dd>
+              <dt>Role</dt><dd>{partner.role}</dd>
+              <dt>Licence</dt><dd class="datum">{partner.licence}</dd>
+            </dl>
+          </div>
+        ))}
+      </>
     )}
 
     <h3>Countries served</h3>

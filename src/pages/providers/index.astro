@@ -5,7 +5,10 @@ import '../../styles/global.css';
 const exchanges = loadExchanges();
 const providers = loadProviders().map((p) => ({
   ...p,
-  custodianEx: p.custodian ? exchanges.find((ex) => ex.id === p.custodian.brand_id) : null,
+  partners: (p.partners ?? []).map((partner) => ({
+    ...partner,
+    ex: exchanges.find((ex) => ex.id === partner.brand_id),
+  })),
 }));
 ---
 <html lang="en">
@@ -42,18 +45,17 @@ const providers = loadProviders().map((p) => ({
     technology layer on top of a custodian or execution partner who is. That's not necessarily a
     red flag, but it's a fact worth knowing plainly. Each profile below names the company, states
     clearly that it isn't independently licensed, and identifies who actually holds and executes
-    customer assets — with a link through to that custodian's real, verified regulatory status.</p>
+    customer assets — with a link through to each partner's real, verified regulatory status.</p>
 
     {providers.map((p) => (
       <div class="provider-card">
         <h3><a href={`/providers/${p.id}/`}>{p.name}</a> <span class="badge-unlicensed">Not independently licensed</span></h3>
         <dl>
-          {p.custodianEx && p.custodian && (
+          {p.partners.map((partner) => (
             <>
-              <dt>Custodian</dt><dd><a href={`/exchange/${p.custodianEx.id}/`}>{p.custodian.name}</a></dd>
-              <dt>Custodian licence</dt><dd class="datum">{p.custodian.licence}</dd>
+              <dt>Partner</dt><dd>{partner.ex ? <a href={`/exchange/${partner.ex.id}/`}>{partner.name}</a> : partner.name} — <span class="datum">{partner.licence}</span></dd>
             </>
-          )}
+          ))}
           <dt>Last verified</dt><dd class="datum">{p.last_verified}</dd>
         </dl>
       </div>

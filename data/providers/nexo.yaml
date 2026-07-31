@@ -1,0 +1,36 @@
+id: nexo
+name: Nexo
+website: https://nexo.com/
+last_verified: "2026-07-31"
+overview: >
+  A large crypto lending and trading platform. Nexo does not itself appear
+  in the ESMA interim MiCA register under its own name -- for EEA clients,
+  it restructured its European operations in July 2026 around two
+  MiCA-licensed infrastructure partners: one providing custody, the other
+  providing brokerage/execution. Nexo's own FAQ describes this as
+  "infrastructure partitioning."
+partners:
+  - brand_id: tangany
+    name: Tangany GmbH
+    role: Custody
+    licence: MiCA CASP (BaFin)
+    verified: true
+  - brand_id: dlt-securities-gmbh
+    name: DLT Securities GmbH (DLT Finance)
+    role: Brokerage / trade execution
+    licence: MiCA and MiFID II (BaFin), authorised 2025-12-18
+    verified: true
+countries_served:
+  - label: EU/EEA
+    detail: via Tangany (custody) and DLT Securities GmbH (execution)
+    verified: true
+sources:
+  - label: 'Nexo MiCA FAQ: "Tangany is a Munich-based digital asset custodian, MiCAR-licensed and BaFin-regulated... DLT Finance, operated by DLT Securities GmbH, is a Frankfurt-based investment firm licensed under MiCAR and MiFID II."'
+    url: https://nexo.com/mica-faq
+    verified: false
+  - label: Tangany GmbH — ESMA interim MiCA register (CASPS.csv)
+    url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
+    verified: true
+  - label: DLT Securities GmbH — ESMA interim MiCA register (CASPS.csv)
+    url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
+    verified: true

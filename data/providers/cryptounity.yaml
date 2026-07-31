@@ -8,12 +8,12 @@ overview: >
   register we track, in the EU/EEA, UK, Canada, Dubai, Singapore, US, or
   Hong Kong -- it operates by relying on already-licensed partners for
   custody and execution.
-custodian:
-  brand_id: bitgo
-  name: BitGo Europe GmbH
-  role: Custody and execution
-  licence: MiCA CASP (BaFin), authorised 2025-05-09
-  verified: true
+partners:
+  - brand_id: bitgo
+    name: BitGo Europe GmbH
+    role: Custody and execution
+    licence: MiCA CASP (BaFin), authorised 2025-05-09
+    verified: true
 countries_served:
   - label: EU/EEA
     detail: via BitGo Europe GmbH's MiCA passporting
