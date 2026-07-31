@@ -1,6 +1,18 @@
 # Public changelog, shown at /changelog/. Append newest entries at the top.
 # Written for an external reader (journalists, analysts, exchanges) --
 # describe what changed and why it matters, not the internal commit.
+- date: "2026-07-31"
+  title: "Added Gibraltar (GFSC DLT Licence) — our first manually-verified jurisdiction"
+  body: >
+    A Gibraltar DLT Licence is a genuine crypto-specific licence, the same
+    tier as Dubai VARA, Singapore MAS, and Hong Kong SFC. All 11 currently
+    licensed DLT providers are tracked, including Bullish (two Gibraltar
+    entities) and eToro. This is the first source on the site that is not
+    automatically synced: the GFSC's own register sits behind bot
+    protection that blocks scripted requests outright, so this list is
+    refreshed only when someone manually re-checks the live page in a
+    browser -- flagged clearly on the Gibraltar page and everywhere else
+    it's mentioned, since it can lag more than every other source here.
 - date: "2026-07-30"
   title: "Added Hong Kong (SFC Virtual Asset Trading Platform licence) — all 13 licensees"
   body: >

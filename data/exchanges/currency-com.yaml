@@ -1,0 +1,15 @@
+id: currency-com
+brand: Currency.com
+eu_status: no_eu_entity
+sources:
+- name: Gibraltar GFSC DLT Providers List
+  url: https://www.fsc.gi/regulated-entities/dlt-providers-38
+  retrieved: '2026-07-31'
+entities: []
+countries:
+  GI:
+  - status: licensed
+    regime: Gibraltar DLT Licence
+    via: gfsc_manual
+    entity: Currency Com Limited
+    since: null

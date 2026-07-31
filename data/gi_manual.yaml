@@ -1,0 +1,39 @@
+# Gibraltar GFSC DLT Providers list -- MANUALLY maintained, unlike every
+# other jurisdiction on this site. The GFSC's own register page
+# (https://www.fsc.gi/regulated-entities/dlt-providers-38) sits behind a
+# Cloudflare managed JS challenge that blocks scripted requests outright
+# (same wall as Canada's CSA/CIRO) -- there is no way to script a live
+# sync against it. This snapshot was read by a human in a real browser
+# and pasted in; scripts/gi_manual_apply.py applies it to data/exchanges/,
+# same shape as every other reg_map, but it must be re-run by hand
+# whenever someone re-checks the live page and updates this file --
+# there is no scheduled GitHub Actions workflow for this one.
+#
+# A Gibraltar DLT Licence is a genuine crypto-specific licence (like
+# VARA/MAS/SFC), not an AML-only registration.
+
+retrieved: "2026-07-31"
+source_url: https://www.fsc.gi/regulated-entities/dlt-providers-38
+providers:
+  - entity: Bullish (GI) Ltd
+    brand_id: bullish
+  - entity: Bullish (GI) Markets Limited
+    brand_id: bullish
+  - entity: Currency Com Limited
+    brand_id: currency-com
+  - entity: Digital Asset Management Ltd
+    brand_id: digital-asset-management
+  - entity: eToro X Limited
+    brand_id: etoro
+  - entity: Hippo Capital Co Limited
+    brand_id: hippo-capital
+  - entity: LMAX Digital Broker Ltd
+    brand_id: lmax-digital
+  - entity: Pay Perform Digital Limited
+    brand_id: pay-perform-digital
+  - entity: Tap Global Limited
+    brand_id: tap-global
+  - entity: The Badger Technology Company Limited
+    brand_id: badger-technology
+  - entity: Xapo VASP Limited
+    brand_id: xapo

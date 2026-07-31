@@ -11,6 +11,9 @@ sources:
 - name: US FinCEN MSB Registrant Search
   url: https://msb.fincen.gov/
   retrieved: '2026-07-27'
+- name: Gibraltar GFSC DLT Providers List
+  url: https://www.fsc.gi/regulated-entities/dlt-providers-38
+  retrieved: '2026-07-31'
 entities:
 - lei: 213800GIFQMSV7HROS23
   legal_name: eToro (Europe) Ltd
@@ -233,3 +236,9 @@ countries:
     entity: eToro USA LLC
     reg_number: '29470746'
     since: '2026-07-01'
+  GI:
+  - status: licensed
+    regime: Gibraltar DLT Licence
+    via: gfsc_manual
+    entity: eToro X Limited
+    since: null

@@ -41,6 +41,7 @@ const nonEEA = [
   { cc: 'SG', label: 'Singapore (MAS)' },
   { cc: 'US', label: 'US (FinCEN)' },
   { cc: 'HK', label: 'Hong Kong (SFC)' },
+  { cc: 'GI', label: 'Gibraltar (GFSC, manual)' },
 ].map(({ cc, label }) => ({
   cc, label,
   count: exchanges.filter((ex) => ex.countries?.[cc]).length,
@@ -69,7 +70,7 @@ const lastSynced = exchanges
     '@context': 'https://schema.org',
     '@type': 'Dataset',
     name: 'whichcryptoexchange.com crypto exchange regulatory register',
-    description: `Which crypto exchanges hold which regulatory status, in which country, through which legal entity, and since when — sourced from seven official regulator registers. ${total} exchanges tracked.`,
+    description: `Which crypto exchanges hold which regulatory status, in which country, through which legal entity, and since when — sourced from eight official regulator registers. ${total} exchanges tracked.`,
     url: 'https://whichcryptoexchange.com/stats/',
     license: 'https://whichcryptoexchange.com/about/',
     dateModified: lastSynced,
@@ -100,8 +101,8 @@ const lastSynced = exchanges
     <a href="/api/register-snapshot.csv">full CSV</a> yourself.</p>
 
     <div class="stat-grid">
-      <div class="stat-card"><div class="stat-num">{total}</div><div class="stat-label">Exchanges tracked across 7 official registers</div></div>
-      <div class="stat-card"><div class="stat-num">{withGenuineLicence}</div><div class="stat-label">Hold at least one genuine crypto-specific licence (EU MiCA, Dubai VARA, Singapore MAS, or Hong Kong SFC)</div></div>
+      <div class="stat-card"><div class="stat-num">{total}</div><div class="stat-label">Exchanges tracked across 8 official registers</div></div>
+      <div class="stat-card"><div class="stat-num">{withGenuineLicence}</div><div class="stat-label">Hold at least one genuine crypto-specific licence (EU MiCA, Dubai VARA, Singapore MAS, Hong Kong SFC, or Gibraltar GFSC)</div></div>
       <div class="stat-card"><div class="stat-num">{amlOnly}</div><div class="stat-label">Hold only AML-supervision registrations, no genuine licence anywhere</div></div>
       <div class="stat-card"><div class="stat-num">{multiJurisdiction}</div><div class="stat-label">Registered or licensed in more than one jurisdiction</div></div>
       <div class="stat-card"><div class="stat-num">{maxJurisdictions}</div><div class="stat-label">Most jurisdictions held by a single brand ({topByJurisdictions[0]?.brand})</div></div>

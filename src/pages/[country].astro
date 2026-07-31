@@ -20,7 +20,8 @@ const isAE = code === 'AE';
 const isSG = code === 'SG';
 const isUS = code === 'US';
 const isHK = code === 'HK';
-const isNonEEA = isGB || isCA || isAE || isSG || isUS || isHK;
+const isGI = code === 'GI';
+const isNonEEA = isGB || isCA || isAE || isSG || isUS || isHK || isGI;
 const rows = exchanges
   .map((ex) => ({ ex, c: ex.countries?.[code] }))
   .filter((r) => r.c);
@@ -33,6 +34,7 @@ const varaRetrieved = sourceRetrieved('Dubai VARA Public Register');
 const masRetrieved = sourceRetrieved('Singapore MAS Financial Institutions Directory');
 const fincenRetrieved = sourceRetrieved('US FinCEN MSB Registrant Search');
 const sfcRetrieved = sourceRetrieved('Hong Kong SFC VATP List');
+const gfscRetrieved = sourceRetrieved('Gibraltar GFSC DLT Providers List');
 // registered/authorised (UK, CA) are AML-only tiers; licensed (AE/Dubai VARA)
 // is a genuine crypto-specific licence, so it gets the same green stamp as
 // EU MiCA rather than the cautious amber/grey UK-style tiers.
@@ -68,6 +70,8 @@ const tiersOnPage = isNonEEA
     ? `Crypto exchanges registered with FinCEN in the US (${new Date().getFullYear()}) | whichcryptoexchange.com`
     : isHK
     ? `Crypto exchanges licensed in Hong Kong (${new Date().getFullYear()}) | whichcryptoexchange.com`
+    : isGI
+    ? `Crypto exchanges licensed in Gibraltar (${new Date().getFullYear()}) | whichcryptoexchange.com`
     : `Crypto exchanges licensed in ${name} (${new Date().getFullYear()}) | whichcryptoexchange.com`}</title>
   <meta name="description" content={isGB
     ? `${rows.length} crypto exchanges hold a UK FCA registration or authorisation, according to the official FCA Register. See which entity, which regime, and since when.`
@@ -81,6 +85,8 @@ const tiersOnPage = isNonEEA
     ? `${rows.length} crypto exchanges hold a US FinCEN MSB registration, according to the official FinCEN MSB Registrant Search. See which entity and since when.`
     : isHK
     ? `${rows.length} crypto exchanges hold a Hong Kong SFC Virtual Asset Trading Platform licence, according to the official SFC list. See which entity and since when.`
+    : isGI
+    ? `${rows.length} crypto exchanges hold a Gibraltar DLT Licence, according to the GFSC's DLT Providers list.`
     : `${rows.length} crypto exchanges hold a licence covering ${name}, according to official regulator registers. See which entity, which regime, and since when.`} />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet" />
@@ -183,6 +189,17 @@ const tiersOnPage = isNonEEA
         AML-only registration like the UK/Canada/US entries elsewhere on this site. The SFC also
         publishes separate lists of applicants, returned/refused/withdrawn applicants, and
         closing-down platforms — only the formally licensed list is shown here.</p>
+      </>
+    ) : isGI ? (
+      <>
+        <h1>Which crypto exchanges are licensed in Gibraltar?</h1>
+        <p class="lede">{rows.length} exchanges in our register hold a Distributed Ledger
+        Technology (DLT) Licence from the Gibraltar Financial Services Commission (GFSC) — a
+        genuine crypto-specific licence, not an AML-only registration.</p>
+        <p class="lede caveat">Unlike every other jurisdiction on this site, this one is not
+        automatically synced. The GFSC's own register sits behind bot protection that blocks
+        scripted access outright, so this list is refreshed only when someone manually re-checks
+        the live page in a browser — it can lag more than the weekly-synced sources elsewhere.</p>
       </>
     ) : (
       <>
@@ -292,6 +309,11 @@ const tiersOnPage = isNonEEA
       <p class="sourced">Source: <a href="https://www.sfc.hk/en/Welcome-to-the-Fintech-Contact-Point/Virtual-assets/Virtual-asset-trading-platforms-operators/Lists-of-virtual-asset-trading-platforms">Hong Kong SFC VATP List</a>,
       retrieved {sfcRetrieved}. An exchange missing from this list either holds no Hong Kong VATP
       licence, or is not yet in our register.</p>
+    ) : isGI ? (
+      <p class="sourced">Source: <a href="https://www.fsc.gi/regulated-entities/dlt-providers-38">Gibraltar GFSC DLT Providers List</a>,
+      last manually verified {gfscRetrieved} — not on an automated schedule. An exchange missing
+      from this list either holds no Gibraltar DLT Licence, isn't yet in our register, or was added
+      after this list was last checked.</p>
     ) : (
       <p class="sourced">Source: <a href="https://www.esma.europa.eu/esmas-activities/digital-finance-and-innovation/markets-crypto-assets-regulation-mica">ESMA interim MiCA register</a>,
       retrieved {exchanges[0]?.sources?.[0]?.retrieved}. An exchange missing from this list either
