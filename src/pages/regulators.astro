@@ -1,0 +1,123 @@
+---
+import { loadExchanges, COUNTRY_NAMES, countryFlag } from '../lib/data.js';
+import '../styles/global.css';
+
+const exchanges = loadExchanges();
+
+const sourceRetrieved = (name) => exchanges
+  .flatMap((ex) => ex.sources ?? [])
+  .filter((s) => s.name === name)
+  .map((s) => s.retrieved)
+  .sort()
+  .at(-1);
+
+const countBrands = (cc) => exchanges.filter((ex) => ex.countries?.[cc]).length;
+
+const NON_EEA_SOURCES = [
+  { cc: 'GB', regulator: 'UK Financial Conduct Authority (FCA)', regime: 'MLR registration / separate full authorisation', tier: 'AML-only (mixed)', sourceName: 'UK FCA Register', url: 'https://register.fca.org.uk/' },
+  { cc: 'CA', regulator: 'Canada FINTRAC', regime: 'MSB registration', tier: 'AML-only', sourceName: 'Canada FINTRAC MSB Registry', url: 'https://fintrac-canafe.canada.ca/msb-esm/reg-eng' },
+  { cc: 'AE', regulator: 'Dubai Virtual Assets Regulatory Authority (VARA)', regime: 'VASP Licence', tier: 'Genuine licence', sourceName: 'Dubai VARA Public Register', url: 'https://www.vara.ae/en/licenses-and-register/public-register/' },
+  { cc: 'SG', regulator: 'Singapore Monetary Authority (MAS)', regime: 'MPI Licence (DPT)', tier: 'Genuine licence', sourceName: 'Singapore MAS Financial Institutions Directory', url: 'https://eservices.mas.gov.sg/fid/institution' },
+  { cc: 'US', regulator: 'US FinCEN', regime: 'MSB registration', tier: 'AML-only', sourceName: 'US FinCEN MSB Registrant Search', url: 'https://msb.fincen.gov/' },
+  { cc: 'HK', regulator: 'Hong Kong Securities and Futures Commission (SFC)', regime: 'VATP Licence', tier: 'Genuine licence', sourceName: 'Hong Kong SFC VATP List', url: 'https://www.sfc.hk/en/Welcome-to-the-Fintech-Contact-Point/Virtual-assets/Virtual-asset-trading-platforms-operators/Lists-of-virtual-asset-trading-platforms' },
+  { cc: 'GI', regulator: 'Gibraltar Financial Services Commission (GFSC)', regime: 'DLT Licence', tier: 'Genuine licence (manually verified)', sourceName: 'Gibraltar GFSC DLT Providers List', url: 'https://www.fsc.gi/regulated-entities/dlt-providers-38' },
+].map((s) => ({ ...s, count: countBrands(s.cc), retrieved: sourceRetrieved(s.sourceName) }));
+
+// EU/EEA: MiCA is one EU-wide regime, but the actual authorising body is
+// each brand's own national home-state regulator -- this is what "browse
+// by regulator" means for the EEA side, distinct from browsing by country.
+const homeStateRegulators = {};
+for (const ex of exchanges) {
+  for (const ent of ex.entities ?? []) {
+    if (ent.home_state && ent.regulator) {
+      const key = ent.home_state;
+      (homeStateRegulators[key] ??= { regulator: ent.regulator, count: 0 }).count++;
+    }
+  }
+}
+const micaRetrieved = sourceRetrieved('ESMA interim MiCA register (CASPS.csv)');
+const eeaRows = Object.entries(homeStateRegulators)
+  .map(([cc, v]) => ({ cc, ...v }))
+  .sort((a, b) => b.count - a.count);
+---
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Regulators | whichcryptoexchange.com</title>
+  <meta name="description" content="Browse the register by regulator rather than by country: which body granted which crypto exchanges their status, and how many brands each one covers." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <script src="https://analytics.ahrefs.com/analytics.js" data-key="QTM3lN9yt0oU0rxrj5zadA" async></script>
+</head>
+<body>
+  <header class="site">
+    <div class="wrap">
+      <a class="logo" href="/">which<em>crypto</em>exchange</a>
+      <div class="header-right">
+        <div class="site-search">
+          <input type="search" id="site-search" placeholder="Search exchanges or countries…" autocomplete="off" aria-label="Search exchanges" />
+          <div class="site-search-results" id="site-search-results" hidden></div>
+        </div>
+        <span class="sourced">source: official regulator registers</span>
+      </div>
+    </div>
+    <nav class="site-nav"><div class="wrap">
+      <a href="/regulators/">Regulators</a>
+      <a href="/providers/">Providers</a>
+      <a href="/stats/">Stats</a>
+    </div></nav>
+  </header>
+
+  <main class="wrap">
+    <h1>Regulators</h1>
+    <p class="lede">The country pages let you browse by where you live. This page flips it around:
+    which regulatory body actually granted which status, and how many tracked brands sit under
+    each one. See <a href="/about/">About</a> for what each regime does and doesn't mean.</p>
+
+    <h3>Non-EU/EEA sources</h3>
+    <table class="registry">
+      <thead><tr><th>Regulator</th><th>Regime</th><th>Tier</th><th>Brands</th><th>Last checked</th></tr></thead>
+      <tbody>
+        {NON_EEA_SOURCES.map((s) => (
+          <tr>
+            <td class="brand"><a href={`/${s.cc.toLowerCase()}/`}>{s.regulator}</a></td>
+            <td class="datum">{s.regime}</td>
+            <td class="datum">{s.tier}</td>
+            <td class="datum">{s.count}</td>
+            <td class="datum">{s.retrieved ?? '—'}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+
+    <h3>EU/EEA national regulators (MiCA home-state authorisation)</h3>
+    <p>A MiCA authorisation is granted by one national regulator (the brand's "home state") and
+    then passports across the whole EU/EEA — the same licence, {eeaRows.length} different
+    authorising bodies. Source: <a href="https://www.esma.europa.eu/esmas-activities/digital-finance-and-innovation/markets-crypto-assets-regulation-mica">ESMA interim MiCA register</a>,
+    retrieved {micaRetrieved}.</p>
+    <table class="registry">
+      <thead><tr><th>Country</th><th>Regulator</th><th>Home-registered brands</th></tr></thead>
+      <tbody>
+        {eeaRows.map((r) => (
+          <tr>
+            <td class="brand"><a href={`/${r.cc.toLowerCase()}/`}><span class="cc flag">{countryFlag(r.cc)}</span> {COUNTRY_NAMES[r.cc] ?? r.cc}</a></td>
+            <td class="datum">{r.regulator}</td>
+            <td class="datum">{r.count}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+
+    <p class="sourced">Missing a regulator or a count looks off? <a href="/contact/">Get in touch</a>.</p>
+  </main>
+
+  <footer class="site"><div class="wrap">
+    <p><a href="/about/">About</a> · <a href="/contact/">Contact</a> · <a href="/changelog/">Changelog</a> · <a href="/stats/">Stats</a> · <a href="/providers/">Providers</a> · <a href="/regulators/">Regulators</a> · <a href="https://x.com/whichcex">X</a></p>
+    <p>Independent register. Not affiliated with any regulator. Not financial advice.</p>
+  </div></footer>
+
+  <script src="/search.js" defer></script>
+</body>
+</html>

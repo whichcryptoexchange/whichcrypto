@@ -29,11 +29,22 @@ body {
 
 header.site {
   border-bottom: 3px solid var(--ink);
-  padding: 18px 0;
   margin-bottom: 36px;
 }
-header.site .wrap { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; }
+header.site > .wrap { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; padding: 18px 0 14px; }
 .header-right { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+.site-nav { border-top: 1px solid var(--rule); }
+.site-nav .wrap { display: flex; gap: 22px; padding: 9px 0; }
+.site-nav a {
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--ink-soft);
+  text-decoration: none;
+}
+.site-nav a:hover { color: var(--licensed); }
 .logo {
   font-family: var(--display);
   font-weight: 800;

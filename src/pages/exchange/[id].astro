@@ -57,16 +57,23 @@ const SITEKEY = import.meta.env.PUBLIC_TURNSTILE_SITEKEY || '0x4AAAAAAD84t4OWkoo
   })} />
 </head>
 <body>
-  <header class="site"><div class="wrap">
-    <a class="logo" href="/">which<em>crypto</em>exchange</a>
-    <div class="header-right">
-      <div class="site-search">
-        <input type="search" id="site-search" placeholder="Search exchanges or countries…" autocomplete="off" aria-label="Search exchanges" />
-        <div class="site-search-results" id="site-search-results" hidden></div>
+  <header class="site">
+    <div class="wrap">
+      <a class="logo" href="/">which<em>crypto</em>exchange</a>
+      <div class="header-right">
+        <div class="site-search">
+          <input type="search" id="site-search" placeholder="Search exchanges or countries…" autocomplete="off" aria-label="Search exchanges" />
+          <div class="site-search-results" id="site-search-results" hidden></div>
+        </div>
+        <span class="sourced">source: official regulator registers</span>
       </div>
-      <span class="sourced">source: official regulator registers</span>
     </div>
-  </div></header>
+    <nav class="site-nav"><div class="wrap">
+      <a href="/regulators/">Regulators</a>
+      <a href="/providers/">Providers</a>
+      <a href="/stats/">Stats</a>
+    </div></nav>
+  </header>
 
   <main class="wrap">
     <h1>{ex.brand}</h1>
