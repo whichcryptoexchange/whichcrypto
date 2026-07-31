@@ -36,6 +36,35 @@ const STATUS_STAMP = {
 // Turnstile site keys are public by design (embedded in client HTML), so hardcoding
 // this as a fallback is safe. The env var still wins if the build environment sets it.
 const SITEKEY = import.meta.env.PUBLIC_TURNSTILE_SITEKEY || '0x4AAAAAAD84t4OWkoouLP3Y';
+
+// Plain-English synthesis of data already shown in detail below -- every
+// fact here is just a restatement of the verified register entries on
+// this same page, not a new claim, so it carries the same sourcing as
+// the record cards themselves.
+const nonEEAStatusesByPrefix = {};
+for (const e of nonEEAEntries) {
+  (nonEEAStatusesByPrefix[e.prefix] ??= new Set()).add(e.status);
+}
+const genuineLicenceJurisdictions = [];
+if (ex.eu_status === 'authorised') genuineLicenceJurisdictions.push('the EU/EEA (MiCA)');
+for (const [prefix, statuses] of Object.entries(nonEEAStatusesByPrefix)) {
+  if (statuses.has('licensed')) genuineLicenceJurisdictions.push(prefix);
+}
+const amlOnlyJurisdictions = Object.entries(nonEEAStatusesByPrefix)
+  .filter(([, statuses]) => statuses.has('registered'))
+  .map(([prefix]) => prefix);
+const hasSeparateUKAuthorisation = nonEEAStatusesByPrefix.UK?.has('authorised');
+
+const allDates = [
+  ...ex.entities.flatMap((ent) => ent.records.map((r) => r.authorised).filter(Boolean)),
+  ...nonEEAEntries.map((e) => e.since).filter(Boolean),
+].sort();
+const firstSeen = allDates[0];
+const totalEntities = ex.entities.length + new Set(nonEEAEntries.map((e) => e.entity)).size;
+
+const listJoin = (arr) => arr.length <= 1 ? (arr[0] ?? '')
+  : arr.length === 2 ? `${arr[0]} and ${arr[1]}`
+  : `${arr.slice(0, -1).join(', ')}, and ${arr[arr.length - 1]}`;
 ---
 <html lang="en">
 <head>
@@ -89,6 +118,29 @@ const SITEKEY = import.meta.env.PUBLIC_TURNSTILE_SITEKEY || '0x4AAAAAAD84t4OWkoo
           {entry.prefix} · {STATUS_STAMP[entry.status]?.label ?? entry.status}{entry.count > 1 ? ` (${entry.count} entities)` : ''}
         </span>
       ))}
+    </p>
+
+    <p class="summary-box">
+      {firstSeen
+        ? <>{ex.brand} first appears in our register on <strong class="datum">{firstSeen}</strong>, </>
+        : <>{ex.brand} appears in our register </>}
+      and is currently tracked across <strong>{countryCodes.length}</strong> jurisdiction{countryCodes.length === 1 ? '' : 's'}
+      through <strong>{totalEntities}</strong> legal entit{totalEntities === 1 ? 'y' : 'ies'}.
+      {genuineLicenceJurisdictions.length > 0 && (
+        <> It holds a genuine crypto-specific licence in {listJoin(genuineLicenceJurisdictions)}.</>
+      )}
+      {amlOnlyJurisdictions.length > 0 && (
+        <> It also holds an AML-only registration (not a licence) in {listJoin(amlOnlyJurisdictions)}.</>
+      )}
+      {hasSeparateUKAuthorisation && (
+        <> A group entity is separately, fully FCA-authorised in the UK, usually for a different, non-crypto activity.</>
+      )}
+      {ex.eu_status === 'withdrawn' && (
+        <> Its EU MiCA authorisation has since been withdrawn.</>
+      )}
+      {genuineLicenceJurisdictions.length === 0 && amlOnlyJurisdictions.length === 0 && ex.eu_status !== 'authorised' && ex.eu_status !== 'withdrawn' && (
+        <> We have not independently verified a genuine crypto-specific licence or registration for {ex.brand} in any jurisdiction we track.</>
+      )}
     </p>
 
     <div id="affiliate-cta" data-exchange={ex.id} data-brand={ex.brand}></div>

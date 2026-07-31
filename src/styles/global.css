@@ -114,6 +114,18 @@ h3 {
 }
 h3:first-child { margin-top: 0; }
 .lede { font-size: 18px; color: var(--ink-soft); max-width: 56ch; margin: 0 0 32px; }
+/* Plain-English synthesis of the record cards below it -- not a new
+   claim, just the same verified data restated as a sentence, so it gets
+   a plain neutral box rather than any status colour. */
+.summary-box {
+  background: var(--card);
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  padding: 16px 18px;
+  margin: 0 0 24px;
+  font-size: 15px;
+  line-height: 1.6;
+}
 .lede.caveat {
   color: var(--warned);
   font-weight: 600;
