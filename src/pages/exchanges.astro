@@ -11,6 +11,20 @@ const hasGenuineLicence = (ex) => {
     (Array.isArray(entry) ? entry : [entry]).some((e) => e.status === 'licensed'));
 };
 
+const hasAmlOnlyRegistration = (ex) => Object.values(ex.countries ?? {}).some((entry) =>
+  (Array.isArray(entry) ? entry : [entry]).some((e) => e.status === 'registered' || e.status === 'authorised'));
+
+// A single overall status across EVERY jurisdiction we track, not just the
+// EU -- a brand licensed only in Hong Kong or Gibraltar previously showed
+// as "No EU entity" here, which read as if it had no verified status at
+// all anywhere, even though it genuinely does elsewhere.
+const overallStatus = (ex) => {
+  if (hasGenuineLicence(ex)) return { label: 'Licensed', cls: 'licensed' };
+  if (hasAmlOnlyRegistration(ex)) return { label: 'Registered', cls: 'gb-registered' };
+  if (ex.eu_status === 'withdrawn') return { label: 'Withdrawn', cls: 'withdrawn' };
+  return { label: 'Not verified', cls: 'neutral' };
+};
+
 const earliestSince = (ex) => {
   const dates = [];
   for (const ent of ex.entities ?? []) {
@@ -26,16 +40,10 @@ const earliestSince = (ex) => {
   return dates.sort()[0] ?? '';
 };
 
-const EU_STATUS_LABEL = {
-  authorised: { label: 'Authorised', cls: 'licensed' },
-  withdrawn: { label: 'Withdrawn', cls: 'withdrawn' },
-  no_eu_entity: { label: 'No EU entity', cls: 'neutral' },
-};
-
 const rows = exchanges.map((ex) => ({
   ex,
   jurisdictions: jurisdictionCount(ex),
-  genuine: hasGenuineLicence(ex),
+  status: overallStatus(ex),
   since: earliestSince(ex),
 }));
 ---
@@ -74,6 +82,12 @@ const rows = exchanges.map((ex) => ({
     <h1>All tracked exchanges</h1>
     <p class="lede">Every exchange and related firm in our register, {exchanges.length} total. Click
     through to any brand for its full regulatory record across every jurisdiction we track.</p>
+    <p class="sourced">Status is the best evidence found <em>anywhere</em> we track, not just the
+    EU: <strong>Licensed</strong> means a genuine crypto-specific licence in at least one
+    jurisdiction (a brand can still hold AML-only registrations elsewhere too);
+    <strong> Registered</strong> means AML-only registration with no genuine licence found;
+    <strong> Withdrawn</strong> means a former EU authorisation has lapsed. See each brand's own page
+    for the full per-jurisdiction breakdown.</p>
 
     <div class="table-controls">
       <label>Sort by
@@ -89,21 +103,17 @@ const rows = exchanges.map((ex) => ({
     <div class="table-scroll">
     <table class="registry">
       <thead><tr>
-        <th>Exchange</th><th>EU status</th><th>Genuine licence?</th><th>Jurisdictions</th><th>Since</th>
+        <th>Exchange</th><th>Status</th><th>Jurisdictions</th><th>Since</th>
       </tr></thead>
       <tbody>
-        {rows.map(({ ex, jurisdictions, genuine, since }) => {
-          const eu = EU_STATUS_LABEL[ex.eu_status] ?? EU_STATUS_LABEL.no_eu_entity;
-          return (
-            <tr data-since={since} data-jurisdictions={jurisdictions}>
-              <td class="brand"><a href={`/exchange/${ex.id}/`}>{ex.brand}</a></td>
-              <td><span class={`stamp ${eu.cls}`}>{eu.label}</span></td>
-              <td class="datum">{genuine ? 'Yes' : 'No'}</td>
-              <td class="datum">{jurisdictions}</td>
-              <td class="datum">{since || '—'}</td>
-            </tr>
-          );
-        })}
+        {rows.map(({ ex, jurisdictions, status, since }) => (
+          <tr data-since={since} data-jurisdictions={jurisdictions}>
+            <td class="brand"><a href={`/exchange/${ex.id}/`}>{ex.brand}</a></td>
+            <td><span class={`stamp ${status.cls}`}>{status.label}</span></td>
+            <td class="datum">{jurisdictions}</td>
+            <td class="datum">{since || '—'}</td>
+          </tr>
+        ))}
       </tbody>
     </table>
     </div>
