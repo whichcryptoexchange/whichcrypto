@@ -119,6 +119,7 @@ const lastSynced = exchanges
     <h3>By jurisdiction</h3>
     <p>{activeMiCA} exchanges hold an active EU MiCA authorisation. Outside the EU/EEA, here's how
     many of our tracked brands appear in each source:</p>
+    <div class="table-scroll">
     <table class="registry">
       <thead><tr><th>Source</th><th>Exchanges</th></tr></thead>
       <tbody>
@@ -127,8 +128,10 @@ const lastSynced = exchanges
         ))}
       </tbody>
     </table>
+    </div>
 
     <h3>Most jurisdictions held, by brand</h3>
+    <div class="table-scroll">
     <table class="registry">
       <thead><tr><th>Exchange</th><th>Jurisdictions</th></tr></thead>
       <tbody>
@@ -137,10 +140,12 @@ const lastSynced = exchanges
         ))}
       </tbody>
     </table>
+    </div>
 
     <h3>Top EU/EEA home states</h3>
     <p>Where tracked exchanges are actually headquartered and authorised (their "home state" under
     MiCA passporting), not just where they passport <em>to</em>:</p>
+    <div class="table-scroll">
     <table class="registry">
       <thead><tr><th>Country</th><th>Home-registered entities</th></tr></thead>
       <tbody>
@@ -149,6 +154,7 @@ const lastSynced = exchanges
         ))}
       </tbody>
     </table>
+    </div>
 
     <h3>A note on data integrity</h3>
     <p>Not every official register is clean. Curating the US FinCEN layer, we found 113 candidate

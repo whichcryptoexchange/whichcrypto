@@ -77,6 +77,7 @@ const eeaRows = Object.entries(homeStateRegulators)
     each one. See <a href="/about/">About</a> for what each regime does and doesn't mean.</p>
 
     <h3>Non-EU/EEA sources</h3>
+    <div class="table-scroll">
     <table class="registry">
       <thead><tr><th>Regulator</th><th>Regime</th><th>Tier</th><th>Brands</th><th>Last checked</th></tr></thead>
       <tbody>
@@ -91,12 +92,14 @@ const eeaRows = Object.entries(homeStateRegulators)
         ))}
       </tbody>
     </table>
+    </div>
 
     <h3>EU/EEA national regulators (MiCA home-state authorisation)</h3>
     <p>A MiCA authorisation is granted by one national regulator (the brand's "home state") and
     then passports across the whole EU/EEA — the same licence, {eeaRows.length} different
     authorising bodies. Source: <a href="https://www.esma.europa.eu/esmas-activities/digital-finance-and-innovation/markets-crypto-assets-regulation-mica">ESMA interim MiCA register</a>,
     retrieved {micaRetrieved}.</p>
+    <div class="table-scroll">
     <table class="registry">
       <thead><tr><th>Country</th><th>Regulator</th><th>Home-registered brands</th></tr></thead>
       <tbody>
@@ -109,6 +112,7 @@ const eeaRows = Object.entries(homeStateRegulators)
         ))}
       </tbody>
     </table>
+    </div>
 
     <p class="sourced">Missing a regulator or a count looks off? <a href="/contact/">Get in touch</a>.</p>
   </main>

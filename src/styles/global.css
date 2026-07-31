@@ -31,10 +31,10 @@ header.site {
   border-bottom: 3px solid var(--ink);
   margin-bottom: 36px;
 }
-header.site > .wrap { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; padding: 18px 0 14px; }
+header.site > .wrap { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; padding-top: 18px; padding-bottom: 14px; }
 .header-right { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
 .site-nav { border-top: 1px solid var(--rule); }
-.site-nav .wrap { display: flex; gap: 22px; padding: 9px 0; }
+.site-nav .wrap { display: flex; gap: 22px; padding-top: 9px; padding-bottom: 9px; }
 .site-nav a {
   font-family: var(--mono);
   font-size: 12px;
@@ -97,11 +97,6 @@ header.site > .wrap { display: flex; justify-content: space-between; align-items
 .site-search-item:last-child { border-bottom: none; }
 .site-search-item:hover, .site-search-item.active { background: var(--paper); }
 .site-search-meta { font-family: var(--mono); font-size: 11px; color: var(--ink-soft); font-weight: 400; white-space: nowrap; }
-@media (max-width: 560px) {
-  .site-search { width: 140px; }
-  .site-search-results { width: 220px; }
-}
-
 h1 {
   font-family: var(--display);
   font-weight: 800;
@@ -110,6 +105,14 @@ h1 {
   letter-spacing: -0.02em;
   margin: 0 0 14px;
 }
+h3 {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 20px;
+  letter-spacing: -0.01em;
+  margin: 40px 0 14px;
+}
+h3:first-child { margin-top: 0; }
 .lede { font-size: 18px; color: var(--ink-soft); max-width: 56ch; margin: 0 0 32px; }
 .lede.caveat {
   color: var(--warned);
@@ -340,10 +343,6 @@ h1 {
 .changelog-date { font-size: 13px; color: var(--ink-soft); padding-top: 3px; }
 .changelog-entry h3 { margin: 0 0 6px; font-family: var(--display); font-size: 17px; }
 .changelog-entry p { margin: 0; color: var(--ink-soft); max-width: 62ch; }
-@media (max-width: 560px) {
-  .changelog-entry { grid-template-columns: 1fr; gap: 4px; }
-}
-
 /* Exchange page record blocks */
 .record {
   background: var(--card);
@@ -377,7 +376,10 @@ footer.site a { color: inherit; }
   .stamp { transform: none; }
 }
 @media (max-width: 560px) {
-  .record dl { grid-template-columns: 1fr; }
+  .site-search { width: 140px; }
+  .site-search-results { width: 220px; }
+  .changelog-entry { grid-template-columns: 1fr; gap: 4px; }
+  .record dl, .provider-card dl { grid-template-columns: 1fr; }
   .registry .col-services { display: none; }
   /* Let stamps wrap instead of forcing horizontal scroll — a nowrap badge
      like "REGISTERED · CANADA MSB REGISTRATION" was the single biggest
