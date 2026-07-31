@@ -1,0 +1,153 @@
+---
+import { loadExchanges } from '../lib/data.js';
+import '../styles/global.css';
+
+const exchanges = loadExchanges();
+const jurisdictionCount = (ex) => Object.keys(ex.countries ?? {}).length;
+
+const hasGenuineLicence = (ex) => {
+  if (ex.eu_status === 'authorised') return true;
+  return Object.values(ex.countries ?? {}).some((entry) =>
+    (Array.isArray(entry) ? entry : [entry]).some((e) => e.status === 'licensed'));
+};
+
+const earliestSince = (ex) => {
+  const dates = [];
+  for (const ent of ex.entities ?? []) {
+    for (const rec of ent.records ?? []) {
+      if (rec.authorised) dates.push(rec.authorised);
+    }
+  }
+  for (const entry of Object.values(ex.countries ?? {})) {
+    for (const e of Array.isArray(entry) ? entry : [entry]) {
+      if (e.since) dates.push(e.since);
+    }
+  }
+  return dates.sort()[0] ?? '';
+};
+
+const EU_STATUS_LABEL = {
+  authorised: { label: 'Authorised', cls: 'licensed' },
+  withdrawn: { label: 'Withdrawn', cls: 'withdrawn' },
+  no_eu_entity: { label: 'No EU entity', cls: 'neutral' },
+};
+
+const rows = exchanges.map((ex) => ({
+  ex,
+  jurisdictions: jurisdictionCount(ex),
+  genuine: hasGenuineLicence(ex),
+  since: earliestSince(ex),
+}));
+---
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{`All ${exchanges.length} tracked crypto exchanges | whichcryptoexchange.com`}</title>
+  <meta name="description" content={`Browse every crypto exchange and related firm we track (${exchanges.length} total), sortable by jurisdiction count or authorisation date. Every entry links to its full regulatory record.`} />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <script src="https://analytics.ahrefs.com/analytics.js" data-key="QTM3lN9yt0oU0rxrj5zadA" async></script>
+</head>
+<body>
+  <header class="site">
+    <div class="wrap">
+      <a class="logo" href="/">which<em>crypto</em>exchange</a>
+      <div class="header-right">
+        <div class="site-search">
+          <input type="search" id="site-search" placeholder="Search exchanges or countries…" autocomplete="off" aria-label="Search exchanges" />
+          <div class="site-search-results" id="site-search-results" hidden></div>
+        </div>
+        <span class="sourced">source: official regulator registers</span>
+      </div>
+    </div>
+    <nav class="site-nav"><div class="wrap">
+      <a href="/exchanges/">Exchanges</a>
+      <a href="/regulators/">Regulators</a>
+      <a href="/providers/">Providers</a>
+      <a href="/stats/">Stats</a>
+    </div></nav>
+  </header>
+
+  <main class="wrap">
+    <h1>All tracked exchanges</h1>
+    <p class="lede">Every exchange and related firm in our register, {exchanges.length} total. Click
+    through to any brand for its full regulatory record across every jurisdiction we track.</p>
+
+    <div class="table-controls">
+      <label>Sort by
+        <select id="sort-select">
+          <option value="brand">Brand (A–Z)</option>
+          <option value="jurisdictions-desc">Most jurisdictions first</option>
+          <option value="since-desc">Newest first</option>
+          <option value="since-asc">Oldest first</option>
+        </select>
+      </label>
+    </div>
+
+    <div class="table-scroll">
+    <table class="registry">
+      <thead><tr>
+        <th>Exchange</th><th>EU status</th><th>Genuine licence?</th><th>Jurisdictions</th><th>Since</th>
+      </tr></thead>
+      <tbody>
+        {rows.map(({ ex, jurisdictions, genuine, since }) => {
+          const eu = EU_STATUS_LABEL[ex.eu_status] ?? EU_STATUS_LABEL.no_eu_entity;
+          return (
+            <tr data-since={since} data-jurisdictions={jurisdictions}>
+              <td class="brand"><a href={`/exchange/${ex.id}/`}>{ex.brand}</a></td>
+              <td><span class={`stamp ${eu.cls}`}>{eu.label}</span></td>
+              <td class="datum">{genuine ? 'Yes' : 'No'}</td>
+              <td class="datum">{jurisdictions}</td>
+              <td class="datum">{since || '—'}</td>
+            </tr>
+          );
+        })}
+      </tbody>
+    </table>
+    </div>
+
+    <p class="sourced">Want the full dataset? <a href="/api/exchanges.json">JSON</a> ·
+    <a href="/api/register-snapshot.csv">CSV snapshot</a>.</p>
+  </main>
+
+  <footer class="site"><div class="wrap">
+    <p><a href="/about/">About</a> · <a href="/contact/">Contact</a> · <a href="/changelog/">Changelog</a> · <a href="/exchanges/">Exchanges</a> · <a href="/regulators/">Regulators</a> · <a href="/stats/">Stats</a> · <a href="/providers/">Providers</a> · <a href="https://x.com/whichcex">X</a></p>
+    <p>Independent register. Not affiliated with any regulator. Not financial advice.</p>
+  </div></footer>
+
+  <script>
+    const tbody = document.querySelector('.registry tbody');
+    const sortSelect = document.getElementById('sort-select');
+    if (tbody && sortSelect) {
+      const originalRows = [...tbody.querySelectorAll('tr')];
+      const apply = () => {
+        let rows = [...originalRows];
+        switch (sortSelect.value) {
+          case 'since-desc':
+            rows.sort((a, b) => (b.dataset.since || '').localeCompare(a.dataset.since || ''));
+            break;
+          case 'since-asc':
+            rows.sort((a, b) => {
+              const av = a.dataset.since, bv = b.dataset.since;
+              if (!av) return 1;
+              if (!bv) return -1;
+              return av.localeCompare(bv);
+            });
+            break;
+          case 'jurisdictions-desc':
+            rows.sort((a, b) => Number(b.dataset.jurisdictions || 0) - Number(a.dataset.jurisdictions || 0));
+            break;
+          default:
+            break; // 'brand': original server-rendered A–Z order
+        }
+        rows.forEach((r) => tbody.appendChild(r));
+      };
+      sortSelect.addEventListener('change', apply);
+    }
+  </script>
+
+  <script src="/search.js" defer></script>
+</body>
+</html>

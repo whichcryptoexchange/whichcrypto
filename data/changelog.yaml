@@ -2,6 +2,17 @@
 # Written for an external reader (journalists, analysts, exchanges) --
 # describe what changed and why it matters, not the internal commit.
 - date: "2026-07-31"
+  title: "New top nav bar, and an Exchanges index listing every tracked brand"
+  body: >
+    Added a persistent top navigation bar (Exchanges, Regulators,
+    Providers, Stats) across the whole site, and a new /exchanges/ page:
+    every brand we track, in one sortable table, each linking through to
+    its full regulatory record. Previously the only ways to reach an
+    exchange page were a specific country's table or the search box --
+    this is the first single page that links to all of them, and it also
+    closes a real internal-linking gap for search engines crawling the
+    site.
+- date: "2026-07-31"
   title: "Added Gibraltar (GFSC DLT Licence) — our first manually-verified jurisdiction"
   body: >
     A Gibraltar DLT Licence is a genuine crypto-specific licence, the same
