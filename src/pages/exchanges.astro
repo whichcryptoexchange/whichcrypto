@@ -58,6 +58,17 @@ const rows = exchanges.map((ex) => ({
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet" />
   <script src="https://analytics.ahrefs.com/analytics.js" data-key="QTM3lN9yt0oU0rxrj5zadA" async></script>
+  <script type="application/ld+json" set:html={JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    numberOfItems: exchanges.length,
+    itemListElement: exchanges.map((ex, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: ex.brand,
+      url: `https://whichcryptoexchange.com/exchange/${ex.id}/`,
+    })),
+  })} />
 </head>
 <body>
   <header class="site">

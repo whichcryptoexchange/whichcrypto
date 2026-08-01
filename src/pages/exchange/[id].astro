@@ -65,6 +65,29 @@ const totalEntities = ex.entities.length + new Set(nonEEAEntries.map((e) => e.en
 const listJoin = (arr) => arr.length <= 1 ? (arr[0] ?? '')
   : arr.length === 2 ? `${arr[0]} and ${arr[1]}`
   : `${arr.slice(0, -1).join(', ')}, and ${arr[arr.length - 1]}`;
+
+// schema.org Certification -- built for exactly this: "an authoritative
+// body issued this organization a credential." One per verified record,
+// EEA and non-EEA alike, so every stamp on the page has a machine-
+// readable counterpart carrying the same regulator/entity/date facts.
+const certifications = [
+  ...ex.entities.flatMap((ent) => ent.records.map((rec) => ({
+    '@type': 'Certification',
+    name: 'MiCA Authorisation',
+    certificationStatus: rec.status === 'withdrawn' ? 'CertificationInactive' : 'CertificationActive',
+    issuedBy: { '@type': 'Organization', name: ent.regulator },
+    about: { '@type': 'Organization', name: ent.legal_name },
+    ...(rec.authorised && { validFrom: rec.authorised }),
+    ...(rec.withdrawn && { validThrough: rec.withdrawn }),
+  }))),
+  ...nonEEAEntries.map((entry) => ({
+    '@type': 'Certification',
+    name: entry.regime,
+    certificationStatus: 'CertificationActive',
+    about: { '@type': 'Organization', name: entry.entity },
+    ...(entry.since && { validFrom: entry.since }),
+  })),
+];
 ---
 <html lang="en">
 <head>
@@ -85,6 +108,15 @@ const listJoin = (arr) => arr.length <= 1 ? (arr[0] ?? '')
       { '@type': 'ListItem', position: 2, name: ex.brand, item: `https://whichcryptoexchange.com/exchange/${ex.id}/` },
     ],
   })} />
+  {certifications.length > 0 && (
+    <script type="application/ld+json" set:html={JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'Organization',
+      name: ex.brand,
+      url: `https://whichcryptoexchange.com/exchange/${ex.id}/`,
+      hasCredential: certifications,
+    })} />
+  )}
 </head>
 <body>
   <header class="site">
