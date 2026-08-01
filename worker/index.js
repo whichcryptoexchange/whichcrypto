@@ -12,13 +12,18 @@
 //   SEND_EMAIL      - Email Routing send binding, destination jim@maxrespect.co.uk
 //                     (contact form only -- fixed pre-verified destination,
 //                     works fine on the free Workers plan)
-//   RESEND_API_KEY  - secret: Resend API key, for watcher confirm emails to
-//                     arbitrary addresses (needs whichcryptoexchange.com
-//                     verified as a sending domain in the Resend dashboard --
-//                     Cloudflare's own send_email binding can only reach
-//                     pre-verified destinations without Workers Paid)
+//   RESEND_API_KEY  - secret: Resend API key, for watcher/digest confirm
+//                     emails and the weekly digest send to arbitrary
+//                     addresses (needs whichcryptoexchange.com verified as a
+//                     sending domain in the Resend dashboard -- Cloudflare's
+//                     own send_email binding can only reach pre-verified
+//                     destinations without Workers Paid)
 //   TURNSTILE_SECRET- secret: Cloudflare Turnstile secret key
 //   ADMIN_KEY       - secret: long random string gating /admin/reports, /admin/links
+//   DIGEST_SEND_KEY - secret: long random string gating /api/admin/digest-send,
+//                     the weekly-roundup fan-out (separate from ADMIN_KEY --
+//                     see handleDigestSend for why). Called only by the
+//                     weekly-digest GitHub Actions workflow.
 //   IP_SALT         - secret: random string for privacy-preserving IP hashing
 
 import { EmailMessage } from 'cloudflare:email';
@@ -161,6 +166,23 @@ function randomToken() {
 // as a secret and whichcryptoexchange.com verified as a sending domain in
 // the Resend dashboard -- no binding/wrangler.jsonc entry required, just an
 // HTTPS call.
+async function sendResendEmail(env, to, subject, text) {
+  const r = await fetch('https://api.resend.com/emails', {
+    method: 'POST',
+    headers: {
+      Authorization: `Bearer ${env.RESEND_API_KEY}`,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      from: 'whichcryptoexchange.com <alerts@whichcryptoexchange.com>',
+      to: [to],
+      subject,
+      text,
+    }),
+  });
+  if (!r.ok) throw new Error(`Resend API error: ${r.status} ${await r.text()}`);
+}
+
 async function sendWatchConfirmEmail(env, email, brand, token) {
   const confirmUrl = `https://whichcryptoexchange.com/api/watch/confirm?token=${token}`;
   const text = [
@@ -171,21 +193,7 @@ async function sendWatchConfirmEmail(env, email, brand, token) {
     '',
     "If you didn't request this, ignore this email -- nothing is created unless you click the link above, and it will expire from disuse if never confirmed.",
   ].join('\n');
-
-  const r = await fetch('https://api.resend.com/emails', {
-    method: 'POST',
-    headers: {
-      Authorization: `Bearer ${env.RESEND_API_KEY}`,
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      from: 'whichcryptoexchange.com <alerts@whichcryptoexchange.com>',
-      to: [email],
-      subject: `Confirm: watch ${brand} for changes`,
-      text,
-    }),
-  });
-  if (!r.ok) throw new Error(`Resend API error: ${r.status} ${await r.text()}`);
+  await sendResendEmail(env, email, `Confirm: watch ${brand} for changes`, text);
 }
 
 async function handleWatchSignup(request, env) {
@@ -287,21 +295,7 @@ async function sendDigestConfirmEmail(env, email, token) {
     '',
     "If you didn't request this, ignore this email -- nothing is created unless you click the link above.",
   ].join('\n');
-
-  const r = await fetch('https://api.resend.com/emails', {
-    method: 'POST',
-    headers: {
-      Authorization: `Bearer ${env.RESEND_API_KEY}`,
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      from: 'whichcryptoexchange.com <alerts@whichcryptoexchange.com>',
-      to: [email],
-      subject: 'Confirm: weekly regulatory roundup',
-      text,
-    }),
-  });
-  if (!r.ok) throw new Error(`Resend API error: ${r.status} ${await r.text()}`);
+  await sendResendEmail(env, email, 'Confirm: weekly regulatory roundup', text);
 }
 
 async function handleDigestSignup(request, env) {
@@ -367,6 +361,40 @@ async function handleDigestUnsubscribe(env, token) {
   return watchPage('Unsubscribed', row
     ? '<p>You will not receive the weekly roundup any more.</p>'
     : '<p>Already unsubscribed, or this link was invalid.</p>');
+}
+
+// Fan-out for the actual weekly send. Triggered by a GitHub Actions cron
+// (scripts/weekly_digest.py diffs the register and posts the resulting
+// content here) -- not reachable from any public-facing form. Uses its own
+// DIGEST_SEND_KEY rather than the existing ADMIN_KEY: a leaked report
+// moderation key only exposes pending user reports, but a leaked send key
+// could email every subscriber arbitrary content, so the two stay separate.
+async function handleDigestSend(request, env, url) {
+  if (!env.DIGEST_SEND_KEY || url.searchParams.get('key') !== env.DIGEST_SEND_KEY) {
+    return json({ error: 'forbidden' }, 403);
+  }
+  let body;
+  try { body = await request.json(); } catch { return json({ error: 'invalid JSON' }, 400); }
+  const subject = String(body.subject || '').slice(0, 200);
+  const text = String(body.text || '').slice(0, 20000);
+  if (!subject || !text) return json({ error: 'subject and text are required' }, 400);
+
+  const { results: subscribers } = await env.DB.prepare(
+    'SELECT email, token FROM digest_subscribers WHERE confirmed = 1'
+  ).all();
+
+  let sent = 0;
+  let failed = 0;
+  for (const sub of subscribers) {
+    const unsubUrl = `https://whichcryptoexchange.com/api/digest/unsubscribe?token=${sub.token}`;
+    try {
+      await sendResendEmail(env, sub.email, subject, `${text}\n\n---\nUnsubscribe: ${unsubUrl}`);
+      sent++;
+    } catch {
+      failed++;
+    }
+  }
+  return json({ total: subscribers.length, sent, failed });
 }
 
 async function handleAggregates(env, exchangeId) {
@@ -538,6 +566,9 @@ export default {
     }
     if (url.pathname === '/api/digest/unsubscribe' && request.method === 'GET') {
       return handleDigestUnsubscribe(env, url.searchParams.get('token') || '');
+    }
+    if (url.pathname === '/api/admin/digest-send' && request.method === 'POST') {
+      return handleDigestSend(request, env, url);
     }
     const agg = url.pathname.match(/^\/api\/reports\/([a-z0-9-]{1,60})$/);
     if (agg && request.method === 'GET') return handleAggregates(env, agg[1]);

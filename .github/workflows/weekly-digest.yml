@@ -1,0 +1,31 @@
+name: Weekly regulatory roundup digest
+
+on:
+  schedule:
+    - cron: '0 9 * * 1'   # Mon 09:00 UTC
+  workflow_dispatch:
+
+jobs:
+  send:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0   # full history -- weekly_digest.py diffs against a week-old commit
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.12' }
+      - run: pip install pyyaml
+      - name: Build digest content
+        id: digest
+        run: python3 scripts/weekly_digest.py --since-days 7 > digest.json
+      - name: Send via the worker, if there is anything to report
+        run: |
+          count=$(python3 -c "import json; print(json.load(open('digest.json'))['count'])")
+          echo "changes detected: $count"
+          if [ "$count" = "0" ]; then
+            echo "No changes this week -- skipping send."
+            exit 0
+          fi
+          curl -sf -X POST "https://whichcryptoexchange.com/api/admin/digest-send?key=${{ secrets.DIGEST_SEND_KEY }}" \
+            -H 'Content-Type: application/json' \
+            --data-binary @digest.json
