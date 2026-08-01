@@ -73,6 +73,7 @@ const listJoin = (arr) => arr.length <= 1 ? (arr[0] ?? '')
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>{`Is ${ex.brand} licensed? Registry record | whichcryptoexchange.com`}</title>
   <meta name="description" content={`${ex.brand}: official licence records, legal entities, regulators, and the ${countryCodes.length} countries its authorisation covers.`} />
+  <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site)} />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet" />
   <script src="https://analytics.ahrefs.com/analytics.js" data-key="QTM3lN9yt0oU0rxrj5zadA" async></script>

@@ -54,6 +54,7 @@ const rows = exchanges.map((ex) => ({
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>{`All ${exchanges.length} tracked crypto exchanges | whichcryptoexchange.com`}</title>
   <meta name="description" content={`Browse every crypto exchange and related firm we track (${exchanges.length} total), sortable by jurisdiction count or authorisation date. Every entry links to its full regulatory record.`} />
+  <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site)} />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet" />
   <script src="https://analytics.ahrefs.com/analytics.js" data-key="QTM3lN9yt0oU0rxrj5zadA" async></script>
