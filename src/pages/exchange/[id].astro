@@ -178,6 +178,26 @@ const certifications = [
 
     <div id="affiliate-cta" data-exchange={ex.id} data-brand={ex.brand}></div>
 
+    {SITEKEY && (
+      <details class="report-form">
+        <summary>Get an email if {ex.brand}'s status changes</summary>
+        <form id="watch-form">
+          <input type="hidden" name="exchange_id" value={ex.id} />
+          <label>Your email
+            <input type="email" name="email" required maxlength="200" />
+          </label>
+          <label class="consent-label">
+            <input type="checkbox" name="consent" required />
+            I want an email if {ex.brand}'s regulatory status changes. See
+            <a href="/about/">how this works</a> — unsubscribe any time, no login needed.
+          </label>
+          <div class="cf-turnstile" data-sitekey={SITEKEY}></div>
+          <button type="submit">Watch {ex.brand}</button>
+          <p class="form-msg sourced" role="status"></p>
+        </form>
+      </details>
+    )}
+
     {ex.entities.map((ent) => ent.records.map((rec) => (
       <div class={`record ${rec.status}`}>
         <h3>{ent.legal_name}</h3>
@@ -314,6 +334,29 @@ const certifications = [
         ).join('') + `<p class="sourced">${d.total} published report${d.total === 1 ? '' : 's'} in total.</p>`;
       })
       .catch(() => { box.innerHTML = '<p class="sourced">Reports unavailable right now.</p>'; });
+
+    // Watch-this-exchange signup
+    const watchForm = document.getElementById('watch-form');
+    watchForm?.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const msg = watchForm.querySelector('.form-msg');
+      const fd = new FormData(watchForm);
+      const token = watchForm.querySelector('[name="cf-turnstile-response"]')?.value;
+      msg.textContent = 'Submitting…';
+      try {
+        const res = await fetch('/api/watch', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            exchange_id: fd.get('exchange_id'), email: fd.get('email'),
+            consent: fd.get('consent') === 'on', turnstile_token: token,
+          }),
+        });
+        const data = await res.json();
+        msg.textContent = data.message ?? data.error ?? 'Something went wrong.';
+        if (res.ok) watchForm.reset();
+      } catch { msg.textContent = 'Network error — please try again.'; }
+    });
 
     // Submission
     const form = document.getElementById('report-form');

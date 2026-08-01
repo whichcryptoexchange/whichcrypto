@@ -417,3 +417,5 @@ footer.site a { color: inherit; }
 }
 .report-form button:hover { background: var(--licensed); }
 .cf-turnstile { margin-top: 14px; }
+.consent-label { display: flex; align-items: flex-start; gap: 8px; font-size: 13px; color: var(--ink-soft); }
+.consent-label input[type="checkbox"] { display: inline-block; width: auto; margin: 3px 0 0; flex: none; }
