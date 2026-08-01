@@ -10,6 +10,13 @@
 // Bindings required (see wrangler.jsonc + README-reports.md):
 //   DB              - D1 database
 //   SEND_EMAIL      - Email Routing send binding, destination jim@maxrespect.co.uk
+//                     (contact form only -- fixed pre-verified destination,
+//                     works fine on the free Workers plan)
+//   RESEND_API_KEY  - secret: Resend API key, for watcher confirm emails to
+//                     arbitrary addresses (needs whichcryptoexchange.com
+//                     verified as a sending domain in the Resend dashboard --
+//                     Cloudflare's own send_email binding can only reach
+//                     pre-verified destinations without Workers Paid)
 //   TURNSTILE_SECRET- secret: Cloudflare Turnstile secret key
 //   ADMIN_KEY       - secret: long random string gating /admin/reports, /admin/links
 //   IP_SALT         - secret: random string for privacy-preserving IP hashing
@@ -147,22 +154,38 @@ function randomToken() {
   return crypto.randomUUID().replace(/-/g, '') + crypto.randomUUID().replace(/-/g, '');
 }
 
+// Uses Resend's REST API rather than Cloudflare's own send_email binding --
+// the latter can only reach pre-verified destination addresses on the free
+// Workers plan (Email Sending requires Workers Paid), which is unworkable
+// for a public signup form emailing arbitrary addresses. Needs RESEND_API_KEY
+// as a secret and whichcryptoexchange.com verified as a sending domain in
+// the Resend dashboard -- no binding/wrangler.jsonc entry required, just an
+// HTTPS call.
 async function sendWatchConfirmEmail(env, email, brand, token) {
   const confirmUrl = `https://whichcryptoexchange.com/api/watch/confirm?token=${token}`;
-  const raw = [
-    'From: whichcryptoexchange.com <alerts@whichcryptoexchange.com>',
-    `To: ${email}`,
-    'Subject: Confirm: watch ' + brand + ' for changes',
-    'Content-Type: text/plain; charset="UTF-8"',
-    '',
+  const text = [
     `Someone (hopefully you) asked to be emailed if ${brand}'s regulatory status changes on whichcryptoexchange.com.`,
     '',
     `Confirm and start watching ${brand}:`,
     confirmUrl,
     '',
     "If you didn't request this, ignore this email -- nothing is created unless you click the link above, and it will expire from disuse if never confirmed.",
-  ].join('\r\n');
-  await env.SEND_EMAIL.send(new EmailMessage('alerts@whichcryptoexchange.com', email, raw));
+  ].join('\n');
+
+  const r = await fetch('https://api.resend.com/emails', {
+    method: 'POST',
+    headers: {
+      Authorization: `Bearer ${env.RESEND_API_KEY}`,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      from: 'whichcryptoexchange.com <alerts@whichcryptoexchange.com>',
+      to: [email],
+      subject: `Confirm: watch ${brand} for changes`,
+      text,
+    }),
+  });
+  if (!r.ok) throw new Error(`Resend API error: ${r.status} ${await r.text()}`);
 }
 
 async function handleWatchSignup(request, env) {
