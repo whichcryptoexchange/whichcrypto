@@ -134,6 +134,122 @@ async function handleContact(request, env) {
   return json({ ok: true, message: 'Thanks — your message has been sent.' });
 }
 
+// "Watch this exchange" email alerts -- double opt-in throughout. Nothing
+// is emailed on a status change until the address itself has clicked a
+// confirm link, so a stranger's email can never be signed up without
+// their action, and the click itself is the consent record.
+async function lookupBrand(env, request, exchangeId) {
+  const brands = await fetchBrandList(env, request);
+  return brands.find((b) => b.id === exchangeId)?.brand ?? exchangeId;
+}
+
+function randomToken() {
+  return crypto.randomUUID().replace(/-/g, '') + crypto.randomUUID().replace(/-/g, '');
+}
+
+async function sendWatchConfirmEmail(env, email, brand, token) {
+  const confirmUrl = `https://whichcryptoexchange.com/api/watch/confirm?token=${token}`;
+  const raw = [
+    'From: whichcryptoexchange.com <alerts@whichcryptoexchange.com>',
+    `To: ${email}`,
+    'Subject: Confirm: watch ' + brand + ' for changes',
+    'Content-Type: text/plain; charset="UTF-8"',
+    '',
+    `Someone (hopefully you) asked to be emailed if ${brand}'s regulatory status changes on whichcryptoexchange.com.`,
+    '',
+    `Confirm and start watching ${brand}:`,
+    confirmUrl,
+    '',
+    "If you didn't request this, ignore this email -- nothing is created unless you click the link above, and it will expire from disuse if never confirmed.",
+  ].join('\r\n');
+  await env.SEND_EMAIL.send(new EmailMessage('alerts@whichcryptoexchange.com', email, raw));
+}
+
+async function handleWatchSignup(request, env) {
+  let body;
+  try { body = await request.json(); } catch { return json({ error: 'invalid JSON' }, 400); }
+
+  const ip = request.headers.get('CF-Connecting-IP') || '0.0.0.0';
+  if (!(await verifyTurnstile(body.turnstile_token, env.TURNSTILE_SECRET, ip))) {
+    return json({ error: 'verification failed — please retry the challenge' }, 403);
+  }
+
+  const exchange_id = String(body.exchange_id || '').toLowerCase();
+  const email = sanitizeHeader(body.email, 200);
+  if (!/^[a-z0-9-]{1,60}$/.test(exchange_id)) return json({ error: 'invalid exchange' }, 400);
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return json({ error: 'a valid email is required' }, 400);
+  if (!body.consent) return json({ error: 'consent is required to watch an exchange' }, 400);
+
+  const ip_hash = await sha256hex(env.IP_SALT + ip);
+  const { results: recent } = await env.DB.prepare(
+    "SELECT COUNT(*) AS n FROM watchers WHERE ip_hash = ? AND created_at > datetime('now','-1 hour')"
+  ).bind(ip_hash).all();
+  if (recent[0].n >= 10) return json({ error: 'rate limit reached — try again later' }, 429);
+
+  const existing = await env.DB.prepare(
+    'SELECT token, confirmed FROM watchers WHERE exchange_id = ? AND email = ?'
+  ).bind(exchange_id, email).first();
+
+  const brand = await lookupBrand(env, request, exchange_id);
+
+  if (existing?.confirmed) {
+    return json({ ok: true, message: `You're already watching ${brand}.` });
+  }
+
+  // Re-send the same confirm link rather than mint a new one if someone
+  // re-submits before confirming -- avoids piling up dead unconfirmed rows
+  // from the same address hitting "submit" twice.
+  const token = existing?.token ?? randomToken();
+  if (!existing) {
+    await env.DB.prepare(
+      'INSERT INTO watchers (exchange_id, email, token, ip_hash) VALUES (?,?,?,?)'
+    ).bind(exchange_id, email, token, ip_hash).run();
+  }
+
+  try {
+    await sendWatchConfirmEmail(env, email, brand, token);
+  } catch {
+    return json({ error: 'could not send confirmation email — please try again later' }, 502);
+  }
+
+  return json({ ok: true, message: `Check your email to confirm watching ${brand}.` });
+}
+
+const watchPage = (title, body) => new Response(
+  `<!doctype html><meta charset="utf-8"><title>${esc(title)} | whichcryptoexchange.com</title>
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <meta name="robots" content="noindex">
+   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+   <style>body{font:16px/1.5 system-ui,sans-serif;max-width:520px;margin:80px auto;padding:0 20px;color:#14202e}
+     a{color:#177245}h1{font-size:22px}</style>
+   <h1>${esc(title)}</h1>${body}
+   <p><a href="/">← back to whichcryptoexchange.com</a></p>`,
+  { headers: { 'Content-Type': 'text/html; charset=utf-8' } },
+);
+
+async function handleWatchConfirm(env, request, token) {
+  const row = await env.DB.prepare('SELECT * FROM watchers WHERE token = ?').bind(token).first();
+  if (!row) return watchPage('Link not found', '<p>This confirmation link is invalid or has already been used.</p>');
+
+  const brand = await lookupBrand(env, request, row.exchange_id);
+  if (!row.confirmed) {
+    await env.DB.prepare(
+      "UPDATE watchers SET confirmed = 1, confirmed_at = datetime('now') WHERE token = ?"
+    ).bind(token).run();
+  }
+  return watchPage(`Watching ${brand}`,
+    `<p>You'll get an email if ${esc(brand)}'s regulatory status changes on whichcryptoexchange.com.</p>
+     <p><a href="/api/watch/unsubscribe?token=${esc(token)}">Unsubscribe</a> any time, no login needed.</p>`);
+}
+
+async function handleWatchUnsubscribe(env, token) {
+  const row = await env.DB.prepare('SELECT exchange_id FROM watchers WHERE token = ?').bind(token).first();
+  await env.DB.prepare('DELETE FROM watchers WHERE token = ?').bind(token).run();
+  return watchPage('Unsubscribed', row
+    ? '<p>You will not receive any more emails about this exchange.</p>'
+    : '<p>Already unsubscribed, or this link was invalid.</p>');
+}
+
 async function handleAggregates(env, exchangeId) {
   const { results } = await env.DB.prepare(
     `SELECT country, outcome, COUNT(*) AS n, MAX(created_at) AS latest
@@ -290,6 +406,13 @@ export default {
     const url = new URL(request.url);
     if (url.pathname === '/api/report' && request.method === 'POST') return handleSubmit(request, env);
     if (url.pathname === '/api/contact' && request.method === 'POST') return handleContact(request, env);
+    if (url.pathname === '/api/watch' && request.method === 'POST') return handleWatchSignup(request, env);
+    if (url.pathname === '/api/watch/confirm' && request.method === 'GET') {
+      return handleWatchConfirm(env, request, url.searchParams.get('token') || '');
+    }
+    if (url.pathname === '/api/watch/unsubscribe' && request.method === 'GET') {
+      return handleWatchUnsubscribe(env, url.searchParams.get('token') || '');
+    }
     const agg = url.pathname.match(/^\/api\/reports\/([a-z0-9-]{1,60})$/);
     if (agg && request.method === 'GET') return handleAggregates(env, agg[1]);
     if (url.pathname === '/admin/reports') return handleAdmin(request, env, url);
