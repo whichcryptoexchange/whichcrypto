@@ -13,6 +13,7 @@ const sgExchanges = exchanges.filter((e) => e.countries?.SG);
 const usExchanges = exchanges.filter((e) => e.countries?.US);
 const hkExchanges = exchanges.filter((e) => e.countries?.HK);
 const giExchanges = exchanges.filter((e) => e.countries?.GI);
+const SITEKEY = import.meta.env.PUBLIC_TURNSTILE_SITEKEY || '0x4AAAAAAD84t4OWkoouLP3Y';
 ---
 <html lang="en">
 <head>
@@ -73,6 +74,27 @@ const giExchanges = exchanges.filter((e) => e.countries?.GI);
         {countries.map((c) => <option value={c}>{COUNTRY_NAMES[c] ?? c}</option>)}
       </select>
     </div>
+
+    {SITEKEY && (
+      <div class="digest-cta">
+        <h3>Get the weekly regulatory roundup</h3>
+        <p>Every status change across every tracked exchange, once a week, straight to your inbox.
+        Free, no spam — one email a week, unsubscribe any time.</p>
+        <form id="digest-form">
+          <div class="digest-cta-row">
+            <input type="email" name="email" placeholder="you@example.com" required maxlength="200" aria-label="Email address" />
+            <button type="submit">Subscribe</button>
+          </div>
+          <label class="consent-label">
+            <input type="checkbox" name="consent" required />
+            I want the weekly regulatory roundup email. See <a href="/about/">how this works</a> —
+            unsubscribe any time, no login needed.
+          </label>
+          <div class="cf-turnstile" data-sitekey={SITEKEY}></div>
+          <p class="form-msg sourced" role="status"></p>
+        </form>
+      </div>
+    )}
 
     <p class="sourced">Currently tracking {exchanges.length} exchanges · {active} with active EU (MiCA) authorisation ·
     data from the <a href="https://www.esma.europa.eu/esmas-activities/digital-finance-and-innovation/markets-crypto-assets-regulation-mica">ESMA interim MiCA register</a></p>
@@ -141,6 +163,7 @@ const giExchanges = exchanges.filter((e) => e.countries?.GI);
     if (m && sel && [...sel.options].some((o) => o.value === m[1])) sel.value = m[1];
   </script>
 
+  {SITEKEY && <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>}
   <script src="/search.js" defer></script>
 </body>
 </html>

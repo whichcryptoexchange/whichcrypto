@@ -419,3 +419,27 @@ footer.site a { color: inherit; }
 .cf-turnstile { margin-top: 14px; }
 .consent-label { display: flex; align-items: flex-start; gap: 8px; font-size: 13px; color: var(--ink-soft); }
 .consent-label input[type="checkbox"] { display: inline-block; width: auto; margin: 3px 0 0; flex: none; }
+
+/* Weekly digest signup -- deliberately the loudest thing on the page
+   besides the h1, using the site's green (already the "genuine licence"
+   colour) to read as a positive, trustworthy action. */
+.digest-cta {
+  background: #eef8f2;
+  border: 2px solid var(--licensed);
+  border-radius: 8px;
+  padding: 24px 28px;
+  margin: 0 0 36px;
+}
+.digest-cta h3 { margin: 0 0 8px; color: var(--licensed); font-size: 20px; }
+.digest-cta > p { margin: 0 0 16px; color: var(--ink-soft); max-width: 60ch; }
+.digest-cta-row { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 10px; }
+.digest-cta-row input[type="email"] {
+  flex: 1; min-width: 220px; font: 14px var(--mono); padding: 10px 12px;
+  border: 1px solid var(--rule); border-radius: 4px; background: #fff; color: var(--ink);
+}
+.digest-cta-row button {
+  font: 700 14px var(--display); color: #fff; background: var(--licensed);
+  border: none; border-radius: 4px; padding: 10px 20px; cursor: pointer; white-space: nowrap;
+}
+.digest-cta-row button:hover { background: #0f5a35; }
+.digest-cta .consent-label { margin-bottom: 10px; }

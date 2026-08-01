@@ -273,6 +273,102 @@ async function handleWatchUnsubscribe(env, token) {
     : '<p>Already unsubscribed, or this link was invalid.</p>');
 }
 
+// Weekly roundup digest -- same double opt-in mechanism as watchers, but
+// one subscription covers every brand, not just one. The actual weekly
+// send (diffing the register and mailing confirmed subscribers) is a
+// separate follow-up; this is just collecting and confirming signups.
+async function sendDigestConfirmEmail(env, email, token) {
+  const confirmUrl = `https://whichcryptoexchange.com/api/digest/confirm?token=${token}`;
+  const text = [
+    'Someone (hopefully you) asked to get the weekly regulatory roundup email from whichcryptoexchange.com -- every change across every tracked exchange, once a week.',
+    '',
+    'Confirm and subscribe:',
+    confirmUrl,
+    '',
+    "If you didn't request this, ignore this email -- nothing is created unless you click the link above.",
+  ].join('\n');
+
+  const r = await fetch('https://api.resend.com/emails', {
+    method: 'POST',
+    headers: {
+      Authorization: `Bearer ${env.RESEND_API_KEY}`,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      from: 'whichcryptoexchange.com <alerts@whichcryptoexchange.com>',
+      to: [email],
+      subject: 'Confirm: weekly regulatory roundup',
+      text,
+    }),
+  });
+  if (!r.ok) throw new Error(`Resend API error: ${r.status} ${await r.text()}`);
+}
+
+async function handleDigestSignup(request, env) {
+  let body;
+  try { body = await request.json(); } catch { return json({ error: 'invalid JSON' }, 400); }
+
+  const ip = request.headers.get('CF-Connecting-IP') || '0.0.0.0';
+  if (!(await verifyTurnstile(body.turnstile_token, env.TURNSTILE_SECRET, ip))) {
+    return json({ error: 'verification failed — please retry the challenge' }, 403);
+  }
+
+  const email = sanitizeHeader(body.email, 200);
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return json({ error: 'a valid email is required' }, 400);
+  if (!body.consent) return json({ error: 'consent is required to subscribe' }, 400);
+
+  const ip_hash = await sha256hex(env.IP_SALT + ip);
+  const { results: recent } = await env.DB.prepare(
+    "SELECT COUNT(*) AS n FROM digest_subscribers WHERE ip_hash = ? AND created_at > datetime('now','-1 hour')"
+  ).bind(ip_hash).all();
+  if (recent[0].n >= 10) return json({ error: 'rate limit reached — try again later' }, 429);
+
+  const existing = await env.DB.prepare(
+    'SELECT token, confirmed FROM digest_subscribers WHERE email = ?'
+  ).bind(email).first();
+
+  if (existing?.confirmed) {
+    return json({ ok: true, message: "You're already subscribed to the weekly roundup." });
+  }
+
+  const token = existing?.token ?? randomToken();
+  if (!existing) {
+    await env.DB.prepare(
+      'INSERT INTO digest_subscribers (email, token, ip_hash) VALUES (?,?,?)'
+    ).bind(email, token, ip_hash).run();
+  }
+
+  try {
+    await sendDigestConfirmEmail(env, email, token);
+  } catch {
+    return json({ error: 'could not send confirmation email — please try again later' }, 502);
+  }
+
+  return json({ ok: true, message: 'Check your email to confirm your subscription.' });
+}
+
+async function handleDigestConfirm(env, token) {
+  const row = await env.DB.prepare('SELECT * FROM digest_subscribers WHERE token = ?').bind(token).first();
+  if (!row) return watchPage('Link not found', '<p>This confirmation link is invalid or has already been used.</p>');
+
+  if (!row.confirmed) {
+    await env.DB.prepare(
+      "UPDATE digest_subscribers SET confirmed = 1, confirmed_at = datetime('now') WHERE token = ?"
+    ).bind(token).run();
+  }
+  return watchPage('Subscribed',
+    `<p>You'll get the weekly regulatory roundup from whichcryptoexchange.com.</p>
+     <p><a href="/api/digest/unsubscribe?token=${esc(token)}">Unsubscribe</a> any time, no login needed.</p>`);
+}
+
+async function handleDigestUnsubscribe(env, token) {
+  const row = await env.DB.prepare('SELECT id FROM digest_subscribers WHERE token = ?').bind(token).first();
+  await env.DB.prepare('DELETE FROM digest_subscribers WHERE token = ?').bind(token).run();
+  return watchPage('Unsubscribed', row
+    ? '<p>You will not receive the weekly roundup any more.</p>'
+    : '<p>Already unsubscribed, or this link was invalid.</p>');
+}
+
 async function handleAggregates(env, exchangeId) {
   const { results } = await env.DB.prepare(
     `SELECT country, outcome, COUNT(*) AS n, MAX(created_at) AS latest
@@ -435,6 +531,13 @@ export default {
     }
     if (url.pathname === '/api/watch/unsubscribe' && request.method === 'GET') {
       return handleWatchUnsubscribe(env, url.searchParams.get('token') || '');
+    }
+    if (url.pathname === '/api/digest' && request.method === 'POST') return handleDigestSignup(request, env);
+    if (url.pathname === '/api/digest/confirm' && request.method === 'GET') {
+      return handleDigestConfirm(env, url.searchParams.get('token') || '');
+    }
+    if (url.pathname === '/api/digest/unsubscribe' && request.method === 'GET') {
+      return handleDigestUnsubscribe(env, url.searchParams.get('token') || '');
     }
     const agg = url.pathname.match(/^\/api\/reports\/([a-z0-9-]{1,60})$/);
     if (agg && request.method === 'GET') return handleAggregates(env, agg[1]);

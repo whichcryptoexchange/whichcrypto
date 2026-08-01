@@ -46,6 +46,7 @@ const rows = exchanges.map((ex) => ({
   status: overallStatus(ex),
   since: earliestSince(ex),
 }));
+const SITEKEY = import.meta.env.PUBLIC_TURNSTILE_SITEKEY || '0x4AAAAAAD84t4OWkoouLP3Y';
 ---
 <html lang="en">
 <head>
@@ -100,6 +101,27 @@ const rows = exchanges.map((ex) => ({
     <strong> Registered</strong> means AML-only registration with no genuine licence found;
     <strong> Withdrawn</strong> means a former EU authorisation has lapsed. See each brand's own page
     for the full per-jurisdiction breakdown.</p>
+
+    {SITEKEY && (
+      <div class="digest-cta">
+        <h3>Get the weekly regulatory roundup</h3>
+        <p>Every status change across every tracked exchange, once a week, straight to your inbox.
+        Free, no spam — one email a week, unsubscribe any time.</p>
+        <form id="digest-form">
+          <div class="digest-cta-row">
+            <input type="email" name="email" placeholder="you@example.com" required maxlength="200" aria-label="Email address" />
+            <button type="submit">Subscribe</button>
+          </div>
+          <label class="consent-label">
+            <input type="checkbox" name="consent" required />
+            I want the weekly regulatory roundup email. See <a href="/about/">how this works</a> —
+            unsubscribe any time, no login needed.
+          </label>
+          <div class="cf-turnstile" data-sitekey={SITEKEY}></div>
+          <p class="form-msg sourced" role="status"></p>
+        </form>
+      </div>
+    )}
 
     <div class="table-controls">
       <label>Sort by
@@ -170,6 +192,7 @@ const rows = exchanges.map((ex) => ({
     }
   </script>
 
+  {SITEKEY && <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>}
   <script src="/search.js" defer></script>
 </body>
 </html>

@@ -10,6 +10,7 @@ const providers = loadProviders().map((p) => ({
     ex: exchanges.find((ex) => ex.id === partner.brand_id),
   })),
 }));
+const SITEKEY = import.meta.env.PUBLIC_TURNSTILE_SITEKEY || '0x4AAAAAAD84t4OWkoouLP3Y';
 ---
 <html lang="en">
 <head>
@@ -67,6 +68,27 @@ const providers = loadProviders().map((p) => ({
     clearly that it isn't independently licensed, and identifies who actually holds and executes
     customer assets — with a link through to each partner's real, verified regulatory status.</p>
 
+    {SITEKEY && (
+      <div class="digest-cta">
+        <h3>Get the weekly regulatory roundup</h3>
+        <p>Every status change across every tracked exchange, once a week, straight to your inbox.
+        Free, no spam — one email a week, unsubscribe any time.</p>
+        <form id="digest-form">
+          <div class="digest-cta-row">
+            <input type="email" name="email" placeholder="you@example.com" required maxlength="200" aria-label="Email address" />
+            <button type="submit">Subscribe</button>
+          </div>
+          <label class="consent-label">
+            <input type="checkbox" name="consent" required />
+            I want the weekly regulatory roundup email. See <a href="/about/">how this works</a> —
+            unsubscribe any time, no login needed.
+          </label>
+          <div class="cf-turnstile" data-sitekey={SITEKEY}></div>
+          <p class="form-msg sourced" role="status"></p>
+        </form>
+      </div>
+    )}
+
     {providers.map((p) => (
       <div class="provider-card">
         <h3><a href={`/providers/${p.id}/`}>{p.name}</a> <span class="badge-unlicensed">Not independently licensed</span></h3>
@@ -91,6 +113,7 @@ const providers = loadProviders().map((p) => ({
     <p>Independent register. Not affiliated with any regulator. Not financial advice.</p>
   </div></footer>
 
+  {SITEKEY && <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>}
   <script src="/search.js" defer></script>
 </body>
 </html>

@@ -87,3 +87,30 @@
     if (!results.contains(e.target) && e.target !== input) render([]);
   });
 })();
+
+// Weekly digest signup -- shared across every top-level page so the form
+// markup + Turnstile widget don't need a duplicated inline handler on each.
+(() => {
+  const form = document.getElementById('digest-form');
+  if (!form) return;
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const msg = form.querySelector('.form-msg');
+    const fd = new FormData(form);
+    const token = form.querySelector('[name="cf-turnstile-response"]')?.value;
+    msg.textContent = 'Submitting…';
+    try {
+      const res = await fetch('/api/digest', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          email: fd.get('email'), consent: fd.get('consent') === 'on', turnstile_token: token,
+        }),
+      });
+      const data = await res.json();
+      msg.textContent = data.message ?? data.error ?? 'Something went wrong.';
+      if (res.ok) form.reset();
+    } catch { msg.textContent = 'Network error — please try again.'; }
+  });
+})();

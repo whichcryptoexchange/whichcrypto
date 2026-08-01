@@ -86,6 +86,7 @@ const lastSynced = exchanges
   .filter(Boolean)
   .sort()
   .at(-1);
+const SITEKEY = import.meta.env.PUBLIC_TURNSTILE_SITEKEY || '0x4AAAAAAD84t4OWkoouLP3Y';
 ---
 <html lang="en">
 <head>
@@ -153,6 +154,27 @@ const lastSynced = exchanges
     <a href="#by-licence-type">By licence type</a> · <a href="#by-services">By service</a> ·
     <a href="#top-brands">Top brands</a> · <a href="#top-home-states">Top home states</a> ·
     <a href="#data-integrity">Data integrity</a></p>
+
+    {SITEKEY && (
+      <div class="digest-cta">
+        <h3>Get the weekly regulatory roundup</h3>
+        <p>Every status change across every tracked exchange, once a week, straight to your inbox.
+        Free, no spam — one email a week, unsubscribe any time.</p>
+        <form id="digest-form">
+          <div class="digest-cta-row">
+            <input type="email" name="email" placeholder="you@example.com" required maxlength="200" aria-label="Email address" />
+            <button type="submit">Subscribe</button>
+          </div>
+          <label class="consent-label">
+            <input type="checkbox" name="consent" required />
+            I want the weekly regulatory roundup email. See <a href="/about/">how this works</a> —
+            unsubscribe any time, no login needed.
+          </label>
+          <div class="cf-turnstile" data-sitekey={SITEKEY}></div>
+          <p class="form-msg sourced" role="status"></p>
+        </form>
+      </div>
+    )}
 
     <div class="stat-grid">
       <div class="stat-card"><div class="stat-num">{total}</div><div class="stat-label">Exchanges tracked across 8 official registers</div></div>
@@ -299,6 +321,7 @@ const lastSynced = exchanges
     });
   </script>
 
+  {SITEKEY && <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>}
   <script src="/search.js" defer></script>
 </body>
 </html>
