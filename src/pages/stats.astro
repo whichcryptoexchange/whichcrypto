@@ -1,5 +1,5 @@
 ---
-import { loadExchanges, COUNTRY_NAMES, countryFlag } from '../lib/data.js';
+import { loadExchanges, COUNTRY_NAMES, SERVICE_NAMES, countryFlag } from '../lib/data.js';
 import '../styles/global.css';
 
 const exchanges = loadExchanges();
@@ -20,7 +20,7 @@ const withdrawn = exchanges.filter((ex) => ex.eu_status === 'withdrawn').length;
 const maxJurisdictions = Math.max(...exchanges.map(jurisdictionCount));
 const topByJurisdictions = [...exchanges]
   .sort((a, b) => jurisdictionCount(b) - jurisdictionCount(a))
-  .slice(0, 10);
+  .slice(0, 20);
 
 // Home-state distribution across EEA entities -- which national regulator
 // actually issues the most MiCA authorisations in our tracked set.
@@ -30,7 +30,38 @@ for (const ex of exchanges) {
     if (ent.home_state) homeStateCounts[ent.home_state] = (homeStateCounts[ent.home_state] ?? 0) + 1;
   }
 }
-const topHomeStates = Object.entries(homeStateCounts).sort((a, b) => b[1] - a[1]).slice(0, 10);
+const allHomeStates = Object.entries(homeStateCounts).sort((a, b) => b[1] - a[1]);
+
+// EU status breakdown -- authorised/withdrawn/no_eu_entity across every
+// tracked brand, regardless of non-EEA presence.
+const euStatusCounts = {
+  authorised: exchanges.filter((ex) => ex.eu_status === 'authorised').length,
+  withdrawn: exchanges.filter((ex) => ex.eu_status === 'withdrawn').length,
+  no_eu_entity: exchanges.filter((ex) => ex.eu_status === 'no_eu_entity').length,
+};
+
+// How many brands hold each specific genuine crypto-licence, not just
+// "genuine licence somewhere" -- a brand can appear in more than one row.
+const genuineByRegime = [
+  { label: 'EU MiCA', cc: null, count: exchanges.filter((ex) => ex.eu_status === 'authorised').length },
+  { label: 'Dubai VARA', cc: 'AE', count: exchanges.filter((ex) => (ex.countries?.AE ?? []).some((e) => e.status === 'licensed')).length },
+  { label: 'Singapore MAS', cc: 'SG', count: exchanges.filter((ex) => (ex.countries?.SG ?? []).some((e) => e.status === 'licensed')).length },
+  { label: 'Hong Kong SFC', cc: 'HK', count: exchanges.filter((ex) => (ex.countries?.HK ?? []).some((e) => e.status === 'licensed')).length },
+  { label: 'Gibraltar GFSC', cc: 'GI', count: exchanges.filter((ex) => (ex.countries?.GI ?? []).some((e) => e.status === 'licensed')).length },
+];
+
+// Which MiCA-authorised services are actually most common -- counted
+// across active (non-withdrawn) EEA records only.
+const servicesCounts = {};
+for (const ex of exchanges) {
+  for (const ent of ex.entities ?? []) {
+    for (const rec of ent.records ?? []) {
+      if (rec.status !== 'authorised') continue;
+      for (const svc of rec.services ?? []) servicesCounts[svc] = (servicesCounts[svc] ?? 0) + 1;
+    }
+  }
+}
+const servicesSorted = Object.entries(servicesCounts).sort((a, b) => b[1] - a[1]);
 
 // Per-jurisdiction breakdown (non-EEA sources), reusing the same
 // list-shaped countries.<CC> data the country pages render from.
@@ -80,6 +111,15 @@ const lastSynced = exchanges
       { '@type': 'DataDownload', encodingFormat: 'application/json', contentUrl: 'https://whichcryptoexchange.com/api/exchanges.json' },
       { '@type': 'DataDownload', encodingFormat: 'text/csv', contentUrl: 'https://whichcryptoexchange.com/api/register-snapshot.csv' },
     ],
+    variableMeasured: [
+      { '@type': 'PropertyValue', name: 'Total exchanges tracked', value: total },
+      { '@type': 'PropertyValue', name: 'Exchanges with a genuine crypto-specific licence', value: withGenuineLicence },
+      { '@type': 'PropertyValue', name: 'Exchanges with AML-only registration, no genuine licence', value: amlOnly },
+      { '@type': 'PropertyValue', name: 'Exchanges tracked in more than one jurisdiction', value: multiJurisdiction },
+      { '@type': 'PropertyValue', name: 'Most jurisdictions held by a single brand', value: maxJurisdictions },
+      { '@type': 'PropertyValue', name: 'Exchanges with a withdrawn EU MiCA authorisation', value: withdrawn },
+      ...genuineByRegime.map((r) => ({ '@type': 'PropertyValue', name: `Exchanges licensed under ${r.label}`, value: r.count })),
+    ],
   })} />
 </head>
 <body>
@@ -109,6 +149,11 @@ const lastSynced = exchanges
     <a href="/changelog/">changelog</a> for what's new, or pull the
     <a href="/api/register-snapshot.csv">full CSV</a> yourself.</p>
 
+    <p class="sourced">Jump to: <a href="#by-jurisdiction">By jurisdiction</a> ·
+    <a href="#by-licence-type">By licence type</a> · <a href="#by-services">By service</a> ·
+    <a href="#top-brands">Top brands</a> · <a href="#top-home-states">Top home states</a> ·
+    <a href="#data-integrity">Data integrity</a></p>
+
     <div class="stat-grid">
       <div class="stat-card"><div class="stat-num">{total}</div><div class="stat-label">Exchanges tracked across 8 official registers</div></div>
       <div class="stat-card"><div class="stat-num">{withGenuineLicence}</div><div class="stat-label">Hold at least one genuine crypto-specific licence (EU MiCA, Dubai VARA, Singapore MAS, Hong Kong SFC, or Gibraltar GFSC)</div></div>
@@ -118,7 +163,7 @@ const lastSynced = exchanges
       <div class="stat-card"><div class="stat-num">{withdrawn}</div><div class="stat-label">Have had an EU MiCA authorisation withdrawn</div></div>
     </div>
 
-    <h3>By jurisdiction</h3>
+    <h3 id="by-jurisdiction">By jurisdiction</h3>
     <p>{activeMiCA} exchanges hold an active EU MiCA authorisation. Outside the EU/EEA, here's how
     many of our tracked brands appear in each source:</p>
     <div class="table-scroll">
@@ -132,33 +177,86 @@ const lastSynced = exchanges
     </table>
     </div>
 
-    <h3>Most jurisdictions held, by brand</h3>
+    <h3 id="by-licence-type">By licence type</h3>
+    <p>EU status across every tracked brand: <strong>{euStatusCounts.authorised}</strong> currently
+    MiCA-authorised, <strong>{euStatusCounts.withdrawn}</strong> withdrawn,
+    <strong>{euStatusCounts.no_eu_entity}</strong> with no EU entity at all. And by specific genuine
+    licence (a brand can hold more than one):</p>
     <div class="table-scroll">
     <table class="registry">
+      <thead><tr><th>Licence</th><th>Exchanges</th></tr></thead>
+      <tbody>
+        {genuineByRegime.map((r) => (
+          <tr><td class="brand">{r.cc ? <a href={`/${r.cc.toLowerCase()}/`}>{r.label}</a> : r.label}</td><td class="datum">{r.count}</td></tr>
+        ))}
+      </tbody>
+    </table>
+    </div>
+
+    <h3 id="by-services">By MiCA service</h3>
+    <p>Which authorised crypto-asset services are actually most common, across every active
+    (non-withdrawn) EU/EEA record:</p>
+    <div class="table-scroll">
+    <table class="registry">
+      <thead><tr><th>Service</th><th>Authorised entities</th></tr></thead>
+      <tbody>
+        {servicesSorted.map(([svc, n]) => (
+          <tr><td class="brand">{SERVICE_NAMES[svc] ?? svc}</td><td class="datum">{n}</td></tr>
+        ))}
+      </tbody>
+    </table>
+    </div>
+
+    <h3 id="top-brands">Most jurisdictions held, by brand</h3>
+    <div class="table-controls">
+      <label>Sort by
+        <select id="sort-brands">
+          <option value="jurisdictions-desc">Most jurisdictions first</option>
+          <option value="brand">Brand (A–Z)</option>
+        </select>
+      </label>
+    </div>
+    <div class="table-scroll">
+    <table class="registry" id="table-brands">
       <thead><tr><th>Exchange</th><th>Jurisdictions</th></tr></thead>
       <tbody>
         {topByJurisdictions.map((ex) => (
-          <tr><td class="brand"><a href={`/exchange/${ex.id}/`}>{ex.brand}</a></td><td class="datum">{jurisdictionCount(ex)}</td></tr>
+          <tr data-brand={ex.brand} data-jurisdictions={jurisdictionCount(ex)}>
+            <td class="brand"><a href={`/exchange/${ex.id}/`}>{ex.brand}</a></td>
+            <td class="datum">{jurisdictionCount(ex)}</td>
+          </tr>
         ))}
       </tbody>
     </table>
     </div>
 
-    <h3>Top EU/EEA home states</h3>
+    <h3 id="top-home-states">EU/EEA home states</h3>
     <p>Where tracked exchanges are actually headquartered and authorised (their "home state" under
-    MiCA passporting), not just where they passport <em>to</em>:</p>
+    MiCA passporting), not just where they passport <em>to</em> — all {allHomeStates.length} that
+    have at least one home-registered brand:</p>
+    <div class="table-controls">
+      <label>Sort by
+        <select id="sort-states">
+          <option value="count-desc">Most entities first</option>
+          <option value="country">Country (A–Z)</option>
+        </select>
+      </label>
+    </div>
     <div class="table-scroll">
-    <table class="registry">
+    <table class="registry" id="table-states">
       <thead><tr><th>Country</th><th>Home-registered entities</th></tr></thead>
       <tbody>
-        {topHomeStates.map(([cc, n]) => (
-          <tr><td class="brand"><a href={`/${cc.toLowerCase()}/`}><span class="cc flag">{countryFlag(cc)}</span> {COUNTRY_NAMES[cc] ?? cc}</a></td><td class="datum">{n}</td></tr>
+        {allHomeStates.map(([cc, n]) => (
+          <tr data-country={COUNTRY_NAMES[cc] ?? cc} data-count={n}>
+            <td class="brand"><a href={`/${cc.toLowerCase()}/`}><span class="cc flag">{countryFlag(cc)}</span> {COUNTRY_NAMES[cc] ?? cc}</a></td>
+            <td class="datum">{n}</td>
+          </tr>
         ))}
       </tbody>
     </table>
     </div>
 
-    <h3>A note on data integrity</h3>
+    <h3 id="data-integrity">A note on data integrity</h3>
     <p>Not every official register is clean. Curating the US FinCEN layer, we found 113 candidate
     filings across 47 brand-name searches — but a large share were shell companies impersonating
     well-known exchange brands (see the <a href="/changelog/">changelog</a> and
@@ -173,6 +271,33 @@ const lastSynced = exchanges
     <p><a href="/about/">About</a> · <a href="/contact/">Contact</a> · <a href="/changelog/">Changelog</a> · <a href="/exchanges/">Exchanges</a> · <a href="/regulators/">Regulators</a> · <a href="/stats/">Stats</a> · <a href="/providers/">Providers</a> · <a href="https://x.com/whichcex">X</a></p>
     <p>Independent register. Not affiliated with any regulator. Not financial advice.</p>
   </div></footer>
+
+  <script>
+    // Progressive enhancement: rows are already server-rendered in the
+    // default order, this just reorders them client-side from data-*
+    // attributes, same pattern as the country/exchanges pages.
+    const wireSort = (selectId, tableId, sorters) => {
+      const select = document.getElementById(selectId);
+      const tbody = document.querySelector(`#${tableId} tbody`);
+      if (!select || !tbody) return;
+      const originalRows = [...tbody.querySelectorAll('tr')];
+      select.addEventListener('change', () => {
+        const sorter = sorters[select.value];
+        const rows = [...originalRows];
+        if (sorter) rows.sort(sorter);
+        rows.forEach((r) => tbody.appendChild(r));
+      });
+    };
+
+    wireSort('sort-brands', 'table-brands', {
+      'jurisdictions-desc': (a, b) => Number(b.dataset.jurisdictions) - Number(a.dataset.jurisdictions),
+      'brand': (a, b) => a.dataset.brand.localeCompare(b.dataset.brand),
+    });
+    wireSort('sort-states', 'table-states', {
+      'count-desc': (a, b) => Number(b.dataset.count) - Number(a.dataset.count),
+      'country': (a, b) => a.dataset.country.localeCompare(b.dataset.country),
+    });
+  </script>
 
   <script src="/search.js" defer></script>
 </body>
