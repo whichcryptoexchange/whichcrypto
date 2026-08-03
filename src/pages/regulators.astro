@@ -1,8 +1,9 @@
 ---
-import { loadExchanges, COUNTRY_NAMES, countryFlag } from '../lib/data.js';
+import { loadExchanges, loadRegulatorDetails, COUNTRY_NAMES, countryFlag } from '../lib/data.js';
 import '../styles/global.css';
 
 const exchanges = loadExchanges();
+const activeMiCA = exchanges.filter((ex) => ex.eu_status === 'authorised').length;
 
 const sourceRetrieved = (name) => exchanges
   .flatMap((ex) => ex.sources ?? [])
@@ -39,9 +40,19 @@ const micaRetrieved = sourceRetrieved('ESMA interim MiCA register (CASPS.csv)');
 const eeaRows = Object.entries(homeStateRegulators)
   .map(([cc, v]) => ({ cc, ...v }))
   .sort((a, b) => b.count - a.count);
+
+// "What does each regulator actually check" -- manually researched detail
+// (data/regulator_details.yaml), joined against the live brand counts we
+// already compute above so the tier/scope/capital writeups sit right next
+// to an always-current count and last-checked date, not a stale snapshot.
+const regulatorDetails = loadRegulatorDetails().map((d) => ({
+  ...d,
+  count: d.code === 'MICA' ? activeMiCA : countBrands(d.code),
+  retrieved: d.code === 'MICA' ? micaRetrieved : sourceRetrieved(NON_EEA_SOURCES.find((s) => s.cc === d.code)?.sourceName),
+}));
 const SITEKEY = import.meta.env.PUBLIC_TURNSTILE_SITEKEY || '0x4AAAAAAD84t4OWkoouLP3Y';
 const PAGE_TITLE = 'Crypto Regulators Compared | whichcryptoexchange.com';
-const PAGE_DESC = 'Browse the register by regulator rather than by country: which body granted which crypto exchanges their status, and how many brands each one covers.';
+const PAGE_DESC = 'What each crypto regulator actually checks -- capital, fit-and-proper, AML -- compared side by side, plus how many tracked brands hold each status right now.';
 ---
 <html lang="en">
 <head>
@@ -107,8 +118,11 @@ const PAGE_DESC = 'Browse the register by regulator rather than by country: whic
   <main class="wrap">
     <h1>Regulators</h1>
     <p class="lede">The country pages let you browse by where you live. This page flips it around:
-    which regulatory body actually granted which status, and how many tracked brands sit under
-    each one. See <a href="/about/">About</a> for what each regime does and doesn't mean.</p>
+    which regulatory body actually granted which status, what that body actually checks before
+    granting it, and how many tracked brands sit under each one right now.</p>
+
+    <p class="sourced">Jump to: <a href="#what-they-check">What each regulator checks</a> ·
+    <a href="#non-eea">Non-EU/EEA sources</a> · <a href="#eea">EU/EEA national regulators</a></p>
 
     {SITEKEY && (
       <div class="digest-cta">
@@ -131,7 +145,46 @@ const PAGE_DESC = 'Browse the register by regulator rather than by country: whic
       </div>
     )}
 
-    <h3>Non-EU/EEA sources</h3>
+    <h3 id="what-they-check">What each regulator checks</h3>
+    <p>"Licensed" means something different in every jurisdiction. Before a status appears
+    anywhere on this site, here is what the issuing body actually assesses -- researched against
+    each regulator's own published requirements, not marketing copy. Capital figures move over
+    time; follow the source link for the current number.</p>
+
+    <div class="table-scroll">
+    <table class="registry">
+      <thead><tr><th>Regulator</th><th>Tier</th><th>Scope</th><th>Brands</th><th>Last checked</th></tr></thead>
+      <tbody>
+        {regulatorDetails.map((d) => (
+          <tr>
+            <td class="brand"><a href={`#reg-${d.code.toLowerCase()}`}>{d.name}</a></td>
+            <td><span class={`stamp ${d.tier}`}>{d.tier_label}</span></td>
+            <td class="datum">{d.scope}</td>
+            <td class="datum">{d.count}</td>
+            <td class="datum">{d.retrieved ?? '—'}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+    </div>
+
+    {regulatorDetails.map((d) => (
+      <div class={`record regulator-detail tier-${d.tier}`} id={`reg-${d.code.toLowerCase()}`}>
+        <h3>{d.name} <span class={`stamp ${d.tier}`}>{d.tier_label}</span></h3>
+        <dl>
+          <dt>Scope</dt><dd>{d.scope}</dd>
+          <dt>Capital</dt><dd>{d.capital}</dd>
+        </dl>
+        <p class="checks-label">What it checks:</p>
+        <ul>
+          {d.checks.map((c) => <li>{c}</li>)}
+        </ul>
+        {d.note && <p class="sourced">{d.note}</p>}
+        <p class="sourced">Source: <a href={d.source_url}>{d.source_url}</a> — reviewed {d.verified}.</p>
+      </div>
+    ))}
+
+    <h3 id="non-eea">Non-EU/EEA sources</h3>
     <div class="table-scroll">
     <table class="registry">
       <thead><tr><th>Regulator</th><th>Regime</th><th>Tier</th><th>Brands</th><th>Last checked</th></tr></thead>
@@ -149,7 +202,7 @@ const PAGE_DESC = 'Browse the register by regulator rather than by country: whic
     </table>
     </div>
 
-    <h3>EU/EEA national regulators (MiCA home-state authorisation)</h3>
+    <h3 id="eea">EU/EEA national regulators (MiCA home-state authorisation)</h3>
     <p>A MiCA authorisation is granted by one national regulator (the brand's "home state") and
     then passports across the whole EU/EEA — the same licence, {eeaRows.length} different
     authorising bodies. Source: <a href="https://www.esma.europa.eu/esmas-activities/digital-finance-and-innovation/markets-crypto-assets-regulation-mica">ESMA interim MiCA register</a>,

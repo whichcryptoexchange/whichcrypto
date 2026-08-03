@@ -1,0 +1,113 @@
+# What each regulator actually checks before granting status -- manually
+# researched against primary/authoritative sources (not auto-synced, since
+# this describes the regime itself rather than which brands hold it; see
+# each entry's source_url and verified date). Capital figures in particular
+# change over time -- treat these as "as of last review", and follow
+# source_url for the current figure.
+- code: MICA
+  name: EU/EEA MiCA CASP Authorisation
+  tier: licensed
+  tier_label: Genuine licence
+  scope: Single-state authorisation, passports across the whole EU/EEA
+  capital: "EUR 50,000-150,000 minimum paid-up capital (varies by service), or one quarter of the prior year's fixed overheads, whichever is higher"
+  checks:
+    - Fit-and-proper assessment of the management body and qualifying shareholders
+    - A written AML/CTF programme
+    - Safeguarding arrangements for client funds and crypto-assets
+    - IT security, business continuity, and operational readiness
+    - Conflicts-of-interest policy and market-integrity rules
+  source_url: https://www.esma.europa.eu/esmas-activities/digital-finance-and-innovation/markets-crypto-assets-regulation-mica
+  verified: '2026-08-03'
+- code: GB
+  name: UK Financial Conduct Authority (FCA)
+  tier: gb-registered
+  tier_label: AML-only registration (mixed with some full authorisation)
+  scope: UK only, no passporting
+  capital: "No minimum capital specified -- the FCA asks for realistic financial information matched to the business model, not a prescribed figure"
+  checks:
+    - Fit-and-proper assessment of owners, senior managers, and the MLRO
+    - A written AML/CTF/CPF risk assessment (business-wide and per-customer)
+    - Configured transaction-monitoring tooling, on-chain and off-chain
+    - Evidence the AML control framework is already operational, not just planned
+  note: A smaller number of UK entities are separately, fully FCA-authorised (SM&CR applies) -- a broader regime, but usually for a different, non-crypto activity.
+  source_url: https://www.fca.org.uk/firms/cryptoassets/application-registration
+  verified: '2026-08-03'
+- code: CA
+  name: Canada FINTRAC
+  tier: gb-registered
+  tier_label: AML-only registration
+  scope: Federal registration only -- does not cover CIRO investment-dealer or provincial securities-dealer registration
+  capital: "No minimum capital requirement"
+  checks:
+    - A compliance officer and written policies and procedures
+    - A documented risk assessment
+    - An ongoing staff training programme
+    - An independent effectiveness review at least every two years
+    - Large virtual-currency-transaction and suspicious-transaction reporting
+  source_url: https://fintrac-canafe.canada.ca/msb-esm/msb-eng
+  verified: '2026-08-03'
+- code: AE
+  name: Dubai Virtual Assets Regulatory Authority (VARA)
+  tier: licensed
+  tier_label: Genuine licence
+  scope: Dubai only -- VARA has no authority over Abu Dhabi, Dubai's own DIFC free zone, or the rest of the UAE
+  capital: "AED 100,000 (advisory services) up to AED 5,000,000 (exchange operation), varying across VARA's seven licensed activity categories"
+  checks:
+    - Two Responsible Individuals, UAE-resident and assessed fit-and-proper
+    - AML/CFT policies and risk controls
+    - Cybersecurity and technology architecture documentation
+    - Client-asset segregation arrangements
+    - Market-surveillance obligations for exchange operators specifically
+  source_url: https://www.vara.ae/en/licenses-and-register/licence-applications/
+  verified: '2026-08-03'
+- code: SG
+  name: Singapore Monetary Authority (MAS)
+  tier: licensed
+  tier_label: Genuine licence
+  scope: Singapore only
+  capital: "SGD 250,000 base capital for a Major Payment Institution, plus a security deposit of SGD 100,000-200,000 depending on transaction volume"
+  checks:
+    - AML/CFT controls aligned to MAS Notice PSN02, including travel-rule compliance for token transfers
+    - A Singapore-incorporated company with a resident CEO and at least one resident executive director
+    - Technology risk management standards
+  note: MAS typically allows 9-15 months from a complete application to approval.
+  source_url: https://www.mas.gov.sg/regulation/payment-services
+  verified: '2026-08-03'
+- code: US
+  name: US FinCEN
+  tier: gb-registered
+  tier_label: AML-only registration
+  scope: Federal registration only -- does not cover the up to 50 separate state-level money transmitter licensing regimes
+  capital: "No minimum capital requirement at the federal level"
+  checks:
+    - A written AML programme under 31 CFR 1022.210-- internal controls, a compliance officer, staff training, and an independent review
+    - Suspicious Activity Report filing for transactions of $2,000 or more with a plausible illicit link
+    - Re-registration every two years via FinCEN Form 107
+  note: This register also has a known fraud problem -- see our About page for the shell-company pattern we found and excluded during curation.
+  source_url: https://www.fincen.gov/money-services-business-msb-registration
+  verified: '2026-08-03'
+- code: HK
+  name: Hong Kong Securities and Futures Commission (SFC)
+  tier: licensed
+  tier_label: Genuine licence
+  scope: Hong Kong only
+  capital: "Reported to require HK$5,000,000 paid-up share capital, liquid capital of the higher of HK$3,000,000 or the regulatory 'basic amount', and 12 months' operating expenses held in liquid Hong Kong assets (not virtual assets)"
+  checks:
+    - Fit-and-proper Responsible Officers and Managers-in-Charge, with set qualification/experience thresholds
+    - Dual licensing -- Type 1 (dealing in securities) and Type 7 (automated trading services) for platforms trading security tokens, or a separate AMLO Part 5B licence for non-security tokens only
+    - Custody and client-asset safeguarding rules
+    - Token due-diligence before listing
+  source_url: https://www.sfc.hk/en/Regulatory-functions/Intermediaries/Licensing/Do-you-need-a-licence-or-registration
+  verified: '2026-08-03'
+- code: GI
+  name: Gibraltar Financial Services Commission (GFSC)
+  tier: licensed
+  tier_label: Genuine licence (manually verified -- see About)
+  scope: Gibraltar only
+  capital: "No fixed minimum published -- principles-based 'adequate financial and non-financial resources' requirement instead of a set figure"
+  checks:
+    - A 10-principle framework -- honesty and integrity, fair treatment and clear communication with customers, adequate financial resources, sound risk management, safe custody and segregation of client assets, robust systems and security, effective corporate governance, resolution/recovery planning, AML/CFT, and market integrity
+    - Gibraltar incorporation or a registered branch with a genuine local presence
+    - A qualified, appointed MLRO
+  source_url: https://www.gibraltarlaw.com/insights/dlt-regulation-gibraltar/
+  verified: '2026-08-03'

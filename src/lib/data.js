@@ -35,6 +35,15 @@ export function loadProviders() {
     .sort((a, b) => a.name.localeCompare(b.name));
 }
 
+// What each regulator actually checks before granting status -- manually
+// researched reference content, not brand data, so it lives in its own file
+// rather than data/exchanges/*.yaml. See data/regulator_details.yaml for the
+// verified date and source per entry.
+export function loadRegulatorDetails() {
+  const file = path.resolve('data/regulator_details.yaml');
+  return yaml.load(fs.readFileSync(file, 'utf8')) || [];
+}
+
 export function countriesInData(exchanges) {
   const set = new Set();
   for (const ex of exchanges) for (const c of Object.keys(ex.countries || {})) set.add(c);
