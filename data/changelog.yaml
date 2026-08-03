@@ -1,6 +1,70 @@
 # Public changelog, shown at /changelog/. Append newest entries at the top.
 # Written for an external reader (journalists, analysts, exchanges) --
 # describe what changed and why it matters, not the internal commit.
+- date: "2026-08-03"
+  title: "What does each regulator actually check? A side-by-side comparison"
+  body: >
+    "Licensed" means something different in every jurisdiction, so the
+    Regulators page now explains what each of the 8 regimes we track
+    actually assesses before granting status -- typical capital
+    requirements, fit-and-proper tests, AML programme expectations, and
+    jurisdictional scope -- researched against each regulator's own
+    published requirements, with a source link and review date on every
+    entry. Sits next to a live count of how many tracked brands currently
+    hold each status, so the write-up never goes stale even if the
+    underlying figures do.
+- date: "2026-08-01"
+  title: "A weekly email digest of every regulatory change, register-wide"
+  body: >
+    A new opt-in weekly email summarising every status change across the
+    whole register, for anyone who would rather get one email a week than
+    check back here. Double opt-in like the per-exchange alerts below --
+    nothing is sent until the address itself confirms -- and every email
+    carries a one-click unsubscribe.
+- date: "2026-08-01"
+  title: "Watch a specific exchange, and get an email if its status changes"
+  body: >
+    Every exchange page now has a "get an email if this changes" option.
+    Double opt-in (nothing is created until you click the confirmation
+    link sent to your inbox), no login needed to unsubscribe, and we never
+    share the address with the exchange itself or any third party -- full
+    detail on the About page.
+- date: "2026-08-01"
+  title: "Expanded /stats/ with more breakdowns, and per-record structured data"
+  body: >
+    The stats page now breaks figures down by licence type and by MiCA
+    service code, lists all EU/EEA home states rather than just the top
+    10, and adds sortable tables. Separately, every verified licence
+    record on an exchange page now carries schema.org Certification
+    markup, so search engines and other machine readers can parse exactly
+    what was verified, by whom, and since when -- not just read it as
+    plain text.
+- date: "2026-07-31"
+  title: "New /regulators/ page: browse by regulatory body, not by country"
+  body: >
+    The country pages let you browse by where you live; this flips it
+    around -- which regulator granted which status, and how many tracked
+    brands sit under each one, including a full breakdown of the 26+
+    different national authorities that each grant the same MiCA licence
+    across the EU/EEA.
+- date: "2026-07-31"
+  title: "Technology Provider Profiles: a new, clearly separate editorial section"
+  body: >
+    Some crypto apps aren't licensed themselves -- they sit on top of a
+    licensed custodian or execution partner who is. The new /providers/
+    section profiles two of these (CryptoUnity, relying on BitGo; Nexo,
+    relying on Tangany and DLT Securities GmbH), naming the real partner
+    and linking through to their verified status. Deliberately kept
+    visually and structurally separate from the register itself, with
+    every fact tagged as independently verified or company-disclosed.
+- date: "2026-07-31"
+  title: "A plain-English summary on every exchange page"
+  body: >
+    Above the record-by-record detail, each exchange page now opens with
+    a short summary sentence -- when we first saw the brand, how many
+    jurisdictions and legal entities it holds, and whether its status
+    anywhere is a genuine licence or AML-only registration -- before you
+    get into the underlying records yourself.
 - date: "2026-07-31"
   title: "New top nav bar, and an Exchanges index listing every tracked brand"
   body: >
