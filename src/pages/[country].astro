@@ -52,43 +52,56 @@ const jurisdictionCount = (ex) => Object.keys(ex.countries ?? {}).length;
 const tiersOnPage = isNonEEA
   ? [...new Set(rows.flatMap(({ c }) => c.map((e) => e.status)))]
   : [];
+const YEAR = new Date().getFullYear();
+const PAGE_TITLE = isGB
+  ? `UK Crypto Exchanges: Registered or Authorised | whichcryptoexchange.com`
+  : isCA
+  ? `Crypto exchanges registered in Canada (${YEAR}) | whichcryptoexchange.com`
+  : isAE
+  ? `Crypto exchanges licensed in Dubai (${YEAR}) | whichcryptoexchange.com`
+  : isSG
+  ? `Crypto exchanges licensed in Singapore (${YEAR}) | whichcryptoexchange.com`
+  : isUS
+  ? `US Crypto Exchanges: FinCEN MSB Registered | whichcryptoexchange.com`
+  : isHK
+  ? `Crypto exchanges licensed in Hong Kong (${YEAR}) | whichcryptoexchange.com`
+  : isGI
+  ? `Crypto exchanges licensed in Gibraltar (${YEAR}) | whichcryptoexchange.com`
+  : `Crypto exchanges licensed in ${name} (${YEAR}) | whichcryptoexchange.com`;
+const PAGE_DESC = isGB
+  ? `${rows.length} crypto exchanges hold a UK FCA registration or authorisation, according to the official FCA Register. See which entity, which regime, and since when.`
+  : isCA
+  ? `${rows.length} crypto exchanges hold a Canada FINTRAC MSB registration, according to the official FINTRAC registry. See which entity and since when.`
+  : isAE
+  ? `${rows.length} crypto exchanges hold a VARA VASP Licence covering Dubai specifically — not the rest of the UAE. See which entity, which activities, and since when.`
+  : isSG
+  ? `${rows.length} crypto exchanges hold a MAS Major Payment Institution licence for Digital Payment Token services, according to the official MAS Financial Institutions Directory.`
+  : isUS
+  ? `${rows.length} crypto exchanges hold a US FinCEN MSB registration, according to the official FinCEN MSB Registrant Search. See which entity and since when.`
+  : isHK
+  ? `${rows.length} crypto exchanges hold a Hong Kong SFC Virtual Asset Trading Platform licence, according to the official SFC list. See which entity and since when.`
+  : isGI
+  ? `${rows.length} crypto exchanges hold a Gibraltar DLT Licence, according to the GFSC's DLT Providers list.`
+  : `${rows.length} crypto exchanges hold a licence covering ${name}, according to official regulator registers. See which entity, which regime, and since when.`;
 ---
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>{isGB
-    ? `Crypto exchanges registered or authorised in the UK (${new Date().getFullYear()}) | whichcryptoexchange.com`
-    : isCA
-    ? `Crypto exchanges registered in Canada (${new Date().getFullYear()}) | whichcryptoexchange.com`
-    : isAE
-    ? `Crypto exchanges licensed in Dubai (${new Date().getFullYear()}) | whichcryptoexchange.com`
-    : isSG
-    ? `Crypto exchanges licensed in Singapore (${new Date().getFullYear()}) | whichcryptoexchange.com`
-    : isUS
-    ? `Crypto exchanges registered with FinCEN in the US (${new Date().getFullYear()}) | whichcryptoexchange.com`
-    : isHK
-    ? `Crypto exchanges licensed in Hong Kong (${new Date().getFullYear()}) | whichcryptoexchange.com`
-    : isGI
-    ? `Crypto exchanges licensed in Gibraltar (${new Date().getFullYear()}) | whichcryptoexchange.com`
-    : `Crypto exchanges licensed in ${name} (${new Date().getFullYear()}) | whichcryptoexchange.com`}</title>
-  <meta name="description" content={isGB
-    ? `${rows.length} crypto exchanges hold a UK FCA registration or authorisation, according to the official FCA Register. See which entity, which regime, and since when.`
-    : isCA
-    ? `${rows.length} crypto exchanges hold a Canada FINTRAC MSB registration, according to the official FINTRAC registry. See which entity and since when.`
-    : isAE
-    ? `${rows.length} crypto exchanges hold a VARA VASP Licence covering Dubai specifically — not the rest of the UAE. See which entity, which activities, and since when.`
-    : isSG
-    ? `${rows.length} crypto exchanges hold a MAS Major Payment Institution licence for Digital Payment Token services, according to the official MAS Financial Institutions Directory.`
-    : isUS
-    ? `${rows.length} crypto exchanges hold a US FinCEN MSB registration, according to the official FinCEN MSB Registrant Search. See which entity and since when.`
-    : isHK
-    ? `${rows.length} crypto exchanges hold a Hong Kong SFC Virtual Asset Trading Platform licence, according to the official SFC list. See which entity and since when.`
-    : isGI
-    ? `${rows.length} crypto exchanges hold a Gibraltar DLT Licence, according to the GFSC's DLT Providers list.`
-    : `${rows.length} crypto exchanges hold a licence covering ${name}, according to official regulator registers. See which entity, which regime, and since when.`} />
+  <title>{PAGE_TITLE}</title>
+  <meta name="description" content={PAGE_DESC} />
   <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site)} />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content={new URL(Astro.url.pathname, Astro.site)} />
+  <meta property="og:site_name" content="whichcryptoexchange.com" />
+  <meta property="og:title" content={PAGE_TITLE} />
+  <meta property="og:description" content={PAGE_DESC} />
+  <meta property="og:image" content="https://whichcryptoexchange.com/logo.jpg" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content={PAGE_TITLE} />
+  <meta name="twitter:description" content={PAGE_DESC} />
+  <meta name="twitter:image" content="https://whichcryptoexchange.com/logo.jpg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet" />
   <script src="https://analytics.ahrefs.com/analytics.js" data-key="QTM3lN9yt0oU0rxrj5zadA" async></script>

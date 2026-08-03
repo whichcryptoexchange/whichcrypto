@@ -14,6 +14,8 @@ const usExchanges = exchanges.filter((e) => e.countries?.US);
 const hkExchanges = exchanges.filter((e) => e.countries?.HK);
 const giExchanges = exchanges.filter((e) => e.countries?.GI);
 const SITEKEY = import.meta.env.PUBLIC_TURNSTILE_SITEKEY || '0x4AAAAAAD84t4OWkoouLP3Y';
+const PAGE_TITLE = 'Is Your Crypto Exchange Licensed? | whichcryptoexchange.com';
+const PAGE_DESC = 'Check which crypto exchanges are licensed in your country -- built from 8 official regulator registers (MiCA, FCA, VARA & more). No rankings, just receipts.';
 ---
 <html lang="en">
 <head>
@@ -21,9 +23,19 @@ const SITEKEY = import.meta.env.PUBLIC_TURNSTILE_SITEKEY || '0x4AAAAAAD84t4OWkoo
   <meta name="impact-site-verification" value="6775223e-6d45-454d-a8db-428c23ccf104" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Which crypto exchanges are officially registered or licensed where you live? | whichcryptoexchange.com</title>
-  <meta name="description" content={`Check which crypto exchanges are licensed in your country. Built from official regulator registers — currently tracking ${exchanges.length} exchanges across the ESMA MiCA register, the UK FCA Register, the Canada FINTRAC MSB Registry, Dubai's VARA Public Register, Singapore's MAS Financial Institutions Directory, the US FinCEN MSB Registrant Search, the Hong Kong SFC VATP List, and Gibraltar's GFSC DLT Providers List.`} />
+  <title>{PAGE_TITLE}</title>
+  <meta name="description" content={PAGE_DESC} />
   <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site)} />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content={new URL(Astro.url.pathname, Astro.site)} />
+  <meta property="og:site_name" content="whichcryptoexchange.com" />
+  <meta property="og:title" content={PAGE_TITLE} />
+  <meta property="og:description" content={PAGE_DESC} />
+  <meta property="og:image" content="https://whichcryptoexchange.com/logo.jpg" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content={PAGE_TITLE} />
+  <meta name="twitter:description" content={PAGE_DESC} />
+  <meta name="twitter:image" content="https://whichcryptoexchange.com/logo.jpg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet" />
   <script src="https://analytics.ahrefs.com/analytics.js" data-key="QTM3lN9yt0oU0rxrj5zadA" async></script>
