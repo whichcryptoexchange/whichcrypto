@@ -2,6 +2,20 @@
 # Written for an external reader (journalists, analysts, exchanges) --
 # describe what changed and why it matters, not the internal commit.
 - date: "2026-08-03"
+  title: "Added Japan (FSA Registered Crypto-asset Exchange Service Providers) — a ninth jurisdiction"
+  body: >
+    A Japan FSA registration under the Payment Services Act is a genuine
+    crypto-specific licence -- in force since 2017, one of the earliest
+    dedicated crypto-exchange regimes anywhere, requiring segregated
+    offline custody of at least 95% of customer assets, annual audits,
+    and JVCEA self-regulatory membership. All 26 currently-registered
+    providers are tracked, including 21 newly added as brands in their
+    own right (among them GMO Coin, Rakuten Wallet, SBI VC Trade,
+    bitbank, and Binance's Japanese entity) alongside five brands we
+    already tracked (bitFlyer, Coinbase, Gate.io, HashKey, and OSL).
+    The FSA publishes this register as a structured English-language
+    spreadsheet directly -- no scraping, no bot protection.
+- date: "2026-08-03"
   title: "What does each regulator actually check? A side-by-side comparison"
   body: >
     "Licensed" means something different in every jurisdiction, so the

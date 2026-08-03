@@ -21,7 +21,8 @@ const isSG = code === 'SG';
 const isUS = code === 'US';
 const isHK = code === 'HK';
 const isGI = code === 'GI';
-const isNonEEA = isGB || isCA || isAE || isSG || isUS || isHK || isGI;
+const isJP = code === 'JP';
+const isNonEEA = isGB || isCA || isAE || isSG || isUS || isHK || isGI || isJP;
 const rows = exchanges
   .map((ex) => ({ ex, c: ex.countries?.[code] }))
   .filter((r) => r.c);
@@ -35,6 +36,7 @@ const masRetrieved = sourceRetrieved('Singapore MAS Financial Institutions Direc
 const fincenRetrieved = sourceRetrieved('US FinCEN MSB Registrant Search');
 const sfcRetrieved = sourceRetrieved('Hong Kong SFC VATP List');
 const gfscRetrieved = sourceRetrieved('Gibraltar GFSC DLT Providers List');
+const jpFsaRetrieved = sourceRetrieved('Japan FSA Registered Crypto-asset Exchange Service Providers List');
 // registered/authorised (UK, CA) are AML-only tiers; licensed (AE/Dubai VARA)
 // is a genuine crypto-specific licence, so it gets the same green stamp as
 // EU MiCA rather than the cautious amber/grey UK-style tiers.
@@ -67,6 +69,8 @@ const PAGE_TITLE = isGB
   ? `Crypto exchanges licensed in Hong Kong (${YEAR}) | whichcryptoexchange.com`
   : isGI
   ? `Crypto exchanges licensed in Gibraltar (${YEAR}) | whichcryptoexchange.com`
+  : isJP
+  ? `Crypto exchanges licensed in Japan (${YEAR}) | whichcryptoexchange.com`
   : `Crypto exchanges licensed in ${name} (${YEAR}) | whichcryptoexchange.com`;
 const PAGE_DESC = isGB
   ? `${rows.length} crypto exchanges hold a UK FCA registration or authorisation, according to the official FCA Register. See which entity, which regime, and since when.`
@@ -82,6 +86,8 @@ const PAGE_DESC = isGB
   ? `${rows.length} crypto exchanges hold a Hong Kong SFC Virtual Asset Trading Platform licence, according to the official SFC list. See which entity and since when.`
   : isGI
   ? `${rows.length} crypto exchanges hold a Gibraltar DLT Licence, according to the GFSC's DLT Providers list.`
+  : isJP
+  ? `${rows.length} crypto exchanges hold a Japan FSA Crypto-asset Exchange Service Provider registration, according to the FSA's official registered list.`
   : `${rows.length} crypto exchanges hold a licence covering ${name}, according to official regulator registers. See which entity, which regime, and since when.`;
 ---
 <html lang="en">
@@ -223,6 +229,17 @@ const PAGE_DESC = isGB
         scripted access outright, so this list is refreshed only when someone manually re-checks
         the live page in a browser — it can lag more than the weekly-synced sources elsewhere.</p>
       </>
+    ) : isJP ? (
+      <>
+        <h1>Which crypto exchanges are licensed in Japan?</h1>
+        <p class="lede">{rows.length} exchanges in our register hold a Crypto-asset Exchange Service
+        Provider registration from Japan's Financial Services Agency (FSA), under the Payment
+        Services Act — in force since 2017, one of the earliest dedicated crypto-exchange licensing
+        regimes anywhere. Like Dubai's VARA licence and Singapore's MAS licence, this <em>is</em> a
+        genuine crypto-specific licence — it requires segregated custody of user funds (at least
+        95% held offline), annual audits, and JVCEA self-regulatory membership, not just an
+        AML-only registration.</p>
+      </>
     ) : (
       <>
         <h1>Which crypto exchanges are licensed in {name}?</h1>
@@ -336,6 +353,10 @@ const PAGE_DESC = isGB
       last manually verified {gfscRetrieved} — not on an automated schedule. An exchange missing
       from this list either holds no Gibraltar DLT Licence, isn't yet in our register, or was added
       after this list was last checked.</p>
+    ) : isJP ? (
+      <p class="sourced">Source: <a href="https://www.fsa.go.jp/en/regulated/licensed/index.html">Japan FSA Registered Crypto-asset Exchange Service Providers List</a>,
+      retrieved {jpFsaRetrieved}. An exchange missing from this list either holds no Japan FSA
+      registration, or is not yet in our register.</p>
     ) : (
       <p class="sourced">Source: <a href="https://www.esma.europa.eu/esmas-activities/digital-finance-and-innovation/markets-crypto-assets-regulation-mica">ESMA interim MiCA register</a>,
       retrieved {exchanges[0]?.sources?.[0]?.retrieved}. An exchange missing from this list either

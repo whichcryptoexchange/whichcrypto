@@ -1,0 +1,40 @@
+name: Japan FSA sync
+
+on:
+  schedule:
+    - cron: '0 11 * * 5'   # Fri 11:00 UTC — offset from the other jurisdictions' runs
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.12' }
+      - run: pip install pyyaml
+      - name: Refresh Japan FSA registered crypto-asset exchange data
+        run: python3 scripts/jp_sync.py
+      - name: Open PR if the register changed
+        uses: peter-evans/create-pull-request@v6
+        with:
+          commit-message: "data: Japan FSA sync"
+          title: "Japan FSA update — review changes"
+          body: |
+            Automated refresh of data/jp_reg_map.yaml's pinned registration
+            numbers against the FSA's live "List of Registered Crypto-asset
+            Exchange Service Providers" spreadsheet. This does NOT discover
+            new brands or new registration numbers -- only re-fetches
+            name/date for entities already curated in jp_reg_map.yaml.
+            Review for:
+              - a pinned registration number no longer found in the current
+                list (may have been de-registered -- confirm before merging)
+            A Japan FSA registration is a genuine crypto-specific licence
+            (same tier as VARA/MAS/SFC/GFSC) -- never describe it as an
+            AML-only registration.
+          branch: jp-sync
+          delete-branch: true

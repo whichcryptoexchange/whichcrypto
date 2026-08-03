@@ -1,0 +1,16 @@
+id: btc-box
+brand: BTCBOX
+eu_status: no_eu_entity
+sources:
+- name: Japan FSA Registered Crypto-asset Exchange Service Providers List
+  url: https://www.fsa.go.jp/en/regulated/licensed/index.html
+  retrieved: '2026-08-03'
+entities: []
+countries:
+  JP:
+  - status: licensed
+    regime: Japan FSA Crypto-asset Exchange Service Provider registration
+    via: jp_fsa_register
+    entity: Btc Box Co., Ltd.
+    reference: Kanto No.00008
+    since: '2017-09-29'

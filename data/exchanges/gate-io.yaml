@@ -5,6 +5,9 @@ sources:
 - name: ESMA interim MiCA register (CASPS.csv)
   url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
   retrieved: '2026-07-26'
+- name: Japan FSA Registered Crypto-asset Exchange Service Providers List
+  url: https://www.fsa.go.jp/en/regulated/licensed/index.html
+  retrieved: '2026-08-03'
 entities:
 - lei: 984500D6A0F945BB5A15
   legal_name: Gate Technology Limited
@@ -205,3 +208,10 @@ countries:
     regime: MiCA
     via: mica_passporting
     entity: Gate Technology Limited
+  JP:
+  - status: licensed
+    regime: Japan FSA Crypto-asset Exchange Service Provider registration
+    via: jp_fsa_register
+    entity: Gate Japan Co., Ltd.
+    reference: Kanto No.00018
+    since: '2019-11-27'

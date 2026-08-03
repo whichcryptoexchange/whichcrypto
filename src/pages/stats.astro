@@ -48,6 +48,7 @@ const genuineByRegime = [
   { label: 'Singapore MAS', cc: 'SG', count: exchanges.filter((ex) => (ex.countries?.SG ?? []).some((e) => e.status === 'licensed')).length },
   { label: 'Hong Kong SFC', cc: 'HK', count: exchanges.filter((ex) => (ex.countries?.HK ?? []).some((e) => e.status === 'licensed')).length },
   { label: 'Gibraltar GFSC', cc: 'GI', count: exchanges.filter((ex) => (ex.countries?.GI ?? []).some((e) => e.status === 'licensed')).length },
+  { label: 'Japan FSA', cc: 'JP', count: exchanges.filter((ex) => (ex.countries?.JP ?? []).some((e) => e.status === 'licensed')).length },
 ];
 
 // Which MiCA-authorised services are actually most common -- counted
@@ -73,6 +74,7 @@ const nonEEA = [
   { cc: 'US', label: 'US (FinCEN)' },
   { cc: 'HK', label: 'Hong Kong (SFC)' },
   { cc: 'GI', label: 'Gibraltar (GFSC, manual)' },
+  { cc: 'JP', label: 'Japan (FSA)' },
 ].map(({ cc, label }) => ({
   cc, label,
   count: exchanges.filter((ex) => ex.countries?.[cc]).length,
@@ -115,7 +117,7 @@ const PAGE_DESC = `Live numbers from our register: ${total} exchanges tracked, $
     '@context': 'https://schema.org',
     '@type': 'Dataset',
     name: 'whichcryptoexchange.com crypto exchange regulatory register',
-    description: `Which crypto exchanges hold which regulatory status, in which country, through which legal entity, and since when — sourced from eight official regulator registers. ${total} exchanges tracked.`,
+    description: `Which crypto exchanges hold which regulatory status, in which country, through which legal entity, and since when — sourced from nine official regulator registers. ${total} exchanges tracked.`,
     url: 'https://whichcryptoexchange.com/stats/',
     license: 'https://whichcryptoexchange.com/about/',
     dateModified: lastSynced,
@@ -189,8 +191,8 @@ const PAGE_DESC = `Live numbers from our register: ${total} exchanges tracked, $
     )}
 
     <div class="stat-grid">
-      <div class="stat-card"><div class="stat-num">{total}</div><div class="stat-label">Exchanges tracked across 8 official registers</div></div>
-      <div class="stat-card"><div class="stat-num">{withGenuineLicence}</div><div class="stat-label">Hold at least one genuine crypto-specific licence (EU MiCA, Dubai VARA, Singapore MAS, Hong Kong SFC, or Gibraltar GFSC)</div></div>
+      <div class="stat-card"><div class="stat-num">{total}</div><div class="stat-label">Exchanges tracked across 9 official registers</div></div>
+      <div class="stat-card"><div class="stat-num">{withGenuineLicence}</div><div class="stat-label">Hold at least one genuine crypto-specific licence (EU MiCA, Dubai VARA, Singapore MAS, Hong Kong SFC, Gibraltar GFSC, or Japan FSA)</div></div>
       <div class="stat-card"><div class="stat-num">{amlOnly}</div><div class="stat-label">Hold only AML-supervision registrations, no genuine licence anywhere</div></div>
       <div class="stat-card"><div class="stat-num">{multiJurisdiction}</div><div class="stat-label">Registered or licensed in more than one jurisdiction</div></div>
       <div class="stat-card"><div class="stat-num">{maxJurisdictions}</div><div class="stat-label">Most jurisdictions held by a single brand ({topByJurisdictions[0]?.brand})</div></div>

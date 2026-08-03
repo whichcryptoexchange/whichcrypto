@@ -17,6 +17,9 @@ sources:
 - name: US FinCEN MSB Registrant Search
   url: https://msb.fincen.gov/
   retrieved: '2026-07-27'
+- name: Japan FSA Registered Crypto-asset Exchange Service Providers List
+  url: https://www.fsa.go.jp/en/regulated/licensed/index.html
+  retrieved: '2026-08-03'
 entities:
 - lei: 984500F14CA4571AAC11
   legal_name: Coinbase Luxembourg S.A
@@ -255,3 +258,10 @@ countries:
     entity: Coinbase, Inc.
     reg_number: '29454073'
     since: '2024-11-01'
+  JP:
+  - status: licensed
+    regime: Japan FSA Crypto-asset Exchange Service Provider registration
+    via: jp_fsa_register
+    entity: Coinbase  Co., Ltd.
+    reference: Kanto No.00028
+    since: '2021-06-18'

@@ -111,3 +111,18 @@
     - A qualified, appointed MLRO
   source_url: https://www.gibraltarlaw.com/insights/dlt-regulation-gibraltar/
   verified: '2026-08-03'
+- code: JP
+  name: Japan Financial Services Agency (FSA)
+  tier: licensed
+  tier_label: Genuine licence
+  scope: Japan only
+  capital: "JPY 10,000,000 minimum (roughly USD 65,000), though most applicants report spending USD 1-5 million in total to actually get through the process"
+  checks:
+    - Segregated custody -- at least 95% of customer crypto-assets held in an offline (cold) wallet
+    - Fit-and-proper screening of the CEO, CTO, compliance officer, AML officer, and other key persons, including FSA interviews
+    - A written AML/CFT programme and market-integrity controls
+    - Audited financial statements and asset segregation
+    - JVCEA self-regulatory body membership
+  note: In force since 2017 (post-Mt.Gox) -- one of the earliest dedicated crypto-exchange licensing regimes anywhere, and the source is an official English-language spreadsheet the FSA publishes directly, not a scraped page.
+  source_url: https://www.fsa.go.jp/en/regulated/licensed/index.html
+  verified: '2026-08-03'

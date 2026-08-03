@@ -19,6 +19,7 @@ const SOURCES = [
   { name: 'US FinCEN MSB Registrant Search', label: 'US FinCEN MSB Registrant Search', url: 'https://msb.fincen.gov/' },
   { name: 'Hong Kong SFC VATP List', label: 'Hong Kong SFC VATP List', url: 'https://www.sfc.hk/en/Welcome-to-the-Fintech-Contact-Point/Virtual-assets/Virtual-asset-trading-platforms-operators/Lists-of-virtual-asset-trading-platforms' },
   { name: 'Gibraltar GFSC DLT Providers List', label: 'Gibraltar GFSC DLT Providers List (manually verified)', url: 'https://www.fsc.gi/regulated-entities/dlt-providers-38' },
+  { name: 'Japan FSA Registered Crypto-asset Exchange Service Providers List', label: 'Japan FSA Registered Crypto-asset Exchange Service Providers List', url: 'https://www.fsa.go.jp/en/regulated/licensed/index.html' },
 ].map((s) => ({ ...s, retrieved: sourceRetrieved(s.name) }));
 const PAGE_TITLE = 'How This Crypto Exchange Register Works | whichcryptoexchange.com';
 const PAGE_DESC = "How whichcryptoexchange.com works: which official registers we draw from, how brands are curated, and what 'licensed' does and doesn't mean in each jurisdiction.";
@@ -78,7 +79,7 @@ const PAGE_DESC = "How whichcryptoexchange.com works: which official registers w
     verify it yourself.</p>
 
     <h3>Where the data comes from</h3>
-    <p>We currently draw from eight official sources, each with its own regime and its own meaning
+    <p>We currently draw from nine official sources, each with its own regime and its own meaning
     of "licensed" (or, in some cases, deliberately <em>not</em> licensed):</p>
     <ul>
       <li><strong>ESMA</strong> — the interim MiCA register covering the EU/EEA. A MiCA
@@ -118,6 +119,11 @@ const PAGE_DESC = "How whichcryptoexchange.com works: which official registers w
       protection that blocks scripted access outright, so this list is refreshed only when someone
       manually re-checks the live page in a browser — it can lag more than every other source
       here.</li>
+      <li><strong>Japan FSA Registered Crypto-asset Exchange Service Providers List</strong> — a
+      registration under the Payment Services Act is a genuine crypto-specific licence, the same
+      tier as VARA/MAS/SFC/GFSC, in force since 2017 (one of the earliest dedicated crypto-exchange
+      regimes anywhere). The FSA publishes this as a structured spreadsheet directly, in English —
+      no scraping required.</li>
     </ul>
     <p>Each exchange page cites every source that applies to it, with the date we last checked.</p>
 

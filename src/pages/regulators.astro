@@ -22,6 +22,7 @@ const NON_EEA_SOURCES = [
   { cc: 'US', regulator: 'US FinCEN', regime: 'MSB registration', tier: 'AML-only', sourceName: 'US FinCEN MSB Registrant Search', url: 'https://msb.fincen.gov/' },
   { cc: 'HK', regulator: 'Hong Kong Securities and Futures Commission (SFC)', regime: 'VATP Licence', tier: 'Genuine licence', sourceName: 'Hong Kong SFC VATP List', url: 'https://www.sfc.hk/en/Welcome-to-the-Fintech-Contact-Point/Virtual-assets/Virtual-asset-trading-platforms-operators/Lists-of-virtual-asset-trading-platforms' },
   { cc: 'GI', regulator: 'Gibraltar Financial Services Commission (GFSC)', regime: 'DLT Licence', tier: 'Genuine licence (manually verified)', sourceName: 'Gibraltar GFSC DLT Providers List', url: 'https://www.fsc.gi/regulated-entities/dlt-providers-38' },
+  { cc: 'JP', regulator: 'Japan Financial Services Agency (FSA)', regime: 'Crypto-asset Exchange Service Provider registration', tier: 'Genuine licence', sourceName: 'Japan FSA Registered Crypto-asset Exchange Service Providers List', url: 'https://www.fsa.go.jp/en/regulated/licensed/index.html' },
 ].map((s) => ({ ...s, count: countBrands(s.cc), retrieved: sourceRetrieved(s.sourceName) }));
 
 // EU/EEA: MiCA is one EU-wide regime, but the actual authorising body is

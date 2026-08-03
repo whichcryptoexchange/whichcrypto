@@ -1,0 +1,16 @@
+id: mercury-inc
+brand: Mercury
+eu_status: no_eu_entity
+sources:
+- name: Japan FSA Registered Crypto-asset Exchange Service Providers List
+  url: https://www.fsa.go.jp/en/regulated/licensed/index.html
+  retrieved: '2026-08-03'
+entities: []
+countries:
+  JP:
+  - status: licensed
+    regime: Japan FSA Crypto-asset Exchange Service Provider registration
+    via: jp_fsa_register
+    entity: MERCURY INC.
+    reference: Kanto No.00025
+    since: '2021-02-17'
