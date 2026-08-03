@@ -47,8 +47,8 @@ const rows = exchanges.map((ex) => ({
   since: earliestSince(ex),
 }));
 const SITEKEY = import.meta.env.PUBLIC_TURNSTILE_SITEKEY || '0x4AAAAAAD84t4OWkoouLP3Y';
-const PAGE_TITLE = `All ${exchanges.length} tracked crypto exchanges | whichcryptoexchange.com`;
-const PAGE_DESC = `Browse every crypto exchange and related firm we track (${exchanges.length} total), sortable by jurisdiction count or authorisation date. Every entry links to its full regulatory record.`;
+const PAGE_TITLE = `Crypto Exchange List: ${exchanges.length} Tracked | whichcryptoexchange.com`;
+const PAGE_DESC = `A list of every crypto exchange and related firm we track (${exchanges.length} total), sortable by jurisdiction count or authorisation date. Every entry links to its full regulatory record.`;
 ---
 <html lang="en">
 <head>
@@ -104,9 +104,9 @@ const PAGE_DESC = `Browse every crypto exchange and related firm we track (${exc
   </header>
 
   <main class="wrap">
-    <h1>All tracked exchanges</h1>
-    <p class="lede">Every exchange and related firm in our register, {exchanges.length} total. Click
-    through to any brand for its full regulatory record across every jurisdiction we track.</p>
+    <h1>Crypto exchange list: all tracked exchanges</h1>
+    <p class="lede">A list of every exchange and related firm in our register, {exchanges.length} total.
+    Click through to any brand for its full regulatory record across every jurisdiction we track.</p>
     <p class="sourced">Status is the best evidence found <em>anywhere</em> we track, not just the
     EU: <strong>Licensed</strong> means a genuine crypto-specific licence in at least one
     jurisdiction (a brand can still hold AML-only registrations elsewhere too);
