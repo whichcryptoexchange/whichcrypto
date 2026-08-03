@@ -83,6 +83,11 @@ const PAGE_DESC = "What's changed on whichcryptoexchange.com: new jurisdictions,
           <div>
             <h3>{e.title}</h3>
             <p>{e.body}</p>
+            {e.pages?.length > 0 && (
+              <p class="sourced changelog-pages">Pages: {e.pages.map((p, i) => (
+                <>{i > 0 && ' · '}<a href={p.url}>{p.label}</a></>
+              ))}</p>
+            )}
           </div>
         </li>
       ))}

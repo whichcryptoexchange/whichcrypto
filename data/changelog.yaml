@@ -1,6 +1,11 @@
 # Public changelog, shown at /changelog/. Append newest entries at the top.
 # Written for an external reader (journalists, analysts, exchanges) --
 # describe what changed and why it matters, not the internal commit.
+#
+# Optional `pages` field: the actual page(s) affected, rendered as a small
+# link row under the body. Genuine internal linking, not just narration --
+# omit it when a change is site-wide (search, sort controls) and there's no
+# single honest page to point at, rather than force a link that doesn't fit.
 - date: "2026-08-03"
   title: "Added Japan (FSA Registered Crypto-asset Exchange Service Providers) — a ninth jurisdiction"
   body: >
@@ -15,6 +20,10 @@
     already tracked (bitFlyer, Coinbase, Gate.io, HashKey, and OSL).
     The FSA publishes this register as a structured English-language
     spreadsheet directly -- no scraping, no bot protection.
+  pages:
+    - { url: /jp/, label: Japan }
+    - { url: /exchange/binance/, label: Binance }
+    - { url: /exchange/gmo-coin/, label: GMO Coin }
 - date: "2026-08-03"
   title: "What does each regulator actually check? A side-by-side comparison"
   body: >
@@ -27,6 +36,8 @@
     entry. Sits next to a live count of how many tracked brands currently
     hold each status, so the write-up never goes stale even if the
     underlying figures do.
+  pages:
+    - { url: /regulators/, label: Regulators }
 - date: "2026-08-01"
   title: "A weekly email digest of every regulatory change, register-wide"
   body: >
@@ -35,6 +46,9 @@
     check back here. Double opt-in like the per-exchange alerts below --
     nothing is sent until the address itself confirms -- and every email
     carries a one-click unsubscribe.
+  pages:
+    - { url: /, label: Home }
+    - { url: /about/, label: About }
 - date: "2026-08-01"
   title: "Watch a specific exchange, and get an email if its status changes"
   body: >
@@ -43,6 +57,9 @@
     link sent to your inbox), no login needed to unsubscribe, and we never
     share the address with the exchange itself or any third party -- full
     detail on the About page.
+  pages:
+    - { url: /about/, label: About }
+    - { url: /exchange/kraken/, label: "Example: Kraken" }
 - date: "2026-08-01"
   title: "Expanded /stats/ with more breakdowns, and per-record structured data"
   body: >
@@ -53,6 +70,8 @@
     markup, so search engines and other machine readers can parse exactly
     what was verified, by whom, and since when -- not just read it as
     plain text.
+  pages:
+    - { url: /stats/, label: Stats }
 - date: "2026-07-31"
   title: "New /regulators/ page: browse by regulatory body, not by country"
   body: >
@@ -61,6 +80,8 @@
     brands sit under each one, including a full breakdown of the 26+
     different national authorities that each grant the same MiCA licence
     across the EU/EEA.
+  pages:
+    - { url: /regulators/, label: Regulators }
 - date: "2026-07-31"
   title: "Technology Provider Profiles: a new, clearly separate editorial section"
   body: >
@@ -71,6 +92,10 @@
     and linking through to their verified status. Deliberately kept
     visually and structurally separate from the register itself, with
     every fact tagged as independently verified or company-disclosed.
+  pages:
+    - { url: /providers/, label: Providers }
+    - { url: /providers/cryptounity/, label: CryptoUnity }
+    - { url: /providers/nexo/, label: Nexo }
 - date: "2026-07-31"
   title: "A plain-English summary on every exchange page"
   body: >
@@ -79,6 +104,8 @@
     jurisdictions and legal entities it holds, and whether its status
     anywhere is a genuine licence or AML-only registration -- before you
     get into the underlying records yourself.
+  pages:
+    - { url: /exchange/kraken/, label: "Example: Kraken" }
 - date: "2026-07-31"
   title: "New top nav bar, and an Exchanges index listing every tracked brand"
   body: >
@@ -90,6 +117,8 @@
     this is the first single page that links to all of them, and it also
     closes a real internal-linking gap for search engines crawling the
     site.
+  pages:
+    - { url: /exchanges/, label: Exchanges }
 - date: "2026-07-31"
   title: "Added Gibraltar (GFSC DLT Licence) — our first manually-verified jurisdiction"
   body: >
@@ -102,6 +131,9 @@
     refreshed only when someone manually re-checks the live page in a
     browser -- flagged clearly on the Gibraltar page and everywhere else
     it's mentioned, since it can lag more than every other source here.
+  pages:
+    - { url: /gi/, label: Gibraltar }
+    - { url: /exchange/bullish/, label: Bullish }
 - date: "2026-07-30"
   title: "Added Hong Kong (SFC Virtual Asset Trading Platform licence) — all 13 licensees"
   body: >
@@ -117,6 +149,9 @@
     curating this also fixed a naming quirk where that brand had been
     auto-labelled "OSL EU" everywhere on the site, including for its
     non-EU activity.
+  pages:
+    - { url: /hk/, label: Hong Kong }
+    - { url: /exchange/osl-eu/, label: OSL }
 - date: "2026-07-30"
   title: "New /stats/ page, structured data, and a public X account"
   body: >
@@ -126,6 +161,8 @@
     finding). Also added schema.org structured data (Organization, Dataset,
     BreadcrumbList) so search engines can parse the register as what it
     actually is, and a public X account, @whichcex, for source updates.
+  pages:
+    - { url: /stats/, label: Stats }
 - date: "2026-07-28"
   title: "Site-wide search, covering both exchanges and countries"
   body: >
@@ -144,6 +181,9 @@
     on purpose -- see the About page and the US country page for the full
     explanation. As with Canada, MSB registration is anti-money-laundering
     supervision only, not a licence.
+  pages:
+    - { url: /us/, label: US }
+    - { url: /about/, label: About }
 - date: "2026-07-27"
   title: "Sort and tier-filter controls on every country page"
   body: >
@@ -151,6 +191,8 @@
     number of jurisdictions held, or by services offered, and filtered by
     regulatory tier (e.g. UK Registered vs Authorised) where a page mixes
     more than one.
+  pages:
+    - { url: /gb/, label: "Example: UK" }
 - date: "2026-07-26"
   title: "Added Singapore (MAS Financial Institutions Directory)"
   body: >
@@ -158,6 +200,8 @@
     Token services are now tracked -- a genuine crypto-specific licence,
     like Dubai's VARA licence and unlike the UK/Canada/US AML-only
     registrations.
+  pages:
+    - { url: /sg/, label: Singapore }
 - date: "2026-07-26"
   title: "Added Dubai (VARA Public Register)"
   body: >
@@ -165,12 +209,16 @@
     crypto-specific, but covers Dubai only -- not Abu Dhabi, not Dubai's own
     DIFC free zone, not the rest of the UAE. There is no single UAE-wide
     crypto regulator, and the /ae/ page says so explicitly.
+  pages:
+    - { url: /ae/, label: Dubai }
 - date: "2026-07-26"
   title: "Added Canada (FINTRAC MSB Registry)"
   body: >
     Canada's Money Services Business registration is anti-money-laundering
     supervision only, not a licence -- Canada has no dedicated cryptoasset
     licensing regime at all.
+  pages:
+    - { url: /ca/, label: Canada }
 - date: "2026-07-24"
   title: "Added the UK (FCA Register)"
   body: >
@@ -180,9 +228,13 @@
     brands also have a UK entity that's separately, fully FCA-authorised,
     usually for a different (non-crypto) activity. Both tiers are shown,
     clearly labelled.
+  pages:
+    - { url: /gb/, label: UK }
 - date: "2026-07-24"
   title: "Launch: ESMA-fed MiCA register, 13 seeded brands, 30 EU/EEA country pages"
   body: >
     The initial release, drawing directly from ESMA's interim MiCA register
     (CASPS.csv) with automated scheduled re-syncs and a reviewed
     pull-request workflow for every data update.
+  pages:
+    - { url: /, label: Home }

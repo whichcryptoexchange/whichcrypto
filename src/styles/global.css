@@ -355,6 +355,7 @@ h3:first-child { margin-top: 0; }
 .changelog-date { font-size: 13px; color: var(--ink-soft); padding-top: 3px; }
 .changelog-entry h3 { margin: 0 0 6px; font-family: var(--display); font-size: 17px; }
 .changelog-entry p { margin: 0; color: var(--ink-soft); max-width: 62ch; }
+.changelog-entry .changelog-pages { margin-top: 8px; }
 /* Exchange page record blocks */
 .record {
   background: var(--card);
