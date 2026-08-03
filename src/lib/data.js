@@ -66,7 +66,7 @@ export const COUNTRY_NAMES = {
   LU: 'Luxembourg', LV: 'Latvia', MT: 'Malta', NL: 'Netherlands',
   NO: 'Norway', PL: 'Poland', PT: 'Portugal', RO: 'Romania', SE: 'Sweden',
   SI: 'Slovenia', SK: 'Slovakia',
-  GB: 'United Kingdom', CA: 'Canada', AE: 'United Arab Emirates (Dubai only)',
+  GB: 'United Kingdom', CA: 'Canada', AE: 'UAE (Dubai Only)',
   SG: 'Singapore', US: 'United States', HK: 'Hong Kong', GI: 'Gibraltar',
 };
 
