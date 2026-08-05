@@ -32,9 +32,6 @@ jobs:
             still on the current registered list. Review for:
               - a pinned entity no longer found on the current list (may
                 have been cancelled -- confirm before merging)
-              - any NEW press release naming a currently-tracked brand as
-                an unregistered illegal handler (see the existing caveat
-                pattern on Wavebridge Prime/Bauman/Robit/ABC Cloud Wallet)
             A Korea FIU VASP registration is AML/CFT reporting only, not a
             business licence -- same tier as UK/Canada/US, never describe
             it as a genuine crypto-specific licence.

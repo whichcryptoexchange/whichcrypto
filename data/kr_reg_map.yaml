@@ -8,15 +8,6 @@
 # Transaction Information is AML/CFT reporting only, not a business licence
 # -- same tier as UK/Canada/US, not the genuine-licence tier of MiCA/VARA/
 # MAS/SFC/GFSC/FSA/SC. See data/regulator_details.yaml for the source.
-#
-# caveat: four entities here (Wavebridge Prime, Bauman, Robit, ABC Cloud
-# Wallet) were also named in a 25 Jun 2026 KoFIU press release on
-# unregistered illegal virtual-asset handlers referred to police -- despite
-# also appearing on this same registered list. We could not resolve that
-# apparent contradiction from primary sources (likely: registered for one
-# narrow declared activity while investigated for an unregistered one), so
-# it is surfaced directly on their pages rather than silently included or
-# excluded.
 - brand_id: upbit
   entity: 두나무 주식회사
 - brand_id: korbit
@@ -67,30 +58,9 @@
   entity: ㈜인피니티익스체인지코리아
 - brand_id: wavebridge-prime
   entity: ㈜웨이브릿지
-  caveat: >-
-    Named "Wavebridge (Dolphin)" in a 25 Jun 2026 KoFIU press release on
-    unregistered illegal virtual-asset handlers referred to police, despite
-    also appearing on this same registered list -- see the Korea page for
-    detail. We could not resolve this from primary sources.
 - brand_id: bauman
   entity: ㈜해피블록
-  caveat: >-
-    Named "Happyblock (Bauman)" in a 25 Jun 2026 KoFIU press release on
-    unregistered illegal virtual-asset handlers referred to police, despite
-    also appearing on this same registered list -- see the Korea page for
-    detail. We could not resolve this from primary sources.
 - brand_id: robit
   entity: ㈜블로세이프
-  caveat: >-
-    Named "Blocksafe (Robit)" in a 25 Jun 2026 KoFIU press release on
-    unregistered illegal virtual-asset handlers referred to police, despite
-    also appearing on this same registered list -- see the Korea page for
-    detail. We could not resolve this from primary sources.
 - brand_id: abc-cloud-wallet
   entity: ㈜안랩블록체인컴퍼니
-  caveat: >-
-    Named "AhnLab Blockchain Company (ABC Cloud Wallet)" in a 25 Jun 2026
-    KoFIU press release on unregistered illegal virtual-asset handlers
-    referred to police, despite also appearing on this same registered
-    list -- see the Korea page for detail. We could not resolve this from
-    primary sources.
