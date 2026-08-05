@@ -48,11 +48,11 @@ REMOVED = "Removed from the register"
 # Display order for sections that have any content -- anything not listed
 # here (a future jurisdiction not yet added below) still renders, just
 # after these, sorted alphabetically by code.
-GROUP_ORDER = [NEW_ENTRIES, EEA_GROUP, "GB", "CA", "AE", "SG", "US", "HK", "GI", "JP", REMOVED]
+GROUP_ORDER = [NEW_ENTRIES, EEA_GROUP, "GB", "CA", "AE", "SG", "US", "HK", "GI", "JP", "MY", REMOVED]
 GROUP_LABELS = {
     "GB": "United Kingdom (FCA)", "CA": "Canada (FINTRAC)", "AE": "Dubai (VARA)",
     "SG": "Singapore (MAS)", "US": "United States (FinCEN)", "HK": "Hong Kong (SFC)",
-    "GI": "Gibraltar (GFSC)", "JP": "Japan (FSA)",
+    "GI": "Gibraltar (GFSC)", "JP": "Japan (FSA)", "MY": "Malaysia (SC)",
 }
 
 

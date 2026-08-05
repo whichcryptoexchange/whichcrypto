@@ -1,0 +1,15 @@
+id: sinegy
+brand: Sinegy
+eu_status: no_eu_entity
+sources:
+- name: Malaysia SC List of Registered Digital Asset Exchanges
+  url: https://www.sc.com.my/regulation/guidelines/recognizedmarkets/list-of-registered-digital-asset-exchanges
+  retrieved: '2026-08-03'
+entities: []
+countries:
+  MY:
+  - status: licensed
+    regime: Malaysia SC Recognized Market Operator - Digital Asset Exchange
+    via: my_sc_register
+    entity: SINEGY DAX Sdn Bhd
+    since: null

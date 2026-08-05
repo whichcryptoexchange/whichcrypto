@@ -1,0 +1,15 @@
+# Pinned Malaysia SC registered legal entity names -> brand_id.
+# scripts/my_sync.py re-fetches each pinned entity's presence/address from
+# the live "List of Registered Digital Asset Exchanges" table and writes it
+# into that brand's countries.MY entry -- it does not auto-discover new
+# brands, same pattern as sfc_reg_map.yaml/jp_reg_map.yaml.
+- brand_id: hata
+  entity: HATA Digital Sdn Bhd
+- brand_id: luno
+  entity: Luno Malaysia Sdn. Bhd.
+- brand_id: mx-global
+  entity: MX Global Sdn Bhd
+- brand_id: sinegy
+  entity: SINEGY DAX Sdn Bhd
+- brand_id: kdx
+  entity: Kinetic DAX Sdn Bhd

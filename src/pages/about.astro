@@ -20,6 +20,7 @@ const SOURCES = [
   { name: 'Hong Kong SFC VATP List', label: 'Hong Kong SFC VATP List', url: 'https://www.sfc.hk/en/Welcome-to-the-Fintech-Contact-Point/Virtual-assets/Virtual-asset-trading-platforms-operators/Lists-of-virtual-asset-trading-platforms' },
   { name: 'Gibraltar GFSC DLT Providers List', label: 'Gibraltar GFSC DLT Providers List (manually verified)', url: 'https://www.fsc.gi/regulated-entities/dlt-providers-38' },
   { name: 'Japan FSA Registered Crypto-asset Exchange Service Providers List', label: 'Japan FSA Registered Crypto-asset Exchange Service Providers List', url: 'https://www.fsa.go.jp/en/regulated/licensed/index.html' },
+  { name: 'Malaysia SC List of Registered Digital Asset Exchanges', label: 'Malaysia SC List of Registered Digital Asset Exchanges', url: 'https://www.sc.com.my/regulation/guidelines/recognizedmarkets/list-of-registered-digital-asset-exchanges' },
 ].map((s) => ({ ...s, retrieved: sourceRetrieved(s.name) }));
 const PAGE_TITLE = 'How This Crypto Exchange Register Works | whichcryptoexchange.com';
 const PAGE_DESC = "How whichcryptoexchange.com works: which official registers we draw from, how brands are curated, and what 'licensed' does and doesn't mean in each jurisdiction.";
@@ -79,7 +80,7 @@ const PAGE_DESC = "How whichcryptoexchange.com works: which official registers w
     verify it yourself.</p>
 
     <h3>Where the data comes from</h3>
-    <p>We currently draw from nine official sources, each with its own regime and its own meaning
+    <p>We currently draw from ten official sources, each with its own regime and its own meaning
     of "licensed" (or, in some cases, deliberately <em>not</em> licensed):</p>
     <ul>
       <li><strong>ESMA</strong> — the interim MiCA register covering the EU/EEA. A MiCA
@@ -124,6 +125,11 @@ const PAGE_DESC = "How whichcryptoexchange.com works: which official registers w
       tier as VARA/MAS/SFC/GFSC, in force since 2017 (one of the earliest dedicated crypto-exchange
       regimes anywhere). The FSA publishes this as a structured spreadsheet directly, in English —
       no scraping required.</li>
+      <li><strong>Malaysia SC List of Registered Digital Asset Exchanges</strong> — a Recognized
+      Market Operator - Digital Asset Exchange (RMO-DAX) registration under the Capital Markets and
+      Services Act is a genuine crypto-specific licence, the same tier as VARA/MAS/SFC/GFSC/FSA,
+      requiring a minimum RM5,000,000 paid-up capital. The SC's page also separately lists historical
+      operators no longer permitted to continue; only the currently registered list is used here.</li>
     </ul>
     <p>Each exchange page cites every source that applies to it, with the date we last checked.</p>
 

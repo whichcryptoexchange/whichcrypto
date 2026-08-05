@@ -126,3 +126,17 @@
   note: In force since 2017 (post-Mt.Gox) -- one of the earliest dedicated crypto-exchange licensing regimes anywhere, and the source is an official English-language spreadsheet the FSA publishes directly, not a scraped page.
   source_url: https://www.fsa.go.jp/en/regulated/licensed/index.html
   verified: '2026-08-03'
+- code: MY
+  name: Malaysia Securities Commission (SC)
+  tier: licensed
+  tier_label: Genuine licence
+  scope: Malaysia only
+  capital: "RM5,000,000 minimum paid-up capital; a Digital Broker model requires an additional, separate RM5,000,000 in shareholders' funds"
+  checks:
+    - Fit-and-proper assessment of directors, the chief executive, controllers, and senior management
+    - Robust internal controls and risk management frameworks
+    - AML/CFT compliance
+    - Locally incorporated company in Malaysia
+  note: The SC's own page also separately lists historical operators no longer permitted to continue -- only the currently registered list (5 operators as of review) is used here.
+  source_url: https://www.sc.com.my/regulation/guidelines/recognizedmarkets/list-of-registered-digital-asset-exchanges
+  verified: '2026-08-05'

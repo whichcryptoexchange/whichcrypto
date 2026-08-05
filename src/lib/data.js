@@ -68,7 +68,7 @@ export const COUNTRY_NAMES = {
   SI: 'Slovenia', SK: 'Slovakia',
   GB: 'United Kingdom', CA: 'Canada', AE: 'UAE (Dubai Only)',
   SG: 'Singapore', US: 'United States', HK: 'Hong Kong', GI: 'Gibraltar',
-  JP: 'Japan',
+  JP: 'Japan', MY: 'Malaysia',
 };
 
 export const SERVICE_NAMES = {

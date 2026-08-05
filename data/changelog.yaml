@@ -6,6 +6,21 @@
 # link row under the body. Genuine internal linking, not just narration --
 # omit it when a change is site-wide (search, sort controls) and there's no
 # single honest page to point at, rather than force a link that doesn't fit.
+- date: "2026-08-05"
+  title: "Added Malaysia (SC Registered Digital Asset Exchanges) — a tenth jurisdiction"
+  body: >
+    A Malaysia Securities Commission Recognized Market Operator - Digital
+    Asset Exchange (RMO-DAX) registration is a genuine crypto-specific
+    licence, requiring a minimum RM5,000,000 paid-up capital and a
+    fit-and-proper assessment of directors and senior management -- the
+    same tier as VARA/MAS/SFC/GFSC/FSA, not an AML-only registration. All 5
+    currently registered operators are tracked as new brands: HATA, Luno,
+    MX Global, Sinegy, and KDX (formerly Tokenize Malaysia, rebranded in
+    2025). The SC's page also separately lists historical operators no
+    longer permitted to continue -- only the current list is used here.
+  pages:
+    - { url: /my/, label: Malaysia }
+    - { url: /exchange/luno/, label: Luno }
 - date: "2026-08-03"
   title: "Added Japan (FSA Registered Crypto-asset Exchange Service Providers) — a ninth jurisdiction"
   body: >

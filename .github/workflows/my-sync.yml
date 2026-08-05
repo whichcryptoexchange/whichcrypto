@@ -1,0 +1,40 @@
+name: Malaysia SC sync
+
+on:
+  schedule:
+    - cron: '0 12 * * 5'   # Fri 12:00 UTC — offset from the other jurisdictions' runs
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.12' }
+      - run: pip install pyyaml
+      - name: Refresh Malaysia SC registered DAX data
+        run: python3 scripts/my_sync.py
+      - name: Open PR if the register changed
+        uses: peter-evans/create-pull-request@v6
+        with:
+          commit-message: "data: Malaysia SC sync"
+          title: "Malaysia SC update — review changes"
+          body: |
+            Automated refresh of data/my_reg_map.yaml's pinned legal entity
+            names against the SC's live "List of Registered Digital Asset
+            Exchanges" table. This does NOT discover new brands -- only
+            re-confirms entities already curated in my_reg_map.yaml are
+            still on the current registered list. Review for:
+              - a pinned entity no longer found on the current list (may
+                have moved to the not-permitted-to-continue list -- confirm
+                before merging)
+            A Malaysia SC RMO-DAX registration is a genuine crypto-specific
+            licence (same tier as VARA/MAS/SFC/GFSC/FSA) -- never describe
+            it as an AML-only registration.
+          branch: my-sync
+          delete-branch: true
