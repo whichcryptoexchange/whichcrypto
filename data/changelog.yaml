@@ -7,6 +7,20 @@
 # omit it when a change is site-wide (search, sort controls) and there's no
 # single honest page to point at, rather than force a link that doesn't fit.
 - date: "2026-08-06"
+  title: "A submission form for Technology Provider Profiles"
+  body: >
+    Companies that aren't independently licensed but rely on a licensed
+    custodian or execution partner (the editorial /providers/ section --
+    CryptoUnity, Nexo) can now submit their own details rather than us
+    having to notice or be approached directly. Same review-queue
+    principle as the exchange submission form: nothing publishes
+    automatically, the claimed partner relationship is independently
+    verified first, and every fact that can't be confirmed stays tagged
+    as a company disclosure rather than a verified claim.
+  pages:
+    - { url: /providers/submit/, label: Submit a Provider Profile }
+    - { url: /providers/, label: Providers }
+- date: "2026-08-06"
   title: "A submission form for regulated exchanges not yet on the register"
   body: >
     If you hold a genuine licence or registration in one of the 11

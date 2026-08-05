@@ -1,0 +1,151 @@
+---
+import '../../styles/global.css';
+// Turnstile site keys are public by design (embedded in client HTML), so hardcoding
+// this as a fallback is safe. The env var still wins if the build environment sets it.
+const SITEKEY = import.meta.env.PUBLIC_TURNSTILE_SITEKEY || '0x4AAAAAAD84t4OWkoouLP3Y';
+const PAGE_TITLE = 'Submit a Technology Provider Profile | whichcryptoexchange.com';
+const PAGE_DESC = 'Not independently licensed, but rely on a licensed custodian or execution partner? Submit your details for an editorial Provider Profile -- this is a review queue, not an automatic listing.';
+---
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{PAGE_TITLE}</title>
+  <meta name="description" content={PAGE_DESC} />
+  <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site)} />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content={new URL(Astro.url.pathname, Astro.site)} />
+  <meta property="og:site_name" content="whichcryptoexchange.com" />
+  <meta property="og:title" content={PAGE_TITLE} />
+  <meta property="og:description" content={PAGE_DESC} />
+  <meta property="og:image" content="https://whichcryptoexchange.com/logo.jpg" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content={PAGE_TITLE} />
+  <meta name="twitter:description" content={PAGE_DESC} />
+  <meta name="twitter:image" content="https://whichcryptoexchange.com/logo.jpg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <script src="https://analytics.ahrefs.com/analytics.js" data-key="QTM3lN9yt0oU0rxrj5zadA" async></script>
+</head>
+<body>
+  <header class="site">
+    <div class="wrap">
+      <a class="logo" href="/">which<em>crypto</em>exchange</a>
+      <div class="header-right">
+        <div class="site-search">
+          <input type="search" id="site-search" placeholder="Search exchanges or countries…" autocomplete="off" aria-label="Search exchanges" />
+          <div class="site-search-results" id="site-search-results" hidden></div>
+        </div>
+        <span class="sourced">source: official regulator registers</span>
+      </div>
+    </div>
+    <nav class="site-nav"><div class="wrap">
+      <a href="/exchanges/">Exchanges</a>
+      <a href="/regulators/">Regulators</a>
+      <a href="/providers/">Providers</a>
+      <a href="/stats/">Stats</a>
+    </div></nav>
+  </header>
+
+  <main class="wrap">
+    <div class="editorial-banner">
+      <strong>Editorial content, not the register.</strong> A Provider Profile is not a licence
+      record — see <a href="/providers/">the Providers section</a> for what these are.
+    </div>
+
+    <h1>Submit a Technology Provider Profile</h1>
+    <p class="lede">If your company isn't independently licensed but relies on a licensed
+    custodian or execution partner to actually hold and execute customer assets, you can submit
+    your details here. This is <strong>not</strong> an automatic listing: we independently verify
+    the claimed partner relationship before writing anything, and every fact we can't verify gets
+    tagged as a company disclosure, not a confirmed claim — exactly the standard every existing
+    profile is held to.</p>
+    <p class="sourced">The most useful thing you can give us is a link to where the partnership is
+    already disclosed publicly (your own terms/disclaimer page, a press release, the partner's own
+    client list) — that's what lets us confirm the relationship without having to take your word
+    for it.</p>
+
+    {SITEKEY ? (
+      <form id="provider-submit-form" class="report-form">
+        <label>Company name
+          <input type="text" name="company_name" required maxlength="200" />
+        </label>
+        <label>Website
+          <input type="url" name="website" required maxlength="300" placeholder="https://" />
+        </label>
+        <label>What does your company do? (brief overview)
+          <textarea name="overview" maxlength="1000" rows="3"></textarea>
+        </label>
+        <label>Name of the licensed custodian / execution partner you rely on
+          <input type="text" name="partner_name" required maxlength="200" />
+        </label>
+        <label>What does that partner do for you?
+          <select name="partner_role">
+            <option value="">Select…</option>
+            <option value="Custody">Custody</option>
+            <option value="Execution">Execution</option>
+            <option value="Custody and execution">Custody and execution</option>
+            <option value="Other">Other</option>
+          </select>
+        </label>
+        <label>Link to public evidence of the partnership (optional but very helpful)
+          <input type="url" name="supporting_url" maxlength="300" placeholder="https://" />
+        </label>
+        <label>Your contact email
+          <input type="email" name="contact_email" required maxlength="200" />
+        </label>
+        <label>Anything else we should know? (optional)
+          <textarea name="notes" maxlength="1000" rows="3"></textarea>
+        </label>
+        <label class="consent-label">
+          <input type="checkbox" name="consent" required />
+          I confirm the details above are accurate to the best of my knowledge, and understand
+          this is a verification queue, not a guarantee of a profile being published.
+        </label>
+        <div class="cf-turnstile" data-sitekey={SITEKEY}></div>
+        <button type="submit">Submit for verification</button>
+        <p class="form-msg sourced" role="status"></p>
+      </form>
+    ) : (
+      <p class="sourced">The submission form is opening soon — in the meantime, email
+      contact@whichcryptoexchange.com directly.</p>
+    )}
+  </main>
+
+  <footer class="site"><div class="wrap">
+    <p><a href="/about/">About</a> · <a href="/contact/">Contact</a> · <a href="/changelog/">Changelog</a> · <a href="/exchanges/">Exchanges</a> · <a href="/regulators/">Regulators</a> · <a href="/stats/">Stats</a> · <a href="/providers/">Providers</a> · <a href="https://x.com/whichcex">X</a></p>
+    <p>Independent register. Not affiliated with any regulator. Not financial advice.</p>
+  </div></footer>
+
+  {SITEKEY && <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>}
+  <script>
+    const form = document.getElementById('provider-submit-form');
+    form?.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const msg = form.querySelector('.form-msg');
+      const fd = new FormData(form);
+      const token = form.querySelector('[name="cf-turnstile-response"]')?.value;
+      msg.textContent = 'Submitting…';
+      try {
+        const res = await fetch('/api/submit-provider', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            company_name: fd.get('company_name'), website: fd.get('website'),
+            overview: fd.get('overview'), partner_name: fd.get('partner_name'),
+            partner_role: fd.get('partner_role'), supporting_url: fd.get('supporting_url'),
+            contact_email: fd.get('contact_email'), notes: fd.get('notes'),
+            consent: fd.get('consent') === 'on', turnstile_token: token,
+          }),
+        });
+        const data = await res.json();
+        msg.textContent = data.message ?? data.error ?? 'Something went wrong.';
+        if (res.ok) form.reset();
+      } catch { msg.textContent = 'Network error — please try again.'; }
+    });
+  </script>
+
+  <script src="/search.js" defer></script>
+</body>
+</html>

@@ -20,7 +20,7 @@
 //                     destinations without Workers Paid)
 //   TURNSTILE_SECRET- secret: Cloudflare Turnstile secret key
 //   ADMIN_KEY       - secret: long random string gating /admin/reports, /admin/links,
-//                     /admin/submissions
+//                     /admin/submissions, /admin/provider-submissions
 //   DIGEST_SEND_KEY - secret: long random string gating /api/admin/digest-send,
 //                     the weekly-roundup fan-out (separate from ADMIN_KEY --
 //                     see handleDigestSend for why). Called only by the
@@ -142,6 +142,49 @@ async function handleSubmission(request, env) {
   ).bind(brand_name, website, country, legal_entity || null, licence_reference || null, contact_email, notes || null, ip_hash).run();
 
   return json({ ok: true, message: 'Thanks — we independently verify every submission against the official regulator record before adding anything. This does not guarantee listing.' });
+}
+
+// Self-submissions asking for a Technology Provider Profile (the editorial
+// /providers/ section). Same tip-queue discipline as handleSubmission --
+// nothing here publishes on its own. The curator manually verifies the
+// claimed partner relationship before authoring a data/providers/*.yaml
+// entry, same as CryptoUnity and Nexo were.
+async function handleProviderSubmission(request, env) {
+  let body;
+  try { body = await request.json(); } catch { return json({ error: 'invalid JSON' }, 400); }
+
+  const ip = request.headers.get('CF-Connecting-IP') || '0.0.0.0';
+  if (!(await verifyTurnstile(body.turnstile_token, env.TURNSTILE_SECRET, ip))) {
+    return json({ error: 'verification failed — please retry the challenge' }, 403);
+  }
+
+  const company_name = sanitizeHeader(body.company_name, 200);
+  const website = sanitizeHeader(body.website, 300);
+  const overview = String(body.overview || '').trim().slice(0, 1000);
+  const partner_name = sanitizeHeader(body.partner_name, 200);
+  const partner_role = sanitizeHeader(body.partner_role, 100);
+  const supporting_url = sanitizeHeader(body.supporting_url, 300);
+  const contact_email = sanitizeHeader(body.contact_email, 200);
+  const notes = String(body.notes || '').trim().slice(0, 1000);
+
+  if (!company_name) return json({ error: 'company name is required' }, 400);
+  if (!isHttpUrl(website)) return json({ error: 'a valid website URL is required' }, 400);
+  if (!partner_name) return json({ error: 'the licensed partner name is required' }, 400);
+  if (supporting_url && !isHttpUrl(supporting_url)) return json({ error: 'supporting link must be a valid URL' }, 400);
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(contact_email)) return json({ error: 'a valid contact email is required' }, 400);
+  if (!body.consent) return json({ error: 'consent is required' }, 400);
+
+  const ip_hash = await sha256hex(env.IP_SALT + ip);
+  const { results: recent } = await env.DB.prepare(
+    "SELECT COUNT(*) AS n FROM provider_submissions WHERE ip_hash = ? AND created_at > datetime('now','-1 day')"
+  ).bind(ip_hash).all();
+  if (recent[0].n >= 5) return json({ error: 'rate limit reached — try again tomorrow' }, 429);
+
+  await env.DB.prepare(
+    'INSERT INTO provider_submissions (company_name, website, overview, partner_name, partner_role, supporting_url, contact_email, notes, ip_hash) VALUES (?,?,?,?,?,?,?,?,?)'
+  ).bind(company_name, website, overview || null, partner_name, partner_role || null, supporting_url || null, contact_email, notes || null, ip_hash).run();
+
+  return json({ ok: true, message: 'Thanks — we independently verify every claimed partner relationship before publishing a profile. This does not guarantee inclusion.' });
 }
 
 function sanitizeHeader(s, max) {
@@ -525,6 +568,43 @@ async function handleAdminSubmissions(request, env, url) {
     { headers: { 'Content-Type': 'text/html; charset=utf-8' } });
 }
 
+async function handleAdminProviderSubmissions(request, env, url) {
+  if (url.searchParams.get('key') !== env.ADMIN_KEY || !env.ADMIN_KEY) {
+    return new Response('forbidden', { status: 403 });
+  }
+  if (request.method === 'POST') {
+    const form = await request.formData();
+    const id = Number(form.get('id'));
+    const action = form.get('action') === 'approve' ? 'approved' : 'rejected';
+    await env.DB.prepare('UPDATE provider_submissions SET status = ? WHERE id = ?').bind(action, id).run();
+    return Response.redirect(url.origin + url.pathname + '?key=' + env.ADMIN_KEY, 303);
+  }
+  const { results } = await env.DB.prepare(
+    "SELECT * FROM provider_submissions WHERE status = 'pending' ORDER BY created_at ASC LIMIT 100"
+  ).all();
+  const rows = results.map((r) => `
+    <tr>
+      <td>${r.id}</td><td>${esc(r.company_name)}</td><td><a href="${esc(r.website)}">${esc(r.website)}</a></td>
+      <td>${esc(r.overview ?? '')}</td><td>${esc(r.partner_name)}</td><td>${esc(r.partner_role ?? '')}</td>
+      <td>${r.supporting_url ? `<a href="${esc(r.supporting_url)}">${esc(r.supporting_url)}</a>` : ''}</td>
+      <td>${esc(r.contact_email)}</td><td>${esc(r.notes ?? '')}</td><td>${esc(r.created_at)}</td>
+      <td>
+        <form method="post" style="display:inline"><input type="hidden" name="id" value="${r.id}">
+          <button name="action" value="approve">approve</button>
+          <button name="action" value="reject">reject</button></form>
+      </td>
+    </tr>`).join('');
+  return new Response(
+    `<!doctype html><meta charset="utf-8"><title>Pending provider submissions</title>
+     <style>body{font:14px monospace;padding:20px}table{border-collapse:collapse}td,th{border:1px solid #ccc;padding:6px;text-align:left;max-width:220px;word-break:break-word}</style>
+     <h1>Pending provider submissions (${results.length})</h1>
+     <p>Approving here does NOT publish anything -- independently verify the claimed partner
+     relationship, then author a data/providers/*.yaml profile by hand.</p>
+     <table><tr><th>id</th><th>company</th><th>website</th><th>overview</th><th>partner</th>
+     <th>role</th><th>evidence</th><th>contact</th><th>notes</th><th>submitted</th><th>action</th></tr>${rows}</table>`,
+    { headers: { 'Content-Type': 'text/html; charset=utf-8' } });
+}
+
 async function handleLinkGet(env, exchangeId) {
   const row = await env.DB.prepare(
     'SELECT url, label FROM affiliate_links WHERE exchange_id = ?'
@@ -634,6 +714,7 @@ export default {
     if (url.pathname === '/api/report' && request.method === 'POST') return handleSubmit(request, env);
     if (url.pathname === '/api/contact' && request.method === 'POST') return handleContact(request, env);
     if (url.pathname === '/api/submit' && request.method === 'POST') return handleSubmission(request, env);
+    if (url.pathname === '/api/submit-provider' && request.method === 'POST') return handleProviderSubmission(request, env);
     if (url.pathname === '/api/watch' && request.method === 'POST') return handleWatchSignup(request, env);
     if (url.pathname === '/api/watch/confirm' && request.method === 'GET') {
       return handleWatchConfirm(env, request, url.searchParams.get('token') || '');
@@ -656,6 +737,7 @@ export default {
     if (url.pathname === '/admin/reports') return handleAdmin(request, env, url);
     if (url.pathname === '/admin/links') return handleAdminLinks(request, env, url);
     if (url.pathname === '/admin/submissions') return handleAdminSubmissions(request, env, url);
+    if (url.pathname === '/admin/provider-submissions') return handleAdminProviderSubmissions(request, env, url);
     const link = url.pathname.match(/^\/api\/links\/([a-z0-9-]{1,60})$/);
     if (link && request.method === 'GET') return handleLinkGet(env, link[1]);
     // Genuine catch-all: no route matched and no static asset matched either.
