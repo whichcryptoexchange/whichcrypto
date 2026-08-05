@@ -3,8 +3,25 @@ import '../styles/global.css';
 // Turnstile site keys are public by design (embedded in client HTML), so hardcoding
 // this as a fallback is safe. The env var still wins if the build environment sets it.
 const SITEKEY = import.meta.env.PUBLIC_TURNSTILE_SITEKEY || '0x4AAAAAAD84t4OWkoouLP3Y';
-const PAGE_TITLE = 'Contact | whichcryptoexchange.com';
-const PAGE_DESC = 'Get in touch with whichcryptoexchange.com — corrections, questions, or anything else.';
+
+// Only jurisdictions we actually track -- if a real regulator isn't on
+// this list, we cannot verify or list a claim against it, so submitters
+// are pointed to Contact instead (see the note under the form).
+const JURISDICTIONS = [
+  { code: 'MICA', label: 'EU/EEA (MiCA)' },
+  { code: 'GB', label: 'UK (FCA)' },
+  { code: 'CA', label: 'Canada (FINTRAC)' },
+  { code: 'AE', label: 'Dubai (VARA)' },
+  { code: 'SG', label: 'Singapore (MAS)' },
+  { code: 'US', label: 'US (FinCEN)' },
+  { code: 'HK', label: 'Hong Kong (SFC)' },
+  { code: 'GI', label: 'Gibraltar (GFSC) -- manually verified, expect a slower turnaround' },
+  { code: 'JP', label: 'Japan (FSA)' },
+  { code: 'MY', label: 'Malaysia (SC)' },
+  { code: 'KR', label: 'South Korea (FIU)' },
+];
+const PAGE_TITLE = 'Submit Your Exchange | whichcryptoexchange.com';
+const PAGE_DESC = 'Officially regulated and not on our register yet? Submit your details for independent verification -- this is a tip queue, not an automatic listing.';
 ---
 <html lang="en">
 <head>
@@ -49,30 +66,54 @@ const PAGE_DESC = 'Get in touch with whichcryptoexchange.com — corrections, qu
   </header>
 
   <main class="wrap">
-    <h1>Contact</h1>
-    <p class="lede">Spotted an error, have a correction, or something else on your mind? Send it
-    through below and it'll land directly in our inbox.</p>
-    <p class="sourced">Officially regulated and want to be added to the register? Use the
-    <a href="/submit/">submission form</a> instead — it captures the details we need to verify
-    your status.</p>
+    <h1>Submit your exchange</h1>
+    <p class="lede">If you hold a genuine licence or registration in one of the jurisdictions we
+    track and aren't on our register yet, tell us here. This is <strong>not</strong> an automatic
+    listing: every submission is independently verified against the primary regulator record
+    before anything is added, the same way every other entry on this site is sourced.</p>
+    <p class="sourced">The most useful thing you can give us is your specific licence or
+    registration reference number — that's what lets us confirm your status directly against the
+    official register in minutes rather than researching from scratch. Jurisdiction not listed
+    below? <a href="/contact/">Get in touch</a> instead — we can't verify a claim against a
+    register we don't track.</p>
 
     {SITEKEY ? (
-      <form id="contact-form" class="report-form">
-        <label>Your name
-          <input type="text" name="name" required maxlength="100" />
+      <form id="submit-form" class="report-form">
+        <label>Brand name
+          <input type="text" name="brand_name" required maxlength="200" />
         </label>
-        <label>Your email
-          <input type="email" name="email" required maxlength="200" />
+        <label>Website
+          <input type="url" name="website" required maxlength="300" placeholder="https://" />
         </label>
-        <label>Message
-          <textarea name="message" required maxlength="5000" rows="6"></textarea>
+        <label>Jurisdiction
+          <select name="country" required>
+            <option value="">Select…</option>
+            {JURISDICTIONS.map((j) => <option value={j.code}>{j.label}</option>)}
+          </select>
+        </label>
+        <label>Legal entity holding the licence (if different from the brand name)
+          <input type="text" name="legal_entity" maxlength="300" />
+        </label>
+        <label>Licence / registration reference number
+          <input type="text" name="licence_reference" maxlength="200" />
+        </label>
+        <label>Your contact email
+          <input type="email" name="contact_email" required maxlength="200" />
+        </label>
+        <label>Anything else we should know? (optional)
+          <textarea name="notes" maxlength="1000" rows="3"></textarea>
+        </label>
+        <label class="consent-label">
+          <input type="checkbox" name="consent" required />
+          I confirm the details above are accurate to the best of my knowledge, and understand
+          this is a verification queue, not a guarantee of listing.
         </label>
         <div class="cf-turnstile" data-sitekey={SITEKEY}></div>
-        <button type="submit">Send message</button>
+        <button type="submit">Submit for verification</button>
         <p class="form-msg sourced" role="status"></p>
       </form>
     ) : (
-      <p class="sourced">The contact form is opening soon — in the meantime, email
+      <p class="sourced">The submission form is opening soon — in the meantime, email
       contact@whichcryptoexchange.com directly.</p>
     )}
   </main>
@@ -84,20 +125,22 @@ const PAGE_DESC = 'Get in touch with whichcryptoexchange.com — corrections, qu
 
   {SITEKEY && <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>}
   <script>
-    const form = document.getElementById('contact-form');
+    const form = document.getElementById('submit-form');
     form?.addEventListener('submit', async (e) => {
       e.preventDefault();
       const msg = form.querySelector('.form-msg');
       const fd = new FormData(form);
       const token = form.querySelector('[name="cf-turnstile-response"]')?.value;
-      msg.textContent = 'Sending…';
+      msg.textContent = 'Submitting…';
       try {
-        const res = await fetch('/api/contact', {
+        const res = await fetch('/api/submit', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
-            name: fd.get('name'), email: fd.get('email'),
-            message: fd.get('message'), turnstile_token: token,
+            brand_name: fd.get('brand_name'), website: fd.get('website'),
+            country: fd.get('country'), legal_entity: fd.get('legal_entity'),
+            licence_reference: fd.get('licence_reference'), contact_email: fd.get('contact_email'),
+            notes: fd.get('notes'), consent: fd.get('consent') === 'on', turnstile_token: token,
           }),
         });
         const data = await res.json();

@@ -7,6 +7,19 @@
 # omit it when a change is site-wide (search, sort controls) and there's no
 # single honest page to point at, rather than force a link that doesn't fit.
 - date: "2026-08-06"
+  title: "A submission form for regulated exchanges not yet on the register"
+  body: >
+    If you hold a genuine licence or registration in one of the 11
+    jurisdictions we track and aren't listed yet, you can now submit your
+    details directly. This is a verification queue, not an automatic
+    listing -- every submission is checked against the primary regulator
+    record (using the licence/registration reference number you provide)
+    before anything is manually added, the same sourcing standard as
+    every other entry on this site. Jurisdictions we don't track aren't
+    accepted here; use Contact instead for those.
+  pages:
+    - { url: /submit/, label: Submit }
+- date: "2026-08-06"
   title: "Refreshed capital figures for Dubai, Singapore, and Malaysia"
   body: >
     A new periodic fact-check pass against each regulator's live primary

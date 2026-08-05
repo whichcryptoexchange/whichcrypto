@@ -19,7 +19,8 @@
 //                     own send_email binding can only reach pre-verified
 //                     destinations without Workers Paid)
 //   TURNSTILE_SECRET- secret: Cloudflare Turnstile secret key
-//   ADMIN_KEY       - secret: long random string gating /admin/reports, /admin/links
+//   ADMIN_KEY       - secret: long random string gating /admin/reports, /admin/links,
+//                     /admin/submissions
 //   DIGEST_SEND_KEY - secret: long random string gating /api/admin/digest-send,
 //                     the weekly-roundup fan-out (separate from ADMIN_KEY --
 //                     see handleDigestSend for why). Called only by the
@@ -98,6 +99,49 @@ async function handleSubmit(request, env) {
   ).bind(exchange_id, country, outcome, detail, occurred_on, ip_hash).run();
 
   return json({ ok: true, message: 'Thanks — your report is queued for review before publication.' });
+}
+
+// Self-submissions from regulated exchanges asking to be added. This is a
+// tip queue, not a listing mechanism -- nothing here ever reaches the site
+// directly. A human (the curator) verifies the licence_reference against
+// the actual primary regulator source before manually adding an entry to
+// data/exchanges/*.yaml through the normal reviewed git process.
+const SUBMISSION_JURISDICTIONS = new Set(['MICA', 'GB', 'CA', 'AE', 'SG', 'US', 'HK', 'GI', 'JP', 'MY', 'KR']);
+
+async function handleSubmission(request, env) {
+  let body;
+  try { body = await request.json(); } catch { return json({ error: 'invalid JSON' }, 400); }
+
+  const ip = request.headers.get('CF-Connecting-IP') || '0.0.0.0';
+  if (!(await verifyTurnstile(body.turnstile_token, env.TURNSTILE_SECRET, ip))) {
+    return json({ error: 'verification failed — please retry the challenge' }, 403);
+  }
+
+  const brand_name = sanitizeHeader(body.brand_name, 200);
+  const website = sanitizeHeader(body.website, 300);
+  const country = String(body.country || '').toUpperCase();
+  const legal_entity = sanitizeHeader(body.legal_entity, 300);
+  const licence_reference = sanitizeHeader(body.licence_reference, 200);
+  const contact_email = sanitizeHeader(body.contact_email, 200);
+  const notes = String(body.notes || '').trim().slice(0, 1000);
+
+  if (!brand_name) return json({ error: 'brand name is required' }, 400);
+  if (!isHttpUrl(website)) return json({ error: 'a valid website URL is required' }, 400);
+  if (!SUBMISSION_JURISDICTIONS.has(country)) return json({ error: 'invalid jurisdiction' }, 400);
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(contact_email)) return json({ error: 'a valid contact email is required' }, 400);
+  if (!body.consent) return json({ error: 'consent is required' }, 400);
+
+  const ip_hash = await sha256hex(env.IP_SALT + ip);
+  const { results: recent } = await env.DB.prepare(
+    "SELECT COUNT(*) AS n FROM submissions WHERE ip_hash = ? AND created_at > datetime('now','-1 day')"
+  ).bind(ip_hash).all();
+  if (recent[0].n >= 5) return json({ error: 'rate limit reached — try again tomorrow' }, 429);
+
+  await env.DB.prepare(
+    'INSERT INTO submissions (brand_name, website, country, legal_entity, licence_reference, contact_email, notes, ip_hash) VALUES (?,?,?,?,?,?,?,?)'
+  ).bind(brand_name, website, country, legal_entity || null, licence_reference || null, contact_email, notes || null, ip_hash).run();
+
+  return json({ ok: true, message: 'Thanks — we independently verify every submission against the official regulator record before adding anything. This does not guarantee listing.' });
 }
 
 function sanitizeHeader(s, max) {
@@ -445,6 +489,42 @@ async function handleAdmin(request, env, url) {
     { headers: { 'Content-Type': 'text/html; charset=utf-8' } });
 }
 
+async function handleAdminSubmissions(request, env, url) {
+  if (url.searchParams.get('key') !== env.ADMIN_KEY || !env.ADMIN_KEY) {
+    return new Response('forbidden', { status: 403 });
+  }
+  if (request.method === 'POST') {
+    const form = await request.formData();
+    const id = Number(form.get('id'));
+    const action = form.get('action') === 'approve' ? 'approved' : 'rejected';
+    await env.DB.prepare('UPDATE submissions SET status = ? WHERE id = ?').bind(action, id).run();
+    return Response.redirect(url.origin + url.pathname + '?key=' + env.ADMIN_KEY, 303);
+  }
+  const { results } = await env.DB.prepare(
+    "SELECT * FROM submissions WHERE status = 'pending' ORDER BY created_at ASC LIMIT 100"
+  ).all();
+  const rows = results.map((r) => `
+    <tr>
+      <td>${r.id}</td><td>${esc(r.brand_name)}</td><td><a href="${esc(r.website)}">${esc(r.website)}</a></td>
+      <td>${esc(r.country)}</td><td>${esc(r.legal_entity ?? '')}</td><td>${esc(r.licence_reference ?? '')}</td>
+      <td>${esc(r.contact_email)}</td><td>${esc(r.notes ?? '')}</td><td>${esc(r.created_at)}</td>
+      <td>
+        <form method="post" style="display:inline"><input type="hidden" name="id" value="${r.id}">
+          <button name="action" value="approve">approve</button>
+          <button name="action" value="reject">reject</button></form>
+      </td>
+    </tr>`).join('');
+  return new Response(
+    `<!doctype html><meta charset="utf-8"><title>Pending submissions</title>
+     <style>body{font:14px monospace;padding:20px}table{border-collapse:collapse}td,th{border:1px solid #ccc;padding:6px;text-align:left;max-width:260px;word-break:break-word}</style>
+     <h1>Pending submissions (${results.length})</h1>
+     <p>Approving here does NOT publish anything -- verify licence_reference against the primary
+     regulator source, then add the brand to data/exchanges/*.yaml by hand.</p>
+     <table><tr><th>id</th><th>brand</th><th>website</th><th>jurisdiction</th><th>legal entity</th>
+     <th>reference</th><th>contact</th><th>notes</th><th>submitted</th><th>action</th></tr>${rows}</table>`,
+    { headers: { 'Content-Type': 'text/html; charset=utf-8' } });
+}
+
 async function handleLinkGet(env, exchangeId) {
   const row = await env.DB.prepare(
     'SELECT url, label FROM affiliate_links WHERE exchange_id = ?'
@@ -553,6 +633,7 @@ export default {
     const url = new URL(request.url);
     if (url.pathname === '/api/report' && request.method === 'POST') return handleSubmit(request, env);
     if (url.pathname === '/api/contact' && request.method === 'POST') return handleContact(request, env);
+    if (url.pathname === '/api/submit' && request.method === 'POST') return handleSubmission(request, env);
     if (url.pathname === '/api/watch' && request.method === 'POST') return handleWatchSignup(request, env);
     if (url.pathname === '/api/watch/confirm' && request.method === 'GET') {
       return handleWatchConfirm(env, request, url.searchParams.get('token') || '');
@@ -574,6 +655,7 @@ export default {
     if (agg && request.method === 'GET') return handleAggregates(env, agg[1]);
     if (url.pathname === '/admin/reports') return handleAdmin(request, env, url);
     if (url.pathname === '/admin/links') return handleAdminLinks(request, env, url);
+    if (url.pathname === '/admin/submissions') return handleAdminSubmissions(request, env, url);
     const link = url.pathname.match(/^\/api\/links\/([a-z0-9-]{1,60})$/);
     if (link && request.method === 'GET') return handleLinkGet(env, link[1]);
     // Genuine catch-all: no route matched and no static asset matched either.
