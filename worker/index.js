@@ -19,8 +19,11 @@
 //                     own send_email binding can only reach pre-verified
 //                     destinations without Workers Paid)
 //   TURNSTILE_SECRET- secret: Cloudflare Turnstile secret key
-//   ADMIN_KEY       - secret: long random string gating /admin/reports, /admin/links,
-//                     /admin/submissions, /admin/provider-submissions
+//   ADMIN_KEY       - secret: long random string gating every /admin/* page --
+//                     /admin (index/dashboard), /admin/reports, /admin/links,
+//                     /admin/submissions, /admin/provider-submissions.
+//                     /admin/ is also disallowed in robots.txt, though the
+//                     real protection is this key, not URL secrecy.
 //   DIGEST_SEND_KEY - secret: long random string gating /api/admin/digest-send,
 //                     the weekly-roundup fan-out (separate from ADMIN_KEY --
 //                     see handleDigestSend for why). Called only by the
@@ -499,6 +502,35 @@ function esc(s) {
     ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 }
 
+// Single entry point for every admin function -- one URL to remember
+// instead of four, with a pending count per queue so nothing needs
+// checking blind. Each linked page still independently re-checks the key
+// itself (defense in depth, and so a bookmarked sub-page keeps working).
+async function handleAdminIndex(request, env, url) {
+  const key = url.searchParams.get('key');
+  if (key !== env.ADMIN_KEY || !env.ADMIN_KEY) {
+    return new Response('forbidden', { status: 403 });
+  }
+  const [reports, submissions, providerSubmissions] = await Promise.all([
+    env.DB.prepare("SELECT COUNT(*) AS n FROM reports WHERE status = 'pending'").first(),
+    env.DB.prepare("SELECT COUNT(*) AS n FROM submissions WHERE status = 'pending'").first(),
+    env.DB.prepare("SELECT COUNT(*) AS n FROM provider_submissions WHERE status = 'pending'").first(),
+  ]);
+  const q = `?key=${encodeURIComponent(key)}`;
+  return new Response(
+    `<!doctype html><meta charset="utf-8"><title>Admin</title>
+     <style>body{font:14px monospace;padding:20px;max-width:600px}
+       a{color:#177245} li{margin-bottom:10px} .n{color:#666}</style>
+     <h1>Admin</h1>
+     <ul>
+       <li><a href="/admin/reports${q}">User reports</a> <span class="n">(${reports.n} pending)</span></li>
+       <li><a href="/admin/submissions${q}">Exchange submissions</a> <span class="n">(${submissions.n} pending)</span></li>
+       <li><a href="/admin/provider-submissions${q}">Provider submissions</a> <span class="n">(${providerSubmissions.n} pending)</span></li>
+       <li><a href="/admin/links${q}">Affiliate links</a> <span class="n">(live management, not a queue)</span></li>
+     </ul>`,
+    { headers: { 'Content-Type': 'text/html; charset=utf-8' } });
+}
+
 async function handleAdmin(request, env, url) {
   if (url.searchParams.get('key') !== env.ADMIN_KEY || !env.ADMIN_KEY) {
     return new Response('forbidden', { status: 403 });
@@ -526,7 +558,8 @@ async function handleAdmin(request, env, url) {
     </tr>`).join('');
   return new Response(
     `<!doctype html><meta charset="utf-8"><title>Pending reports</title>
-     <style>body{font:14px monospace;padding:20px}table{border-collapse:collapse}td,th{border:1px solid #ccc;padding:6px;text-align:left;max-width:340px}</style>
+     <style>body{font:14px monospace;padding:20px}table{border-collapse:collapse}td,th{border:1px solid #ccc;padding:6px;text-align:left;max-width:340px} a.home{display:inline-block;margin-bottom:12px}</style>
+     <a class="home" href="/admin${url.search}">← Admin home</a>
      <h1>Pending reports (${results.length})</h1>
      <table><tr><th>id</th><th>exchange</th><th>cc</th><th>outcome</th><th>date</th><th>detail</th><th>submitted</th><th>action</th></tr>${rows}</table>`,
     { headers: { 'Content-Type': 'text/html; charset=utf-8' } });
@@ -559,7 +592,8 @@ async function handleAdminSubmissions(request, env, url) {
     </tr>`).join('');
   return new Response(
     `<!doctype html><meta charset="utf-8"><title>Pending submissions</title>
-     <style>body{font:14px monospace;padding:20px}table{border-collapse:collapse}td,th{border:1px solid #ccc;padding:6px;text-align:left;max-width:260px;word-break:break-word}</style>
+     <style>body{font:14px monospace;padding:20px}table{border-collapse:collapse}td,th{border:1px solid #ccc;padding:6px;text-align:left;max-width:260px;word-break:break-word} a.home{display:inline-block;margin-bottom:12px}</style>
+     <a class="home" href="/admin${url.search}">← Admin home</a>
      <h1>Pending submissions (${results.length})</h1>
      <p>Approving here does NOT publish anything -- verify licence_reference against the primary
      regulator source, then add the brand to data/exchanges/*.yaml by hand.</p>
@@ -596,7 +630,8 @@ async function handleAdminProviderSubmissions(request, env, url) {
     </tr>`).join('');
   return new Response(
     `<!doctype html><meta charset="utf-8"><title>Pending provider submissions</title>
-     <style>body{font:14px monospace;padding:20px}table{border-collapse:collapse}td,th{border:1px solid #ccc;padding:6px;text-align:left;max-width:220px;word-break:break-word}</style>
+     <style>body{font:14px monospace;padding:20px}table{border-collapse:collapse}td,th{border:1px solid #ccc;padding:6px;text-align:left;max-width:220px;word-break:break-word} a.home{display:inline-block;margin-bottom:12px}</style>
+     <a class="home" href="/admin${url.search}">← Admin home</a>
      <h1>Pending provider submissions (${results.length})</h1>
      <p>Approving here does NOT publish anything -- independently verify the claimed partner
      relationship, then author a data/providers/*.yaml profile by hand.</p>
@@ -694,7 +729,9 @@ async function handleAdminLinks(request, env, url) {
        table{border-collapse:collapse;width:100%}
        td,th{border:1px solid #ccc;padding:6px;text-align:left}
        input#search{font:14px monospace;padding:6px;margin-bottom:12px;width:300px}
+       a.home{display:inline-block;margin-bottom:12px}
      </style>
+     <a class="home" href="/admin${url.search}">← Admin home</a>
      <h1>Affiliate links (${brands.length} brands, ${links.length} with a link set)</h1>
      <input id="search" placeholder="Filter by brand or id…" oninput="
        const q = this.value.toLowerCase();
@@ -734,6 +771,7 @@ export default {
     }
     const agg = url.pathname.match(/^\/api\/reports\/([a-z0-9-]{1,60})$/);
     if (agg && request.method === 'GET') return handleAggregates(env, agg[1]);
+    if (url.pathname === '/admin' || url.pathname === '/admin/') return handleAdminIndex(request, env, url);
     if (url.pathname === '/admin/reports') return handleAdmin(request, env, url);
     if (url.pathname === '/admin/links') return handleAdminLinks(request, env, url);
     if (url.pathname === '/admin/submissions') return handleAdminSubmissions(request, env, url);
