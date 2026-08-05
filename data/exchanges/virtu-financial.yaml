@@ -7,7 +7,7 @@ sources:
   retrieved: '2026-07-26'
 - name: Canada FINTRAC MSB Registry
   url: https://fintrac-canafe.canada.ca/msb-esm/reg-eng
-  retrieved: '2026-07-26'
+  retrieved: '2026-08-05'
 entities:
 - lei: 549300XG5LFGN1IGYC71
   legal_name: Virtu Financial Ireland Limited
