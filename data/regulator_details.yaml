@@ -140,3 +140,17 @@
   note: The SC's own page also separately lists historical operators no longer permitted to continue -- only the currently registered list (5 operators as of review) is used here.
   source_url: https://www.sc.com.my/regulation/guidelines/recognizedmarkets/list-of-registered-digital-asset-exchanges
   verified: '2026-08-05'
+- code: KR
+  name: Korea Financial Intelligence Unit (FIU)
+  tier: gb-registered
+  tier_label: AML-only registration
+  scope: South Korea only -- no dedicated cryptoasset business licensing regime exists yet
+  capital: "No minimum capital requirement -- this is an AML/CFT reporting regime, not a business licence"
+  checks:
+    - Company identity and prescribed business details reported to the FIU Commissioner
+    - Real-name-verified bank account agreement with a domestic bank (required to handle KRW deposits/withdrawals)
+    - Information security management system certification
+    - Ongoing AML/CFT reporting, customer due diligence, and recordkeeping obligations
+  note: Four currently registered entities (Wavebridge Prime, Bauman, Robit, ABC Cloud Wallet) were also named in a 25 Jun 2026 FIU press release on unregistered illegal virtual-asset handlers referred to police -- flagged individually on their exchange pages, since we could not resolve the apparent contradiction from primary sources.
+  source_url: https://www.kofiu.go.kr/kor/notification/notice.do
+  verified: '2026-08-05'

@@ -1,0 +1,15 @@
+id: korbit
+brand: Korbit
+eu_status: no_eu_entity
+sources:
+- name: Korea FIU VASP Registration Disclosure
+  url: https://www.kofiu.go.kr/kor/notification/notice.do
+  retrieved: '2026-08-05'
+entities: []
+countries:
+  KR:
+  - status: registered
+    regime: Korea FIU VASP Registration
+    via: kr_fiu_register
+    entity: 주식회사 코빗
+    since: '2021-10-20'

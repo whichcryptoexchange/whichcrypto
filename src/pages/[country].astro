@@ -23,7 +23,8 @@ const isHK = code === 'HK';
 const isGI = code === 'GI';
 const isJP = code === 'JP';
 const isMY = code === 'MY';
-const isNonEEA = isGB || isCA || isAE || isSG || isUS || isHK || isGI || isJP || isMY;
+const isKR = code === 'KR';
+const isNonEEA = isGB || isCA || isAE || isSG || isUS || isHK || isGI || isJP || isMY || isKR;
 const rows = exchanges
   .map((ex) => ({ ex, c: ex.countries?.[code] }))
   .filter((r) => r.c);
@@ -39,6 +40,7 @@ const sfcRetrieved = sourceRetrieved('Hong Kong SFC VATP List');
 const gfscRetrieved = sourceRetrieved('Gibraltar GFSC DLT Providers List');
 const jpFsaRetrieved = sourceRetrieved('Japan FSA Registered Crypto-asset Exchange Service Providers List');
 const myScRetrieved = sourceRetrieved('Malaysia SC List of Registered Digital Asset Exchanges');
+const krFiuRetrieved = sourceRetrieved('Korea FIU VASP Registration Disclosure');
 // registered/authorised (UK, CA) are AML-only tiers; licensed (AE/Dubai VARA)
 // is a genuine crypto-specific licence, so it gets the same green stamp as
 // EU MiCA rather than the cautious amber/grey UK-style tiers.
@@ -75,6 +77,8 @@ const PAGE_TITLE = isGB
   ? `Crypto exchanges licensed in Japan (${YEAR}) | whichcryptoexchange.com`
   : isMY
   ? `Crypto exchanges licensed in Malaysia (${YEAR}) | whichcryptoexchange.com`
+  : isKR
+  ? `Crypto exchanges registered in South Korea (${YEAR}) | whichcryptoexchange.com`
   : `Crypto exchanges licensed in ${name} (${YEAR}) | whichcryptoexchange.com`;
 const PAGE_DESC = isGB
   ? `${rows.length} crypto exchanges hold a UK FCA registration or authorisation, according to the official FCA Register. See which entity, which regime, and since when.`
@@ -94,6 +98,8 @@ const PAGE_DESC = isGB
   ? `${rows.length} crypto exchanges hold a Japan FSA Crypto-asset Exchange Service Provider registration, according to the FSA's official registered list.`
   : isMY
   ? `${rows.length} crypto exchanges hold a Malaysia SC Recognized Market Operator - Digital Asset Exchange registration, according to the SC's official registered list.`
+  : isKR
+  ? `${rows.length} crypto exchanges hold a Korea FIU VASP registration, according to the FIU's official registration disclosure.`
   : `${rows.length} crypto exchanges hold a licence covering ${name}, according to official regulator registers. See which entity, which regime, and since when.`;
 ---
 <html lang="en">
@@ -258,6 +264,21 @@ const PAGE_DESC = isGB
         historical operators no longer permitted to continue — only the currently registered list
         is shown here.</p>
       </>
+    ) : isKR ? (
+      <>
+        <h1>Which crypto exchanges are registered in South Korea?</h1>
+        <p class="lede">{rows.length} exchanges in our register have a Korean entity registered
+        with the Financial Intelligence Unit (FIU) under the Act on Reporting and Using Specified
+        Financial Transaction Information. As with Canada's FINTRAC and the US's FinCEN, this is
+        <em> not</em> a licence: registration means the FIU supervises the firm for
+        anti-money-laundering purposes, not that it has assessed or approved the firm's products or
+        conduct. South Korea does not yet have a dedicated cryptoasset business licensing regime.</p>
+        <p class="lede caveat">Four entries on this page (Wavebridge Prime, Bauman, Robit, ABC Cloud
+        Wallet) were also named in a 25 Jun 2026 FIU press release on unregistered illegal
+        virtual-asset handlers referred to police — despite also appearing on this same official
+        registered list. We could not resolve that apparent contradiction from primary sources;
+        each affected entry is flagged individually below.</p>
+      </>
     ) : (
       <>
         <h1>Which crypto exchanges are licensed in {name}?</h1>
@@ -379,6 +400,10 @@ const PAGE_DESC = isGB
       <p class="sourced">Source: <a href="https://www.sc.com.my/regulation/guidelines/recognizedmarkets/list-of-registered-digital-asset-exchanges">Malaysia SC List of Registered Digital Asset Exchanges</a>,
       retrieved {myScRetrieved}. An exchange missing from this list either holds no Malaysia SC
       RMO-DAX registration, or is not yet in our register.</p>
+    ) : isKR ? (
+      <p class="sourced">Source: <a href="https://www.kofiu.go.kr/kor/notification/notice.do">Korea FIU VASP Registration Disclosure</a>,
+      retrieved {krFiuRetrieved}. An exchange missing from this list either holds no Korea FIU VASP
+      registration, or is not yet in our register.</p>
     ) : (
       <p class="sourced">Source: <a href="https://www.esma.europa.eu/esmas-activities/digital-finance-and-innovation/markets-crypto-assets-regulation-mica">ESMA interim MiCA register</a>,
       retrieved {exchanges[0]?.sources?.[0]?.retrieved}. An exchange missing from this list either

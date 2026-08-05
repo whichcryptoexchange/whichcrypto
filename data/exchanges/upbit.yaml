@@ -5,6 +5,9 @@ sources:
 - name: Singapore MAS Financial Institutions Directory
   url: https://eservices.mas.gov.sg/fid/institution
   retrieved: '2026-07-26'
+- name: Korea FIU VASP Registration Disclosure
+  url: https://www.kofiu.go.kr/kor/notification/notice.do
+  retrieved: '2026-08-05'
 entities: []
 countries:
   SG:
@@ -14,3 +17,9 @@ countries:
     entity: UPBIT SINGAPORE PTE. LTD.
     reference: 420457-UPBIT-SINGAPORE-PTE-LTD
     since: null
+  KR:
+  - status: registered
+    regime: Korea FIU VASP Registration
+    via: kr_fiu_register
+    entity: 두나무 주식회사
+    since: '2021-10-06'

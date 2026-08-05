@@ -1,0 +1,42 @@
+name: Korea FIU sync
+
+on:
+  schedule:
+    - cron: '0 13 * * 5'   # Fri 13:00 UTC — offset from the other jurisdictions' runs
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.12' }
+      - run: pip install pyyaml
+      - name: Refresh Korea FIU VASP registration data
+        run: python3 scripts/kr_sync.py
+      - name: Open PR if the register changed
+        uses: peter-evans/create-pull-request@v6
+        with:
+          commit-message: "data: Korea FIU sync"
+          title: "Korea FIU update — review changes"
+          body: |
+            Automated refresh of data/kr_reg_map.yaml's pinned legal entity
+            names against the FIU's current registration disclosure
+            spreadsheet. This does NOT discover new brands -- only
+            re-confirms entities already curated in kr_reg_map.yaml are
+            still on the current registered list. Review for:
+              - a pinned entity no longer found on the current list (may
+                have been cancelled -- confirm before merging)
+              - any NEW press release naming a currently-tracked brand as
+                an unregistered illegal handler (see the existing caveat
+                pattern on Wavebridge Prime/Bauman/Robit/ABC Cloud Wallet)
+            A Korea FIU VASP registration is AML/CFT reporting only, not a
+            business licence -- same tier as UK/Canada/US, never describe
+            it as a genuine crypto-specific licence.
+          branch: kr-sync
+          delete-branch: true

@@ -7,6 +7,26 @@
 # omit it when a change is site-wide (search, sort controls) and there's no
 # single honest page to point at, rather than force a link that doesn't fit.
 - date: "2026-08-05"
+  title: "Added South Korea (FIU VASP registration) — an eleventh jurisdiction"
+  body: >
+    A Korea Financial Intelligence Unit (FIU) VASP registration under the
+    Act on Reporting and Using Specified Financial Transaction Information
+    is anti-money-laundering reporting only, not a business licence -- the
+    same tier as UK/Canada/US, not the genuine-licence tier of MiCA/VARA/
+    MAS/SFC/GFSC/FSA/SC. All 28 currently registered entities are tracked:
+    26 as new brands including Upbit, Bithumb, Coinone, Korbit, and Gopax
+    (Crypto.com's Korean entity was folded into the existing brand). Four
+    entries -- Wavebridge Prime, Bauman, Robit, ABC Cloud Wallet -- were
+    also named in a 25 Jun 2026 FIU press release on unregistered illegal
+    virtual-asset handlers referred to police, despite appearing on this
+    same registered list; we could not resolve that contradiction from
+    primary sources, so each is flagged directly on its own page rather
+    than silently included or excluded.
+  pages:
+    - { url: /kr/, label: South Korea }
+    - { url: /exchange/upbit/, label: Upbit }
+    - { url: /exchange/wavebridge-prime/, label: "Flagged: Wavebridge Prime" }
+- date: "2026-08-05"
   title: "Added Malaysia (SC Registered Digital Asset Exchanges) — a tenth jurisdiction"
   body: >
     A Malaysia Securities Commission Recognized Market Operator - Digital

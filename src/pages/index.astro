@@ -15,9 +15,10 @@ const hkExchanges = exchanges.filter((e) => e.countries?.HK);
 const giExchanges = exchanges.filter((e) => e.countries?.GI);
 const jpExchanges = exchanges.filter((e) => e.countries?.JP);
 const myExchanges = exchanges.filter((e) => e.countries?.MY);
+const krExchanges = exchanges.filter((e) => e.countries?.KR);
 const SITEKEY = import.meta.env.PUBLIC_TURNSTILE_SITEKEY || '0x4AAAAAAD84t4OWkoouLP3Y';
 const PAGE_TITLE = 'Is Your Crypto Exchange Licensed? | whichcryptoexchange.com';
-const PAGE_DESC = 'Check which crypto exchanges are licensed in your country -- built from 10 official regulator registers (MiCA, FCA, VARA & more). No rankings, just receipts.';
+const PAGE_DESC = 'Check which crypto exchanges are licensed in your country -- built from 11 official regulator registers (MiCA, FCA, VARA & more). No rankings, just receipts.';
 ---
 <html lang="en">
 <head>
@@ -131,10 +132,13 @@ const PAGE_DESC = 'Check which crypto exchanges are licensed in your country -- 
     Provider registration — <a href="/jp/">see the Japan page</a></p>
     <p class="sourced">{myExchanges.length} also hold a Malaysia SC Recognized Market Operator -
     Digital Asset Exchange registration — <a href="/my/">see the Malaysia page</a></p>
+    <p class="sourced">{krExchanges.length} also have a South Korean entity registered with the
+    FIU under the Act on Reporting and Using Specified Financial Transaction Information —
+    <a href="/kr/">see the South Korea page</a></p>
 
     <div class="legend">
       <span class="stamp licensed">MiCA / VARA / MAS / SFC / DLT / FSA / SC — Licensed</span>
-      <span class="stamp gb-registered">UK/CA/US · Registered</span>
+      <span class="stamp gb-registered">UK/CA/US/KR · Registered</span>
       <span class="stamp gb-authorised">UK · Authorised</span>
     </div>
     <p class="sourced legend-note">MiCA, VARA, MAS, and Registered are not all equivalent: an EU MiCA
@@ -143,14 +147,14 @@ const PAGE_DESC = 'Check which crypto exchanges are licensed in your country -- 
     genuine crypto-specific licences (Dubai's covers Dubai only — the UAE has no single national
     crypto regulator; Gibraltar's is the only source on this site we can't automatically sync — see
     the Gibraltar page); a UK
-    MLR registration, Canada FINTRAC MSB registration, or US FinCEN MSB registration is
-    anti-money-laundering supervision only — the UK's own cryptoasset licensing regime doesn't open
-    for applications until 30 Sep 2026, and neither Canada nor the US has a dedicated cryptoasset
-    licence at all (the US also has separate, unmapped state-level money transmitter regimes). UK
-    Authorised means a group entity is separately, fully FCA-authorised, usually for a different
-    (non-crypto) regulated activity. Some Singapore-licensed brands (Anchorage Digital, HashKey,
-    Paxos, Upbit, Independent Reserve) have no EU entity at all and appear only on the Singapore
-    page.</p>
+    MLR registration, Canada FINTRAC MSB registration, US FinCEN MSB registration, or South Korea
+    FIU VASP registration is anti-money-laundering supervision only — the UK's own cryptoasset
+    licensing regime doesn't open for applications until 30 Sep 2026, and none of Canada, the US,
+    or South Korea has a dedicated cryptoasset licence at all (the US also has separate, unmapped
+    state-level money transmitter regimes). UK Authorised means a group entity is separately, fully
+    FCA-authorised, usually for a different (non-crypto) regulated activity. Some Singapore-licensed
+    brands (Anchorage Digital, HashKey, Paxos, Upbit, Independent Reserve) have no EU entity at all
+    and appear only on the Singapore page.</p>
 
     <ul class="country-grid">
       {countries.map((c) => (
@@ -162,19 +166,19 @@ const PAGE_DESC = 'Check which crypto exchanges are licensed in your country -- 
   <footer class="site"><div class="wrap">
     <p><a href="/about/">About</a> · <a href="/contact/">Contact</a> · <a href="/changelog/">Changelog</a> · <a href="/exchanges/">Exchanges</a> · <a href="/regulators/">Regulators</a> · <a href="/stats/">Stats</a> · <a href="/providers/">Providers</a> · <a href="https://x.com/whichcex">X</a></p>
     <p>whichcryptoexchange.com is an independent register. We are not affiliated with ESMA, the FCA, FINTRAC,
-    VARA, MAS, FinCEN, the SFC, the GFSC, the FSA, the SC, or any regulator. Status is drawn from official
-    public registers and may lag regulator updates by up to a week — except Gibraltar, which is manually
-    verified rather than synced on a schedule (see the Gibraltar page). UK entries reflect FCA MLR registration
-    or authorisation, Canada entries reflect FINTRAC MSB registration, and US entries reflect FinCEN MSB
-    registration — none of these three is a cryptoasset licence, and none of the three jurisdictions has one
-    yet. Dubai (AE) entries reflect a Dubai VARA VASP Licence and cover Dubai only — VARA has no authority
-    over Abu Dhabi, Dubai's own DIFC free zone, or the rest of the UAE, and there is no single UAE-wide crypto
-    regulator. Singapore entries reflect a MAS Major Payment Institution licence for Digital Payment Token
-    services. Hong Kong entries reflect an SFC Virtual Asset Trading Platform licence. Gibraltar entries
-    reflect a GFSC DLT Licence. Japan entries reflect an FSA Crypto-asset Exchange Service Provider
-    registration under the Payment Services Act. Malaysia entries reflect an SC Recognized Market Operator -
-    Digital Asset Exchange registration under the Capital Markets and Services Act. Nothing here is financial
-    advice.</p>
+    VARA, MAS, FinCEN, the SFC, the GFSC, the FSA, the SC, the FIU, or any regulator. Status is drawn from
+    official public registers and may lag regulator updates by up to a week — except Gibraltar, which is
+    manually verified rather than synced on a schedule (see the Gibraltar page). UK entries reflect FCA MLR
+    registration or authorisation, Canada entries reflect FINTRAC MSB registration, US entries reflect FinCEN
+    MSB registration, and South Korea entries reflect FIU VASP registration — none of these four is a
+    cryptoasset licence, and none of the four jurisdictions has one yet. Dubai (AE) entries reflect a Dubai
+    VARA VASP Licence and cover Dubai only — VARA has no authority over Abu Dhabi, Dubai's own DIFC free zone,
+    or the rest of the UAE, and there is no single UAE-wide crypto regulator. Singapore entries reflect a MAS
+    Major Payment Institution licence for Digital Payment Token services. Hong Kong entries reflect an SFC
+    Virtual Asset Trading Platform licence. Gibraltar entries reflect a GFSC DLT Licence. Japan entries reflect
+    an FSA Crypto-asset Exchange Service Provider registration under the Payment Services Act. Malaysia
+    entries reflect an SC Recognized Market Operator - Digital Asset Exchange registration under the Capital
+    Markets and Services Act. Nothing here is financial advice.</p>
   </div></footer>
 
   <script>

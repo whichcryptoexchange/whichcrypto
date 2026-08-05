@@ -1,0 +1,15 @@
+id: inex
+brand: INEX
+eu_status: no_eu_entity
+sources:
+- name: Korea FIU VASP Registration Disclosure
+  url: https://www.kofiu.go.kr/kor/notification/notice.do
+  retrieved: '2026-08-05'
+entities: []
+countries:
+  KR:
+  - status: registered
+    regime: Korea FIU VASP Registration
+    via: kr_fiu_register
+    entity: ㈜인피니티익스체인지코리아
+    since: '2024-10-15'

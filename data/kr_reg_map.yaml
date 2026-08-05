@@ -1,0 +1,96 @@
+# Pinned Korea FIU (KoFIU) registered legal entity names -> brand_id.
+# scripts/kr_sync.py re-fetches each pinned entity's presence/acceptance
+# date from the live "가상자산사업자 신고에 관한 정보공개 현황" (VASP registration
+# disclosure) spreadsheet and writes it into that brand's countries.KR entry
+# -- it does not auto-discover new brands, same pattern as my_reg_map.yaml.
+#
+# Registration under the Act on Reporting and Using Specified Financial
+# Transaction Information is AML/CFT reporting only, not a business licence
+# -- same tier as UK/Canada/US, not the genuine-licence tier of MiCA/VARA/
+# MAS/SFC/GFSC/FSA/SC. See data/regulator_details.yaml for the source.
+#
+# caveat: four entities here (Wavebridge Prime, Bauman, Robit, ABC Cloud
+# Wallet) were also named in a 25 Jun 2026 KoFIU press release on
+# unregistered illegal virtual-asset handlers referred to police -- despite
+# also appearing on this same registered list. We could not resolve that
+# apparent contradiction from primary sources (likely: registered for one
+# narrow declared activity while investigated for an unregistered one), so
+# it is surfaced directly on their pages rather than silently included or
+# excluded.
+- brand_id: upbit
+  entity: 두나무 주식회사
+- brand_id: korbit
+  entity: 주식회사 코빗
+- brand_id: coinone
+  entity: 주식회사 코인원
+- brand_id: bithumb
+  entity: 주식회사 빗썸
+- brand_id: flybit
+  entity: 주식회사 한국디지털거래소
+- brand_id: gopax
+  entity: 주식회사 스트리미
+- brand_id: btx
+  entity: 차일들리 주식회사
+- brand_id: pobl
+  entity: 주식회사 포블게이트
+- brand_id: coredax
+  entity: ㈜코어닥스
+- brand_id: viblock
+  entity: 주식회사 그레이브릿지
+- brand_id: crypto-com
+  entity: 주식회사 포리스닥스코리아리미티드
+- brand_id: bitkmon
+  entity: 주식회사 골든퓨쳐스
+- brand_id: frabang
+  entity: 주식회사 프라뱅
+- brand_id: borabit
+  entity: 주식회사 보라비트
+- brand_id: koda
+  entity: 주식회사 한국디지털에셋
+- brand_id: kdac
+  entity: 주식회사 한국디지털자산수탁
+- brand_id: ohai-wallet
+  entity: 주식회사 헥토월렛원
+- brand_id: hyperism
+  entity: 하이퍼리즘 유한책임회사
+- brand_id: oasis-exchange
+  entity: ㈜가디언홀딩스
+- brand_id: castella
+  entity: 주식회사 마인드시프트
+- brand_id: infinitblock
+  entity: 주식회사 인피닛블록
+- brand_id: dsrv-labs
+  entity: ㈜디에스알브이랩스
+- brand_id: vidax
+  entity: 비댁스 주식회사
+- brand_id: inex
+  entity: ㈜인피니티익스체인지코리아
+- brand_id: wavebridge-prime
+  entity: ㈜웨이브릿지
+  caveat: >-
+    Named "Wavebridge (Dolphin)" in a 25 Jun 2026 KoFIU press release on
+    unregistered illegal virtual-asset handlers referred to police, despite
+    also appearing on this same registered list -- see the Korea page for
+    detail. We could not resolve this from primary sources.
+- brand_id: bauman
+  entity: ㈜해피블록
+  caveat: >-
+    Named "Happyblock (Bauman)" in a 25 Jun 2026 KoFIU press release on
+    unregistered illegal virtual-asset handlers referred to police, despite
+    also appearing on this same registered list -- see the Korea page for
+    detail. We could not resolve this from primary sources.
+- brand_id: robit
+  entity: ㈜블로세이프
+  caveat: >-
+    Named "Blocksafe (Robit)" in a 25 Jun 2026 KoFIU press release on
+    unregistered illegal virtual-asset handlers referred to police, despite
+    also appearing on this same registered list -- see the Korea page for
+    detail. We could not resolve this from primary sources.
+- brand_id: abc-cloud-wallet
+  entity: ㈜안랩블록체인컴퍼니
+  caveat: >-
+    Named "AhnLab Blockchain Company (ABC Cloud Wallet)" in a 25 Jun 2026
+    KoFIU press release on unregistered illegal virtual-asset handlers
+    referred to police, despite also appearing on this same registered
+    list -- see the Korea page for detail. We could not resolve this from
+    primary sources.

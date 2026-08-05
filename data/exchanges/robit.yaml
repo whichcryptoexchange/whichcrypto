@@ -1,0 +1,18 @@
+id: robit
+brand: Robit
+eu_status: no_eu_entity
+sources:
+- name: Korea FIU VASP Registration Disclosure
+  url: https://www.kofiu.go.kr/kor/notification/notice.do
+  retrieved: '2026-08-05'
+entities: []
+countries:
+  KR:
+  - status: registered
+    regime: Korea FIU VASP Registration
+    via: kr_fiu_register
+    entity: ㈜블로세이프
+    since: '2025-08-29'
+    caveat: Named "Blocksafe (Robit)" in a 25 Jun 2026 KoFIU press release on unregistered illegal virtual-asset
+      handlers referred to police, despite also appearing on this same registered list -- see the Korea
+      page for detail. We could not resolve this from primary sources.

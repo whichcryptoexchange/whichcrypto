@@ -375,6 +375,15 @@ h3:first-child { margin-top: 0; }
 .record dl { display: grid; grid-template-columns: 160px 1fr; gap: 4px 16px; margin: 12px 0 0; font-size: 14px; }
 .record dt { font-family: var(--mono); font-size: 12px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--ink-soft); }
 .record dd { margin: 0; }
+.record .caveat {
+  margin: 14px 0 0;
+  padding: 8px 12px;
+  color: var(--warned);
+  font-size: 13px;
+  font-weight: 600;
+  border-left: 3px solid var(--warned);
+  background: #fdf2f0;
+}
 .regulator-detail.tier-gb-registered { border-left-color: var(--caution); }
 .regulator-detail .checks-label { margin: 16px 0 4px; font-weight: 700; }
 .regulator-detail ul { margin: 0 0 12px; padding-left: 20px; }

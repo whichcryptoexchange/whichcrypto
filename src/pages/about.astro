@@ -21,6 +21,7 @@ const SOURCES = [
   { name: 'Gibraltar GFSC DLT Providers List', label: 'Gibraltar GFSC DLT Providers List (manually verified)', url: 'https://www.fsc.gi/regulated-entities/dlt-providers-38' },
   { name: 'Japan FSA Registered Crypto-asset Exchange Service Providers List', label: 'Japan FSA Registered Crypto-asset Exchange Service Providers List', url: 'https://www.fsa.go.jp/en/regulated/licensed/index.html' },
   { name: 'Malaysia SC List of Registered Digital Asset Exchanges', label: 'Malaysia SC List of Registered Digital Asset Exchanges', url: 'https://www.sc.com.my/regulation/guidelines/recognizedmarkets/list-of-registered-digital-asset-exchanges' },
+  { name: 'Korea FIU VASP Registration Disclosure', label: 'Korea FIU VASP Registration Disclosure', url: 'https://www.kofiu.go.kr/kor/notification/notice.do' },
 ].map((s) => ({ ...s, retrieved: sourceRetrieved(s.name) }));
 const PAGE_TITLE = 'How This Crypto Exchange Register Works | whichcryptoexchange.com';
 const PAGE_DESC = "How whichcryptoexchange.com works: which official registers we draw from, how brands are curated, and what 'licensed' does and doesn't mean in each jurisdiction.";
@@ -80,7 +81,7 @@ const PAGE_DESC = "How whichcryptoexchange.com works: which official registers w
     verify it yourself.</p>
 
     <h3>Where the data comes from</h3>
-    <p>We currently draw from ten official sources, each with its own regime and its own meaning
+    <p>We currently draw from eleven official sources, each with its own regime and its own meaning
     of "licensed" (or, in some cases, deliberately <em>not</em> licensed):</p>
     <ul>
       <li><strong>ESMA</strong> — the interim MiCA register covering the EU/EEA. A MiCA
@@ -130,6 +131,15 @@ const PAGE_DESC = "How whichcryptoexchange.com works: which official registers w
       Services Act is a genuine crypto-specific licence, the same tier as VARA/MAS/SFC/GFSC/FSA,
       requiring a minimum RM5,000,000 paid-up capital. The SC's page also separately lists historical
       operators no longer permitted to continue; only the currently registered list is used here.</li>
+      <li><strong>Korea FIU VASP Registration Disclosure</strong> — registration under the Act on
+      Reporting and Using Specified Financial Transaction Information is anti-money-laundering
+      reporting only, not a business licence — the same tier as UK/Canada/US, not the genuine-licence
+      tier above. South Korea has no dedicated cryptoasset licensing regime yet. Four currently
+      registered entries (Wavebridge Prime, Bauman, Robit, ABC Cloud Wallet) were also named in a
+      25 Jun 2026 FIU press release on unregistered illegal virtual-asset handlers referred to police
+      — despite also appearing on this same official list. We could not resolve that apparent
+      contradiction from primary sources, so it is flagged directly on each affected exchange's own
+      page rather than silently included or excluded.</li>
     </ul>
     <p>Each exchange page cites every source that applies to it, with the date we last checked.</p>
 

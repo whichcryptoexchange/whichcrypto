@@ -1,0 +1,15 @@
+id: vidax
+brand: Vidax
+eu_status: no_eu_entity
+sources:
+- name: Korea FIU VASP Registration Disclosure
+  url: https://www.kofiu.go.kr/kor/notification/notice.do
+  retrieved: '2026-08-05'
+entities: []
+countries:
+  KR:
+  - status: registered
+    regime: Korea FIU VASP Registration
+    via: kr_fiu_register
+    entity: 비댁스 주식회사
+    since: '2024-09-25'
