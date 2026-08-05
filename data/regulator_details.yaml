@@ -51,7 +51,7 @@
   tier: licensed
   tier_label: Genuine licence
   scope: Dubai only -- VARA has no authority over Abu Dhabi, Dubai's own DIFC free zone, or the rest of the UAE
-  capital: "AED 100,000 (advisory services) up to AED 5,000,000 (exchange operation), varying across VARA's seven licensed activity categories"
+  capital: "AED 100,000 (advisory services) up to the higher of AED 1,500,000 or 25% of fixed annual overheads (exchange operation, or AED 800,000 / 15% if already custody-licensed), varying across VARA's seven licensed activity categories -- per the Company Rulebook in force since 19 Jun 2025"
   checks:
     - Two Responsible Individuals, UAE-resident and assessed fit-and-proper
     - AML/CFT policies and risk controls
@@ -59,20 +59,20 @@
     - Client-asset segregation arrangements
     - Market-surveillance obligations for exchange operators specifically
   source_url: https://www.vara.ae/en/licenses-and-register/licence-applications/
-  verified: '2026-08-03'
+  verified: '2026-08-06'
 - code: SG
   name: Singapore Monetary Authority (MAS)
   tier: licensed
   tier_label: Genuine licence
   scope: Singapore only
-  capital: "SGD 250,000 base capital for a Major Payment Institution, plus a security deposit of SGD 100,000-200,000 depending on transaction volume"
+  capital: "SGD 500,000 base capital specifically for Digital Payment Token service (the category crypto exchanges hold, higher than the generic SGD 250,000 Major Payment Institution figure), plus a security deposit of SGD 100,000-200,000 depending on transaction volume"
   checks:
     - AML/CFT controls aligned to MAS Notice PSN02, including travel-rule compliance for token transfers
     - A Singapore-incorporated company with a resident CEO and at least one resident executive director
     - Technology risk management standards
-  note: MAS typically allows 9-15 months from a complete application to approval.
+  note: Processing time varies by source -- commonly cited as roughly 6-12 months from a complete application, longer for complex cases.
   source_url: https://www.mas.gov.sg/regulation/payment-services
-  verified: '2026-08-03'
+  verified: '2026-08-06'
 - code: US
   name: US FinCEN
   tier: gb-registered
@@ -131,7 +131,7 @@
   tier: licensed
   tier_label: Genuine licence
   scope: Malaysia only
-  capital: "RM5,000,000 minimum paid-up capital; a Digital Broker model requires an additional, separate RM5,000,000 in shareholders' funds"
+  capital: "RM15,000,000 minimum paid-up capital under the Guidelines on Recognized Markets revised effective 20 May 2026 (up from RM5,000,000), plus shareholders' funds of the higher of RM5,000,000 (RM7,000,000 for a Direct Trade model) or 25% of annual operating expenses -- existing operators have until 20 May 2028 to comply"
   checks:
     - Fit-and-proper assessment of directors, the chief executive, controllers, and senior management
     - Robust internal controls and risk management frameworks
@@ -139,7 +139,7 @@
     - Locally incorporated company in Malaysia
   note: The SC's own page also separately lists historical operators no longer permitted to continue -- only the currently registered list (5 operators as of review) is used here.
   source_url: https://www.sc.com.my/regulation/guidelines/recognizedmarkets/list-of-registered-digital-asset-exchanges
-  verified: '2026-08-05'
+  verified: '2026-08-06'
 - code: KR
   name: Korea Financial Intelligence Unit (FIU)
   tier: gb-registered

@@ -7,6 +7,23 @@
 # omit it when a change is site-wide (search, sort controls) and there's no
 # single honest page to point at, rather than force a link that doesn't fit.
 - date: "2026-08-06"
+  title: "Refreshed capital figures for Dubai, Singapore, and Malaysia"
+  body: >
+    A new periodic fact-check pass against each regulator's live primary
+    source (not just the brand-list syncs, but the researched figures on
+    the Regulators page) found three outdated capital requirements. Dubai
+    VARA's exchange-licence capital cap was quoting a pre-2023-revision
+    figure (AED 5,000,000) no longer in the current rulebook -- the real
+    current range is AED 800,000-1,500,000 depending on custody status.
+    Singapore MAS's stated SGD 250,000 was the generic Major Payment
+    Institution figure, not the SGD 500,000 that Digital Payment Token
+    service (what crypto exchanges actually hold) requires. Malaysia's
+    Guidelines on Recognized Markets were revised effective 20 May 2026,
+    raising the minimum from RM5,000,000 to RM15,000,000. All three are
+    corrected on the Regulators page.
+  pages:
+    - { url: /regulators/, label: Regulators }
+- date: "2026-08-06"
   title: "Correction: removed an unverified claim about four Korean brands"
   body: >
     The South Korea entry below originally stated that Wavebridge Prime,
