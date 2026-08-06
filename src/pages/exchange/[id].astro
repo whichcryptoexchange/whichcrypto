@@ -1,11 +1,12 @@
 ---
-import { loadExchanges, COUNTRY_NAMES, SERVICE_NAMES, countryFlag } from '../../lib/data.js';
+import { loadExchanges, COUNTRY_NAMES, SERVICE_NAMES, countryFlag, brandWebsite } from '../../lib/data.js';
 import '../../styles/global.css';
 
 export function getStaticPaths() {
   return loadExchanges().map((ex) => ({ params: { id: ex.id }, props: { ex } }));
 }
 const { ex } = Astro.props;
+const website = brandWebsite(ex);
 const countryCodes = Object.keys(ex.countries ?? {})
   .sort((a, b) => (COUNTRY_NAMES[a] ?? a).localeCompare(COUNTRY_NAMES[b] ?? b));
 // Non-EEA jurisdictions (list-shaped countries.<CC>, unlike the single-object
@@ -165,6 +166,7 @@ const PAGE_DESC = `${ex.brand}: official licence records, legal entities, regula
           {entry.prefix} · {STATUS_STAMP[entry.status]?.label ?? entry.status}{entry.count > 1 ? ` (${entry.count} entities)` : ''}
         </span>
       ))}
+      {website && <> · <a href={website} rel="nofollow noopener" target="_blank">Visit {ex.brand} ↗</a></>}
     </p>
 
     <p class="summary-box">

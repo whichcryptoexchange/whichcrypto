@@ -50,6 +50,35 @@ export function countriesInData(exchanges) {
   return [...set].sort((a, b) => (COUNTRY_NAMES[a] ?? a).localeCompare(COUNTRY_NAMES[b] ?? b));
 }
 
+// A handful of `website` fields across data/exchanges/*.yaml turned out to
+// be scrape/entry artifacts rather than URLs -- a page title ("N26 - Die
+// erste Onlinebank..."), a registered-office postal address, several
+// pipe-or-newline-separated multi-URL values. Never render one of those as
+// a link: validate first, and fall back to no link at all rather than a
+// broken or embarrassing one.
+function normalizeWebsite(raw) {
+  if (!raw) return null;
+  const candidate = raw.split(/[|\n]/)[0].trim();
+  if (/\s/.test(candidate.replace(/^https?:\/\//i, ''))) return null;
+  const withProtocol = /^https?:\/\//i.test(candidate) ? candidate : `https://${candidate}`;
+  let u;
+  try { u = new URL(withProtocol); } catch { return null; }
+  if (!/^[a-z0-9.-]+\.[a-z]{2,}$/i.test(u.hostname)) return null;
+  return u.href;
+}
+
+// A brand's website can live at the top level (non-EEA-only brands, e.g.
+// the NY DFS additions) or nested per EEA entity -- try every candidate in
+// order and use the first that survives normalizeWebsite.
+export function brandWebsite(ex) {
+  const candidates = [ex.website, ...(ex.entities ?? []).map((e) => e.website)].filter(Boolean);
+  for (const c of candidates) {
+    const normalized = normalizeWebsite(c);
+    if (normalized) return normalized;
+  }
+  return null;
+}
+
 // ISO 3166-1 alpha-2 -> flag emoji, via the regional indicator symbol trick
 // (each letter maps to U+1F1E6..U+1F1FF, offset from 'A').
 export function countryFlag(code) {

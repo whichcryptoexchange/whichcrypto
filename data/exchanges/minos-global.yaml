@@ -11,7 +11,7 @@ entities:
   commercial_name: MINOS GLOBAL
   home_state: ES
   regulator: Comisión Nacional del Mercado de Valores (CNMV)
-  website: ttps://minos.global
+  website: https://minos.global
   records:
   - authorised: '2026-06-30'
     withdrawn: null

@@ -29,7 +29,7 @@ entities:
   commercial_name: Coinbase
   home_state: LU
   regulator: Commission de Surveillance du Secteur Financier (CSSF)
-  website: https.//coinbase.com
+  website: https://coinbase.com
   records:
   - authorised: '2025-06-20'
     withdrawn: null
