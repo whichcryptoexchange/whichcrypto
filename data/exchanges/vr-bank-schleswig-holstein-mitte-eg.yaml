@@ -1,0 +1,29 @@
+id: vr-bank-schleswig-holstein-mitte-eg
+brand: VR Bank Schleswig-Holstein Mitte eG
+eu_status: authorised
+sources:
+- name: ESMA interim MiCA register (CASPS.csv)
+  url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
+  retrieved: '2026-08-06'
+entities:
+- lei: 52990017DZKEH3Q6PV63
+  legal_name: VR Bank Schleswig-Holstein Mitte eG
+  commercial_name: VR Bank Schleswig-Holstein Mitte eG
+  home_state: DE
+  regulator: Federal Financial Supervisory Authority (BaFin)
+  website: https://www.vrbank-sh-mitte.de
+  records:
+  - authorised: '2026-07-21'
+    withdrawn: null
+    status: authorised
+    services:
+    - e
+    passported_to:
+    - DE
+    last_update: '2026-07-21'
+countries:
+  DE:
+    status: licensed
+    regime: MiCA
+    via: home_state
+    entity: VR Bank Schleswig-Holstein Mitte eG

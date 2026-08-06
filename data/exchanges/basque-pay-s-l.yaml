@@ -1,0 +1,29 @@
+id: basque-pay-s-l
+brand: BASQUE PAY S.L
+eu_status: authorised
+sources:
+- name: ESMA interim MiCA register (CASPS.csv)
+  url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
+  retrieved: '2026-08-06'
+entities:
+- lei: null
+  legal_name: BASQUE PAY S.L
+  commercial_name: BASQUE PAY S.L
+  home_state: ES
+  regulator: Comisión Nacional del Mercado de Valores (CNMV)
+  website: https://fazilcrypto.com/es/
+  records:
+  - authorised: '2026-07-31'
+    withdrawn: null
+    status: authorised
+    services:
+    - g
+    passported_to:
+    - ES
+    last_update: '2026-07-31'
+countries:
+  ES:
+    status: licensed
+    regime: MiCA
+    via: home_state
+    entity: BASQUE PAY S.L
