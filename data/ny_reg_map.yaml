@@ -44,7 +44,8 @@
   entity: Block, Inc., f/k/a Square, Inc.
   licence_type: vc_and_mt
   since: '2018-06'
-  caveat: Bitcoin services are provided by Block, Inc. (which operates in New York as "Block of
+  caveat: Consumer bitcoin buying, selling, and holding is offered through the Cash App product;
+    that functionality is provided directly by Block, Inc. (which operates in New York as "Block of
     Delaware" for this licence) -- not by Cash App Investing LLC, a separate FINRA/SIPC-member
     broker-dealer subsidiary that handles equities brokerage only and does not trade bitcoin, per
     Cash App's own disclosures.

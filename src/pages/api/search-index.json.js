@@ -4,12 +4,16 @@
 import { loadExchanges, countriesInData, COUNTRY_NAMES } from '../../lib/data.js';
 
 // A brand's legal entity name is often unrecognisable next to its consumer
-// brand (Cash App is licensed as "Block, Inc."; Strike as "Zap Solutions,
+// brand (Block is licensed as "Block, Inc."; Strike as "Zap Solutions,
 // Inc."; Ripple as "Ripple Markets DE LLC, f/k/a XRP II LLC") -- collect
 // every distinct one so a search for the entity still finds the brand,
-// without showing the entity name in the results list itself.
+// without showing the entity name in the results list itself. Some brands
+// also need the reverse: a hand-curated top-level `aliases` field for a
+// consumer-facing product name that ISN'T a legal entity at all (Block's
+// own brand card links to block.xyz, not cash.app, so "Cash App" has to be
+// added explicitly or it would stop being findable).
 function entityAliases(ex) {
-  const names = new Set();
+  const names = new Set(ex.aliases ?? []);
   for (const ent of ex.entities ?? []) {
     if (ent.legal_name) names.add(ent.legal_name);
     if (ent.commercial_name) names.add(ent.commercial_name);
