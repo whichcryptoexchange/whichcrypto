@@ -11,8 +11,24 @@ const partners = (p.partners ?? []).map((partner) => ({
   ...partner,
   ex: exchanges.find((ex) => ex.id === partner.brand_id),
 }));
+const countries = p.countries_served ?? [];
+const sources = p.sources ?? [];
 const factsVerified = partners.length > 0 && partners.every((partner) => partner.verified);
 const websiteActive = Boolean(p.claimed?.status);
+
+// The page splits into two sections by provenance, not by fact type -- a
+// custody claim we've checked against a primary source and one we haven't
+// can sit right next to each other in the data, so they belong in
+// different sections regardless of which of partners/countries/sources
+// they came from. See src/pages/providers/index.astro's badge legend for
+// what "Verified Facts" means at the page-badge level.
+const verifiedPartners = partners.filter((x) => x.verified);
+const disclosedPartners = partners.filter((x) => !x.verified);
+const verifiedCountries = countries.filter((x) => x.verified);
+const disclosedCountries = countries.filter((x) => !x.verified);
+const verifiedSources = sources.filter((x) => x.verified);
+const disclosedSources = sources.filter((x) => !x.verified);
+const hasDisclosed = disclosedPartners.length + disclosedCountries.length + disclosedSources.length > 0;
 const PAGE_TITLE = `${p.name}: technology provider profile | whichcryptoexchange.com`;
 const PAGE_DESC = `${p.name} is not itself a licensed exchange. See who actually holds and executes customer assets, and whether those partners are independently verified.`;
 ---
@@ -82,46 +98,95 @@ const PAGE_DESC = `${p.name} is not itself a licensed exchange. See who actually
     </div>
     <p class="lede">{p.overview}</p>
 
-    {partners.length > 0 && (
-      <>
-        <h3>Who actually holds and executes customer assets</h3>
-        {partners.map((partner) => (
-          <div class="provider-card">
-            <dl>
-              <dt>Partner</dt>
-              <dd>{partner.ex ? <a href={`/exchange/${partner.ex.id}/`}>{partner.name}</a> : partner.name}
-                {partner.verified && <span class="source-tag verified">Verified</span>}</dd>
-              <dt>Role</dt><dd>{partner.role}</dd>
-              <dt>Licence</dt><dd class="datum">{partner.licence}</dd>
-            </dl>
-          </div>
-        ))}
-      </>
+    <div class="record verified-block">
+      <h3>✅ Verified by us</h3>
+      <p class="sourced">Checked against a primary source ourselves — a regulator register, the
+      partner's own official listing, or equivalent.</p>
+
+      {verifiedPartners.length > 0 && (
+        <>
+          <p class="fact-section-label">Who actually holds and executes customer assets</p>
+          {verifiedPartners.map((partner) => (
+            <div class="provider-card">
+              <dl>
+                <dt>Partner</dt>
+                <dd>{partner.ex ? <a href={`/exchange/${partner.ex.id}/`}>{partner.name}</a> : partner.name}</dd>
+                <dt>Role</dt><dd>{partner.role}</dd>
+                <dt>Licence</dt><dd class="datum">{partner.licence}</dd>
+              </dl>
+            </div>
+          ))}
+        </>
+      )}
+      {verifiedCountries.length > 0 && (
+        <>
+          <p class="fact-section-label">Countries served</p>
+          <ul>
+            {verifiedCountries.map((c) => (
+              <li><strong>{c.label}</strong> — {c.detail}</li>
+            ))}
+          </ul>
+        </>
+      )}
+      {verifiedSources.length > 0 && (
+        <>
+          <p class="fact-section-label">Sources</p>
+          <ul class="sourced">
+            {verifiedSources.map((s) => (
+              <li>{s.url ? <a href={s.url}>{s.label}</a> : s.label}</li>
+            ))}
+          </ul>
+        </>
+      )}
+      {verifiedPartners.length + verifiedCountries.length + verifiedSources.length === 0 && (
+        <p class="sourced">Nothing on this profile has been independently verified yet.</p>
+      )}
+    </div>
+
+    {hasDisclosed && (
+      <div class="record disclosed-block">
+        <h3>📋 Company disclosures</h3>
+        <p class="sourced">Reported by the company itself and not independently verified — treat as
+        a claim, not a confirmed fact.</p>
+
+        {disclosedPartners.length > 0 && (
+          <>
+            <p class="fact-section-label">Who actually holds and executes customer assets</p>
+            {disclosedPartners.map((partner) => (
+              <div class="provider-card">
+                <dl>
+                  <dt>Partner</dt>
+                  <dd>{partner.ex ? <a href={`/exchange/${partner.ex.id}/`}>{partner.name}</a> : partner.name}</dd>
+                  <dt>Role</dt><dd>{partner.role}</dd>
+                  <dt>Licence</dt><dd class="datum">{partner.licence}</dd>
+                </dl>
+              </div>
+            ))}
+          </>
+        )}
+        {disclosedCountries.length > 0 && (
+          <>
+            <p class="fact-section-label">Countries served</p>
+            <ul>
+              {disclosedCountries.map((c) => (
+                <li><strong>{c.label}</strong> — {c.detail}</li>
+              ))}
+            </ul>
+          </>
+        )}
+        {disclosedSources.length > 0 && (
+          <>
+            <p class="fact-section-label">Sources</p>
+            <ul class="sourced">
+              {disclosedSources.map((s) => (
+                <li>{s.url ? <a href={s.url} rel="nofollow noopener">{s.label}</a> : s.label}</li>
+              ))}
+            </ul>
+          </>
+        )}
+      </div>
     )}
 
-    <h3>Countries served</h3>
-    <ul>
-      {p.countries_served.map((c) => (
-        <li><strong>{c.label}</strong> — {c.detail}
-          {c.verified
-            ? <span class="source-tag verified">Verified</span>
-            : <span class="source-tag disclosed">Company disclosure</span>}
-        </li>
-      ))}
-    </ul>
-
-    <h3>Sources</h3>
-    <ul class="sourced">
-      {p.sources.map((s) => (
-        <li>{s.url
-          ? <a href={s.url} rel={s.verified ? undefined : 'nofollow noopener'}>{s.label}</a>
-          : s.label}
-          {s.verified
-            ? <span class="source-tag verified">Verified</span>
-            : <span class="source-tag disclosed">Company disclosure</span>}
-        </li>
-      ))}
-    </ul>
     <p class="sourced">Last verified {p.last_verified}. Something out of date, or are you {p.name}
     and want to correct or add detail? <a href="/contact/">Get in touch</a>.</p>
   </main>

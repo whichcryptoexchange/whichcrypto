@@ -343,6 +343,23 @@ h3:first-child { margin-top: 0; }
 .badge-verified-facts { background: #e3f0e8; color: var(--licensed); border: 1px solid var(--licensed); }
 .badge-claimed { background: #eaf1f7; color: var(--editorial); border: 1px solid var(--editorial); }
 .provider-website-unclaimed { color: var(--ink-soft); font-family: var(--mono); font-size: 13px; }
+
+/* Provider profile: two sections split by provenance, not fact type -- a
+   partner/country/source claim lands in whichever block matches its own
+   `verified` flag, so the two never share a border colour with each other
+   (verified reuses .record's default green; disclosed gets caution amber). */
+.disclosed-block { border-left-color: var(--caution); }
+.fact-section-label {
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--ink-soft);
+  margin: 18px 0 8px;
+}
+.fact-section-label:first-of-type { margin-top: 14px; }
+.verified-block .provider-card, .disclosed-block .provider-card { margin: 0 0 12px; }
 .provider-card h3 { margin: 0 0 6px; font-family: var(--display); font-size: 18px; }
 .provider-card dl { display: grid; grid-template-columns: 160px 1fr; gap: 4px 16px; margin: 12px 0 0; font-size: 14px; }
 .provider-card dt { font-family: var(--mono); font-size: 12px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--ink-soft); }
