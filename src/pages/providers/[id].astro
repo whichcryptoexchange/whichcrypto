@@ -12,7 +12,7 @@ const partners = (p.partners ?? []).map((partner) => ({
   ex: exchanges.find((ex) => ex.id === partner.brand_id),
 }));
 const factsVerified = partners.length > 0 && partners.every((partner) => partner.verified);
-const websiteActive = Boolean(p.claimed?.status || p.enhanced?.status);
+const websiteActive = Boolean(p.claimed?.status);
 const PAGE_TITLE = `${p.name}: technology provider profile | whichcryptoexchange.com`;
 const PAGE_DESC = `${p.name} is not itself a licensed exchange. See who actually holds and executes customer assets, and whether those partners are independently verified.`;
 ---
@@ -76,7 +76,6 @@ const PAGE_DESC = `${p.name} is not itself a licensed exchange. See who actually
     <div class="provider-badges">
       {factsVerified && <span class="badge badge-verified-facts">✅ Verified Facts</span>}
       {p.claimed?.status && <span class="badge badge-claimed">🏢 Claimed Profile</span>}
-      {p.enhanced?.status && <span class="badge badge-enhanced">⭐ Enhanced Listing</span>}
     </div>
     <p class="lede">{p.overview}</p>
 

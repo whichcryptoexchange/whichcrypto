@@ -8,8 +8,6 @@ last_verified: "2026-07-31"
 # stays unclaimed until they go through the actual verification steps.
 claimed:
   status: false
-enhanced:
-  status: false
 overview: >
   A large crypto lending and trading platform. Nexo does not itself appear
   in the ESMA interim MiCA register under its own name -- for EEA clients,

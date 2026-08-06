@@ -9,8 +9,6 @@ last_verified: "2026-07-30"
 # not the same as completing the verification steps.
 claimed:
   status: false
-enhanced:
-  status: false
 overview: >
   A crypto trading app/technology layer that markets access to Europe and
   the US. CryptoUnity does not itself appear in any official regulator
