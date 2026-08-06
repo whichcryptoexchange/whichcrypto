@@ -455,6 +455,33 @@ footer.site a { color: inherit; }
 .consent-label { display: flex; align-items: flex-start; gap: 8px; font-size: 13px; color: var(--ink-soft); }
 .consent-label input[type="checkbox"] { display: inline-block; width: auto; margin: 3px 0 0; flex: none; }
 
+/* Page header + submit CTA widget -- sits beside the h1/lede on wide
+   screens so "add your listing" isn't buried at the bottom of the page.
+   Uses --editorial (blue) rather than --licensed (green, reserved for the
+   digest signup) so the two CTAs don't visually compete. */
+.page-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 28px; flex-wrap: wrap; }
+.page-header .page-header-main { flex: 1 1 380px; min-width: 0; }
+.page-header .page-header-main .lede { margin-bottom: 0; }
+.submit-cta {
+  flex: 0 0 250px;
+  background: #eaf1f7;
+  border: 2px solid var(--editorial);
+  border-radius: 8px;
+  padding: 18px 20px;
+  margin: 0;
+}
+.submit-cta h3 { margin: 0 0 6px; color: var(--editorial); font-size: 16px; }
+.submit-cta p { margin: 0 0 14px; color: var(--ink-soft); font-size: 13px; }
+.submit-cta a.button-link {
+  display: inline-block; font: 700 13px var(--display); color: #fff; background: var(--editorial);
+  border-radius: 4px; padding: 9px 16px; text-decoration: none; white-space: nowrap;
+}
+.submit-cta a.button-link:hover { background: #1f4666; }
+@media (max-width: 700px) {
+  .page-header { flex-direction: column; }
+  .submit-cta { flex-basis: auto; width: 100%; }
+}
+
 /* Weekly digest signup -- deliberately the loudest thing on the page
    besides the h1, using the site's green (already the "genuine licence"
    colour) to read as a positive, trustworthy action. */
