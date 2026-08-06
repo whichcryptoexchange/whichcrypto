@@ -71,7 +71,8 @@ const PAGE_DESC = `${p.name} is not itself a licensed exchange. See who actually
       <span class="badge-unlicensed">Not independently licensed</span>
       {websiteActive
         ? <> · <a href={p.website} rel="nofollow noopener" target="_blank">Visit {p.name} ↗</a></>
-        : <> · <span class="provider-website-unclaimed">{new URL(p.website).hostname} (unclaimed — link inactive)</span></>}
+        : <> · <span class="provider-website-unclaimed">{new URL(p.website).hostname} (unclaimed — link inactive) ·{' '}
+            <a href={`/providers/submit/?company=${encodeURIComponent(p.name)}&website=${encodeURIComponent(p.website)}`}>Is this your company? Claim this profile</a></span></>}
     </p>
     <div class="provider-badges">
       {factsVerified && <span class="badge badge-verified-facts">✅ Verified Facts</span>}

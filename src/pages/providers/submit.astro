@@ -55,6 +55,7 @@ const PAGE_DESC = 'Not independently licensed, but rely on a licensed custodian 
     </div>
 
     <h1>Submit a Technology Provider Profile</h1>
+    <p class="sourced" id="claim-notice" hidden></p>
     <p class="lede">If your company isn't independently licensed but relies on a licensed
     custodian or execution partner to actually hold and execute customer assets, you can submit
     your details here. This is <strong>not</strong> an automatic listing: we independently verify
@@ -126,6 +127,24 @@ const PAGE_DESC = 'Not independently licensed, but rely on a licensed custodian 
   {SITEKEY && <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>}
   <script>
     const form = document.getElementById('provider-submit-form');
+    const params = new URLSearchParams(location.search);
+    const claimCompany = params.get('company');
+    const claimWebsite = params.get('website');
+    if (claimCompany) {
+      const input = form?.querySelector('[name="company_name"]');
+      if (input) input.value = claimCompany;
+    }
+    if (claimWebsite) {
+      const input = form?.querySelector('[name="website"]');
+      if (input) input.value = claimWebsite;
+    }
+    if (claimCompany || claimWebsite) {
+      const notice = document.getElementById('claim-notice');
+      if (notice) {
+        notice.textContent = `Claiming the existing ${claimCompany || 'company'} profile — the fields below are pre-filled; just add your contact email and any evidence of the partnership.`;
+        notice.hidden = false;
+      }
+    }
     form?.addEventListener('submit', async (e) => {
       e.preventDefault();
       const msg = form.querySelector('.form-msg');

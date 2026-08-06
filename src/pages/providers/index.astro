@@ -141,7 +141,8 @@ const PAGE_DESC = 'Crypto apps and platforms that are not themselves licensed, b
           <dd>
             {p.claimed?.status
               ? <a href={p.website} rel="nofollow noopener" target="_blank">{p.website} ↗</a>
-              : <span class="provider-website-unclaimed">{new URL(p.website).hostname} (unclaimed — link inactive)</span>}
+              : <span class="provider-website-unclaimed">{new URL(p.website).hostname} (unclaimed — link inactive) ·{' '}
+                <a href={`/providers/submit/?company=${encodeURIComponent(p.name)}&website=${encodeURIComponent(p.website)}`}>Is this your company? Claim this profile</a></span>}
           </dd>
           <dt>Last verified</dt><dd class="datum">{p.last_verified}</dd>
         </dl>
