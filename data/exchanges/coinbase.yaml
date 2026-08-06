@@ -4,7 +4,7 @@ eu_status: authorised
 sources:
 - name: ESMA interim MiCA register (CASPS.csv)
   url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
-  retrieved: '2026-07-26'
+  retrieved: '2026-08-06'
 - name: UK FCA Register
   url: https://register.fca.org.uk/
   retrieved: '2026-07-26'
@@ -179,6 +179,13 @@ countries:
     regime: MiCA
     via: mica_passporting
     entity: Coinbase Luxembourg S.A
+  JP:
+  - status: licensed
+    regime: Japan FSA Crypto-asset Exchange Service Provider registration
+    via: jp_fsa_register
+    entity: Coinbase  Co., Ltd.
+    reference: Kanto No.00028
+    since: '2021-06-18'
   LI:
     status: licensed
     regime: MiCA
@@ -234,6 +241,13 @@ countries:
     regime: MiCA
     via: mica_passporting
     entity: Coinbase Luxembourg S.A
+  SG:
+  - status: licensed
+    regime: Singapore MAS MPI Licence (DPT)
+    via: mas_register
+    entity: COINBASE SINGAPORE PTE. LTD.
+    reference: 235467-COINBASE-SINGAPORE-PTE-LTD
+    since: null
   SI:
     status: licensed
     regime: MiCA
@@ -244,13 +258,6 @@ countries:
     regime: MiCA
     via: mica_passporting
     entity: Coinbase Luxembourg S.A
-  SG:
-  - status: licensed
-    regime: Singapore MAS MPI Licence (DPT)
-    via: mas_register
-    entity: COINBASE SINGAPORE PTE. LTD.
-    reference: 235467-COINBASE-SINGAPORE-PTE-LTD
-    since: null
   US:
   - status: registered
     regime: US FinCEN MSB registration
@@ -258,10 +265,3 @@ countries:
     entity: Coinbase, Inc.
     reg_number: '29454073'
     since: '2024-11-01'
-  JP:
-  - status: licensed
-    regime: Japan FSA Crypto-asset Exchange Service Provider registration
-    via: jp_fsa_register
-    entity: Coinbase  Co., Ltd.
-    reference: Kanto No.00028
-    since: '2021-06-18'

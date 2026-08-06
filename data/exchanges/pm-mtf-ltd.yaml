@@ -1,0 +1,206 @@
+id: pm-mtf-ltd
+brand: PM MTF LTD
+eu_status: authorised
+sources:
+- name: ESMA interim MiCA register (CASPS.csv)
+  url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
+  retrieved: '2026-08-06'
+entities:
+- lei: 2138005EFA978Y43G944
+  legal_name: PM MTF LTD
+  commercial_name: PM MTF LTD
+  home_state: CY
+  regulator: Cyprus Securities and Exchange Commission (CySEC)
+  website: https://mtf.perpetuals.com/, http://eu.barriers.com/
+  records:
+  - authorised: '2026-07-20'
+    withdrawn: null
+    status: authorised
+    services:
+    - a
+    - b
+    - e
+    - g
+    - j
+    passported_to:
+    - AT
+    - BE
+    - BG
+    - CZ
+    - DE
+    - DK
+    - EE
+    - ES
+    - FI
+    - FR
+    - GR
+    - HR
+    - HU
+    - IE
+    - IS
+    - IT
+    - LI
+    - LT
+    - LU
+    - LV
+    - MT
+    - NL
+    - 'NO'
+    - PL
+    - PT
+    - RO
+    - SE
+    - SI
+    - SK
+    last_update: '2026-07-24'
+countries:
+  AT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: PM MTF LTD
+  BE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: PM MTF LTD
+  BG:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: PM MTF LTD
+  CY:
+    status: licensed
+    regime: MiCA
+    via: home_state
+    entity: PM MTF LTD
+  CZ:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: PM MTF LTD
+  DE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: PM MTF LTD
+  DK:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: PM MTF LTD
+  EE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: PM MTF LTD
+  ES:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: PM MTF LTD
+  FI:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: PM MTF LTD
+  FR:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: PM MTF LTD
+  GR:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: PM MTF LTD
+  HR:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: PM MTF LTD
+  HU:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: PM MTF LTD
+  IE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: PM MTF LTD
+  IS:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: PM MTF LTD
+  IT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: PM MTF LTD
+  LI:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: PM MTF LTD
+  LT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: PM MTF LTD
+  LU:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: PM MTF LTD
+  LV:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: PM MTF LTD
+  MT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: PM MTF LTD
+  NL:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: PM MTF LTD
+  'NO':
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: PM MTF LTD
+  PL:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: PM MTF LTD
+  PT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: PM MTF LTD
+  RO:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: PM MTF LTD
+  SE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: PM MTF LTD
+  SI:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: PM MTF LTD
+  SK:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: PM MTF LTD
