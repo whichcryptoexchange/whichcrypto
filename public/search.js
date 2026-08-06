@@ -42,22 +42,39 @@
   };
 
   // Countries surface first on an exact/prefix code match (typing "DE"
-  // should find Germany before any brand containing "de"), otherwise
-  // matches are ranked by how early the needle appears in the label.
+  // should find Germany before any brand containing "de"), then brand-label
+  // matches by how early the needle appears, then legal-entity-name (alias)
+  // matches -- e.g. "Block" finds Cash App (licensed as Block, Inc.) even
+  // though "Block" never appears in the displayed label.
   const search = (q) => {
     if (!q) { render([]); return; }
     const needle = q.toLowerCase();
-    render(
-      (index ?? [])
-        .filter((e) => e.label.toLowerCase().includes(needle) || e.meta?.toLowerCase() === needle)
-        .sort((a, b) => {
-          const aCode = a.type === 'country' && a.meta.toLowerCase() === needle ? 0 : 1;
-          const bCode = b.type === 'country' && b.meta.toLowerCase() === needle ? 0 : 1;
-          if (aCode !== bCode) return aCode - bCode;
-          return a.label.toLowerCase().indexOf(needle) - b.label.toLowerCase().indexOf(needle);
-        })
-        .slice(0, 8)
-    );
+    const scored = (index ?? [])
+      .map((e) => {
+        const labelPos = e.label.toLowerCase().indexOf(needle);
+        if (labelPos !== -1) return { e, rank: 0, pos: labelPos };
+        if (e.meta?.toLowerCase() === needle) return { e, rank: 0, pos: 0 };
+        const aliasPos = (e.aliases ?? [])
+          .map((a) => a.toLowerCase().indexOf(needle))
+          .filter((i) => i !== -1)
+          .sort((a, b) => a - b)[0];
+        return aliasPos === undefined ? null : { e, rank: 1, pos: aliasPos };
+      })
+      .filter(Boolean)
+      .sort((a, b) => {
+        const aCode = a.e.type === 'country' && a.e.meta.toLowerCase() === needle ? 0 : 1;
+        const bCode = b.e.type === 'country' && b.e.meta.toLowerCase() === needle ? 0 : 1;
+        if (aCode !== bCode) return aCode - bCode;
+        if (a.rank !== b.rank) return a.rank - b.rank;
+        return a.pos - b.pos;
+      })
+      .map((s) => s.e)
+      // 12 rather than 8 -- the results box already scrolls, and a common
+      // substring like "block" can have 8+ genuine label matches (BlockBen,
+      // Fireblocks, Blockchain.com...) before an alias match like Cash App
+      // (licensed as Block, Inc.) gets a chance to appear at all.
+      .slice(0, 12);
+    render(scored);
   };
 
   input.addEventListener('focus', loadIndex);
