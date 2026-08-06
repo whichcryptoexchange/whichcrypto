@@ -166,6 +166,8 @@ async function handleProviderSubmission(request, env) {
   const overview = String(body.overview || '').trim().slice(0, 1000);
   const partner_name = sanitizeHeader(body.partner_name, 200);
   const partner_role = sanitizeHeader(body.partner_role, 100);
+  const partner2_name = sanitizeHeader(body.partner2_name, 200);
+  const partner2_role = sanitizeHeader(body.partner2_role, 100);
   const supporting_url = sanitizeHeader(body.supporting_url, 300);
   const contact_email = sanitizeHeader(body.contact_email, 200);
   const notes = String(body.notes || '').trim().slice(0, 1000);
@@ -185,8 +187,8 @@ async function handleProviderSubmission(request, env) {
 
   const token = randomToken();
   await env.DB.prepare(
-    'INSERT INTO provider_submissions (company_name, website, overview, partner_name, partner_role, supporting_url, contact_email, notes, ip_hash, token) VALUES (?,?,?,?,?,?,?,?,?,?)'
-  ).bind(company_name, website, overview || null, partner_name, partner_role || null, supporting_url || null, contact_email, notes || null, ip_hash, token).run();
+    'INSERT INTO provider_submissions (company_name, website, overview, partner_name, partner_role, partner2_name, partner2_role, supporting_url, contact_email, notes, ip_hash, token) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)'
+  ).bind(company_name, website, overview || null, partner_name, partner_role || null, partner2_name || null, partner2_role || null, supporting_url || null, contact_email, notes || null, ip_hash, token).run();
 
   try {
     await sendProviderSubmissionConfirmEmail(env, contact_email, company_name, token);
@@ -655,6 +657,7 @@ async function handleAdminProviderSubmissions(request, env, url) {
     <tr>
       <td>${r.id}</td><td>${esc(r.company_name)}</td><td><a href="${esc(r.website)}">${esc(r.website)}</a></td>
       <td>${esc(r.overview ?? '')}</td><td>${esc(r.partner_name)}</td><td>${esc(r.partner_role ?? '')}</td>
+      <td>${esc(r.partner2_name ?? '')}</td><td>${esc(r.partner2_role ?? '')}</td>
       <td>${r.supporting_url ? `<a href="${esc(r.supporting_url)}">${esc(r.supporting_url)}</a>` : ''}</td>
       <td>${esc(r.contact_email)}${match ? ' ✓ domain match' : ' ⚠ domain mismatch'}</td>
       <td>${r.email_confirmed ? `✓ ${esc(r.confirmed_at ?? '')}` : '✗ unconfirmed'}</td>
@@ -676,8 +679,8 @@ async function handleAdminProviderSubmissions(request, env, url) {
      data/providers/*.yaml profile by hand (only mark claimed: true once you've also confirmed a
      real backlink on their site).</p>
      <table><tr><th>id</th><th>company</th><th>website</th><th>overview</th><th>partner</th>
-     <th>role</th><th>evidence</th><th>contact</th><th>email confirmed</th><th>notes</th>
-     <th>submitted</th><th>action</th></tr>${rows}</table>`,
+     <th>role</th><th>partner 2</th><th>role 2</th><th>evidence</th><th>contact</th>
+     <th>email confirmed</th><th>notes</th><th>submitted</th><th>action</th></tr>${rows}</table>`,
     { headers: { 'Content-Type': 'text/html; charset=utf-8' } });
 }
 

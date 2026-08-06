@@ -95,6 +95,22 @@ const PAGE_DESC = 'Not independently licensed, but rely on a licensed custodian 
             <option value="Other">Other</option>
           </select>
         </label>
+        <button type="button" id="add-partner2-btn" class="link-button">+ Add a second partner
+        (if custody and execution are split across two different firms)</button>
+        <div id="partner2-fields" hidden>
+          <label>Name of the second partner
+            <input type="text" name="partner2_name" maxlength="200" />
+          </label>
+          <label>What does that second partner do for you?
+            <select name="partner2_role">
+              <option value="">Select…</option>
+              <option value="Custody">Custody</option>
+              <option value="Execution">Execution</option>
+              <option value="Custody and execution">Custody and execution</option>
+              <option value="Other">Other</option>
+            </select>
+          </label>
+        </div>
         <label>Link to public evidence of the partnership (optional but very helpful)
           <input type="url" name="supporting_url" maxlength="300" placeholder="https://" />
         </label>
@@ -145,6 +161,13 @@ const PAGE_DESC = 'Not independently licensed, but rely on a licensed custodian 
         notice.hidden = false;
       }
     }
+    const addPartner2Btn = document.getElementById('add-partner2-btn');
+    const partner2Fields = document.getElementById('partner2-fields');
+    addPartner2Btn?.addEventListener('click', () => {
+      partner2Fields.hidden = false;
+      addPartner2Btn.hidden = true;
+    });
+
     form?.addEventListener('submit', async (e) => {
       e.preventDefault();
       const msg = form.querySelector('.form-msg');
@@ -158,7 +181,8 @@ const PAGE_DESC = 'Not independently licensed, but rely on a licensed custodian 
           body: JSON.stringify({
             company_name: fd.get('company_name'), website: fd.get('website'),
             overview: fd.get('overview'), partner_name: fd.get('partner_name'),
-            partner_role: fd.get('partner_role'), supporting_url: fd.get('supporting_url'),
+            partner_role: fd.get('partner_role'), partner2_name: fd.get('partner2_name'),
+            partner2_role: fd.get('partner2_role'), supporting_url: fd.get('supporting_url'),
             contact_email: fd.get('contact_email'), notes: fd.get('notes'),
             consent: fd.get('consent') === 'on', turnstile_token: token,
           }),

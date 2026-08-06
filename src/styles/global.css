@@ -447,6 +447,12 @@ footer.site a { color: inherit; }
   background: var(--ink); border: none; border-radius: 4px; padding: 10px 22px; cursor: pointer;
 }
 .report-form button:hover { background: var(--licensed); }
+.report-form button.link-button {
+  display: block; margin: 14px 0 0; padding: 0; font: 600 13px var(--mono);
+  color: var(--editorial); background: none; text-decoration: underline; text-align: left;
+}
+.report-form button.link-button:hover { background: none; color: #1f4666; }
+#partner2-fields { border-left: 2px solid var(--rule); padding-left: 14px; margin-top: 4px; }
 .cf-turnstile { margin-top: 14px; }
 .consent-label { display: flex; align-items: flex-start; gap: 8px; font-size: 13px; color: var(--ink-soft); }
 .consent-label input[type="checkbox"] { display: inline-block; width: auto; margin: 3px 0 0; flex: none; }
