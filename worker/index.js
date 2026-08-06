@@ -12,8 +12,8 @@
 //   SEND_EMAIL      - Email Routing send binding, destination jim@maxrespect.co.uk
 //                     (contact form only -- fixed pre-verified destination,
 //                     works fine on the free Workers plan)
-//   RESEND_API_KEY  - secret: Resend API key, for watcher/digest confirm
-//                     emails and the weekly digest send to arbitrary
+//   RESEND_API_KEY  - secret: Resend API key, for watcher/digest/provider-
+//                     submission confirm emails and the weekly digest send to arbitrary
 //                     addresses (needs whichcryptoexchange.com verified as a
 //                     sending domain in the Resend dashboard -- Cloudflare's
 //                     own send_email binding can only reach pre-verified
@@ -183,11 +183,44 @@ async function handleProviderSubmission(request, env) {
   ).bind(ip_hash).all();
   if (recent[0].n >= 5) return json({ error: 'rate limit reached — try again tomorrow' }, 429);
 
+  const token = randomToken();
   await env.DB.prepare(
-    'INSERT INTO provider_submissions (company_name, website, overview, partner_name, partner_role, supporting_url, contact_email, notes, ip_hash) VALUES (?,?,?,?,?,?,?,?,?)'
-  ).bind(company_name, website, overview || null, partner_name, partner_role || null, supporting_url || null, contact_email, notes || null, ip_hash).run();
+    'INSERT INTO provider_submissions (company_name, website, overview, partner_name, partner_role, supporting_url, contact_email, notes, ip_hash, token) VALUES (?,?,?,?,?,?,?,?,?,?)'
+  ).bind(company_name, website, overview || null, partner_name, partner_role || null, supporting_url || null, contact_email, notes || null, ip_hash, token).run();
 
-  return json({ ok: true, message: 'Thanks — we independently verify every claimed partner relationship before publishing a profile. This does not guarantee inclusion.' });
+  try {
+    await sendProviderSubmissionConfirmEmail(env, contact_email, company_name, token);
+  } catch {
+    return json({ error: 'could not send confirmation email — please try again later' }, 502);
+  }
+
+  return json({ ok: true, message: 'Check your email to confirm the address you gave us. We only review confirmed submissions, and independently verify the partner relationship before publishing anything — confirming does not guarantee a profile.' });
+}
+
+async function sendProviderSubmissionConfirmEmail(env, email, companyName, token) {
+  const confirmUrl = `https://whichcryptoexchange.com/api/submit-provider/confirm?token=${token}`;
+  const text = [
+    `Someone (hopefully you, on behalf of ${companyName}) submitted a Technology Provider Profile request to whichcryptoexchange.com.`,
+    '',
+    'Confirm this email address to move the submission into our review queue:',
+    confirmUrl,
+    '',
+    "If you didn't request this, ignore this email -- nothing is published unless we independently verify the details, regardless of whether this link is clicked.",
+  ].join('\n');
+  await sendResendEmail(env, email, `Confirm your provider submission for ${companyName}`, text);
+}
+
+async function handleProviderSubmissionConfirm(env, token) {
+  const row = await env.DB.prepare('SELECT * FROM provider_submissions WHERE token = ?').bind(token).first();
+  if (!row) return watchPage('Link not found', '<p>This confirmation link is invalid or has already been used.</p>');
+  if (!row.email_confirmed) {
+    await env.DB.prepare(
+      "UPDATE provider_submissions SET email_confirmed = 1, confirmed_at = datetime('now') WHERE token = ?"
+    ).bind(token).run();
+  }
+  return watchPage('Email confirmed', `<p>Thanks — your submission for ${esc(row.company_name)} is now in our review queue.
+    We independently verify the claimed partner relationship before publishing anything, so there's no fixed timeline
+    and this does not guarantee a profile gets published.</p>`);
 }
 
 function sanitizeHeader(s, max) {
@@ -616,27 +649,35 @@ async function handleAdminProviderSubmissions(request, env, url) {
   const { results } = await env.DB.prepare(
     "SELECT * FROM provider_submissions WHERE status = 'pending' ORDER BY created_at ASC LIMIT 100"
   ).all();
-  const rows = results.map((r) => `
+  const rows = results.map((r) => {
+    const match = domainOf(r.website) && domainOf(r.website) === emailDomain(r.contact_email);
+    return `
     <tr>
       <td>${r.id}</td><td>${esc(r.company_name)}</td><td><a href="${esc(r.website)}">${esc(r.website)}</a></td>
       <td>${esc(r.overview ?? '')}</td><td>${esc(r.partner_name)}</td><td>${esc(r.partner_role ?? '')}</td>
       <td>${r.supporting_url ? `<a href="${esc(r.supporting_url)}">${esc(r.supporting_url)}</a>` : ''}</td>
-      <td>${esc(r.contact_email)}</td><td>${esc(r.notes ?? '')}</td><td>${esc(r.created_at)}</td>
+      <td>${esc(r.contact_email)}${match ? ' ✓ domain match' : ' ⚠ domain mismatch'}</td>
+      <td>${r.email_confirmed ? `✓ ${esc(r.confirmed_at ?? '')}` : '✗ unconfirmed'}</td>
+      <td>${esc(r.notes ?? '')}</td><td>${esc(r.created_at)}</td>
       <td>
         <form method="post" style="display:inline"><input type="hidden" name="id" value="${r.id}">
           <button name="action" value="approve">approve</button>
           <button name="action" value="reject">reject</button></form>
       </td>
-    </tr>`).join('');
+    </tr>`;
+  }).join('');
   return new Response(
     `<!doctype html><meta charset="utf-8"><title>Pending provider submissions</title>
      <style>body{font:14px monospace;padding:20px}table{border-collapse:collapse}td,th{border:1px solid #ccc;padding:6px;text-align:left;max-width:220px;word-break:break-word} a.home{display:inline-block;margin-bottom:12px}</style>
      <a class="home" href="/admin${url.search}">← Admin home</a>
      <h1>Pending provider submissions (${results.length})</h1>
-     <p>Approving here does NOT publish anything -- independently verify the claimed partner
-     relationship, then author a data/providers/*.yaml profile by hand.</p>
+     <p>Approving here does NOT publish anything -- confirm the domain match and email confirmation
+     below, independently verify the claimed partner relationship, then author a
+     data/providers/*.yaml profile by hand (only mark claimed: true once you've also confirmed a
+     real backlink on their site).</p>
      <table><tr><th>id</th><th>company</th><th>website</th><th>overview</th><th>partner</th>
-     <th>role</th><th>evidence</th><th>contact</th><th>notes</th><th>submitted</th><th>action</th></tr>${rows}</table>`,
+     <th>role</th><th>evidence</th><th>contact</th><th>email confirmed</th><th>notes</th>
+     <th>submitted</th><th>action</th></tr>${rows}</table>`,
     { headers: { 'Content-Type': 'text/html; charset=utf-8' } });
 }
 
@@ -666,6 +707,18 @@ function isHttpUrl(s) {
   } catch {
     return false;
   }
+}
+
+// Cheap identity signal for provider submissions -- does the contact
+// email's domain match the claimed website's domain? Not proof on its
+// own (see handleProviderSubmission comment), just a triage hint shown in
+// the admin queue.
+function domainOf(urlStr) {
+  try { return new URL(urlStr).hostname.replace(/^www\./i, '').toLowerCase(); } catch { return ''; }
+}
+function emailDomain(email) {
+  const m = /@([^@]+)$/.exec(email || '');
+  return m ? m[1].replace(/^www\./i, '').toLowerCase() : '';
 }
 
 async function handleAdminLinks(request, env, url) {
@@ -752,6 +805,9 @@ export default {
     if (url.pathname === '/api/contact' && request.method === 'POST') return handleContact(request, env);
     if (url.pathname === '/api/submit' && request.method === 'POST') return handleSubmission(request, env);
     if (url.pathname === '/api/submit-provider' && request.method === 'POST') return handleProviderSubmission(request, env);
+    if (url.pathname === '/api/submit-provider/confirm' && request.method === 'GET') {
+      return handleProviderSubmissionConfirm(env, url.searchParams.get('token') || '');
+    }
     if (url.pathname === '/api/watch' && request.method === 'POST') return handleWatchSignup(request, env);
     if (url.pathname === '/api/watch/confirm' && request.method === 'GET') {
       return handleWatchConfirm(env, request, url.searchParams.get('token') || '');

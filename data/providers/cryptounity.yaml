@@ -2,6 +2,15 @@ id: cryptounity
 name: CryptoUnity
 website: https://cryptounity.eu/
 last_verified: "2026-07-30"
+# claimed: company demonstrated control via email verification + a real
+# backlink from their own site to this profile -- not yet done here, so
+# the website link does not render as clickable. CryptoUnity reached out
+# to us directly (unsolicited) before this system existed, but that is
+# not the same as completing the verification steps.
+claimed:
+  status: false
+enhanced:
+  status: false
 overview: >
   A crypto trading app/technology layer that markets access to Europe and
   the US. CryptoUnity does not itself appear in any official regulator

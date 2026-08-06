@@ -3,13 +3,18 @@ import { loadProviders, loadExchanges } from '../../lib/data.js';
 import '../../styles/global.css';
 
 const exchanges = loadExchanges();
-const providers = loadProviders().map((p) => ({
-  ...p,
-  partners: (p.partners ?? []).map((partner) => ({
-    ...partner,
-    ex: exchanges.find((ex) => ex.id === partner.brand_id),
-  })),
-}));
+const providers = loadProviders()
+  .map((p) => ({
+    ...p,
+    partners: (p.partners ?? []).map((partner) => ({
+      ...partner,
+      ex: exchanges.find((ex) => ex.id === partner.brand_id),
+    })),
+    factsVerified: (p.partners ?? []).length > 0 && (p.partners ?? []).every((partner) => partner.verified),
+  }))
+  // Enhanced (paid) listings sort first; everyone else keeps the
+  // alphabetical order loadProviders() already returns.
+  .sort((a, b) => (b.enhanced?.status ? 1 : 0) - (a.enhanced?.status ? 1 : 0));
 const SITEKEY = import.meta.env.PUBLIC_TURNSTILE_SITEKEY || '0x4AAAAAAD84t4OWkoouLP3Y';
 const PAGE_TITLE = 'Technology Providers Using Licensed Custodians | whichcryptoexchange.com';
 const PAGE_DESC = 'Crypto apps and platforms that are not themselves licensed, but rely on a licensed custodian to actually hold and execute customer assets. Who really holds your crypto?';
@@ -80,6 +85,16 @@ const PAGE_DESC = 'Crypto apps and platforms that are not themselves licensed, b
     clearly that it isn't independently licensed, and identifies who actually holds and executes
     customer assets — with a link through to each partner's real, verified regulatory status.</p>
 
+    <p class="sourced">Each profile can carry up to three badges, and they mean three different
+    things — none of them substitute for the others:
+    <span class="badge badge-verified-facts">✅ Verified Facts</span> means we've checked the
+    regulatory claims against a primary source ourselves, and it's free.
+    <span class="badge badge-claimed">🏢 Claimed Profile</span> means the company has proven it
+    controls this listing, via a confirmed email address and a real backlink from their own site —
+    also free, and required before we activate a link to their site.
+    <span class="badge badge-enhanced">⭐ Enhanced Listing</span> means the company pays for extra
+    placement and features; it has no bearing on whether anything above is accurate.</p>
+
     {SITEKEY && (
       <div class="digest-cta">
         <h3>Get the weekly regulatory roundup</h3>
@@ -102,14 +117,25 @@ const PAGE_DESC = 'Crypto apps and platforms that are not themselves licensed, b
     )}
 
     {providers.map((p) => (
-      <div class="provider-card">
+      <div class={`provider-card${p.enhanced?.status ? ' enhanced' : ''}`}>
         <h3><a href={`/providers/${p.id}/`}>{p.name}</a> <span class="badge-unlicensed">Not independently licensed</span></h3>
+        <div class="provider-badges">
+          {p.factsVerified && <span class="badge badge-verified-facts">✅ Verified Facts</span>}
+          {p.claimed?.status && <span class="badge badge-claimed">🏢 Claimed Profile</span>}
+          {p.enhanced?.status && <span class="badge badge-enhanced">⭐ Enhanced Listing</span>}
+        </div>
         <dl>
           {p.partners.map((partner) => (
             <>
               <dt>Partner</dt><dd>{partner.ex ? <a href={`/exchange/${partner.ex.id}/`}>{partner.name}</a> : partner.name} — <span class="datum">{partner.licence}</span></dd>
             </>
           ))}
+          <dt>Website</dt>
+          <dd>
+            {p.claimed?.status || p.enhanced?.status
+              ? <a href={p.website} rel="nofollow noopener" target="_blank">{p.website} ↗</a>
+              : <span class="provider-website-unclaimed">{new URL(p.website).hostname} (unclaimed — link inactive)</span>}
+          </dd>
           <dt>Last verified</dt><dd class="datum">{p.last_verified}</dd>
         </dl>
       </div>

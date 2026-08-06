@@ -326,6 +326,27 @@ h3:first-child { margin-top: 0; }
   padding: 18px 20px;
   margin: 0 0 18px;
 }
+.provider-card.enhanced { border-left-color: var(--caution); box-shadow: 0 0 0 1px var(--caution) inset; }
+/* Three-badge status system -- deliberately distinct meanings, never
+   combined into one badge: Verified Facts (editorial fact-check, free),
+   Claimed Profile (company proved control via email + backlink, free),
+   Enhanced Listing (paid extras). Payment must never imply fact-checking
+   and vice versa, so each keeps its own colour and label. */
+.provider-badges { margin: 4px 0 14px; }
+.provider-badges .badge {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  padding: 3px 9px;
+  border-radius: 3px;
+  margin: 0 6px 6px 0;
+}
+.badge-verified-facts { background: #e3f0e8; color: var(--licensed); border: 1px solid var(--licensed); }
+.badge-claimed { background: #eaf1f7; color: var(--editorial); border: 1px solid var(--editorial); }
+.badge-enhanced { background: #fdf6e3; color: var(--caution); border: 1px solid var(--caution); }
+.provider-website-unclaimed { color: var(--ink-soft); font-family: var(--mono); font-size: 13px; }
 .provider-card h3 { margin: 0 0 6px; font-family: var(--display); font-size: 18px; }
 .provider-card dl { display: grid; grid-template-columns: 160px 1fr; gap: 4px 16px; margin: 12px 0 0; font-size: 14px; }
 .provider-card dt { font-family: var(--mono); font-size: 12px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--ink-soft); }
