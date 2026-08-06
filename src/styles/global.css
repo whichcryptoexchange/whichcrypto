@@ -474,7 +474,11 @@ footer.site a { color: inherit; }
 }
 .submit-cta a.button-link:hover { background: #1f4666; }
 @media (max-width: 700px) {
-  .page-header { flex-direction: column; }
+  .page-header { flex-direction: column; gap: 20px; }
+  /* flex-basis is a min-height once the axis flips to column -- without
+     resetting it here, page-header-main's 380px basis (meant for width in
+     row mode) forces ~380px of blank space above the widget on mobile. */
+  .page-header .page-header-main { flex-basis: auto; }
   .submit-cta { flex-basis: auto; width: 100%; }
 }
 
