@@ -14,6 +14,9 @@ sources:
 - name: US FinCEN MSB Registrant Search
   url: https://msb.fincen.gov/
   retrieved: '2026-07-27'
+- name: NY DFS List of Licensed Virtual Currency Entities
+  url: https://www.dfs.ny.gov/virtual_currency_businesses
+  retrieved: '2026-08-06'
 entities:
 - lei: 2138002QAMX8PPKSO715
   legal_name: Gemini Intergalactic EU Ltd
@@ -243,3 +246,8 @@ countries:
     entity: Gemini Exchange, LLC
     reg_number: '29463559'
     since: '2025-12-22'
+  - status: licensed
+    regime: NY DFS Limited Purpose Trust Charter
+    via: ny_dfs_register
+    entity: Gemini Trust Company, LLC
+    since: 2015-10

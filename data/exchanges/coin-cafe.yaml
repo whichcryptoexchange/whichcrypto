@@ -1,0 +1,19 @@
+id: coin-cafe
+brand: Coin Cafe
+eu_status: no_eu_entity
+website: https://coincafe.com/
+sources:
+- name: NY DFS List of Licensed Virtual Currency Entities
+  url: https://www.dfs.ny.gov/virtual_currency_businesses
+  retrieved: '2026-08-06'
+entities: []
+countries:
+  US:
+  - status: licensed
+    regime: NY DFS Virtual Currency License (BitLicense)
+    via: ny_dfs_register
+    entity: Coin Cafe, Inc.
+    since: 2023-01
+    caveat: In 2023 the New York Attorney General secured $4.3 million from Coin Cafe over undisclosed
+      fees on a bitcoin storage service -- the licence reflects NYDFS's virtual currency licensing decision
+      only, not an endorsement of the company or a comment on the enforcement action.

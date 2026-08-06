@@ -1,0 +1,17 @@
+id: fiant
+brand: Fiant
+eu_status: no_eu_entity
+website: https://fiant.io/
+sources:
+- name: NY DFS List of Licensed Virtual Currency Entities
+  url: https://www.dfs.ny.gov/virtual_currency_businesses
+  retrieved: '2026-08-06'
+entities: []
+countries:
+  US:
+  - status: licensed
+    regime: NY DFS Virtual Currency & Money Transmitter Licenses (BitLicense)
+    via: ny_dfs_register
+    entity: Provenance Technologies, Inc. d/b/a Fiant
+    since: 2022-02
+    caveat: Operated by Provenance Technologies, Inc.

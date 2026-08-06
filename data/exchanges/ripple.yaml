@@ -14,6 +14,9 @@ sources:
 - name: US FinCEN MSB Registrant Search
   url: https://msb.fincen.gov/
   retrieved: '2026-07-27'
+- name: NY DFS List of Licensed Virtual Currency Entities
+  url: https://www.dfs.ny.gov/virtual_currency_businesses
+  retrieved: '2026-08-06'
 entities:
 - lei: 2549000KEHDV2LWRRZ45
   legal_name: Ripple Payments Europe S.A
@@ -280,3 +283,8 @@ countries:
     entity: Ripple Switzerland GmbH
     reg_number: '29448180'
     since: '2024-01-02'
+  - status: licensed
+    regime: NY DFS Virtual Currency License (BitLicense)
+    via: ny_dfs_register
+    entity: Ripple Markets DE LLC (f/k/a XRP II LLC)
+    since: 2016-06

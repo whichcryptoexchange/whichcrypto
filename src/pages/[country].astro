@@ -36,6 +36,7 @@ const fintracRetrieved = sourceRetrieved('Canada FINTRAC MSB Registry');
 const varaRetrieved = sourceRetrieved('Dubai VARA Public Register');
 const masRetrieved = sourceRetrieved('Singapore MAS Financial Institutions Directory');
 const fincenRetrieved = sourceRetrieved('US FinCEN MSB Registrant Search');
+const nyDfsRetrieved = sourceRetrieved('NY DFS List of Licensed Virtual Currency Entities');
 const sfcRetrieved = sourceRetrieved('Hong Kong SFC VATP List');
 const gfscRetrieved = sourceRetrieved('Gibraltar GFSC DLT Providers List');
 const jpFsaRetrieved = sourceRetrieved('Japan FSA Registered Crypto-asset Exchange Service Providers List');
@@ -68,7 +69,7 @@ const PAGE_TITLE = isGB
   : isSG
   ? `Crypto exchanges licensed in Singapore (${YEAR}) | whichcryptoexchange.com`
   : isUS
-  ? `US Crypto Exchanges: FinCEN MSB Registered | whichcryptoexchange.com`
+  ? `US Crypto Exchanges: FinCEN Registered or NY DFS Licensed | whichcryptoexchange.com`
   : isHK
   ? `Crypto exchanges licensed in Hong Kong (${YEAR}) | whichcryptoexchange.com`
   : isGI
@@ -89,7 +90,7 @@ const PAGE_DESC = isGB
   : isSG
   ? `${rows.length} crypto exchanges hold a MAS Major Payment Institution licence for Digital Payment Token services, according to the official MAS Financial Institutions Directory.`
   : isUS
-  ? `${rows.length} crypto exchanges hold a US FinCEN MSB registration, according to the official FinCEN MSB Registrant Search. See which entity and since when.`
+  ? `${rows.length} crypto exchanges hold a US FinCEN MSB registration and/or a genuine NY DFS virtual currency licence or trust charter. See which entity, which regime, and since when.`
   : isHK
   ? `${rows.length} crypto exchanges hold a Hong Kong SFC Virtual Asset Trading Platform licence, according to the official SFC list. See which entity and since when.`
   : isGI
@@ -206,14 +207,18 @@ const PAGE_DESC = isGB
       </>
     ) : isUS ? (
       <>
-        <h1>Which crypto exchanges are registered with FinCEN in the US?</h1>
-        <p class="lede">{rows.length} exchanges in our register have a US entity registered with
-        FinCEN as a Money Services Business (MSB) offering money transmission. As with Canada's
-        FINTRAC registry, this is <em>not</em> a licence: registration means FinCEN supervises the
-        firm for anti-money-laundering purposes under the Bank Secrecy Act, not that it has assessed
-        or approved the firm's products or conduct. Crypto firms serving US customers may also need
-        separate state-level money transmitter licensing — up to 50 different state regimes — which
-        isn't covered here, since there's no single national register for that layer.</p>
+        <h1>Which crypto exchanges are registered or licensed in the US?</h1>
+        <p class="lede">This page covers two separate, independent regimes. Most brands here have a
+        US entity registered with FinCEN as a Money Services Business (MSB) offering money
+        transmission — as with Canada's FINTRAC registry, this is <em>not</em> a licence:
+        registration means FinCEN supervises the firm for anti-money-laundering purposes under the
+        Bank Secrecy Act, not that it has assessed or approved the firm's products or conduct. Some
+        brands additionally (or instead) hold a genuine state-level licence from the New York
+        Department of Financial Services — either a Virtual Currency License ("BitLicense") or a
+        Limited Purpose Trust Charter — which <em>is</em> a real crypto-specific licence, not an
+        AML-only registration. Crypto firms serving US customers may also need separate money
+        transmitter licensing in the other 49 states, which isn't covered here, since none of them
+        publish a single, checkable public register the way NYDFS does.</p>
         <p class="lede caveat">FinCEN's own register has a real fraud problem: its MSB Registrant
         Search prominently warns that fraudsters register shell companies using recognisable brand
         names to appear "FinCEN approved". We found and excluded a large cluster of exactly that —
@@ -377,9 +382,11 @@ const PAGE_DESC = isGB
       retrieved {masRetrieved}. An exchange missing from this list either holds no MAS DPT licence,
       or is not yet in our register.</p>
     ) : isUS ? (
-      <p class="sourced">Source: <a href="https://msb.fincen.gov/">FinCEN MSB Registrant Search</a>,
-      retrieved {fincenRetrieved}. An exchange missing from this list either holds no US FinCEN MSB
-      registration we could independently verify, or is not yet in our register.</p>
+      <p class="sourced">Sources: <a href="https://msb.fincen.gov/">FinCEN MSB Registrant Search</a>,
+      retrieved {fincenRetrieved}, and <a href="https://www.dfs.ny.gov/virtual_currency_businesses">NY
+      DFS List of Licensed Virtual Currency Entities</a>, retrieved {nyDfsRetrieved}. An exchange
+      missing from this list either holds neither status we could independently verify, or is not
+      yet in our register.</p>
     ) : isHK ? (
       <p class="sourced">Source: <a href="https://www.sfc.hk/en/Welcome-to-the-Fintech-Contact-Point/Virtual-assets/Virtual-asset-trading-platforms-operators/Lists-of-virtual-asset-trading-platforms">Hong Kong SFC VATP List</a>,
       retrieved {sfcRetrieved}. An exchange missing from this list either holds no Hong Kong VATP

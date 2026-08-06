@@ -11,6 +11,9 @@ sources:
 - name: US FinCEN MSB Registrant Search
   url: https://msb.fincen.gov/
   retrieved: '2026-07-27'
+- name: NY DFS List of Licensed Virtual Currency Entities
+  url: https://www.dfs.ny.gov/virtual_currency_businesses
+  retrieved: '2026-08-06'
 entities:
 - lei: 724500F2THLY5MHEIM78
   legal_name: BitPay B.V
@@ -49,3 +52,8 @@ countries:
     entity: BitPay, Inc.
     reg_number: '29455768'
     since: '2025-07-23'
+  - status: licensed
+    regime: NY DFS Virtual Currency License (BitLicense)
+    via: ny_dfs_register
+    entity: Bitpay, Inc.
+    since: 2018-07

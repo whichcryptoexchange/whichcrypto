@@ -180,7 +180,13 @@ def main():
             continue
 
         doc = yaml.safe_load(path.read_text())
-        doc.setdefault("countries", {})["US"] = entries
+        countries = doc.setdefault("countries", {})
+        # US now carries entries from two independent sources (this script's
+        # federal FinCEN MSB registrations, and ny_sync.py's NY DFS BitLicense/
+        # trust charter entries) -- only replace this script's own slice, or a
+        # later ny_sync.py run would get silently wiped by this overwrite.
+        other = [e for e in countries.get("US", []) if e.get("via") != "msb_register"]
+        countries["US"] = other + entries
         sources = doc.setdefault("sources", [])
         if not any(s.get("name") == "US FinCEN MSB Registrant Search" for s in sources):
             sources.append({

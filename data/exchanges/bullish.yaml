@@ -17,6 +17,9 @@ sources:
 - name: Gibraltar GFSC DLT Providers List
   url: https://www.fsc.gi/regulated-entities/dlt-providers-38
   retrieved: '2026-07-31'
+- name: NY DFS List of Licensed Virtual Currency Entities
+  url: https://www.dfs.ny.gov/virtual_currency_businesses
+  retrieved: '2026-08-06'
 entities:
 - lei: 2549008CBASK5Q680X12
   legal_name: Bullish Europe GmbH
@@ -238,6 +241,11 @@ countries:
     entity: Bullish US Operations LLC
     reg_number: '29466480'
     since: '2026-02-11'
+  - status: licensed
+    regime: NY DFS Virtual Currency & Money Transmitter Licenses (BitLicense)
+    via: ny_dfs_register
+    entity: Bullish US Operations LLC
+    since: 2025-09
   HK:
   - status: licensed
     regime: Hong Kong SFC VATP Licence

@@ -1,0 +1,16 @@
+id: mastercard
+brand: Mastercard
+eu_status: no_eu_entity
+website: https://www.mastercard.com/
+sources:
+- name: NY DFS List of Licensed Virtual Currency Entities
+  url: https://www.dfs.ny.gov/virtual_currency_businesses
+  retrieved: '2026-08-06'
+entities: []
+countries:
+  US:
+  - status: licensed
+    regime: NY DFS Virtual Currency License (BitLicense)
+    via: ny_dfs_register
+    entity: Mastercard Transaction Services (US) LLC
+    since: 2026-05

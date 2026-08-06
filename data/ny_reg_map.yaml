@@ -1,0 +1,180 @@
+# NY DFS "Licensed Entities" table (virtual currency licensees, granted
+# both under Part 200 ("BitLicense") and as limited purpose trust company
+# charters). Maps each legal entity name on that table to the brand_id it
+# belongs to in data/exchanges/*.yaml -- most brands with more than one NY
+# entity (e.g. Coinbase, Circle, MoonPay) hold both a BitLicense/money
+# transmitter licence AND a separate trust charter through different legal
+# entities. caveat, where present, is copied verbatim onto that entry's
+# countries.US record (see src/pages/exchange/[id].astro's entry.caveat
+# rendering) -- it is never used to imply anything the DFS grant itself
+# doesn't say.
+- brand_id: anchorage-digital
+  entity: Anchorage Digital NY, LLC
+  licence_type: virtual_currency
+  since: '2024-12'
+- brand_id: bakkt
+  entity: Bakkt Financial Solutions I, LLC
+  licence_type: vc_and_mt
+  since: '2021-03'
+- brand_id: bastion
+  entity: Bastion Platforms Trust Company, LLC
+  licence_type: trust_charter
+  since: '2025-02'
+- brand_id: bitflyer-europe
+  entity: bitFlyer USA, Inc.
+  licence_type: virtual_currency
+  since: '2017-11'
+- brand_id: bitgo
+  entity: BitGo New York Trust Company, LLC
+  licence_type: trust_charter
+  since: '2021-03'
+- brand_id: bitooda
+  entity: BitOoda Digital, LLC
+  licence_type: virtual_currency
+  since: '2022-02'
+- brand_id: bitpay
+  entity: Bitpay, Inc.
+  licence_type: virtual_currency
+  since: '2018-07'
+- brand_id: bitstamp
+  entity: Bitstamp USA, Inc.
+  licence_type: virtual_currency
+  since: '2019-04'
+- brand_id: block
+  entity: Block, Inc., f/k/a Square, Inc.
+  licence_type: vc_and_mt
+  since: '2018-06'
+  caveat: Bitcoin services are provided by Block, Inc. (which operates in New York as "Block of
+    Delaware" for this licence) -- not by Cash App Investing LLC, a separate FINRA/SIPC-member
+    broker-dealer subsidiary that handles equities brokerage only and does not trade bitcoin, per
+    Cash App's own disclosures.
+- brand_id: bullish
+  entity: Bullish US Operations LLC
+  licence_type: vc_and_mt
+  since: '2025-09'
+- brand_id: circle
+  entity: Circle Internet Financial, LLC
+  licence_type: vc_and_mt
+  since: '2015-09'
+- brand_id: circle
+  entity: Circle Internet Trust Company, LLC
+  licence_type: trust_charter
+  since: '2026-07'
+- brand_id: coin-cafe
+  entity: Coin Cafe, Inc.
+  licence_type: virtual_currency
+  since: '2023-01'
+  caveat: In 2023 the New York Attorney General secured $4.3 million from Coin Cafe over
+    undisclosed fees on a bitcoin storage service -- the licence reflects NYDFS's virtual
+    currency licensing decision only, not an endorsement of the company or a comment on the
+    enforcement action.
+- brand_id: coinbase
+  entity: Coinbase Custody Trust Company, LLC
+  licence_type: trust_charter
+  since: '2018-10'
+- brand_id: coinbase
+  entity: Coinbase, Inc.
+  licence_type: vc_and_mt
+  since: '2017-01'
+- brand_id: cottonwood-vending
+  entity: Cottonwood Vending
+  licence_type: virtual_currency
+  since: '2019-01'
+  caveat: A bitcoin ATM operator (around 100 machines in the New York City area) -- we could not
+    find a public consumer website to link.
+- brand_id: cumberland
+  entity: Cumberland New York LLC
+  licence_type: virtual_currency
+  since: '2024-06'
+- brand_id: etoro
+  entity: eToro NY LLC
+  licence_type: vc_and_mt
+  since: '2023-02'
+- brand_id: fireblocks
+  entity: Fireblocks Trust Company, LLC
+  licence_type: trust_charter
+  since: '2024-08'
+- brand_id: galaxy
+  entity: GalaxyOne Prime NY LLC
+  licence_type: vc_and_mt
+  since: '2026-05'
+- brand_id: gemini
+  entity: Gemini Trust Company, LLC
+  licence_type: trust_charter
+  since: '2015-10'
+- brand_id: gmo-z-com-trust
+  entity: GMO-Z.com Trust Company, Inc.
+  licence_type: trust_charter
+  since: '2020-12'
+  caveat: A wholly-owned US trust-company subsidiary of Japan's GMO Internet Group, distinct
+    from GMO Coin (Japan's separately FSA-registered retail exchange, also tracked on this site).
+- brand_id: bakkt
+  entity: ICE Digital Trust, LLC
+  licence_type: trust_charter
+  since: '2019-08'
+- brand_id: mastercard
+  entity: Mastercard Transaction Services (US) LLC
+  licence_type: virtual_currency
+  since: '2026-05'
+- brand_id: libertyx
+  entity: Moon Inc. d/b/a LibertyX
+  licence_type: virtual_currency
+  since: '2019-01'
+- brand_id: moonpay
+  entity: MoonPay Trust Company, LLC
+  licence_type: trust_charter
+  since: '2025-11'
+- brand_id: moonpay
+  entity: MoonPay USA LLC
+  licence_type: vc_and_mt
+  since: '2025-06'
+- brand_id: nydig
+  entity: NYDIG Execution LLC
+  licence_type: vc_and_mt
+  since: '2018-11'
+- brand_id: nydig
+  entity: NYDIG Trust Company LLC
+  licence_type: trust_charter
+  since: '2018-11'
+- brand_id: paypal
+  entity: PayPal Digital, Inc.
+  licence_type: trust_charter
+  since: '2024-05'
+- brand_id: paypal
+  entity: PayPal, Inc.
+  licence_type: vc_and_mt
+  since: '2022-06'
+- brand_id: fiant
+  entity: Provenance Technologies, Inc. d/b/a Fiant
+  licence_type: vc_and_mt
+  since: '2022-02'
+  caveat: Operated by Provenance Technologies, Inc.
+- brand_id: ripple
+  entity: Ripple Markets DE LLC (f/k/a XRP II LLC)
+  licence_type: virtual_currency
+  since: '2016-06'
+- brand_id: robinhood
+  entity: Robinhood Crypto, LLC
+  licence_type: vc_and_mt
+  since: '2019-01'
+- brand_id: standard-custody
+  entity: Standard Custody & Trust Company, LLC
+  licence_type: trust_charter
+  since: '2021-05'
+  caveat: An institutional digital-asset custodian, acquired by Ripple in 2024.
+- brand_id: wisdomtree
+  entity: WisdomTree Digital Trust Company, LLC
+  licence_type: trust_charter
+  since: '2024-03'
+- brand_id: strike
+  entity: Zap Solutions, Inc.
+  licence_type: vc_and_mt
+  since: '2026-02'
+- brand_id: zero-hash
+  entity: zerohash liquidity services llc (FKA Seed Digital Commodity Market, LLC)
+  licence_type: virtual_currency
+  since: '2019-07'
+- brand_id: zero-hash
+  entity: zerohash llc
+  licence_type: vc_and_mt
+  since: '2019-07'

@@ -77,7 +77,7 @@
   name: US FinCEN
   tier: gb-registered
   tier_label: AML-only registration
-  scope: Federal registration only -- does not cover the up to 50 separate state-level money transmitter licensing regimes
+  scope: Federal registration only -- does not cover the up to 50 separate state-level money transmitter licensing regimes. New York is the one state-level regime we do separately track -- see the NY DFS entry below.
   capital: "No minimum capital requirement at the federal level"
   checks:
     - A written AML programme under 31 CFR 1022.210-- internal controls, a compliance officer, staff training, and an independent review
@@ -86,6 +86,20 @@
   note: This register also has a known fraud problem -- see our About page for the shell-company pattern we found and excluded during curation.
   source_url: https://www.fincen.gov/money-services-business-msb-registration
   verified: '2026-08-03'
+- code: US-NY
+  name: New York State DFS (BitLicense)
+  tier: licensed
+  tier_label: Genuine licence
+  scope: State-level, New York only -- one of roughly 50 separate US state money transmitter regimes, and the only one with a dedicated crypto-specific licence and a public, checkable list. A brand can hold this without holding, or needing, the federal FinCEN registration above, and vice versa -- they are two independent regimes we track separately under the same "US" country page.
+  capital: "Risk-based and discretionary under 23 NYCRR 200.8 -- the Superintendent sets a capital amount case by case based on the licensee's assets, liabilities, and business model, not a fixed minimum. A separate surety bond, typically at least $500,000, is also required under 23 NYCRR 200.9."
+  checks:
+    - Either a Virtual Currency License ("BitLicense") under 23 NYCRR Part 200, a Limited Purpose Trust Charter under the NY Banking Law, or both
+    - Fingerprint-based background checks and a character-and-fitness review of directors, senior officers, and key personnel
+    - A written AML/BSA-equivalent compliance programme, cybersecurity programme, and business continuity/disaster recovery plan
+    - Prior DFS approval before a material change in business, including new products or services
+  note: NYDFS licenses two distinct things under one list -- a BitLicense (money-transmission-style, for exchanges/custodians dealing directly with customers) and a Limited Purpose Trust Charter (a state trust company, often used for custody or stablecoin issuance). We record which one each brand holds; both count as a genuine licence here.
+  source_url: https://www.dfs.ny.gov/virtual_currency_businesses
+  verified: '2026-08-06'
 - code: HK
   name: Hong Kong Securities and Futures Commission (SFC)
   tier: licensed

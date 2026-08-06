@@ -44,14 +44,22 @@ const eeaRows = Object.entries(homeStateRegulators)
   .map(([cc, v]) => ({ cc, ...v }))
   .sort((a, b) => b.count - a.count);
 
+// NY DFS shares the "US" countries key with federal FinCEN (two independent
+// regimes tracked under one country page -- see [country].astro) rather
+// than getting its own key, so it needs the same kind of special-cased
+// count/retrieved as MiCA below instead of the generic countBrands(code).
+const countNyDfs = () => exchanges.filter((ex) =>
+  (ex.countries?.US ?? []).some((e) => e.via === 'ny_dfs_register')).length;
+const nyDfsRetrieved = sourceRetrieved('NY DFS List of Licensed Virtual Currency Entities');
+
 // "What does each regulator actually check" -- manually researched detail
 // (data/regulator_details.yaml), joined against the live brand counts we
 // already compute above so the tier/scope/capital writeups sit right next
 // to an always-current count and last-checked date, not a stale snapshot.
 const regulatorDetails = loadRegulatorDetails().map((d) => ({
   ...d,
-  count: d.code === 'MICA' ? activeMiCA : countBrands(d.code),
-  retrieved: d.code === 'MICA' ? micaRetrieved : sourceRetrieved(NON_EEA_SOURCES.find((s) => s.cc === d.code)?.sourceName),
+  count: d.code === 'MICA' ? activeMiCA : d.code === 'US-NY' ? countNyDfs() : countBrands(d.code),
+  retrieved: d.code === 'MICA' ? micaRetrieved : d.code === 'US-NY' ? nyDfsRetrieved : sourceRetrieved(NON_EEA_SOURCES.find((s) => s.cc === d.code)?.sourceName),
 }));
 const SITEKEY = import.meta.env.PUBLIC_TURNSTILE_SITEKEY || '0x4AAAAAAD84t4OWkoouLP3Y';
 const PAGE_TITLE = 'Crypto Regulators Compared | whichcryptoexchange.com';

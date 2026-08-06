@@ -1,0 +1,21 @@
+id: nydig
+brand: NYDIG
+eu_status: no_eu_entity
+website: https://nydig.com/
+sources:
+- name: NY DFS List of Licensed Virtual Currency Entities
+  url: https://www.dfs.ny.gov/virtual_currency_businesses
+  retrieved: '2026-08-06'
+entities: []
+countries:
+  US:
+  - status: licensed
+    regime: NY DFS Virtual Currency & Money Transmitter Licenses (BitLicense)
+    via: ny_dfs_register
+    entity: NYDIG Execution LLC
+    since: 2018-11
+  - status: licensed
+    regime: NY DFS Limited Purpose Trust Charter
+    via: ny_dfs_register
+    entity: NYDIG Trust Company LLC
+    since: 2018-11

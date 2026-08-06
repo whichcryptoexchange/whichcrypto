@@ -1,0 +1,47 @@
+name: NY DFS sync
+
+on:
+  schedule:
+    - cron: '0 14 * * 5'   # Fri 14:00 UTC — offset from the other jurisdictions' runs
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.12' }
+      - run: pip install pyyaml
+      - name: Refresh NY DFS licensed virtual currency entity data
+        run: python3 scripts/ny_sync.py
+      - name: Open PR if the register changed
+        uses: peter-evans/create-pull-request@v6
+        with:
+          commit-message: "data: NY DFS sync"
+          title: "NY DFS update — review changes"
+          body: |
+            Automated refresh of data/ny_reg_map.yaml's pinned legal entity
+            names against NYDFS's live "List of Licensed Virtual Currency
+            Entities" table. This does NOT discover new brands -- only
+            re-confirms entities already curated in ny_reg_map.yaml still
+            hold their licence/charter, and catches a licence_type drift
+            (BitLicense vs money transmitter vs trust charter) between the
+            map and the live page. Review for:
+              - a pinned entity no longer found on the current list (may
+                have surrendered its licence -- confirm before merging)
+              - a licence_type mismatch warning (the live page changed what
+                it says a brand holds)
+            A NY DFS virtual currency licence or limited purpose trust
+            charter is a genuine, state-chartered regime -- distinct from
+            (and never a substitute for) the federal FinCEN MSB
+            registration synced separately by fincen_sync.py under the
+            same countries.US key. Both scripts only ever touch their own
+            slice of that array (matched by the "via" field); do not merge
+            a change here that clobbers the other's entries.
+          branch: ny-sync
+          delete-branch: true

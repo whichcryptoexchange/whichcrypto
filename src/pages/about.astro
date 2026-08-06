@@ -17,6 +17,7 @@ const SOURCES = [
   { name: 'Dubai VARA Public Register', label: 'Dubai VARA Public Register', url: 'https://www.vara.ae/en/licenses-and-register/public-register/' },
   { name: 'Singapore MAS Financial Institutions Directory', label: 'Singapore MAS Financial Institutions Directory', url: 'https://eservices.mas.gov.sg/fid/institution' },
   { name: 'US FinCEN MSB Registrant Search', label: 'US FinCEN MSB Registrant Search', url: 'https://msb.fincen.gov/' },
+  { name: 'NY DFS List of Licensed Virtual Currency Entities', label: 'NY DFS List of Licensed Virtual Currency Entities', url: 'https://www.dfs.ny.gov/virtual_currency_businesses' },
   { name: 'Hong Kong SFC VATP List', label: 'Hong Kong SFC VATP List', url: 'https://www.sfc.hk/en/Welcome-to-the-Fintech-Contact-Point/Virtual-assets/Virtual-asset-trading-platforms-operators/Lists-of-virtual-asset-trading-platforms' },
   { name: 'Gibraltar GFSC DLT Providers List', label: 'Gibraltar GFSC DLT Providers List (manually verified)', url: 'https://www.fsc.gi/regulated-entities/dlt-providers-38' },
   { name: 'Japan FSA Registered Crypto-asset Exchange Service Providers List', label: 'Japan FSA Registered Crypto-asset Exchange Service Providers List', url: 'https://www.fsa.go.jp/en/regulated/licensed/index.html' },
@@ -105,13 +106,17 @@ const PAGE_DESC = "How whichcryptoexchange.com works: which official registers w
       licence (Major Payment Institution, Digital Payment Token Service activity) under the Payment
       Services Act 2019.</li>
       <li><strong>US FinCEN MSB Registrant Search</strong> — Money Services Business registration
-      under the Bank Secrecy Act is anti-money-laundering supervision only, not a licence. The US
-      also has no single national register for state-level money transmitter licensing (up to 50
-      separate state regimes), so that layer isn't covered here. FinCEN's own register also has a
-      real fraud problem — its search page warns that scammers register shell companies under
-      recognisable brand names to appear "FinCEN approved". We found and excluded a cluster of
-      exactly that pattern during curation; only entries independently matched to a brand's real
-      corporate structure are listed.</li>
+      under the Bank Secrecy Act is anti-money-laundering supervision only, not a licence. FinCEN's
+      own register also has a real fraud problem — its search page warns that scammers register
+      shell companies under recognisable brand names to appear "FinCEN approved". We found and
+      excluded a cluster of exactly that pattern during curation; only entries independently
+      matched to a brand's real corporate structure are listed.</li>
+      <li><strong>NY DFS List of Licensed Virtual Currency Entities</strong> — unlike FinCEN
+      registration, a New York State Department of Financial Services Virtual Currency License
+      ("BitLicense") or Limited Purpose Trust Charter <em>is</em> a genuine, state-chartered
+      licence. It's the one state-level US regime we track, since it's the only one of the roughly
+      50 with a dedicated crypto-specific licence and a public, checkable list — the other 49
+      states' money transmitter regimes aren't covered here.</li>
       <li><strong>Hong Kong SFC VATP List</strong> — a Virtual Asset Trading Platform licence is a
       genuine crypto-specific licence, mandatory since 2023 under the Securities and Futures
       Ordinance — the same tier as Dubai's VARA licence and Singapore's MAS licence. The SFC also

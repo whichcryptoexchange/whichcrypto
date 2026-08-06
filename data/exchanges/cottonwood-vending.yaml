@@ -1,0 +1,17 @@
+id: cottonwood-vending
+brand: Cottonwood Vending
+eu_status: no_eu_entity
+sources:
+- name: NY DFS List of Licensed Virtual Currency Entities
+  url: https://www.dfs.ny.gov/virtual_currency_businesses
+  retrieved: '2026-08-06'
+entities: []
+countries:
+  US:
+  - status: licensed
+    regime: NY DFS Virtual Currency License (BitLicense)
+    via: ny_dfs_register
+    entity: Cottonwood Vending
+    since: 2019-01
+    caveat: A bitcoin ATM operator (around 100 machines in the New York City area) -- we could not find
+      a public consumer website to link.

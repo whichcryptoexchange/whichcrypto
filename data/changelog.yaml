@@ -7,6 +7,24 @@
 # omit it when a change is site-wide (search, sort controls) and there's no
 # single honest page to point at, rather than force a link that doesn't fit.
 - date: "2026-08-06"
+  title: "New York DFS BitLicense now tracked alongside federal FinCEN registration"
+  body: >
+    The US page previously only covered federal FinCEN MSB registration --
+    an AML-only registration, not a licence. New York State Department of
+    Financial Services Virtual Currency Licenses ("BitLicense") and
+    Limited Purpose Trust Charters are genuine, state-chartered licences,
+    and NYDFS is the one US state regulator that publishes a public,
+    checkable list of who holds one. 32 brands now show a NY DFS status
+    alongside or instead of their federal FinCEN entry, including several
+    newly added to the register entirely for this: Cash App (the licence
+    is held by Block, Inc., not by the separate Cash App Investing LLC
+    broker-dealer), Bakkt, PayPal, NYDIG, Fireblocks, and others. The
+    other 49 states' money transmitter regimes still aren't covered --
+    none of them publish a comparable single register.
+  pages:
+    - { url: /us/, label: United States }
+    - { url: /regulators/, label: Regulators }
+- date: "2026-08-06"
   title: "A submission form for Technology Provider Profiles"
   body: >
     Companies that aren't independently licensed but rely on a licensed

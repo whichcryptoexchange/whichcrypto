@@ -20,6 +20,9 @@ sources:
 - name: Japan FSA Registered Crypto-asset Exchange Service Providers List
   url: https://www.fsa.go.jp/en/regulated/licensed/index.html
   retrieved: '2026-08-03'
+- name: NY DFS List of Licensed Virtual Currency Entities
+  url: https://www.dfs.ny.gov/virtual_currency_businesses
+  retrieved: '2026-08-06'
 entities:
 - lei: 984500F14CA4571AAC11
   legal_name: Coinbase Luxembourg S.A
@@ -258,6 +261,16 @@ countries:
     entity: Coinbase, Inc.
     reg_number: '29454073'
     since: '2024-11-01'
+  - status: licensed
+    regime: NY DFS Limited Purpose Trust Charter
+    via: ny_dfs_register
+    entity: Coinbase Custody Trust Company, LLC
+    since: 2018-10
+  - status: licensed
+    regime: NY DFS Virtual Currency & Money Transmitter Licenses (BitLicense)
+    via: ny_dfs_register
+    entity: Coinbase, Inc.
+    since: 2017-01
   JP:
   - status: licensed
     regime: Japan FSA Crypto-asset Exchange Service Provider registration

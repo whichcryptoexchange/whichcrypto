@@ -14,6 +14,9 @@ sources:
 - name: Gibraltar GFSC DLT Providers List
   url: https://www.fsc.gi/regulated-entities/dlt-providers-38
   retrieved: '2026-07-31'
+- name: NY DFS List of Licensed Virtual Currency Entities
+  url: https://www.dfs.ny.gov/virtual_currency_businesses
+  retrieved: '2026-08-06'
 entities:
 - lei: 213800GIFQMSV7HROS23
   legal_name: eToro (Europe) Ltd
@@ -236,6 +239,11 @@ countries:
     entity: eToro USA LLC
     reg_number: '29470746'
     since: '2026-07-01'
+  - status: licensed
+    regime: NY DFS Virtual Currency & Money Transmitter Licenses (BitLicense)
+    via: ny_dfs_register
+    entity: eToro NY LLC
+    since: 2023-02
   GI:
   - status: licensed
     regime: Gibraltar DLT Licence

@@ -1,0 +1,19 @@
+id: block
+brand: Cash App
+eu_status: no_eu_entity
+website: https://cash.app/
+sources:
+- name: NY DFS List of Licensed Virtual Currency Entities
+  url: https://www.dfs.ny.gov/virtual_currency_businesses
+  retrieved: '2026-08-06'
+entities: []
+countries:
+  US:
+  - status: licensed
+    regime: NY DFS Virtual Currency & Money Transmitter Licenses (BitLicense)
+    via: ny_dfs_register
+    entity: Block, Inc., f/k/a Square, Inc.
+    since: 2018-06
+    caveat: Bitcoin services are provided by Block, Inc. (which operates in New York as "Block of Delaware"
+      for this licence) -- not by Cash App Investing LLC, a separate FINRA/SIPC-member broker-dealer subsidiary
+      that handles equities brokerage only and does not trade bitcoin, per Cash App's own disclosures.

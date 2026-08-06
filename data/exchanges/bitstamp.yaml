@@ -14,6 +14,9 @@ sources:
 - name: US FinCEN MSB Registrant Search
   url: https://msb.fincen.gov/
   retrieved: '2026-07-27'
+- name: NY DFS List of Licensed Virtual Currency Entities
+  url: https://www.dfs.ny.gov/virtual_currency_businesses
+  retrieved: '2026-08-06'
 entities:
 - lei: 549300XIBGTJ0PLIEO72
   legal_name: Bitstamp Europe S.A
@@ -249,3 +252,8 @@ countries:
     entity: Bitstamp Ltd.
     reg_number: '29446839'
     since: '2024-06-19'
+  - status: licensed
+    regime: NY DFS Virtual Currency License (BitLicense)
+    via: ny_dfs_register
+    entity: Bitstamp USA, Inc.
+    since: 2019-04

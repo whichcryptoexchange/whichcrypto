@@ -1,0 +1,17 @@
+id: standard-custody
+brand: Standard Custody & Trust Company
+eu_status: no_eu_entity
+website: https://www.standardcustody.com/
+sources:
+- name: NY DFS List of Licensed Virtual Currency Entities
+  url: https://www.dfs.ny.gov/virtual_currency_businesses
+  retrieved: '2026-08-06'
+entities: []
+countries:
+  US:
+  - status: licensed
+    regime: NY DFS Limited Purpose Trust Charter
+    via: ny_dfs_register
+    entity: Standard Custody & Trust Company, LLC
+    since: 2021-05
+    caveat: An institutional digital-asset custodian, acquired by Ripple in 2024.

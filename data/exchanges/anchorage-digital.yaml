@@ -5,6 +5,9 @@ sources:
 - name: Singapore MAS Financial Institutions Directory
   url: https://eservices.mas.gov.sg/fid/institution
   retrieved: '2026-07-26'
+- name: NY DFS List of Licensed Virtual Currency Entities
+  url: https://www.dfs.ny.gov/virtual_currency_businesses
+  retrieved: '2026-08-06'
 entities: []
 countries:
   SG:
@@ -14,3 +17,9 @@ countries:
     entity: ANCHORAGE DIGITAL SINGAPORE Pte. Ltd.
     reference: 427752-ANCHORAGE-DIGITAL-SINGAPORE-Pte-Ltd
     since: null
+  US:
+  - status: licensed
+    regime: NY DFS Virtual Currency License (BitLicense)
+    via: ny_dfs_register
+    entity: Anchorage Digital NY, LLC
+    since: 2024-12
