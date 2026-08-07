@@ -7,7 +7,7 @@ Scope: Major Payment Institution licensees authorised for the Digital
 Payment Token Service activity under the Payment Services Act 2019. Like
 the Dubai VARA licence, this is a genuine crypto-specific licence (not an
 AML-only registration like the UK/Canada tiers), so we emit:
-  regime: "Singapore MAS MPI Licence (DPT)"
+  regime: "Singapore MAS MPI licence (DPT)"
   status: "licensed"
 
 The directory (https://eservices.mas.gov.sg/fid/institution?...) is a
@@ -105,7 +105,7 @@ def main():
                 continue
             entries.append({
                 "status": "licensed",
-                "regime": "Singapore MAS MPI Licence (DPT)",
+                "regime": "Singapore MAS MPI licence (DPT)",
                 "via": "mas_register",
                 "entity": name,
                 "reference": reference,

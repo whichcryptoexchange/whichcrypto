@@ -16,7 +16,7 @@ The Hong Kong regime nuance this script encodes: a VATP licence under the
 Securities and Futures Ordinance is a genuine crypto-specific licence
 (mandatory since 2023) -- same tier as Dubai VARA and Singapore MAS, not an
 AML-only registration like UK/Canada/US. We therefore emit
-  regime: "Hong Kong SFC VATP Licence"
+  regime: "Hong Kong SFC VATP licence"
   status: "licensed"
 
 Each HK entry is appended to that brand's countries.HK list (a list, same
@@ -118,7 +118,7 @@ def main():
                 continue
             entries.append({
                 "status": "licensed",
-                "regime": "Hong Kong SFC VATP Licence",
+                "regime": "Hong Kong SFC VATP licence",
                 "via": "sfc_register",
                 "entity": row["platform_name"] or row["legal_name"],
                 "reference": ce_ref,

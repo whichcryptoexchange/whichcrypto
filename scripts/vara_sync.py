@@ -13,11 +13,11 @@ in its regime string, never just "UAE" or "AE", so the scope can't get lost
 in a page that only shows the ISO code. Site copy on /ae/ must state
 prominently that this reflects Dubai/VARA licensing only.
 
-Unlike the UK FCA and Canada FINTRAC registrations, a VARA VASP Licence is
+Unlike the UK FCA and Canada FINTRAC registrations, a VARA VASP licence is
 a genuine, crypto-specific licence (Dubai built a dedicated regulatory
 regime for virtual assets from scratch) — not just AML/CTF registration.
 We therefore emit:
-  regime: "Dubai VARA VASP Licence"
+  regime: "Dubai VARA VASP licence"
   status: "licensed"
 
 The public register (https://www.vara.ae/en/licenses-and-register/public-register/)
@@ -86,7 +86,7 @@ def parse_date(raw):
 def to_ae_entry(row, reference):
     return {
         "status": "licensed",
-        "regime": "Dubai VARA VASP Licence",
+        "regime": "Dubai VARA VASP licence",
         "via": "dubai_vara",
         "entity": row.get("VASP Name") or "",
         "reference": reference,

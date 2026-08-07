@@ -13,7 +13,7 @@ copies the current list, updates the "providers" list and "retrieved"
 date), then this script is run manually to push that snapshot into
 data/exchanges/.
 
-A Gibraltar DLT Licence is a genuine crypto-specific licence -- same
+A Gibraltar DLT licence is a genuine crypto-specific licence -- same
 framing as VARA/MAS/SFC, not an AML-only registration.
 
 Usage:
@@ -48,7 +48,7 @@ def main():
         doc.setdefault("countries", {})["GI"] = [
             {
                 "status": "licensed",
-                "regime": "Gibraltar DLT Licence",
+                "regime": "Gibraltar DLT licence",
                 "via": "gfsc_manual",
                 "entity": entity,
                 "since": None,

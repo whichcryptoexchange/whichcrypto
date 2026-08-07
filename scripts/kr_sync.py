@@ -15,7 +15,7 @@ Transaction Information is AML/CFT reporting only, not a business licence
 (confirmed against legal analysis of the Act, not assumed) -- same tier as
 UK/Canada/US, not the genuine-licence tier of MiCA/VARA/MAS/SFC/GFSC/FSA/SC.
 We therefore emit
-  regime: "Korea FIU VASP Registration"
+  regime: "Korea FIU VASP registration"
   status: "registered"
 
 Rows with a value in the "직권말소" (ex officio cancellation) column are
@@ -146,7 +146,7 @@ def main():
 
         entry = {
             "status": "registered",
-            "regime": "Korea FIU VASP Registration",
+            "regime": "Korea FIU VASP registration",
             "via": "kr_fiu_register",
             "entity": entity,
             "since": iso_date(row["accepted"]),
