@@ -7,7 +7,7 @@ sources:
   retrieved: '2026-07-26'
 - name: Hong Kong SFC VATP List
   url: https://www.sfc.hk/en/Welcome-to-the-Fintech-Contact-Point/Virtual-assets/Virtual-asset-trading-platforms-operators/Lists-of-virtual-asset-trading-platforms
-  retrieved: '2026-07-29'
+  retrieved: '2026-08-07'
 - name: Japan FSA Registered Crypto-asset Exchange Service Providers List
   url: https://www.fsa.go.jp/en/regulated/licensed/index.html
   retrieved: '2026-08-03'
@@ -22,7 +22,7 @@ countries:
     since: null
   HK:
   - status: licensed
-    regime: Hong Kong SFC VATP licence
+    regime: Hong Kong SFC VATP Licence
     via: sfc_register
     entity: HashKey Exchange
     reference: BPL992
