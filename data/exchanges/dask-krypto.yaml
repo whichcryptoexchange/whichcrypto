@@ -11,7 +11,7 @@ entities:
   commercial_name: DASK KRYPTO
   home_state: CY
   regulator: Cyprus Securities and Exchange Commission (CySEC)
-  website: www.daskkrypto.eu
+  website: daskkrypto.eu
   records:
   - authorised: '2026-06-08'
     withdrawn: null

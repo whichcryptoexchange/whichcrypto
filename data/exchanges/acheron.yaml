@@ -11,7 +11,7 @@ entities:
   commercial_name: Acheron
   home_state: NL
   regulator: Netherlands Authority for the Financial Markets (AFM)
-  website: https://www.acherontrading.com/
+  website: https://acherontrading.com/
   records:
   - authorised: '2025-05-26'
     withdrawn: null
