@@ -14,6 +14,9 @@ sources:
 - name: US FinCEN MSB Registrant Search
   url: https://msb.fincen.gov/
   retrieved: '2026-07-27'
+- name: ADGM FSRA Public Register
+  url: https://www.adgm.com/public-registers
+  retrieved: '2026-08-07'
 entities:
 - lei: 9845003D98SCC2851458
   legal_name: Payward Global Solutions Limited
@@ -261,3 +264,11 @@ countries:
     entity: Kraken Financial
     reg_number: '29471458'
     since: '2024-12-09'
+  AE:
+  - status: licensed
+    regime: Abu Dhabi ADGM FSRA licence
+    via: adgm_manual
+    entity: Kraken
+    licensed_activities: Operating a Multilateral Trading Facility and providing custody for virtual assets
+    reference: null
+    since: '2022-04-25'

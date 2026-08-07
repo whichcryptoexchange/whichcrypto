@@ -44,13 +44,20 @@ const eeaRows = Object.entries(homeStateRegulators)
   .map(([cc, v]) => ({ cc, ...v }))
   .sort((a, b) => b.count - a.count);
 
-// NY DFS shares the "US" countries key with federal FinCEN (two independent
-// regimes tracked under one country page -- see [country].astro) rather
-// than getting its own key, so it needs the same kind of special-cased
-// count/retrieved as MiCA below instead of the generic countBrands(code).
+// NY DFS shares the "US" countries key with federal FinCEN, and ADGM
+// shares "AE" with Dubai VARA (two independent regimes tracked under one
+// country page each -- see [country].astro) rather than getting their own
+// key, so both need the same kind of special-cased count/retrieved as
+// MiCA below instead of the generic countBrands(code).
 const countNyDfs = () => exchanges.filter((ex) =>
   (ex.countries?.US ?? []).some((e) => e.via === 'ny_dfs_register')).length;
 const nyDfsRetrieved = sourceRetrieved('NY DFS List of Licensed Virtual Currency Entities');
+const countAdgm = () => exchanges.filter((ex) =>
+  (ex.countries?.AE ?? []).some((e) => e.via === 'adgm_manual')).length;
+const adgmRetrieved = sourceRetrieved('ADGM FSRA Public Register');
+
+const SPECIAL_COUNTS = { MICA: () => activeMiCA, 'US-NY': countNyDfs, 'AE-ADGM': countAdgm };
+const SPECIAL_RETRIEVED = { MICA: micaRetrieved, 'US-NY': nyDfsRetrieved, 'AE-ADGM': adgmRetrieved };
 
 // "What does each regulator actually check" -- manually researched detail
 // (data/regulator_details.yaml), joined against the live brand counts we
@@ -58,8 +65,8 @@ const nyDfsRetrieved = sourceRetrieved('NY DFS List of Licensed Virtual Currency
 // to an always-current count and last-checked date, not a stale snapshot.
 const regulatorDetails = loadRegulatorDetails().map((d) => ({
   ...d,
-  count: d.code === 'MICA' ? activeMiCA : d.code === 'US-NY' ? countNyDfs() : countBrands(d.code),
-  retrieved: d.code === 'MICA' ? micaRetrieved : d.code === 'US-NY' ? nyDfsRetrieved : sourceRetrieved(NON_EEA_SOURCES.find((s) => s.cc === d.code)?.sourceName),
+  count: SPECIAL_COUNTS[d.code] ? SPECIAL_COUNTS[d.code]() : countBrands(d.code),
+  retrieved: d.code in SPECIAL_RETRIEVED ? SPECIAL_RETRIEVED[d.code] : sourceRetrieved(NON_EEA_SOURCES.find((s) => s.cc === d.code)?.sourceName),
 }));
 // Every regulator maps to a real page listing the exchanges counted under
 // it, except MiCA -- there's no single "MiCA" page since it's one EU-wide
@@ -67,6 +74,7 @@ const regulatorDetails = loadRegulatorDetails().map((d) => ({
 // EU/EEA table below), so the closest equivalent is the full exchange list.
 function regulatorHref(code) {
   if (code === 'MICA') return '/exchanges/';
+  if (code === 'AE-ADGM') return '/ae/';
   if (code === 'US-NY') return '/us/';
   return `/${code.toLowerCase()}/`;
 }

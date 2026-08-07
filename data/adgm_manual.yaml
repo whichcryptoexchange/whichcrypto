@@ -1,0 +1,63 @@
+# Abu Dhabi Global Market (ADGM) Financial Services Regulatory Authority
+# (FSRA) virtual asset licensees -- MANUALLY maintained, like Gibraltar.
+# The actual register/search portal (accessrp.adgm.com) sits behind an
+# Akamai bot-management wall that returns a hard 403 even with full
+# browser headers -- unlike NY DFS's Cloudflare TLS-fingerprint check,
+# this didn't yield to a UA-string fix, so no scripted sync is possible.
+#
+# This snapshot instead compiles individually-verified Financial Services
+# Permission (FSP) grants, each confirmed by reading ADGM's own dedicated
+# press release for that grant (or, where ADGM didn't publish one, the
+# company's own announcement of its FSP) -- not a search-tool summary.
+# This is NOT necessarily exhaustive: ADGM has reportedly authorised 30+
+# virtual asset firms in total, and this snapshot only contains the ones
+# individually confirmed so far. Same "list fewer, verified entries than
+# pad the numbers" discipline as everywhere else on this site.
+#
+# Distinct from Dubai VARA (data/vara_reg_map or similar) -- ADGM is Abu
+# Dhabi's free zone, a different emirate with a different regulator, not
+# "the wider UAE" either. See src/pages/[country].astro's isAE branch.
+#
+# scripts/adgm_manual_apply.py applies this to data/exchanges/, same
+# shape as gi_manual_apply.py; must be re-run by hand whenever someone
+# manually re-verifies a new grant. No scheduled GitHub Actions workflow.
+
+retrieved: "2026-08-07"
+source_url: https://www.adgm.com/public-registers
+providers:
+  - entity: Bitexen MENA
+    brand_id: bitexen
+    regulated_activities: Operating a Multilateral Trading Facility for virtual assets and fiat-referenced tokens
+    since: "2026-05-21"
+    press_release: https://www.adgm.com/media/announcements/bitexen-mena-and-bitexen-custody-obtained-financial-services-permissions-from-the-fsra-of-adgm
+  - entity: Bitexen Custody
+    brand_id: bitexen
+    regulated_activities: Providing custody of virtual assets and fiat-referenced tokens
+    since: "2026-05-21"
+    press_release: https://www.adgm.com/media/announcements/bitexen-mena-and-bitexen-custody-obtained-financial-services-permissions-from-the-fsra-of-adgm
+  - entity: M2
+    brand_id: m2
+    regulated_activities: Operating a Multilateral Trading Facility and providing custody for virtual assets
+    since: "2023-08-16"
+    press_release: https://www.adgm.com/media/announcements/virtual-assets-trading-platform-m2-receives-financial-services-permission-from-adgm
+  - entity: Klickl
+    brand_id: klickl
+    regulated_activities: Custody and brokerage services for virtual assets, as principal or agent
+    since: "2024-05-23"
+    press_release: https://www.adgm.com/media/announcements/klickl-secures-financial-services-permission-to-enhance-web3-offerings-globally-for-smes
+  - entity: Kraken
+    brand_id: kraken
+    regulated_activities: Operating a Multilateral Trading Facility and providing custody for virtual assets
+    since: "2022-04-25"
+    press_release: https://www.adgm.com/media/announcements/adgm-welcomes-kraken-global-virtual-asset-exchange-to-its-international-financial-centre
+  - entity: Laser Digital (AD) Limited
+    brand_id: laser-digital
+    regulated_activities: Broker-dealer and asset/fund management services relating to virtual assets and traditional assets
+    since: "2024-06-19"
+    press_release: https://www.adgm.com/media/announcements/laser-digital-receives-financial-services-permission-from-adgm
+  - entity: Zodia Markets (AME) Limited
+    brand_id: zodia
+    regulated_activities: Dealing in investments (virtual assets) as matched principal -- not authorised for retail clients
+    since: "2024-12-10"
+    reference: "220132"
+    press_release: https://zodiamarkets.com/insights/press-release/zodia-markets-granted-financial-services-permission-by-adgm-strengthening-middle-east-presence/

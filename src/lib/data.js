@@ -95,7 +95,7 @@ export const COUNTRY_NAMES = {
   LU: 'Luxembourg', LV: 'Latvia', MT: 'Malta', NL: 'Netherlands',
   NO: 'Norway', PL: 'Poland', PT: 'Portugal', RO: 'Romania', SE: 'Sweden',
   SI: 'Slovenia', SK: 'Slovakia',
-  GB: 'United Kingdom', CA: 'Canada', AE: 'UAE (Dubai Only)',
+  GB: 'United Kingdom', CA: 'Canada', AE: 'UAE (Dubai & Abu Dhabi)',
   SG: 'Singapore', US: 'United States', HK: 'Hong Kong', GI: 'Gibraltar',
   JP: 'Japan', MY: 'Malaysia', KR: 'South Korea',
 };
@@ -104,7 +104,12 @@ export const COUNTRY_NAMES = {
 // EEA/MiCA shape) get a "<prefix> · Registered/Authorised/Licensed" stamp
 // each -- shared between exchange/[id].astro's rendering and the plain-text
 // summary below so the two can never say different things.
-export const NON_EEA_PREFIX = { GB: 'UK', CA: 'CA', AE: 'Dubai', SG: 'SG', US: 'US', HK: 'HK', GI: 'GI', JP: 'JP', MY: 'MY', KR: 'KR' };
+// AE was 'Dubai' until ADGM (Abu Dhabi) joined VARA (Dubai) under the same
+// country page -- an ADGM-only brand with no Dubai connection at all would
+// have shown a wrong "Dubai · Licensed" badge, so this needs to stay
+// generic. The full Dubai-vs-Abu-Dhabi distinction is explained on the
+// country page itself; this compact badge just needs to not be wrong.
+export const NON_EEA_PREFIX = { GB: 'UK', CA: 'CA', AE: 'UAE', SG: 'SG', US: 'US', HK: 'HK', GI: 'GI', JP: 'JP', MY: 'MY', KR: 'KR' };
 
 export function listJoin(arr) {
   return arr.length <= 1 ? (arr[0] ?? '')

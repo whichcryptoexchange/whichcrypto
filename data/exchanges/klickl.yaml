@@ -1,0 +1,18 @@
+id: klickl
+brand: Klickl
+eu_status: no_eu_entity
+website: https://www.klickl.com/
+sources:
+- name: ADGM FSRA Public Register
+  url: https://www.adgm.com/public-registers
+  retrieved: '2026-08-07'
+entities: []
+countries:
+  AE:
+  - status: licensed
+    regime: Abu Dhabi ADGM FSRA licence
+    via: adgm_manual
+    entity: Klickl
+    licensed_activities: Custody and brokerage services for virtual assets, as principal or agent
+    reference: null
+    since: '2024-05-23'

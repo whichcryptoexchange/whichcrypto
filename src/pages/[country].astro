@@ -39,6 +39,7 @@ const sourceRetrieved = (name_) => exchanges
 const fcaRetrieved = sourceRetrieved('UK FCA Register');
 const fintracRetrieved = sourceRetrieved('Canada FINTRAC MSB Registry');
 const varaRetrieved = sourceRetrieved('Dubai VARA Public Register');
+const adgmRetrieved = sourceRetrieved('ADGM FSRA Public Register');
 const masRetrieved = sourceRetrieved('Singapore MAS Financial Institutions Directory');
 const fincenRetrieved = sourceRetrieved('US FinCEN MSB Registrant Search');
 const nyDfsRetrieved = sourceRetrieved('NY DFS List of Licensed Virtual Currency Entities');
@@ -70,7 +71,7 @@ const PAGE_TITLE = isGB
   : isCA
   ? `Crypto exchanges registered in Canada (${YEAR}) | whichcryptoexchange.com`
   : isAE
-  ? `Crypto exchanges licensed in Dubai (${YEAR}) | whichcryptoexchange.com`
+  ? `Crypto exchanges licensed in Dubai or Abu Dhabi (${YEAR}) | whichcryptoexchange.com`
   : isSG
   ? `Crypto exchanges licensed in Singapore (${YEAR}) | whichcryptoexchange.com`
   : isUS
@@ -91,7 +92,7 @@ const PAGE_DESC = isGB
   : isCA
   ? `${rows.length} crypto exchanges hold a Canada FINTRAC MSB registration, according to the official FINTRAC registry. See which entity and since when.`
   : isAE
-  ? `${rows.length} crypto exchanges hold a VARA VASP licence covering Dubai specifically — not the rest of the UAE. See which entity, which activities, and since when.`
+  ? `${rows.length} crypto exchanges hold a Dubai VARA VASP licence or an Abu Dhabi ADGM FSRA licence — not the rest of the UAE. See which entity, which activities, and since when.`
   : isSG
   ? `${rows.length} crypto exchanges hold a MAS Major Payment Institution licence for Digital Payment Token services, according to the official MAS Financial Institutions Directory.`
   : isUS
@@ -203,15 +204,22 @@ const PAGE_DESC = isGB
       </>
     ) : isAE ? (
       <>
-        <h1>Which crypto exchanges are licensed in Dubai?</h1>
-        <p class="lede caveat">This page covers Dubai only — not the UAE as a whole. Dubai's VARA
-        has no authority over Abu Dhabi (regulated separately by the ADGM), Dubai's own DIFC free
-        zone (regulated separately by the DFSA), or the rest of the UAE (federal SCA). There is no
-        single UAE-wide crypto regulator.</p>
+        <h1>Which crypto exchanges are licensed in Dubai or Abu Dhabi?</h1>
+        <p class="lede caveat">This page covers two of the UAE's free zones, not the UAE as a
+        whole: Dubai's VARA and Abu Dhabi Global Market's FSRA. Dubai's own DIFC free zone
+        (regulated separately by the DFSA) and the federal mainland (regulated by the SCA) are
+        still not covered — there is no single UAE-wide crypto regulator.</p>
         <p class="lede">{rows.length} exchanges in our register hold a VARA VASP licence, issued by
-        Dubai's Virtual Assets Regulatory Authority. Unlike the UK and Canada entries elsewhere on
-        this site, this <em>is</em> a genuine crypto-specific licence — Dubai built a dedicated
-        regulatory regime for virtual assets from scratch, not an AML add-on to existing rules.</p>
+        Dubai's Virtual Assets Regulatory Authority, or an ADGM FSRA licence, issued by Abu Dhabi
+        Global Market's Financial Services Regulatory Authority. Unlike the UK and Canada entries
+        elsewhere on this site, both <em>are</em> genuine crypto-specific licences — each built a
+        dedicated regulatory regime for virtual assets from scratch, not an AML add-on to existing
+        rules.</p>
+        <p class="lede caveat">The ADGM entries are manually verified, not automatically synced —
+        its register sits behind bot protection our scripts can't get through, same as Gibraltar.
+        Each one was checked individually against its own regulatory announcement, and the list
+        isn't necessarily complete; ADGM has reportedly authorised 30+ virtual asset firms in
+        total.</p>
       </>
     ) : isSG ? (
       <>
@@ -391,9 +399,11 @@ const PAGE_DESC = isGB
       retrieved {fintracRetrieved}. An exchange missing from this list either holds no Canadian
       MSB registration for virtual currency services, or is not yet in our register.</p>
     ) : isAE ? (
-      <p class="sourced">Source: <a href="https://www.vara.ae/en/licenses-and-register/public-register/">Dubai VARA Public Register</a>,
-      retrieved {varaRetrieved}. Covers Dubai only. An exchange missing from this list either holds
-      no Dubai VARA licence, or is not yet in our register.</p>
+      <p class="sourced">Sources: <a href="https://www.vara.ae/en/licenses-and-register/public-register/">Dubai VARA Public Register</a>,
+      retrieved {varaRetrieved}, and <a href="https://www.adgm.com/public-registers">ADGM FSRA
+      Public Register</a>, manually verified {adgmRetrieved}. Covers Dubai and Abu Dhabi Global
+      Market only. An exchange missing from this list either holds neither status we could
+      independently verify, or is not yet in our register.</p>
     ) : isSG ? (
       <p class="sourced">Source: <a href="https://eservices.mas.gov.sg/fid/institution">MAS Financial Institutions Directory</a>,
       retrieved {masRetrieved}. An exchange missing from this list either holds no MAS DPT licence,

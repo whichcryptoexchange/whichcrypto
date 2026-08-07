@@ -1,0 +1,26 @@
+id: bitexen
+brand: Bitexen
+eu_status: no_eu_entity
+website: https://www.bitexen.com/
+sources:
+- name: ADGM FSRA Public Register
+  url: https://www.adgm.com/public-registers
+  retrieved: '2026-08-07'
+entities: []
+countries:
+  AE:
+  - status: licensed
+    regime: Abu Dhabi ADGM FSRA licence
+    via: adgm_manual
+    entity: Bitexen MENA
+    licensed_activities: Operating a Multilateral Trading Facility for virtual assets and fiat-referenced
+      tokens
+    reference: null
+    since: '2026-05-21'
+  - status: licensed
+    regime: Abu Dhabi ADGM FSRA licence
+    via: adgm_manual
+    entity: Bitexen Custody
+    licensed_activities: Providing custody of virtual assets and fiat-referenced tokens
+    reference: null
+    since: '2026-05-21'

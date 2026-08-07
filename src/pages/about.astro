@@ -15,6 +15,7 @@ const SOURCES = [
   { name: 'UK FCA Register', label: 'UK FCA Register', url: 'https://register.fca.org.uk/' },
   { name: 'Canada FINTRAC MSB Registry', label: 'Canada FINTRAC MSB Registry', url: 'https://fintrac-canafe.canada.ca/msb-esm/reg-eng' },
   { name: 'Dubai VARA Public Register', label: 'Dubai VARA Public Register', url: 'https://www.vara.ae/en/licenses-and-register/public-register/' },
+  { name: 'ADGM FSRA Public Register', label: 'ADGM FSRA Public Register (manually verified)', url: 'https://www.adgm.com/public-registers' },
   { name: 'Singapore MAS Financial Institutions Directory', label: 'Singapore MAS Financial Institutions Directory', url: 'https://eservices.mas.gov.sg/fid/institution' },
   { name: 'US FinCEN MSB Registrant Search', label: 'US FinCEN MSB Registrant Search', url: 'https://msb.fincen.gov/' },
   { name: 'NY DFS List of Licensed Virtual Currency Entities', label: 'NY DFS List of Licensed Virtual Currency Entities', url: 'https://www.dfs.ny.gov/virtual_currency_businesses' },
@@ -101,8 +102,14 @@ const PAGE_DESC = "How whichcryptoexchange.com works: which official registers w
       securities-dealer registration — we don't cover that layer, since the CSA's and CIRO's own
       registrant-lookup tools block automated access outright.</li>
       <li><strong>Dubai VARA Public Register</strong> — a genuine crypto-specific licence, but it
-      covers Dubai only. VARA has no authority over Abu Dhabi, Dubai's own DIFC free zone, or the
-      rest of the UAE — there is no single UAE-wide crypto regulator.</li>
+      covers Dubai only, not Dubai's own DIFC free zone, the rest of the UAE, or a single UAE-wide
+      crypto regulator, which doesn't exist.</li>
+      <li><strong>ADGM FSRA Public Register</strong> — Abu Dhabi Global Market's own free-zone
+      regulator, a genuine crypto-specific licence and a different regulator from Dubai's VARA
+      entirely. Its register sits behind an Akamai bot wall that returns a hard 403 even with full
+      browser headers, so like Gibraltar this is manually verified rather than automatically
+      synced — each entry checked individually against its own regulatory announcement, and the
+      list isn't necessarily complete.</li>
       <li><strong>Singapore MAS Financial Institutions Directory</strong> — a genuine crypto-specific
       licence (Major Payment Institution, Digital Payment Token Service activity) under the Payment
       Services Act 2019.</li>

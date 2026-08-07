@@ -60,6 +60,20 @@
     - Market-surveillance obligations for exchange operators specifically
   source_url: https://www.vara.ae/en/licenses-and-register/licence-applications/
   verified: '2026-08-06'
+- code: AE-ADGM
+  name: Abu Dhabi Global Market Financial Services Regulatory Authority (ADGM FSRA)
+  tier: licensed
+  tier_label: Genuine licence (manually verified -- see About)
+  scope: Abu Dhabi Global Market only -- a different emirate and a different regulator from Dubai VARA above; neither covers the wider UAE
+  capital: "USD 250,000 base capital requirement (the higher of that or an expenditure-based minimum tied to six months' audited expenditure), rising to USD 750,000 for custody providers handling client assets"
+  checks:
+    - A Financial Services Permission (FSP) covering the specific regulated activity -- operating a Multilateral Trading Facility, dealing as principal/agent, custody, or managing/advising on virtual assets
+    - Every virtual asset used, traded, or custodied must be an FSRA-designated "Accepted Virtual Asset"
+    - Fit-and-proper assessment of controllers and senior management
+    - Client-asset segregation and custody arrangements
+  note: Like Gibraltar, this is not automatically synced. ADGM's own register/search portal (accessrp.adgm.com) sits behind an Akamai bot wall that returns a hard 403 even with full browser headers -- this list instead compiles individually-verified Financial Services Permission grants, each checked against its own dedicated press release, and is not necessarily exhaustive (ADGM has reportedly authorised 30+ virtual asset firms in total).
+  source_url: https://www.adgm.com/public-registers
+  verified: '2026-08-07'
 - code: SG
   name: Singapore Monetary Authority (MAS)
   tier: licensed

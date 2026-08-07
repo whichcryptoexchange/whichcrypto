@@ -42,13 +42,16 @@ const euStatusCounts = {
 
 // How many brands hold each specific genuine crypto-licence, not just
 // "genuine licence somewhere" -- a brand can appear in more than one row.
-// NY DFS shares the "US" countries key with federal FinCEN (two independent
-// regimes under one country page, see [country].astro) so it needs the
-// same via-field special case used on the Regulators page, not a plain
-// countries.<CC> lookup like the others.
+// NY DFS shares the "US" countries key with federal FinCEN, and ADGM
+// shares "AE" with Dubai VARA (two independent regimes under one country
+// page each, see [country].astro) so both need the same via-field special
+// case used on the Regulators page, not a plain countries.<CC> lookup
+// (which would silently merge them, since both pairs share the same
+// status: 'licensed' value) like the others.
 const genuineByRegime = [
   { label: 'EU MiCA', cc: null, count: exchanges.filter((ex) => ex.eu_status === 'authorised').length },
-  { label: 'Dubai VARA', cc: 'AE', count: exchanges.filter((ex) => (ex.countries?.AE ?? []).some((e) => e.status === 'licensed')).length },
+  { label: 'Dubai VARA', cc: 'AE', count: exchanges.filter((ex) => (ex.countries?.AE ?? []).some((e) => e.via === 'dubai_vara')).length },
+  { label: 'Abu Dhabi ADGM', cc: 'AE', count: exchanges.filter((ex) => (ex.countries?.AE ?? []).some((e) => e.via === 'adgm_manual')).length },
   { label: 'Singapore MAS', cc: 'SG', count: exchanges.filter((ex) => (ex.countries?.SG ?? []).some((e) => e.status === 'licensed')).length },
   { label: 'Hong Kong SFC', cc: 'HK', count: exchanges.filter((ex) => (ex.countries?.HK ?? []).some((e) => e.status === 'licensed')).length },
   { label: 'Gibraltar GFSC', cc: 'GI', count: exchanges.filter((ex) => (ex.countries?.GI ?? []).some((e) => e.status === 'licensed')).length },
@@ -75,7 +78,6 @@ const servicesSorted = Object.entries(servicesCounts).sort((a, b) => b[1] - a[1]
 const nonEEA = [
   { cc: 'GB', label: 'UK (FCA Register)' },
   { cc: 'CA', label: 'Canada (FINTRAC)' },
-  { cc: 'AE', label: 'Dubai (VARA)' },
   { cc: 'SG', label: 'Singapore (MAS)' },
   { cc: 'US', label: 'US (FinCEN)' },
   { cc: 'HK', label: 'Hong Kong (SFC)' },
@@ -87,9 +89,11 @@ const nonEEA = [
   cc, label,
   count: exchanges.filter((ex) => ex.countries?.[cc]).length,
 }));
-// NY DFS is a second, independent source under the same US country page --
-// see the genuineByRegime comment above.
+// NY DFS is a second, independent source under the same US country page,
+// and ADGM the same under AE -- see the genuineByRegime comment above.
 const nyDfsCount = exchanges.filter((ex) => (ex.countries?.US ?? []).some((e) => e.via === 'ny_dfs_register')).length;
+const varaCount = exchanges.filter((ex) => (ex.countries?.AE ?? []).some((e) => e.via === 'dubai_vara')).length;
+const adgmCount = exchanges.filter((ex) => (ex.countries?.AE ?? []).some((e) => e.via === 'adgm_manual')).length;
 const activeMiCA = exchanges.filter((ex) => ex.eu_status === 'authorised').length;
 // One symmetric table for every source we check, EU/EEA included -- MiCA
 // used to get its own lead-in sentence above this table while every other
@@ -99,6 +103,8 @@ const activeMiCA = exchanges.filter((ex) => ex.eu_status === 'authorised').lengt
 const allSources = [
   { cc: null, label: 'EU/EEA (MiCA)', href: '/exchanges/', count: activeMiCA },
   ...nonEEA.map((n) => ({ ...n, href: `/${n.cc.toLowerCase()}/` })),
+  { cc: 'AE', label: 'Dubai (VARA)', href: '/ae/', count: varaCount },
+  { cc: 'AE', label: 'Abu Dhabi (ADGM, manual)', href: '/ae/', count: adgmCount },
   { cc: 'US', label: 'US (NY DFS BitLicense)', href: '/us/', count: nyDfsCount },
 ].sort((a, b) => b.count - a.count);
 
@@ -139,7 +145,7 @@ const PAGE_DESC = `Live numbers from our register: ${total} exchanges tracked, $
     '@context': 'https://schema.org',
     '@type': 'Dataset',
     name: 'whichcryptoexchange.com crypto exchange regulatory register',
-    description: `Which crypto exchanges hold which regulatory status, in which country, through which legal entity, and since when — sourced from twelve official regulator registers. ${total} exchanges tracked.`,
+    description: `Which crypto exchanges hold which regulatory status, in which country, through which legal entity, and since when — sourced from thirteen official regulator registers. ${total} exchanges tracked.`,
     url: 'https://whichcryptoexchange.com/stats/',
     license: 'https://whichcryptoexchange.com/about/',
     dateModified: lastSynced,
@@ -214,8 +220,8 @@ const PAGE_DESC = `Live numbers from our register: ${total} exchanges tracked, $
     )}
 
     <div class="stat-grid">
-      <div class="stat-card"><div class="stat-num">{total}</div><div class="stat-label">Exchanges tracked across 12 official registers</div></div>
-      <div class="stat-card"><div class="stat-num">{withGenuineLicence}</div><div class="stat-label">Hold at least one genuine crypto-specific licence (EU MiCA, Dubai VARA, Singapore MAS, Hong Kong SFC, Gibraltar GFSC, Japan FSA, Malaysia SC, or New York DFS)</div></div>
+      <div class="stat-card"><div class="stat-num">{total}</div><div class="stat-label">Exchanges tracked across 13 official registers</div></div>
+      <div class="stat-card"><div class="stat-num">{withGenuineLicence}</div><div class="stat-label">Hold at least one genuine crypto-specific licence (EU MiCA, Dubai VARA, Abu Dhabi ADGM, Singapore MAS, Hong Kong SFC, Gibraltar GFSC, Japan FSA, Malaysia SC, or New York DFS)</div></div>
       <div class="stat-card"><div class="stat-num">{amlOnly}</div><div class="stat-label">Hold only AML-supervision registrations, no genuine licence anywhere</div></div>
       <div class="stat-card"><div class="stat-num">{multiJurisdiction}</div><div class="stat-label">Registered or licensed in more than one jurisdiction</div></div>
       <div class="stat-card"><div class="stat-num">{maxJurisdictions}</div><div class="stat-label">Most jurisdictions held by a single brand ({topByJurisdictions[0]?.brand})</div></div>
@@ -223,7 +229,7 @@ const PAGE_DESC = `Live numbers from our register: ${total} exchanges tracked, $
     </div>
 
     <h3 id="by-jurisdiction">By jurisdiction</h3>
-    <p>How many tracked brands appear in each of the 12 official sources we check, all 12 treated
+    <p>How many tracked brands appear in each of the 13 official sources we check, all 13 treated
     the same way regardless of size — biggest first:</p>
     <div class="table-scroll">
     <table class="registry">

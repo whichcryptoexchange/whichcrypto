@@ -6,6 +6,24 @@
 # link row under the body. Genuine internal linking, not just narration --
 # omit it when a change is site-wide (search, sort controls) and there's no
 # single honest page to point at, rather than force a link that doesn't fit.
+- date: "2026-08-07"
+  title: "Abu Dhabi Global Market (ADGM) now tracked alongside Dubai VARA"
+  body: >
+    The Dubai/UAE page previously covered VARA only, with a standing
+    caveat that Abu Dhabi Global Market's own free-zone regulator,
+    the FSRA, wasn't covered. ADGM's register sits behind a bot wall
+    our scripts can't get through (the same problem as Gibraltar), so
+    this is manually verified rather than synced: 6 Financial
+    Services Permission grants, each checked individually against its
+    own regulatory announcement, not a register export -- likely not
+    exhaustive, since ADGM has reportedly authorised 30+ virtual
+    asset firms in total. New brands added for this: Bitexen, M2,
+    Klickl, and Laser Digital, alongside new Abu Dhabi entries on the
+    already-tracked Kraken and Zodia. Genuine crypto-specific licence,
+    not an AML-only registration, same tier as VARA.
+  pages:
+    - { url: /ae/, label: Dubai / Abu Dhabi }
+    - { url: /regulators/, label: Regulators }
 - date: "2026-08-06"
   title: "New York DFS BitLicense now tracked alongside federal FinCEN registration"
   body: >

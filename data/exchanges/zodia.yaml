@@ -5,6 +5,9 @@ sources:
 - name: ESMA interim MiCA register (CASPS.csv)
   url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
   retrieved: '2026-07-26'
+- name: ADGM FSRA Public Register
+  url: https://www.adgm.com/public-registers
+  retrieved: '2026-08-07'
 entities:
 - lei: 213800K35A9YPYDQKB81
   legal_name: Zodia Custody (Europe) S.A
@@ -202,3 +205,12 @@ countries:
     regime: MiCA
     via: mica_passporting
     entity: Zodia Custody (Europe) S.A
+  AE:
+  - status: licensed
+    regime: Abu Dhabi ADGM FSRA licence
+    via: adgm_manual
+    entity: Zodia Markets (AME) Limited
+    licensed_activities: Dealing in investments (virtual assets) as matched principal -- not authorised
+      for retail clients
+    reference: '220132'
+    since: '2024-12-10'
