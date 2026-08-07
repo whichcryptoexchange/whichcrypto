@@ -61,6 +61,16 @@ const regulatorDetails = loadRegulatorDetails().map((d) => ({
   count: d.code === 'MICA' ? activeMiCA : d.code === 'US-NY' ? countNyDfs() : countBrands(d.code),
   retrieved: d.code === 'MICA' ? micaRetrieved : d.code === 'US-NY' ? nyDfsRetrieved : sourceRetrieved(NON_EEA_SOURCES.find((s) => s.cc === d.code)?.sourceName),
 }));
+// Every regulator maps to a real page listing the exchanges counted under
+// it, except MiCA -- there's no single "MiCA" page since it's one EU-wide
+// regime granted by many different national home-state regulators (see the
+// EU/EEA table below), so the closest equivalent is the full exchange list.
+function regulatorHref(code) {
+  if (code === 'MICA') return '/exchanges/';
+  if (code === 'US-NY') return '/us/';
+  return `/${code.toLowerCase()}/`;
+}
+
 const SITEKEY = import.meta.env.PUBLIC_TURNSTILE_SITEKEY || '0x4AAAAAAD84t4OWkoouLP3Y';
 const PAGE_TITLE = 'Crypto Regulators Compared | whichcryptoexchange.com';
 const PAGE_DESC = 'What each crypto regulator actually checks -- capital, fit-and-proper, AML -- compared side by side, plus how many tracked brands hold each status right now.';
@@ -174,7 +184,7 @@ const PAGE_DESC = 'What each crypto regulator actually checks -- capital, fit-an
             <td class="brand"><a href={`#reg-${d.code.toLowerCase()}`}>{d.name}</a></td>
             <td><span class={`stamp ${d.tier}`}>{d.tier_label}</span></td>
             <td class="datum">{d.scope}</td>
-            <td class="datum">{d.count}</td>
+            <td class="datum"><a href={regulatorHref(d.code)}>{d.count}</a></td>
             <td class="datum">{d.retrieved ?? '—'}</td>
           </tr>
         ))}
@@ -195,6 +205,9 @@ const PAGE_DESC = 'What each crypto regulator actually checks -- capital, fit-an
         </ul>
         {d.note && <p class="sourced">{d.note}</p>}
         <p class="sourced">Source: <a href={d.source_url}>{d.source_url}</a> — reviewed {d.verified}.</p>
+        <p><a href={regulatorHref(d.code)}>{d.code === 'MICA'
+          ? `Browse the full exchange list (${d.count} currently MiCA-authorised) →`
+          : `See the ${d.count} exchange${d.count === 1 ? '' : 's'} currently under this regime →`}</a></p>
       </div>
     ))}
 
@@ -208,7 +221,7 @@ const PAGE_DESC = 'What each crypto regulator actually checks -- capital, fit-an
             <td class="brand"><a href={`/${s.cc.toLowerCase()}/`}>{s.regulator}</a></td>
             <td class="datum">{s.regime}</td>
             <td class="datum">{s.tier}</td>
-            <td class="datum">{s.count}</td>
+            <td class="datum"><a href={`/${s.cc.toLowerCase()}/`}>{s.count}</a></td>
             <td class="datum">{s.retrieved ?? '—'}</td>
           </tr>
         ))}
@@ -229,7 +242,7 @@ const PAGE_DESC = 'What each crypto regulator actually checks -- capital, fit-an
           <tr>
             <td class="brand"><a href={`/${r.cc.toLowerCase()}/`}><span class="cc flag">{countryFlag(r.cc)}</span> {COUNTRY_NAMES[r.cc] ?? r.cc}</a></td>
             <td class="datum">{r.regulator}</td>
-            <td class="datum">{r.count}</td>
+            <td class="datum"><a href={`/${r.cc.toLowerCase()}/`}>{r.count}</a></td>
           </tr>
         ))}
       </tbody>
