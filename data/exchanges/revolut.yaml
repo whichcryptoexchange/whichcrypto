@@ -5,6 +5,9 @@ sources:
 - name: ESMA interim MiCA register (CASPS.csv)
   url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
   retrieved: '2026-07-26'
+- name: UK FCA Register
+  url: https://register.fca.org.uk/
+  retrieved: '2026-08-07'
 entities:
 - lei: 549300ET4IUR6RCZOL84
   legal_name: Revolut Digital Assets (Europe) Ltd
@@ -200,3 +203,16 @@ countries:
     regime: MiCA
     via: mica_passporting
     entity: Revolut Digital Assets (Europe) Ltd
+  GB:
+  - status: registered
+    regime: UK MLR registration
+    via: uk_register
+    entity: Revolut Ltd
+    frn: '900562'
+    since: '2022-09-26'
+  - status: authorised
+    regime: UK FCA authorisation
+    via: uk_register
+    entity: Revolut Bank UK Ltd
+    frn: '981170'
+    since: '2024-07-25'

@@ -36,6 +36,9 @@ moonpay:
   - frn: "944716"   # MoonPay (UK) Limited
 paysafe:
   - frn: "900015"   # Paysafe Financial Services Limited
+revolut:
+  - frn: "900562"   # Revolut Ltd — MLR-registered (cryptoasset business), also holds separate EMI authorisation
+  - frn: "981170"   # Revolut Bank UK Ltd — FCA-authorised (general banking), not crypto-specific
 ripple:
   - frn: "1028021"  # Ripple Markets UK Ltd
   - frn: "828692"   # Hidden Road Partners CIV UK Ltd — Ripple acquired Hidden Road in 2025
