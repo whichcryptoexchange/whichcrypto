@@ -114,6 +114,12 @@ const PAGE_DESC = 'Check which crypto exchanges are licensed in your country -- 
       </div>
     )}
 
+    <h3>Latest user reports</h3>
+    <p class="sourced">Community-sourced and reviewed before publication — kept strictly separate
+    from the regulator-sourced data above. Browse any <a href="/exchanges/">exchange's own page</a>
+    to report your own experience signing up, verifying, or withdrawing.</p>
+    <div id="latest-reports-list"><p class="sourced">Loading reports…</p></div>
+
     <p class="sourced">Currently tracking {exchanges.length} exchanges · {active} with active EU (MiCA) authorisation ·
     data from the <a href="https://www.esma.europa.eu/esmas-activities/digital-finance-and-innovation/markets-crypto-assets-regulation-mica">ESMA interim MiCA register</a></p>
     <p class="sourced">{gbExchanges.length} also have a UK entity on the <a href="https://register.fca.org.uk/">FCA Register</a> ·
@@ -190,6 +196,22 @@ const PAGE_DESC = 'Check which crypto exchanges are licensed in your country -- 
     const m = document.cookie.match(/(?:^|;\s*)user_country=([A-Z]{2})/);
     const sel = document.getElementById('country');
     if (m && sel && [...sel.options].some((o) => o.value === m[1])) sel.value = m[1];
+
+    // Latest user reports: fetched client-side because the page is static.
+    // Same source data as each exchange's own "User reports" section --
+    // approved reports only, and never the free-text detail field.
+    const reportsList = document.getElementById('latest-reports-list');
+    fetch('/api/reports/latest')
+      .then((r) => (r.ok ? r.json() : Promise.reject()))
+      .then((d) => {
+        if (!d.rows.length) { reportsList.innerHTML = '<p class="sourced">No published reports yet.</p>'; return; }
+        reportsList.innerHTML = d.rows.map((r) =>
+          `<p><a href="/exchange/${r.exchange_id}/#reports">${r.brand}</a> — ` +
+          `<span class="datum">${r.country}</span> — ${d.labels[r.outcome] ?? r.outcome} ` +
+          `<span class="sourced">${r.created_at.slice(0, 10)}</span></p>`
+        ).join('');
+      })
+      .catch(() => { reportsList.innerHTML = '<p class="sourced">Reports unavailable right now.</p>'; });
   </script>
 
   {SITEKEY && <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>}

@@ -532,6 +532,25 @@ async function handleAggregates(env, exchangeId) {
   return json({ exchange_id: exchangeId, total, labels: OUTCOME_LABELS, rows: results });
 }
 
+// Homepage "latest reports" widget -- unlike handleAggregates (grouped
+// counts for one exchange's own page), this is individual recent rows
+// across every exchange, newest first. Still never exposes the free-text
+// `detail` field -- only country/outcome/date, same as everywhere else
+// approved reports are shown.
+async function handleLatestReports(env, request) {
+  const { results } = await env.DB.prepare(
+    `SELECT exchange_id, country, outcome, created_at
+     FROM reports WHERE status = 'approved'
+     ORDER BY created_at DESC LIMIT 8`
+  ).all();
+  const brands = await fetchBrandList(env, request);
+  const rows = results.map((r) => ({
+    ...r,
+    brand: brands.find((b) => b.id === r.exchange_id)?.brand ?? r.exchange_id,
+  }));
+  return json({ labels: OUTCOME_LABELS, rows });
+}
+
 function esc(s) {
   return String(s ?? '').replace(/[&<>"']/g, (c) =>
     ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
@@ -828,6 +847,7 @@ export default {
     if (url.pathname === '/api/admin/digest-send' && request.method === 'POST') {
       return handleDigestSend(request, env, url);
     }
+    if (url.pathname === '/api/reports/latest' && request.method === 'GET') return handleLatestReports(env, request);
     const agg = url.pathname.match(/^\/api\/reports\/([a-z0-9-]{1,60})$/);
     if (agg && request.method === 'GET') return handleAggregates(env, agg[1]);
     if (url.pathname === '/admin' || url.pathname === '/admin/') return handleAdminIndex(request, env, url);
