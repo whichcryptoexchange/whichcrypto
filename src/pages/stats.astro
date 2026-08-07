@@ -55,7 +55,7 @@ const genuineByRegime = [
   { label: 'Japan FSA', cc: 'JP', count: exchanges.filter((ex) => (ex.countries?.JP ?? []).some((e) => e.status === 'licensed')).length },
   { label: 'Malaysia SC', cc: 'MY', count: exchanges.filter((ex) => (ex.countries?.MY ?? []).some((e) => e.status === 'licensed')).length },
   { label: 'New York DFS', cc: 'US', count: exchanges.filter((ex) => (ex.countries?.US ?? []).some((e) => e.via === 'ny_dfs_register')).length },
-];
+].sort((a, b) => b.count - a.count);
 
 // Which MiCA-authorised services are actually most common -- counted
 // across active (non-withdrawn) EEA records only.
@@ -90,8 +90,17 @@ const nonEEA = [
 // NY DFS is a second, independent source under the same US country page --
 // see the genuineByRegime comment above.
 const nyDfsCount = exchanges.filter((ex) => (ex.countries?.US ?? []).some((e) => e.via === 'ny_dfs_register')).length;
-
 const activeMiCA = exchanges.filter((ex) => ex.eu_status === 'authorised').length;
+// One symmetric table for every source we check, EU/EEA included -- MiCA
+// used to get its own lead-in sentence above this table while every other
+// regime was a row inside it, which read as EU-first-then-everyone-else
+// even after the New York DFS gap was fixed. Sorted by count, not by
+// EU-then-rest, so the biggest source just naturally sorts first.
+const allSources = [
+  { cc: null, label: 'EU/EEA (MiCA)', href: '/exchanges/', count: activeMiCA },
+  ...nonEEA.map((n) => ({ ...n, href: `/${n.cc.toLowerCase()}/` })),
+  { cc: 'US', label: 'US (NY DFS BitLicense)', href: '/us/', count: nyDfsCount },
+].sort((a, b) => b.count - a.count);
 
 const lastSynced = exchanges
   .flatMap((ex) => ex.sources ?? [])
@@ -214,25 +223,28 @@ const PAGE_DESC = `Live numbers from our register: ${total} exchanges tracked, $
     </div>
 
     <h3 id="by-jurisdiction">By jurisdiction</h3>
-    <p>{activeMiCA} exchanges hold an active EU MiCA authorisation. Outside the EU/EEA, here's how
-    many of our tracked brands appear in each source:</p>
+    <p>How many tracked brands appear in each of the 12 official sources we check, all 12 treated
+    the same way regardless of size — biggest first:</p>
     <div class="table-scroll">
     <table class="registry">
       <thead><tr><th>Source</th><th>Exchanges</th></tr></thead>
       <tbody>
-        {nonEEA.map((n) => (
-          <tr><td class="brand"><a href={`/${n.cc.toLowerCase()}/`}>{n.label}</a></td><td class="datum">{n.count}</td></tr>
+        {allSources.map((s) => (
+          <tr><td class="brand"><a href={s.href}>{s.label}</a></td><td class="datum">{s.count}</td></tr>
         ))}
-        <tr><td class="brand"><a href="/us/">US (NY DFS BitLicense)</a></td><td class="datum">{nyDfsCount}</td></tr>
       </tbody>
     </table>
     </div>
+    <p class="sourced">EU/EEA (MiCA) has no single country page of its own — it's one EU-wide regime
+    granted by whichever national regulator is a brand's home state (see the
+    <a href="/regulators/#eea">EU/EEA breakdown on the Regulators page</a>) — so it links to the
+    full exchange list instead. <strong>{euStatusCounts.withdrawn}</strong> brands have since had
+    their MiCA authorisation withdrawn, and <strong>{euStatusCounts.no_eu_entity}</strong> have never
+    held one.</p>
 
     <h3 id="by-licence-type">By licence type</h3>
-    <p>EU status across every tracked brand: <strong>{euStatusCounts.authorised}</strong> currently
-    MiCA-authorised, <strong>{euStatusCounts.withdrawn}</strong> withdrawn,
-    <strong>{euStatusCounts.no_eu_entity}</strong> with no EU entity at all. And by specific genuine
-    licence (a brand can hold more than one):</p>
+    <p>By specific genuine licence a brand holds — a brand can hold more than one, e.g. both an EU
+    MiCA authorisation and a Dubai VARA licence — biggest first:</p>
     <div class="table-scroll">
     <table class="registry">
       <thead><tr><th>Licence</th><th>Exchanges</th></tr></thead>
