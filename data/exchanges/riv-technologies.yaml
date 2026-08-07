@@ -1,0 +1,17 @@
+id: riv-technologies
+brand: RIV Technologies
+eu_status: no_eu_entity
+sources:
+- name: Dubai VARA Public Register
+  url: https://www.vara.ae/en/licenses-and-register/public-register/
+  retrieved: '2026-08-07'
+entities: []
+countries:
+  AE:
+  - status: licensed
+    regime: Dubai VARA VASP licence
+    via: dubai_vara
+    entity: RIV Technologies FZE
+    reference: VL/26/03/002
+    licensed_activities: Advisory Services
+    since: '2026-03-27'

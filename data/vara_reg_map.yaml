@@ -13,11 +13,112 @@
 # these references fresh — this file only pins identity, same curation
 # pattern as brand_map.yaml (LEI), fca_frn_map.yaml (FRN), and
 # fintrac_reg_map.yaml (MSB registration number).
+#
+# Expanded 2026-08-07 from 3 to 52 entries (all live references at the
+# time) after a full reconciliation against the live register -- the
+# reg_map had only ever been curated for the first 3 brands added to this
+# site, not kept in step as VARA's own licensee list grew to 52.
 
+
+amber-premium:
+  - reference: "VL/26/03/003"  # Amber Premium FZE
+animoca-brands:
+  - reference: "VL/26/02/001"  # Animoca Brands Middle East Advisory FZCO
+aquanow:
+  - reference: "VL/24/01/001"  # Aquanow ME FZE
+atremo-digital:
+  - reference: "VL/25/04/005"  # Atremo Digital FZE
 backpack:
   - reference: "VL/23/07/001"  # Trek Labs Ltd FZE (Backpack)
+binance:
+  - reference: "VL/24/04/001"  # Binance FZE
+bitgo:
+  - reference: "VL/25/09/001"  # BitGo MENA FZE
+  - reference: "VL/25/04/003"  # BitGo Custody MENA FZE
+bitoasis:
+  - reference: "VL/2024/11/001"  # BitOasis Technologies FZE
 bitpanda:
-  - reference: "VL/25/04/006"  # Bitpanda Custody MENA DMCC
-  - reference: "VL/25/03/001"  # Bitpanda Broker MENA DMCC
+  - reference: "VL/25/04/006"  # Bitpanda Custody MENA FZCO
+  - reference: "VL/25/03/001"  # Bitpanda Broker MENA FZCO
+ceffu:
+  - reference: "VL/25/10/001"  # Ceffu Custody FZE
+coincorner:
+  - reference: "VL/26/05/001"  # CoinCorner Virtual Assets Broker & Dealer Services L.L.C.
+coinmena:
+  - reference: "VL/23/09/001"  # CoinMENA FZE
 crypto-com:
   - reference: "VL/23/10/003"  # Foris DAX Middle East FZE (Crypto.com)
+ctrl-alt-solutions:
+  - reference: "VL/25/05/002"  # Ctrl Alt Solutions DMCC
+daman:
+  - reference: "VL/26/04/001"  # Daman Virtual Asset Brokerage LLC
+deribit:
+  - reference: "VL/23/12/002"  # Deribit FZE
+dkk-digital:
+  - reference: "VL/25/04/002"  # DKK Digital FZE
+fasset:
+  - reference: "VL/23/07/002"  # Fasset FZE
+first-crypto:
+  - reference: "VL/26/04/004"  # First Crypto Exchange L.L.C (First Crypto)
+flipster:
+  - reference: "VL/26/07/002"  # Flipster FZE
+fuze:
+  - reference: "VL/23/10/002"  # Morpheus Software Technology FZE (FUZE)
+gap-3-partners:
+  - reference: "VL/25/04/004"  # Gap 3 Partners FZCO
+gate-io:
+  - reference: "VL/25/04/007"  # Gate Technology FZE
+gcex:
+  - reference: "VL/23/09/002"  # GC Exchange FZE (GCEX)
+hashkey:
+  - reference: "VL/25/03/002"  # Hashkey MENA FZE (HashKey)
+hex-trust:
+  - reference: "VL/23/08/002"  # Hex Trust MENA FZE
+ht-markets:
+  - reference: "VL/23/08/003"  # HT Markets MENA FZE
+komainu:
+  - reference: "VL/23/08/001"  # Komainu MEA FZE
+laser-digital:
+  - reference: "VL/23/06/001"  # Laser Digital Middle East FZE
+lct-global:
+  - reference: "VL/25/12/001"  # LCT Global FZE
+liquidity-fintech:
+  - reference: "VL/26/04/003"  # Liquidity Fintech FZE
+mantra-finance:
+  - reference: "VL/25/02/001"  # Mantra Finance FZE
+mbio:
+  - reference: "VL/24/06/001"  # MBIO FZE (MB.IO)
+midchains:
+  - reference: "VL/25/04/008"  # Midchains FZE
+mkx:
+  - reference: "VL/25/04/001"  # MKX Virtual Assets Broker & Dealer Services L.L.C.
+nine-blocks-capital:
+  - reference: "VL/23/09/003"  # Nine Blocks Capital Management FZE
+nova-digital:
+  - reference: "VL/26/01/001"  # Nova Digital FZE
+ofza-fintech:
+  - reference: "VL/24/12/002"  # OFZA Fintech Virtual Asset Exchange Services LLC
+okx:
+  - reference: "VL/23/12/003"  # OKX Middle East Fintech FZE
+prypco:
+  - reference: "VL/25/05/001"  # Prypco FZE
+riv-technologies:
+  - reference: "VL/26/03/002"  # RIV Technologies FZE
+scintilla-network:
+  - reference: "VL/23/07/003"  # Scintilla Network FZE
+selini-capital:
+  - reference: "VL/25/10/002"  # Selini Capital FZE
+tokinvest:
+  - reference: "VL/2024/12/004"  # Tokinvest DMCC
+tribe-tokenisation:
+  - reference: "VL/26/06/002"  # Tribe Tokenisation FZE
+varni-labs:
+  - reference: "VL/23/10/001"  # Varni Labs FZE (Roma)
+web3-innovations-aya:
+  - reference: "VL/23/12/001"  # Web 3 Innovations FZE (AYA)
+xbase:
+  - reference: "VL/17/03/001"  # XBase Virtual Assets Broker & Dealer Services LLC
+yhego:
+  - reference: "VL/26/06/001"  # YHEGO Virtual Assets Exchange Service L.L.C (Yhego Technology Investment L.L.C)
+zand-bank:
+  - reference: "VL/2024/12/001"  # Zand Bank P.J.S.C.

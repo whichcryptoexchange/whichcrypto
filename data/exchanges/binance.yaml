@@ -5,6 +5,9 @@ sources:
 - name: Japan FSA Registered Crypto-asset Exchange Service Providers List
   url: https://www.fsa.go.jp/en/regulated/licensed/index.html
   retrieved: '2026-08-03'
+- name: Dubai VARA Public Register
+  url: https://www.vara.ae/en/licenses-and-register/public-register/
+  retrieved: '2026-08-07'
 entities: []
 countries:
   JP:
@@ -14,3 +17,12 @@ countries:
     entity: Binance Japan Inc.
     reference: Kanto No.00031
     since: '2022-10-14'
+  AE:
+  - status: licensed
+    regime: Dubai VARA VASP licence
+    via: dubai_vara
+    entity: Binance FZE
+    reference: VL/24/04/001
+    licensed_activities: Broker-Dealer Services Management and Investment Services Lending and Borrowing
+      Services Exchange Services (including VA Derivatives Trading)
+    since: '2024-04-15'

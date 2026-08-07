@@ -1,0 +1,17 @@
+id: ctrl-alt-solutions
+brand: Ctrl Alt Solutions
+eu_status: no_eu_entity
+sources:
+- name: Dubai VARA Public Register
+  url: https://www.vara.ae/en/licenses-and-register/public-register/
+  retrieved: '2026-08-07'
+entities: []
+countries:
+  AE:
+  - status: licensed
+    regime: Dubai VARA VASP licence
+    via: dubai_vara
+    entity: Ctrl Alt Solutions DMCC
+    reference: VL/25/05/002
+    licensed_activities: Broker-Dealer Services Category 1 VA Issuance
+    since: '2025-05-24'

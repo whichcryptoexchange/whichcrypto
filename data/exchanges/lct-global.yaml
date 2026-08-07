@@ -1,0 +1,17 @@
+id: lct-global
+brand: LCT Global
+eu_status: no_eu_entity
+sources:
+- name: Dubai VARA Public Register
+  url: https://www.vara.ae/en/licenses-and-register/public-register/
+  retrieved: '2026-08-07'
+entities: []
+countries:
+  AE:
+  - status: licensed
+    regime: Dubai VARA VASP licence
+    via: dubai_vara
+    entity: LCT Global FZE
+    reference: VL/25/12/001
+    licensed_activities: Exchange Services
+    since: '2025-12-26'

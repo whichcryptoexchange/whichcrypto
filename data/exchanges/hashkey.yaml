@@ -11,6 +11,9 @@ sources:
 - name: Japan FSA Registered Crypto-asset Exchange Service Providers List
   url: https://www.fsa.go.jp/en/regulated/licensed/index.html
   retrieved: '2026-08-03'
+- name: Dubai VARA Public Register
+  url: https://www.vara.ae/en/licenses-and-register/public-register/
+  retrieved: '2026-08-07'
 entities: []
 countries:
   SG:
@@ -34,3 +37,11 @@ countries:
     entity: HashKey Japan Co., Ltd.
     reference: Kanto No.00027
     since: '2021-06-18'
+  AE:
+  - status: licensed
+    regime: Dubai VARA VASP licence
+    via: dubai_vara
+    entity: Hashkey MENA FZE (HashKey)
+    reference: VL/25/03/002
+    licensed_activities: Broker-Dealer Services Exchange Services
+    since: '2025-04-14'

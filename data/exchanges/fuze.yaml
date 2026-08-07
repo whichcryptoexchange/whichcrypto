@@ -1,0 +1,17 @@
+id: fuze
+brand: FUZE
+eu_status: no_eu_entity
+sources:
+- name: Dubai VARA Public Register
+  url: https://www.vara.ae/en/licenses-and-register/public-register/
+  retrieved: '2026-08-07'
+entities: []
+countries:
+  AE:
+  - status: licensed
+    regime: Dubai VARA VASP licence
+    via: dubai_vara
+    entity: Morpheus Software Technology FZE (FUZE)
+    reference: VL/23/10/002
+    licensed_activities: Broker-Dealer Services
+    since: '2023-11-17'

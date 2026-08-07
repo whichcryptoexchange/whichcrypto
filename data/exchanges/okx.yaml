@@ -11,6 +11,9 @@ sources:
 - name: US FinCEN MSB Registrant Search
   url: https://msb.fincen.gov/
   retrieved: '2026-07-27'
+- name: Dubai VARA Public Register
+  url: https://www.vara.ae/en/licenses-and-register/public-register/
+  retrieved: '2026-08-07'
 entities:
 - lei: 54930069NLWEIGLHXU42
   legal_name: OKX Europe Limited
@@ -228,3 +231,12 @@ countries:
     entity: OKX INC.
     reg_number: '29459694'
     since: '2025-11-03'
+  AE:
+  - status: licensed
+    regime: Dubai VARA VASP licence
+    via: dubai_vara
+    entity: OKX Middle East Fintech FZE
+    reference: VL/23/12/003
+    licensed_activities: Lending and Borrowing Services Management and Investment Services Exchange Services
+      (including VA Derivatives Trading) Broker-Dealer Services
+    since: '2024-09-17'

@@ -7,6 +7,28 @@
 # omit it when a change is site-wide (search, sort controls) and there's no
 # single honest page to point at, rather than force a link that doesn't fit.
 - date: "2026-08-07"
+  title: "Dubai VARA register reconciled: 3 tracked brands to 50"
+  body: >
+    Our Dubai VARA coverage had only ever been curated for the first 3
+    brands added to this site (Backpack, Bitpanda, Crypto.com), even
+    though VARA's own public register has grown to 52 active VASP
+    licences across 50 companies. Reconciled the full live register
+    against our data: 40 new brands added (among them Deribit,
+    HashKey, Komainu, Hex Trust, and Fasset), plus new Dubai entries
+    on already-tracked brands including OKX, Binance, BitGo, and
+    Gate.io (via its Dubai entity, Gate Technology FZE), each checked
+    against the live register entry-by-entry rather than trusting a
+    summary. Also caught and fixed two bugs this surfaced:
+    a sync script that could silently wipe a brand's Abu Dhabi ADGM
+    entry whenever Dubai VARA data refreshed, and a regulator-count
+    table that was merging VARA and ADGM brands into one inflated
+    figure. "Dubai VARA" on /regulators/ and /stats/ now correctly
+    reads 50, not 3.
+  pages:
+    - { url: /ae/, label: Dubai / Abu Dhabi }
+    - { url: /regulators/, label: Regulators }
+    - { url: /stats/, label: Stats }
+- date: "2026-08-07"
   title: "Abu Dhabi Global Market (ADGM) now tracked alongside Dubai VARA"
   body: >
     The Dubai/UAE page previously covered VARA only, with a standing

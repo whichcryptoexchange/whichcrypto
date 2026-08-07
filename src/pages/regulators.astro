@@ -25,7 +25,15 @@ const NON_EEA_SOURCES = [
   { cc: 'JP', regulator: 'Japan Financial Services Agency (FSA)', regime: 'Crypto-asset Exchange Service Provider registration', tier: 'Genuine licence', sourceName: 'Japan FSA Registered Crypto-asset Exchange Service Providers List', url: 'https://www.fsa.go.jp/en/regulated/licensed/index.html' },
   { cc: 'MY', regulator: 'Malaysia Securities Commission (SC)', regime: 'Recognized Market Operator - Digital Asset Exchange', tier: 'Genuine licence', sourceName: 'Malaysia SC List of Registered Digital Asset Exchanges', url: 'https://www.sc.com.my/regulation/guidelines/recognizedmarkets/list-of-registered-digital-asset-exchanges' },
   { cc: 'KR', regulator: 'Korea Financial Intelligence Unit (FIU)', regime: 'VASP registration', tier: 'AML-only', sourceName: 'Korea FIU VASP Registration Disclosure', url: 'https://www.kofiu.go.kr/kor/notification/notice.do' },
-].map((s) => ({ ...s, count: countBrands(s.cc), retrieved: sourceRetrieved(s.sourceName) }));
+].map((s) => ({
+  ...s,
+  // AE now also carries ADGM entries -- this row is specifically about
+  // VARA, so it must not count ADGM-only brands via the generic key check.
+  count: s.cc === 'AE'
+    ? exchanges.filter((ex) => (ex.countries?.AE ?? []).some((e) => e.via === 'dubai_vara')).length
+    : countBrands(s.cc),
+  retrieved: sourceRetrieved(s.sourceName),
+}));
 
 // EU/EEA: MiCA is one EU-wide regime, but the actual authorising body is
 // each brand's own national home-state regulator -- this is what "browse
@@ -55,8 +63,13 @@ const nyDfsRetrieved = sourceRetrieved('NY DFS List of Licensed Virtual Currency
 const countAdgm = () => exchanges.filter((ex) =>
   (ex.countries?.AE ?? []).some((e) => e.via === 'adgm_manual')).length;
 const adgmRetrieved = sourceRetrieved('ADGM FSRA Public Register');
+// The base 'AE' code (VARA) also needs its own via-filtered count now that
+// ADGM shares the same key -- countBrands('AE') would count ADGM-only
+// brands too, since it just checks the key exists, not which regime.
+const countVara = () => exchanges.filter((ex) =>
+  (ex.countries?.AE ?? []).some((e) => e.via === 'dubai_vara')).length;
 
-const SPECIAL_COUNTS = { MICA: () => activeMiCA, 'US-NY': countNyDfs, 'AE-ADGM': countAdgm };
+const SPECIAL_COUNTS = { MICA: () => activeMiCA, AE: countVara, 'US-NY': countNyDfs, 'AE-ADGM': countAdgm };
 const SPECIAL_RETRIEVED = { MICA: micaRetrieved, 'US-NY': nyDfsRetrieved, 'AE-ADGM': adgmRetrieved };
 
 // "What does each regulator actually check" -- manually researched detail

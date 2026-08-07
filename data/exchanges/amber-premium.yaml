@@ -1,0 +1,18 @@
+id: amber-premium
+brand: Amber Premium
+eu_status: no_eu_entity
+sources:
+- name: Dubai VARA Public Register
+  url: https://www.vara.ae/en/licenses-and-register/public-register/
+  retrieved: '2026-08-07'
+entities: []
+countries:
+  AE:
+  - status: licensed
+    regime: Dubai VARA VASP licence
+    via: dubai_vara
+    entity: Amber Premium FZE
+    reference: VL/26/03/003
+    licensed_activities: Broker-Dealer Services Management and Investment Services Lending and Borrowing
+      Services
+    since: '2026-04-02'

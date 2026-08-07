@@ -1,0 +1,17 @@
+id: ht-markets
+brand: HT Markets
+eu_status: no_eu_entity
+sources:
+- name: Dubai VARA Public Register
+  url: https://www.vara.ae/en/licenses-and-register/public-register/
+  retrieved: '2026-08-07'
+entities: []
+countries:
+  AE:
+  - status: licensed
+    regime: Dubai VARA VASP licence
+    via: dubai_vara
+    entity: HT Markets MENA FZE
+    reference: VL/23/08/003
+    licensed_activities: Broker-Dealer Services
+    since: '2024-05-31'

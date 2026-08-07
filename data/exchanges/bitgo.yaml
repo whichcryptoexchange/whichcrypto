@@ -14,6 +14,9 @@ sources:
 - name: NY DFS List of Licensed Virtual Currency Entities
   url: https://www.dfs.ny.gov/virtual_currency_businesses
   retrieved: '2026-08-06'
+- name: Dubai VARA Public Register
+  url: https://www.vara.ae/en/licenses-and-register/public-register/
+  retrieved: '2026-08-07'
 entities:
 - lei: 391200IJ3B1IP7993O16
   legal_name: BitGo Europe GmbH
@@ -240,3 +243,18 @@ countries:
     via: ny_dfs_register
     entity: BitGo New York Trust Company, LLC
     since: 2021-03
+  AE:
+  - status: licensed
+    regime: Dubai VARA VASP licence
+    via: dubai_vara
+    entity: BitGo MENA FZE
+    reference: VL/25/09/001
+    licensed_activities: Broker-Dealer Services
+    since: '2025-09-17'
+  - status: licensed
+    regime: Dubai VARA VASP licence
+    via: dubai_vara
+    entity: BitGo Custody MENA FZE
+    reference: VL/25/04/003
+    licensed_activities: Custody Services [including custodial staking]
+    since: '2025-04-25'

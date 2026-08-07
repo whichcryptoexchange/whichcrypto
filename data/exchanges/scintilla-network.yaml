@@ -1,0 +1,17 @@
+id: scintilla-network
+brand: Scintilla Network
+eu_status: no_eu_entity
+sources:
+- name: Dubai VARA Public Register
+  url: https://www.vara.ae/en/licenses-and-register/public-register/
+  retrieved: '2026-08-07'
+entities: []
+countries:
+  AE:
+  - status: licensed
+    regime: Dubai VARA VASP licence
+    via: dubai_vara
+    entity: Scintilla Network FZE
+    reference: VL/23/07/003
+    licensed_activities: Broker-Dealer Services Exchange Services
+    since: '2023-09-11'

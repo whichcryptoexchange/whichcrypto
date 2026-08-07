@@ -1,0 +1,17 @@
+id: tribe-tokenisation
+brand: Tribe Tokenisation
+eu_status: no_eu_entity
+sources:
+- name: Dubai VARA Public Register
+  url: https://www.vara.ae/en/licenses-and-register/public-register/
+  retrieved: '2026-08-07'
+entities: []
+countries:
+  AE:
+  - status: licensed
+    regime: Dubai VARA VASP licence
+    via: dubai_vara
+    entity: Tribe Tokenisation FZE
+    reference: VL/26/06/002
+    licensed_activities: Broker-Dealer Services
+    since: '2026-06-22'

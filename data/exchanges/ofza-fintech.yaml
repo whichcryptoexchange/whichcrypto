@@ -1,0 +1,17 @@
+id: ofza-fintech
+brand: OFZA Fintech
+eu_status: no_eu_entity
+sources:
+- name: Dubai VARA Public Register
+  url: https://www.vara.ae/en/licenses-and-register/public-register/
+  retrieved: '2026-08-07'
+entities: []
+countries:
+  AE:
+  - status: licensed
+    regime: Dubai VARA VASP licence
+    via: dubai_vara
+    entity: OFZA Fintech Virtual Asset Exchange Services LLC
+    reference: VL/24/12/002
+    licensed_activities: Exchange Services Broker-Dealer Services Management and Investment Services
+    since: '2024-12-30'

@@ -8,6 +8,9 @@ sources:
 - name: Japan FSA Registered Crypto-asset Exchange Service Providers List
   url: https://www.fsa.go.jp/en/regulated/licensed/index.html
   retrieved: '2026-08-03'
+- name: Dubai VARA Public Register
+  url: https://www.vara.ae/en/licenses-and-register/public-register/
+  retrieved: '2026-08-07'
 entities:
 - lei: 984500D6A0F945BB5A15
   legal_name: Gate Technology Limited
@@ -215,3 +218,11 @@ countries:
     entity: Gate Japan Co., Ltd.
     reference: Kanto No.00018
     since: '2019-11-27'
+  AE:
+  - status: licensed
+    regime: Dubai VARA VASP licence
+    via: dubai_vara
+    entity: Gate Technology FZE
+    reference: VL/25/04/007
+    licensed_activities: Exchange Services
+    since: '2025-04-25'

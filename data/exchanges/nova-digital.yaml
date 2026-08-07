@@ -1,0 +1,17 @@
+id: nova-digital
+brand: Nova Digital
+eu_status: no_eu_entity
+sources:
+- name: Dubai VARA Public Register
+  url: https://www.vara.ae/en/licenses-and-register/public-register/
+  retrieved: '2026-08-07'
+entities: []
+countries:
+  AE:
+  - status: licensed
+    regime: Dubai VARA VASP licence
+    via: dubai_vara
+    entity: Nova Digital FZE
+    reference: VL/26/01/001
+    licensed_activities: Management and Investment Services
+    since: '2026-01-30'

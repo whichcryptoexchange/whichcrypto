@@ -6,6 +6,9 @@ sources:
 - name: ADGM FSRA Public Register
   url: https://www.adgm.com/public-registers
   retrieved: '2026-08-07'
+- name: Dubai VARA Public Register
+  url: https://www.vara.ae/en/licenses-and-register/public-register/
+  retrieved: '2026-08-07'
 entities: []
 countries:
   AE:
@@ -17,3 +20,10 @@ countries:
       traditional assets
     reference: null
     since: '2024-06-19'
+  - status: licensed
+    regime: Dubai VARA VASP licence
+    via: dubai_vara
+    entity: Laser Digital Middle East FZE
+    reference: VL/23/06/001
+    licensed_activities: Broker-Dealer Services Management and Investment Services
+    since: '2023-07-28'

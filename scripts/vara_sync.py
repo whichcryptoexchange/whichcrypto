@@ -126,7 +126,14 @@ def main():
             continue
 
         doc = yaml.safe_load(path.read_text())
-        doc.setdefault("countries", {})["AE"] = entries
+        countries = doc.setdefault("countries", {})
+        # AE now also carries ADGM entries (via: adgm_manual) for brands
+        # licensed in both Dubai and Abu Dhabi -- only replace this script's
+        # own slice, or a brand like Laser Digital would lose its ADGM entry
+        # every time this runs. Same fix as fincen_sync.py/ny_sync.py when
+        # NY DFS started sharing "US" with federal FinCEN.
+        other = [e for e in countries.get("AE", []) if e.get("via") != "dubai_vara"]
+        countries["AE"] = other + entries
         sources = doc.setdefault("sources", [])
         if not any(s.get("name") == "Dubai VARA Public Register" for s in sources):
             sources.append({

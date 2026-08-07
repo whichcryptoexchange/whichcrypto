@@ -1,0 +1,17 @@
+id: web3-innovations-aya
+brand: AYA
+eu_status: no_eu_entity
+sources:
+- name: Dubai VARA Public Register
+  url: https://www.vara.ae/en/licenses-and-register/public-register/
+  retrieved: '2026-08-07'
+entities: []
+countries:
+  AE:
+  - status: licensed
+    regime: Dubai VARA VASP licence
+    via: dubai_vara
+    entity: Web 3 Innovations FZE (AYA)
+    reference: VL/23/12/001
+    licensed_activities: Management and Investment Services
+    since: '2023-12-01'
