@@ -1,5 +1,5 @@
 ---
-import { loadExchanges, COUNTRY_NAMES, SERVICE_NAMES, countryFlag, brandWebsite } from '../../lib/data.js';
+import { loadExchanges, COUNTRY_NAMES, SERVICE_NAMES, countryFlag, brandWebsite, NON_EEA_PREFIX, licenceFacts, licenceSummaryText, listJoin } from '../../lib/data.js';
 import '../../styles/global.css';
 
 export function getStaticPaths() {
@@ -7,13 +7,10 @@ export function getStaticPaths() {
 }
 const { ex } = Astro.props;
 const website = brandWebsite(ex);
-const countryCodes = Object.keys(ex.countries ?? {})
-  .sort((a, b) => (COUNTRY_NAMES[a] ?? a).localeCompare(COUNTRY_NAMES[b] ?? b));
-// Non-EEA jurisdictions (list-shaped countries.<CC>, unlike the single-object
-// EEA/MiCA shape) get a "<prefix> · Registered/Authorised/Licensed" stamp each.
-const NON_EEA_PREFIX = { GB: 'UK', CA: 'CA', AE: 'Dubai', SG: 'SG', US: 'US', HK: 'HK', GI: 'GI', JP: 'JP', MY: 'MY', KR: 'KR' };
-const nonEEAEntries = Object.entries(NON_EEA_PREFIX)
-  .flatMap(([cc, prefix]) => (ex.countries?.[cc] ?? []).map((entry) => ({ ...entry, prefix })));
+const {
+  countryCodes, nonEEAEntries, genuineLicenceJurisdictions, amlOnlyJurisdictions,
+  hasSeparateUKAuthorisation, firstSeen, totalEntities,
+} = licenceFacts(ex);
 // A brand can have more than one legal entity with the same status in the
 // same jurisdiction (e.g. a separate broker entity and custody entity, both
 // FCA-registered) — collapse those into one badge with a count rather than
@@ -38,34 +35,11 @@ const STATUS_STAMP = {
 // this as a fallback is safe. The env var still wins if the build environment sets it.
 const SITEKEY = import.meta.env.PUBLIC_TURNSTILE_SITEKEY || '0x4AAAAAAD84t4OWkoouLP3Y';
 
-// Plain-English synthesis of data already shown in detail below -- every
-// fact here is just a restatement of the verified register entries on
-// this same page, not a new claim, so it carries the same sourcing as
-// the record cards themselves.
-const nonEEAStatusesByPrefix = {};
-for (const e of nonEEAEntries) {
-  (nonEEAStatusesByPrefix[e.prefix] ??= new Set()).add(e.status);
-}
-const genuineLicenceJurisdictions = [];
-if (ex.eu_status === 'authorised') genuineLicenceJurisdictions.push('the EU/EEA (MiCA)');
-for (const [prefix, statuses] of Object.entries(nonEEAStatusesByPrefix)) {
-  if (statuses.has('licensed')) genuineLicenceJurisdictions.push(prefix);
-}
-const amlOnlyJurisdictions = Object.entries(nonEEAStatusesByPrefix)
-  .filter(([, statuses]) => statuses.has('registered'))
-  .map(([prefix]) => prefix);
-const hasSeparateUKAuthorisation = nonEEAStatusesByPrefix.UK?.has('authorised');
-
-const allDates = [
-  ...ex.entities.flatMap((ent) => ent.records.map((r) => r.authorised).filter(Boolean)),
-  ...nonEEAEntries.map((e) => e.since).filter(Boolean),
-].sort();
-const firstSeen = allDates[0];
-const totalEntities = ex.entities.length + new Set(nonEEAEntries.map((e) => e.entity)).size;
-
-const listJoin = (arr) => arr.length <= 1 ? (arr[0] ?? '')
-  : arr.length === 2 ? `${arr[0]} and ${arr[1]}`
-  : `${arr.slice(0, -1).join(', ')}, and ${arr[arr.length - 1]}`;
+// FAQPage schema for the one question this page actually answers in
+// detail -- the same text as the visible summary-box paragraph below, via
+// licenceSummaryText, so the structured data can never say something the
+// page itself doesn't.
+const faqAnswer = licenceSummaryText(ex);
 
 // schema.org Certification -- built for exactly this: "an authoritative
 // body issued this organization a credential." One per verified record,
@@ -132,6 +106,15 @@ const PAGE_DESC = `${ex.brand}: official licence records, legal entities, regula
       hasCredential: certifications,
     })} />
   )}
+  <script type="application/ld+json" set:html={JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: [{
+      '@type': 'Question',
+      name: `Is ${ex.brand} licensed?`,
+      acceptedAnswer: { '@type': 'Answer', text: faqAnswer },
+    }],
+  })} />
 </head>
 <body>
   <header class="site">
@@ -149,6 +132,7 @@ const PAGE_DESC = `${ex.brand}: official licence records, legal entities, regula
       <a href="/exchanges/">Exchanges</a>
       <a href="/regulators/">Regulators</a>
       <a href="/providers/">Providers</a>
+      <a href="/faq/">FAQ</a>
       <a href="/stats/">Stats</a>
     </div></nav>
   </header>
@@ -401,7 +385,7 @@ const PAGE_DESC = `${ex.brand}: official licence records, legal entities, regula
   </script>
 
   <footer class="site"><div class="wrap">
-    <p><a href="/about/">About</a> · <a href="/contact/">Contact</a> · <a href="/changelog/">Changelog</a> · <a href="/exchanges/">Exchanges</a> · <a href="/regulators/">Regulators</a> · <a href="/stats/">Stats</a> · <a href="/providers/">Providers</a> · <a href="https://x.com/whichcex">X</a></p>
+    <p><a href="/about/">About</a> · <a href="/contact/">Contact</a> · <a href="/changelog/">Changelog</a> · <a href="/exchanges/">Exchanges</a> · <a href="/regulators/">Regulators</a> · <a href="/stats/">Stats</a> · <a href="/providers/">Providers</a> · <a href="/faq/">FAQ</a> · <a href="https://x.com/whichcex">X</a></p>
     <p>Independent register. Not affiliated with any regulator. Not financial advice.</p>
   </div></footer>
 

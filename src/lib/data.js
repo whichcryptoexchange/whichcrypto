@@ -100,6 +100,75 @@ export const COUNTRY_NAMES = {
   JP: 'Japan', MY: 'Malaysia', KR: 'South Korea',
 };
 
+// Non-EEA jurisdictions (list-shaped countries.<CC>, unlike the single-object
+// EEA/MiCA shape) get a "<prefix> · Registered/Authorised/Licensed" stamp
+// each -- shared between exchange/[id].astro's rendering and the plain-text
+// summary below so the two can never say different things.
+export const NON_EEA_PREFIX = { GB: 'UK', CA: 'CA', AE: 'Dubai', SG: 'SG', US: 'US', HK: 'HK', GI: 'GI', JP: 'JP', MY: 'MY', KR: 'KR' };
+
+export function listJoin(arr) {
+  return arr.length <= 1 ? (arr[0] ?? '')
+    : arr.length === 2 ? `${arr[0]} and ${arr[1]}`
+    : `${arr.slice(0, -1).join(', ')}, and ${arr[arr.length - 1]}`;
+}
+
+// Every fact this computes is a restatement of the verified register
+// entries elsewhere on a brand's own page -- used by the visible
+// summary-box paragraph, the per-brand FAQ answer, and that page's
+// FAQPage structured data, so all three always agree with each other.
+export function licenceFacts(ex) {
+  const countryCodes = Object.keys(ex.countries ?? {})
+    .sort((a, b) => (COUNTRY_NAMES[a] ?? a).localeCompare(COUNTRY_NAMES[b] ?? b));
+  const nonEEAEntries = Object.entries(NON_EEA_PREFIX)
+    .flatMap(([cc, prefix]) => (ex.countries?.[cc] ?? []).map((entry) => ({ ...entry, prefix })));
+  const nonEEAStatusesByPrefix = {};
+  for (const e of nonEEAEntries) {
+    (nonEEAStatusesByPrefix[e.prefix] ??= new Set()).add(e.status);
+  }
+  const genuineLicenceJurisdictions = [];
+  if (ex.eu_status === 'authorised') genuineLicenceJurisdictions.push('the EU/EEA (MiCA)');
+  for (const [prefix, statuses] of Object.entries(nonEEAStatusesByPrefix)) {
+    if (statuses.has('licensed')) genuineLicenceJurisdictions.push(prefix);
+  }
+  const amlOnlyJurisdictions = Object.entries(nonEEAStatusesByPrefix)
+    .filter(([, statuses]) => statuses.has('registered'))
+    .map(([prefix]) => prefix);
+  const hasSeparateUKAuthorisation = nonEEAStatusesByPrefix.UK?.has('authorised');
+  const allDates = [
+    ...(ex.entities ?? []).flatMap((ent) => (ent.records ?? []).map((r) => r.authorised).filter(Boolean)),
+    ...nonEEAEntries.map((e) => e.since).filter(Boolean),
+  ].sort();
+  const firstSeen = allDates[0];
+  const totalEntities = (ex.entities ?? []).length + new Set(nonEEAEntries.map((e) => e.entity)).size;
+  return { countryCodes, nonEEAEntries, genuineLicenceJurisdictions, amlOnlyJurisdictions, hasSeparateUKAuthorisation, firstSeen, totalEntities };
+}
+
+// Plain-text (no links/markup) version of the same summary shown on a
+// brand's own page -- suitable for a FAQ answer or a JSON-LD `text` field.
+export function licenceSummaryText(ex) {
+  const f = licenceFacts(ex);
+  let text = f.firstSeen
+    ? `${ex.brand} first appears in our register on ${f.firstSeen}, `
+    : `${ex.brand} appears in our register `;
+  text += `and is currently tracked across ${f.countryCodes.length} jurisdiction${f.countryCodes.length === 1 ? '' : 's'} through ${f.totalEntities} legal entit${f.totalEntities === 1 ? 'y' : 'ies'}.`;
+  if (f.genuineLicenceJurisdictions.length > 0) {
+    text += ` It holds a genuine crypto-specific licence in ${listJoin(f.genuineLicenceJurisdictions)}.`;
+  }
+  if (f.amlOnlyJurisdictions.length > 0) {
+    text += ` It also holds an AML-only registration (not a licence) in ${listJoin(f.amlOnlyJurisdictions)}.`;
+  }
+  if (f.hasSeparateUKAuthorisation) {
+    text += ' A group entity is separately, fully FCA-authorised in the UK, usually for a different, non-crypto activity.';
+  }
+  if (ex.eu_status === 'withdrawn') {
+    text += ' Its EU MiCA authorisation has since been withdrawn.';
+  }
+  if (f.genuineLicenceJurisdictions.length === 0 && f.amlOnlyJurisdictions.length === 0 && ex.eu_status !== 'authorised' && ex.eu_status !== 'withdrawn') {
+    text += ` We have not independently verified a genuine crypto-specific licence or registration for ${ex.brand} in any jurisdiction we track.`;
+  }
+  return text;
+}
+
 export const SERVICE_NAMES = {
   a: 'Custody and administration of crypto-assets',
   b: 'Operation of a trading platform',

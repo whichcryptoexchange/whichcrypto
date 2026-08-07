@@ -1,16 +1,21 @@
 ---
-import { loadExchanges, countriesInData, COUNTRY_NAMES, SERVICE_NAMES } from '../lib/data.js';
+import { loadExchanges, loadRegulatorDetails, countriesInData, COUNTRY_NAMES, SERVICE_NAMES } from '../lib/data.js';
+import { buildFaqEntries } from '../lib/faq.js';
 import '../styles/global.css';
 
 export function getStaticPaths() {
   const exchanges = loadExchanges();
+  // Built once here rather than per-page -- each country page only needs
+  // its own single "which exchanges are licensed in X" entry for FAQPage
+  // schema, not the full ~445-entry index.
+  const faqEntries = buildFaqEntries(exchanges, loadRegulatorDetails());
   return countriesInData(exchanges).map((c) => ({
     params: { country: c.toLowerCase() },
-    props: { code: c, exchanges },
+    props: { code: c, exchanges, faqEntry: faqEntries.find((e) => e.id === `country-${c.toLowerCase()}`) },
   }));
 }
 
-const { code, exchanges } = Astro.props;
+const { code, exchanges, faqEntry } = Astro.props;
 const name = COUNTRY_NAMES[code] ?? code;
 // Non-EEA jurisdictions store a LIST of entries per country (a brand can have
 // more than one relevant entity/tier), unlike the single-object EEA/MiCA shape.
@@ -134,6 +139,17 @@ const PAGE_DESC = isGB
       { '@type': 'ListItem', position: 2, name, item: `https://whichcryptoexchange.com/${code.toLowerCase()}/` },
     ],
   })} />
+  {faqEntry && (
+    <script type="application/ld+json" set:html={JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: [{
+        '@type': 'Question',
+        name: faqEntry.question,
+        acceptedAnswer: { '@type': 'Answer', text: faqEntry.answer },
+      }],
+    })} />
+  )}
 </head>
 <body>
   <header class="site">
@@ -151,6 +167,7 @@ const PAGE_DESC = isGB
       <a href="/exchanges/">Exchanges</a>
       <a href="/regulators/">Regulators</a>
       <a href="/providers/">Providers</a>
+      <a href="/faq/">FAQ</a>
       <a href="/stats/">Stats</a>
     </div></nav>
   </header>
@@ -416,7 +433,7 @@ const PAGE_DESC = isGB
   </main>
 
   <footer class="site"><div class="wrap">
-    <p><a href="/about/">About</a> · <a href="/contact/">Contact</a> · <a href="/changelog/">Changelog</a> · <a href="/exchanges/">Exchanges</a> · <a href="/regulators/">Regulators</a> · <a href="/stats/">Stats</a> · <a href="/providers/">Providers</a> · <a href="https://x.com/whichcex">X</a></p>
+    <p><a href="/about/">About</a> · <a href="/contact/">Contact</a> · <a href="/changelog/">Changelog</a> · <a href="/exchanges/">Exchanges</a> · <a href="/regulators/">Regulators</a> · <a href="/stats/">Stats</a> · <a href="/providers/">Providers</a> · <a href="/faq/">FAQ</a> · <a href="https://x.com/whichcex">X</a></p>
     <p>Independent register. Not affiliated with ESMA or any regulator. Not financial advice.</p>
   </div></footer>
 

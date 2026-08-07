@@ -528,3 +528,33 @@ footer.site a { color: inherit; }
 }
 .digest-cta-row button:hover { background: #0f5a35; }
 .digest-cta .consent-label { margin-bottom: 10px; }
+
+/* /faq/ hub: a search box + category chips above a filtered accordion,
+   deliberately not a static list of 445 items -- see public/faq.js. */
+.faq-search-box { margin: 0 0 24px; }
+.faq-search-box input[type="search"] {
+  display: block; width: 100%; max-width: 520px; font: 16px var(--mono);
+  color: var(--ink); background: #fff; border: 1px solid var(--rule);
+  border-radius: 4px; padding: 12px 14px; margin: 0 0 12px;
+}
+.faq-chips { display: flex; gap: 8px; flex-wrap: wrap; }
+.faq-chip {
+  font: 600 13px var(--display); color: var(--ink-soft); background: var(--card);
+  border: 1px solid var(--rule); border-radius: 20px; padding: 6px 16px; cursor: pointer;
+}
+.faq-chip:hover { border-color: var(--ink-soft); }
+.faq-chip.active { color: #fff; background: var(--editorial); border-color: var(--editorial); }
+.faq-default-note { margin: 0 0 14px; }
+.faq-item {
+  background: var(--card); border: 1px solid var(--rule); border-radius: 4px;
+  padding: 4px 16px; margin: 0 0 10px;
+}
+.faq-item summary {
+  cursor: pointer; font-family: var(--display); font-weight: 700; padding: 14px 0;
+  list-style: none;
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::before { content: '+ '; color: var(--editorial); }
+.faq-item[open] summary::before { content: '\2212 '; }
+.faq-item p { margin: 0 0 12px; color: var(--ink-soft); font-size: 15px; }
+.faq-source-link { display: inline-block; margin: 0 0 14px; font-size: 13px; font-weight: 700; }

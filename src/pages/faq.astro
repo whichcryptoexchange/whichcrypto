@@ -1,11 +1,14 @@
 ---
-import { loadChangelog } from '../lib/data.js';
+import { loadExchanges, loadRegulatorDetails } from '../lib/data.js';
+import { buildFaqEntries } from '../lib/faq.js';
 import '../styles/global.css';
 
-const entries = loadChangelog();
-const SITEKEY = import.meta.env.PUBLIC_TURNSTILE_SITEKEY || '0x4AAAAAAD84t4OWkoouLP3Y';
-const PAGE_TITLE = 'Crypto Register Changelog & Updates | whichcryptoexchange.com';
-const PAGE_DESC = "What's changed on whichcryptoexchange.com: new jurisdictions, new features, and notable findings from the official registers.";
+const exchanges = loadExchanges();
+const regulatorDetails = loadRegulatorDetails();
+const entries = buildFaqEntries(exchanges, regulatorDetails);
+const generalEntries = entries.filter((e) => e.category === 'general');
+const PAGE_TITLE = 'Crypto Exchange FAQ: Licensing, Regulation & Custody | whichcryptoexchange.com';
+const PAGE_DESC = `Search ${entries.length} questions and answers about crypto exchange licensing, built entirely from our own regulator-sourced register -- by brand, by country, or in general.`;
 ---
 <html lang="en">
 <head>
@@ -30,6 +33,15 @@ const PAGE_DESC = "What's changed on whichcryptoexchange.com: new jurisdictions,
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet" />
   <script src="https://analytics.ahrefs.com/analytics.js" data-key="QTM3lN9yt0oU0rxrj5zadA" async></script>
+  <script type="application/ld+json" set:html={JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: generalEntries.map((e) => ({
+      '@type': 'Question',
+      name: e.question,
+      acceptedAnswer: { '@type': 'Answer', text: e.answer },
+    })),
+  })} />
 </head>
 <body>
   <header class="site">
@@ -53,51 +65,26 @@ const PAGE_DESC = "What's changed on whichcryptoexchange.com: new jurisdictions,
   </header>
 
   <main class="wrap">
-    <h1>Changelog</h1>
-    <p class="lede">New jurisdictions, new features, and notable findings from the official
-    registers we track. Every regulatory data update goes through a reviewed pull request before
-    it ships — see the <a href="/about/">About page</a> for how sourcing and curation work.</p>
+    <h1>Frequently Asked Questions</h1>
+    <p class="lede">{entries.length} questions and answers, generated entirely from the register
+    itself — the same verified facts shown on every brand and country page, just phrased as the
+    questions people actually search. Search by brand or country name, or browse the general
+    questions below.</p>
 
-    {SITEKEY && (
-      <div class="digest-cta">
-        <h3>Get the weekly regulatory roundup</h3>
-        <p>Every status change across every tracked exchange, once a week, straight to your inbox
-        instead of checking back here. Free, no spam — one email a week, unsubscribe any time.</p>
-        <form id="digest-form">
-          <div class="digest-cta-row">
-            <input type="email" name="email" placeholder="you@example.com" required maxlength="200" aria-label="Email address" />
-            <button type="submit">Subscribe</button>
-          </div>
-          <label class="consent-label">
-            <input type="checkbox" name="consent" required />
-            I want the weekly regulatory roundup email. See <a href="/about/">how this works</a> —
-            unsubscribe any time, no login needed.
-          </label>
-          <div class="cf-turnstile" data-sitekey={SITEKEY}></div>
-          <p class="form-msg sourced" role="status"></p>
-        </form>
+    <div class="faq-search-box">
+      <input type="search" id="faq-search" placeholder="Search questions — try a brand or country name…" autocomplete="off" aria-label="Search FAQ" />
+      <div class="faq-chips" role="group" aria-label="Filter by category">
+        <button type="button" class="faq-chip active" data-category="all">All</button>
+        <button type="button" class="faq-chip" data-category="general">General</button>
+        <button type="button" class="faq-chip" data-category="country">By country</button>
+        <button type="button" class="faq-chip" data-category="brand">By brand</button>
       </div>
-    )}
+    </div>
 
-    <ul class="changelog">
-      {entries.map((e) => (
-        <li class="changelog-entry">
-          <div class="changelog-date datum">{e.date}</div>
-          <div>
-            <h3>{e.title}</h3>
-            <p>{e.body}</p>
-            {e.pages?.length > 0 && (
-              <p class="sourced changelog-pages">Pages: {e.pages.map((p, i) => (
-                <>{i > 0 && ' · '}<a href={p.url}>{p.label}</a></>
-              ))}</p>
-            )}
-          </div>
-        </li>
-      ))}
-    </ul>
-
-    <p class="sourced">Want the full dataset behind these changes? <a href="/api/exchanges.json">JSON</a> ·
-    <a href="/api/register-snapshot.csv">CSV snapshot</a>.</p>
+    <div id="faq-results"></div>
+    <p class="sourced">Can't find what you're after? <a href="/contact/">Get in touch</a> — or if
+    you're an official regulator source we should be checking against, <a href="/about/">see how
+    the register works</a>.</p>
   </main>
 
   <footer class="site"><div class="wrap">
@@ -105,7 +92,7 @@ const PAGE_DESC = "What's changed on whichcryptoexchange.com: new jurisdictions,
     <p>Independent register. Not affiliated with any regulator. Not financial advice.</p>
   </div></footer>
 
-  {SITEKEY && <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>}
   <script src="/search.js" defer></script>
+  <script src="/faq.js" defer></script>
 </body>
 </html>
