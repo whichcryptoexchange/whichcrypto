@@ -14,8 +14,12 @@ bitpanda:
   - frn: "928556"   # Bitpanda Custody Ltd
 bitstamp:
   - frn: "978690"   # Bitstamp UK Limited
+blockchain-com:
+  - frn: "1036678"  # BC Operations Limited — MLR-registered (cryptoasset business), Blockchain.com's UK entity
 coinbase:
   - frn: "900635"   # CB Payments Ltd
+coinjar:
+  - frn: "928767"   # CoinJar UK Limited — MLR-registered (cryptoasset business)
 crypto-com:
   - frn: "941745"   # Foris DAX UK Limited
 etoro:

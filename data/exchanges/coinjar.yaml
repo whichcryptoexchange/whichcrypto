@@ -8,6 +8,9 @@ sources:
 - name: US FinCEN MSB Registrant Search
   url: https://msb.fincen.gov/
   retrieved: '2026-07-27'
+- name: UK FCA Register
+  url: https://register.fca.org.uk/
+  retrieved: '2026-08-08'
 entities:
 - lei: 98450066Q3A1G1A4T786
   legal_name: CoinJar Europe Limited
@@ -214,3 +217,10 @@ countries:
     entity: CoinJar, Inc.
     reg_number: '29467530'
     since: '2026-03-17'
+  GB:
+  - status: registered
+    regime: UK MLR registration
+    via: uk_register
+    entity: CoinJar UK Limited
+    frn: '928767'
+    since: '2021-09-27'

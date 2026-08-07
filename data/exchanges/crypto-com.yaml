@@ -7,7 +7,7 @@ sources:
   retrieved: '2026-07-26'
 - name: UK FCA Register
   url: https://register.fca.org.uk/
-  retrieved: '2026-08-07'
+  retrieved: '2026-08-08'
 - name: Canada FINTRAC MSB Registry
   url: https://fintrac-canafe.canada.ca/msb-esm/reg-eng
   retrieved: '2026-07-26'

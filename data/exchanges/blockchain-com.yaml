@@ -11,6 +11,9 @@ sources:
 - name: US FinCEN MSB Registrant Search
   url: https://msb.fincen.gov/
   retrieved: '2026-07-27'
+- name: UK FCA Register
+  url: https://register.fca.org.uk/
+  retrieved: '2026-08-08'
 entities:
 - lei: 254900GDCT8070R2VV26
   legal_name: Blue Cube (Malta) Limited
@@ -224,3 +227,10 @@ countries:
     entity: Blockchain.com, Inc
     reg_number: '29460378'
     since: '2025-11-14'
+  GB:
+  - status: registered
+    regime: UK MLR registration
+    via: uk_register
+    entity: BC Operations Limited
+    frn: '1036678'
+    since: '2026-02-10'
