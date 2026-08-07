@@ -1,8 +1,9 @@
 ---
-import { loadProviders, loadExchanges } from '../../lib/data.js';
+import { loadProviders, loadExchanges, footerStats } from '../../lib/data.js';
 import '../../styles/global.css';
 
 const exchanges = loadExchanges();
+const stats = footerStats(exchanges);
 const providers = loadProviders().map((p) => ({
   ...p,
   partners: (p.partners ?? []).map((partner) => ({
@@ -159,6 +160,7 @@ const PAGE_DESC = 'Crypto apps and platforms that are not themselves licensed, b
 
   <footer class="site"><div class="wrap">
     <p><a href="/about/">About</a> · <a href="/contact/">Contact</a> · <a href="/changelog/">Changelog</a> · <a href="/exchanges/">Exchanges</a> · <a href="/regulators/">Regulators</a> · <a href="/stats/">Stats</a> · <a href="/providers/">Providers</a> · <a href="/faq/">FAQ</a> · <a href="https://x.com/whichcex">X</a></p>
+    <p class="footer-meta">{stats.brandCount} brands tracked across {stats.jurisdictionCount} jurisdictions · Data last synced {stats.lastSynced} · <a href="/changelog.xml">RSS</a></p>
     <p>Independent register. Not affiliated with any regulator. Not financial advice.</p>
   </div></footer>
 

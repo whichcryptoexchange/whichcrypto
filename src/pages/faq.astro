@@ -1,9 +1,10 @@
 ---
-import { loadExchanges, loadRegulatorDetails } from '../lib/data.js';
+import { loadExchanges, loadRegulatorDetails, footerStats } from '../lib/data.js';
 import { buildFaqEntries } from '../lib/faq.js';
 import '../styles/global.css';
 
 const exchanges = loadExchanges();
+const stats = footerStats(exchanges);
 const regulatorDetails = loadRegulatorDetails();
 const entries = buildFaqEntries(exchanges, regulatorDetails);
 const generalEntries = entries.filter((e) => e.category === 'general');
@@ -89,6 +90,7 @@ const PAGE_DESC = `Search ${entries.length} questions and answers about crypto e
 
   <footer class="site"><div class="wrap">
     <p><a href="/about/">About</a> · <a href="/contact/">Contact</a> · <a href="/changelog/">Changelog</a> · <a href="/exchanges/">Exchanges</a> · <a href="/regulators/">Regulators</a> · <a href="/stats/">Stats</a> · <a href="/providers/">Providers</a> · <a href="/faq/">FAQ</a> · <a href="https://x.com/whichcex">X</a></p>
+    <p class="footer-meta">{stats.brandCount} brands tracked across {stats.jurisdictionCount} jurisdictions · Data last synced {stats.lastSynced} · <a href="/changelog.xml">RSS</a></p>
     <p>Independent register. Not affiliated with any regulator. Not financial advice.</p>
   </div></footer>
 

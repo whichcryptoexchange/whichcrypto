@@ -1,11 +1,13 @@
 ---
-import { loadExchanges, COUNTRY_NAMES, SERVICE_NAMES, countryFlag, brandWebsite, NON_EEA_PREFIX, licenceFacts, licenceSummaryText, listJoin, countryStatusMap } from '../../lib/data.js';
+import { loadExchanges, COUNTRY_NAMES, SERVICE_NAMES, countryFlag, brandWebsite, NON_EEA_PREFIX, licenceFacts, licenceSummaryText, listJoin, countryStatusMap, footerStats } from '../../lib/data.js';
 import '../../styles/global.css';
 
 export function getStaticPaths() {
-  return loadExchanges().map((ex) => ({ params: { id: ex.id }, props: { ex } }));
+  const exchanges = loadExchanges();
+  const stats = footerStats(exchanges);
+  return exchanges.map((ex) => ({ params: { id: ex.id }, props: { ex, stats } }));
 }
-const { ex } = Astro.props;
+const { ex, stats } = Astro.props;
 const website = brandWebsite(ex);
 const {
   countryCodes, nonEEAEntries, genuineLicenceJurisdictions, amlOnlyJurisdictions,
@@ -443,6 +445,7 @@ const PAGE_DESC = `${ex.brand}: official licence records, legal entities, regula
 
   <footer class="site"><div class="wrap">
     <p><a href="/about/">About</a> · <a href="/contact/">Contact</a> · <a href="/changelog/">Changelog</a> · <a href="/exchanges/">Exchanges</a> · <a href="/regulators/">Regulators</a> · <a href="/stats/">Stats</a> · <a href="/providers/">Providers</a> · <a href="/faq/">FAQ</a> · <a href="https://x.com/whichcex">X</a></p>
+    <p class="footer-meta">{stats.brandCount} brands tracked across {stats.jurisdictionCount} jurisdictions · Data last synced {stats.lastSynced} · <a href="/changelog.xml">RSS</a></p>
     <p>Independent register. Not affiliated with any regulator. Not financial advice.</p>
   </div></footer>
 

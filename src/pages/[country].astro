@@ -1,5 +1,5 @@
 ---
-import { loadExchanges, loadRegulatorDetails, countriesInData, COUNTRY_NAMES, SERVICE_NAMES } from '../lib/data.js';
+import { loadExchanges, loadRegulatorDetails, countriesInData, COUNTRY_NAMES, SERVICE_NAMES, footerStats } from '../lib/data.js';
 import { buildFaqEntries } from '../lib/faq.js';
 import '../styles/global.css';
 
@@ -9,13 +9,14 @@ export function getStaticPaths() {
   // its own single "which exchanges are licensed in X" entry for FAQPage
   // schema, not the full ~445-entry index.
   const faqEntries = buildFaqEntries(exchanges, loadRegulatorDetails());
+  const stats = footerStats(exchanges);
   return countriesInData(exchanges).map((c) => ({
     params: { country: c.toLowerCase() },
-    props: { code: c, exchanges, faqEntry: faqEntries.find((e) => e.id === `country-${c.toLowerCase()}`) },
+    props: { code: c, exchanges, faqEntry: faqEntries.find((e) => e.id === `country-${c.toLowerCase()}`), stats },
   }));
 }
 
-const { code, exchanges, faqEntry } = Astro.props;
+const { code, exchanges, faqEntry, stats } = Astro.props;
 const name = COUNTRY_NAMES[code] ?? code;
 // Non-EEA jurisdictions store a LIST of entries per country (a brand can have
 // more than one relevant entity/tier), unlike the single-object EEA/MiCA shape.
@@ -444,6 +445,7 @@ const PAGE_DESC = isGB
 
   <footer class="site"><div class="wrap">
     <p><a href="/about/">About</a> · <a href="/contact/">Contact</a> · <a href="/changelog/">Changelog</a> · <a href="/exchanges/">Exchanges</a> · <a href="/regulators/">Regulators</a> · <a href="/stats/">Stats</a> · <a href="/providers/">Providers</a> · <a href="/faq/">FAQ</a> · <a href="https://x.com/whichcex">X</a></p>
+    <p class="footer-meta">{stats.brandCount} brands tracked across {stats.jurisdictionCount} jurisdictions · Data last synced {stats.lastSynced} · <a href="/changelog.xml">RSS</a></p>
     <p>Independent register. Not affiliated with ESMA or any regulator. Not financial advice.</p>
   </div></footer>
 

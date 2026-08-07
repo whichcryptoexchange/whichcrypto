@@ -197,6 +197,20 @@ export function countryStatusMap(ex) {
   return map;
 }
 
+// Single site-wide coverage/freshness line shown in every page's footer --
+// computed from the same exchanges array each page already loads, so the
+// brand count, jurisdiction count, and "last synced" date can never drift
+// out of step with what /stats/ or a given brand's own sources show.
+export function footerStats(exchanges) {
+  let lastSynced = null;
+  for (const ex of exchanges) {
+    for (const s of ex.sources ?? []) {
+      if (s.retrieved && (!lastSynced || s.retrieved > lastSynced)) lastSynced = s.retrieved;
+    }
+  }
+  return { brandCount: exchanges.length, jurisdictionCount: countriesInData(exchanges).length, lastSynced };
+}
+
 export const SERVICE_NAMES = {
   a: 'Custody and administration of crypto-assets',
   b: 'Operation of a trading platform',

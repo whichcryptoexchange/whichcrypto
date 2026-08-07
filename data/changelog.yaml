@@ -7,6 +7,17 @@
 # omit it when a change is site-wide (search, sort controls) and there's no
 # single honest page to point at, rather than force a link that doesn't fit.
 - date: "2026-08-07"
+  title: "New: RSS feed, and a coverage/freshness line in the footer"
+  body: >
+    Two small additions, both site-wide: every page's footer now shows a
+    one-line coverage and freshness summary (brand count, jurisdiction
+    count, and the most recent "retrieved" date across every source we
+    sync), so it's visible from anywhere on the site rather than only
+    derivable by checking individual source dates. There's also now an
+    RSS feed of this changelog at /changelog.xml, for anyone who'd
+    rather watch for regulatory changes in a reader than check back
+    manually.
+- date: "2026-08-07"
   title: "New: check your own country's status on every exchange page"
   body: >
     Every exchange page now has a "Check your country" widget: pick your

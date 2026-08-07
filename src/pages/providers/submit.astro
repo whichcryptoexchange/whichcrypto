@@ -1,8 +1,10 @@
 ---
+import { loadExchanges, footerStats } from '../../lib/data.js';
 import '../../styles/global.css';
 // Turnstile site keys are public by design (embedded in client HTML), so hardcoding
 // this as a fallback is safe. The env var still wins if the build environment sets it.
 const SITEKEY = import.meta.env.PUBLIC_TURNSTILE_SITEKEY || '0x4AAAAAAD84t4OWkoouLP3Y';
+const stats = footerStats(loadExchanges());
 const PAGE_TITLE = 'Submit a Technology Provider Profile | whichcryptoexchange.com';
 const PAGE_DESC = 'Not independently licensed, but rely on a licensed custodian or execution partner? Submit your details for an editorial Provider Profile -- this is a review queue, not an automatic listing.';
 ---
@@ -140,6 +142,7 @@ const PAGE_DESC = 'Not independently licensed, but rely on a licensed custodian 
 
   <footer class="site"><div class="wrap">
     <p><a href="/about/">About</a> · <a href="/contact/">Contact</a> · <a href="/changelog/">Changelog</a> · <a href="/exchanges/">Exchanges</a> · <a href="/regulators/">Regulators</a> · <a href="/stats/">Stats</a> · <a href="/providers/">Providers</a> · <a href="/faq/">FAQ</a> · <a href="https://x.com/whichcex">X</a></p>
+    <p class="footer-meta">{stats.brandCount} brands tracked across {stats.jurisdictionCount} jurisdictions · Data last synced {stats.lastSynced} · <a href="/changelog.xml">RSS</a></p>
     <p>Independent register. Not affiliated with any regulator. Not financial advice.</p>
   </div></footer>
 

@@ -1,12 +1,13 @@
 ---
-import { loadProviders, loadExchanges } from '../../lib/data.js';
+import { loadProviders, loadExchanges, footerStats } from '../../lib/data.js';
 import '../../styles/global.css';
 
 export function getStaticPaths() {
   const exchanges = loadExchanges();
-  return loadProviders().map((p) => ({ params: { id: p.id }, props: { p, exchanges } }));
+  const stats = footerStats(exchanges);
+  return loadProviders().map((p) => ({ params: { id: p.id }, props: { p, exchanges, stats } }));
 }
-const { p, exchanges } = Astro.props;
+const { p, exchanges, stats } = Astro.props;
 const partners = (p.partners ?? []).map((partner) => ({
   ...partner,
   ex: exchanges.find((ex) => ex.id === partner.brand_id),
@@ -194,6 +195,7 @@ const PAGE_DESC = `${p.name} is not itself a licensed exchange. See who actually
 
   <footer class="site"><div class="wrap">
     <p><a href="/about/">About</a> · <a href="/contact/">Contact</a> · <a href="/changelog/">Changelog</a> · <a href="/exchanges/">Exchanges</a> · <a href="/regulators/">Regulators</a> · <a href="/stats/">Stats</a> · <a href="/providers/">Providers</a> · <a href="/faq/">FAQ</a> · <a href="https://x.com/whichcex">X</a></p>
+    <p class="footer-meta">{stats.brandCount} brands tracked across {stats.jurisdictionCount} jurisdictions · Data last synced {stats.lastSynced} · <a href="/changelog.xml">RSS</a></p>
     <p>Independent register. Not affiliated with any regulator. Not financial advice.</p>
   </div></footer>
 
