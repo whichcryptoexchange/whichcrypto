@@ -15,14 +15,14 @@ entities: []
 countries:
   SG:
   - status: licensed
-    regime: Singapore MAS MPI Licence (DPT)
+    regime: Singapore MAS MPI licence (DPT)
     via: mas_register
     entity: Hashkey Technology Services Pte. Ltd.
     reference: 422819-Hashkey-Technology-Services-Pte-Ltd
     since: null
   HK:
   - status: licensed
-    regime: Hong Kong SFC VATP Licence
+    regime: Hong Kong SFC VATP licence
     via: sfc_register
     entity: HashKey Exchange
     reference: BPL992

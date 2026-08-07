@@ -249,7 +249,7 @@ countries:
     entity: Coinbase Luxembourg S.A
   SG:
   - status: licensed
-    regime: Singapore MAS MPI Licence (DPT)
+    regime: Singapore MAS MPI licence (DPT)
     via: mas_register
     entity: COINBASE SINGAPORE PTE. LTD.
     reference: 235467-COINBASE-SINGAPORE-PTE-LTD

@@ -60,7 +60,7 @@ entities:
 countries:
   AE:
   - status: licensed
-    regime: Dubai VARA VASP Licence
+    regime: Dubai VARA VASP licence
     via: dubai_vara
     entity: Trek Labs Ltd FZE (Backpack)
     reference: VL/23/07/001

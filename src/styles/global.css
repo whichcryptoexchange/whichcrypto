@@ -162,7 +162,10 @@ h3:first-child { margin-top: 0; }
 .stamp + .stamp { margin-left: 8px; }
 
 .legend { margin: 20px 0 8px; }
-.legend-note { max-width: none; margin: 0 0 32px; }
+.legend-note { max-width: none; margin: 0 0 32px; padding-left: 20px; }
+.legend-note li { margin: 0 0 10px; }
+.jurisdiction-list { margin: 0 0 32px; padding-left: 20px; }
+.jurisdiction-list li { margin: 0 0 10px; }
 
 /* Country picker */
 .picker { margin: 0 0 44px; }
@@ -399,6 +402,10 @@ h3:first-child { margin-top: 0; }
   margin: 0 0 18px;
 }
 .record.withdrawn { border-left-color: var(--warned); }
+/* User reports are explicitly NOT regulator-sourced data -- the default
+   green border-left reads as "genuine licence" everywhere else .record is
+   used, so this needs its own neutral colour to avoid sending that signal. */
+.record.reports-widget { border-left-color: var(--ink-soft); }
 /* Non-EEA entity cards use their own status scale (see gb-registered/
    gb-authorised stamp comment above) -- registered/authorised here are
    AML-only tiers and must not read as a genuine green licence. */

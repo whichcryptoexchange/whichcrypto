@@ -9,7 +9,7 @@ entities: []
 countries:
   GI:
   - status: licensed
-    regime: Gibraltar DLT Licence
+    regime: Gibraltar DLT licence
     via: gfsc_manual
     entity: The Badger Technology Company Limited
     since: null

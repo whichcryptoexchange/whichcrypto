@@ -229,7 +229,7 @@ countries:
     entity: Ripple Payments Europe S.A
   SG:
   - status: licensed
-    regime: Singapore MAS MPI Licence (DPT)
+    regime: Singapore MAS MPI licence (DPT)
     via: mas_register
     entity: RIPPLE MARKETS APAC PTE. LTD.
     reference: 415143-RIPPLE-MARKETS-APAC-PTE-LTD

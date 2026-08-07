@@ -91,7 +91,7 @@ const PAGE_DESC = isGB
   : isCA
   ? `${rows.length} crypto exchanges hold a Canada FINTRAC MSB registration, according to the official FINTRAC registry. See which entity and since when.`
   : isAE
-  ? `${rows.length} crypto exchanges hold a VARA VASP Licence covering Dubai specifically — not the rest of the UAE. See which entity, which activities, and since when.`
+  ? `${rows.length} crypto exchanges hold a VARA VASP licence covering Dubai specifically — not the rest of the UAE. See which entity, which activities, and since when.`
   : isSG
   ? `${rows.length} crypto exchanges hold a MAS Major Payment Institution licence for Digital Payment Token services, according to the official MAS Financial Institutions Directory.`
   : isUS
@@ -99,7 +99,7 @@ const PAGE_DESC = isGB
   : isHK
   ? `${rows.length} crypto exchanges hold a Hong Kong SFC Virtual Asset Trading Platform licence, according to the official SFC list. See which entity and since when.`
   : isGI
-  ? `${rows.length} crypto exchanges hold a Gibraltar DLT Licence, according to the GFSC's DLT Providers list.`
+  ? `${rows.length} crypto exchanges hold a Gibraltar DLT licence, according to the GFSC's DLT Providers list.`
   : isJP
   ? `${rows.length} crypto exchanges hold a Japan FSA Crypto-asset Exchange Service Provider registration, according to the FSA's official registered list.`
   : isMY
@@ -208,7 +208,7 @@ const PAGE_DESC = isGB
         has no authority over Abu Dhabi (regulated separately by the ADGM), Dubai's own DIFC free
         zone (regulated separately by the DFSA), or the rest of the UAE (federal SCA). There is no
         single UAE-wide crypto regulator.</p>
-        <p class="lede">{rows.length} exchanges in our register hold a VARA VASP Licence, issued by
+        <p class="lede">{rows.length} exchanges in our register hold a VARA VASP licence, issued by
         Dubai's Virtual Assets Regulatory Authority. Unlike the UK and Canada entries elsewhere on
         this site, this <em>is</em> a genuine crypto-specific licence — Dubai built a dedicated
         regulatory regime for virtual assets from scratch, not an AML add-on to existing rules.</p>
@@ -258,7 +258,7 @@ const PAGE_DESC = isGB
       <>
         <h1>Which crypto exchanges are licensed in Gibraltar?</h1>
         <p class="lede">{rows.length} exchanges in our register hold a Distributed Ledger
-        Technology (DLT) Licence from the Gibraltar Financial Services Commission (GFSC) — a
+        Technology (DLT) licence from the Gibraltar Financial Services Commission (GFSC) — a
         genuine crypto-specific licence, not an AML-only registration.</p>
         <p class="lede caveat">Unlike every other jurisdiction on this site, this one is not
         automatically synced. The GFSC's own register sits behind bot protection that blocks
@@ -411,7 +411,7 @@ const PAGE_DESC = isGB
     ) : isGI ? (
       <p class="sourced">Source: <a href="https://www.fsc.gi/regulated-entities/dlt-providers-38">Gibraltar GFSC DLT Providers List</a>,
       last manually verified {gfscRetrieved} — not on an automated schedule. An exchange missing
-      from this list either holds no Gibraltar DLT Licence, isn't yet in our register, or was added
+      from this list either holds no Gibraltar DLT licence, isn't yet in our register, or was added
       after this list was last checked.</p>
     ) : isJP ? (
       <p class="sourced">Source: <a href="https://www.fsa.go.jp/en/regulated/licensed/index.html">Japan FSA Registered Crypto-asset Exchange Service Providers List</a>,

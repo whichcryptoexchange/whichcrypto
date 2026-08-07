@@ -9,7 +9,7 @@ entities: []
 countries:
   KR:
   - status: registered
-    regime: Korea FIU VASP Registration
+    regime: Korea FIU VASP registration
     via: kr_fiu_register
     entity: 주식회사 빗썸
     since: '2021-12-02'

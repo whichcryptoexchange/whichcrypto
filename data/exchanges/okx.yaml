@@ -216,7 +216,7 @@ countries:
     entity: OKX Europe Limited
   SG:
   - status: licensed
-    regime: Singapore MAS MPI Licence (DPT)
+    regime: Singapore MAS MPI licence (DPT)
     via: mas_register
     entity: OKX SG PTE. LTD.
     reference: 422854-OKX-SG-PTE-LTD

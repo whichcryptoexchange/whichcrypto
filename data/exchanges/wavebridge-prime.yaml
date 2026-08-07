@@ -9,7 +9,7 @@ entities: []
 countries:
   KR:
   - status: registered
-    regime: Korea FIU VASP Registration
+    regime: Korea FIU VASP registration
     via: kr_fiu_register
     entity: ㈜웨이브릿지
     since: '2024-12-18'

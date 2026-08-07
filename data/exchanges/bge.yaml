@@ -9,7 +9,7 @@ entities: []
 countries:
   HK:
   - status: licensed
-    regime: Hong Kong SFC VATP Licence
+    regime: Hong Kong SFC VATP licence
     via: sfc_register
     entity: BGE
     reference: BSI739

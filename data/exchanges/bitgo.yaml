@@ -217,7 +217,7 @@ countries:
     entity: BitGo Europe GmbH
   SG:
   - status: licensed
-    regime: Singapore MAS MPI Licence (DPT)
+    regime: Singapore MAS MPI licence (DPT)
     via: mas_register
     entity: BITGO SINGAPORE PTE. LTD.
     reference: 420728-BITGO-SINGAPORE-PTE-LTD

@@ -209,7 +209,7 @@ countries:
     entity: Sygnum Europe AG
   SG:
   - status: licensed
-    regime: Singapore MAS MPI Licence (DPT)
+    regime: Singapore MAS MPI licence (DPT)
     via: mas_register
     entity: SYGNUM PTE. LTD.
     reference: 228260-SYGNUM-PTE-LTD

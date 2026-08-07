@@ -131,14 +131,14 @@ entities:
 countries:
   AE:
   - status: licensed
-    regime: Dubai VARA VASP Licence
+    regime: Dubai VARA VASP licence
     via: dubai_vara
     entity: Bitpanda Custody MENA DMCC
     reference: VL/25/04/006
     licensed_activities: Custody Services [including custodial staking]
     since: '2025-04-25'
   - status: licensed
-    regime: Dubai VARA VASP Licence
+    regime: Dubai VARA VASP licence
     via: dubai_vara
     entity: Bitpanda Broker MENA DMCC
     reference: VL/25/03/001

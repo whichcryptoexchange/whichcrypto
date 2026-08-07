@@ -72,7 +72,7 @@ entities:
 countries:
   AE:
   - status: licensed
-    regime: Dubai VARA VASP Licence
+    regime: Dubai VARA VASP licence
     via: dubai_vara
     entity: Foris DAX Middle East FZE (Crypto.com)
     reference: VL/23/10/003
@@ -253,14 +253,14 @@ countries:
     entity: Foris DAX MT Limited
   SG:
   - status: licensed
-    regime: Singapore MAS MPI Licence (DPT)
+    regime: Singapore MAS MPI licence (DPT)
     via: mas_register
     entity: FORIS DAX ASIA PTE. LTD.
     reference: 250069-FORIS-DAX-ASIA-PTE-LTD
     since: null
   KR:
   - status: registered
-    regime: Korea FIU VASP Registration
+    regime: Korea FIU VASP registration
     via: kr_fiu_register
     entity: 주식회사 포리스닥스코리아리미티드
     since: '2021-12-30'

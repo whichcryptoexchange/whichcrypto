@@ -12,7 +12,7 @@ entities: []
 countries:
   SG:
   - status: licensed
-    regime: Singapore MAS MPI Licence (DPT)
+    regime: Singapore MAS MPI licence (DPT)
     via: mas_register
     entity: ANCHORAGE DIGITAL SINGAPORE Pte. Ltd.
     reference: 427752-ANCHORAGE-DIGITAL-SINGAPORE-Pte-Ltd

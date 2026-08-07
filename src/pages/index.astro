@@ -114,57 +114,66 @@ const PAGE_DESC = 'Check which crypto exchanges are licensed in your country -- 
       </div>
     )}
 
-    <h3>Latest user reports</h3>
-    <p class="sourced">Community-sourced and reviewed before publication — kept strictly separate
-    from the regulator-sourced data above. Browse any <a href="/exchanges/">exchange's own page</a>
-    to report your own experience signing up, verifying, or withdrawing.</p>
-    <div id="latest-reports-list"><p class="sourced">Loading reports…</p></div>
+    <div class="record reports-widget">
+      <h3>Latest user reports</h3>
+      <p class="sourced">Community-sourced and reviewed before publication — kept strictly separate
+      from the regulator-sourced data above. Browse any <a href="/exchanges/">exchange's own page</a>
+      to report your own experience signing up, verifying, or withdrawing.</p>
+      <div id="latest-reports-list"><p class="sourced">Loading reports…</p></div>
+    </div>
 
-    <p class="sourced">Currently tracking {exchanges.length} exchanges · {active} with active EU (MiCA) authorisation ·
-    data from the <a href="https://www.esma.europa.eu/esmas-activities/digital-finance-and-innovation/markets-crypto-assets-regulation-mica">ESMA interim MiCA register</a></p>
-    <p class="sourced">{gbExchanges.length} also have a UK entity on the <a href="https://register.fca.org.uk/">FCA Register</a> ·
-    {gbRegisteredCount} MLR-registered · {gbAuthorisedCount} separately FCA-authorised —
-    <a href="/gb/">see the UK page</a> for what that distinction means</p>
-    <p class="sourced">{caExchanges.length} also have a Canadian entity on the <a href="https://fintrac-canafe.canada.ca/msb-esm/reg-eng">FINTRAC MSB Registry</a> —
-    <a href="/ca/">see the Canada page</a></p>
-    <p class="sourced">{aeExchanges.length} also hold a Dubai VARA VASP Licence — <strong>Dubai only, not the wider UAE</strong> —
-    <a href="/ae/">see the Dubai page</a> for the jurisdiction caveat</p>
-    <p class="sourced">{sgExchanges.length} also hold a Singapore MAS Major Payment Institution licence for Digital
-    Payment Token services — <a href="/sg/">see the Singapore page</a></p>
-    <p class="sourced">{usExchanges.length} also have a US entity on the <a href="https://msb.fincen.gov/">FinCEN MSB Registrant Search</a> —
-    <a href="/us/">see the US page</a> for the fraud-shell caveat</p>
-    <p class="sourced">{hkExchanges.length} also hold a Hong Kong SFC Virtual Asset Trading Platform
-    licence — <a href="/hk/">see the Hong Kong page</a></p>
-    <p class="sourced">{giExchanges.length} also hold a Gibraltar DLT Licence — <a href="/gi/">see
-    the Gibraltar page</a> — manually verified, not on an automated schedule</p>
-    <p class="sourced">{jpExchanges.length} also hold a Japan FSA Crypto-asset Exchange Service
-    Provider registration — <a href="/jp/">see the Japan page</a></p>
-    <p class="sourced">{myExchanges.length} also hold a Malaysia SC Recognized Market Operator -
-    Digital Asset Exchange registration — <a href="/my/">see the Malaysia page</a></p>
-    <p class="sourced">{krExchanges.length} also have a South Korean entity registered with the
-    FIU under the Act on Reporting and Using Specified Financial Transaction Information —
-    <a href="/kr/">see the South Korea page</a></p>
+    <h3>Coverage by jurisdiction</h3>
+    <p class="sourced">Currently tracking {exchanges.length} exchanges · {active} with active EU
+    (MiCA) authorisation, per the <a href="https://www.esma.europa.eu/esmas-activities/digital-finance-and-innovation/markets-crypto-assets-regulation-mica">ESMA interim MiCA register</a>.
+    Beyond the EU/EEA, the same brands are cross-checked against these official sources:</p>
+    <ul class="sourced jurisdiction-list">
+      <li><strong>{gbExchanges.length}</strong> have a UK entity on the <a href="https://register.fca.org.uk/">FCA Register</a>
+      — {gbRegisteredCount} MLR-registered, {gbAuthorisedCount} separately FCA-authorised.
+      <a href="/gb/">See the UK page</a> for what that distinction means.</li>
+      <li><strong>{caExchanges.length}</strong> have a Canadian entity on the <a href="https://fintrac-canafe.canada.ca/msb-esm/reg-eng">FINTRAC MSB Registry</a>.
+      <a href="/ca/">See the Canada page</a>.</li>
+      <li><strong>{aeExchanges.length}</strong> hold a Dubai VARA VASP licence — <strong>Dubai only,
+      not the wider UAE</strong>. <a href="/ae/">See the Dubai page</a> for the jurisdiction caveat.</li>
+      <li><strong>{sgExchanges.length}</strong> hold a Singapore MAS Major Payment Institution licence
+      for Digital Payment Token services. <a href="/sg/">See the Singapore page</a>.</li>
+      <li><strong>{usExchanges.length}</strong> have a US entity on the <a href="https://msb.fincen.gov/">FinCEN MSB Registrant Search</a>.
+      <a href="/us/">See the US page</a> for the fraud-shell caveat.</li>
+      <li><strong>{hkExchanges.length}</strong> hold a Hong Kong SFC Virtual Asset Trading Platform
+      licence. <a href="/hk/">See the Hong Kong page</a>.</li>
+      <li><strong>{giExchanges.length}</strong> hold a Gibraltar DLT licence. <a href="/gi/">See the
+      Gibraltar page</a> — manually verified, not on an automated schedule.</li>
+      <li><strong>{jpExchanges.length}</strong> hold a Japan FSA Crypto-asset Exchange Service
+      Provider registration. <a href="/jp/">See the Japan page</a>.</li>
+      <li><strong>{myExchanges.length}</strong> hold a Malaysia SC Recognized Market Operator -
+      Digital Asset Exchange registration. <a href="/my/">See the Malaysia page</a>.</li>
+      <li><strong>{krExchanges.length}</strong> have a South Korean entity registered with the FIU
+      under the Act on Reporting and Using Specified Financial Transaction Information.
+      <a href="/kr/">See the South Korea page</a>.</li>
+    </ul>
 
+    <h3>How to read the badges</h3>
     <div class="legend">
       <span class="stamp licensed">MiCA / VARA / MAS / SFC / DLT / FSA / SC — Licensed</span>
       <span class="stamp gb-registered">UK/CA/US/KR · Registered</span>
       <span class="stamp gb-authorised">UK · Authorised</span>
     </div>
-    <p class="sourced legend-note">MiCA, VARA, MAS, and Registered are not all equivalent: an EU MiCA
-    authorisation, a Dubai VARA licence, a Singapore MAS licence, a Hong Kong SFC VATP licence, a
-    Gibraltar DLT Licence, a Japan FSA registration, and a Malaysia SC RMO-DAX registration are all
-    genuine crypto-specific licences (Dubai's covers Dubai only — the UAE has no single national
-    crypto regulator; Gibraltar's is the only source on this site we can't automatically sync — see
-    the Gibraltar page); a UK
-    MLR registration, Canada FINTRAC MSB registration, US FinCEN MSB registration, or South Korea
-    FIU VASP registration is anti-money-laundering supervision only — the UK's own cryptoasset
-    licensing regime doesn't open for applications until 30 Sep 2026, and none of Canada, the US,
-    or South Korea has a dedicated cryptoasset licence at all (the US also has separate, unmapped
-    state-level money transmitter regimes). UK Authorised means a group entity is separately, fully
-    FCA-authorised, usually for a different (non-crypto) regulated activity. Some Singapore-licensed
-    brands (Anchorage Digital, HashKey, Paxos, Upbit, Independent Reserve) have no EU entity at all
-    and appear only on the Singapore page.</p>
+    <ul class="sourced legend-note">
+      <li><strong>Licensed</strong> means a genuine crypto-specific licence: EU MiCA, Dubai VARA,
+      Singapore MAS, Hong Kong SFC, Gibraltar DLT, Japan FSA, or Malaysia SC. Dubai's covers Dubai
+      only — the UAE has no single national crypto regulator. Gibraltar's is the only source on this
+      site we can't automatically sync — see the Gibraltar page.</li>
+      <li><strong>Registered</strong> (UK, Canada, US, South Korea) means anti-money-laundering
+      supervision only, not a licence. The UK's own cryptoasset licensing regime doesn't open for
+      applications until 30 Sep 2026, and none of Canada, the US, or South Korea has a dedicated
+      cryptoasset licence at all — the US also has separate, unmapped state-level money transmitter
+      regimes.</li>
+      <li><strong>UK Authorised</strong> means a group entity is separately, fully FCA-authorised,
+      usually for a different, non-crypto regulated activity.</li>
+      <li>Some Singapore-licensed brands (Anchorage Digital, HashKey, Paxos, Upbit, Independent
+      Reserve) have no EU entity at all and appear only on the Singapore page.</li>
+    </ul>
 
+    <h3>Browse by country</h3>
     <ul class="country-grid">
       {countries.map((c) => (
         <li><a href={`/${c.toLowerCase()}/`}><span class="cc flag">{countryFlag(c)}</span>{COUNTRY_NAMES[c] ?? c}</a></li>
@@ -181,10 +190,10 @@ const PAGE_DESC = 'Check which crypto exchanges are licensed in your country -- 
     registration or authorisation, Canada entries reflect FINTRAC MSB registration, US entries reflect FinCEN
     MSB registration, and South Korea entries reflect FIU VASP registration — none of these four is a
     cryptoasset licence, and none of the four jurisdictions has one yet. Dubai (AE) entries reflect a Dubai
-    VARA VASP Licence and cover Dubai only — VARA has no authority over Abu Dhabi, Dubai's own DIFC free zone,
+    VARA VASP licence and cover Dubai only — VARA has no authority over Abu Dhabi, Dubai's own DIFC free zone,
     or the rest of the UAE, and there is no single UAE-wide crypto regulator. Singapore entries reflect a MAS
     Major Payment Institution licence for Digital Payment Token services. Hong Kong entries reflect an SFC
-    Virtual Asset Trading Platform licence. Gibraltar entries reflect a GFSC DLT Licence. Japan entries reflect
+    Virtual Asset Trading Platform licence. Gibraltar entries reflect a GFSC DLT licence. Japan entries reflect
     an FSA Crypto-asset Exchange Service Provider registration under the Payment Services Act. Malaysia
     entries reflect an SC Recognized Market Operator - Digital Asset Exchange registration under the Capital
     Markets and Services Act. Nothing here is financial advice.</p>

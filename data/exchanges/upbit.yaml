@@ -12,14 +12,14 @@ entities: []
 countries:
   SG:
   - status: licensed
-    regime: Singapore MAS MPI Licence (DPT)
+    regime: Singapore MAS MPI licence (DPT)
     via: mas_register
     entity: UPBIT SINGAPORE PTE. LTD.
     reference: 420457-UPBIT-SINGAPORE-PTE-LTD
     since: null
   KR:
   - status: registered
-    regime: Korea FIU VASP Registration
+    regime: Korea FIU VASP registration
     via: kr_fiu_register
     entity: 두나무 주식회사
     since: '2021-10-06'

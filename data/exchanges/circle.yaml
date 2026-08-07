@@ -212,7 +212,7 @@ countries:
     entity: CIRCLE INTERNET FINANCIAL EUROPE SAS
   SG:
   - status: licensed
-    regime: Singapore MAS MPI Licence (DPT)
+    regime: Singapore MAS MPI licence (DPT)
     via: mas_register
     entity: CIRCLE INTERNET SINGAPORE PTE. LTD.
     reference: 412248-CIRCLE-INTERNET-SINGAPORE-PTE-LTD
