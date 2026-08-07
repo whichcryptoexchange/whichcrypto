@@ -565,3 +565,9 @@ footer.site a { color: inherit; }
 .faq-item[open] summary::before { content: '\2212 '; }
 .faq-item p { margin: 0 0 12px; color: var(--ink-soft); font-size: 15px; }
 .faq-source-link { display: inline-block; margin: 0 0 14px; font-size: 13px; font-weight: 700; }
+.faq-load-more {
+  display: block; width: 100%; font: 700 14px var(--display); color: var(--ink);
+  background: var(--card); border: 1px solid var(--rule); border-radius: 4px;
+  padding: 12px; margin: 4px 0 0; cursor: pointer;
+}
+.faq-load-more:hover { border-color: var(--ink-soft); }

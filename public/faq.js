@@ -2,16 +2,20 @@
 // pattern as search.js, but rendered as an accordion rather than a dropdown,
 // and with a category filter (general/country/brand) on top of the search
 // box. Default (no query, "All" category) shows only the general questions
-// -- the whole point is a searchable tool, not a 445-item dump.
+// -- the whole point is a searchable tool, not a 445-item dump. Browsing a
+// specific category (or a search with many matches) paginates via a "Show
+// more" button rather than silently truncating with no way to see the rest.
 (() => {
   const input = document.getElementById('faq-search');
   const results = document.getElementById('faq-results');
   const chips = document.querySelectorAll('.faq-chip');
   if (!input || !results) return;
 
+  const PAGE_SIZE = 50;
   let index = null;
   let indexPromise = null;
   let activeCategory = 'all';
+  let visibleCount = PAGE_SIZE;
 
   const loadIndex = () => {
     if (!indexPromise) {
@@ -29,7 +33,7 @@
     general: 'Read more →',
   };
 
-  const render = (items, { showingDefault }) => {
+  const render = (items, { showingDefault, remaining }) => {
     results.innerHTML = '';
     if (!items.length) {
       const p = document.createElement('p');
@@ -60,6 +64,14 @@
       details.append(a);
       results.append(details);
     }
+    if (remaining > 0) {
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'faq-load-more';
+      btn.textContent = `Show ${Math.min(PAGE_SIZE, remaining)} more (${remaining} remaining)`;
+      btn.addEventListener('click', () => { visibleCount += PAGE_SIZE; runSearch(); });
+      results.append(btn);
+    }
   };
 
   const runSearch = () => {
@@ -68,8 +80,11 @@
     let pool = activeCategory === 'all' ? index : index.filter((e) => e.category === activeCategory);
 
     if (!q) {
-      const defaultItems = activeCategory === 'all' ? index.filter((e) => e.category === 'general') : pool.slice(0, 30);
-      render(defaultItems, { showingDefault: activeCategory === 'all' });
+      if (activeCategory === 'all') {
+        render(index.filter((e) => e.category === 'general'), { showingDefault: true, remaining: 0 });
+        return;
+      }
+      render(pool.slice(0, visibleCount), { showingDefault: false, remaining: Math.max(0, pool.length - visibleCount) });
       return;
     }
 
@@ -82,17 +97,17 @@
       })
       .filter(Boolean)
       .sort((a, b) => a.rank - b.rank || a.pos - b.pos)
-      .map((s) => s.e)
-      .slice(0, 40);
-    render(scored, { showingDefault: false });
+      .map((s) => s.e);
+    render(scored.slice(0, visibleCount), { showingDefault: false, remaining: Math.max(0, scored.length - visibleCount) });
   };
 
-  input.addEventListener('input', runSearch);
+  input.addEventListener('input', () => { visibleCount = PAGE_SIZE; runSearch(); });
 
   chips.forEach((chip) => {
     chip.addEventListener('click', () => {
       chips.forEach((c) => c.classList.toggle('active', c === chip));
       activeCategory = chip.dataset.category;
+      visibleCount = PAGE_SIZE;
       runSearch();
     });
   });
