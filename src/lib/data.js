@@ -174,6 +174,29 @@ export function licenceSummaryText(ex) {
   return text;
 }
 
+// Per-country regulatory status for a single brand, keyed by ISO code --
+// same status field used everywhere else on the page (licensed/registered/
+// authorised/withdrawn), collapsed to one summary per country. Powers the
+// "check your country" widget on a brand's own page: rather than making a
+// visitor read the whole summary paragraph and country grid to find
+// themselves, this answers "what's true for my country" directly.
+export function countryStatusMap(ex) {
+  const map = {};
+  for (const [cc, value] of Object.entries(ex.countries ?? {})) {
+    const entries = Array.isArray(value) ? value : [value];
+    const statuses = new Set(entries.map((e) => e.status));
+    const regimes = [...new Set(entries.map((e) => e.regime).filter(Boolean))];
+    let level, text;
+    if (statuses.has('licensed')) { level = 'good'; text = 'Genuine, crypto-specific licence'; }
+    else if (statuses.has('registered')) { level = 'caution'; text = 'AML/registration only — not a full licence'; }
+    else if (statuses.has('authorised')) { level = 'neutral'; text = 'Separately authorised for a different, non-crypto activity'; }
+    else if (statuses.has('withdrawn')) { level = 'bad'; text = 'Authorisation withdrawn'; }
+    else continue;
+    map[cc] = { level, text, regimes };
+  }
+  return map;
+}
+
 export const SERVICE_NAMES = {
   a: 'Custody and administration of crypto-assets',
   b: 'Operation of a trading platform',

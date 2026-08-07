@@ -1,5 +1,5 @@
 ---
-import { loadExchanges, COUNTRY_NAMES, SERVICE_NAMES, countryFlag, brandWebsite, NON_EEA_PREFIX, licenceFacts, licenceSummaryText, listJoin } from '../../lib/data.js';
+import { loadExchanges, COUNTRY_NAMES, SERVICE_NAMES, countryFlag, brandWebsite, NON_EEA_PREFIX, licenceFacts, licenceSummaryText, listJoin, countryStatusMap } from '../../lib/data.js';
 import '../../styles/global.css';
 
 export function getStaticPaths() {
@@ -40,6 +40,11 @@ const SITEKEY = import.meta.env.PUBLIC_TURNSTILE_SITEKEY || '0x4AAAAAAD84t4OWkoo
 // licenceSummaryText, so the structured data can never say something the
 // page itself doesn't.
 const faqAnswer = licenceSummaryText(ex);
+
+// Per-country facts for the "check your country" widget -- computed at
+// build time, embedded as JSON, read client-side rather than fetched, so
+// the licence-status half of the widget works instantly with no request.
+const countryFacts = countryStatusMap(ex);
 
 // schema.org Certification -- built for exactly this: "an authoritative
 // body issued this organization a credential." One per verified record,
@@ -175,6 +180,19 @@ const PAGE_DESC = `${ex.brand}: official licence records, legal entities, regula
         <> We have not independently verified a genuine crypto-specific licence or registration for {ex.brand} in any jurisdiction we track.</>
       )}
     </p>
+
+    <div class="country-check" id="country-check">
+      <h3>Check your country</h3>
+      <label for="country-check-select">See {ex.brand}'s regulatory status and user reports for your country</label>
+      <select id="country-check-select">
+        <option value="">Select your country…</option>
+        {Object.entries(COUNTRY_NAMES).map(([cc, n]) => <option value={cc}>{n}</option>)}
+        <option value="AU">Australia</option>
+        <option value="NZ">New Zealand</option>
+      </select>
+      <div id="country-check-result" class="country-check-result" hidden></div>
+      <script type="application/json" id="country-facts-data" set:html={JSON.stringify(countryFacts)} />
+    </div>
 
     <div id="affiliate-cta" data-exchange={ex.id} data-brand={ex.brand}></div>
 
@@ -321,11 +339,46 @@ const PAGE_DESC = `${ex.brand}: official licence records, legal entities, regula
         .catch(() => {});
     })();
 
+    // Check-your-country widget: licence status comes from the JSON blob
+    // embedded above (no request); user-report counts reuse the same
+    // aggregates fetch below rather than firing a second request.
+    let reportsData = null;
+    let reportsFailed = false;
+    const countryFacts = JSON.parse(document.getElementById('country-facts-data').textContent);
+    const ccSelect = document.getElementById('country-check-select');
+    const ccResult = document.getElementById('country-check-result');
+    function renderCountryCheck() {
+      const cc = ccSelect.value;
+      if (!cc) { ccResult.hidden = true; return; }
+      const countryLabel = ccSelect.selectedOptions[0].text;
+      const fact = countryFacts[cc];
+      let html = fact
+        ? `<p><strong>${countryLabel}:</strong> ${fact.text}${fact.regimes.length ? ` — ${fact.regimes.join(', ')}` : ''}.</p>`
+        : `<p><strong>${countryLabel}:</strong> not covered — no verified licence or registration on file here.</p>`;
+      if (reportsFailed) {
+        html += '<p class="sourced">User reports unavailable right now.</p>';
+      } else if (reportsData) {
+        const rows = reportsData.rows.filter((r) => r.country === cc);
+        html += rows.length
+          ? `<p class="sourced">User reports from ${countryLabel}: ` +
+            rows.map((r) => `${reportsData.labels[r.outcome] ?? r.outcome}: ${r.n}`).join(' · ') + '</p>'
+          : `<p class="sourced">No user reports yet from ${countryLabel}.</p>`;
+      } else {
+        html += '<p class="sourced">Loading user reports…</p>';
+      }
+      ccResult.className = `country-check-result ${fact ? fact.level : 'none'}`;
+      ccResult.innerHTML = html;
+      ccResult.hidden = false;
+    }
+    ccSelect?.addEventListener('change', renderCountryCheck);
+
     // Aggregates: fetched client-side because pages are static.
     const box = document.getElementById('report-aggregates');
     fetch('/api/reports/' + box.dataset.exchange)
       .then((r) => r.ok ? r.json() : Promise.reject())
       .then((d) => {
+        reportsData = d;
+        if (ccSelect.value) renderCountryCheck();
         if (!d.total) { box.innerHTML = '<p class="sourced">No published reports yet — be the first.</p>'; return; }
         const byCountry = {};
         for (const row of d.rows) (byCountry[row.country] ??= []).push(row);
@@ -334,7 +387,11 @@ const PAGE_DESC = `${ex.brand}: official licence records, legal entities, regula
           rows.map((r) => `${d.labels[r.outcome] ?? r.outcome}: ${r.n}`).join(' · ') + '</p>'
         ).join('') + `<p class="sourced">${d.total} published report${d.total === 1 ? '' : 's'} in total.</p>`;
       })
-      .catch(() => { box.innerHTML = '<p class="sourced">Reports unavailable right now.</p>'; });
+      .catch(() => {
+        reportsFailed = true;
+        if (ccSelect.value) renderCountryCheck();
+        box.innerHTML = '<p class="sourced">Reports unavailable right now.</p>';
+      });
 
     // Watch-this-exchange signup
     const watchForm = document.getElementById('watch-form');

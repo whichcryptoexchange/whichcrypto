@@ -161,6 +161,30 @@ h3:first-child { margin-top: 0; }
 .gb-tier + .gb-tier { margin-top: 6px; }
 .stamp + .stamp { margin-left: 8px; }
 
+/* Check-your-country widget on a brand's own page -- same card chrome as
+   .report-form, but always visible (not a <details>) since this is the
+   most decision-relevant thing on the page: what's true for *your*
+   country, not the global summary above it. */
+.country-check { background: var(--card); border: 1px solid var(--rule); border-radius: 4px; padding: 16px 18px; margin: 0 0 24px; }
+.country-check h3 { margin: 0 0 10px; font-size: 17px; }
+.country-check label { display: block; font-size: 14px; margin-bottom: 6px; }
+.country-check select {
+  display: block; width: 100%; max-width: 420px;
+  font: 14px var(--mono); color: var(--ink); background: #fff;
+  border: 1px solid var(--rule); border-radius: 3px; padding: 8px;
+}
+.country-check-result {
+  border-left: 4px solid var(--ink-soft);
+  padding: 4px 0 4px 14px;
+  margin-top: 14px;
+  font-size: 14px;
+}
+.country-check-result.good { border-left-color: var(--licensed); }
+.country-check-result.caution { border-left-color: var(--caution); }
+.country-check-result.bad { border-left-color: var(--warned); }
+.country-check-result p { margin: 0 0 6px; }
+.country-check-result p:last-child { margin-bottom: 0; }
+
 .legend { margin: 20px 0 8px; }
 .legend-note { max-width: none; margin: 0 0 32px; padding-left: 20px; }
 .legend-note li { margin: 0 0 10px; }

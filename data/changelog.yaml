@@ -7,6 +7,23 @@
 # omit it when a change is site-wide (search, sort controls) and there's no
 # single honest page to point at, rather than force a link that doesn't fit.
 - date: "2026-08-07"
+  title: "New: check your own country's status on every exchange page"
+  body: >
+    Every exchange page now has a "Check your country" widget: pick your
+    country and see, in one line, whether that specific exchange holds a
+    genuine licence, an AML-only registration, or nothing verified at all
+    there -- plus any user-submitted reports from people in your country.
+    This replaces making visitors read a full jurisdiction summary and
+    scan a country list to work out what applies to them. We deliberately
+    did not build a single overall "trust score" across all jurisdictions:
+    a composite number would flatten a licence in your own country and a
+    licence somewhere irrelevant to you into one figure, and would risk
+    implying a safety judgement the data can't support -- a genuinely
+    licensed exchange can still fail. What's actually decision-relevant
+    is narrower than that, and this widget answers it directly.
+  pages:
+    - { url: /exchange/bitpanda/, label: Example: Bitpanda }
+- date: "2026-08-07"
   title: "Dubai VARA register reconciled: 3 tracked brands to 50"
   body: >
     Our Dubai VARA coverage had only ever been curated for the first 3
