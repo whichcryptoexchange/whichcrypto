@@ -16,6 +16,7 @@ const giExchanges = exchanges.filter((e) => e.countries?.GI);
 const jpExchanges = exchanges.filter((e) => e.countries?.JP);
 const myExchanges = exchanges.filter((e) => e.countries?.MY);
 const krExchanges = exchanges.filter((e) => e.countries?.KR);
+const nyDfsCount = exchanges.filter((e) => (e.countries?.US ?? []).some((entry) => entry.via === 'ny_dfs_register')).length;
 const SITEKEY = import.meta.env.PUBLIC_TURNSTILE_SITEKEY || '0x4AAAAAAD84t4OWkoouLP3Y';
 const PAGE_TITLE = 'Is Your Crypto Exchange Licensed? | whichcryptoexchange.com';
 const PAGE_DESC = 'Check which crypto exchanges are licensed in your country -- built from 12 official regulator registers (MiCA, FCA, VARA & more). No rankings, just receipts.';
@@ -138,6 +139,9 @@ const PAGE_DESC = 'Check which crypto exchanges are licensed in your country -- 
       for Digital Payment Token services. <a href="/sg/">See the Singapore page</a>.</li>
       <li><strong>{usExchanges.length}</strong> have a US entity on the <a href="https://msb.fincen.gov/">FinCEN MSB Registrant Search</a>.
       <a href="/us/">See the US page</a> for the fraud-shell caveat.</li>
+      <li><strong>{nyDfsCount}</strong> separately hold a genuine New York DFS BitLicense or trust
+      charter — a real licence, not AML-only registration like the FinCEN entry above.
+      <a href="/us/">See the US page</a> for both regimes side by side.</li>
       <li><strong>{hkExchanges.length}</strong> hold a Hong Kong SFC Virtual Asset Trading Platform
       licence. <a href="/hk/">See the Hong Kong page</a>.</li>
       <li><strong>{giExchanges.length}</strong> hold a Gibraltar DLT licence. <a href="/gi/">See the
@@ -153,15 +157,16 @@ const PAGE_DESC = 'Check which crypto exchanges are licensed in your country -- 
 
     <h3>How to read the badges</h3>
     <div class="legend">
-      <span class="stamp licensed">MiCA / VARA / MAS / SFC / DLT / FSA / SC — Licensed</span>
+      <span class="stamp licensed">MiCA / VARA / MAS / SFC / DLT / FSA / SC / NY DFS — Licensed</span>
       <span class="stamp gb-registered">UK/CA/US/KR · Registered</span>
       <span class="stamp gb-authorised">UK · Authorised</span>
     </div>
     <ul class="sourced legend-note">
       <li><strong>Licensed</strong> means a genuine crypto-specific licence: EU MiCA, Dubai VARA,
-      Singapore MAS, Hong Kong SFC, Gibraltar DLT, Japan FSA, or Malaysia SC. Dubai's covers Dubai
-      only — the UAE has no single national crypto regulator. Gibraltar's is the only source on this
-      site we can't automatically sync — see the Gibraltar page.</li>
+      Singapore MAS, Hong Kong SFC, Gibraltar DLT, Japan FSA, Malaysia SC, or a New York DFS
+      BitLicense. Dubai's covers Dubai only — the UAE has no single national crypto regulator.
+      Gibraltar's is the only source on this site we can't automatically sync — see the Gibraltar
+      page. New York's is the only US state-level regime we track — see the US page.</li>
       <li><strong>Registered</strong> (UK, Canada, US, South Korea) means anti-money-laundering
       supervision only, not a licence. The UK's own cryptoasset licensing regime doesn't open for
       applications until 30 Sep 2026, and none of Canada, the US, or South Korea has a dedicated

@@ -42,6 +42,10 @@ const euStatusCounts = {
 
 // How many brands hold each specific genuine crypto-licence, not just
 // "genuine licence somewhere" -- a brand can appear in more than one row.
+// NY DFS shares the "US" countries key with federal FinCEN (two independent
+// regimes under one country page, see [country].astro) so it needs the
+// same via-field special case used on the Regulators page, not a plain
+// countries.<CC> lookup like the others.
 const genuineByRegime = [
   { label: 'EU MiCA', cc: null, count: exchanges.filter((ex) => ex.eu_status === 'authorised').length },
   { label: 'Dubai VARA', cc: 'AE', count: exchanges.filter((ex) => (ex.countries?.AE ?? []).some((e) => e.status === 'licensed')).length },
@@ -50,6 +54,7 @@ const genuineByRegime = [
   { label: 'Gibraltar GFSC', cc: 'GI', count: exchanges.filter((ex) => (ex.countries?.GI ?? []).some((e) => e.status === 'licensed')).length },
   { label: 'Japan FSA', cc: 'JP', count: exchanges.filter((ex) => (ex.countries?.JP ?? []).some((e) => e.status === 'licensed')).length },
   { label: 'Malaysia SC', cc: 'MY', count: exchanges.filter((ex) => (ex.countries?.MY ?? []).some((e) => e.status === 'licensed')).length },
+  { label: 'New York DFS', cc: 'US', count: exchanges.filter((ex) => (ex.countries?.US ?? []).some((e) => e.via === 'ny_dfs_register')).length },
 ];
 
 // Which MiCA-authorised services are actually most common -- counted
@@ -82,6 +87,9 @@ const nonEEA = [
   cc, label,
   count: exchanges.filter((ex) => ex.countries?.[cc]).length,
 }));
+// NY DFS is a second, independent source under the same US country page --
+// see the genuineByRegime comment above.
+const nyDfsCount = exchanges.filter((ex) => (ex.countries?.US ?? []).some((e) => e.via === 'ny_dfs_register')).length;
 
 const activeMiCA = exchanges.filter((ex) => ex.eu_status === 'authorised').length;
 
@@ -122,7 +130,7 @@ const PAGE_DESC = `Live numbers from our register: ${total} exchanges tracked, $
     '@context': 'https://schema.org',
     '@type': 'Dataset',
     name: 'whichcryptoexchange.com crypto exchange regulatory register',
-    description: `Which crypto exchanges hold which regulatory status, in which country, through which legal entity, and since when — sourced from eleven official regulator registers. ${total} exchanges tracked.`,
+    description: `Which crypto exchanges hold which regulatory status, in which country, through which legal entity, and since when — sourced from twelve official regulator registers. ${total} exchanges tracked.`,
     url: 'https://whichcryptoexchange.com/stats/',
     license: 'https://whichcryptoexchange.com/about/',
     dateModified: lastSynced,
@@ -197,8 +205,8 @@ const PAGE_DESC = `Live numbers from our register: ${total} exchanges tracked, $
     )}
 
     <div class="stat-grid">
-      <div class="stat-card"><div class="stat-num">{total}</div><div class="stat-label">Exchanges tracked across 11 official registers</div></div>
-      <div class="stat-card"><div class="stat-num">{withGenuineLicence}</div><div class="stat-label">Hold at least one genuine crypto-specific licence (EU MiCA, Dubai VARA, Singapore MAS, Hong Kong SFC, Gibraltar GFSC, Japan FSA, or Malaysia SC)</div></div>
+      <div class="stat-card"><div class="stat-num">{total}</div><div class="stat-label">Exchanges tracked across 12 official registers</div></div>
+      <div class="stat-card"><div class="stat-num">{withGenuineLicence}</div><div class="stat-label">Hold at least one genuine crypto-specific licence (EU MiCA, Dubai VARA, Singapore MAS, Hong Kong SFC, Gibraltar GFSC, Japan FSA, Malaysia SC, or New York DFS)</div></div>
       <div class="stat-card"><div class="stat-num">{amlOnly}</div><div class="stat-label">Hold only AML-supervision registrations, no genuine licence anywhere</div></div>
       <div class="stat-card"><div class="stat-num">{multiJurisdiction}</div><div class="stat-label">Registered or licensed in more than one jurisdiction</div></div>
       <div class="stat-card"><div class="stat-num">{maxJurisdictions}</div><div class="stat-label">Most jurisdictions held by a single brand ({topByJurisdictions[0]?.brand})</div></div>
@@ -215,6 +223,7 @@ const PAGE_DESC = `Live numbers from our register: ${total} exchanges tracked, $
         {nonEEA.map((n) => (
           <tr><td class="brand"><a href={`/${n.cc.toLowerCase()}/`}>{n.label}</a></td><td class="datum">{n.count}</td></tr>
         ))}
+        <tr><td class="brand"><a href="/us/">US (NY DFS BitLicense)</a></td><td class="datum">{nyDfsCount}</td></tr>
       </tbody>
     </table>
     </div>
@@ -236,8 +245,11 @@ const PAGE_DESC = `Live numbers from our register: ${total} exchanges tracked, $
     </div>
 
     <h3 id="by-services">By MiCA service</h3>
-    <p>Which authorised crypto-asset services are actually most common, across every active
-    (non-withdrawn) EU/EEA record:</p>
+    <p>EU-specific: MiCA is the only regime we track that publishes which specific services
+    (custody, trading, exchange, advice, and so on) each authorisation actually covers -- the
+    other 11 registers just confirm a status, not a service breakdown. Which authorised
+    crypto-asset services are actually most common, across every active (non-withdrawn) EU/EEA
+    record:</p>
     <div class="table-scroll">
     <table class="registry">
       <thead><tr><th>Service</th><th>Authorised entities</th></tr></thead>
