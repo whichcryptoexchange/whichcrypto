@@ -1,0 +1,48 @@
+# New Zealand Financial Service Providers Register (FSPR) -- MANUALLY
+# maintained, like Gibraltar and ADGM. New Zealand has no crypto-specific
+# licensing regime: virtual asset service providers must register on the
+# FSPR under the AML/CFT Act 2009 and the Financial Service Providers
+# (Registration and Dispute Resolution) Act 2008, supervised by the
+# Department of Internal Affairs (DIA) since 1 July 2026 -- this is an
+# AML-only registration, the same tier as UK/Canada/US/South Korea, NOT a
+# genuine crypto-specific licence like MiCA/VARA/MAS/SFC/GFSC/FSA/SC.
+#
+# The FSPR's public search tool (fsp-app.companiesoffice.govt.nz) is a
+# stateful JS application with no fetchable query-string search and no
+# public API -- bulk data exists (FSPR Bulk Data, JSON) but requires a
+# manual access request/approval from the Companies Office, not available
+# at the time this was compiled. Each entry below was instead looked up
+# individually via the live public search tool.
+#
+# scripts/nz_manual_apply.py applies this to data/exchanges/, same shape
+# as gi_manual_apply.py/adgm_manual_apply.py; must be re-run by hand
+# whenever someone manually re-checks the register. No scheduled GitHub
+# Actions workflow.
+
+retrieved: "2026-08-09"
+source_url: https://fsp-app.companiesoffice.govt.nz/orp-master/service/create.html?targetAppCode=orp-master&service=registerItemSearch
+providers:
+  - entity: "ECNZ Limited (trading as Easy Crypto)"
+    brand_id: easy-crypto
+    reference: "FSP691871"
+    since: "2019-09-27"
+  - entity: "Swyftx NZ Limited"
+    brand_id: swyftx
+    reference: "FSP1010662"
+    since: "2025-10-23"
+  - entity: "Swyftx Pty Ltd"
+    brand_id: swyftx
+    reference: "FSP1000861"
+    since: "2021-07-08"
+  - entity: "Independent Reserve NZ Limited"
+    brand_id: independent-reserve
+    reference: "FSP1003272"
+    since: "2022-08-13"
+  - entity: "Sharesies Crypto Limited"
+    brand_id: sharesies
+    reference: "FSP1010535"
+    since: "2025-09-04"
+  - entity: "Sharesies Crypto Custody Limited"
+    brand_id: sharesies
+    reference: "FSP1010537"
+    since: "2025-09-03"

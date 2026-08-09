@@ -86,6 +86,7 @@ const nonEEA = [
   { cc: 'JP', label: 'Japan (FSA)' },
   { cc: 'MY', label: 'Malaysia (SC)' },
   { cc: 'KR', label: 'South Korea (FIU)' },
+  { cc: 'NZ', label: 'New Zealand (FSPR, manual)' },
 ].map(({ cc, label }) => ({
   cc, label,
   count: exchanges.filter((ex) => ex.countries?.[cc]).length,
@@ -146,7 +147,7 @@ const PAGE_DESC = `Live numbers from our register: ${total} exchanges tracked, $
     '@context': 'https://schema.org',
     '@type': 'Dataset',
     name: 'whichcryptoexchange.com crypto exchange regulatory register',
-    description: `Which crypto exchanges hold which regulatory status, in which country, through which legal entity, and since when — sourced from thirteen official regulator registers. ${total} exchanges tracked.`,
+    description: `Which crypto exchanges hold which regulatory status, in which country, through which legal entity, and since when — sourced from fourteen official regulator registers. ${total} exchanges tracked.`,
     url: 'https://whichcryptoexchange.com/stats/',
     license: 'https://whichcryptoexchange.com/about/',
     dateModified: lastSynced,
@@ -221,7 +222,7 @@ const PAGE_DESC = `Live numbers from our register: ${total} exchanges tracked, $
     )}
 
     <div class="stat-grid">
-      <div class="stat-card"><div class="stat-num">{total}</div><div class="stat-label">Exchanges tracked across 13 official registers</div></div>
+      <div class="stat-card"><div class="stat-num">{total}</div><div class="stat-label">Exchanges tracked across 14 official registers</div></div>
       <div class="stat-card"><div class="stat-num">{withGenuineLicence}</div><div class="stat-label">Hold at least one genuine crypto-specific licence (EU MiCA, Dubai VARA, Abu Dhabi ADGM, Singapore MAS, Hong Kong SFC, Gibraltar GFSC, Japan FSA, Malaysia SC, or New York DFS)</div></div>
       <div class="stat-card"><div class="stat-num">{amlOnly}</div><div class="stat-label">Hold only AML-supervision registrations, no genuine licence anywhere</div></div>
       <div class="stat-card"><div class="stat-num">{multiJurisdiction}</div><div class="stat-label">Registered or licensed in more than one jurisdiction</div></div>
@@ -230,7 +231,7 @@ const PAGE_DESC = `Live numbers from our register: ${total} exchanges tracked, $
     </div>
 
     <h3 id="by-jurisdiction">By jurisdiction</h3>
-    <p>How many tracked brands appear in each of the 13 official sources we check, all 13 treated
+    <p>How many tracked brands appear in each of the 14 official sources we check, all 14 treated
     the same way regardless of size — biggest first:</p>
     <div class="table-scroll">
     <table class="registry">

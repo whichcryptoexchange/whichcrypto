@@ -6,6 +6,24 @@
 # link row under the body. Genuine internal linking, not just narration --
 # omit it when a change is site-wide (search, sort controls) and there's no
 # single honest page to point at, rather than force a link that doesn't fit.
+- date: "2026-08-09"
+  title: "New Zealand now tracked (FSPR registration)"
+  body: >
+    New Zealand has no dedicated cryptoasset licensing regime -- virtual
+    asset service providers register on the Financial Service Providers
+    Register (FSPR) under general AML/CFT law, now solely supervised by
+    the Department of Internal Affairs as of 1 July 2026. Same AML-only
+    tier as UK/Canada/US/South Korea, not a genuine licence. The FSPR's
+    public search tool has no fetchable API or bulk export available to
+    us, so this is manually verified rather than synced on a schedule --
+    same discipline as Gibraltar and ADGM. Four brands added: Easy
+    Crypto, Swyftx, Independent Reserve (already tracked for Singapore),
+    and Sharesies -- each checked individually against the live
+    register. Binance, by contrast, has no New Zealand registration at
+    all.
+  pages:
+    - { url: /nz/, label: New Zealand }
+    - { url: /regulators/, label: Regulators }
 - date: "2026-08-07"
   title: "New: RSS feed, and a coverage/freshness line in the footer"
   body: >

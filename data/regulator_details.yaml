@@ -182,3 +182,17 @@
   note: The FIU also publishes periodic consumer warnings naming which handlers are NOT on this list (i.e. operating illegally) -- registration on this list does not itself constitute business-conduct approval, only AML/CFT reporting compliance.
   source_url: https://www.kofiu.go.kr/kor/notification/notice.do
   verified: '2026-08-05'
+- code: NZ
+  name: New Zealand Department of Internal Affairs (DIA)
+  tier: gb-registered
+  tier_label: AML-only registration (manually verified)
+  scope: New Zealand only -- no dedicated cryptoasset business licensing regime exists; virtual asset service providers register on the Financial Service Providers Register (FSPR) under general AML/CFT law
+  capital: "No minimum capital requirement -- this is an AML/CFT reporting regime, not a business licence"
+  checks:
+    - Registration on the Financial Service Providers Register (FSPR), administered by the Companies Office
+    - A written AML/CFT programme, risk assessment, and compliance officer under the AML/CFT Act 2009
+    - Ongoing customer due diligence, suspicious activity reporting, and recordkeeping obligations
+    - Since 1 July 2026, sole AML/CFT supervision by the Department of Internal Affairs (DIA) under the AML/CFT (Supervisor, Levy, and Other Matters) Amendment Act 2026
+  note: The FSPR's public search tool has no fetchable API or bulk export available to us, so this list is manually verified against the live register rather than synced on a schedule -- same discipline as Gibraltar and ADGM, but for an AML-only tier rather than a genuine licence.
+  source_url: https://fsp-app.companiesoffice.govt.nz/orp-master/service/create.html?targetAppCode=orp-master&service=registerItemSearch
+  verified: '2026-08-09'

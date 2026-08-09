@@ -26,6 +26,7 @@ const NON_EEA_SOURCES = [
   { cc: 'JP', regulator: 'Japan Financial Services Agency (FSA)', regime: 'Crypto-asset Exchange Service Provider registration', tier: 'Genuine licence', sourceName: 'Japan FSA Registered Crypto-asset Exchange Service Providers List', url: 'https://www.fsa.go.jp/en/regulated/licensed/index.html' },
   { cc: 'MY', regulator: 'Malaysia Securities Commission (SC)', regime: 'Recognized Market Operator - Digital Asset Exchange', tier: 'Genuine licence', sourceName: 'Malaysia SC List of Registered Digital Asset Exchanges', url: 'https://www.sc.com.my/regulation/guidelines/recognizedmarkets/list-of-registered-digital-asset-exchanges' },
   { cc: 'KR', regulator: 'Korea Financial Intelligence Unit (FIU)', regime: 'VASP registration', tier: 'AML-only', sourceName: 'Korea FIU VASP Registration Disclosure', url: 'https://www.kofiu.go.kr/kor/notification/notice.do' },
+  { cc: 'NZ', regulator: 'New Zealand Department of Internal Affairs (DIA)', regime: 'FSPR registration', tier: 'AML-only (manually verified)', sourceName: 'New Zealand FSPR', url: 'https://fsp-app.companiesoffice.govt.nz/orp-master/service/create.html?targetAppCode=orp-master&service=registerItemSearch' },
 ].map((s) => ({
   ...s,
   // AE now also carries ADGM entries -- this row is specifically about
