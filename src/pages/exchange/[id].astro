@@ -333,6 +333,23 @@ const PAGE_DESC = `${ex.brand}: official licence records, legal entities, regula
       )}
     </section>
 
+    {(ex.news_mentions ?? []).length > 0 && (
+      <section class="news-mentions" id="news-mentions">
+        <h3>In the news</h3>
+        <p class="sourced">Automated keyword matches against headlines from The Guardian and BBC —
+        not a claim these are about {ex.brand} specifically, or relevant to its regulatory status.
+        Read before drawing any conclusion.</p>
+        <ul class="news-list">
+          {ex.news_mentions.map((n) => (
+            <li class="news-item">
+              <a href={n.url} rel="nofollow noopener" target="_blank">{n.title} ↗</a>
+              <span class="sourced news-item-meta">{n.source}{n.published ? ` · ${n.published}` : ''}</span>
+            </li>
+          ))}
+        </ul>
+      </section>
+    )}
+
     <p class="sourced">Sources:{' '}
     {(ex.sources ?? []).map((s, i) => (
       <>

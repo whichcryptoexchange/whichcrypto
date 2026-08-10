@@ -1,0 +1,41 @@
+name: News mentions sync
+
+on:
+  schedule:
+    - cron: '15 6 * * *'   # daily, 06:15 UTC — news needs fresher refresh than the weekly regulator syncs
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.12' }
+      - run: pip install pyyaml
+      - name: Match brand names against Guardian/BBC headlines
+        run: python3 scripts/news_sync.py
+      - name: Open PR if any brand got new mentions
+        uses: peter-evans/create-pull-request@v6
+        with:
+          commit-message: "data: news mentions sync"
+          title: "News mentions update — review before merging"
+          body: |
+            Unfiltered, headline-only keyword matches against The
+            Guardian's Cryptocurrencies feed and BBC's Business/
+            Technology feeds. This is NOT a claim that a match is about
+            the brand specifically or relevant to its regulatory status
+            -- review every entry before merging:
+              - is the headline actually about this brand, not a
+                same-name coincidence or unrelated use of the word?
+              - if a brand name turns out to be a recurring false-
+                positive source (a common English word, a different
+                company entirely), add it to SKIP_BRANDS in
+                scripts/news_sync.py rather than merging and hoping it
+                doesn't happen again.
+          branch: news-sync
+          delete-branch: true

@@ -7,6 +7,17 @@
 # omit it when a change is site-wide (search, sort controls) and there's no
 # single honest page to point at, rather than force a link that doesn't fit.
 - date: "2026-08-10"
+  title: "New: news mentions on exchange pages (unfiltered, headline-only)"
+  body: >
+    Exchange pages now show an "In the news" section when a brand's
+    name appears in a recent Guardian or BBC headline -- checked daily.
+    This is explicitly not a claim that a match is relevant to a
+    brand's regulatory status, or even about that brand specifically --
+    it's a keyword match against general news, reviewed by us before
+    publishing (same as every other automated data source on this
+    site), not a verified fact. Treat it as a pointer to go read the
+    original story yourself, not a conclusion.
+- date: "2026-08-10"
   title: "We're now on Trustpilot too"
   body: >
     Added a Trustpilot review widget to the site footer. We show

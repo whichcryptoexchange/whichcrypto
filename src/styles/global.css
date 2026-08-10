@@ -504,6 +504,16 @@ footer.site .trustpilot-widget iframe { margin: 0 !important; }
 .report-quote p { margin: 0; }
 .report-quote-text { margin-top: 6px !important; font-size: 14px; line-height: 1.5; white-space: pre-wrap; }
 
+/* News mentions: the least-filtered thing on the page (unfiltered
+   keyword matches against general news, not verified as relevant) --
+   plain list, no card chrome, so it doesn't visually compete with the
+   more substantiated sections above it. */
+.news-mentions { margin: 40px 0 0; }
+.news-list { list-style: none; margin: 16px 0 0; padding: 0; }
+.news-item { padding: 10px 0; border-top: 1px solid var(--rule); display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px; justify-content: space-between; }
+.news-item:last-child { border-bottom: 1px solid var(--rule); }
+.news-item-meta { white-space: nowrap; }
+
 /* Third-party reviews: deliberately plainer than the .stamp/.record
    colour language used for regulator facts and the .reports card above --
    this is cited external data, not something we're vouching for, so it
