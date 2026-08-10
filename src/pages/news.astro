@@ -1,15 +1,19 @@
 ---
-import { loadExchanges, loadRegulatorDetails, footerStats } from '../lib/data.js';
-import { buildFaqEntries } from '../lib/faq.js';
+import { loadExchanges, footerStats } from '../lib/data.js';
 import '../styles/global.css';
 
 const exchanges = loadExchanges();
 const stats = footerStats(exchanges);
-const regulatorDetails = loadRegulatorDetails();
-const entries = buildFaqEntries(exchanges, regulatorDetails);
-const generalEntries = entries.filter((e) => e.category === 'general');
-const PAGE_TITLE = 'Crypto Exchange FAQ: Licensing, Regulation & Custody | whichcryptoexchange.com';
-const PAGE_DESC = `Search ${entries.length} questions and answers about crypto exchange licensing, built entirely from our own regulator-sourced register -- by brand, by country, or in general.`;
+
+// One row per (brand, mention) pair -- a brand can have several matches.
+// Newest first, since this is meant to read as a feed, not a leaderboard.
+const rows = exchanges
+  .flatMap((ex) => (ex.news_mentions ?? []).map((n) => ({ ex, ...n })))
+  .sort((a, b) => (b.published || '').localeCompare(a.published || ''));
+
+const SITEKEY = import.meta.env.PUBLIC_TURNSTILE_SITEKEY || '0x4AAAAAAD84t4OWkoouLP3Y';
+const PAGE_TITLE = `Crypto Exchange News Mentions | whichcryptoexchange.com`;
+const PAGE_DESC = `Headlines from The Guardian and BBC that name-match a tracked crypto exchange, newest first -- unfiltered keyword matches, not verified as relevant to any exchange's regulatory status.`;
 ---
 <html lang="en">
 <head>
@@ -37,15 +41,6 @@ const PAGE_DESC = `Search ${entries.length} questions and answers about crypto e
   <!-- TrustBox script -->
   <script type="text/javascript" src="//widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js" async></script>
   <!-- End TrustBox script -->
-  <script type="application/ld+json" set:html={JSON.stringify({
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    mainEntity: generalEntries.map((e) => ({
-      '@type': 'Question',
-      name: e.question,
-      acceptedAnswer: { '@type': 'Answer', text: e.answer },
-    })),
-  })} />
 </head>
 <body>
   <header class="site">
@@ -71,26 +66,33 @@ const PAGE_DESC = `Search ${entries.length} questions and answers about crypto e
   </header>
 
   <main class="wrap">
-    <h1>Frequently Asked Questions</h1>
-    <p class="lede">{entries.length} questions and answers, generated entirely from the register
-    itself — the same verified facts shown on every brand and country page, just phrased as the
-    questions people actually search. Search by brand or country name, or browse the general
-    questions below.</p>
+    <h1>News mentions</h1>
+    <p class="lede">Headlines from The Guardian and BBC whose title names a tracked exchange,
+    newest first, checked daily.</p>
+    <p class="sourced">This is <em>not</em> a filtered "regulatory news" feed — it's an unfiltered
+    keyword match against general news coverage, reviewed before publishing but not verified as
+    relevant to any brand's regulatory status. Read the original story before drawing a conclusion
+    from it. An exchange with nothing here just hasn't been named in either outlet's headlines
+    recently — not a sign of anything either way.</p>
 
-    <div class="faq-search-box">
-      <input type="search" id="faq-search" placeholder="Search questions — try a brand or country name…" autocomplete="off" aria-label="Search FAQ" />
-      <div class="faq-chips" role="group" aria-label="Filter by category">
-        <button type="button" class="faq-chip active" data-category="all">All</button>
-        <button type="button" class="faq-chip" data-category="general">General</button>
-        <button type="button" class="faq-chip" data-category="country">By country</button>
-        <button type="button" class="faq-chip" data-category="brand">By brand</button>
-      </div>
+    <div class="table-scroll">
+    <table class="registry">
+      <thead><tr>
+        <th>Headline</th><th>Exchange</th><th>Source</th><th>Published</th>
+      </tr></thead>
+      <tbody>
+        {rows.map(({ ex, source, title, url, published }) => (
+          <tr>
+            <td><a href={url} rel="nofollow noopener" target="_blank">{title} ↗</a></td>
+            <td class="brand"><a href={`/exchange/${ex.id}/`}>{ex.brand}</a></td>
+            <td>{source}</td>
+            <td class="datum">{published ?? '—'}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
     </div>
-
-    <div id="faq-results"></div>
-    <p class="sourced">Can't find what you're after? <a href="/contact/">Get in touch</a> — or if
-    you're an official regulator source we should be checking against, <a href="/about/">see how
-    the register works</a>.</p>
+    {rows.length === 0 && <p class="sourced">No matches yet — checked daily, nothing has hit so far.</p>}
   </main>
 
   <footer class="site"><div class="wrap">
@@ -106,7 +108,7 @@ const PAGE_DESC = `Search ${entries.length} questions and answers about crypto e
     <p>Independent register. Not affiliated with any regulator. Not financial advice.</p>
   </div></footer>
 
+  {SITEKEY && <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>}
   <script src="/search.js" defer></script>
-  <script src="/faq.js" defer></script>
 </body>
 </html>
