@@ -251,3 +251,9 @@ countries:
     via: ny_dfs_register
     entity: Gemini Trust Company, LLC
     since: 2015-10
+third_party_reviews:
+- source: App Store
+  rating: 4.76
+  count: 109525
+  url: https://apps.apple.com/us/app/gemini-markets-credit-card/id1408914447?uo=4
+  retrieved: '2026-08-10'

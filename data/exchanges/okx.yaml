@@ -240,3 +240,9 @@ countries:
     licensed_activities: Lending and Borrowing Services Management and Investment Services Exchange Services
       (including VA Derivatives Trading) Broker-Dealer Services
     since: '2024-09-17'
+third_party_reviews:
+- source: App Store
+  rating: 4.59
+  count: 22413
+  url: https://apps.apple.com/us/app/okx-buy-bitcoin-btc-crypto/id1327268470?uo=4
+  retrieved: '2026-08-10'

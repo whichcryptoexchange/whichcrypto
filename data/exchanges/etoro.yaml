@@ -250,3 +250,9 @@ countries:
     via: gfsc_manual
     entity: eToro X Limited
     since: null
+third_party_reviews:
+- source: App Store
+  rating: 4.39
+  count: 9823
+  url: https://apps.apple.com/us/app/etoro-trade-invest/id674984916?uo=4
+  retrieved: '2026-08-10'

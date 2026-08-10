@@ -1,0 +1,52 @@
+# Brand id -> Apple App Store numeric track ID for that brand's main
+# consumer app. Verify each ID before adding -- the App Store Search API's
+# term search is NOT reliable name matching (searching "Bitpanda" on the
+# US store returns Bitstamp/Kraken/Coinbase/Trust Wallet, not Bitpanda at
+# all -- had to search the Austrian store and confirm by seller name).
+# Confirm the sellerName in the search result plausibly matches the brand
+# before picking an ID, and prefer the flagship/main app over a separate
+# Pro/Wallet/Business app from the same publisher where more than one
+# exists (e.g. Kraken also publishes "Kraken Pro" and "Kraken Wallet" as
+# separate listings).
+#
+# appstore_sync.py re-fetches live rating/count per ID at sync time via
+# the public, unauthenticated iTunes Lookup API -- this file only pins
+# identity, same curation pattern as fca_frn_map.yaml pins FRNs.
+#
+# `country` is the App Store storefront the ID was found/verified on --
+# the iTunes Lookup API needs the matching country param to resolve it
+# (an ID looked up under the wrong country can 404 or return nothing).
+
+binance:
+  app_id: "1436799971"  # Binance: Buy Bitcoin & Crypto, Binance Switzerland AG
+  country: gb
+bitpanda:
+  app_id: "1449018960"  # Bitpanda: Krypto, Aktien & ETF, Bitpanda GmbH
+  country: at
+bitstamp:
+  app_id: "1406825640"  # Bitstamp by Robinhood: Buy BTC, Bitstamp LTD
+  country: us
+bybit:
+  app_id: "1488296980"  # Bybit: Buy Crypto & Bitcoin, Bybit Fintech Limited
+  country: us
+coinbase:
+  app_id: "886427730"  # Coinbase: Buy Crypto & Stocks, Coinbase, Inc.
+  country: us
+crypto-com:
+  app_id: "1262148500"  # Crypto.com: Trade Every Market, CRYPTO Technology Holdings Limited
+  country: us
+etoro:
+  app_id: "674984916"  # etoro: Trade & Invest, eToro Group Ltd.
+  country: us
+gemini:
+  app_id: "1408914447"  # Gemini Markets & Credit Card, Gemini Trust Company, LLC
+  country: us
+kraken:
+  app_id: "1481947260"  # Kraken: Buy Crypto & Stocks, Payward, Inc.
+  country: us
+okx:
+  app_id: "1327268470"  # OKX: Buy Bitcoin BTC & Crypto, OKX Inc.
+  country: us
+revolut:
+  app_id: "932493382"  # Revolut — Mobile Finance, Revolut Ltd
+  country: gb

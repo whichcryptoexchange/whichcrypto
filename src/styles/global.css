@@ -485,6 +485,23 @@ footer.site .footer-meta { font-family: var(--mono); font-size: 12px; color: rgb
 
 /* User reports */
 .reports { margin: 40px 0 0; }
+
+/* Third-party reviews: deliberately plainer than the .stamp/.record
+   colour language used for regulator facts and the .reports card above --
+   this is cited external data, not something we're vouching for, so it
+   gets a neutral list rather than a status colour. */
+.third-party-reviews { margin: 40px 0 0; }
+.review-sources { list-style: none; margin: 16px 0 0; padding: 0; display: grid; gap: 10px; }
+.review-source {
+  display: flex; flex-wrap: wrap; align-items: baseline; gap: 10px;
+  background: var(--card); border: 1px solid var(--rule); border-radius: 4px; padding: 12px 16px;
+}
+.review-source-name { font-family: var(--display); font-weight: 700; font-size: 15px; min-width: 100px; }
+.review-source-rating { font-family: var(--mono); font-weight: 600; font-size: 16px; }
+.review-source-max { font-weight: 400; color: var(--ink-soft); font-size: 13px; }
+.review-source-count { font-family: var(--mono); font-size: 13px; color: var(--ink-soft); }
+.review-source a { font-size: 13px; }
+.review-source-date { margin-left: auto; }
 .report-form { background: var(--card); border: 1px solid var(--rule); border-radius: 4px; padding: 4px 16px 16px; }
 .report-form summary { cursor: pointer; font-family: var(--display); font-weight: 700; padding: 12px 0; }
 .report-form label { display: block; margin: 12px 0 0; font-size: 14px; }

@@ -1,0 +1,140 @@
+---
+import { loadExchanges, footerStats } from '../lib/data.js';
+import '../styles/global.css';
+
+const exchanges = loadExchanges();
+const stats = footerStats(exchanges);
+
+// One row per (brand, source) pair, not per brand -- a brand can have
+// more than one third-party source (App Store, Trustpilot), and this
+// keeps sorting by rating/review count meaningful within a single column
+// rather than needing to pick one "primary" source to sort by.
+const rows = exchanges
+  .flatMap((ex) => (ex.third_party_reviews ?? []).map((r) => ({ ex, ...r })))
+  .sort((a, b) => b.rating - a.rating);
+
+const SITEKEY = import.meta.env.PUBLIC_TURNSTILE_SITEKEY || '0x4AAAAAAD84t4OWkoouLP3Y';
+const PAGE_TITLE = `Crypto Exchange Reviews & Ratings | whichcryptoexchange.com`;
+const PAGE_DESC = `Third-party ratings for ${new Set(rows.map((r) => r.ex.id)).size} tracked crypto exchanges, sourced from App Store and Trustpilot -- each figure links to its original source. Not a score we compute ourselves.`;
+---
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{PAGE_TITLE}</title>
+  <meta name="description" content={PAGE_DESC} />
+  <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site)} />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content={new URL(Astro.url.pathname, Astro.site)} />
+  <meta property="og:site_name" content="whichcryptoexchange.com" />
+  <meta property="og:title" content={PAGE_TITLE} />
+  <meta property="og:description" content={PAGE_DESC} />
+  <meta property="og:image" content="https://whichcryptoexchange.com/og-image.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={PAGE_TITLE} />
+  <meta name="twitter:description" content={PAGE_DESC} />
+  <meta name="twitter:image" content="https://whichcryptoexchange.com/og-image.jpg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <script src="https://analytics.ahrefs.com/analytics.js" data-key="QTM3lN9yt0oU0rxrj5zadA" async></script>
+</head>
+<body>
+  <header class="site">
+    <div class="wrap">
+      <a class="logo" href="/">which<em>crypto</em>exchange</a>
+      <div class="header-right">
+        <div class="site-search">
+          <input type="search" id="site-search" placeholder="Search exchanges or countries…" autocomplete="off" aria-label="Search exchanges" />
+          <div class="site-search-results" id="site-search-results" hidden></div>
+        </div>
+        <span class="sourced">source: official regulator registers</span>
+      </div>
+    </div>
+    <nav class="site-nav"><div class="wrap">
+      <a href="/exchanges/">Exchanges</a>
+      <a href="/regulators/">Regulators</a>
+      <a href="/providers/">Providers</a>
+      <a href="/faq/">FAQ</a>
+      <a href="/stats/">Stats</a>
+      <a href="/reviews/">Reviews</a>
+    </div></nav>
+  </header>
+
+  <main class="wrap">
+    <h1>Crypto exchange reviews &amp; ratings</h1>
+    <p class="lede">Third-party ratings for {new Set(rows.map((r) => r.ex.id)).size} tracked
+    exchanges, currently drawn from the App Store and Trustpilot. Every figure links straight to
+    its original source and shows when we last checked it.</p>
+    <p class="sourced">This is <em>not</em> a score we compute — no blending, no weighting, no
+    homegrown "sentiment". Each row is exactly what the named source reports, attributed and dated,
+    same discipline as the regulator data elsewhere on this site. It's also an early, growing list:
+    we're adding sources and brands incrementally, not scraping everything at once.</p>
+
+    <div class="table-controls">
+      <label>Sort by
+        <select id="sort-select">
+          <option value="rating-desc">Highest rated first</option>
+          <option value="count-desc">Most reviews first</option>
+          <option value="brand">Brand (A–Z)</option>
+        </select>
+      </label>
+    </div>
+
+    <div class="table-scroll">
+    <table class="registry">
+      <thead><tr>
+        <th>Exchange</th><th>Source</th><th>Rating</th><th>Reviews</th><th>Retrieved</th>
+      </tr></thead>
+      <tbody>
+        {rows.map(({ ex, source, rating, count, url, retrieved }) => (
+          <tr data-brand={ex.brand} data-rating={rating} data-count={count}>
+            <td class="brand"><a href={`/exchange/${ex.id}/`}>{ex.brand}</a></td>
+            <td>{source}</td>
+            <td class="datum">{rating}/5</td>
+            <td class="datum"><a href={url} rel="nofollow noopener" target="_blank">{count.toLocaleString()} ↗</a></td>
+            <td class="datum">{retrieved}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+    </div>
+    {rows.length === 0 && <p class="sourced">No third-party review data collected yet.</p>}
+  </main>
+
+  <footer class="site"><div class="wrap">
+    <p><a href="/about/">About</a> · <a href="/contact/">Contact</a> · <a href="/changelog/">Changelog</a> · <a href="/exchanges/">Exchanges</a> · <a href="/regulators/">Regulators</a> · <a href="/stats/">Stats</a> · <a href="/reviews/">Reviews</a> · <a href="/providers/">Providers</a> · <a href="/faq/">FAQ</a> · <a href="https://x.com/whichcex">X</a></p>
+    <p class="footer-meta">{stats.brandCount} brands tracked across {stats.jurisdictionCount} jurisdictions · Data last synced {stats.lastSynced} · <a href="/changelog.xml">RSS</a></p>
+    <p>Independent register. Not affiliated with any regulator. Not financial advice.</p>
+  </div></footer>
+
+  <script>
+    const tbody = document.querySelector('.registry tbody');
+    const sortSelect = document.getElementById('sort-select');
+    if (tbody && sortSelect) {
+      const originalRows = [...tbody.querySelectorAll('tr')];
+      const apply = () => {
+        let rows = [...originalRows];
+        switch (sortSelect.value) {
+          case 'count-desc':
+            rows.sort((a, b) => Number(b.dataset.count || 0) - Number(a.dataset.count || 0));
+            break;
+          case 'brand':
+            rows.sort((a, b) => (a.dataset.brand || '').localeCompare(b.dataset.brand || ''));
+            break;
+          default:
+            rows.sort((a, b) => Number(b.dataset.rating || 0) - Number(a.dataset.rating || 0));
+            break;
+        }
+        rows.forEach((r) => tbody.appendChild(r));
+      };
+      sortSelect.addEventListener('change', apply);
+    }
+  </script>
+
+  {SITEKEY && <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>}
+  <script src="/search.js" defer></script>
+</body>
+</html>

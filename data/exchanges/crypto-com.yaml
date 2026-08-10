@@ -264,3 +264,9 @@ countries:
     via: kr_fiu_register
     entity: 주식회사 포리스닥스코리아리미티드
     since: '2021-12-30'
+third_party_reviews:
+- source: App Store
+  rating: 4.66
+  count: 332317
+  url: https://apps.apple.com/us/app/crypto-com-trade-every-market/id1262148500?uo=4
+  retrieved: '2026-08-10'

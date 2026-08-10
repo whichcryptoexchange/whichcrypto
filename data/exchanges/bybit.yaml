@@ -199,3 +199,9 @@ countries:
     regime: MiCA
     via: mica_passporting
     entity: Bybit EU GmbH
+third_party_reviews:
+- source: App Store
+  rating: 4.69
+  count: 46973
+  url: https://apps.apple.com/us/app/bybit-buy-crypto-bitcoin/id1488296980?uo=4
+  retrieved: '2026-08-10'

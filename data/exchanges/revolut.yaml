@@ -216,3 +216,9 @@ countries:
     entity: Revolut Bank UK Ltd
     frn: '981170'
     since: '2024-07-25'
+third_party_reviews:
+- source: App Store
+  rating: 4.86
+  count: 1057167
+  url: https://apps.apple.com/gb/app/revolut-mobile-finance/id932493382?uo=4
+  retrieved: '2026-08-10'

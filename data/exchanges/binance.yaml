@@ -26,3 +26,9 @@ countries:
     licensed_activities: Broker-Dealer Services Management and Investment Services Lending and Borrowing
       Services Exchange Services (including VA Derivatives Trading)
     since: '2024-04-15'
+third_party_reviews:
+- source: App Store
+  rating: 4.65
+  count: 118363
+  url: https://apps.apple.com/gb/app/binance-buy-bitcoin-crypto/id1436799971?uo=4
+  retrieved: '2026-08-10'

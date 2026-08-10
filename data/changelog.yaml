@@ -6,6 +6,21 @@
 # link row under the body. Genuine internal linking, not just narration --
 # omit it when a change is site-wide (search, sort controls) and there's no
 # single honest page to point at, rather than force a link that doesn't fit.
+- date: "2026-08-10"
+  title: "New: third-party ratings, cited and dated (not a score we compute)"
+  body: >
+    A new "What others report" section on every exchange page, plus a
+    standalone /reviews/ page, showing third-party ratings from sources
+    like the App Store -- each figure attributed, dated, and linked back
+    to its original source, kept structurally separate from both the
+    regulator-sourced facts and the first-party user reports elsewhere
+    on this site. This is deliberately not a blended "sentiment score":
+    no weighting, no synthesis, just what the named source reports.
+    Starting with 11 major brands on the App Store; Trustpilot and
+    broader coverage to follow.
+  pages:
+    - { url: /reviews/, label: Reviews }
+    - { url: /exchange/bitpanda/, label: "Example: Bitpanda" }
 - date: "2026-08-09"
   title: "New Zealand now tracked (FSPR registration)"
   body: >
