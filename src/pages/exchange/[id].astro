@@ -267,6 +267,28 @@ const PAGE_DESC = `${ex.brand}: official licence records, legal entities, regula
       ))}
     </ul>
 
+    <section class="third-party-reviews" id="third-party-reviews">
+      <h3>What others report</h3>
+      <p class="sourced">Third-party ratings, not verified by us — each figure links to its
+      original source. Kept separate from the regulator-sourced facts above and the
+      first-party user reports below.</p>
+      {(ex.third_party_reviews ?? []).length > 0 ? (
+        <ul class="review-sources">
+          {(ex.third_party_reviews ?? []).map((r) => (
+            <li class="review-source">
+              <span class="review-source-name">{r.source}</span>
+              <span class="review-source-rating">{r.rating}<span class="review-source-max">/5</span></span>
+              <span class="review-source-count">{r.count.toLocaleString()} reviews</span>
+              <a href={r.url} rel="nofollow noopener" target="_blank">View on {r.source} ↗</a>
+              <span class="sourced review-source-date">Retrieved {r.retrieved}</span>
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <p class="sourced">No third-party rating data collected yet for {ex.brand}.</p>
+      )}
+    </section>
+
     <section class="reports" id="reports">
       <h3>User reports</h3>
       <p class="sourced">Community-sourced and reviewed before publication. Kept strictly separate
@@ -308,28 +330,6 @@ const PAGE_DESC = `${ex.brand}: official licence records, legal entities, regula
         </details>
       ) : (
         <p class="sourced">Report submissions are opening soon.</p>
-      )}
-    </section>
-
-    <section class="third-party-reviews" id="third-party-reviews">
-      <h3>What others report</h3>
-      <p class="sourced">Third-party ratings, not verified by us — each figure links to its
-      original source. Kept separate from the regulator-sourced facts above and the
-      first-party user reports above.</p>
-      {(ex.third_party_reviews ?? []).length > 0 ? (
-        <ul class="review-sources">
-          {(ex.third_party_reviews ?? []).map((r) => (
-            <li class="review-source">
-              <span class="review-source-name">{r.source}</span>
-              <span class="review-source-rating">{r.rating}<span class="review-source-max">/5</span></span>
-              <span class="review-source-count">{r.count.toLocaleString()} reviews</span>
-              <a href={r.url} rel="nofollow noopener" target="_blank">View on {r.source} ↗</a>
-              <span class="sourced review-source-date">Retrieved {r.retrieved}</span>
-            </li>
-          ))}
-        </ul>
-      ) : (
-        <p class="sourced">No third-party rating data collected yet for {ex.brand}.</p>
       )}
     </section>
 
