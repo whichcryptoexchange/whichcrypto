@@ -1,0 +1,39 @@
+id: feel-mining-wigl-et-othila
+brand: FEEL MINING / WIGL ET OTHILA
+eu_status: authorised
+sources:
+- name: ESMA interim MiCA register (CASPS.csv)
+  url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
+  retrieved: '2026-08-10'
+entities:
+- lei: 9695000VFDEG5Z4JIY48
+  legal_name: BLOCKCHAIN PROCESS SECURITY (B.P.S.) SAS
+  commercial_name: FEEL MINING / WIGL ET OTHILA
+  home_state: FR
+  regulator: Autorité des Marchés Financiers (AMF)
+  website: https://feel-mining.com/
+  records:
+  - authorised: '2026-07-24'
+    withdrawn: null
+    status: authorised
+    services:
+    - a
+    - c
+    - d
+    - e
+    - i
+    - j
+    passported_to:
+    - BE
+    last_update: '2026-07-24'
+countries:
+  BE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: BLOCKCHAIN PROCESS SECURITY (B.P.S.) SAS
+  FR:
+    status: licensed
+    regime: MiCA
+    via: home_state
+    entity: BLOCKCHAIN PROCESS SECURITY (B.P.S.) SAS

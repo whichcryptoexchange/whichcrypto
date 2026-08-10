@@ -4,7 +4,7 @@ eu_status: authorised
 sources:
 - name: ESMA interim MiCA register (CASPS.csv)
   url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
-  retrieved: '2026-07-26'
+  retrieved: '2026-08-10'
 - name: UK FCA Register
   url: https://register.fca.org.uk/
   retrieved: '2026-08-08'
@@ -307,9 +307,3 @@ countries:
     regime: MiCA
     via: mica_passporting
     entity: Bitpanda GmbH
-third_party_reviews:
-- source: App Store
-  rating: 4.71
-  count: 25912
-  url: https://apps.apple.com/at/app/bitpanda-krypto-aktien-etf/id1449018960?uo=4
-  retrieved: '2026-08-10'

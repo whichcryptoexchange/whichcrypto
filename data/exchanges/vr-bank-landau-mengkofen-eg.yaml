@@ -1,0 +1,29 @@
+id: vr-bank-landau-mengkofen-eg
+brand: VR-Bank Landau-Mengkofen eG
+eu_status: authorised
+sources:
+- name: ESMA interim MiCA register (CASPS.csv)
+  url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
+  retrieved: '2026-08-10'
+entities:
+- lei: 529900E9AS5RG8YBF660
+  legal_name: VR-Bank Landau-Mengkofen eG
+  commercial_name: VR-Bank Landau-Mengkofen eG
+  home_state: DE
+  regulator: Federal Financial Supervisory Authority (BaFin)
+  website: www.vrbanklm.de
+  records:
+  - authorised: '2026-07-29'
+    withdrawn: null
+    status: authorised
+    services:
+    - e
+    passported_to:
+    - DE
+    last_update: '2026-07-29'
+countries:
+  DE:
+    status: licensed
+    regime: MiCA
+    via: home_state
+    entity: VR-Bank Landau-Mengkofen eG

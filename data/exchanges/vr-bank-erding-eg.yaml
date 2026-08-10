@@ -1,0 +1,29 @@
+id: vr-bank-erding-eg
+brand: VR-Bank Erding eG
+eu_status: authorised
+sources:
+- name: ESMA interim MiCA register (CASPS.csv)
+  url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
+  retrieved: '2026-08-10'
+entities:
+- lei: 529900IAZ7K53LG7BT89
+  legal_name: VR-Bank Erding eG
+  commercial_name: VR-Bank Erding eG
+  home_state: DE
+  regulator: Federal Financial Supervisory Authority (BaFin)
+  website: www.vr-bank-erding.de
+  records:
+  - authorised: '2026-08-04'
+    withdrawn: null
+    status: authorised
+    services:
+    - e
+    passported_to:
+    - DE
+    last_update: '2026-08-04'
+countries:
+  DE:
+    status: licensed
+    regime: MiCA
+    via: home_state
+    entity: VR-Bank Erding eG

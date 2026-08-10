@@ -4,7 +4,7 @@ eu_status: authorised
 sources:
 - name: ESMA interim MiCA register (CASPS.csv)
   url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
-  retrieved: '2026-07-26'
+  retrieved: '2026-08-10'
 - name: Singapore MAS Financial Institutions Directory
   url: https://eservices.mas.gov.sg/fid/institution
   retrieved: '2026-07-26'
@@ -67,6 +67,15 @@ entities:
     - SK
     last_update: '2025-11-28'
 countries:
+  AE:
+  - status: licensed
+    regime: Dubai VARA VASP licence
+    via: dubai_vara
+    entity: OKX Middle East Fintech FZE
+    reference: VL/23/12/003
+    licensed_activities: Lending and Borrowing Services Management and Investment Services Exchange Services
+      (including VA Derivatives Trading) Broker-Dealer Services
+    since: '2024-09-17'
   AT:
     status: licensed
     regime: MiCA
@@ -207,6 +216,13 @@ countries:
     regime: MiCA
     via: mica_passporting
     entity: OKX Europe Limited
+  SG:
+  - status: licensed
+    regime: Singapore MAS MPI licence (DPT)
+    via: mas_register
+    entity: OKX SG PTE. LTD.
+    reference: 422854-OKX-SG-PTE-LTD
+    since: null
   SI:
     status: licensed
     regime: MiCA
@@ -217,13 +233,6 @@ countries:
     regime: MiCA
     via: mica_passporting
     entity: OKX Europe Limited
-  SG:
-  - status: licensed
-    regime: Singapore MAS MPI licence (DPT)
-    via: mas_register
-    entity: OKX SG PTE. LTD.
-    reference: 422854-OKX-SG-PTE-LTD
-    since: null
   US:
   - status: registered
     regime: US FinCEN MSB registration
@@ -231,18 +240,3 @@ countries:
     entity: OKX INC.
     reg_number: '29459694'
     since: '2025-11-03'
-  AE:
-  - status: licensed
-    regime: Dubai VARA VASP licence
-    via: dubai_vara
-    entity: OKX Middle East Fintech FZE
-    reference: VL/23/12/003
-    licensed_activities: Lending and Borrowing Services Management and Investment Services Exchange Services
-      (including VA Derivatives Trading) Broker-Dealer Services
-    since: '2024-09-17'
-third_party_reviews:
-- source: App Store
-  rating: 4.59
-  count: 22413
-  url: https://apps.apple.com/us/app/okx-buy-bitcoin-btc-crypto/id1327268470?uo=4
-  retrieved: '2026-08-10'

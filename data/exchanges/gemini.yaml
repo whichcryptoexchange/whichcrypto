@@ -4,7 +4,7 @@ eu_status: authorised
 sources:
 - name: ESMA interim MiCA register (CASPS.csv)
   url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
-  retrieved: '2026-07-26'
+  retrieved: '2026-08-10'
 - name: UK FCA Register
   url: https://register.fca.org.uk/
   retrieved: '2026-08-08'
@@ -251,9 +251,3 @@ countries:
     via: ny_dfs_register
     entity: Gemini Trust Company, LLC
     since: 2015-10
-third_party_reviews:
-- source: App Store
-  rating: 4.76
-  count: 109525
-  url: https://apps.apple.com/us/app/gemini-markets-credit-card/id1408914447?uo=4
-  retrieved: '2026-08-10'
