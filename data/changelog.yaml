@@ -7,6 +7,16 @@
 # omit it when a change is site-wide (search, sort controls) and there's no
 # single honest page to point at, rather than force a link that doesn't fit.
 - date: "2026-08-10"
+  title: "We're now on Trustpilot too"
+  body: >
+    Added a Trustpilot review widget to the site footer. We show
+    third-party ratings for the exchanges we track, so it seemed right
+    to be independently reviewable ourselves rather than just asking
+    for trust -- a new profile starts with zero reviews, but it's live
+    now rather than later.
+  pages:
+    - { url: "https://www.trustpilot.com/review/whichcryptoexchange.com", label: "Our Trustpilot profile" }
+- date: "2026-08-10"
   title: "New: third-party ratings, cited and dated (not a score we compute)"
   body: >
     A new "What others report" section on every exchange page, plus a

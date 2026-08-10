@@ -465,6 +465,7 @@ footer.site a { color: #fff; text-decoration: underline; text-decoration-color: 
 footer.site a:hover { text-decoration-color: #fff; }
 footer.site p:last-child { color: rgba(255, 255, 255, 0.75); }
 footer.site .footer-meta { font-family: var(--mono); font-size: 12px; color: rgba(255, 255, 255, 0.85); margin: 10px 0; }
+footer.site .trustpilot-widget { margin: 14px 0; max-width: 320px; }
 
 @media (prefers-reduced-motion: reduce) {
   .stamp { transform: none; }
