@@ -512,7 +512,7 @@ footer.site .trustpilot-widget iframe { margin: 0 !important; }
 .review-source-count { font-family: var(--mono); font-size: 13px; color: var(--ink-soft); }
 .review-source a { font-size: 13px; }
 .review-source-date { margin-left: auto; }
-.report-form { background: var(--card); border: 1px solid var(--rule); border-radius: 4px; padding: 4px 16px 16px; }
+.report-form { background: var(--card); border: 1px solid var(--rule); border-radius: 4px; padding: 16px; }
 .report-form summary { cursor: pointer; font-family: var(--display); font-weight: 700; padding: 12px 0; }
 .report-form label { display: block; margin: 12px 0 0; font-size: 14px; }
 .report-form select, .report-form input, .report-form textarea {
