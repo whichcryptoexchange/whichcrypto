@@ -529,7 +529,19 @@ async function handleAggregates(env, exchangeId) {
      GROUP BY country, outcome`
   ).bind(exchangeId).all();
   const total = results.reduce((s, r) => s + r.n, 0);
-  return json({ exchange_id: exchangeId, total, labels: OUTCOME_LABELS, rows: results });
+
+  // Individual reports whose free-text `detail` survived moderation --
+  // moderator-edited/redacted before approval is what makes surfacing
+  // this text publicly safe at all (see /admin/reports). Newest first,
+  // capped so the response can't grow unbounded as reports accumulate.
+  const { results: details } = await env.DB.prepare(
+    `SELECT country, outcome, detail, occurred_on, created_at
+     FROM reports
+     WHERE exchange_id = ? AND status = 'approved' AND detail IS NOT NULL AND detail != ''
+     ORDER BY created_at DESC LIMIT 50`
+  ).bind(exchangeId).all();
+
+  return json({ exchange_id: exchangeId, total, labels: OUTCOME_LABELS, rows: results, details });
 }
 
 // Homepage "latest reports" widget -- unlike handleAggregates (grouped
@@ -592,30 +604,75 @@ async function handleAdmin(request, env, url) {
   if (request.method === 'POST') {
     const form = await request.formData();
     const id = Number(form.get('id'));
-    const action = form.get('action') === 'approve' ? 'approved' : 'rejected';
-    await env.DB.prepare('UPDATE reports SET status = ? WHERE id = ?').bind(action, id).run();
-    return Response.redirect(url.origin + url.pathname + '?key=' + env.ADMIN_KEY, 303);
+    const action = form.get('action'); // 'save' | 'approve' | 'reject'
+    const country = String(form.get('country') || '').toUpperCase().slice(0, 2);
+    const outcome = String(form.get('outcome') || '');
+    const occurred_on = /^\d{4}-\d{2}-\d{2}$/.test(form.get('occurred_on') || '') ? form.get('occurred_on') : null;
+    const detail = String(form.get('detail') || '').slice(0, 1000);
+    if (!/^[A-Z]{2}$/.test(country)) return new Response('invalid country', { status: 400 });
+    if (!OUTCOMES.has(outcome)) return new Response('invalid outcome', { status: 400 });
+
+    // 'save' edits the fields (used to redact/correct detail text before
+    // approving, or to fix a mistake in an already-published report)
+    // without touching status. 'approve'/'reject' save the same edited
+    // fields AND flip status in one step, so a moderator can clean up
+    // free text and publish it in a single action.
+    const statusUpdate = action === 'approve' ? 'approved' : action === 'reject' ? 'rejected' : null;
+    if (statusUpdate) {
+      await env.DB.prepare(
+        `UPDATE reports SET country=?, outcome=?, occurred_on=?, detail=?, status=?, updated_at=datetime('now') WHERE id=?`
+      ).bind(country, outcome, occurred_on, detail, statusUpdate, id).run();
+    } else {
+      await env.DB.prepare(
+        `UPDATE reports SET country=?, outcome=?, occurred_on=?, detail=?, updated_at=datetime('now') WHERE id=?`
+      ).bind(country, outcome, occurred_on, detail, id).run();
+    }
+    const statusParam = ['pending', 'approved', 'rejected'].includes(url.searchParams.get('status'))
+      ? url.searchParams.get('status') : 'pending';
+    return Response.redirect(url.origin + url.pathname + '?key=' + env.ADMIN_KEY + '&status=' + statusParam, 303);
   }
+
+  const status = ['pending', 'approved', 'rejected'].includes(url.searchParams.get('status'))
+    ? url.searchParams.get('status') : 'pending';
   const { results } = await env.DB.prepare(
-    "SELECT * FROM reports WHERE status = 'pending' ORDER BY created_at ASC LIMIT 100"
-  ).all();
+    'SELECT * FROM reports WHERE status = ? ORDER BY created_at DESC LIMIT 100'
+  ).bind(status).all();
+
+  const outcomeOptionsFor = (current) => [...OUTCOMES].map((o) =>
+    `<option value="${o}" ${o === current ? 'selected' : ''}>${esc(OUTCOME_LABELS[o] ?? o)}</option>`).join('');
+
   const rows = results.map((r) => `
     <tr>
-      <td>${r.id}</td><td>${esc(r.exchange_id)}</td><td>${esc(r.country)}</td>
-      <td>${esc(OUTCOME_LABELS[r.outcome] ?? r.outcome)}</td>
-      <td>${esc(r.occurred_on ?? '')}</td><td>${esc(r.detail ?? '')}</td><td>${esc(r.created_at)}</td>
+      <td>${r.id}</td>
+      <td>${esc(r.exchange_id)}</td>
+      <td><input form="f${r.id}" name="country" value="${esc(r.country)}" maxlength="2" size="3" style="text-transform:uppercase"></td>
+      <td><select form="f${r.id}" name="outcome">${outcomeOptionsFor(r.outcome)}</select></td>
+      <td><input form="f${r.id}" type="date" name="occurred_on" value="${esc(r.occurred_on ?? '')}"></td>
+      <td><textarea form="f${r.id}" name="detail" rows="3" cols="40" maxlength="1000">${esc(r.detail ?? '')}</textarea></td>
+      <td>${esc(r.created_at)}</td>
+      <td>${esc(r.updated_at ?? '')}</td>
       <td>
-        <form method="post" style="display:inline"><input type="hidden" name="id" value="${r.id}">
-          <button name="action" value="approve">approve</button>
-          <button name="action" value="reject">reject</button></form>
+        <button form="f${r.id}" name="action" value="save">save</button>
+        ${status !== 'approved' ? `<button form="f${r.id}" name="action" value="approve">approve</button>` : ''}
+        ${status !== 'rejected' ? `<button form="f${r.id}" name="action" value="reject">reject</button>` : ''}
       </td>
-    </tr>`).join('');
+    </tr>
+    <form id="f${r.id}" method="post" style="display:none">
+      <input type="hidden" name="id" value="${r.id}">
+    </form>`).join('');
+
+  const tabs = ['pending', 'approved', 'rejected'].map((s) =>
+    s === status ? `<strong>${s}</strong>` : `<a href="?key=${env.ADMIN_KEY}&status=${s}">${s}</a>`
+  ).join(' · ');
+
   return new Response(
-    `<!doctype html><meta charset="utf-8"><title>Pending reports</title>
-     <style>body{font:14px monospace;padding:20px}table{border-collapse:collapse}td,th{border:1px solid #ccc;padding:6px;text-align:left;max-width:340px} a.home{display:inline-block;margin-bottom:12px}</style>
-     <a class="home" href="/admin${url.search}">← Admin home</a>
-     <h1>Pending reports (${results.length})</h1>
-     <table><tr><th>id</th><th>exchange</th><th>cc</th><th>outcome</th><th>date</th><th>detail</th><th>submitted</th><th>action</th></tr>${rows}</table>`,
+    `<!doctype html><meta charset="utf-8"><title>Reports (${esc(status)})</title>
+     <style>body{font:14px monospace;padding:20px}table{border-collapse:collapse}td,th{border:1px solid #ccc;padding:6px;text-align:left;vertical-align:top}textarea{font:inherit} a.home{display:inline-block;margin-bottom:12px}</style>
+     <a class="home" href="/admin?key=${env.ADMIN_KEY}">← Admin home</a>
+     <h1>Reports</h1>
+     <p>${tabs}</p>
+     <h2>${esc(status)} (${results.length})</h2>
+     <table><tr><th>id</th><th>exchange</th><th>cc</th><th>outcome</th><th>date</th><th>detail</th><th>submitted</th><th>updated</th><th>action</th></tr>${rows}</table>`,
     { headers: { 'Content-Type': 'text/html; charset=utf-8' } });
 }
 

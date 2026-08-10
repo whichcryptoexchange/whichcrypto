@@ -41,9 +41,21 @@ npm run build && npx wrangler deploy
 ```
 
 ## Moderation
-Pending reports: `https://whichcryptoexchange.com/admin/reports?key=YOUR_ADMIN_KEY`
-Approve/reject per row. Only approved reports appear in the public
-aggregates at `/api/reports/<exchange-id>` and on exchange pages.
+`https://whichcryptoexchange.com/admin/reports?key=YOUR_ADMIN_KEY` --
+tabs for pending/approved/rejected (`&status=` in the URL). Every field
+(country, outcome, date, detail) is editable inline, not just
+approve/reject: edit-then-approve is how a report's free-text `detail`
+gets moderated before it's ever shown publicly, and the same edit form
+works on already-approved reports too if something needs correcting or
+redacting after the fact. `save` updates fields without changing status;
+`approve`/`reject` save the edits and flip status in one action.
+
+Only approved reports appear in the public aggregates at
+`/api/reports/<exchange-id>` -- both the grouped counts and, since the
+detail field is now surfaced too, individual entries for any approved
+report with non-empty `detail` (capped at 50, newest first). The
+frontend renders that text via `textContent`/`createElement`, never
+`innerHTML`, since it's still raw user input even after moderation.
 Editorial rule: user reports are displayed as community data, always
 separate from regulator-sourced status. Never merge the two without a
 `user-reported` provenance tag.

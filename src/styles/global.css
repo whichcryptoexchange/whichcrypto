@@ -495,6 +495,14 @@ footer.site .trustpilot-widget iframe { margin: 0 !important; }
 
 /* User reports */
 .reports { margin: 40px 0 0; }
+/* Individual moderator-reviewed report quotes, same card language as
+   .review-source but its own class since this is first-party (kept
+   visually distinct from third-party ratings, not a status colour --
+   these are still community claims, not regulator facts). */
+.report-quotes { list-style: none; margin: 16px 0 0; padding: 0; display: grid; gap: 10px; }
+.report-quote { background: var(--card); border: 1px solid var(--rule); border-radius: 4px; padding: 12px 16px; }
+.report-quote p { margin: 0; }
+.report-quote-text { margin-top: 6px !important; font-size: 14px; line-height: 1.5; white-space: pre-wrap; }
 
 /* Third-party reviews: deliberately plainer than the .stamp/.record
    colour language used for regulator facts and the .reports card above --

@@ -400,7 +400,10 @@ const PAGE_DESC = `${ex.brand}: official licence records, legal entities, regula
     }
     ccSelect?.addEventListener('change', renderCountryCheck);
 
-    // Aggregates: fetched client-side because pages are static.
+    // Aggregates: fetched client-side because pages are static. The
+    // per-report `detail` free text is moderator-reviewed but still raw
+    // user input -- built with createElement/textContent below, never
+    // innerHTML, so it can never be interpreted as markup.
     const box = document.getElementById('report-aggregates');
     fetch('/api/reports/' + box.dataset.exchange)
       .then((r) => r.ok ? r.json() : Promise.reject())
@@ -414,6 +417,24 @@ const PAGE_DESC = `${ex.brand}: official licence records, legal entities, regula
           `<p><span class="datum">${cc}</span> — ` +
           rows.map((r) => `${d.labels[r.outcome] ?? r.outcome}: ${r.n}`).join(' · ') + '</p>'
         ).join('') + `<p class="sourced">${d.total} published report${d.total === 1 ? '' : 's'} in total.</p>`;
+
+        if (d.details?.length) {
+          const list = document.createElement('ul');
+          list.className = 'report-quotes';
+          for (const r of d.details) {
+            const li = document.createElement('li');
+            li.className = 'report-quote';
+            const meta = document.createElement('p');
+            meta.className = 'sourced';
+            meta.textContent = `${r.country} · ${d.labels[r.outcome] ?? r.outcome}` + (r.occurred_on ? ` · ${r.occurred_on}` : '');
+            const text = document.createElement('p');
+            text.className = 'report-quote-text';
+            text.textContent = r.detail;
+            li.append(meta, text);
+            list.append(li);
+          }
+          box.append(list);
+        }
       })
       .catch(() => {
         reportsFailed = true;
