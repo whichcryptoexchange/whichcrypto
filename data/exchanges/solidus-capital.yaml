@@ -1,0 +1,19 @@
+id: solidus-capital
+brand: Solidus Capital
+eu_status: no_eu_entity
+website: https://www.soliduscapital.io
+sources:
+- name: BVI FSC VASP Register
+  url: https://www.bvifsc.vg/regulated-entities-vasp
+  retrieved: '2026-08-10'
+entities: []
+countries:
+  VG:
+  - status: licensed
+    regime: BVI VASP registration
+    via: bvi_manual
+    entity: Liquid Latam Ltd.
+    licensed_activities: Exchange between virtual assets and fiat currencies; exchange between one or
+      more forms of virtual assets; participation in and provision of financial services related to an
+      issuer's offer or sale of a virtual asset
+    since: null

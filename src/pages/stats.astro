@@ -59,6 +59,7 @@ const genuineByRegime = [
   { label: 'Japan FSA', cc: 'JP', count: exchanges.filter((ex) => (ex.countries?.JP ?? []).some((e) => e.status === 'licensed')).length },
   { label: 'Malaysia SC', cc: 'MY', count: exchanges.filter((ex) => (ex.countries?.MY ?? []).some((e) => e.status === 'licensed')).length },
   { label: 'New York DFS', cc: 'US', count: exchanges.filter((ex) => (ex.countries?.US ?? []).some((e) => e.via === 'ny_dfs_register')).length },
+  { label: 'BVI FSC', cc: 'VG', count: exchanges.filter((ex) => (ex.countries?.VG ?? []).some((e) => e.status === 'licensed')).length },
 ].sort((a, b) => b.count - a.count);
 
 // Which MiCA-authorised services are actually most common -- counted
@@ -87,6 +88,7 @@ const nonEEA = [
   { cc: 'MY', label: 'Malaysia (SC)' },
   { cc: 'KR', label: 'South Korea (FIU)' },
   { cc: 'NZ', label: 'New Zealand (FSPR, manual)' },
+  { cc: 'VG', label: 'BVI (FSC, manual)' },
 ].map(({ cc, label }) => ({
   cc, label,
   count: exchanges.filter((ex) => ex.countries?.[cc]).length,
@@ -150,7 +152,7 @@ const PAGE_DESC = `Live numbers from our register: ${total} exchanges tracked, $
     '@context': 'https://schema.org',
     '@type': 'Dataset',
     name: 'whichcryptoexchange.com crypto exchange regulatory register',
-    description: `Which crypto exchanges hold which regulatory status, in which country, through which legal entity, and since when — sourced from fourteen official regulator registers. ${total} exchanges tracked.`,
+    description: `Which crypto exchanges hold which regulatory status, in which country, through which legal entity, and since when — sourced from fifteen official regulator registers. ${total} exchanges tracked.`,
     url: 'https://whichcryptoexchange.com/stats/',
     license: 'https://whichcryptoexchange.com/about/',
     dateModified: lastSynced,
@@ -227,7 +229,7 @@ const PAGE_DESC = `Live numbers from our register: ${total} exchanges tracked, $
     )}
 
     <div class="stat-grid">
-      <div class="stat-card"><div class="stat-num">{total}</div><div class="stat-label">Exchanges tracked across 14 official registers</div></div>
+      <div class="stat-card"><div class="stat-num">{total}</div><div class="stat-label">Exchanges tracked across 15 official registers</div></div>
       <div class="stat-card"><div class="stat-num">{withGenuineLicence}</div><div class="stat-label">Hold at least one genuine crypto-specific licence (EU MiCA, Dubai VARA, Abu Dhabi ADGM, Singapore MAS, Hong Kong SFC, Gibraltar GFSC, Japan FSA, Malaysia SC, or New York DFS)</div></div>
       <div class="stat-card"><div class="stat-num">{amlOnly}</div><div class="stat-label">Hold only AML-supervision registrations, no genuine licence anywhere</div></div>
       <div class="stat-card"><div class="stat-num">{multiJurisdiction}</div><div class="stat-label">Registered or licensed in more than one jurisdiction</div></div>
@@ -236,7 +238,7 @@ const PAGE_DESC = `Live numbers from our register: ${total} exchanges tracked, $
     </div>
 
     <h3 id="by-jurisdiction">By jurisdiction</h3>
-    <p>How many tracked brands appear in each of the 14 official sources we check, all 14 treated
+    <p>How many tracked brands appear in each of the 15 official sources we check, all 15 treated
     the same way regardless of size — biggest first:</p>
     <div class="table-scroll">
     <table class="registry">

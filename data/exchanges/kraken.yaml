@@ -17,6 +17,9 @@ sources:
 - name: ADGM FSRA Public Register
   url: https://www.adgm.com/public-registers
   retrieved: '2026-08-07'
+- name: BVI FSC VASP Register
+  url: https://www.bvifsc.vg/regulated-entities-vasp
+  retrieved: '2026-08-10'
 entities:
 - lei: 9845003D98SCC2851458
   legal_name: Payward Global Solutions Limited
@@ -272,6 +275,37 @@ countries:
     licensed_activities: Operating a Multilateral Trading Facility and providing custody for virtual assets
     reference: null
     since: '2022-04-25'
+  VG:
+  - status: licensed
+    regime: BVI VASP registration
+    via: bvi_manual
+    entity: Payward Commercial Ltd.
+    licensed_activities: Safekeeping and/or administration of virtual assets; transfer of virtual assets
+    since: null
+  - status: licensed
+    regime: BVI VASP registration
+    via: bvi_manual
+    entity: Payward International Markets, Ltd.
+    licensed_activities: Exchange between one or more forms of virtual assets; exchange between virtual
+      assets and fiat currency; safekeeping and/or administration of virtual assets; transfer of virtual
+      assets
+    since: null
+  - status: licensed
+    regime: BVI VASP registration
+    via: bvi_manual
+    entity: Payward Oceanic Ltd.
+    licensed_activities: Exchange between one or more forms of virtual assets; exchange between virtual
+      assets and fiat currency; safekeeping and/or administration of virtual assets; transfer of virtual
+      assets
+    since: null
+  - status: licensed
+    regime: BVI VASP registration
+    via: bvi_manual
+    entity: Payward Trading Ltd.
+    licensed_activities: Exchange between one or more forms of virtual assets; exchange between virtual
+      assets and fiat currency; safekeeping and/or administration of virtual assets; transfer of virtual
+      assets
+    since: null
 third_party_reviews:
 - source: App Store
   rating: 4.73

@@ -1,0 +1,20 @@
+id: liquiditytech
+brand: LiquidityTech
+eu_status: no_eu_entity
+website: https://www.liquiditytech.com
+sources:
+- name: BVI FSC VASP Register
+  url: https://www.bvifsc.vg/regulated-entities-vasp
+  retrieved: '2026-08-10'
+entities: []
+countries:
+  VG:
+  - status: licensed
+    regime: BVI VASP registration
+    via: bvi_manual
+    entity: Liquidity Technology Limited
+    licensed_activities: Exchange between one or more forms of virtual assets; exchange between virtual
+      assets and fiat currency; participation in and provision of financial services related to an issuer's
+      offer or sale of a virtual asset; safekeeping and/or administration of virtual assets; transfer
+      of virtual assets
+    since: null

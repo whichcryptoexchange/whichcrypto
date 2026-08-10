@@ -1,0 +1,18 @@
+id: satstreet
+brand: Satstreet
+eu_status: no_eu_entity
+website: https://satstreet.com/
+sources:
+- name: BVI FSC VASP Register
+  url: https://www.bvifsc.vg/regulated-entities-vasp
+  retrieved: '2026-08-10'
+entities: []
+countries:
+  VG:
+  - status: licensed
+    regime: BVI VASP registration
+    via: bvi_manual
+    entity: Satstreet (BVI) Corp.
+    licensed_activities: Exchange between one or more forms of virtual assets; exchange between virtual
+      assets and fiat currency
+    since: null

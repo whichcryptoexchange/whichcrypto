@@ -31,7 +31,8 @@ const isJP = code === 'JP';
 const isMY = code === 'MY';
 const isKR = code === 'KR';
 const isNZ = code === 'NZ';
-const isNonEEA = isGB || isCA || isAE || isSG || isUS || isHK || isGI || isJP || isMY || isKR || isNZ;
+const isBVI = code === 'VG';
+const isNonEEA = isGB || isCA || isAE || isSG || isUS || isHK || isGI || isJP || isMY || isKR || isNZ || isBVI;
 const rows = exchanges
   .map((ex) => ({ ex, c: ex.countries?.[code] }))
   .filter((r) => r.c);
@@ -51,6 +52,7 @@ const jpFsaRetrieved = sourceRetrieved('Japan FSA Registered Crypto-asset Exchan
 const myScRetrieved = sourceRetrieved('Malaysia SC List of Registered Digital Asset Exchanges');
 const krFiuRetrieved = sourceRetrieved('Korea FIU VASP Registration Disclosure');
 const nzFsprRetrieved = sourceRetrieved('New Zealand FSPR');
+const bviFscRetrieved = sourceRetrieved('BVI FSC VASP Register');
 // registered/authorised (UK, CA) are AML-only tiers; licensed (AE/Dubai VARA)
 // is a genuine crypto-specific licence, so it gets the same green stamp as
 // EU MiCA rather than the cautious amber/grey UK-style tiers.
@@ -91,6 +93,8 @@ const PAGE_TITLE = isGB
   ? `Crypto exchanges registered in South Korea (${YEAR}) | whichcryptoexchange.com`
   : isNZ
   ? `Crypto exchanges registered in New Zealand (${YEAR}) | whichcryptoexchange.com`
+  : isBVI
+  ? `Crypto exchanges licensed in the British Virgin Islands (${YEAR}) | whichcryptoexchange.com`
   : `Crypto exchanges licensed in ${name} (${YEAR}) | whichcryptoexchange.com`;
 const PAGE_DESC = isGB
   ? `${rows.length} crypto exchanges hold a UK FCA registration or authorisation, according to the official FCA Register. See which entity, which regime, and since when.`
@@ -114,6 +118,8 @@ const PAGE_DESC = isGB
   ? `${rows.length} crypto exchanges hold a Korea FIU VASP registration, according to the FIU's official registration disclosure.`
   : isNZ
   ? `${rows.length} crypto exchanges hold a New Zealand FSPR registration, manually verified against the official Financial Service Providers Register.`
+  : isBVI
+  ? `${rows.length} crypto exchanges hold a BVI VASP registration, manually verified against the official FSC register.`
   : `${rows.length} crypto exchanges hold a licence covering ${name}, according to official regulator registers. See which entity, which regime, and since when.`;
 ---
 <html lang="en">
@@ -333,6 +339,22 @@ const PAGE_DESC = isGB
         register — same discipline as Gibraltar and ADGM, but for an AML-only tier rather than a
         genuine licence.</p>
       </>
+    ) : isBVI ? (
+      <>
+        <h1>Which crypto exchanges are licensed in the British Virgin Islands?</h1>
+        <p class="lede">{rows.length} exchanges in our register hold a Virtual Assets Service
+        Provider (VASP) registration from the BVI Financial Services Commission, under the Virtual
+        Assets Service Providers Act, 2022. Like Dubai's VARA licence, Singapore's MAS licence, and
+        Gibraltar's DLT licence, this <em>is</em> a genuine crypto-specific regime — not an AML-only
+        registration like the UK/Canada/US/South Korea/New Zealand entries elsewhere on this
+        site.</p>
+        <p class="lede caveat">Unlike most jurisdictions on this site, this one is not
+        automatically synced. The FSC's register page returns a hard 403 to scripted requests even
+        with a realistic browser User-Agent and referer, so this list is refreshed only when someone
+        manually re-checks the live register — same discipline as Gibraltar and ADGM. Excludes
+        "Authorised Representatives - VASP" entries, which are local registered-agent firms required
+        by law for any VASP operating from the BVI, not VASPs themselves.</p>
+      </>
     ) : (
       <>
         <h1>Which crypto exchanges are licensed in {name}?</h1>
@@ -467,6 +489,11 @@ const PAGE_DESC = isGB
       last manually verified {nzFsprRetrieved} — not on an automated schedule. An exchange missing
       from this list either holds no New Zealand FSPR registration, isn't yet in our register, or
       was added after this list was last checked.</p>
+    ) : isBVI ? (
+      <p class="sourced">Source: <a href="https://www.bvifsc.vg/regulated-entities-vasp">BVI FSC VASP Register</a>,
+      last manually verified {bviFscRetrieved} — not on an automated schedule. An exchange missing
+      from this list either holds no BVI VASP registration, isn't yet in our register, or was added
+      after this list was last checked.</p>
     ) : (
       <p class="sourced">Source: <a href="https://www.esma.europa.eu/esmas-activities/digital-finance-and-innovation/markets-crypto-assets-regulation-mica">ESMA interim MiCA register</a>,
       retrieved {exchanges[0]?.sources?.[0]?.retrieved}. An exchange missing from this list either

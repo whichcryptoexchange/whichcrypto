@@ -1,0 +1,17 @@
+id: coinhako
+brand: Coinhako
+eu_status: no_eu_entity
+website: http://www.coinhako.com/
+sources:
+- name: BVI FSC VASP Register
+  url: https://www.bvifsc.vg/regulated-entities-vasp
+  retrieved: '2026-08-10'
+entities: []
+countries:
+  VG:
+  - status: licensed
+    regime: BVI VASP registration
+    via: bvi_manual
+    entity: Alpha Hako Ltd.
+    licensed_activities: Exchange between virtual assets and fiat currencies
+    since: null

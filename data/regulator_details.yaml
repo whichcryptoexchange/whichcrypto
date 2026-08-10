@@ -196,3 +196,18 @@
   note: The FSPR's public search tool has no fetchable API or bulk export available to us, so this list is manually verified against the live register rather than synced on a schedule -- same discipline as Gibraltar and ADGM, but for an AML-only tier rather than a genuine licence.
   source_url: https://fsp-app.companiesoffice.govt.nz/orp-master/service/create.html?targetAppCode=orp-master&service=registerItemSearch
   verified: '2026-08-09'
+- code: VG
+  name: British Virgin Islands Financial Services Commission (FSC)
+  tier: licensed
+  tier_label: Genuine licence (manually verified)
+  scope: British Virgin Islands only -- registration under a dedicated crypto-specific regime, not AML-only
+  capital: "Varies by registration category (general VASP, custody, exchange) -- see the FSC's VASP application guidance for specifics"
+  checks:
+    - Registration with the FSC under one or more categories (general VASP, custody, exchange) before commencing any VASP activity
+    - A registered agent/authorised representative physically present in the BVI
+    - Ongoing recordkeeping of transactions and financial statements, plus AML/CFT steps taken
+    - Annual submission of an auditor's report to the FSC
+    - FSC approval required for changes such as a change of company name or disposal of a significant interest
+  note: The FSC's register page (bvifsc.vg/regulated-entities-vasp) returns a hard 403 to scripted requests even with a realistic browser User-Agent and referer -- confirmed directly. This list is manually verified against the live paginated register rather than synced on a schedule, same discipline as Gibraltar and ADGM. Excludes "Authorised Representatives - VASP" entries, which are local registered-agent firms required by law for any VASP operating from the BVI, not VASPs themselves.
+  source_url: https://www.bvifsc.vg/regulated-entities-vasp
+  verified: '2026-08-10'

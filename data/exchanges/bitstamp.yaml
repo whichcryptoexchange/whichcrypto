@@ -17,6 +17,9 @@ sources:
 - name: NY DFS List of Licensed Virtual Currency Entities
   url: https://www.dfs.ny.gov/virtual_currency_businesses
   retrieved: '2026-08-06'
+- name: BVI FSC VASP Register
+  url: https://www.bvifsc.vg/regulated-entities-vasp
+  retrieved: '2026-08-10'
 entities:
 - lei: 549300XIBGTJ0PLIEO72
   legal_name: Bitstamp Europe S.A
@@ -257,6 +260,16 @@ countries:
     via: ny_dfs_register
     entity: Bitstamp USA, Inc.
     since: 2019-04
+  VG:
+  - status: licensed
+    regime: BVI VASP registration
+    via: bvi_manual
+    entity: Bitstamp Global Ltd.
+    licensed_activities: Exchange between one or more forms of virtual assets; exchange between virtual
+      assets and fiat currency; participation in and provision of financial services related to an issuer's
+      offer or sale of a virtual asset; safekeeping and/or administration of virtual assets; transfer
+      of virtual assets
+    since: null
 third_party_reviews:
 - source: App Store
   rating: 4.76

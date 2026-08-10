@@ -1,0 +1,113 @@
+# British Virgin Islands (BVI) Financial Services Commission (FSC) Virtual
+# Assets Service Providers register -- MANUALLY maintained, like Gibraltar
+# and ADGM. The FSC's own register page (bvifsc.vg/regulated-entities-vasp)
+# sits behind bot protection that returns a hard 403 to scripted requests
+# even with a realistic browser User-Agent and referer -- same wall as
+# Gibraltar's GFSC. This snapshot was read by a human in a real browser
+# (paginated, 57 raw rows across 4 pages, deduplicated by legal entity)
+# and pasted in; scripts/bvi_manual_apply.py applies it to
+# data/exchanges/, same shape as gi_manual_apply.py -- must be re-run by
+# hand whenever someone re-checks the live pages and updates this file.
+# No scheduled GitHub Actions workflow for this one.
+#
+# A BVI VASP registration under the Virtual Assets Service Providers
+# Act, 2022 is a genuine crypto-specific regime (like VARA/MAS/SFC/
+# Gibraltar/ADGM), not an AML-only registration bolted onto an existing
+# generic framework.
+#
+# Deliberately excludes every "Authorised Representatives - VASP" entry
+# on the register -- those are local registered-agent firms required by
+# law for any VASP operating from the BVI, not the VASP/exchange itself.
+# Also excludes a handful of entries with neither a verifiable website
+# nor a clear trading name (Lead Accelerating Limited, Portofino
+# Technologies Global Limited, TDX Strategies Ltd) -- too thin to
+# confidently represent as a real consumer-facing brand; omitted rather
+# than guessed at, same discipline as everywhere else on this site.
+
+retrieved: "2026-08-10"
+source_url: https://www.bvifsc.vg/regulated-entities-vasp
+providers:
+  - entity: Rules Holding BVI Ltd.
+    brand_id: bumba
+    website: https://www.bumba.global
+    regulated_activities: Exchange between one or more forms of virtual assets; exchange between virtual assets and fiat currency; safekeeping of virtual assets or instruments enabling control over the virtual assets
+  - entity: Alpha Hako Ltd.
+    brand_id: coinhako
+    website: http://www.coinhako.com/
+    regulated_activities: Exchange between virtual assets and fiat currencies
+  - entity: Bitstamp Global Ltd.
+    brand_id: bitstamp
+    website: https://www.bitstamp.net/
+    regulated_activities: Exchange between one or more forms of virtual assets; exchange between virtual assets and fiat currency; participation in and provision of financial services related to an issuer's offer or sale of a virtual asset; safekeeping and/or administration of virtual assets; transfer of virtual assets
+  - entity: CROSSX TECHNOLOGIES LTD.
+    brand_id: crossover
+    website: https://crossovermarkets.com
+    regulated_activities: Exchange between one or more forms of virtual assets; exchange between virtual assets and fiat currency
+  - entity: G-20 Minerva Limited
+    brand_id: g-20-group
+    website: https://www.g20.group
+    regulated_activities: Exchange between one or more forms of virtual assets; exchange between virtual assets and fiat currency; participation in and provision of financial services related to an issuer's offer or sale of a virtual asset; safekeeping and/or administration of virtual assets; transfer of virtual assets
+  - entity: Hidden Road Partners CIV (BVI) Ltd
+    brand_id: hidden-road
+    website: https://hiddenroad.com
+    regulated_activities: Exchange between one or more forms of virtual assets; exchange between virtual assets and fiat currency; transfer of virtual assets
+  - entity: JST Digital Trading (BVI) Limited
+    brand_id: jst-digital
+    website: https://jstdigital.io/
+    regulated_activities: Exchange between one or more forms of virtual assets; exchange between virtual assets and fiat currency; transfer of virtual assets
+  - entity: Keyex Limited
+    brand_id: keyex
+    website: https://www.keyex.io
+    regulated_activities: Exchange between one or more forms of virtual assets; exchange between virtual assets and fiat currency; safekeeping and/or administration of virtual assets; transfer of virtual assets
+  - entity: Liquid Latam Ltd.
+    brand_id: solidus-capital
+    website: https://www.soliduscapital.io
+    regulated_activities: Exchange between virtual assets and fiat currencies; exchange between one or more forms of virtual assets; participation in and provision of financial services related to an issuer's offer or sale of a virtual asset
+  - entity: Liquidity Technology Limited
+    brand_id: liquiditytech
+    website: https://www.liquiditytech.com
+    regulated_activities: Exchange between one or more forms of virtual assets; exchange between virtual assets and fiat currency; participation in and provision of financial services related to an issuer's offer or sale of a virtual asset; safekeeping and/or administration of virtual assets; transfer of virtual assets
+  - entity: Nonco (BVI) Limited
+    brand_id: nonco
+    website: https://nonco.com
+    regulated_activities: Exchange between one or more forms of virtual assets; exchange between virtual assets and fiat currency; participation in and provision of financial services related to an issuer's offer and sale of a virtual asset; transfer of virtual assets
+  - entity: Oneio International Limited
+    brand_id: oneio
+    website: https://www.one.io/
+    regulated_activities: Exchange between virtual assets and fiat currencies; exchange between one or more forms of virtual assets; transfer of virtual assets
+  - entity: Payward Commercial Ltd.
+    brand_id: kraken
+    website: https://www.kraken.com
+    regulated_activities: Safekeeping and/or administration of virtual assets; transfer of virtual assets
+  - entity: Payward International Markets, Ltd.
+    brand_id: kraken
+    website: https://www.kraken.com
+    regulated_activities: Exchange between one or more forms of virtual assets; exchange between virtual assets and fiat currency; safekeeping and/or administration of virtual assets; transfer of virtual assets
+  - entity: Payward Oceanic Ltd.
+    brand_id: kraken
+    website: https://www.kraken.com
+    regulated_activities: Exchange between one or more forms of virtual assets; exchange between virtual assets and fiat currency; safekeeping and/or administration of virtual assets; transfer of virtual assets
+  - entity: Payward Trading Ltd.
+    brand_id: kraken
+    website: https://www.kraken.com
+    regulated_activities: Exchange between one or more forms of virtual assets; exchange between virtual assets and fiat currency; safekeeping and/or administration of virtual assets; transfer of virtual assets
+  - entity: RYKI Inc.
+    brand_id: ryki
+    website: https://www.ryki.io/
+    regulated_activities: Exchange between virtual assets and fiat currencies; exchange between one or more forms of virtual assets; safekeeping and administration of virtual assets
+  - entity: Satstreet (BVI) Corp.
+    brand_id: satstreet
+    website: https://satstreet.com/
+    regulated_activities: Exchange between one or more forms of virtual assets; exchange between virtual assets and fiat currency
+  - entity: Sentora Digital Hub (BVI) Limited
+    brand_id: sentora
+    website: null
+    regulated_activities: Exchange between one or more forms of virtual assets; exchange between virtual assets and fiat currency
+  - entity: Spectro Finance Limited
+    brand_id: spectrocoin
+    website: https://www.spectrofinance.com
+    regulated_activities: Exchange between one or more forms of virtual assets; exchange between virtual assets and fiat currency; safekeeping and/or administration of virtual assets; transfer of virtual assets
+  - entity: Top Value (BVI) AM Limited
+    brand_id: top-value
+    website: null
+    regulated_activities: Exchange between one or more forms of virtual assets; safekeeping and/or administration of virtual assets

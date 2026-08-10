@@ -20,10 +20,11 @@ const jpExchanges = exchanges.filter((e) => e.countries?.JP);
 const myExchanges = exchanges.filter((e) => e.countries?.MY);
 const krExchanges = exchanges.filter((e) => e.countries?.KR);
 const nzExchanges = exchanges.filter((e) => e.countries?.NZ);
+const bviExchanges = exchanges.filter((e) => e.countries?.VG);
 const nyDfsCount = exchanges.filter((e) => (e.countries?.US ?? []).some((entry) => entry.via === 'ny_dfs_register')).length;
 const SITEKEY = import.meta.env.PUBLIC_TURNSTILE_SITEKEY || '0x4AAAAAAD84t4OWkoouLP3Y';
 const PAGE_TITLE = 'Is Your Crypto Exchange Licensed? | whichcryptoexchange.com';
-const PAGE_DESC = 'Check which crypto exchanges are licensed in your country -- built from 14 official regulator registers (MiCA, FCA, VARA & more). No rankings, just receipts.';
+const PAGE_DESC = 'Check which crypto exchanges are licensed in your country -- built from 15 official regulator registers (MiCA, FCA, VARA & more). No rankings, just receipts.';
 ---
 <html lang="en">
 <head>
@@ -167,11 +168,14 @@ const PAGE_DESC = 'Check which crypto exchanges are licensed in your country -- 
       <li><strong>{nzExchanges.length}</strong> have a New Zealand entity on the Financial Service
       Providers Register (FSPR), supervised by the Department of Internal Affairs — manually
       verified, not automatically synced. <a href="/nz/">See the New Zealand page</a>.</li>
+      <li><strong>{bviExchanges.length}</strong> hold a British Virgin Islands VASP registration
+      from the FSC — a genuine crypto-specific regime, manually verified, not automatically synced.
+      <a href="/vg/">See the BVI page</a>.</li>
     </ul>
 
     <h3>How to read the badges</h3>
     <div class="legend">
-      <span class="stamp licensed">MiCA / VARA / ADGM / MAS / SFC / DLT / FSA / SC / NY DFS — Licensed</span>
+      <span class="stamp licensed">MiCA / VARA / ADGM / MAS / SFC / DLT / FSA / SC / NY DFS / BVI — Licensed</span>
       <span class="stamp gb-registered">UK/CA/US/KR/NZ · Registered</span>
       <span class="stamp gb-authorised">UK · Authorised</span>
     </div>

@@ -7,6 +7,27 @@
 # omit it when a change is site-wide (search, sort controls) and there's no
 # single honest page to point at, rather than force a link that doesn't fit.
 - date: "2026-08-10"
+  title: "British Virgin Islands now tracked (FSC VASP registration)"
+  body: >
+    The BVI has a dedicated crypto-specific regime -- the Virtual
+    Assets Service Providers Act, 2022 -- so a BVI VASP registration
+    gets the same "genuine licence" tier as VARA, MAS, SFC, Gibraltar,
+    and ADGM, not the AML-only tier. The FSC's register sits behind bot
+    protection our scripts can't get through, so this is manually
+    verified rather than synced -- same discipline as Gibraltar and
+    ADGM. 18 brands hold a current BVI VASP registration, three already
+    tracked here (Bitstamp, Hidden Road, and Kraken, whose four
+    separate BVI entities all trade as Kraken) and fifteen newly added:
+    Bumba, Coinhako, Crossover, G-20 Group, JST Digital, Keyex, Solidus
+    Capital, LiquidityTech, Nonco, Oneio, RYKI, Satstreet, Sentora,
+    SpectroCoin, and Top Value. Deliberately excludes the register's
+    "Authorised Representatives" entries, which are local registered
+    agents required by law for any VASP operating from the BVI, not
+    VASPs themselves.
+  pages:
+    - { url: /vg/, label: British Virgin Islands }
+    - { url: /regulators/, label: Regulators }
+- date: "2026-08-10"
   title: "New: news mentions on exchange pages (unfiltered, headline-only)"
   body: >
     Exchange pages now show an "In the news" section when a brand's

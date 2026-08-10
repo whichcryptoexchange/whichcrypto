@@ -1,0 +1,18 @@
+id: oneio
+brand: Oneio
+eu_status: no_eu_entity
+website: https://www.one.io/
+sources:
+- name: BVI FSC VASP Register
+  url: https://www.bvifsc.vg/regulated-entities-vasp
+  retrieved: '2026-08-10'
+entities: []
+countries:
+  VG:
+  - status: licensed
+    regime: BVI VASP registration
+    via: bvi_manual
+    entity: Oneio International Limited
+    licensed_activities: Exchange between virtual assets and fiat currencies; exchange between one or
+      more forms of virtual assets; transfer of virtual assets
+    since: null

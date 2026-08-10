@@ -1,0 +1,18 @@
+id: jst-digital
+brand: JST Digital
+eu_status: no_eu_entity
+website: https://jstdigital.io/
+sources:
+- name: BVI FSC VASP Register
+  url: https://www.bvifsc.vg/regulated-entities-vasp
+  retrieved: '2026-08-10'
+entities: []
+countries:
+  VG:
+  - status: licensed
+    regime: BVI VASP registration
+    via: bvi_manual
+    entity: JST Digital Trading (BVI) Limited
+    licensed_activities: Exchange between one or more forms of virtual assets; exchange between virtual
+      assets and fiat currency; transfer of virtual assets
+    since: null

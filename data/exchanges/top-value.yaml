@@ -1,0 +1,17 @@
+id: top-value
+brand: Top Value
+eu_status: no_eu_entity
+sources:
+- name: BVI FSC VASP Register
+  url: https://www.bvifsc.vg/regulated-entities-vasp
+  retrieved: '2026-08-10'
+entities: []
+countries:
+  VG:
+  - status: licensed
+    regime: BVI VASP registration
+    via: bvi_manual
+    entity: Top Value (BVI) AM Limited
+    licensed_activities: Exchange between one or more forms of virtual assets; safekeeping and/or administration
+      of virtual assets
+    since: null
