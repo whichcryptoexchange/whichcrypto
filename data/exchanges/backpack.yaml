@@ -7,7 +7,7 @@ sources:
   retrieved: '2026-08-11'
 - name: Dubai VARA Public Register
   url: https://www.vara.ae/en/licenses-and-register/public-register/
-  retrieved: '2026-08-07'
+  retrieved: '2026-08-11'
 entities:
 - lei: 6488C2PNI17093U2YA18
   legal_name: '"Trek Technologies" SIA'
