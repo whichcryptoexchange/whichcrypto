@@ -4,7 +4,7 @@ eu_status: no_eu_entity
 sources:
 - name: Hong Kong SFC VATP List
   url: https://www.sfc.hk/en/Welcome-to-the-Fintech-Contact-Point/Virtual-assets/Virtual-asset-trading-platforms-operators/Lists-of-virtual-asset-trading-platforms
-  retrieved: '2026-07-29'
+  retrieved: '2026-08-11'
 entities: []
 countries:
   HK:
