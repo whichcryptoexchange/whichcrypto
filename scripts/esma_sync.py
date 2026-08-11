@@ -259,6 +259,8 @@ def main():
         # this script's own source of truth. Preserve it across
         # regenerations rather than silently dropping it.
         existing_path = out_dir / f"{bid}.yaml"
+        third_party_reviews = None
+        news_mentions = None
         if existing_path.exists():
             existing = yaml.safe_load(existing_path.read_text()) or {}
             for cc, entry in (existing.get("countries") or {}).items():
@@ -266,6 +268,11 @@ def main():
                     countries[cc] = entry
             other_sources = [s for s in (existing.get("sources") or [])
                               if s.get("name") != "ESMA interim MiCA register (CASPS.csv)"]
+            # Fields owned by other sync scripts (appstore_sync.py,
+            # news_sync.py) — this script doesn't know how to produce them,
+            # so preserve whatever's already on disk rather than dropping it.
+            third_party_reviews = existing.get("third_party_reviews")
+            news_mentions = existing.get("news_mentions")
         countries = dict(sorted(countries.items()))
 
         payload = {
@@ -280,6 +287,10 @@ def main():
             "entities": b["entities"],
             "countries": countries,
         }
+        if third_party_reviews is not None:
+            payload["third_party_reviews"] = third_party_reviews
+        if news_mentions is not None:
+            payload["news_mentions"] = news_mentions
         existing_path.write_text(
             yaml.safe_dump(payload, sort_keys=False, allow_unicode=True, width=100)
         )

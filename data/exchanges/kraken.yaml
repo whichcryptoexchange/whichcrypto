@@ -4,7 +4,7 @@ eu_status: authorised
 sources:
 - name: ESMA interim MiCA register (CASPS.csv)
   url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
-  retrieved: '2026-07-26'
+  retrieved: '2026-08-11'
 - name: UK FCA Register
   url: https://register.fca.org.uk/
   retrieved: '2026-08-11'
@@ -89,6 +89,14 @@ entities:
     - SK
     last_update: '2025-06-25'
 countries:
+  AE:
+  - status: licensed
+    regime: Abu Dhabi ADGM FSRA licence
+    via: adgm_manual
+    entity: Kraken
+    licensed_activities: Operating a Multilateral Trading Facility and providing custody for virtual assets
+    reference: null
+    since: '2022-04-25'
   AT:
     status: licensed
     regime: MiCA
@@ -267,14 +275,6 @@ countries:
     entity: Kraken Financial
     reg_number: '29471458'
     since: '2024-12-09'
-  AE:
-  - status: licensed
-    regime: Abu Dhabi ADGM FSRA licence
-    via: adgm_manual
-    entity: Kraken
-    licensed_activities: Operating a Multilateral Trading Facility and providing custody for virtual assets
-    reference: null
-    since: '2022-04-25'
   VG:
   - status: licensed
     regime: BVI VASP registration

@@ -4,7 +4,7 @@ eu_status: authorised
 sources:
 - name: ESMA interim MiCA register (CASPS.csv)
   url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
-  retrieved: '2026-07-26'
+  retrieved: '2026-08-11'
 entities:
 - lei: 529900EXG2PM316ISO63
   legal_name: Deutsche WertpapierService Bank AG
@@ -21,6 +21,17 @@ entities:
     passported_to:
     - DE
     last_update: '2025-11-27'
+  - authorised: '2026-08-28'
+    withdrawn: null
+    status: authorised
+    services:
+    - a
+    - c
+    - d
+    - j
+    passported_to:
+    - DE
+    last_update: '2026-07-30'
 countries:
   DE:
     status: licensed

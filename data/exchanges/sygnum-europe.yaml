@@ -4,7 +4,7 @@ eu_status: authorised
 sources:
 - name: ESMA interim MiCA register (CASPS.csv)
   url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
-  retrieved: '2026-07-26'
+  retrieved: '2026-08-11'
 - name: Singapore MAS Financial Institutions Directory
   url: https://eservices.mas.gov.sg/fid/institution
   retrieved: '2026-07-26'
@@ -197,6 +197,13 @@ countries:
     regime: MiCA
     via: mica_passporting
     entity: Sygnum Europe AG
+  SG:
+  - status: licensed
+    regime: Singapore MAS MPI licence (DPT)
+    via: mas_register
+    entity: SYGNUM PTE. LTD.
+    reference: 228260-SYGNUM-PTE-LTD
+    since: null
   SI:
     status: licensed
     regime: MiCA
@@ -207,10 +214,3 @@ countries:
     regime: MiCA
     via: mica_passporting
     entity: Sygnum Europe AG
-  SG:
-  - status: licensed
-    regime: Singapore MAS MPI licence (DPT)
-    via: mas_register
-    entity: SYGNUM PTE. LTD.
-    reference: 228260-SYGNUM-PTE-LTD
-    since: null

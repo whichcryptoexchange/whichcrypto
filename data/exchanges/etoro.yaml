@@ -4,7 +4,7 @@ eu_status: authorised
 sources:
 - name: ESMA interim MiCA register (CASPS.csv)
   url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
-  retrieved: '2026-07-26'
+  retrieved: '2026-08-11'
 - name: UK FCA Register
   url: https://register.fca.org.uk/
   retrieved: '2026-08-11'
@@ -131,6 +131,12 @@ countries:
     entity: ETORO (UK) LIMITED
     frn: '583263'
     since: '2022-01-14'
+  GI:
+  - status: licensed
+    regime: Gibraltar DLT licence
+    via: gfsc_manual
+    entity: eToro X Limited
+    since: null
   GR:
     status: licensed
     regime: MiCA
@@ -244,12 +250,6 @@ countries:
     via: ny_dfs_register
     entity: eToro NY LLC
     since: 2023-02
-  GI:
-  - status: licensed
-    regime: Gibraltar DLT licence
-    via: gfsc_manual
-    entity: eToro X Limited
-    since: null
 third_party_reviews:
 - source: App Store
   rating: 4.39

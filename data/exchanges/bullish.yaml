@@ -4,7 +4,7 @@ eu_status: authorised
 sources:
 - name: ESMA interim MiCA register (CASPS.csv)
   url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
-  retrieved: '2026-07-26'
+  retrieved: '2026-08-11'
 - name: Canada FINTRAC MSB Registry
   url: https://fintrac-canafe.canada.ca/msb-esm/reg-eng
   retrieved: '2026-07-26'
@@ -26,7 +26,7 @@ entities:
   commercial_name: Bullish Europe GmbH
   home_state: DE
   regulator: Federal Financial Supervisory Authority (BaFin)
-  website: https://www.bullish.com/
+  website: https://bullish.com/home-de/
   records:
   - authorised: '2025-09-04'
     withdrawn: null
@@ -133,11 +133,29 @@ countries:
     regime: MiCA
     via: mica_passporting
     entity: Bullish Europe GmbH
+  GI:
+  - status: licensed
+    regime: Gibraltar DLT licence
+    via: gfsc_manual
+    entity: Bullish (GI) Ltd
+    since: null
+  - status: licensed
+    regime: Gibraltar DLT licence
+    via: gfsc_manual
+    entity: Bullish (GI) Markets Limited
+    since: null
   GR:
     status: licensed
     regime: MiCA
     via: mica_passporting
     entity: Bullish Europe GmbH
+  HK:
+  - status: licensed
+    regime: Hong Kong SFC VATP licence
+    via: sfc_register
+    entity: Bullish
+    reference: BUQ956
+    since: '2025-02-18'
   HR:
     status: licensed
     regime: MiCA
@@ -246,21 +264,3 @@ countries:
     via: ny_dfs_register
     entity: Bullish US Operations LLC
     since: 2025-09
-  HK:
-  - status: licensed
-    regime: Hong Kong SFC VATP licence
-    via: sfc_register
-    entity: Bullish
-    reference: BUQ956
-    since: '2025-02-18'
-  GI:
-  - status: licensed
-    regime: Gibraltar DLT licence
-    via: gfsc_manual
-    entity: Bullish (GI) Ltd
-    since: null
-  - status: licensed
-    regime: Gibraltar DLT licence
-    via: gfsc_manual
-    entity: Bullish (GI) Markets Limited
-    since: null

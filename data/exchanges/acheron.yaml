@@ -4,14 +4,14 @@ eu_status: authorised
 sources:
 - name: ESMA interim MiCA register (CASPS.csv)
   url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
-  retrieved: '2026-07-26'
+  retrieved: '2026-08-11'
 entities:
 - lei: 699400TPXCI7R4A0NG65
   legal_name: Acheron Europe B.V
   commercial_name: Acheron
   home_state: NL
   regulator: Netherlands Authority for the Financial Markets (AFM)
-  website: https://acherontrading.com/
+  website: https://www.acherontrading.com/
   records:
   - authorised: '2025-05-26'
     withdrawn: null

@@ -4,7 +4,7 @@ eu_status: authorised
 sources:
 - name: ESMA interim MiCA register (CASPS.csv)
   url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
-  retrieved: '2026-07-26'
+  retrieved: '2026-08-11'
 - name: UK FCA Register
   url: https://register.fca.org.uk/
   retrieved: '2026-08-11'
@@ -217,6 +217,13 @@ countries:
     regime: MiCA
     via: mica_passporting
     entity: Ripple Payments Europe S.A
+  SG:
+  - status: licensed
+    regime: Singapore MAS MPI licence (DPT)
+    via: mas_register
+    entity: RIPPLE MARKETS APAC PTE. LTD.
+    reference: 415143-RIPPLE-MARKETS-APAC-PTE-LTD
+    since: null
   SI:
     status: licensed
     regime: MiCA
@@ -227,13 +234,6 @@ countries:
     regime: MiCA
     via: mica_passporting
     entity: Ripple Payments Europe S.A
-  SG:
-  - status: licensed
-    regime: Singapore MAS MPI licence (DPT)
-    via: mas_register
-    entity: RIPPLE MARKETS APAC PTE. LTD.
-    reference: 415143-RIPPLE-MARKETS-APAC-PTE-LTD
-    since: null
   US:
   - status: registered
     regime: US FinCEN MSB registration

@@ -1,0 +1,32 @@
+id: aquilla-nummus-ltd
+brand: Aquilla Nummus Ltd
+eu_status: authorised
+sources:
+- name: ESMA interim MiCA register (CASPS.csv)
+  url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
+  retrieved: '2026-08-11'
+entities:
+- lei: 549300ZCGZNVDA6R3Y84
+  legal_name: Aquilla Nummus Ltd
+  commercial_name: Aquilla Nummus Ltd
+  home_state: CY
+  regulator: Cyprus Securities and Exchange Commission (CySEC)
+  website: https://www.aquillanummus.com/
+  records:
+  - authorised: '2026-07-20'
+    withdrawn: null
+    status: authorised
+    services:
+    - a
+    - e
+    - g
+    - i
+    passported_to:
+    - CY
+    last_update: '2026-07-24'
+countries:
+  CY:
+    status: licensed
+    regime: MiCA
+    via: home_state
+    entity: Aquilla Nummus Ltd

@@ -1,0 +1,114 @@
+id: shares
+brand: SHARES
+eu_status: authorised
+sources:
+- name: ESMA interim MiCA register (CASPS.csv)
+  url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
+  retrieved: '2026-08-11'
+entities:
+- lei: 9695001LQMTTVPIIQI05
+  legal_name: SHARES FINANCIAL ASSETS SAS
+  commercial_name: SHARES
+  home_state: FR
+  regulator: Autorité des Marchés Financiers (AMF)
+  website: https://www.shares.io/
+  records:
+  - authorised: '2026-07-28'
+    withdrawn: null
+    status: authorised
+    services:
+    - a
+    - g
+    - j
+    passported_to:
+    - BE
+    - DE
+    - DK
+    - ES
+    - IE
+    - IT
+    - LT
+    - LU
+    - LV
+    - NL
+    - PL
+    - PT
+    - SE
+    - SI
+    last_update: '2026-07-28'
+countries:
+  BE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: SHARES FINANCIAL ASSETS SAS
+  DE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: SHARES FINANCIAL ASSETS SAS
+  DK:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: SHARES FINANCIAL ASSETS SAS
+  ES:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: SHARES FINANCIAL ASSETS SAS
+  FR:
+    status: licensed
+    regime: MiCA
+    via: home_state
+    entity: SHARES FINANCIAL ASSETS SAS
+  IE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: SHARES FINANCIAL ASSETS SAS
+  IT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: SHARES FINANCIAL ASSETS SAS
+  LT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: SHARES FINANCIAL ASSETS SAS
+  LU:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: SHARES FINANCIAL ASSETS SAS
+  LV:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: SHARES FINANCIAL ASSETS SAS
+  NL:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: SHARES FINANCIAL ASSETS SAS
+  PL:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: SHARES FINANCIAL ASSETS SAS
+  PT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: SHARES FINANCIAL ASSETS SAS
+  SE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: SHARES FINANCIAL ASSETS SAS
+  SI:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: SHARES FINANCIAL ASSETS SAS

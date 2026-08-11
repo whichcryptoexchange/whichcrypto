@@ -4,14 +4,14 @@ eu_status: authorised
 sources:
 - name: ESMA interim MiCA register (CASPS.csv)
   url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
-  retrieved: '2026-07-26'
+  retrieved: '2026-08-11'
 entities:
 - lei: 98450065E59FDCD93R40
   legal_name: Nodu Digital, SIA
   commercial_name: Nodu Digital
   home_state: LV
   regulator: Latvijas Banka
-  website: null
+  website: https://nodu.fi
   records:
   - authorised: '2026-07-08'
     withdrawn: null
@@ -19,11 +19,186 @@ entities:
     services:
     - c
     - j
-    passported_to: []
-    last_update: '2026-07-14'
+    passported_to:
+    - AT
+    - BE
+    - BG
+    - CY
+    - CZ
+    - DE
+    - DK
+    - EE
+    - ES
+    - FI
+    - FR
+    - GR
+    - HR
+    - HU
+    - IE
+    - IS
+    - IT
+    - LI
+    - LT
+    - LU
+    - LV
+    - MT
+    - NL
+    - 'NO'
+    - PL
+    - PT
+    - RO
+    - SE
+    - SI
+    - SK
+    last_update: '2026-07-24'
 countries:
+  AT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Nodu Digital, SIA
+  BE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Nodu Digital, SIA
+  BG:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Nodu Digital, SIA
+  CY:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Nodu Digital, SIA
+  CZ:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Nodu Digital, SIA
+  DE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Nodu Digital, SIA
+  DK:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Nodu Digital, SIA
+  EE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Nodu Digital, SIA
+  ES:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Nodu Digital, SIA
+  FI:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Nodu Digital, SIA
+  FR:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Nodu Digital, SIA
+  GR:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Nodu Digital, SIA
+  HR:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Nodu Digital, SIA
+  HU:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Nodu Digital, SIA
+  IE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Nodu Digital, SIA
+  IS:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Nodu Digital, SIA
+  IT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Nodu Digital, SIA
+  LI:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Nodu Digital, SIA
+  LT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Nodu Digital, SIA
+  LU:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Nodu Digital, SIA
   LV:
     status: licensed
     regime: MiCA
     via: home_state
+    entity: Nodu Digital, SIA
+  MT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Nodu Digital, SIA
+  NL:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Nodu Digital, SIA
+  'NO':
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Nodu Digital, SIA
+  PL:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Nodu Digital, SIA
+  PT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Nodu Digital, SIA
+  RO:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Nodu Digital, SIA
+  SE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Nodu Digital, SIA
+  SI:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Nodu Digital, SIA
+  SK:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
     entity: Nodu Digital, SIA

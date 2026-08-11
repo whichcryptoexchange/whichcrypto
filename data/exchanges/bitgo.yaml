@@ -4,7 +4,7 @@ eu_status: authorised
 sources:
 - name: ESMA interim MiCA register (CASPS.csv)
   url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
-  retrieved: '2026-07-26'
+  retrieved: '2026-08-11'
 - name: Singapore MAS Financial Institutions Directory
   url: https://eservices.mas.gov.sg/fid/institution
   retrieved: '2026-07-26'
@@ -68,6 +68,21 @@ entities:
     - SK
     last_update: '2025-09-02'
 countries:
+  AE:
+  - status: licensed
+    regime: Dubai VARA VASP licence
+    via: dubai_vara
+    entity: BitGo MENA FZE
+    reference: VL/25/09/001
+    licensed_activities: Broker-Dealer Services
+    since: '2025-09-17'
+  - status: licensed
+    regime: Dubai VARA VASP licence
+    via: dubai_vara
+    entity: BitGo Custody MENA FZE
+    reference: VL/25/04/003
+    licensed_activities: Custody Services [including custodial staking]
+    since: '2025-04-25'
   AT:
     status: licensed
     regime: MiCA
@@ -208,6 +223,13 @@ countries:
     regime: MiCA
     via: mica_passporting
     entity: BitGo Europe GmbH
+  SG:
+  - status: licensed
+    regime: Singapore MAS MPI licence (DPT)
+    via: mas_register
+    entity: BITGO SINGAPORE PTE. LTD.
+    reference: 420728-BITGO-SINGAPORE-PTE-LTD
+    since: null
   SI:
     status: licensed
     regime: MiCA
@@ -218,13 +240,6 @@ countries:
     regime: MiCA
     via: mica_passporting
     entity: BitGo Europe GmbH
-  SG:
-  - status: licensed
-    regime: Singapore MAS MPI licence (DPT)
-    via: mas_register
-    entity: BITGO SINGAPORE PTE. LTD.
-    reference: 420728-BITGO-SINGAPORE-PTE-LTD
-    since: null
   US:
   - status: registered
     regime: US FinCEN MSB registration
@@ -243,18 +258,3 @@ countries:
     via: ny_dfs_register
     entity: BitGo New York Trust Company, LLC
     since: 2021-03
-  AE:
-  - status: licensed
-    regime: Dubai VARA VASP licence
-    via: dubai_vara
-    entity: BitGo MENA FZE
-    reference: VL/25/09/001
-    licensed_activities: Broker-Dealer Services
-    since: '2025-09-17'
-  - status: licensed
-    regime: Dubai VARA VASP licence
-    via: dubai_vara
-    entity: BitGo Custody MENA FZE
-    reference: VL/25/04/003
-    licensed_activities: Custody Services [including custodial staking]
-    since: '2025-04-25'
