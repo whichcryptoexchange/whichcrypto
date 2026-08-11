@@ -126,6 +126,9 @@ h3:first-child { margin-top: 0; }
   font-size: 15px;
   line-height: 1.6;
 }
+.summary-box h3 { margin: 0 0 8px; font-size: 17px; }
+.summary-box p { margin: 0 0 12px; }
+.summary-box p:last-child { margin-bottom: 0; }
 .lede.caveat {
   color: var(--warned);
   font-weight: 600;
