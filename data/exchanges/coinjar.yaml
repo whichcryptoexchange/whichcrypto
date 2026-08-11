@@ -10,7 +10,7 @@ sources:
   retrieved: '2026-07-27'
 - name: UK FCA Register
   url: https://register.fca.org.uk/
-  retrieved: '2026-08-08'
+  retrieved: '2026-08-11'
 entities:
 - lei: 98450066Q3A1G1A4T786
   legal_name: CoinJar Europe Limited
