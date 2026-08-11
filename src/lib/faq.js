@@ -119,6 +119,18 @@ const GENERAL_QUESTIONS = [
     href: '/providers/',
   },
   {
+    id: 'general-why-regulation-matters',
+    question: 'Why does it matter if a crypto exchange is regulated?',
+    answer: "A genuine licence means a regulator assessed the business itself -- capital, custody arrangements, fitness of directors -- before approving it, and can suspend or revoke it if something goes wrong later. Neither a licence nor a registration guarantees safety, but it's the difference between \"someone with the power to intervene checked this\" and \"no one has\" -- the difference that mattered at FTX, Celsius, and every other collapsed exchange where customers turned out to be unsecured creditors rather than depositors with protected, segregated funds.",
+    href: '/about/',
+  },
+  {
+    id: 'general-adjacent-licences',
+    question: "Why do some exchanges list licences that aren't about running an exchange?",
+    answer: "Exchanges sometimes publish their own \"security\" or \"trust\" pages listing real licences and registrations that have nothing to do with operating an exchange -- a money-lending licence, a trust-company registration, a precious-metals dealer registration -- formatted identically to a genuine exchange authorisation, so a reader skimming the page can't easily tell the difference. Holding those licences isn't necessarily dishonest on its own; the issue is presentation, not the licence. That's why we don't rely on any company's own disclosure -- every status on this register is checked against the primary regulator source directly.",
+    href: '/about/',
+  },
+  {
     id: 'general-how-often-updated',
     question: 'How often is this register updated?',
     answer: 'Most jurisdictions sync automatically against the live official regulator register on a weekly schedule, with changes opened as a pull request for human review before merging -- never auto-published. A couple of sources sit behind bot protection and are refreshed manually instead; each country page states its own source and last-checked date.',
