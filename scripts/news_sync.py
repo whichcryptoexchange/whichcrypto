@@ -78,7 +78,7 @@ MAX_PER_BRAND = 8
 # ordinary sense. Add to this set as further cases turn up in PR review
 # -- this list will never be complete on its own, which is exactly why
 # every run still goes through a reviewed PR rather than a direct push.
-SKIP_BRANDS = {"strike"}
+SKIP_BRANDS = {"strike", "shares"}
 
 
 def strip_cdata(s):
