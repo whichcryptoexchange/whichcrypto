@@ -27,3 +27,12 @@ countries:
     regime: MiCA
     via: home_state
     entity: Volksbank Raiffeisenbank Bayern Mitte eG
+company_facts:
+- lei: 529900ZW3QH424NY3959
+  registered_office:
+    city: Ingolstadt
+    country: DE
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '1895-10-17'
+  retrieved: '2026-08-12'

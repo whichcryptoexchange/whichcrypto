@@ -203,3 +203,12 @@ countries:
     regime: MiCA
     via: mica_passporting
     entity: Nuvei Liquidity UAB
+company_facts:
+- lei: 894500IY99QLL9M0SR28
+  registered_office:
+    city: Vilnius
+    country: LT
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2022-08-04'
+  retrieved: '2026-08-12'

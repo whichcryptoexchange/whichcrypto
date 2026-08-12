@@ -30,3 +30,12 @@ countries:
     regime: MiCA
     via: home_state
     entity: Aquilla Nummus Ltd
+company_facts:
+- lei: 549300ZCGZNVDA6R3Y84
+  registered_office:
+    city: NICOSIA
+    country: CY
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2016-03-09'
+  retrieved: '2026-08-12'

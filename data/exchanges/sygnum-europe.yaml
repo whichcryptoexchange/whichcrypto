@@ -214,3 +214,12 @@ countries:
     regime: MiCA
     via: mica_passporting
     entity: Sygnum Europe AG
+company_facts:
+- lei: 506700NPCDRP5LN89R92
+  registered_office:
+    city: Vaduz
+    country: LI
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2024-03-28'
+  retrieved: '2026-08-12'

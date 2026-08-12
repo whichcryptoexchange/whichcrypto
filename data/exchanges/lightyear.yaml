@@ -203,3 +203,12 @@ countries:
     regime: MiCA
     via: mica_passporting
     entity: Lightyear Europe AS
+company_facts:
+- lei: 254900BBBJZF2IE8EN54
+  registered_office:
+    city: Tallinn
+    country: EE
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2021-05-21'
+  retrieved: '2026-08-12'

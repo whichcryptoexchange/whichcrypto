@@ -28,3 +28,12 @@ countries:
     regime: MiCA
     via: home_state
     entity: AS LHV Pank
+company_facts:
+- lei: 529900GJOSVHI055QR67
+  registered_office:
+    city: Tallinn
+    country: EE
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '1999-03-02'
+  retrieved: '2026-08-12'

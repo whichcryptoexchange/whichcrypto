@@ -53,3 +53,12 @@ entities:
     - SK
     last_update: '2026-05-21'
 countries: {}
+company_facts:
+- lei: 549300LZMQXXYV4JJ603
+  registered_office:
+    city: NICOSIA
+    country: CY
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2019-12-30'
+  retrieved: '2026-08-12'

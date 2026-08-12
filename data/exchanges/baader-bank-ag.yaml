@@ -195,3 +195,12 @@ countries:
     regime: MiCA
     via: mica_passporting
     entity: Baader Bank Aktiengesellschaft
+company_facts:
+- lei: 529900JFOPPEDUR61H13
+  registered_office:
+    city: null
+    country: DE
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '1998-08-09'
+  retrieved: '2026-08-12'

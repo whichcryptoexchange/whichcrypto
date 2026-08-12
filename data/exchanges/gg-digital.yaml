@@ -31,3 +31,12 @@ countries:
     regime: MiCA
     via: home_state
     entity: GG Digital, a.s
+company_facts:
+- lei: 984500C0OE94NDA81B62
+  registered_office:
+    city: Praha 6
+    country: CZ
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2020-06-01'
+  retrieved: '2026-08-12'

@@ -256,3 +256,12 @@ third_party_reviews:
   count: 9823
   url: https://apps.apple.com/us/app/etoro-trade-invest/id674984916?uo=4
   retrieved: '2026-08-10'
+company_facts:
+- lei: 213800GIFQMSV7HROS23
+  registered_office:
+    city: null
+    country: CY
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2007-05-26'
+  retrieved: '2026-08-12'

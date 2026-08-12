@@ -211,3 +211,12 @@ countries:
     regime: MiCA
     via: mica_passporting
     entity: Interactive Brokers Ireland Limited
+company_facts:
+- lei: 5493001B9LDFCQUY9273
+  registered_office:
+    city: Dublin
+    country: IE
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2019-09-20'
+  retrieved: '2026-08-12'

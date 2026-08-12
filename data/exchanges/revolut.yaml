@@ -222,3 +222,12 @@ third_party_reviews:
   count: 1057167
   url: https://apps.apple.com/gb/app/revolut-mobile-finance/id932493382?uo=4
   retrieved: '2026-08-10'
+company_facts:
+- lei: 549300ET4IUR6RCZOL84
+  registered_office:
+    city: null
+    country: CY
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2022-01-21'
+  retrieved: '2026-08-12'

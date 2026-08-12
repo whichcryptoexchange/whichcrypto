@@ -27,3 +27,12 @@ countries:
     regime: MiCA
     via: home_state
     entity: VBU Volksbank im Unterland eG
+company_facts:
+- lei: 52990053QE1M1V4P6U87
+  registered_office:
+    city: Brackenheim
+    country: DE
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '1935-10-23'
+  retrieved: '2026-08-12'

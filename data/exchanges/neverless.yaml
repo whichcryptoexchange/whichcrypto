@@ -205,3 +205,12 @@ countries:
     regime: MiCA
     via: mica_passporting
     entity: Neverless SIA
+company_facts:
+- lei: 9845008O5EQ5A4B63R72
+  registered_office:
+    city: null
+    country: LV
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2025-04-03'
+  retrieved: '2026-08-12'

@@ -27,3 +27,12 @@ countries:
     regime: MiCA
     via: home_state
     entity: VR Bank Schleswig-Holstein Mitte eG
+company_facts:
+- lei: 52990017DZKEH3Q6PV63
+  registered_office:
+    city: null
+    country: DE
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '1900-04-16'
+  retrieved: '2026-08-12'

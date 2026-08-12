@@ -32,3 +32,12 @@ countries:
     regime: MiCA
     via: home_state
     entity: SG Digital Assets Limited
+company_facts:
+- lei: 254900YI6BJ1QQQZIY62
+  registered_office:
+    city: Nicosia
+    country: CY
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2025-02-10'
+  retrieved: '2026-08-12'

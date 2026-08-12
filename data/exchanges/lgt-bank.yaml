@@ -108,3 +108,12 @@ countries:
     regime: MiCA
     via: mica_passporting
     entity: LGT Bank AG
+company_facts:
+- lei: 7KDSOB6Z0X4S67TMX170
+  registered_office:
+    city: Vaduz
+    country: LI
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '1990-12-07'
+  retrieved: '2026-08-12'

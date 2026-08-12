@@ -202,3 +202,12 @@ countries:
     regime: MiCA
     via: mica_passporting
     entity: Bleap SIA
+company_facts:
+- lei: 2549005P20R5UTQWNB80
+  registered_office:
+    city: Riga
+    country: LV
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2026-01-23'
+  retrieved: '2026-08-12'

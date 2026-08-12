@@ -84,3 +84,12 @@ countries:
     regime: MiCA
     via: mica_passporting
     entity: RUFIJI CAPITAL SAS
+company_facts:
+- lei: 969500FUWSKQEO5J7H72
+  registered_office:
+    city: PARIS
+    country: FR
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2023-01-23'
+  retrieved: '2026-08-12'

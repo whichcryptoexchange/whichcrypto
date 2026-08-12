@@ -246,3 +246,12 @@ third_party_reviews:
   count: 22413
   url: https://apps.apple.com/us/app/okx-buy-bitcoin-btc-crypto/id1327268470?uo=4
   retrieved: '2026-08-10'
+company_facts:
+- lei: 54930069NLWEIGLHXU42
+  registered_office:
+    city: TRIQ GHAR IL-LEMBI
+    country: MT
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2018-09-07'
+  retrieved: '2026-08-12'

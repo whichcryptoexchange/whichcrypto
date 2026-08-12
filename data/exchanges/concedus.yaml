@@ -28,3 +28,12 @@ countries:
     regime: MiCA
     via: home_state
     entity: CONCEDUS GmbH
+company_facts:
+- lei: 529900114Q5XQ6KLYR24
+  registered_office:
+    city: null
+    country: DE
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2018-10-10'
+  retrieved: '2026-08-12'

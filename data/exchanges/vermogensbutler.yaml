@@ -28,3 +28,12 @@ countries:
     regime: MiCA
     via: home_state
     entity: Vermögensbutler GmbH
+company_facts:
+- lei: 529900ADW3Q5TWADIL41
+  registered_office:
+    city: Ditzingen
+    country: DE
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2011-02-23'
+  retrieved: '2026-08-12'

@@ -30,3 +30,12 @@ countries:
     regime: MiCA
     via: home_state
     entity: Pluso a.s
+company_facts:
+- lei: 315700GXG7KIZFLV9R66
+  registered_office:
+    city: Beroun
+    country: CZ
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2017-10-19'
+  retrieved: '2026-08-12'

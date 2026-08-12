@@ -203,3 +203,12 @@ countries:
     regime: MiCA
     via: mica_passporting
     entity: UAB Decentralized
+company_facts:
+- lei: 6488907MV9XAA08E4E40
+  registered_office:
+    city: Vilnius
+    country: LT
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2014-10-13'
+  retrieved: '2026-08-12'

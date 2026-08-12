@@ -205,3 +205,12 @@ countries:
     regime: MiCA
     via: mica_passporting
     entity: Tesseract Investment Oy
+company_facts:
+- lei: 743700GULNWPBLJ7A022
+  registered_office:
+    city: HELSINKI
+    country: FI
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2024-09-16'
+  retrieved: '2026-08-12'

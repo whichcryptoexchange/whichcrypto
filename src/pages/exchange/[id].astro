@@ -48,6 +48,16 @@ const faqAnswer = licenceSummaryText(ex);
 // the licence-status half of the widget works instantly with no request.
 const countryFacts = countryStatusMap(ex);
 
+// GLEIF-sourced facts (scripts/gleif_sync.py), keyed by LEI so each entity
+// record card can look up its own. Not every entity resolves -- non-EEA
+// entries have no LEI at all, and a handful of EEA ones fail GLEIF lookup
+// (malformed LEI upstream in ESMA's own CSV) -- so this is always a
+// best-effort lookup, never assumed present.
+const companyFacts = Object.fromEntries((ex.company_facts ?? []).map((f) => [f.lei, f]));
+const registeredOfficeText = (f) =>
+  [f.registered_office?.city, COUNTRY_NAMES[f.registered_office?.country] ?? f.registered_office?.country]
+    .filter(Boolean).join(', ');
+
 // schema.org Certification -- built for exactly this: "an authoritative
 // body issued this organization a credential." One per verified record,
 // EEA and non-EEA alike, so every stamp on the page has a machine-
@@ -223,20 +233,35 @@ const PAGE_DESC = `${ex.brand}: official licence records, legal entities, regula
       </details>
     )}
 
-    {ex.entities.map((ent) => ent.records.map((rec) => (
-      <div class={`record ${rec.status}`}>
-        <h3>{ent.legal_name}</h3>
-        <dl>
-          <dt>Regulator</dt><dd>{ent.regulator}</dd>
-          <dt>Home state</dt><dd class="datum">{ent.home_state} — {COUNTRY_NAMES[ent.home_state] ?? ''}</dd>
-          {ent.lei && <><dt>LEI</dt><dd class="datum">{ent.lei}</dd></>}
-          <dt>Authorised</dt><dd class="datum">{rec.authorised ?? '—'}</dd>
-          {rec.withdrawn && <><dt>Withdrawn</dt><dd class="datum">{rec.withdrawn}</dd></>}
-          <dt>Services</dt><dd>{rec.services.map((s) => SERVICE_NAMES[s]).join(' · ')}</dd>
-          <dt>Passported to</dt><dd class="datum">{rec.passported_to.join(' · ') || '—'}</dd>
-        </dl>
-      </div>
-    )))}
+    {ex.entities.map((ent) => {
+      const fact = ent.lei ? companyFacts[ent.lei] : null;
+      return ent.records.map((rec) => (
+        <div class={`record ${rec.status}`}>
+          <h3>{ent.legal_name}</h3>
+          <dl>
+            <dt>Regulator</dt><dd>{ent.regulator}</dd>
+            <dt>Home state</dt><dd class="datum">{ent.home_state} — {COUNTRY_NAMES[ent.home_state] ?? ''}</dd>
+            {ent.lei && <><dt>LEI</dt><dd class="datum">{ent.lei}</dd></>}
+            {fact && registeredOfficeText(fact) && (
+              <><dt>Registered office</dt><dd class="datum">{registeredOfficeText(fact)}</dd></>
+            )}
+            {fact?.entity_creation_date && (
+              <><dt>Entity registered</dt><dd class="datum">{fact.entity_creation_date}</dd></>
+            )}
+            <dt>Authorised</dt><dd class="datum">{rec.authorised ?? '—'}</dd>
+            {rec.withdrawn && <><dt>Withdrawn</dt><dd class="datum">{rec.withdrawn}</dd></>}
+            <dt>Services</dt><dd>{rec.services.map((s) => SERVICE_NAMES[s]).join(' · ')}</dd>
+            <dt>Passported to</dt><dd class="datum">{rec.passported_to.join(' · ') || '—'}</dd>
+          </dl>
+          {fact && fact.registration_status !== 'issued' && (
+            <p class="caveat">This entity's LEI record shows as "{fact.registration_status}" in the
+            GLEIF registry{fact.successor_lei ? `, with a successor LEI on file (${fact.successor_lei})` : ''} —
+            this describes the LEI record's own lifecycle, not necessarily the company's current
+            trading status.</p>
+          )}
+        </div>
+      ));
+    })}
 
     {/* Non-EEA entity detail -- same level of detail as the EEA record
         cards above, kept in a separate CSS class (non-eea-<status>) since

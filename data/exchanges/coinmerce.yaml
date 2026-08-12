@@ -60,3 +60,12 @@ countries:
     regime: MiCA
     via: mica_passporting
     entity: Coinmerce B.V
+company_facts:
+- lei: 724500DMUDFJZNYNEF35
+  registered_office:
+    city: Schiphol-Rijk
+    country: NL
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2017-11-08'
+  retrieved: '2026-08-12'

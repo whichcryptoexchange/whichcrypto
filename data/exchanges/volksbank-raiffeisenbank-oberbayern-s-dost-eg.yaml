@@ -27,3 +27,12 @@ countries:
     regime: MiCA
     via: home_state
     entity: Volksbank Raiffeisenbank Oberbayern Südost eG
+company_facts:
+- lei: 5299005O2LPWV9IP2Z21
+  registered_office:
+    city: Bad Reichenhall
+    country: DE
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '1905-02-07'
+  retrieved: '2026-08-12'

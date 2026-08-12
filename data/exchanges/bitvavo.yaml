@@ -203,3 +203,12 @@ countries:
     regime: MiCA
     via: mica_passporting
     entity: Bitvavo B.V
+company_facts:
+- lei: 724500MX2WBKDJP9HE56
+  registered_office:
+    city: Amsterdam
+    country: NL
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2017-05-10'
+  retrieved: '2026-08-12'

@@ -213,3 +213,12 @@ countries:
     entity: ZBD
     reg_number: '29468325'
     since: '2026-04-08'
+company_facts:
+- lei: 724500B2I1LR33CAWG54
+  registered_office:
+    city: Amsterdam
+    country: NL
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2023-07-20'
+  retrieved: '2026-08-12'

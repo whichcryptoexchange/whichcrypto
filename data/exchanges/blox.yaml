@@ -47,3 +47,12 @@ countries:
     regime: MiCA
     via: home_state
     entity: BLOX B.V
+company_facts:
+- lei: 724500Z8JCXSX3351I94
+  registered_office:
+    city: Nijmegen
+    country: NL
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2018-05-15'
+  retrieved: '2026-08-12'

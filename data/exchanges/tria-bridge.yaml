@@ -222,3 +222,12 @@ countries:
     regime: MiCA
     via: mica_passporting
     entity: TRIA BRIDGE LIMITED (ex Tokenomica Bridge Ltd)
+company_facts:
+- lei: 9845007E2C96JA7B8653
+  registered_office:
+    city: null
+    country: CY
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2021-12-29'
+  retrieved: '2026-08-12'

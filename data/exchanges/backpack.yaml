@@ -216,3 +216,12 @@ countries:
     regime: MiCA
     via: mica_passporting
     entity: '"Trek Technologies" SIA'
+company_facts:
+- lei: 6488C2PNI17093U2YA18
+  registered_office:
+    city: null
+    country: LV
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2024-12-26'
+  retrieved: '2026-08-12'

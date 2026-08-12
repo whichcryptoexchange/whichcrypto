@@ -204,3 +204,12 @@ countries:
     regime: MiCA
     via: mica_passporting
     entity: Trade Republic Bank GmbH
+company_facts:
+- lei: 5299009IFX1XTKDY4568
+  registered_office:
+    city: Berlin
+    country: DE
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2019-02-19'
+  retrieved: '2026-08-12'

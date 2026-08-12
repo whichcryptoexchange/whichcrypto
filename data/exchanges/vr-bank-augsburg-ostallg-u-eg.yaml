@@ -27,3 +27,12 @@ countries:
     regime: MiCA
     via: home_state
     entity: VR-Bank Augsburg-Ostallgäu eG
+company_facts:
+- lei: 529900CG5HHEUT0AHK10
+  registered_office:
+    city: Augsburg
+    country: DE
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2019-11-21'
+  retrieved: '2026-08-12'

@@ -27,3 +27,12 @@ countries:
     regime: MiCA
     via: home_state
     entity: VR-Bank Rottal-Inn eG
+company_facts:
+- lei: 529900APX10RF2PBTB22
+  registered_office:
+    city: Pfarrkirchen
+    country: DE
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '1897-07-21'
+  retrieved: '2026-08-12'

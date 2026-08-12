@@ -27,3 +27,12 @@ countries:
     regime: MiCA
     via: home_state
     entity: Traders Place GmbH & Co. KGaA
+company_facts:
+- lei: 5299005Y5T6LXFAXDQ78
+  registered_office:
+    city: Freilassing
+    country: DE
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2022-09-11'
+  retrieved: '2026-08-12'

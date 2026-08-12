@@ -46,3 +46,12 @@ countries:
     regime: MiCA
     via: mica_passporting
     entity: GC Exchange A/S
+company_facts:
+- lei: 254900TM3KOYH0SY8V19
+  registered_office:
+    city: Copenhagen
+    country: DK
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2022-02-25'
+  retrieved: '2026-08-12'

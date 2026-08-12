@@ -204,3 +204,12 @@ countries:
     regime: MiCA
     via: mica_passporting
     entity: ILIRIKA borzno posredniška hiša d.d
+company_facts:
+- lei: 529900OSVFQK3XISEQ85
+  registered_office:
+    city: Ljubljana
+    country: SI
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '1994-02-23'
+  retrieved: '2026-08-12'

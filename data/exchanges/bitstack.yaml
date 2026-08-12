@@ -186,3 +186,12 @@ countries:
     regime: MiCA
     via: mica_passporting
     entity: BITSTACK DIGITAL ASSETS SAS
+company_facts:
+- lei: 894500RKZ3TVTPIF7V84
+  registered_office:
+    city: Meyreuil
+    country: FR
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2021-04-20'
+  retrieved: '2026-08-12'

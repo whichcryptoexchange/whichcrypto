@@ -205,3 +205,12 @@ countries:
     regime: MiCA
     via: mica_passporting
     entity: OP Digital Services Limited
+company_facts:
+- lei: 213800ZWEHNKOCS3AC78
+  registered_office:
+    city: SAN GILJAN
+    country: MT
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2024-11-08'
+  retrieved: '2026-08-12'

@@ -70,3 +70,12 @@ countries:
     regime: MiCA
     via: mica_passporting
     entity: CACEIS BANK
+company_facts:
+- lei: 96950023SCR9X9F3L662
+  registered_office:
+    city: MONTROUGE
+    country: FR
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '1968-12-31'
+  retrieved: '2026-08-12'

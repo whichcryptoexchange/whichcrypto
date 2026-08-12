@@ -204,3 +204,12 @@ countries:
     regime: MiCA
     via: mica_passporting
     entity: FIPTO PI SAS
+company_facts:
+- lei: 969500A0DYUNF5NX9R84
+  registered_office:
+    city: NANTERRE
+    country: FR
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2024-05-13'
+  retrieved: '2026-08-12'

@@ -29,3 +29,12 @@ countries:
     regime: MiCA
     via: home_state
     entity: CECABANK S.A
+company_facts:
+- lei: 549300CQ9NLEHMRCU505
+  registered_office:
+    city: Madrid
+    country: ES
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2012-11-12'
+  retrieved: '2026-08-12'

@@ -199,3 +199,12 @@ countries:
     regime: MiCA
     via: mica_passporting
     entity: KuCoin EU Exchange GmbH
+company_facts:
+- lei: 529900B4G0EGK7Z9KT45
+  registered_office:
+    city: Wien
+    country: AT
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2024-10-24'
+  retrieved: '2026-08-12'

@@ -202,3 +202,12 @@ countries:
     regime: MiCA
     via: mica_passporting
     entity: Vivid Money B.V
+company_facts:
+- lei: 7245009PWS7YLG3JPF78
+  registered_office:
+    city: Amsterdam
+    country: NL
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2020-06-05'
+  retrieved: '2026-08-12'

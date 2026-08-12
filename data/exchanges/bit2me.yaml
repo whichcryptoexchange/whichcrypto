@@ -207,3 +207,12 @@ countries:
     regime: MiCA
     via: mica_passporting
     entity: Bitcoinforme S.L
+company_facts:
+- lei: 9598007R5LSUJLGLS853
+  registered_office:
+    city: Elche/Elx
+    country: ES
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2015-01-21'
+  retrieved: '2026-08-12'

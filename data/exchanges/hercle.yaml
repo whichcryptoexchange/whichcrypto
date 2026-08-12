@@ -186,3 +186,12 @@ countries:
     regime: MiCA
     via: mica_passporting
     entity: HERCLE S.R.L
+company_facts:
+- lei: 984500AEBA8A0HQ44988
+  registered_office:
+    city: MILANO
+    country: IT
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2019-08-13'
+  retrieved: '2026-08-12'

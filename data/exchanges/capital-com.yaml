@@ -204,3 +204,12 @@ countries:
     regime: MiCA
     via: mica_passporting
     entity: CAPITAL VAULT LTD
+company_facts:
+- lei: 984500C46B3B7B69Y904
+  registered_office:
+    city: null
+    country: CY
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2025-02-19'
+  retrieved: '2026-08-12'

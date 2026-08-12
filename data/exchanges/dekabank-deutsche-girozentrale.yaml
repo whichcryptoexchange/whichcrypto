@@ -37,3 +37,12 @@ countries:
     regime: MiCA
     via: home_state
     entity: DekaBank Deutsche Girozentrale
+company_facts:
+- lei: 0W2PZJM8XOY22M4GG883
+  registered_office:
+    city: Frankfurt am Main
+    country: DE
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2012-06-05'
+  retrieved: '2026-08-12'

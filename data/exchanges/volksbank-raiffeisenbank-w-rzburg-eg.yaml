@@ -27,3 +27,12 @@ countries:
     regime: MiCA
     via: home_state
     entity: Volksbank Raiffeisenbank Würzburg eG
+company_facts:
+- lei: 529900YT5VCRYQ5WI821
+  registered_office:
+    city: null
+    country: DE
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '1942-10-28'
+  retrieved: '2026-08-12'

@@ -105,3 +105,12 @@ countries:
     regime: MiCA
     via: mica_passporting
     entity: Validvent Technology GmbH
+company_facts:
+- lei: 9845002BEC2C588CC678
+  registered_office:
+    city: Wien
+    country: AT
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2021-12-17'
+  retrieved: '2026-08-12'

@@ -199,3 +199,12 @@ countries:
     regime: MiCA
     via: mica_passporting
     entity: Tradias GmbH
+company_facts:
+- lei: 529900FYBTAGIOS54M10
+  registered_office:
+    city: Frankfurt am Main
+    country: DE
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2021-03-08'
+  retrieved: '2026-08-12'

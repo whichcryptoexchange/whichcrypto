@@ -173,3 +173,12 @@ countries:
     regime: MiCA
     via: mica_passporting
     entity: Januar ApS
+company_facts:
+- lei: 984500A43E7FFC73CR76
+  registered_office:
+    city: null
+    country: DK
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2017-08-01'
+  retrieved: '2026-08-12'

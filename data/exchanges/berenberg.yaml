@@ -32,3 +32,12 @@ countries:
     regime: MiCA
     via: home_state
     entity: Joh. Berenberg, Gossler & Co. KG
+company_facts:
+- lei: 529900UC2OD7II24Z667
+  registered_office:
+    city: Hamburg
+    country: DE
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '1936-01-22'
+  retrieved: '2026-08-12'

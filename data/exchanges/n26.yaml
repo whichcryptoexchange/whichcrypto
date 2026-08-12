@@ -63,3 +63,12 @@ countries:
     regime: MiCA
     via: mica_passporting
     entity: N26 Bank SE
+company_facts:
+- lei: 529900JB9XYZ8E87N345
+  registered_office:
+    city: Berlin
+    country: DE
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2022-10-13'
+  retrieved: '2026-08-12'

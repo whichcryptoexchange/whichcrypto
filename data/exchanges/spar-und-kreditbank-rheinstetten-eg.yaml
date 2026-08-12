@@ -27,3 +27,12 @@ countries:
     regime: MiCA
     via: home_state
     entity: Spar- und Kreditbank Rheinstetten eG
+company_facts:
+- lei: 529900793U3P5C6YYC70
+  registered_office:
+    city: Rheinstetten
+    country: DE
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '1903-10-17'
+  retrieved: '2026-08-12'

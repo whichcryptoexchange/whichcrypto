@@ -205,3 +205,12 @@ countries:
     regime: MiCA
     via: mica_passporting
     entity: BLOCKNODES SAS
+company_facts:
+- lei: 969500PZJWT3TD1SUI59
+  registered_office:
+    city: PARIS
+    country: FR
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2024-05-20'
+  retrieved: '2026-08-12'

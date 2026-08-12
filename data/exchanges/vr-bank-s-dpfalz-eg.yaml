@@ -27,3 +27,12 @@ countries:
     regime: MiCA
     via: home_state
     entity: VR Bank Südpfalz eG
+company_facts:
+- lei: 529900MBFU46N7U7MF46
+  registered_office:
+    city: Landau
+    country: DE
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '1893-01-20'
+  retrieved: '2026-08-12'

@@ -27,3 +27,12 @@ countries:
     regime: MiCA
     via: home_state
     entity: Volksbank eG - Die Gestalterbank
+company_facts:
+- lei: 52990093INYLJNWHQ228
+  registered_office:
+    city: Villingen-Schwenningen
+    country: DE
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '1900-11-23'
+  retrieved: '2026-08-12'

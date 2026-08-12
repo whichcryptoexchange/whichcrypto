@@ -29,3 +29,12 @@ countries:
     regime: MiCA
     via: home_state
     entity: K33 MARKETS as
+company_facts:
+- lei: 6367008S3JL8VVP6T689
+  registered_office:
+    city: Oslo
+    country: 'NO'
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2017-09-06'
+  retrieved: '2026-08-12'

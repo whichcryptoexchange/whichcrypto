@@ -73,3 +73,12 @@ countries:
     regime: MiCA
     via: mica_passporting
     entity: FINCTEK UE SAS
+company_facts:
+- lei: 969500PTJJZTCE0I3B60
+  registered_office:
+    city: PARIS
+    country: FR
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2024-06-13'
+  retrieved: '2026-08-12'

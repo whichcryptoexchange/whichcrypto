@@ -234,3 +234,12 @@ countries:
     entity: Paybis
     reg_number: '29471110'
     since: '2026-07-14'
+company_facts:
+- lei: 259400LUESNGU5XM2J49
+  registered_office:
+    city: Riga
+    country: LV
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2026-03-18'
+  retrieved: '2026-08-12'

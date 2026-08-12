@@ -30,3 +30,12 @@ countries:
     regime: MiCA
     via: home_state
     entity: CF Technologies Ltd
+company_facts:
+- lei: 98450091A6D61FB36406
+  registered_office:
+    city: BIRKIRKARA
+    country: MT
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2018-08-17'
+  retrieved: '2026-08-12'

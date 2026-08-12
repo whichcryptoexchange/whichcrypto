@@ -201,3 +201,12 @@ countries:
     regime: MiCA
     via: mica_passporting
     entity: Ramp Swaps (Ireland) Limited
+company_facts:
+- lei: 89450036UW3ID72T1M84
+  registered_office:
+    city: Dublin 2
+    country: IE
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2023-04-24'
+  retrieved: '2026-08-12'

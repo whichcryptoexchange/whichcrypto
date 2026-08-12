@@ -29,3 +29,12 @@ countries:
     regime: MiCA
     via: home_state
     entity: RIV-DIGITAL S.R.L
+company_facts:
+- lei: 815600DCB0E8882D2314
+  registered_office:
+    city: SCHIO
+    country: IT
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2021-11-29'
+  retrieved: '2026-08-12'

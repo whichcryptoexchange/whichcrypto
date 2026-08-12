@@ -202,3 +202,12 @@ countries:
     regime: MiCA
     via: mica_passporting
     entity: Swissquote Bank Europe SA
+company_facts:
+- lei: 549300M2IHOB9P5WE714
+  registered_office:
+    city: LUXEMBOURG
+    country: LU
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2000-11-21'
+  retrieved: '2026-08-12'

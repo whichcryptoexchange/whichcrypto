@@ -198,3 +198,12 @@ countries:
     regime: MiCA
     via: mica_passporting
     entity: Socios Europe Services Limited
+company_facts:
+- lei: 984500EBA2E9980CDD80
+  registered_office:
+    city: MSIDA
+    country: MT
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2024-06-11'
+  retrieved: '2026-08-12'

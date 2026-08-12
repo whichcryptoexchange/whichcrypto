@@ -224,3 +224,20 @@ countries:
     regime: MiCA
     via: mica_passporting
     entity: 360 Treasury Systems AG
+company_facts:
+- lei: 529900MKYC1FZ83V3121
+  registered_office:
+    city: Frankfurt am Main
+    country: DE
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2016-06-26'
+  retrieved: '2026-08-12'
+- lei: 529900P0204W9HA8JP36
+  registered_office:
+    city: Frankfurt am Main
+    country: DE
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2000-07-11'
+  retrieved: '2026-08-12'

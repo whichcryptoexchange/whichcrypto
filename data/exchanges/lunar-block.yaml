@@ -39,3 +39,12 @@ countries:
     regime: MiCA
     via: mica_passporting
     entity: Lunar Block A/S
+company_facts:
+- lei: 984500DD714F66B77454
+  registered_office:
+    city: Aarhus C
+    country: DK
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2017-07-19'
+  retrieved: '2026-08-12'

@@ -203,3 +203,12 @@ countries:
     regime: MiCA
     via: mica_passporting
     entity: FIOR Digital GmbH
+company_facts:
+- lei: 529900HMYYJR2NHVZ124
+  registered_office:
+    city: Salzburg
+    country: AT
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2021-04-28'
+  retrieved: '2026-08-12'

@@ -204,3 +204,12 @@ countries:
     regime: MiCA
     via: mica_passporting
     entity: Kvarn Capital Oy
+company_facts:
+- lei: 9845009F15A5B9FD7F45
+  registered_office:
+    city: HELSINGFORS
+    country: FI
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2022-06-01'
+  retrieved: '2026-08-12'

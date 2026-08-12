@@ -49,3 +49,12 @@ countries:
     regime: MiCA
     via: mica_passporting
     entity: Coinfinity GmbH
+company_facts:
+- lei: 529900BSNR4XPZ6WBK17
+  registered_office:
+    city: Graz
+    country: AT
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2014-04-22'
+  retrieved: '2026-08-12'

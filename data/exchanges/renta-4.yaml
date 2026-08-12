@@ -29,3 +29,12 @@ countries:
     regime: MiCA
     via: home_state
     entity: RENTA 4 BANCO S.A
+company_facts:
+- lei: 213800IMKAUV5KW28586
+  registered_office:
+    city: MADRID
+    country: ES
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2014-02-07'
+  retrieved: '2026-08-12'

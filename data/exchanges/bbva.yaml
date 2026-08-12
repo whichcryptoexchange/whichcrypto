@@ -29,3 +29,12 @@ countries:
     regime: MiCA
     via: home_state
     entity: Banco Bilbao Vizcaya Argentaria S.A
+company_facts:
+- lei: K8MS7FD7N5Z2WQ51AZ71
+  registered_office:
+    city: BILBAO
+    country: ES
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2012-06-06'
+  retrieved: '2026-08-12'

@@ -39,3 +39,12 @@ countries:
     regime: MiCA
     via: mica_passporting
     entity: IQANA TECHNOLOGIES S.L
+company_facts:
+- lei: 959800AZT2DVBLZQY241
+  registered_office:
+    city: Barcelona
+    country: ES
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2024-09-27'
+  retrieved: '2026-08-12'

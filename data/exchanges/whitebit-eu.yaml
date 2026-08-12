@@ -199,3 +199,12 @@ countries:
     regime: MiCA
     via: mica_passporting
     entity: WB-Shields Innovations GmbH
+company_facts:
+- lei: 254900ERDZ4CZ5IF7P56
+  registered_office:
+    city: Vienna
+    country: AT
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2025-03-21'
+  retrieved: '2026-08-12'

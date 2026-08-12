@@ -206,3 +206,12 @@ countries:
     regime: MiCA
     via: mica_passporting
     entity: Trading.com Markets EU Ltd
+company_facts:
+- lei: 213800QT8WZK738XGX35
+  registered_office:
+    city: LIMASSOL
+    country: CY
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2014-01-13'
+  retrieved: '2026-08-12'

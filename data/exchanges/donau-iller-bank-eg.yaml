@@ -27,3 +27,12 @@ countries:
     regime: MiCA
     via: home_state
     entity: Donau-Iller-Bank eG
+company_facts:
+- lei: 529900P8OKWO25XE4251
+  registered_office:
+    city: Ehingen (Donau)
+    country: DE
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '1902-09-25'
+  retrieved: '2026-08-12'

@@ -30,3 +30,12 @@ countries:
     regime: MiCA
     via: home_state
     entity: Fels wealth GmbH
+company_facts:
+- lei: 391200LUYJY880GPSY38
+  registered_office:
+    city: Kelkheim (Taunus)
+    country: DE
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2019-07-21'
+  retrieved: '2026-08-12'

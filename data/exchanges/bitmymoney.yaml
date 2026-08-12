@@ -36,3 +36,12 @@ countries:
     regime: MiCA
     via: home_state
     entity: Bitmymoney B.V
+company_facts:
+- lei: 724500H1WRSMD7CAS549
+  registered_office:
+    city: '''s-Gravenhage'
+    country: NL
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2016-12-21'
+  retrieved: '2026-08-12'

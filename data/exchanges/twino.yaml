@@ -95,3 +95,12 @@ countries:
     regime: MiCA
     via: mica_passporting
     entity: AS TWINO Investments
+company_facts:
+- lei: 984500856AF4DF5FAT57
+  registered_office:
+    city: null
+    country: LV
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2020-03-25'
+  retrieved: '2026-08-12'

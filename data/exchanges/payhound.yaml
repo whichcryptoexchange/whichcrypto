@@ -204,3 +204,12 @@ countries:
     regime: MiCA
     via: mica_passporting
     entity: Payhound Limited
+company_facts:
+- lei: 9845001DD90AF543DC90
+  registered_office:
+    city: BIRKIRKARA
+    country: MT
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2018-05-28'
+  retrieved: '2026-08-12'

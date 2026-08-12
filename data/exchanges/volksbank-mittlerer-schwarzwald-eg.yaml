@@ -27,3 +27,12 @@ countries:
     regime: MiCA
     via: home_state
     entity: Volksbank Mittlerer Schwarzwald eG
+company_facts:
+- lei: 5299009A1SAL2URXG283
+  registered_office:
+    city: Wolfach
+    country: DE
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '1907-11-19'
+  retrieved: '2026-08-12'

@@ -203,3 +203,12 @@ countries:
     regime: MiCA
     via: mica_passporting
     entity: Nexdesk SIA
+company_facts:
+- lei: 894500ISUYBQF9I7BE66
+  registered_office:
+    city: null
+    country: LV
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2024-12-15'
+  retrieved: '2026-08-12'

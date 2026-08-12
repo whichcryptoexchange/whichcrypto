@@ -204,3 +204,12 @@ countries:
     regime: MiCA
     via: mica_passporting
     entity: Trading 212 Markets Ltd
+company_facts:
+- lei: 21380045KC28948FNE32
+  registered_office:
+    city: LIMASSOL
+    country: CY
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2020-06-01'
+  retrieved: '2026-08-12'

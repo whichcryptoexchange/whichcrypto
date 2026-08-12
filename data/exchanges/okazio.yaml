@@ -205,3 +205,12 @@ countries:
     regime: MiCA
     via: home_state
     entity: Okazio s.r.o
+company_facts:
+- lei: 097900CAKA0000233454
+  registered_office:
+    city: null
+    country: SK
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2022-07-07'
+  retrieved: '2026-08-12'

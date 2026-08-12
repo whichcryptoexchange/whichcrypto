@@ -63,3 +63,12 @@ countries:
     regime: MiCA
     via: mica_passporting
     entity: MEREAU FINANCE SAS
+company_facts:
+- lei: 969500USEY22T9ZZRQ98
+  registered_office:
+    city: PUTEAUX
+    country: FR
+  entity_status: active
+  registration_status: lapsed
+  entity_creation_date: '2021-02-16'
+  retrieved: '2026-08-12'

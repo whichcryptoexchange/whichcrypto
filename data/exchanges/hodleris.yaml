@@ -214,3 +214,12 @@ countries:
     entity: UAB Hodleris/UAB Hodleris
     reg_number: '29452459'
     since: '2024-09-09'
+company_facts:
+- lei: 648812ZREA1B126B8G06
+  registered_office:
+    city: null
+    country: LV
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2026-05-18'
+  retrieved: '2026-08-12'

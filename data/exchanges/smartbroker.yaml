@@ -27,3 +27,12 @@ countries:
     regime: MiCA
     via: home_state
     entity: Smartbroker AG
+company_facts:
+- lei: 391200N0BYCZF2F43264
+  registered_office:
+    city: Berlin
+    country: DE
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2005-11-07'
+  retrieved: '2026-08-12'

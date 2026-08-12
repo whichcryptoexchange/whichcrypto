@@ -201,3 +201,12 @@ countries:
     regime: MiCA
     via: mica_passporting
     entity: Newrails, UAB
+company_facts:
+- lei: 875500ONK4E5XGIP7O24
+  registered_office:
+    city: Vilnius
+    country: LT
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2019-09-30'
+  retrieved: '2026-08-12'

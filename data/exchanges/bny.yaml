@@ -28,3 +28,12 @@ countries:
     regime: MiCA
     via: home_state
     entity: BNY SA/NV
+company_facts:
+- lei: MMYX0N4ZEZ13Z4XCG897
+  registered_office:
+    city: BRUSSELS
+    country: BE
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2008-10-01'
+  retrieved: '2026-08-12'

@@ -29,3 +29,12 @@ countries:
     regime: MiCA
     via: home_state
     entity: V-Bank AG
+company_facts:
+- lei: 529900FB29C36LKTAW50
+  registered_office:
+    city: null
+    country: DE
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2007-05-06'
+  retrieved: '2026-08-12'

@@ -28,3 +28,12 @@ countries:
     regime: MiCA
     via: home_state
     entity: Dietrich & Richter Private Asset Management AG
+company_facts:
+- lei: 98450068F88BDF3E8D32
+  registered_office:
+    city: Goslar
+    country: DE
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2020-02-26'
+  retrieved: '2026-08-12'

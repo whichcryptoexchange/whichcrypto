@@ -28,3 +28,12 @@ countries:
     regime: MiCA
     via: home_state
     entity: BANCA SELLA
+company_facts:
+- lei: 549300I7OIUB41P86L19
+  registered_office:
+    city: BIELLA
+    country: IT
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2005-09-07'
+  retrieved: '2026-08-12'

@@ -27,3 +27,12 @@ countries:
     regime: MiCA
     via: home_state
     entity: Westerwald Bank eG Volks- und Raiffeisenbank
+company_facts:
+- lei: 52990071YX99SH321F74
+  registered_office:
+    city: Montabaur
+    country: DE
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '1900-11-12'
+  retrieved: '2026-08-12'

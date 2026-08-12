@@ -32,3 +32,12 @@ countries:
     regime: MiCA
     via: home_state
     entity: COMPLYCRYPTO DEPOSITORY EU LIMITED
+company_facts:
+- lei: 254900J8O1555O3B2T92
+  registered_office:
+    city: Nicosia
+    country: CY
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2024-06-20'
+  retrieved: '2026-08-12'

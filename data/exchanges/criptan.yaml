@@ -30,3 +30,12 @@ countries:
     regime: MiCA
     via: home_state
     entity: CRIPTAN TRADE S.L
+company_facts:
+- lei: 959800AZN23P7F30C189
+  registered_office:
+    city: Valencia
+    country: ES
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2018-04-16'
+  retrieved: '2026-08-12'

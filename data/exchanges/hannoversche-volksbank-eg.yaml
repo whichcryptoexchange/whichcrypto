@@ -27,3 +27,12 @@ countries:
     regime: MiCA
     via: home_state
     entity: Hannoversche Volksbank eG
+company_facts:
+- lei: 529900MQJIQGD8N3YV53
+  registered_office:
+    city: Hannover
+    country: DE
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2006-04-11'
+  retrieved: '2026-08-12'

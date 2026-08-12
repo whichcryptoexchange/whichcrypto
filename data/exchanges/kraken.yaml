@@ -312,3 +312,20 @@ third_party_reviews:
   count: 33632
   url: https://apps.apple.com/us/app/kraken-buy-crypto-stocks/id1481947260?uo=4
   retrieved: '2026-08-10'
+company_facts:
+- lei: 9845003D98SCC2851458
+  registered_office:
+    city: Dublin 2
+    country: IE
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2023-07-11'
+  retrieved: '2026-08-12'
+- lei: 254900641D8KNHUZYX24
+  registered_office:
+    city: Dublin
+    country: IE
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2022-01-18'
+  retrieved: '2026-08-12'

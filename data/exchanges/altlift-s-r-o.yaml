@@ -29,3 +29,12 @@ countries:
     regime: MiCA
     via: home_state
     entity: Altlift s.r.o
+company_facts:
+- lei: 8945004PZEJSSPTTVB16
+  registered_office:
+    city: Praha 10
+    country: CZ
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2011-02-07'
+  retrieved: '2026-08-12'

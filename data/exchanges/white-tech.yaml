@@ -42,3 +42,12 @@ countries:
     regime: MiCA
     via: mica_passporting
     entity: WHITE TECH Limited liability company for services
+company_facts:
+- lei: 254900S52YR70F0BK713
+  registered_office:
+    city: Split
+    country: HR
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2024-11-06'
+  retrieved: '2026-08-12'

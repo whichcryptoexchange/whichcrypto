@@ -31,3 +31,12 @@ countries:
     regime: MiCA
     via: home_state
     entity: Safello AB
+company_facts:
+- lei: 894500QKMN1PCG2V7U40
+  registered_office:
+    city: Stockholm
+    country: SE
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2013-12-12'
+  retrieved: '2026-08-12'

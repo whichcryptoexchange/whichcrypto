@@ -29,3 +29,12 @@ countries:
     regime: MiCA
     via: home_state
     entity: ICEBLOCK SAS
+company_facts:
+- lei: 9695005CVRZDK63ZST85
+  registered_office:
+    city: PARIS
+    country: FR
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2021-08-24'
+  retrieved: '2026-08-12'

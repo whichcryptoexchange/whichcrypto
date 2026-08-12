@@ -204,3 +204,12 @@ countries:
     regime: MiCA
     via: mica_passporting
     entity: Kaiser Partner Privatbank AG
+company_facts:
+- lei: 529900DPOQPLDSF3R482
+  registered_office:
+    city: Vaduz
+    country: LI
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '1963-06-10'
+  retrieved: '2026-08-12'

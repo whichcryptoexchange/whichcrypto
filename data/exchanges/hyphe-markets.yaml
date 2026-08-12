@@ -87,3 +87,12 @@ countries:
     regime: MiCA
     via: mica_passporting
     entity: Hyphe Markets GmbH
+company_facts:
+- lei: 3912000K5NAA00M4HH04
+  registered_office:
+    city: null
+    country: DE
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2022-01-09'
+  retrieved: '2026-08-12'

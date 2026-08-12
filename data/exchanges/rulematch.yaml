@@ -83,3 +83,12 @@ countries:
     regime: MiCA
     via: mica_passporting
     entity: RULEMATCH Europe AG
+company_facts:
+- lei: 529900PEBGKH34UTD845
+  registered_office:
+    city: Vaduz
+    country: LI
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2024-12-11'
+  retrieved: '2026-08-12'

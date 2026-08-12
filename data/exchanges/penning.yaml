@@ -206,3 +206,12 @@ countries:
     regime: MiCA
     via: mica_passporting
     entity: Penning Financial Services ApS
+company_facts:
+- lei: 9845000E4A7414709361
+  registered_office:
+    city: null
+    country: DK
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2024-02-15'
+  retrieved: '2026-08-12'

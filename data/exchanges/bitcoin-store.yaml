@@ -206,3 +206,12 @@ countries:
     regime: MiCA
     via: mica_passporting
     entity: DIGITAL ASSETS Limited liability company for intermediation and services
+company_facts:
+- lei: 984500NB7D12BC5B4A79
+  registered_office:
+    city: Split
+    country: HR
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2013-05-22'
+  retrieved: '2026-08-12'

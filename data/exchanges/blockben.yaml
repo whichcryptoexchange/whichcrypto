@@ -205,3 +205,12 @@ countries:
     regime: MiCA
     via: mica_passporting
     entity: BlockBen SIA
+company_facts:
+- lei: 254900BBV7FA7LUG5913
+  registered_office:
+    city: Riga
+    country: LV
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2025-05-20'
+  retrieved: '2026-08-12'

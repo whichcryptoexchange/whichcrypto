@@ -38,3 +38,12 @@ countries:
     entity: Webull Pay LLC
     reg_number: '29469395'
     since: '2026-05-14'
+company_facts:
+- lei: 894500CUU8Y0ZBG8DX95
+  registered_office:
+    city: Amsterdam
+    country: NL
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2022-07-11'
+  retrieved: '2026-08-12'

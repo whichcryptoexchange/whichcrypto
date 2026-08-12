@@ -185,3 +185,12 @@ countries:
     regime: MiCA
     via: mica_passporting
     entity: METAL GEAR SAS
+company_facts:
+- lei: 969500PQYLQG3CSJ5041
+  registered_office:
+    city: PARIS
+    country: FR
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2022-06-07'
+  retrieved: '2026-08-12'

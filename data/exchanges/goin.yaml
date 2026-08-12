@@ -188,3 +188,12 @@ countries:
     regime: MiCA
     via: mica_passporting
     entity: GOin SAS
+company_facts:
+- lei: 894500LM6DICD790FQ34
+  registered_office:
+    city: PARIS
+    country: FR
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2018-04-12'
+  retrieved: '2026-08-12'

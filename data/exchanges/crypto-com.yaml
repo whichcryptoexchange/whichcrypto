@@ -270,3 +270,12 @@ third_party_reviews:
   count: 332317
   url: https://apps.apple.com/us/app/crypto-com-trade-every-market/id1262148500?uo=4
   retrieved: '2026-08-10'
+company_facts:
+- lei: 2549005CVR5HH70FDO07
+  registered_office:
+    city: St.Julians
+    country: MT
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2018-09-19'
+  retrieved: '2026-08-12'

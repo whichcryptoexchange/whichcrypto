@@ -27,3 +27,12 @@ countries:
     regime: MiCA
     via: home_state
     entity: Bitblock Ltd. for Services
+company_facts:
+- lei: 9845006A6CAABE4C0347
+  registered_office:
+    city: Zagreb
+    country: HR
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2020-04-10'
+  retrieved: '2026-08-12'

@@ -55,3 +55,12 @@ countries:
     regime: MiCA
     via: mica_passporting
     entity: Invity Finance s.r.o
+company_facts:
+- lei: 64880741U1SN9TUWJ897
+  registered_office:
+    city: Praha 8
+    country: CZ
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2024-12-12'
+  retrieved: '2026-08-12'

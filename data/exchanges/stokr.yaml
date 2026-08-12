@@ -201,3 +201,12 @@ countries:
     regime: MiCA
     via: mica_passporting
     entity: STOKR S.A
+company_facts:
+- lei: 984500BA521C5EMR1D63
+  registered_office:
+    city: Luxemburg
+    country: LU
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2018-08-08'
+  retrieved: '2026-08-12'

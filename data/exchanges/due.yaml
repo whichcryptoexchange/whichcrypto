@@ -202,3 +202,12 @@ countries:
     regime: MiCA
     via: mica_passporting
     entity: DUE NETWORK S.L
+company_facts:
+- lei: 89450026TTLUZJV1XM36
+  registered_office:
+    city: Madrid
+    country: ES
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2024-04-17'
+  retrieved: '2026-08-12'

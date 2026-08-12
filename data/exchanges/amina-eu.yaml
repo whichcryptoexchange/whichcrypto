@@ -205,3 +205,12 @@ countries:
     regime: MiCA
     via: mica_passporting
     entity: AMINA (Austria) AG
+company_facts:
+- lei: 5299005I4LYIFW7GKB54
+  registered_office:
+    city: Bregenz
+    country: AT
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2024-06-30'
+  retrieved: '2026-08-12'

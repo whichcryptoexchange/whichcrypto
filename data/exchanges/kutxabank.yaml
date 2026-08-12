@@ -29,3 +29,12 @@ countries:
     regime: MiCA
     via: home_state
     entity: KUTXABANK S.A
+company_facts:
+- lei: 549300U4LIZV0REEQQ46
+  registered_office:
+    city: Bilbao
+    country: ES
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2011-06-14'
+  retrieved: '2026-08-12'

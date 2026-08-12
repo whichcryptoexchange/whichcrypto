@@ -44,3 +44,12 @@ countries:
     regime: MiCA
     via: mica_passporting
     entity: FIRI AS
+company_facts:
+- lei: 9845003B8462B18FHE35
+  registered_office:
+    city: OSLO
+    country: 'NO'
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2017-11-06'
+  retrieved: '2026-08-12'

@@ -33,3 +33,12 @@ countries:
     regime: MiCA
     via: home_state
     entity: Brilliantscope Trading Limited
+company_facts:
+- lei: 9845009846V10FGD4840
+  registered_office:
+    city: null
+    country: CY
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2021-08-06'
+  retrieved: '2026-08-12'

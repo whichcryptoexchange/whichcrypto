@@ -29,3 +29,12 @@ countries:
     regime: MiCA
     via: home_state
     entity: KBC Bank NV
+company_facts:
+- lei: 6B2PBRV1FCJDMR45RZ53
+  registered_office:
+    city: BRUSSELS
+    country: BE
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '1998-03-20'
+  retrieved: '2026-08-12'

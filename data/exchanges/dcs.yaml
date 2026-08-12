@@ -29,3 +29,12 @@ countries:
     regime: MiCA
     via: home_state
     entity: Digital Currency Services B.V
+company_facts:
+- lei: 724500QZRWKCU8D2L569
+  registered_office:
+    city: Utrecht
+    country: NL
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2013-07-23'
+  retrieved: '2026-08-12'

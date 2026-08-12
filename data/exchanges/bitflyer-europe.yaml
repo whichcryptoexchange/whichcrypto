@@ -223,3 +223,12 @@ countries:
     via: ny_dfs_register
     entity: bitFlyer USA, Inc.
     since: 2017-11
+company_facts:
+- lei: 984500D4465EFA89EF38
+  registered_office:
+    city: Luxembourg
+    country: LU
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2017-01-18'
+  retrieved: '2026-08-12'

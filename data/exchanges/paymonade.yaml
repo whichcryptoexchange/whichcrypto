@@ -202,3 +202,12 @@ countries:
     regime: MiCA
     via: mica_passporting
     entity: Damoon Technology (Europe) AG
+company_facts:
+- lei: 529900AAZRC5LYVR7134
+  registered_office:
+    city: Gamprin-Bendern
+    country: LI
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2022-05-02'
+  retrieved: '2026-08-12'

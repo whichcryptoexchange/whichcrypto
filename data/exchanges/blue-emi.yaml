@@ -26,3 +26,12 @@ countries:
     regime: MiCA
     via: home_state
     entity: UAB BLUE EMI LT
+company_facts:
+- lei: 254900XFMACGD0L7AI73
+  registered_office:
+    city: Vilnius
+    country: LT
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2021-01-14'
+  retrieved: '2026-08-12'

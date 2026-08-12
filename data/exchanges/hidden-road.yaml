@@ -234,3 +234,12 @@ countries:
     licensed_activities: Exchange between one or more forms of virtual assets; exchange between virtual
       assets and fiat currency; transfer of virtual assets
     since: null
+company_facts:
+- lei: 549300OOZDNZ3F2XJW21
+  registered_office:
+    city: Amsterdam
+    country: NL
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2021-06-24'
+  retrieved: '2026-08-12'

@@ -38,3 +38,12 @@ countries:
     regime: MiCA
     via: home_state
     entity: Deutsche WertpapierService Bank AG
+company_facts:
+- lei: 529900EXG2PM316ISO63
+  registered_office:
+    city: Frankfurt am Main
+    country: DE
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2004-08-31'
+  retrieved: '2026-08-12'

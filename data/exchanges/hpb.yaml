@@ -27,3 +27,12 @@ countries:
     regime: MiCA
     via: home_state
     entity: Hrvatska poštanska banka d.d
+company_facts:
+- lei: 529900D5G4V6THXC5P79
+  registered_office:
+    city: Zagreb
+    country: HR
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '1991-10-22'
+  retrieved: '2026-08-12'

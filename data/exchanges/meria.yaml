@@ -79,3 +79,12 @@ countries:
     regime: MiCA
     via: mica_passporting
     entity: MERIA SAS
+company_facts:
+- lei: 969500UJSWU20FEXQ504
+  registered_office:
+    city: METZ
+    country: FR
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2017-05-08'
+  retrieved: '2026-08-12'

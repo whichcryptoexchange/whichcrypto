@@ -208,3 +208,12 @@ countries:
     regime: MiCA
     via: mica_passporting
     entity: J2TX Ltd
+company_facts:
+- lei: 213800186TP6OZSHUV17
+  registered_office:
+    city: LIMASSOL
+    country: CY
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2021-06-16'
+  retrieved: '2026-08-12'

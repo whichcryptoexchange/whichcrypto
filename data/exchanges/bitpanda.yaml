@@ -313,3 +313,29 @@ third_party_reviews:
   count: 25912
   url: https://apps.apple.com/at/app/bitpanda-krypto-aktien-etf/id1449018960?uo=4
   retrieved: '2026-08-10'
+company_facts:
+- lei: 5493007WZ7IFULIL8G21
+  registered_office:
+    city: Vienna
+    country: AT
+  entity_status: inactive
+  registration_status: retired
+  entity_creation_date: '2020-03-26'
+  successor_lei: 98450086582EV2FFC109
+  retrieved: '2026-08-12'
+- lei: 9845005X9B7N610K0093
+  registered_office:
+    city: Berlin
+    country: DE
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2021-01-20'
+  retrieved: '2026-08-12'
+- lei: 984500DEID7B03J77118
+  registered_office:
+    city: Valletta
+    country: MT
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2023-10-25'
+  retrieved: '2026-08-12'

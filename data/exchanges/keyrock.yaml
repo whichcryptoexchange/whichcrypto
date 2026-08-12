@@ -214,3 +214,12 @@ countries:
     regime: MiCA
     via: mica_passporting
     entity: KEYROCK FR SAS
+company_facts:
+- lei: 9845001BAFC53ODN8C90
+  registered_office:
+    city: PARIS
+    country: FR
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2024-04-22'
+  retrieved: '2026-08-12'

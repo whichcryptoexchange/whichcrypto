@@ -32,3 +32,12 @@ countries:
     regime: MiCA
     via: home_state
     entity: CRYPTOSMART S.P.A
+company_facts:
+- lei: 815600C7E86B02BBE483
+  registered_office:
+    city: PERUGIA
+    country: IT
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2021-02-04'
+  retrieved: '2026-08-12'

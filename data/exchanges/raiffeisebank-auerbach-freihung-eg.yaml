@@ -27,3 +27,12 @@ countries:
     regime: MiCA
     via: home_state
     entity: Raiffeisebank Auerbach-Freihung eG
+company_facts:
+- lei: 529900R1A7TN1LM06875
+  registered_office:
+    city: Auerbach in der Oberpfalz
+    country: DE
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '1925-02-26'
+  retrieved: '2026-08-12'

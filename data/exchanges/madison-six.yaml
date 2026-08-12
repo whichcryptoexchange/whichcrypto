@@ -206,3 +206,12 @@ countries:
     regime: MiCA
     via: home_state
     entity: Madison Six j. s. a
+company_facts:
+- lei: 097900CAKA0000249459
+  registered_office:
+    city: null
+    country: SK
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2025-03-21'
+  retrieved: '2026-08-12'

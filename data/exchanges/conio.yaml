@@ -32,3 +32,12 @@ countries:
     regime: MiCA
     via: home_state
     entity: CONIO S.R.L
+company_facts:
+- lei: 8945000EH59XYZHK0B92
+  registered_office:
+    city: MILANO
+    country: IT
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2015-06-08'
+  retrieved: '2026-08-12'

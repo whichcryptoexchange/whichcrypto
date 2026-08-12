@@ -214,3 +214,12 @@ countries:
     entity: Lightspark Payments, LLC
     reg_number: '29458741'
     since: '2025-10-17'
+company_facts:
+- lei: 6488O0OC79779MZX1E44
+  registered_office:
+    city: Tallinn
+    country: EE
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2021-08-23'
+  retrieved: '2026-08-12'

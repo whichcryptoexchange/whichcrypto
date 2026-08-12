@@ -37,3 +37,12 @@ countries:
     regime: MiCA
     via: home_state
     entity: BLOCKCHAIN PROCESS SECURITY (B.P.S.) SAS
+company_facts:
+- lei: 9695000VFDEG5Z4JIY48
+  registered_office:
+    city: SEYSSINET-PARISET
+    country: FR
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2018-01-31'
+  retrieved: '2026-08-12'

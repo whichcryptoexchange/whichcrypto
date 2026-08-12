@@ -31,3 +31,12 @@ countries:
     regime: MiCA
     via: home_state
     entity: CHECKSIG S.R.L. SOCIETÀ BENEFIT
+company_facts:
+- lei: 8156006C715AAACC5D19
+  registered_office:
+    city: MILANO
+    country: IT
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2019-10-24'
+  retrieved: '2026-08-12'

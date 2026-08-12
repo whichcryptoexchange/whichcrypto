@@ -30,3 +30,12 @@ countries:
     regime: MiCA
     via: home_state
     entity: IP wBTCb solutions, s.r.o
+company_facts:
+- lei: 315700I7V6W7BLAI9Z32
+  registered_office:
+    city: Praha
+    country: CZ
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2014-05-29'
+  retrieved: '2026-08-12'

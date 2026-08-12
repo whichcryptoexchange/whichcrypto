@@ -205,3 +205,12 @@ countries:
     regime: MiCA
     via: mica_passporting
     entity: zerohash europe B.V
+company_facts:
+- lei: 724500G7QSOMFR1GQA47
+  registered_office:
+    city: Amsterdam
+    country: NL
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2023-01-29'
+  retrieved: '2026-08-12'

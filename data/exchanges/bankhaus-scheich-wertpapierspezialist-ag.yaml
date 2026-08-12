@@ -33,3 +33,12 @@ countries:
     regime: MiCA
     via: home_state
     entity: Bankhaus Scheich Wertpapierspezialist AG
+company_facts:
+- lei: 54930079HJ1JTMKTW637
+  registered_office:
+    city: Frankfurt am Main
+    country: DE
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2015-08-13'
+  retrieved: '2026-08-12'

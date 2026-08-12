@@ -57,3 +57,12 @@ countries:
     via: ny_dfs_register
     entity: Bitpay, Inc.
     since: 2018-07
+company_facts:
+- lei: 724500F2THLY5MHEIM78
+  registered_office:
+    city: Amsterdam
+    country: NL
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2013-08-27'
+  retrieved: '2026-08-12'

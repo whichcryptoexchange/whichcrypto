@@ -27,3 +27,12 @@ countries:
     regime: MiCA
     via: home_state
     entity: Digital Assist OOD
+company_facts:
+- lei: 8755007GZKOS1VJ6BZ82
+  registered_office:
+    city: Sofia
+    country: BG
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2020-04-23'
+  retrieved: '2026-08-12'

@@ -182,3 +182,12 @@ countries:
     regime: MiCA
     via: mica_passporting
     entity: RELAI EU SASU
+company_facts:
+- lei: 9695003EKRFOMYXJQL11
+  registered_office:
+    city: PARIS
+    country: FR
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2024-10-24'
+  retrieved: '2026-08-12'

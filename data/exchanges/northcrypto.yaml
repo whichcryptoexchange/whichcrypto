@@ -42,3 +42,12 @@ countries:
     regime: MiCA
     via: mica_passporting
     entity: NorthCrypto Oy
+company_facts:
+- lei: 743700CHRVVP342JOA67
+  registered_office:
+    city: TURKU
+    country: FI
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2018-05-29'
+  retrieved: '2026-08-12'

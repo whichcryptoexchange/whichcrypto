@@ -206,3 +206,12 @@ countries:
     regime: MiCA
     via: mica_passporting
     entity: Krypto Knight Ltd
+company_facts:
+- lei: 984500I2EA955E934537
+  registered_office:
+    city: null
+    country: CY
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2022-06-01'
+  retrieved: '2026-08-12'

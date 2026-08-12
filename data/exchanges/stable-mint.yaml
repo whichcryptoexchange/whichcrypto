@@ -28,3 +28,12 @@ countries:
     regime: MiCA
     via: home_state
     entity: Stable Mint Ltd
+company_facts:
+- lei: 984500A64C0EA64BC554
+  registered_office:
+    city: NAXXAR
+    country: MT
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2024-07-08'
+  retrieved: '2026-08-12'

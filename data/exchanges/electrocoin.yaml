@@ -203,3 +203,12 @@ countries:
     regime: MiCA
     via: mica_passporting
     entity: ELECTROCOIN Ltd for services
+company_facts:
+- lei: 747800R015JVW1T4WZ71
+  registered_office:
+    city: Zagreb
+    country: HR
+  entity_status: active
+  registration_status: lapsed
+  entity_creation_date: '2014-02-04'
+  retrieved: '2026-08-12'

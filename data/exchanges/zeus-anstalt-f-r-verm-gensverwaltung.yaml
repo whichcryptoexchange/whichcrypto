@@ -27,3 +27,12 @@ countries:
     regime: MiCA
     via: home_state
     entity: ZEUS Anstalt für Vermögensverwaltung
+company_facts:
+- lei: 529900QH6TWSXWH0XM44
+  registered_office:
+    city: Gamprin-Bendern
+    country: LI
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2005-02-21'
+  retrieved: '2026-08-12'

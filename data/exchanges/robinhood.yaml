@@ -227,3 +227,12 @@ countries:
     via: ny_dfs_register
     entity: Robinhood Crypto, LLC
     since: 2019-01
+company_facts:
+- lei: 254900GTP4UXQO1UMI36
+  registered_office:
+    city: Vilnius
+    country: LT
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2023-08-13'
+  retrieved: '2026-08-12'

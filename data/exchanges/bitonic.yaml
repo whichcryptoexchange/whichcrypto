@@ -204,3 +204,12 @@ countries:
     regime: MiCA
     via: mica_passporting
     entity: Bitonic B.V
+company_facts:
+- lei: 7245001BEJ6U6AUU1S58
+  registered_office:
+    city: Amsterdam
+    country: NL
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2013-06-26'
+  retrieved: '2026-08-12'

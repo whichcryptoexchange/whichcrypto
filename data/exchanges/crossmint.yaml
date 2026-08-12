@@ -200,3 +200,12 @@ countries:
     entity: Crossmint
     reg_number: '29469895'
     since: '2026-06-02'
+company_facts:
+- lei: 959800B6XCG14MKLTJ51
+  registered_office:
+    city: Madrid
+    country: ES
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2022-06-10'
+  retrieved: '2026-08-12'

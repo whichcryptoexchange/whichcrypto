@@ -205,3 +205,12 @@ countries:
     regime: MiCA
     via: mica_passporting
     entity: SMART VALOR AG
+company_facts:
+- lei: 254900S56908SP1E8O53
+  registered_office:
+    city: Vaduz
+    country: LI
+  entity_status: active
+  registration_status: lapsed
+  entity_creation_date: '2018-11-20'
+  retrieved: '2026-08-12'

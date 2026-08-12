@@ -41,3 +41,12 @@ countries:
     entity: Anycoin
     reg_number: '29451553'
     since: '2024-05-16'
+company_facts:
+- lei: 64889KAWPMO81X649843
+  registered_office:
+    city: null
+    country: CZ
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2018-07-18'
+  retrieved: '2026-08-12'

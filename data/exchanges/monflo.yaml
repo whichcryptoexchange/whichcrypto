@@ -47,3 +47,12 @@ countries:
     regime: MiCA
     via: home_state
     entity: Monflo B.V
+company_facts:
+- lei: 724500BUG93MDFGYQG03
+  registered_office:
+    city: Apeldoorn
+    country: NL
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2022-04-11'
+  retrieved: '2026-08-12'

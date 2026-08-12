@@ -27,3 +27,12 @@ countries:
     regime: MiCA
     via: home_state
     entity: Bittimaatti Oy
+company_facts:
+- lei: 7437009FHK501IOCWZ66
+  registered_office:
+    city: null
+    country: FI
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2018-10-16'
+  retrieved: '2026-08-12'

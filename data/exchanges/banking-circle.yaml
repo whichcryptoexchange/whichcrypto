@@ -203,3 +203,12 @@ countries:
     regime: MiCA
     via: mica_passporting
     entity: Banking Circle S.A
+company_facts:
+- lei: 213800W1NGBLERUS6M39
+  registered_office:
+    city: LUXEMBOURG
+    country: LU
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2018-03-05'
+  retrieved: '2026-08-12'

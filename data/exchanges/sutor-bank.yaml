@@ -27,3 +27,12 @@ countries:
     regime: MiCA
     via: home_state
     entity: Sutor Bank GmbH
+company_facts:
+- lei: 529900BQBP4JMDPM6Q19
+  registered_office:
+    city: Hamburg
+    country: DE
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '1921-03-09'
+  retrieved: '2026-08-12'

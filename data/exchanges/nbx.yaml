@@ -206,3 +206,12 @@ countries:
     regime: MiCA
     via: mica_passporting
     entity: NORWEGIAN BLOCK EXCHANGE AS
+company_facts:
+- lei: 5493004WNVZP9EMYI834
+  registered_office:
+    city: Lysaker
+    country: 'NO'
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2018-01-03'
+  retrieved: '2026-08-12'

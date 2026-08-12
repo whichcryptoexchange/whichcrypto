@@ -30,3 +30,12 @@ countries:
     regime: MiCA
     via: home_state
     entity: FIDUS Finanz AG
+company_facts:
+- lei: 529900XCSUEUBT5TX310
+  registered_office:
+    city: Frankfurt am Main
+    country: DE
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2019-05-30'
+  retrieved: '2026-08-12'

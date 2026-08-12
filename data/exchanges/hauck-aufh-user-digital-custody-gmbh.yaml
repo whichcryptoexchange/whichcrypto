@@ -28,3 +28,12 @@ countries:
     regime: MiCA
     via: home_state
     entity: Hauck Aufhäuser Digital Custody GmbH
+company_facts:
+- lei: 391200LACJ601I2ONV49
+  registered_office:
+    city: Frankfurt am Main
+    country: DE
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2013-11-05'
+  retrieved: '2026-08-12'

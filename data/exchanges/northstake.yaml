@@ -203,3 +203,12 @@ countries:
     regime: MiCA
     via: mica_passporting
     entity: Northstake ApS
+company_facts:
+- lei: 98450010C0CB6A4E8A79
+  registered_office:
+    city: null
+    country: DK
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2021-11-03'
+  retrieved: '2026-08-12'

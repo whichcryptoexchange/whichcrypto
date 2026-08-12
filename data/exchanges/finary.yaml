@@ -184,3 +184,12 @@ countries:
     regime: MiCA
     via: mica_passporting
     entity: FINARY SAS
+company_facts:
+- lei: 969500RQH18PU24DM081
+  registered_office:
+    city: PARIS
+    country: FR
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2020-12-17'
+  retrieved: '2026-08-12'

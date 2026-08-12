@@ -53,3 +53,12 @@ entities:
     - SK
     last_update: '2026-04-30'
 countries: {}
+company_facts:
+- lei: 894500ZVOL3A9LO8LN34
+  registered_office:
+    city: Zoetermeer
+    country: NL
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2021-04-14'
+  retrieved: '2026-08-12'

@@ -212,3 +212,12 @@ countries:
     entity: Legend Trading Inc
     reg_number: '29443931'
     since: '2024-06-06'
+company_facts:
+- lei: 9845007FA1A8E1DE3989
+  registered_office:
+    city: Dublin
+    country: IE
+  entity_status: active
+  registration_status: lapsed
+  entity_creation_date: '2024-03-28'
+  retrieved: '2026-08-12'

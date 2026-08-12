@@ -206,3 +206,12 @@ countries:
     regime: MiCA
     via: mica_passporting
     entity: BANQUE DELUBAC ET CIE
+company_facts:
+- lei: 969500A4IPKVUBH3CA90
+  registered_office:
+    city: LE CHEYLARD
+    country: FR
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '1975-12-31'
+  retrieved: '2026-08-12'

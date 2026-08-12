@@ -201,3 +201,12 @@ countries:
     regime: MiCA
     via: mica_passporting
     entity: Clearstream Banking S.A
+company_facts:
+- lei: 549300OL514RA0SXJJ44
+  registered_office:
+    city: LUXEMBOURG
+    country: LU
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '1970-11-03'
+  retrieved: '2026-08-12'

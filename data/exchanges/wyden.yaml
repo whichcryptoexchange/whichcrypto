@@ -27,3 +27,12 @@ countries:
     regime: MiCA
     via: home_state
     entity: Wyden Capital AG
+company_facts:
+- lei: 391200DN4V2D0IBP3S36
+  registered_office:
+    city: Ruggell
+    country: LI
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2020-06-04'
+  retrieved: '2026-08-12'

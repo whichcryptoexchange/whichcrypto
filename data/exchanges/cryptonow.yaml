@@ -204,3 +204,12 @@ countries:
     regime: MiCA
     via: mica_passporting
     entity: Cryptonow GmbH
+company_facts:
+- lei: 529900LZM6X3GBFNLG10
+  registered_office:
+    city: Wien
+    country: AT
+  entity_status: active
+  registration_status: lapsed
+  entity_creation_date: '2024-01-09'
+  retrieved: '2026-08-12'

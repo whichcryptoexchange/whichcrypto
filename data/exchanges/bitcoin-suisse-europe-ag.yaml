@@ -158,3 +158,12 @@ countries:
     regime: MiCA
     via: mica_passporting
     entity: Bitcoin Suisse (Europe) AG
+company_facts:
+- lei: 5067009TZLDD94Q3W662
+  registered_office:
+    city: Vaduz
+    country: LI
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2018-12-07'
+  retrieved: '2026-08-12'

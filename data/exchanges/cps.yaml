@@ -204,3 +204,12 @@ countries:
     regime: MiCA
     via: mica_passporting
     entity: CPS Europe S.A
+company_facts:
+- lei: 984500CFB88366E9B834
+  registered_office:
+    city: Luxembourg
+    country: LU
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2022-04-28'
+  retrieved: '2026-08-12'

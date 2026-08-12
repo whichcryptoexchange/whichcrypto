@@ -27,3 +27,12 @@ countries:
     regime: MiCA
     via: home_state
     entity: VR-Bank Landau-Mengkofen eG
+company_facts:
+- lei: 529900E9AS5RG8YBF660
+  registered_office:
+    city: Landau a.d. Isar
+    country: DE
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '1912-06-03'
+  retrieved: '2026-08-12'

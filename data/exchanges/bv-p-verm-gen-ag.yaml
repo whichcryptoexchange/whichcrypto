@@ -28,3 +28,12 @@ countries:
     regime: MiCA
     via: home_state
     entity: BV & P Vermögen AG
+company_facts:
+- lei: 529900R4Q9UCQ25IAA05
+  registered_office:
+    city: Kempten
+    country: DE
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2007-02-05'
+  retrieved: '2026-08-12'

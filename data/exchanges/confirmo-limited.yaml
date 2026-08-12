@@ -203,3 +203,12 @@ countries:
     regime: MiCA
     via: mica_passporting
     entity: Confirmo Limited
+company_facts:
+- lei: 984500F75CJ82D8B7D76
+  registered_office:
+    city: Dublin
+    country: IE
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2025-07-21'
+  retrieved: '2026-08-12'

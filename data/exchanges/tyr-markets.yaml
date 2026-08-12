@@ -30,3 +30,12 @@ countries:
     regime: MiCA
     via: home_state
     entity: TÝR MARKETS AS
+company_facts:
+- lei: 984500678DAPX7H3BC86
+  registered_office:
+    city: OSLO
+    country: 'NO'
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2024-01-29'
+  retrieved: '2026-08-12'

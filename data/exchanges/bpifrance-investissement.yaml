@@ -27,3 +27,12 @@ countries:
     regime: MiCA
     via: home_state
     entity: Bpifrance Investissement
+company_facts:
+- lei: 96950082Z6KUVA6TW686
+  registered_office:
+    city: MAISONS-ALFORT
+    country: FR
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2000-12-31'
+  retrieved: '2026-08-12'

@@ -50,3 +50,12 @@ countries:
     regime: MiCA
     via: mica_passporting
     entity: COINHOUSE SAS
+company_facts:
+- lei: 969500E5GFHK2RKF8251
+  registered_office:
+    city: PARIS
+    country: FR
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2015-12-10'
+  retrieved: '2026-08-12'

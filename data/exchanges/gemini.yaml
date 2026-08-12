@@ -257,3 +257,12 @@ third_party_reviews:
   count: 109525
   url: https://apps.apple.com/us/app/gemini-markets-credit-card/id1408914447?uo=4
   retrieved: '2026-08-10'
+company_facts:
+- lei: 2138002QAMX8PPKSO715
+  registered_office:
+    city: VALLETTA
+    country: MT
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2024-11-11'
+  retrieved: '2026-08-12'

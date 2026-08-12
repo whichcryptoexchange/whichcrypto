@@ -31,3 +31,12 @@ countries:
     regime: MiCA
     via: home_state
     entity: UAB Micar assets
+company_facts:
+- lei: 894500R6HJP62BZX4M89
+  registered_office:
+    city: Vilnius
+    country: LT
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2024-09-09'
+  retrieved: '2026-08-12'

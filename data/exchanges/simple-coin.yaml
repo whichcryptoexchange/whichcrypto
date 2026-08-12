@@ -30,3 +30,12 @@ countries:
     regime: MiCA
     via: home_state
     entity: Simple Coin s.r.o
+company_facts:
+- lei: 3157008PWKP5LP7AR251
+  registered_office:
+    city: Praha
+    country: CZ
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2013-03-19'
+  retrieved: '2026-08-12'

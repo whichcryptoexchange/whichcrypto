@@ -288,3 +288,12 @@ countries:
     via: ny_dfs_register
     entity: Ripple Markets DE LLC (f/k/a XRP II LLC)
     since: 2016-06
+company_facts:
+- lei: 2549000KEHDV2LWRRZ45
+  registered_office:
+    city: Luxembourg
+    country: LU
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2025-04-03'
+  retrieved: '2026-08-12'

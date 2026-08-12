@@ -41,3 +41,12 @@ countries:
     regime: MiCA
     via: home_state
     entity: INCREMENTUM družba za izvajanje storitev v zvezi s kriptosredstvi d.o.o
+company_facts:
+- lei: 485100UM87L7ILR4L484
+  registered_office:
+    city: TRZIN
+    country: SI
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2018-10-26'
+  retrieved: '2026-08-12'

@@ -214,3 +214,12 @@ countries:
     entity: Coinify ApS
     reg_number: '29470286'
     since: '2026-06-16'
+company_facts:
+- lei: 9845009Q9DDAE03FDE38
+  registered_office:
+    city: null
+    country: DK
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2014-05-01'
+  retrieved: '2026-08-12'

@@ -34,3 +34,12 @@ countries:
     regime: MiCA
     via: home_state
     entity: OPEN BANK S.A
+company_facts:
+- lei: 5493000LM0MZ4JPMGM90
+  registered_office:
+    city: BOADILLA DEL MONTE
+    country: ES
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2013-11-13'
+  retrieved: '2026-08-12'

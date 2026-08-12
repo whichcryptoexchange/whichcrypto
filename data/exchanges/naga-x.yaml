@@ -34,3 +34,12 @@ countries:
     regime: MiCA
     via: home_state
     entity: NAGA X
+company_facts:
+- lei: 984500DCB2AF415E5Y71
+  registered_office:
+    city: LIMASSOL
+    country: CY
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2021-08-17'
+  retrieved: '2026-08-12'

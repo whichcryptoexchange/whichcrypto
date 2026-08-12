@@ -204,3 +204,12 @@ countries:
     regime: MiCA
     via: mica_passporting
     entity: Everest Network Limited
+company_facts:
+- lei: 984500C3A855AC77FE74
+  registered_office:
+    city: SWATAR BIRKIRKARA
+    country: MT
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2018-10-30'
+  retrieved: '2026-08-12'

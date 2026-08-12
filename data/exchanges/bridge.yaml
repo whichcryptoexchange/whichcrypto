@@ -204,3 +204,12 @@ countries:
     regime: MiCA
     via: mica_passporting
     entity: Bridge Building S.A
+company_facts:
+- lei: 254900MVWQXMF77YZP65
+  registered_office:
+    city: Luxembourg
+    country: LU
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2025-08-13'
+  retrieved: '2026-08-12'

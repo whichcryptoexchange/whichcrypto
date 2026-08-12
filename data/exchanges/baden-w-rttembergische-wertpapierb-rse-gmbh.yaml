@@ -27,3 +27,12 @@ countries:
     regime: MiCA
     via: home_state
     entity: Baden-Württembergische Wertpapierbörse GmbH
+company_facts:
+- lei: 529900A0WHA0NVXY0G45
+  registered_office:
+    city: Stuttgart
+    country: DE
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '1997-07-24'
+  retrieved: '2026-08-12'

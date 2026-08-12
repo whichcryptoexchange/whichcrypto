@@ -48,3 +48,20 @@ countries:
     regime: MiCA
     via: home_state
     entity: Tradevest Digital Assets GmbH
+company_facts:
+- lei: 529900SUZQE32VSCS310
+  registered_office:
+    city: null
+    country: DE
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2023-02-15'
+  retrieved: '2026-08-12'
+- lei: 391200KFWD74ZYNEEA30
+  registered_office:
+    city: null
+    country: DE
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2005-03-09'
+  retrieved: '2026-08-12'

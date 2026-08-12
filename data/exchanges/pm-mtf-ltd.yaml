@@ -204,3 +204,12 @@ countries:
     regime: MiCA
     via: mica_passporting
     entity: PM MTF LTD
+company_facts:
+- lei: 2138005EFA978Y43G944
+  registered_office:
+    city: NICOSIA
+    country: CY
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2023-10-09'
+  retrieved: '2026-08-12'

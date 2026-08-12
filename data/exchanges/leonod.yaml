@@ -194,3 +194,12 @@ countries:
     regime: MiCA
     via: mica_passporting
     entity: LEONOD SARL
+company_facts:
+- lei: 969500O878F3MGJCYV50
+  registered_office:
+    city: LYON
+    country: FR
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2019-03-31'
+  retrieved: '2026-08-12'

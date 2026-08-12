@@ -31,3 +31,12 @@ countries:
     regime: MiCA
     via: home_state
     entity: COINMATE a.s
+company_facts:
+- lei: 3157005QCM6Y91CUV844
+  registered_office:
+    city: Praha 8
+    country: CZ
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2021-12-16'
+  retrieved: '2026-08-12'

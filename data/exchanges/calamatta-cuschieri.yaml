@@ -201,3 +201,12 @@ countries:
     regime: MiCA
     via: mica_passporting
     entity: Calamatta Cuschieri Investment Services Limited
+company_facts:
+- lei: 391200EKTIW0OR813R66
+  registered_office:
+    city: BIRKIRKARA
+    country: MT
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '1992-03-30'
+  retrieved: '2026-08-12'

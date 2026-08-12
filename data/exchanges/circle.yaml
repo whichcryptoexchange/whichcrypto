@@ -234,3 +234,12 @@ countries:
     via: ny_dfs_register
     entity: Circle Internet Trust Company, LLC
     since: 2026-07
+company_facts:
+- lei: 969500OYUDADGZKCR583
+  registered_office:
+    city: PARIS
+    country: FR
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2023-06-29'
+  retrieved: '2026-08-12'

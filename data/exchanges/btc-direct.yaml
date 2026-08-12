@@ -65,3 +65,12 @@ countries:
     regime: MiCA
     via: mica_passporting
     entity: BTC Direct Europe B.V
+company_facts:
+- lei: 724500C4D3LQAKCEZ198
+  registered_office:
+    city: Nijmegen
+    country: NL
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2013-12-12'
+  retrieved: '2026-08-12'

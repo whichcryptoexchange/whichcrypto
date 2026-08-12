@@ -214,3 +214,12 @@ countries:
     entity: FalconX Delta, Inc.
     reg_number: '29466916'
     since: '2026-02-26'
+company_facts:
+- lei: 984500F6A0762F9LA923
+  registered_office:
+    city: MSIDA
+    country: MT
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2018-10-22'
+  retrieved: '2026-08-12'

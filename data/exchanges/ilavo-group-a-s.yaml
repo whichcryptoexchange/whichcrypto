@@ -49,3 +49,12 @@ countries:
     regime: MiCA
     via: mica_passporting
     entity: ILAVO GROUP a.s
+company_facts:
+- lei: 315700DWN9FHXPPTHD55
+  registered_office:
+    city: Brno
+    country: CZ
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2024-12-16'
+  retrieved: '2026-08-12'

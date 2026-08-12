@@ -92,3 +92,12 @@ countries:
     regime: MiCA
     via: mica_passporting
     entity: SIA AlphaRoute
+company_facts:
+- lei: 259400JCJJ78A4ZCXP93
+  registered_office:
+    city: Ryga
+    country: LV
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2025-10-09'
+  retrieved: '2026-08-12'

@@ -27,3 +27,12 @@ countries:
     regime: MiCA
     via: home_state
     entity: DADAT Krypto GmbH
+company_facts:
+- lei: 529900KTP3Y86BZKY754
+  registered_office:
+    city: Salzburg
+    country: AT
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2025-06-11'
+  retrieved: '2026-08-12'

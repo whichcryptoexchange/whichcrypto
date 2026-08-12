@@ -247,3 +247,12 @@ countries:
     via: ny_dfs_register
     entity: MoonPay USA LLC
     since: 2025-06
+company_facts:
+- lei: 254900KXWAZ3B1340G26
+  registered_office:
+    city: Amsterdam
+    country: NL
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2024-04-04'
+  retrieved: '2026-08-12'

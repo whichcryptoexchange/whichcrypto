@@ -27,3 +27,12 @@ countries:
     regime: MiCA
     via: home_state
     entity: Plutos Vermögensverwaltung AG
+company_facts:
+- lei: 391200PNJ2SKONA02N07
+  registered_office:
+    city: Frankfurt am Main
+    country: DE
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2001-09-16'
+  retrieved: '2026-08-12'

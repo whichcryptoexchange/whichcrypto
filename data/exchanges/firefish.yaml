@@ -204,3 +204,12 @@ countries:
     regime: MiCA
     via: home_state
     entity: Firefish Europe s.r.o
+company_facts:
+- lei: 9845004E55FCFA069549
+  registered_office:
+    city: null
+    country: SK
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2023-12-01'
+  retrieved: '2026-08-12'

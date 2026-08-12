@@ -29,3 +29,12 @@ countries:
     regime: MiCA
     via: home_state
     entity: BARE BITCOIN AS
+company_facts:
+- lei: 636700PFX3CY9R033H73
+  registered_office:
+    city: Oslo
+    country: 'NO'
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2021-06-14'
+  retrieved: '2026-08-12'

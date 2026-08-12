@@ -201,3 +201,12 @@ countries:
     regime: MiCA
     via: mica_passporting
     entity: SafeLynx Technologies ApS
+company_facts:
+- lei: 9845003F777K7DFF4E96
+  registered_office:
+    city: Farum
+    country: DK
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2022-01-01'
+  retrieved: '2026-08-12'

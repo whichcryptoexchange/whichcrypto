@@ -48,3 +48,12 @@ countries:
     regime: MiCA
     via: mica_passporting
     entity: Pionew Ireland Limited
+company_facts:
+- lei: 984500FD0NZ8949F4363
+  registered_office:
+    city: CORK
+    country: IE
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2022-07-26'
+  retrieved: '2026-08-12'

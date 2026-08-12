@@ -27,3 +27,12 @@ countries:
     regime: MiCA
     via: home_state
     entity: Huddlestock GmbH
+company_facts:
+- lei: 549300Y6TSD1DUCXD871
+  registered_office:
+    city: MUNCHEN
+    country: DE
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2009-01-13'
+  retrieved: '2026-08-12'

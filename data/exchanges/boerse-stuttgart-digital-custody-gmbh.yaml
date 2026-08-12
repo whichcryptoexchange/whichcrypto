@@ -202,3 +202,12 @@ countries:
     regime: MiCA
     via: mica_passporting
     entity: Boerse Stuttgart Digital Custody GmbH
+company_facts:
+- lei: 529900RC04FR9EHUT228
+  registered_office:
+    city: Stuttgart
+    country: DE
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2018-09-04'
+  retrieved: '2026-08-12'

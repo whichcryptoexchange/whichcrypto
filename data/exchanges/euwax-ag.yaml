@@ -78,3 +78,12 @@ countries:
     regime: MiCA
     via: mica_passporting
     entity: EUWAX AG
+company_facts:
+- lei: 529900032TYR45XIEW79
+  registered_office:
+    city: Stuttgart
+    country: DE
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '1999-04-05'
+  retrieved: '2026-08-12'

@@ -27,3 +27,12 @@ countries:
     regime: MiCA
     via: home_state
     entity: IN KAPITAL limited liability company for trade and services
+company_facts:
+- lei: 747800O0P6DFI8RSKT10
+  registered_office:
+    city: Sesvete
+    country: HR
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '1992-04-12'
+  retrieved: '2026-08-12'

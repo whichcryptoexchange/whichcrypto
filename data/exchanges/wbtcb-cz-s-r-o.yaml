@@ -27,3 +27,12 @@ countries:
     regime: MiCA
     via: home_state
     entity: wBTCb.cz, s.r.o
+company_facts:
+- lei: 3157009R9J4OHLL5NY32
+  registered_office:
+    city: Praha
+    country: CZ
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2014-04-21'
+  retrieved: '2026-08-12'

@@ -203,3 +203,12 @@ countries:
     regime: MiCA
     via: mica_passporting
     entity: Bequant Pro Limited
+company_facts:
+- lei: 213800Y834JOMU87Z285
+  registered_office:
+    city: MSIDA
+    country: MT
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2018-08-31'
+  retrieved: '2026-08-12'

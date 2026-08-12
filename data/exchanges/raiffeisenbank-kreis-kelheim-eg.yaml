@@ -27,3 +27,12 @@ countries:
     regime: MiCA
     via: home_state
     entity: Raiffeisenbank Kreis Kelheim eG
+company_facts:
+- lei: 529900UYTAE51VW2TG15
+  registered_office:
+    city: Bad Abbach
+    country: DE
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '1911-05-02'
+  retrieved: '2026-08-12'

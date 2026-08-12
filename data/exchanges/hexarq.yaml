@@ -42,3 +42,12 @@ countries:
     regime: MiCA
     via: mica_passporting
     entity: HEXARQ SAS
+company_facts:
+- lei: 969500TD4VXAOPXPVW02
+  registered_office:
+    city: PARIS 13
+    country: FR
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2021-11-30'
+  retrieved: '2026-08-12'

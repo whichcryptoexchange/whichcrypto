@@ -202,3 +202,12 @@ countries:
     regime: MiCA
     via: mica_passporting
     entity: Fiat Republic Netherlands B.V
+company_facts:
+- lei: 724500GVWT7QULV8CR59
+  registered_office:
+    city: Amsterdam
+    country: NL
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2021-11-25'
+  retrieved: '2026-08-12'

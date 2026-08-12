@@ -27,3 +27,12 @@ countries:
     regime: MiCA
     via: home_state
     entity: D2X Group N.V
+company_facts:
+- lei: 7245002DD3GNFXPGPP93
+  registered_office:
+    city: Amsterdam
+    country: NL
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2021-03-18'
+  retrieved: '2026-08-12'

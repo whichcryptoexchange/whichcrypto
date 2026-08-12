@@ -191,3 +191,12 @@ countries:
     regime: MiCA
     via: mica_passporting
     entity: Bank Frick AG
+company_facts:
+- lei: 529900RQOBT3ZJMDRK43
+  registered_office:
+    city: Balzers
+    country: LI
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '1998-12-20'
+  retrieved: '2026-08-12'

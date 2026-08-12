@@ -27,3 +27,12 @@ countries:
     regime: MiCA
     via: home_state
     entity: Scalable Capital Bank GmbH
+company_facts:
+- lei: 391200Y3EUNL4LTXRP94
+  registered_office:
+    city: null
+    country: DE
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2015-04-01'
+  retrieved: '2026-08-12'

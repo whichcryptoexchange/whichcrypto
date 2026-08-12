@@ -216,3 +216,12 @@ countries:
     entity: StoneX Digital LLC
     reg_number: '29461569'
     since: '2025-12-02'
+company_facts:
+- lei: 98450043FB90T6REA408
+  registered_office:
+    city: DUBLIN
+    country: IE
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2023-11-08'
+  retrieved: '2026-08-12'

@@ -258,3 +258,12 @@ countries:
     via: ny_dfs_register
     entity: BitGo New York Trust Company, LLC
     since: 2021-03
+company_facts:
+- lei: 391200IJ3B1IP7993O16
+  registered_office:
+    city: Frankfurt am Main
+    country: DE
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2021-11-01'
+  retrieved: '2026-08-12'

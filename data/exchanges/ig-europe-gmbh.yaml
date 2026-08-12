@@ -186,3 +186,12 @@ countries:
     regime: MiCA
     via: mica_passporting
     entity: IG Europe GmbH
+company_facts:
+- lei: 213800HFC5G4V293BN91
+  registered_office:
+    city: FRANKFURT AM MAIN
+    country: DE
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2017-07-28'
+  retrieved: '2026-08-12'

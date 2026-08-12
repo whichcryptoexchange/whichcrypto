@@ -30,3 +30,12 @@ countries:
     regime: MiCA
     via: home_state
     entity: CAIXABANK S.A
+company_facts:
+- lei: 7CUNS533WID6K7DGFI87
+  registered_office:
+    city: Valencia
+    country: ES
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '1980-12-12'
+  retrieved: '2026-08-12'

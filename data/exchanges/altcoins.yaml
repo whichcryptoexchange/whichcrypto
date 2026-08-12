@@ -30,3 +30,12 @@ countries:
     regime: MiCA
     via: home_state
     entity: Altcoins BG EООD
+company_facts:
+- lei: 984500FBAE2EDEF1C317
+  registered_office:
+    city: null
+    country: BG
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2019-01-28'
+  retrieved: '2026-08-12'

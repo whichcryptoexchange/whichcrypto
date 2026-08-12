@@ -205,3 +205,12 @@ third_party_reviews:
   count: 46973
   url: https://apps.apple.com/us/app/bybit-buy-crypto-bitcoin/id1488296980?uo=4
   retrieved: '2026-08-10'
+company_facts:
+- lei: 5299005V5GBSN2A4C303
+  registered_office:
+    city: Wien
+    country: AT
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2024-06-13'
+  retrieved: '2026-08-12'

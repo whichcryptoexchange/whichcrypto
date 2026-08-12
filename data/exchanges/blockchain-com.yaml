@@ -234,3 +234,12 @@ countries:
     entity: Blockchain.com, Inc
     reg_number: '29460378'
     since: '2025-11-14'
+company_facts:
+- lei: 254900GDCT8070R2VV26
+  registered_office:
+    city: VALLETTA
+    country: MT
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2025-07-28'
+  retrieved: '2026-08-12'

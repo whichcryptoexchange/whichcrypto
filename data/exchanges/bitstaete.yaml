@@ -27,3 +27,12 @@ countries:
     regime: MiCA
     via: home_state
     entity: BitStaete B.V
+company_facts:
+- lei: 7245009PN18D4I1TKJ50
+  registered_office:
+    city: Oldenzaal
+    country: NL
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2021-02-28'
+  retrieved: '2026-08-12'

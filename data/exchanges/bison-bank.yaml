@@ -64,3 +64,12 @@ countries:
     regime: MiCA
     via: home_state
     entity: Bison Bank, S.A
+company_facts:
+- lei: 549300V4H4USWZUCE073
+  registered_office:
+    city: LISBON
+    country: PT
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2014-02-11'
+  retrieved: '2026-08-12'

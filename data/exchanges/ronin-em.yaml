@@ -27,3 +27,12 @@ countries:
     regime: MiCA
     via: home_state
     entity: Ronin EM Ltd
+company_facts:
+- lei: 213800V83W83UL8WR118
+  registered_office:
+    city: LIMASSOL
+    country: CY
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2019-07-17'
+  retrieved: '2026-08-12'

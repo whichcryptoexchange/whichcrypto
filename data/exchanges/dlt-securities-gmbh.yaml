@@ -33,3 +33,12 @@ countries:
     regime: MiCA
     via: home_state
     entity: DLT Securities GmbH
+company_facts:
+- lei: 391200EYHDBM1YQI7A32
+  registered_office:
+    city: Frankfurt am Main
+    country: DE
+  entity_status: active
+  registration_status: issued
+  entity_creation_date: '2019-09-18'
+  retrieved: '2026-08-12'
