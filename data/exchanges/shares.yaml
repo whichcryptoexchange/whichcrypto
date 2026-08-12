@@ -112,3 +112,9 @@ countries:
     regime: MiCA
     via: mica_passporting
     entity: SHARES FINANCIAL ASSETS SAS
+news_mentions:
+- source: BBC
+  title: SpaceX shares sink after first earnings report reveals huge AI spending plans
+  url: https://www.bbc.co.uk/news/articles/c0qvpveg20vo?at_medium=RSS&amp;at_campaign=rss
+  published: '2026-08-05'
+  retrieved: '2026-08-12'
