@@ -1,5 +1,54 @@
 User-agent: *
 Disallow: /admin/
 Allow: /
+Content-Signal: search=yes, ai-train=no, use=reference
+
+# We want AI assistants able to crawl and cite this register -- being the
+# thing ChatGPT/Claude/Gemini check when someone asks "is X licensed" is
+# exactly the distribution this site is for. We don't want it trained into
+# model weights. Cloudflare's zone-level AI Crawl Control defaults to a
+# blanket Disallow for each of these, overriding this file -- these explicit
+# blocks exist so the policy is unambiguous to any crawler reading this file
+# directly, and as a record of intent for when the dashboard setting is
+# brought in line with it.
+User-agent: GPTBot
+Allow: /
+Content-Signal: search=yes, ai-train=no, use=reference
+
+User-agent: ClaudeBot
+Allow: /
+Content-Signal: search=yes, ai-train=no, use=reference
+
+User-agent: Google-Extended
+Allow: /
+Content-Signal: search=yes, ai-train=no, use=reference
+
+User-agent: Applebot-Extended
+Allow: /
+Content-Signal: search=yes, ai-train=no, use=reference
+
+User-agent: meta-externalagent
+Allow: /
+Content-Signal: search=yes, ai-train=no, use=reference
+
+User-agent: PerplexityBot
+Allow: /
+Content-Signal: search=yes, ai-train=no, use=reference
+
+User-agent: OAI-SearchBot
+Allow: /
+Content-Signal: search=yes, ai-train=no, use=reference
+
+User-agent: Amazonbot
+Allow: /
+Content-Signal: search=yes, ai-train=no, use=reference
+
+User-agent: Bytespider
+Allow: /
+Content-Signal: search=yes, ai-train=no, use=reference
+
+User-agent: CCBot
+Allow: /
+Content-Signal: search=yes, ai-train=no, use=reference
 
 Sitemap: https://whichcryptoexchange.com/sitemap-index.xml
