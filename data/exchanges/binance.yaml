@@ -32,3 +32,9 @@ third_party_reviews:
   count: 118363
   url: https://apps.apple.com/gb/app/binance-buy-bitcoin-crypto/id1436799971?uo=4
   retrieved: '2026-08-10'
+news_mentions:
+- source: Cointelegraph
+  title: Binance, RedotPay clash over fate of Singapore lawsuit
+  url: https://cointelegraph.com/news/binance-redotpay-clash-singapore-lawsuit?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound
+  published: '2026-08-12'
+  retrieved: '2026-08-13'

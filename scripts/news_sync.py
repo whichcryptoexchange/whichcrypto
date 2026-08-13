@@ -3,10 +3,12 @@
 news_sync.py - keyword-matches tracked brand names against a small set of
 reputable outlets' public RSS feeds, and records any hits per brand.
 
-Sources (all public, no signup/API key -- see below for why these two and
-not others): The Guardian's dedicated "Cryptocurrencies" tag feed (good
-topical signal), plus BBC's Business and Technology feeds (no crypto-
-specific tag, broader, but reputable and confirmed working). Reuters'
+Sources (all public, no signup/API key -- see below for why these and not
+others): The Guardian's dedicated "Cryptocurrencies" tag feed and BBC's
+Business and Technology feeds (general-interest outlets, broader but
+reputable), plus Cointelegraph and The Block -- two established
+crypto-native outlets whose RSS feeds run far denser on exchange names
+than general press, since exchanges are their actual beat. Reuters'
 public RSS feeds are dead; NYT's API is explicitly CC BY-NC (non-
 commercial only) and has no crypto-specific feed either, so neither is
 used here.
@@ -64,6 +66,8 @@ FEEDS = [
     ("The Guardian", "https://www.theguardian.com/technology/cryptocurrencies/rss"),
     ("BBC", "https://feeds.bbci.co.uk/news/business/rss.xml"),
     ("BBC", "https://feeds.bbci.co.uk/news/technology/rss.xml"),
+    ("Cointelegraph", "https://cointelegraph.com/rss"),
+    ("The Block", "https://www.theblock.co/rss.xml"),
 ]
 
 MIN_BRAND_LEN = 4

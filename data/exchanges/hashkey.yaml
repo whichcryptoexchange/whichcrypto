@@ -45,3 +45,9 @@ countries:
     reference: VL/25/03/002
     licensed_activities: Broker-Dealer Services Exchange Services
     since: '2025-04-14'
+news_mentions:
+- source: Cointelegraph
+  title: HashKey begins beta distribution of Hong Kong-regulated HKDAP stablecoin
+  url: https://cointelegraph.com/news/hashkey-begins-beta-distribution-of-hong-kong-regulated-hkdap-stablecoin?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound
+  published: '2026-08-12'
+  retrieved: '2026-08-13'

@@ -13,3 +13,10 @@ countries:
     via: kr_fiu_register
     entity: 주식회사 코빗
     since: '2021-10-20'
+news_mentions:
+- source: The Block
+  title: 'Mirae Asset to inject additional $35 million into Korbit crypto exchange following July acquisition:
+    report'
+  url: https://www.theblock.co/news/business/2026-08-13-mirae-asset-35-million-korbit-411677
+  published: '2026-08-13'
+  retrieved: '2026-08-13'

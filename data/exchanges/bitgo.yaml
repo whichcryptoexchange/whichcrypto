@@ -267,3 +267,14 @@ company_facts:
   registration_status: issued
   entity_creation_date: '2021-11-01'
   retrieved: '2026-08-12'
+news_mentions:
+- source: Cointelegraph
+  title: BitGo posts $19M Q2 loss despite 80% revenue surge to $4.3B
+  url: https://cointelegraph.com/news/bitgo-q2-19-million-revenue-surge-4-3-billion?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound
+  published: '2026-08-13'
+  retrieved: '2026-08-13'
+- source: The Block
+  title: BitGo sees revenue jump 80% to $4.3 billion in Q2 but posts net loss
+  url: https://www.theblock.co/news/business/2026-08-12-bitgo-sees-revenue-jump-q2-411664
+  published: '2026-08-12'
+  retrieved: '2026-08-13'

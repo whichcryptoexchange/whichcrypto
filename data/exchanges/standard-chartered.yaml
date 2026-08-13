@@ -211,3 +211,9 @@ company_facts:
   registration_status: issued
   entity_creation_date: '2024-10-07'
   retrieved: '2026-08-12'
+news_mentions:
+- source: The Block
+  title: Standard Chartered-backed Anchorpoint begins HKDAP stablecoin rollout
+  url: https://www.theblock.co/news/business/2026-08-12-standard-chartered-anchorpoint-hkdap-stablecoin-rollout-411575
+  published: '2026-08-12'
+  retrieved: '2026-08-13'
