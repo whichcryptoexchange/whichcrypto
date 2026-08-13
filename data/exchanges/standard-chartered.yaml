@@ -4,7 +4,7 @@ eu_status: authorised
 sources:
 - name: ESMA interim MiCA register (CASPS.csv)
   url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
-  retrieved: '2026-08-11'
+  retrieved: '2026-08-13'
 entities:
 - lei: 213800HAR45C9K18O294
   legal_name: Standard Chartered Luxembourg S.A
@@ -202,6 +202,12 @@ countries:
     regime: MiCA
     via: mica_passporting
     entity: Standard Chartered Luxembourg S.A
+news_mentions:
+- source: The Block
+  title: Standard Chartered-backed Anchorpoint begins HKDAP stablecoin rollout
+  url: https://www.theblock.co/news/business/2026-08-12-standard-chartered-anchorpoint-hkdap-stablecoin-rollout-411575
+  published: '2026-08-12'
+  retrieved: '2026-08-13'
 company_facts:
 - lei: 213800HAR45C9K18O294
   registered_office:
@@ -211,9 +217,3 @@ company_facts:
   registration_status: issued
   entity_creation_date: '2024-10-07'
   retrieved: '2026-08-12'
-news_mentions:
-- source: The Block
-  title: Standard Chartered-backed Anchorpoint begins HKDAP stablecoin rollout
-  url: https://www.theblock.co/news/business/2026-08-12-standard-chartered-anchorpoint-hkdap-stablecoin-rollout-411575
-  published: '2026-08-12'
-  retrieved: '2026-08-13'

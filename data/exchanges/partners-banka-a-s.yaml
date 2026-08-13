@@ -1,38 +1,29 @@
-id: wbtcb-cz-s-r-o
-brand: wBTCb.cz, s.r.o
+id: partners-banka-a-s
+brand: Partners Banka, a.s
 eu_status: authorised
 sources:
 - name: ESMA interim MiCA register (CASPS.csv)
   url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
   retrieved: '2026-08-13'
 entities:
-- lei: 3157009R9J4OHLL5NY32
-  legal_name: wBTCb.cz, s.r.o
+- lei: 315700J0QGFRKN11MF15
+  legal_name: Partners Banka, a.s
   commercial_name: null
   home_state: CZ
   regulator: Czech National Bank (CNB)
-  website: https://bit.plus
+  website: https://www.partnersbanka.cz/
   records:
-  - authorised: '2026-06-26'
+  - authorised: '2026-07-29'
     withdrawn: null
     status: authorised
     services:
-    - c
+    - g
     passported_to:
     - CZ
-    last_update: '2026-06-26'
+    last_update: '2026-08-04'
 countries:
   CZ:
     status: licensed
     regime: MiCA
     via: home_state
-    entity: wBTCb.cz, s.r.o
-company_facts:
-- lei: 3157009R9J4OHLL5NY32
-  registered_office:
-    city: Praha
-    country: CZ
-  entity_status: active
-  registration_status: issued
-  entity_creation_date: '2014-04-21'
-  retrieved: '2026-08-12'
+    entity: Partners Banka, a.s

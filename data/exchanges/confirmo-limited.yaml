@@ -4,7 +4,7 @@ eu_status: authorised
 sources:
 - name: ESMA interim MiCA register (CASPS.csv)
   url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
-  retrieved: '2026-08-11'
+  retrieved: '2026-08-13'
 entities:
 - lei: 984500F75CJ82D8B7D76
   legal_name: Confirmo Limited
