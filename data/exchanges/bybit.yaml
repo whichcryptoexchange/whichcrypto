@@ -214,3 +214,20 @@ company_facts:
   registration_status: issued
   entity_creation_date: '2024-06-13'
   retrieved: '2026-08-12'
+notable_incidents:
+- type: hack
+  date: '2025-02-21'
+  headline: Cold wallet hack — ~$1.5B in ETH stolen
+  summary: Attackers compromised the Safe{Wallet} multisig interface Bybit used to sign transactions from
+    its ETH cold wallet, tricking signers into approving a malicious transaction, and drained roughly
+    $1.5 billion -- the largest crypto exchange hack on record. The FBI publicly attributed the theft
+    to North Korea's Lazarus Group (tracked as "TraderTraitor"). Bybit said it remained solvent throughout,
+    backed by bridge loans from other exchanges, and continued honouring withdrawals. Bybit later sued
+    North Korea and the Lazarus Group in US federal court (filed June 2026), recovering roughly $48.4
+    million of the stolen funds so far, with a preliminary asset freeze granted by the court.
+  sources:
+  - name: FBI Internet Crime Complaint Center (IC3)
+    url: https://www.ic3.gov/psa/2025/psa250226
+  - name: CoinDesk (lawsuit update)
+    url: https://www.coindesk.com/policy/2026/08/07/bybit-sues-north-korea-and-lazarus-group-over-usd1-5-billion-hack-secures-asset-freeze
+  retrieved: '2026-08-13'

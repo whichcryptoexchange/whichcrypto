@@ -38,3 +38,19 @@ news_mentions:
   url: https://cointelegraph.com/news/binance-redotpay-clash-singapore-lawsuit?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound
   published: '2026-08-12'
   retrieved: '2026-08-13'
+notable_incidents:
+- type: settlement
+  date: '2023-11-21'
+  headline: $4.3B DOJ settlement — guilty pleas for BSA and sanctions violations
+  summary: Binance Holdings Ltd. pleaded guilty to federal charges including conspiracy to violate the
+    Bank Secrecy Act, failing to register as a money transmitting business, and violating US sanctions
+    law, agreeing to pay over $4.3 billion to resolve the case with the Department of Justice, Treasury,
+    and CFTC -- the largest corporate resolution of its kind at the time. Founder and then-CEO Changpeng
+    Zhao personally pleaded guilty to a BSA violation, paid a $50 million fine, and stepped down as CEO.
+    Binance agreed to an independent compliance monitor for multiple years.
+  sources:
+  - name: US Department of Justice
+    url: https://www.justice.gov/archives/opa/pr/binance-and-ceo-plead-guilty-federal-charges-4b-resolution
+  - name: CoinDesk
+    url: https://www.coindesk.com/policy/2023/11/21/binance-to-settle-charges-with-us-doj-source
+  retrieved: '2026-08-13'

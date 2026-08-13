@@ -14,3 +14,19 @@ countries:
     entity: Coincheck, Inc.
     reference: Kanto No.00014
     since: '2019-01-11'
+notable_incidents:
+- type: hack
+  date: '2018-01-26'
+  headline: NEM hot-wallet hack — ¥58B (~$530M) stolen
+  summary: Hackers stole 523 million NEM tokens (about ¥58 billion / $530 million at the time) from Coincheck's
+    hot wallet, which was not protected by multi-signature security -- one of the largest crypto exchange
+    hacks by value at the time. Around 260,000 customers were affected. Japan's Financial Services Agency
+    raided Coincheck's offices days later and issued a business improvement order. Coincheck repaid affected
+    users roughly ¥46.3 billion (~$426 million, about 80% of losses) from its own funds rather than passing
+    the loss on to customers.
+  sources:
+  - name: CNBC
+    url: https://www.cnbc.com/2018/02/02/japanese-regulators-raid-coincheck-in-wake-of-crypto-heist.html
+  - name: TechCrunch
+    url: https://techcrunch.com/2018/02/12/coincheck-hack-lawsuit-nem-cryptocurrency/
+  retrieved: '2026-08-13'

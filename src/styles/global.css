@@ -533,6 +533,28 @@ footer.site .trustpilot-widget iframe { margin: 0 !important; }
 .review-source-count { font-family: var(--mono); font-size: 13px; color: var(--ink-soft); }
 .review-source a { font-size: 13px; }
 .review-source-date { margin-left: auto; }
+
+/* Notable incidents: hand-curated and hand-verified (unlike news_mentions
+   above), so unlike that section this DOES use the site's status-colour
+   language -- border-left signals severity, same visual grammar as
+   .record's status border, because unlike a news headline these are
+   claims we're standing behind. */
+.notable-incidents { margin: 40px 0 0; }
+.incident-list { list-style: none; margin: 16px 0 0; padding: 0; display: grid; gap: 12px; }
+.incident-item {
+  background: var(--card); border: 1px solid var(--rule); border-left: 3px solid var(--ink-soft);
+  border-radius: 4px; padding: 14px 16px;
+}
+.incident-item.incident-hack, .incident-item.incident-insolvency { border-left-color: var(--warned); }
+.incident-item.incident-settlement, .incident-item.incident-withdrawal_freeze { border-left-color: var(--caution); }
+.incident-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px; }
+.incident-type {
+  font-family: var(--mono); font-size: 11px; font-weight: 600; text-transform: uppercase;
+  letter-spacing: 0.06em; color: var(--ink-soft);
+}
+.incident-item h4 { margin: 6px 0; font-family: var(--display); font-size: 16px; }
+.incident-item p { margin: 0 0 8px; font-size: 14px; line-height: 1.55; }
+.incident-item p:last-child { margin-bottom: 0; }
 .report-form { background: var(--card); border: 1px solid var(--rule); border-radius: 4px; padding: 16px; }
 .report-form summary { cursor: pointer; font-family: var(--display); font-weight: 700; padding: 12px 0; }
 .report-form label { display: block; margin: 12px 0 0; font-size: 14px; }

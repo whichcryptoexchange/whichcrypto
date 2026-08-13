@@ -1,0 +1,108 @@
+# Hand-curated, hand-verified notable incidents (hacks, insolvency events,
+# extended withdrawal freezes, and major regulatory/criminal settlements)
+# for tracked exchanges -- applied to data/exchanges/*.yaml by
+# scripts/notable_incidents_manual_apply.py.
+#
+# There is no live source for this the way there is for a licence
+# register: no regulator publishes a structured "exchange incident" feed.
+# Each entry below was researched and cross-checked against multiple
+# independent, reputable sources before being added -- see each entry's
+# own `sources` list. This is deliberately NOT exhaustive: only incidents
+# large enough and well-documented enough to matter for understanding an
+# exchange's risk profile are included. Absence of an entry for a brand is
+# not a claim that brand has a clean history -- only that nothing has been
+# added yet.
+#
+# `type` is one of: hack, insolvency, withdrawal_freeze, settlement.
+#
+# retrieved: when the facts below were last checked against source.
+retrieved: '2026-08-13'
+incidents:
+  - brand_id: bybit
+    type: hack
+    date: '2025-02-21'
+    headline: "Cold wallet hack — ~$1.5B in ETH stolen"
+    summary: >-
+      Attackers compromised the Safe{Wallet} multisig interface Bybit used to sign
+      transactions from its ETH cold wallet, tricking signers into approving a malicious
+      transaction, and drained roughly $1.5 billion -- the largest crypto exchange hack on
+      record. The FBI publicly attributed the theft to North Korea's Lazarus Group (tracked
+      as "TraderTraitor"). Bybit said it remained solvent throughout, backed by bridge loans
+      from other exchanges, and continued honouring withdrawals. Bybit later sued North
+      Korea and the Lazarus Group in US federal court (filed June 2026), recovering roughly
+      $48.4 million of the stolen funds so far, with a preliminary asset freeze granted by
+      the court.
+    sources:
+      - name: FBI Internet Crime Complaint Center (IC3)
+        url: https://www.ic3.gov/psa/2025/psa250226
+      - name: CoinDesk (lawsuit update)
+        url: https://www.coindesk.com/policy/2026/08/07/bybit-sues-north-korea-and-lazarus-group-over-usd1-5-billion-hack-secures-asset-freeze
+
+  - brand_id: coincheck
+    type: hack
+    date: '2018-01-26'
+    headline: "NEM hot-wallet hack — ¥58B (~$530M) stolen"
+    summary: >-
+      Hackers stole 523 million NEM tokens (about ¥58 billion / $530 million at the time)
+      from Coincheck's hot wallet, which was not protected by multi-signature security --
+      one of the largest crypto exchange hacks by value at the time. Around 260,000
+      customers were affected. Japan's Financial Services Agency raided Coincheck's offices
+      days later and issued a business improvement order. Coincheck repaid affected users
+      roughly ¥46.3 billion (~$426 million, about 80% of losses) from its own funds rather
+      than passing the loss on to customers.
+    sources:
+      - name: CNBC
+        url: https://www.cnbc.com/2018/02/02/japanese-regulators-raid-coincheck-in-wake-of-crypto-heist.html
+      - name: TechCrunch
+        url: https://techcrunch.com/2018/02/12/coincheck-hack-lawsuit-nem-cryptocurrency/
+
+  - brand_id: kucoin
+    type: hack
+    date: '2020-09-26'
+    headline: "Hot-wallet hack — ~$280M stolen, 84% later recovered"
+    summary: >-
+      Attackers obtained the private keys to several of KuCoin's hot wallets and withdrew
+      roughly $280 million across a range of tokens. Within about seven weeks KuCoin said it
+      had recovered 84% of the stolen funds (~$235 million) through on-chain tracking,
+      exchange freezes, and token-contract upgrades, and covered the remainder through its
+      own insurance fund so that no user lost money.
+    sources:
+      - name: The Block
+        url: https://www.theblock.co/linked/84248/kucoin-280m-stolen-recovered
+      - name: CoinDesk
+        url: https://www.coindesk.com/markets/2020/09/26/over-280m-drained-in-kucoin-crypto-exchange-hack
+
+  - brand_id: upbit
+    type: hack
+    date: '2019-11-27'
+    headline: "Hot-wallet hack — 342,000 ETH (~$50M) stolen"
+    summary: >-
+      342,000 ETH (worth roughly $50 million at the time) was moved out of Upbit's Ethereum
+      hot wallet to an unknown address. South Korean police later attributed the theft to
+      North Korea's Lazarus and Andariel hacking groups. Upbit covered the loss from its own
+      funds rather than customers' balances, and moved its holdings into cold storage
+      afterward. South Korean authorities recovered a small fraction (4.8 BTC, worth about
+      600 million won) after a four-year investigation, returned to Upbit in October 2024.
+    sources:
+      - name: BeInCrypto
+        url: https://beincrypto.com/north-korea-stole-ethereum-from-upbit/
+      - name: CryptoGlobe
+        url: https://www.cryptoglobe.com/latest/2019/12/upbit-s-hackers-start-spreading-out-the-stolen-ethereum/
+
+  - brand_id: binance
+    type: settlement
+    date: '2023-11-21'
+    headline: "$4.3B DOJ settlement — guilty pleas for BSA and sanctions violations"
+    summary: >-
+      Binance Holdings Ltd. pleaded guilty to federal charges including conspiracy to
+      violate the Bank Secrecy Act, failing to register as a money transmitting business,
+      and violating US sanctions law, agreeing to pay over $4.3 billion to resolve the case
+      with the Department of Justice, Treasury, and CFTC -- the largest corporate
+      resolution of its kind at the time. Founder and then-CEO Changpeng Zhao personally
+      pleaded guilty to a BSA violation, paid a $50 million fine, and stepped down as CEO.
+      Binance agreed to an independent compliance monitor for multiple years.
+    sources:
+      - name: US Department of Justice
+        url: https://www.justice.gov/archives/opa/pr/binance-and-ceo-plead-guilty-federal-charges-4b-resolution
+      - name: CoinDesk
+        url: https://www.coindesk.com/policy/2023/11/21/binance-to-settle-charges-with-us-doj-source

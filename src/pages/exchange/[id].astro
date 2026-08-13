@@ -33,6 +33,12 @@ const STATUS_STAMP = {
   authorised: { cls: 'gb-authorised', label: 'Authorised' },
   licensed: { cls: 'licensed', label: 'Licensed' },
 };
+const INCIDENT_TYPE_LABELS = {
+  hack: 'Security incident',
+  insolvency: 'Insolvency',
+  withdrawal_freeze: 'Withdrawal freeze',
+  settlement: 'Regulatory settlement',
+};
 // Turnstile site keys are public by design (embedded in client HTML), so hardcoding
 // this as a fallback is safe. The env var still wins if the build environment sets it.
 const SITEKEY = import.meta.env.PUBLIC_TURNSTILE_SITEKEY || '0x4AAAAAAD84t4OWkoouLP3Y';
@@ -308,6 +314,33 @@ const PAGE_DESC = `${ex.brand}: official licence records, legal entities, regula
         <li><a href={`/${c.toLowerCase()}/`}><span class="cc flag">{countryFlag(c)}</span>{COUNTRY_NAMES[c] ?? c}</a></li>
       ))}
     </ul>
+
+    {(ex.notable_incidents ?? []).length > 0 && (
+      <section class="notable-incidents" id="notable-incidents">
+        <h3>Notable incidents</h3>
+        <p class="sourced">Hand-researched and checked against multiple independent sources
+        before publishing — not an automated feed, and deliberately not exhaustive. Listed
+        here because they were large and well-documented enough to matter for understanding
+        {' '}{ex.brand}'s risk profile, not because we're implying anything about brands
+        without an entry here.</p>
+        <ul class="incident-list">
+          {ex.notable_incidents.map((inc) => (
+            <li class={`incident-item incident-${inc.type}`}>
+              <div class="incident-head">
+                <span class="incident-type">{INCIDENT_TYPE_LABELS[inc.type] ?? inc.type}</span>
+                <span class="datum">{inc.date}</span>
+              </div>
+              <h4>{inc.headline}</h4>
+              <p>{inc.summary}</p>
+              <p class="sourced">Sources:{' '}
+              {inc.sources.map((s, i) => (
+                <>{i > 0 && ' · '}<a href={s.url} rel="nofollow noopener" target="_blank">{s.name} ↗</a></>
+              ))}</p>
+            </li>
+          ))}
+        </ul>
+      </section>
+    )}
 
     <section class="third-party-reviews" id="third-party-reviews">
       <h3>What others report</h3>

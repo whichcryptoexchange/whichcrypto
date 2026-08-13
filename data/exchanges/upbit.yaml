@@ -23,3 +23,19 @@ countries:
     via: kr_fiu_register
     entity: 두나무 주식회사
     since: '2021-10-06'
+notable_incidents:
+- type: hack
+  date: '2019-11-27'
+  headline: Hot-wallet hack — 342,000 ETH (~$50M) stolen
+  summary: 342,000 ETH (worth roughly $50 million at the time) was moved out of Upbit's Ethereum hot wallet
+    to an unknown address. South Korean police later attributed the theft to North Korea's Lazarus and
+    Andariel hacking groups. Upbit covered the loss from its own funds rather than customers' balances,
+    and moved its holdings into cold storage afterward. South Korean authorities recovered a small fraction
+    (4.8 BTC, worth about 600 million won) after a four-year investigation, returned to Upbit in October
+    2024.
+  sources:
+  - name: BeInCrypto
+    url: https://beincrypto.com/north-korea-stole-ethereum-from-upbit/
+  - name: CryptoGlobe
+    url: https://www.cryptoglobe.com/latest/2019/12/upbit-s-hackers-start-spreading-out-the-stolen-ethereum/
+  retrieved: '2026-08-13'

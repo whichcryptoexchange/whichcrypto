@@ -208,3 +208,17 @@ company_facts:
   registration_status: issued
   entity_creation_date: '2024-10-24'
   retrieved: '2026-08-12'
+notable_incidents:
+- type: hack
+  date: '2020-09-26'
+  headline: Hot-wallet hack — ~$280M stolen, 84% later recovered
+  summary: Attackers obtained the private keys to several of KuCoin's hot wallets and withdrew roughly
+    $280 million across a range of tokens. Within about seven weeks KuCoin said it had recovered 84% of
+    the stolen funds (~$235 million) through on-chain tracking, exchange freezes, and token-contract upgrades,
+    and covered the remainder through its own insurance fund so that no user lost money.
+  sources:
+  - name: The Block
+    url: https://www.theblock.co/linked/84248/kucoin-280m-stolen-recovered
+  - name: CoinDesk
+    url: https://www.coindesk.com/markets/2020/09/26/over-280m-drained-in-kucoin-crypto-exchange-hack
+  retrieved: '2026-08-13'

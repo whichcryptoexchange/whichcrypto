@@ -262,6 +262,7 @@ def main():
         third_party_reviews = None
         news_mentions = None
         company_facts = None
+        notable_incidents = None
         if existing_path.exists():
             existing = yaml.safe_load(existing_path.read_text()) or {}
             for cc, entry in (existing.get("countries") or {}).items():
@@ -270,12 +271,13 @@ def main():
             other_sources = [s for s in (existing.get("sources") or [])
                               if s.get("name") != "ESMA interim MiCA register (CASPS.csv)"]
             # Fields owned by other sync scripts (appstore_sync.py,
-            # news_sync.py, gleif_sync.py) — this script doesn't know how to
-            # produce them, so preserve whatever's already on disk rather
-            # than dropping it.
+            # news_sync.py, gleif_sync.py, notable_incidents_manual_apply.py)
+            # — this script doesn't know how to produce them, so preserve
+            # whatever's already on disk rather than dropping it.
             third_party_reviews = existing.get("third_party_reviews")
             news_mentions = existing.get("news_mentions")
             company_facts = existing.get("company_facts")
+            notable_incidents = existing.get("notable_incidents")
         countries = dict(sorted(countries.items()))
 
         payload = {
@@ -296,6 +298,8 @@ def main():
             payload["news_mentions"] = news_mentions
         if company_facts is not None:
             payload["company_facts"] = company_facts
+        if notable_incidents is not None:
+            payload["notable_incidents"] = notable_incidents
         existing_path.write_text(
             yaml.safe_dump(payload, sort_keys=False, allow_unicode=True, width=100)
         )
