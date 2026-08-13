@@ -151,16 +151,34 @@ export function licenceFacts(ex) {
 
 // Plain-text (no links/markup) version of the same summary shown on a
 // brand's own page -- suitable for a FAQ answer or a JSON-LD `text` field.
+//
+// Leads with a market-footprint sentence (built from the same verified
+// genuine-licence/AML-only jurisdiction lists as before) rather than the
+// administrative "first appears in register" framing -- a licence a firm
+// actually applied for and was granted is a real signal of which markets
+// it deliberately entered, unlike self-reported "who we serve" marketing
+// copy, which we don't carry anywhere on this site. The first-seen/entity
+// count detail moves to a second sentence rather than disappearing.
 export function licenceSummaryText(ex) {
   const f = licenceFacts(ex);
-  let text = f.firstSeen
-    ? `${ex.brand} first appears in our register on ${f.firstSeen}, `
-    : `${ex.brand} appears in our register `;
-  text += `and is currently tracked across ${f.countryCodes.length} jurisdiction${f.countryCodes.length === 1 ? '' : 's'} through ${f.totalEntities} legal entit${f.totalEntities === 1 ? 'y' : 'ies'}.`;
+  // A withdrawn EU authorisation is neither "currently genuinely licensed"
+  // nor "never verified anywhere" -- it gets its own dedicated sentence
+  // below, so it's deliberately excluded from both branches here rather
+  // than triggering the "not independently verified" line, which would
+  // read as contradicting the withdrawal sentence right after it.
+  let text = '';
   if (f.genuineLicenceJurisdictions.length > 0) {
-    text += ` It holds a genuine crypto-specific licence in ${listJoin(f.genuineLicenceJurisdictions)}.`;
+    text = `${ex.brand} holds a genuine crypto-specific licence covering ${listJoin(f.genuineLicenceJurisdictions)}.`;
+  } else if (f.amlOnlyJurisdictions.length > 0) {
+    text = `${ex.brand} holds an AML-only registration (not a licence) in ${listJoin(f.amlOnlyJurisdictions)}.`;
+  } else if (ex.eu_status !== 'withdrawn') {
+    text = `We have not independently verified a genuine crypto-specific licence or registration for ${ex.brand} in any jurisdiction we track.`;
   }
-  if (f.amlOnlyJurisdictions.length > 0) {
+  text += f.firstSeen
+    ? `${text ? ' It' : ex.brand} first appears in our register on ${f.firstSeen}`
+    : `${text ? ' It' : ex.brand} appears in our register`;
+  text += ` and is currently tracked across ${f.countryCodes.length} jurisdiction${f.countryCodes.length === 1 ? '' : 's'} through ${f.totalEntities} legal entit${f.totalEntities === 1 ? 'y' : 'ies'}.`;
+  if (f.genuineLicenceJurisdictions.length > 0 && f.amlOnlyJurisdictions.length > 0) {
     text += ` It also holds an AML-only registration (not a licence) in ${listJoin(f.amlOnlyJurisdictions)}.`;
   }
   if (f.hasSeparateUKAuthorisation) {
@@ -168,9 +186,6 @@ export function licenceSummaryText(ex) {
   }
   if (ex.eu_status === 'withdrawn') {
     text += ' Its EU MiCA authorisation has since been withdrawn.';
-  }
-  if (f.genuineLicenceJurisdictions.length === 0 && f.amlOnlyJurisdictions.length === 0 && ex.eu_status !== 'authorised' && ex.eu_status !== 'withdrawn') {
-    text += ` We have not independently verified a genuine crypto-specific licence or registration for ${ex.brand} in any jurisdiction we track.`;
   }
   return text;
 }

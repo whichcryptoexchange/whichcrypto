@@ -176,15 +176,34 @@ const PAGE_DESC = `${ex.brand}: official licence records, legal entities, regula
     </p>
 
     <p class="summary-box">
-      {firstSeen
-        ? <>{ex.brand} first appears in our register on <strong class="datum">{firstSeen}</strong>, </>
-        : <>{ex.brand} appears in our register </>}
-      and is currently tracked across <strong>{countryCodes.length}</strong> jurisdiction{countryCodes.length === 1 ? '' : 's'}
+      {/* Leads with market footprint (built from the same verified
+          genuine-licence/AML-only lists as the rest of this paragraph) --
+          a licence a firm actually applied for and was granted is a real
+          signal of which markets it deliberately entered, unlike
+          self-reported "who we serve" copy, which we don't carry anywhere
+          on this site. See licenceSummaryText in data.js for the plain-
+          text version this must stay in sync with. */}
+      {/* A withdrawn EU authorisation is neither "currently genuinely
+          licensed" nor "never verified anywhere" -- it gets its own
+          dedicated sentence below, so it's excluded from the fallback
+          case rather than showing a "not independently verified" line
+          that would contradict the withdrawal sentence right after it. */}
+      {genuineLicenceJurisdictions.length > 0 ? (
+        <>{ex.brand} holds a genuine crypto-specific licence covering {listJoin(genuineLicenceJurisdictions)}.</>
+      ) : amlOnlyJurisdictions.length > 0 ? (
+        <>{ex.brand} holds an AML-only registration (not a licence) in {listJoin(amlOnlyJurisdictions)}.</>
+      ) : ex.eu_status !== 'withdrawn' ? (
+        <>We have not independently verified a genuine crypto-specific licence or registration for {ex.brand} in any jurisdiction we track.</>
+      ) : null}
+      {(() => {
+        const hasLeadSentence = !(genuineLicenceJurisdictions.length === 0 && amlOnlyJurisdictions.length === 0 && ex.eu_status === 'withdrawn');
+        return firstSeen
+          ? <> {hasLeadSentence ? 'It first' : `${ex.brand} first`} appears in our register on <strong class="datum">{firstSeen}</strong></>
+          : <> {hasLeadSentence ? 'It' : ex.brand} appears in our register</>;
+      })()}
+      {' '}and is currently tracked across <strong>{countryCodes.length}</strong> jurisdiction{countryCodes.length === 1 ? '' : 's'}
       through <strong>{totalEntities}</strong> legal entit{totalEntities === 1 ? 'y' : 'ies'}.
-      {genuineLicenceJurisdictions.length > 0 && (
-        <> It holds a genuine crypto-specific licence in {listJoin(genuineLicenceJurisdictions)}.</>
-      )}
-      {amlOnlyJurisdictions.length > 0 && (
+      {genuineLicenceJurisdictions.length > 0 && amlOnlyJurisdictions.length > 0 && (
         <> It also holds an AML-only registration (not a licence) in {listJoin(amlOnlyJurisdictions)}.</>
       )}
       {hasSeparateUKAuthorisation && (
@@ -192,9 +211,6 @@ const PAGE_DESC = `${ex.brand}: official licence records, legal entities, regula
       )}
       {ex.eu_status === 'withdrawn' && (
         <> Its EU MiCA authorisation has since been withdrawn.</>
-      )}
-      {genuineLicenceJurisdictions.length === 0 && amlOnlyJurisdictions.length === 0 && ex.eu_status !== 'authorised' && ex.eu_status !== 'withdrawn' && (
-        <> We have not independently verified a genuine crypto-specific licence or registration for {ex.brand} in any jurisdiction we track.</>
       )}
     </p>
 
