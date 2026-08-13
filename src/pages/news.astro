@@ -13,7 +13,7 @@ const rows = exchanges
 
 const SITEKEY = import.meta.env.PUBLIC_TURNSTILE_SITEKEY || '0x4AAAAAAD84t4OWkoouLP3Y';
 const PAGE_TITLE = `Crypto Exchange News Mentions | whichcryptoexchange.com`;
-const PAGE_DESC = `Headlines from The Guardian and BBC that name-match a tracked crypto exchange, newest first -- unfiltered keyword matches, not verified as relevant to any exchange's regulatory status.`;
+const PAGE_DESC = `Headlines from The Guardian, BBC, Cointelegraph, and The Block that name-match a tracked crypto exchange, newest first -- unfiltered keyword matches, not verified as relevant to any exchange's regulatory status.`;
 ---
 <html lang="en">
 <head>
@@ -67,8 +67,8 @@ const PAGE_DESC = `Headlines from The Guardian and BBC that name-match a tracked
 
   <main class="wrap">
     <h1>News mentions</h1>
-    <p class="lede">Headlines from The Guardian and BBC whose title names a tracked exchange,
-    newest first, checked daily.</p>
+    <p class="lede">Headlines from The Guardian, BBC, Cointelegraph, and The Block whose title
+    names a tracked exchange, newest first, checked daily.</p>
     <p class="sourced">This is <em>not</em> a filtered "regulatory news" feed — it's an unfiltered
     keyword match against general news coverage, reviewed before publishing but not verified as
     relevant to any brand's regulatory status. Read the original story before drawing a conclusion
