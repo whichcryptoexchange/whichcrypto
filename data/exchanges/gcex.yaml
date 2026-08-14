@@ -7,7 +7,7 @@ sources:
   retrieved: '2026-08-14'
 - name: Dubai VARA Public Register
   url: https://www.vara.ae/en/licenses-and-register/public-register/
-  retrieved: '2026-08-11'
+  retrieved: '2026-08-13'
 entities:
 - lei: 254900TM3KOYH0SY8V19
   legal_name: GC Exchange A/S
