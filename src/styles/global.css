@@ -618,6 +618,23 @@ footer.site .trustpilot-widget iframe { margin: 0 !important; }
   border-radius: 4px; padding: 9px 16px; text-decoration: none; white-space: nowrap;
 }
 .submit-cta a.button-link:hover { background: #1f4666; }
+
+/* Geo-suggestion banner (homepage) -- two states, two colours: green
+   ("covered") reuses the licensed/positive-action colour, editorial blue
+   ("not covered yet") reuses the site's own "help us build this" colour
+   already established by .submit-cta, deliberately distinct from a
+   licensing fact. Never shown without JS confirming a geo cookie AND
+   (for the covered state) a matching tracked country -- see the script
+   at the bottom of index.astro. */
+.geo-banner {
+  display: block; border-radius: 8px; padding: 14px 20px; margin: 0 0 20px;
+  font-family: var(--display); font-weight: 700; font-size: 16px; text-decoration: none;
+}
+.geo-banner-covered { background: #eef8f2; border: 2px solid var(--licensed); color: var(--licensed); }
+.geo-banner-covered:hover { background: #e0f2e7; }
+.geo-banner-uncovered { background: #eaf1f7; border: 2px solid var(--editorial); color: var(--editorial); }
+.geo-banner-uncovered:hover { background: #dde9f2; }
+
 @media (max-width: 700px) {
   .page-header { flex-direction: column; gap: 20px; }
   /* flex-basis is a min-height once the axis flips to column -- without

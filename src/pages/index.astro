@@ -96,8 +96,10 @@ const PAGE_DESC = 'Check which crypto exchanges are licensed in your country -- 
     <p class="lede">Pick your country. We answer from the official registers — who is licensed,
     through which entity, under which regime, and since when. No rankings, no stars. Receipts.</p>
 
+    <a id="geo-banner" class="geo-banner" hidden></a>
+
     <div class="picker">
-      <label for="country">Your country of residence</label>
+      <label for="country" id="country-label">Your country of residence</label>
       <select id="country" onchange="if(this.value) location.href='/'+this.value.toLowerCase()+'/'">
         <option value="">Select a country…</option>
         {countries.map((c) => <option value={c}>{COUNTRY_NAMES[c] ?? c}</option>)}
@@ -246,10 +248,31 @@ const PAGE_DESC = 'Check which crypto exchanges are licensed in your country -- 
 
   <script>
     // Geo-suggestion: a Cloudflare Worker sets a `user_country` cookie from
-    // CF-IPCountry. If present and we have a page for it, pre-select — never redirect.
+    // CF-IPCountry. If present and we have a page for it, pre-select the
+    // dropdown AND show a one-click banner above it — but never redirect.
+    // Geo-IP is wrong often enough (VPNs, corporate proxies, mobile
+    // carriers) that silently navigating on a guess would read as a bug;
+    // showing the guess as a dismissable/ignorable link keeps the same
+    // page and URL for every visitor (and every crawler) either way.
     const m = document.cookie.match(/(?:^|;\s*)user_country=([A-Z]{2})/);
     const sel = document.getElementById('country');
-    if (m && sel && [...sel.options].some((o) => o.value === m[1])) sel.value = m[1];
+    const opt = m && sel ? [...sel.options].find((o) => o.value === m[1]) : null;
+    const banner = document.getElementById('geo-banner');
+    if (opt) {
+      sel.value = m[1];
+      banner.href = '/' + m[1].toLowerCase() + '/';
+      banner.textContent = `Looks like you're in ${opt.textContent} — see ${opt.textContent}-licensed exchanges →`;
+      banner.className = 'geo-banner geo-banner-covered';
+      banner.hidden = false;
+      document.getElementById('country-label').textContent = `Not in ${opt.textContent}? Choose yours here`;
+    } else if (m) {
+      // Detection worked but we don't track that country yet -- rather
+      // than stay silent, turn it into a signal for what to build next.
+      banner.href = '/contact/';
+      banner.textContent = "We don't track your country yet — let us know and we'll look into it →";
+      banner.className = 'geo-banner geo-banner-uncovered';
+      banner.hidden = false;
+    }
 
     // Latest user reports: fetched client-side because the page is static.
     // Same source data as each exchange's own "User reports" section --
