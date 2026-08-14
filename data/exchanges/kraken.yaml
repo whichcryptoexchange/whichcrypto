@@ -4,7 +4,7 @@ eu_status: authorised
 sources:
 - name: ESMA interim MiCA register (CASPS.csv)
   url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
-  retrieved: '2026-08-11'
+  retrieved: '2026-08-14'
 - name: UK FCA Register
   url: https://register.fca.org.uk/
   retrieved: '2026-08-11'
@@ -312,6 +312,12 @@ third_party_reviews:
   count: 33632
   url: https://apps.apple.com/us/app/kraken-buy-crypto-stocks/id1481947260?uo=4
   retrieved: '2026-08-10'
+news_mentions:
+- source: Cointelegraph
+  title: Kraken adds S&P 500 to funded trading program, commodities to follow
+  url: https://cointelegraph.com/news/kraken-prop-sp500-perpetual-commodities-next?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound
+  published: '2026-08-12'
+  retrieved: '2026-08-13'
 company_facts:
 - lei: 9845003D98SCC2851458
   registered_office:
@@ -329,12 +335,6 @@ company_facts:
   registration_status: issued
   entity_creation_date: '2022-01-18'
   retrieved: '2026-08-12'
-news_mentions:
-- source: Cointelegraph
-  title: Kraken adds S&P 500 to funded trading program, commodities to follow
-  url: https://cointelegraph.com/news/kraken-prop-sp500-perpetual-commodities-next?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound
-  published: '2026-08-12'
-  retrieved: '2026-08-13'
 audits:
 - tier: proof_of_reserves
   status: active

@@ -1,34 +1,9 @@
 id: altlift-s-r-o
 brand: Altlift s.r.o
-eu_status: authorised
-sources:
-- name: ESMA interim MiCA register (CASPS.csv)
-  url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
-  retrieved: '2026-08-11'
-entities:
-- lei: 8945004PZEJSSPTTVB16
-  legal_name: Altlift s.r.o
-  commercial_name: null
-  home_state: CZ
-  regulator: Czech National Bank (CNB)
-  website: ttps://www.altlift.cz/
-  records:
-  - authorised: '2026-06-30'
-    withdrawn: null
-    status: authorised
-    services:
-    - e
-    - g
-    - h
-    passported_to:
-    - CZ
-    last_update: '2026-06-26'
-countries:
-  CZ:
-    status: licensed
-    regime: MiCA
-    via: home_state
-    entity: Altlift s.r.o
+eu_status: no_eu_entity
+sources: []
+entities: []
+countries: {}
 company_facts:
 - lei: 8945004PZEJSSPTTVB16
   registered_office:

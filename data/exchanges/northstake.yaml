@@ -4,11 +4,11 @@ eu_status: authorised
 sources:
 - name: ESMA interim MiCA register (CASPS.csv)
   url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
-  retrieved: '2026-08-11'
+  retrieved: '2026-08-14'
 entities:
 - lei: 98450010C0CB6A4E8A79
   legal_name: Northstake ApS
-  commercial_name: Northstake ApS
+  commercial_name: Northstake
   home_state: DK
   regulator: Finanstilsynet
   website: www.northstake.dk

@@ -4,7 +4,7 @@ eu_status: authorised
 sources:
 - name: ESMA interim MiCA register (CASPS.csv)
   url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
-  retrieved: '2026-08-11'
+  retrieved: '2026-08-14'
 entities:
 - lei: 9845009F15A5B9FD7F45
   legal_name: Kvarn Capital Oy

@@ -251,7 +251,38 @@ def main():
             existing = {}
         if existing.get("eu_status") == "no_eu_entity":
             continue
-        stale.unlink()
+        # A brand can drop out of CASPS.csv entirely (authorisation
+        # lapsed, brand delisted) while still carrying data this script
+        # doesn't own: non-EEA countries, or fields owned entirely by
+        # other scripts (company_facts, notable_incidents, audits,
+        # third_party_reviews, news_mentions). Deleting the whole file
+        # would silently take all of that down with it too -- caught via
+        # a real case (Altlift s.r.o, GLEIF company_facts) before this
+        # ever reached main. Only actually delete when there's nothing
+        # else worth keeping; otherwise demote to no_eu_entity so the
+        # brand survives with everything ESMA doesn't own.
+        non_eea_countries = {cc: v for cc, v in (existing.get("countries") or {}).items() if cc not in EEA}
+        other_owned_fields = {
+            k: existing[k] for k in
+            ("third_party_reviews", "news_mentions", "company_facts", "notable_incidents", "audits")
+            if k in existing
+        }
+        if not non_eea_countries and not other_owned_fields:
+            stale.unlink()
+            continue
+        demoted = {
+            "id": existing.get("id", stale.stem),
+            "brand": existing.get("brand", stale.stem),
+            "eu_status": "no_eu_entity",
+            "sources": [s for s in (existing.get("sources") or [])
+                        if s.get("name") != "ESMA interim MiCA register (CASPS.csv)"],
+            "entities": [],
+            "countries": non_eea_countries,
+            **other_owned_fields,
+        }
+        stale.write_text(yaml.safe_dump(demoted, sort_keys=False, allow_unicode=True, width=100))
+        print(f"  {stale.stem}: dropped from ESMA source, demoted to no_eu_entity "
+              f"(preserved {', '.join(other_owned_fields) or 'non-EEA countries'})", file=sys.stderr)
     for bid, b in sorted(brands.items()):
         countries = dict(b["countries"])
         other_sources = []
