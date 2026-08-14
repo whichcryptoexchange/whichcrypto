@@ -630,6 +630,13 @@ footer.site .trustpilot-widget iframe { margin: 0 !important; }
   display: block; border-radius: 8px; padding: 14px 20px; margin: 0 0 20px;
   font-family: var(--display); font-weight: 700; font-size: 16px; text-decoration: none;
 }
+/* An author stylesheet rule like the one above overrides the browser's
+   own [hidden] { display: none } default regardless of specificity --
+   without this, the empty banner still renders as a blank box (padding +
+   margin, no border/background since those only come from the -covered/
+   -uncovered modifier classes JS adds) for anyone without a geo cookie,
+   i.e. almost everyone, including crawlers. */
+.geo-banner[hidden] { display: none; }
 .geo-banner-covered { background: #eef8f2; border: 2px solid var(--licensed); color: var(--licensed); }
 .geo-banner-covered:hover { background: #e0f2e7; }
 .geo-banner-uncovered { background: #eaf1f7; border: 2px solid var(--editorial); color: var(--editorial); }
