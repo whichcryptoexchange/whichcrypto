@@ -15,6 +15,25 @@ const hasGenuineLicence = (ex) => {
 const hasAmlOnlyRegistration = (ex) => Object.values(ex.countries ?? {}).some((entry) =>
   (Array.isArray(entry) ? entry : [entry]).some((e) => e.status === 'registered' || e.status === 'authorised'));
 
+// "Verification depth" -- an opt-in sort, not a default order or a
+// displayed score. Deliberately additive, never subtractive: a brand we
+// simply haven't researched for audits yet (most of them -- this data is
+// hand-curated, not comprehensively synced like licensing) scores the
+// same 0 on that half as a brand we researched and found nothing strong.
+// We're never claiming "verified absence", only counting verified
+// presence, so an unresearched brand is never penalised relative to a
+// checked-and-clean one -- the two are indistinguishable here on purpose.
+// Licensing is the one dimension synced comprehensively across all
+// tracked brands, so it's fair to grade 0/1/2 either way.
+const hasCurrentAudit = (ex) => (ex.audits ?? []).some((a) =>
+  a.tier === 'full_audit' || (a.tier === 'proof_of_reserves' && a.status === 'active'));
+const hasWeakerAuditOnFile = (ex) => (ex.audits ?? []).length > 0 && !hasCurrentAudit(ex);
+const verificationDepth = (ex) => {
+  const licenceScore = hasGenuineLicence(ex) ? 2 : hasAmlOnlyRegistration(ex) ? 1 : 0;
+  const auditScore = hasCurrentAudit(ex) ? 2 : hasWeakerAuditOnFile(ex) ? 1 : 0;
+  return licenceScore + auditScore;
+};
+
 // A single overall status across EVERY jurisdiction we track, not just the
 // EU -- a brand licensed only in Hong Kong or Gibraltar previously showed
 // as "No EU entity" here, which read as if it had no verified status at
@@ -41,11 +60,19 @@ const earliestSince = (ex) => {
   return dates.sort()[0] ?? '';
 };
 
+const auditLabel = (ex) => {
+  if (hasCurrentAudit(ex)) return { label: 'Audited', cls: 'licensed' };
+  if (hasWeakerAuditOnFile(ex)) return { label: 'On file', cls: 'gb-registered' };
+  return { label: '—', cls: 'neutral' };
+};
+
 const rows = exchanges.map((ex) => ({
   ex,
   jurisdictions: jurisdictionCount(ex),
   status: overallStatus(ex),
   since: earliestSince(ex),
+  verification: verificationDepth(ex),
+  audit: auditLabel(ex),
 }));
 const SITEKEY = import.meta.env.PUBLIC_TURNSTILE_SITEKEY || '0x4AAAAAAD84t4OWkoouLP3Y';
 const PAGE_TITLE = `Crypto Exchange List: ${exchanges.length} Tracked | whichcryptoexchange.com`;
@@ -162,20 +189,29 @@ const PAGE_DESC = `A list of every crypto exchange and related firm we track (${
           <option value="jurisdictions-desc">Most jurisdictions first</option>
           <option value="since-desc">Newest first</option>
           <option value="since-asc">Oldest first</option>
+          <option value="verification-desc">Verification depth (most first)</option>
         </select>
       </label>
     </div>
+    <p class="sourced">"Verification depth" is not a rating -- it's a plain count: 2 points for a
+    genuine licence (1 for AML-only registration, 0 for neither), plus 2 for a currently
+    independently-audited proof-of-reserves or full audit (1 for a weaker or lapsed one on file, 0
+    if we haven't researched that brand's audit history yet -- most haven't been, since that's
+    hand-curated, not synced). A brand with 0 there was very likely just never checked, not found
+    lacking -- see <a href="/exchange/binance/">an exchange page</a> for how these facts actually
+    read in full.</p>
 
     <div class="table-scroll">
     <table class="registry">
       <thead><tr>
-        <th>Exchange</th><th>Status</th><th>Jurisdictions</th><th>Since</th>
+        <th>Exchange</th><th>Status</th><th>Audit</th><th>Jurisdictions</th><th>Since</th>
       </tr></thead>
       <tbody>
-        {rows.map(({ ex, jurisdictions, status, since }) => (
-          <tr data-since={since} data-jurisdictions={jurisdictions}>
+        {rows.map(({ ex, jurisdictions, status, since, verification, audit }) => (
+          <tr data-since={since} data-jurisdictions={jurisdictions} data-verification={verification}>
             <td class="brand"><a href={`/exchange/${ex.id}/`}>{ex.brand}</a></td>
             <td><span class={`stamp ${status.cls}`}>{status.label}</span></td>
+            <td><span class={`stamp ${audit.cls}`}>{audit.label}</span></td>
             <td class="datum">{jurisdictions}</td>
             <td class="datum">{since || '—'}</td>
           </tr>
@@ -222,6 +258,9 @@ const PAGE_DESC = `A list of every crypto exchange and related firm we track (${
             break;
           case 'jurisdictions-desc':
             rows.sort((a, b) => Number(b.dataset.jurisdictions || 0) - Number(a.dataset.jurisdictions || 0));
+            break;
+          case 'verification-desc':
+            rows.sort((a, b) => Number(b.dataset.verification || 0) - Number(a.dataset.verification || 0));
             break;
           default:
             break; // 'brand': original server-rendered A–Z order

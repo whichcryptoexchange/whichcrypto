@@ -123,6 +123,13 @@ h3:first-child { margin-top: 0; }
    a lone .lede elsewhere never matches this selector. */
 .lede-wide { max-width: 68ch; }
 .lede-wide + .lede-wide { margin-top: -20px; }
+/* Verification summary (exchange pages) -- two plain lines restating
+   facts already detailed further down the page, not a new claim or a
+   blended score. Deliberately plain text, no stamp/badge chrome, no
+   colour-coding by "good/bad" -- a fact is a fact regardless of which
+   way it points, and dressing this up would start to read as a rating. */
+.verification-summary { margin: 0 0 24px; font-size: 14px; }
+.verification-summary p { margin: 0 0 4px; }
 /* Plain-English synthesis of the record cards below it -- not a new
    claim, just the same verified data restated as a sentence, so it gets
    a plain neutral box rather than any status colour. */

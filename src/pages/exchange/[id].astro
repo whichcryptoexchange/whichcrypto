@@ -13,6 +13,15 @@ const {
   countryCodes, nonEEAEntries, genuineLicenceJurisdictions, amlOnlyJurisdictions,
   hasSeparateUKAuthorisation, firstSeen, totalEntities,
 } = licenceFacts(ex);
+// Same "additive, never subtractive" logic as /exchanges/'s verification-
+// depth sort: a brand we haven't researched for audits yet (most of them
+// -- hand-curated, not synced) reads as "not yet researched", never as a
+// verified negative. See that page's disclosure note for the full
+// reasoning; this must stay in sync with its hasCurrentAudit/
+// hasWeakerAuditOnFile logic.
+const hasCurrentAudit = (ex.audits ?? []).some((a) =>
+  a.tier === 'full_audit' || (a.tier === 'proof_of_reserves' && a.status === 'active'));
+const hasWeakerAuditOnFile = (ex.audits ?? []).length > 0 && !hasCurrentAudit;
 // A brand can have more than one legal entity with the same status in the
 // same jurisdiction (e.g. a separate broker entity and custody entity, both
 // FCA-registered) — collapse those into one badge with a count rather than
@@ -180,6 +189,31 @@ const PAGE_DESC = `${ex.brand}: official licence records, legal entities, regula
       ))}
       {website && <> · <a href={website} rel="nofollow noopener" target="_blank">Visit {ex.brand} ↗</a></>}
     </p>
+
+    {/* Plain summary of facts already detailed further down the page --
+        not a score, not a rating, nothing weighted or blended. Two
+        independent lines: licensing (comprehensively synced, fair to
+        state either way) and audit history (hand-curated, so "not yet
+        researched" is its own honest state, never shown as a negative).
+        See /exchanges/ for the same two facts used as an opt-in sort. */}
+    <div class="verification-summary">
+      <p>
+        <strong>Licensing:</strong>{' '}
+        {genuineLicenceJurisdictions.length > 0
+          ? <>Genuine licence held ({listJoin(genuineLicenceJurisdictions)})</>
+          : amlOnlyJurisdictions.length > 0
+          ? <>AML-registered only, no genuine licence found ({listJoin(amlOnlyJurisdictions)})</>
+          : <>Not verified in any jurisdiction we track</>}
+      </p>
+      <p>
+        <strong>Audit &amp; reserves:</strong>{' '}
+        {hasCurrentAudit
+          ? <>Independently audited, current — see <a href="#audits">Audits &amp; reserves</a> below</>
+          : hasWeakerAuditOnFile
+          ? <>Self-reported or lapsed only — see <a href="#audits">Audits &amp; reserves</a> below</>
+          : <>Not yet researched</>}
+      </p>
+    </div>
 
     <p class="summary-box">
       {/* Leads with market footprint (built from the same verified
