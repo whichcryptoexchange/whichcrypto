@@ -34,6 +34,12 @@ third_party_reviews:
   retrieved: '2026-08-10'
 news_mentions:
 - source: Cointelegraph
+  category: general
+  title: Binance bStocks pass xStocks as second-largest tokenized stock issuer
+  url: https://cointelegraph.com/news/binance-bstocks-second-largest-tokenized-stock-issuer?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound
+  published: '2026-08-13'
+  retrieved: '2026-08-14'
+- source: Cointelegraph
   title: Binance, RedotPay clash over fate of Singapore lawsuit
   url: https://cointelegraph.com/news/binance-redotpay-clash-singapore-lawsuit?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound
   published: '2026-08-12'

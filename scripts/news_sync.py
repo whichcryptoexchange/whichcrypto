@@ -6,23 +6,39 @@ reputable outlets' public RSS feeds, and records any hits per brand.
 Sources (all public, no signup/API key -- see below for why these and not
 others): The Guardian's dedicated "Cryptocurrencies" tag feed and BBC's
 Business and Technology feeds (general-interest outlets, broader but
-reputable), plus Cointelegraph and The Block -- two established
-crypto-native outlets whose RSS feeds run far denser on exchange names
-than general press, since exchanges are their actual beat. Reuters'
-public RSS feeds are dead; NYT's API is explicitly CC BY-NC (non-
-commercial only) and has no crypto-specific feed either, so neither is
-used here.
+reputable), Cointelegraph and The Block (established crypto-native
+outlets whose RSS feeds run far denser on exchange names than general
+press, since exchanges are their actual beat), and -- unlike the other
+four -- the SEC's and DOJ's own official press-release RSS feeds. Those
+last two are tagged category="regulatory" from the source itself, since
+a headline from the regulator's own newsroom naming a tracked brand is a
+categorically stronger signal than a keyword match against a news outlet.
+DOJ's feed is a firehose covering every US Attorney's office nationwide,
+not crypto-specific -- but the Binance $4.3B case was a DOJ action, not
+an SEC one, so excluding it would miss exactly the kind of story this
+category exists for. Reuters' public RSS feeds are dead; NYT's API is
+explicitly CC BY-NC (non-commercial only) and has no crypto-specific feed
+either, so neither is used here.
 
-This is NOT a claim that a match is relevant to regulatory status --
-it's an unfiltered keyword match against general news coverage, kept
-in its own `news_mentions` field, same "cited, dated, not synthesized"
-discipline as `third_party_reviews`. The frontend must say so explicitly.
-Matching is deliberately conservative: a whole-word, case-insensitive
-match against the brand's exact `brand` string, skipped entirely for
-brand names under 4 characters (too many false positives from short/
-generic names) -- still expect some noise (a brand name that's also a
-common word or a different company entirely can match), which is why
-this is presented as "mentions", not "news about this exchange".
+Entries from the four general-news sources also get tagged
+category="regulatory" when the headline itself contains recognisable
+regulatory-action language (see REGULATORY_KEYWORDS) -- a Cointelegraph
+headline about an SEC settlement is regulatory news even though
+Cointelegraph itself isn't a regulator. Everything else is
+category="general".
+
+Categorising is NOT a claim that a "regulatory" match is a formal
+regulatory action *against* the brand named, or that a "general" match is
+unrelated to its regulatory status -- it's a keyword/source heuristic,
+kept in its own `news_mentions` field, same "cited, dated, not
+synthesized" discipline as `third_party_reviews`. The frontend must say
+so explicitly. Matching is deliberately conservative: a whole-word,
+case-insensitive match against the brand's exact `brand` string, skipped
+entirely for brand names under 4 characters (too many false positives
+from short/generic names) -- still expect some noise (a brand name
+that's also a common word or a different company entirely can match),
+which is why this is presented as "mentions", not "news about this
+exchange".
 
 Matching is against the HEADLINE only, not the article body/description
 -- an early test run matched "Strike" (the Bitcoin brand) against a
@@ -63,15 +79,33 @@ UA = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
       "(KHTML, like Gecko) Chrome/122.0 Safari/537.36")
 
 FEEDS = [
-    ("The Guardian", "https://www.theguardian.com/technology/cryptocurrencies/rss"),
-    ("BBC", "https://feeds.bbci.co.uk/news/business/rss.xml"),
-    ("BBC", "https://feeds.bbci.co.uk/news/technology/rss.xml"),
-    ("Cointelegraph", "https://cointelegraph.com/rss"),
-    ("The Block", "https://www.theblock.co/rss.xml"),
+    ("The Guardian", "https://www.theguardian.com/technology/cryptocurrencies/rss", "general"),
+    ("BBC", "https://feeds.bbci.co.uk/news/business/rss.xml", "general"),
+    ("BBC", "https://feeds.bbci.co.uk/news/technology/rss.xml", "general"),
+    ("Cointelegraph", "https://cointelegraph.com/rss", "general"),
+    ("The Block", "https://www.theblock.co/rss.xml", "general"),
+    ("SEC", "https://www.sec.gov/news/pressreleases.rss", "regulatory"),
+    ("DOJ", "https://www.justice.gov/news/rss?type=press_release", "regulatory"),
 ]
 
 MIN_BRAND_LEN = 4
 MAX_PER_BRAND = 8
+
+# Headline language that marks a general-news match as regulatory even
+# though the outlet itself isn't a regulator -- e.g. a Cointelegraph
+# headline about an SEC settlement. Deliberately conservative: no bare
+# "court" or "ban" (too easy to false-positive on "X courts investors" or
+# unrelated country-level bans), same caution as SKIP_BRANDS below.
+REGULATORY_KEYWORDS = [
+    "SEC", "CFTC", "DOJ", "FinCEN", "FCA", "regulator", "regulators",
+    "lawsuit", "sues", "sued", "charges", "charged", "indictment",
+    "indicted", "settlement", "settles", "fined", "sanctions",
+    "sanctioned", "guilty plea", "compliance", "investigation",
+    "subpoena", "license revoked", "banned", "prosecutors",
+]
+REGULATORY_PATTERN = re.compile(
+    r"\b(" + "|".join(re.escape(k) for k in REGULATORY_KEYWORDS) + r")\b", re.IGNORECASE
+)
 
 # Brand names that are also common English words, confirmed to produce
 # false-positive title matches on ordinary news headlines that have
@@ -136,7 +170,7 @@ def main():
 
     as_of = dt.date.today().isoformat()
     all_items = []
-    for source, url in FEEDS:
+    for source, url, source_category in FEEDS:
         try:
             items = fetch_feed(url)
         except Exception as e:
@@ -144,6 +178,13 @@ def main():
             continue
         for item in items:
             item["source"] = source
+            # A regulatory-source item is regulatory regardless of its
+            # headline; a general-source item earns the tag only if its
+            # own headline uses regulatory-action language.
+            item["category"] = (
+                "regulatory" if source_category == "regulatory" or REGULATORY_PATTERN.search(item["title"])
+                else "general"
+            )
         all_items.extend(items)
         print(f"  {source}: {len(items)} items from {url}", file=sys.stderr)
 
@@ -160,6 +201,7 @@ def main():
         new_entries = [
             {
                 "source": item["source"],
+                "category": item["category"],
                 "title": item["title"],
                 "url": item["url"],
                 "published": item["published"],

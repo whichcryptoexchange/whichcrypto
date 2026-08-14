@@ -273,3 +273,16 @@ company_facts:
   registration_status: issued
   entity_creation_date: '2022-08-26'
   retrieved: '2026-08-12'
+news_mentions:
+- source: Cointelegraph
+  category: general
+  title: Bullish shares jump 10% as Q2 adjusted EBITDA more than triples
+  url: https://cointelegraph.com/news/bullish-shares-surge-as-q2-adjusted-revenue-surges-62?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound
+  published: '2026-08-13'
+  retrieved: '2026-08-14'
+- source: The Block
+  category: general
+  title: Peter Thiel-backed Bullish posts $280 million Q2 net loss as digital asset sales fall 44%
+  url: https://www.theblock.co/news/business/2026-08-13-peter-thiel-backed-bullish-posts-280-million-q2-net-loss-as-digital-asset-sales-fall-44-411695
+  published: '2026-08-13'
+  retrieved: '2026-08-14'

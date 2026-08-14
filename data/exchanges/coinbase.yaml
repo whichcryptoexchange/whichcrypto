@@ -311,3 +311,10 @@ audits:
   - name: Coinbase FY2023 10-K, auditor's report (Deloitte & Touche LLP)
     url: https://www.sec.gov/Archives/edgar/data/1679788/000167978824000022/exhibit23110kq42023.htm
   retrieved: '2026-08-14'
+news_mentions:
+- source: The Block
+  category: regulatory
+  title: Baltimore sues Kalshi and Polymarket, roping Coinbase, Robinhood and Webull into the fight
+  url: https://www.theblock.co/news/business/2026-08-13-baltimore-sues-kalshi-polymarket-roping-coinbase-robinhood-webull-into-fight-411746
+  published: '2026-08-13'
+  retrieved: '2026-08-14'

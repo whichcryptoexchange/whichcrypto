@@ -266,3 +266,10 @@ company_facts:
   registration_status: issued
   entity_creation_date: '2024-11-11'
   retrieved: '2026-08-12'
+news_mentions:
+- source: The Block
+  category: general
+  title: Gemini shares slide after $108 million loss as Winklevoss says &#8216;we still have work to do&#8217;
+  url: https://www.theblock.co/news/business/2026-08-13-gemini-shares-slide-108-million-loss-winklevoss-says-we-still-have-work-to-do-411775
+  published: '2026-08-13'
+  retrieved: '2026-08-14'

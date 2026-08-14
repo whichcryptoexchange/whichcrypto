@@ -6,14 +6,19 @@ const exchanges = loadExchanges();
 const stats = footerStats(exchanges);
 
 // One row per (brand, mention) pair -- a brand can have several matches.
-// Newest first, since this is meant to read as a feed, not a leaderboard.
+// Regulatory-tagged mentions sort first (see scripts/news_sync.py for how
+// that's decided -- source itself, e.g. SEC/DOJ, or regulatory-action
+// language in the headline), newest first within each group.
 const rows = exchanges
   .flatMap((ex) => (ex.news_mentions ?? []).map((n) => ({ ex, ...n })))
-  .sort((a, b) => (b.published || '').localeCompare(a.published || ''));
+  .sort((a, b) => {
+    const catDiff = (b.category === 'regulatory') - (a.category === 'regulatory');
+    return catDiff !== 0 ? catDiff : (b.published || '').localeCompare(a.published || '');
+  });
 
 const SITEKEY = import.meta.env.PUBLIC_TURNSTILE_SITEKEY || '0x4AAAAAAD84t4OWkoouLP3Y';
-const PAGE_TITLE = `Crypto Exchange News Mentions | whichcryptoexchange.com`;
-const PAGE_DESC = `Headlines from The Guardian, BBC, Cointelegraph, and The Block that name-match a tracked crypto exchange, newest first -- unfiltered keyword matches, not verified as relevant to any exchange's regulatory status.`;
+const PAGE_TITLE = `Crypto Exchange News and Regulation Updates | whichcryptoexchange.com`;
+const PAGE_DESC = `Headlines that name-match a tracked crypto exchange, from The Guardian, BBC, Cointelegraph, The Block, and the SEC and DOJ's own press releases -- newest first, tagged Regulatory when the source or the headline itself is regulatory in nature.`;
 ---
 <html lang="en">
 <head>
@@ -66,25 +71,32 @@ const PAGE_DESC = `Headlines from The Guardian, BBC, Cointelegraph, and The Bloc
   </header>
 
   <main class="wrap">
-    <h1>News mentions</h1>
-    <p class="lede">Headlines from The Guardian, BBC, Cointelegraph, and The Block whose title
-    names a tracked exchange, newest first, checked daily.</p>
-    <p class="sourced">This is <em>not</em> a filtered "regulatory news" feed — it's an unfiltered
-    keyword match against general news coverage, reviewed before publishing but not verified as
-    relevant to any brand's regulatory status. Read the original story before drawing a conclusion
-    from it. An exchange with nothing here just hasn't been named in either outlet's headlines
-    recently — not a sign of anything either way.</p>
+    <h1>Crypto exchange news and regulation updates</h1>
+    <p class="lede">Headlines naming a tracked exchange, newest first, checked daily — from The
+    Guardian, BBC, Cointelegraph, and The Block, plus the SEC's and DOJ's own press-release feeds
+    directly.</p>
+    <p class="sourced">A mention is tagged <strong>Regulatory</strong> when it comes straight from
+    a regulator's own newsroom (SEC, DOJ), or when the headline itself uses recognisably
+    regulatory language (sues, charged, settlement, fined, and similar) — everything else is
+    tagged <strong>General</strong>. Neither tag is a claim that a match is a formal action against
+    the brand named, or that a General-tagged story is unrelated to its regulatory status — it's a
+    keyword/source heuristic, not our own analysis. Read the original story before drawing a
+    conclusion from it. An exchange with nothing here just hasn't been named in these sources'
+    headlines recently — not a sign of anything either way.</p>
 
     <div class="table-scroll">
     <table class="registry">
       <thead><tr>
-        <th>Headline</th><th>Exchange</th><th>Source</th><th>Published</th>
+        <th>Headline</th><th>Exchange</th><th>Category</th><th>Source</th><th>Published</th>
       </tr></thead>
       <tbody>
-        {rows.map(({ ex, source, title, url, published }) => (
+        {rows.map(({ ex, source, category, title, url, published }) => (
           <tr>
             <td><a href={url} rel="nofollow noopener" target="_blank">{title} ↗</a></td>
             <td class="brand"><a href={`/exchange/${ex.id}/`}>{ex.brand}</a></td>
+            <td><span class={`news-category ${category === 'regulatory' ? 'regulatory' : 'general'}`}>
+              {category === 'regulatory' ? 'Regulatory' : 'General'}
+            </span></td>
             <td>{source}</td>
             <td class="datum">{published ?? '—'}</td>
           </tr>

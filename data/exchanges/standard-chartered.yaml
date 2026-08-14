@@ -212,6 +212,12 @@ company_facts:
   entity_creation_date: '2024-10-07'
   retrieved: '2026-08-12'
 news_mentions:
+- source: Cointelegraph
+  category: general
+  title: 'Robinhood Chain nears $1B TVL as Uniswap drives liquidity: Standard Chartered'
+  url: https://cointelegraph.com/news/robinhood-chain-uniswap-liquidity-uni-burns?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound
+  published: '2026-08-13'
+  retrieved: '2026-08-14'
 - source: The Block
   title: Standard Chartered-backed Anchorpoint begins HKDAP stablecoin rollout
   url: https://www.theblock.co/news/business/2026-08-12-standard-chartered-anchorpoint-hkdap-stablecoin-rollout-411575

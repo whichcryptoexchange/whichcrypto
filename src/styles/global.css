@@ -492,6 +492,12 @@ footer.site .trustpilot-widget iframe { margin: 0 !important; }
 .news-item { padding: 10px 0; border-top: 1px solid var(--rule); display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px; justify-content: space-between; }
 .news-item:last-child { border-bottom: 1px solid var(--rule); }
 .news-item-meta { white-space: nowrap; }
+.news-category {
+  font-family: var(--mono); font-size: 11px; font-weight: 600; text-transform: uppercase;
+  letter-spacing: 0.06em; white-space: nowrap;
+}
+.news-category.regulatory { color: var(--caution); }
+.news-category.general { color: var(--ink-soft); }
 
 /* Third-party reviews: deliberately plainer than the .stamp/.record
    colour language used for regulator facts and the .reports card above --

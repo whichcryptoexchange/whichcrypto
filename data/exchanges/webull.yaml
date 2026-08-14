@@ -47,3 +47,10 @@ company_facts:
   registration_status: issued
   entity_creation_date: '2022-07-11'
   retrieved: '2026-08-12'
+news_mentions:
+- source: The Block
+  category: regulatory
+  title: Baltimore sues Kalshi and Polymarket, roping Coinbase, Robinhood and Webull into the fight
+  url: https://www.theblock.co/news/business/2026-08-13-baltimore-sues-kalshi-polymarket-roping-coinbase-robinhood-webull-into-fight-411746
+  published: '2026-08-13'
+  retrieved: '2026-08-14'
