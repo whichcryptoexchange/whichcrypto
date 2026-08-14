@@ -195,145 +195,153 @@ const PAGE_DESC = isGB
     {isGB ? (
       <>
         <h1>Which crypto exchanges are registered or authorised in the UK?</h1>
-        <p class="lede">{rows.length} exchanges in our register have a UK entity on the FCA Register.
-        The UK does not yet have a dedicated cryptoasset licensing regime — that opens for
-        applications 30 Sep 2026 and is expected to start 25 Oct 2027. Until then, most UK crypto
-        entities hold only an anti-money-laundering <strong>MLR registration</strong>, which is
-        <em> not</em> the same as a licence: it means the FCA supervises the firm for financial
-        crime purposes, not that the FCA has assessed or approved its products or conduct. A
-        smaller number of tracked brands also have a UK entity that is separately, fully
-        <strong> FCA-authorised</strong> — a broader regulatory regime overall, but typically for a
-        different activity (e.g. derivatives or general investment business) than the crypto
-        exchange itself. Both tiers are shown below, clearly labelled.</p>
+        <p class="lede lede-wide">{rows.length} exchanges in our register have a UK entity on the
+        FCA Register. The UK does not yet have a dedicated cryptoasset licensing regime — that
+        opens for applications 30 Sep 2026 and is expected to start 25 Oct 2027.</p>
+        <p class="lede lede-wide">Until then, most UK crypto entities hold only an
+        anti-money-laundering <strong>MLR registration</strong>, which is <em>not</em> the same as
+        a licence: it means the FCA supervises the firm for financial crime purposes, not that the
+        FCA has assessed or approved its products or conduct.</p>
+        <p class="lede lede-wide">A smaller number of tracked brands also have a UK entity that is
+        separately, fully <strong>FCA-authorised</strong> — a broader regulatory regime overall,
+        but typically for a different activity (e.g. derivatives or general investment business)
+        than the crypto exchange itself. Both tiers are shown below, clearly labelled.</p>
       </>
     ) : isCA ? (
       <>
         <h1>Which crypto exchanges are registered in Canada?</h1>
-        <p class="lede">{rows.length} exchanges in our register have a Canadian entity registered
-        with FINTRAC as a Money Services Business (MSB) offering virtual currency services. As
-        FINTRAC's own registry states, this is <em>not</em> a licence: registration means FINTRAC
-        supervises the firm for anti-money-laundering purposes, not that it has assessed or
-        approved the firm's products or conduct. Crypto trading platforms serving Canadians may
-        also need separate registration as an investment dealer with CIRO (Canada's national
-        self-regulatory body) or as a securities dealer with a provincial regulator — that data
-        isn't covered here. The CSA's and CIRO's own registrant-lookup tools block automated
-        access outright, so unlike the sources above, there's no reliable way to keep this layer
-        current from our end.</p>
+        <p class="lede lede-wide">{rows.length} exchanges in our register have a Canadian entity
+        registered with FINTRAC as a Money Services Business (MSB) offering virtual currency
+        services. As FINTRAC's own registry states, this is <em>not</em> a licence: registration
+        means FINTRAC supervises the firm for anti-money-laundering purposes, not that it has
+        assessed or approved the firm's products or conduct.</p>
+        <p class="lede lede-wide caveat">Crypto trading platforms serving Canadians may also need
+        separate registration as an investment dealer with CIRO (Canada's national self-regulatory
+        body) or as a securities dealer with a provincial regulator — that data isn't covered
+        here. The CSA's and CIRO's own registrant-lookup tools block automated access outright, so
+        unlike the sources above, there's no reliable way to keep this layer current from our
+        end.</p>
       </>
     ) : isAE ? (
       <>
         <h1>Which crypto exchanges are licensed in Dubai or Abu Dhabi?</h1>
-        <p class="lede caveat">This page covers two of the UAE's free zones, not the UAE as a
-        whole: Dubai's VARA and Abu Dhabi Global Market's FSRA. Dubai's own DIFC free zone
+        <p class="lede lede-wide caveat">This page covers two of the UAE's free zones, not the UAE
+        as a whole: Dubai's VARA and Abu Dhabi Global Market's FSRA. Dubai's own DIFC free zone
         (regulated separately by the DFSA) and the federal mainland (regulated by the SCA) are
         still not covered — there is no single UAE-wide crypto regulator.</p>
-        <p class="lede">{rows.length} exchanges in our register hold a VARA VASP licence, issued by
-        Dubai's Virtual Assets Regulatory Authority, or an ADGM FSRA licence, issued by Abu Dhabi
-        Global Market's Financial Services Regulatory Authority. Unlike the UK and Canada entries
-        elsewhere on this site, both <em>are</em> genuine crypto-specific licences — each built a
-        dedicated regulatory regime for virtual assets from scratch, not an AML add-on to existing
-        rules.</p>
-        <p class="lede caveat">The ADGM entries are manually verified, not automatically synced —
-        its register sits behind bot protection our scripts can't get through, same as Gibraltar.
-        Each one was checked individually against its own regulatory announcement, and the list
-        isn't necessarily complete; ADGM has reportedly authorised 30+ virtual asset firms in
-        total.</p>
+        <p class="lede lede-wide">{rows.length} exchanges in our register hold a VARA VASP licence,
+        issued by Dubai's Virtual Assets Regulatory Authority, or an ADGM FSRA licence, issued by
+        Abu Dhabi Global Market's Financial Services Regulatory Authority. Unlike the UK and Canada
+        entries elsewhere on this site, both <em>are</em> genuine crypto-specific licences — each
+        built a dedicated regulatory regime for virtual assets from scratch, not an AML add-on to
+        existing rules.</p>
+        <p class="lede lede-wide caveat">The ADGM entries are manually verified, not automatically
+        synced — its register sits behind bot protection our scripts can't get through, same as
+        Gibraltar. Each one was checked individually against its own regulatory announcement, and
+        the list isn't necessarily complete; ADGM has reportedly authorised 30+ virtual asset firms
+        in total.</p>
       </>
     ) : isSG ? (
       <>
         <h1>Which crypto exchanges are licensed in Singapore?</h1>
-        <p class="lede">{rows.length} exchanges in our register hold a Major Payment Institution
-        licence from the Monetary Authority of Singapore (MAS), specifically for the Digital
-        Payment Token Service activity under the Payment Services Act 2019. Like Dubai's VARA
-        licence, this <em>is</em> a genuine crypto-specific licence — not an AML-only registration
-        like the UK/Canada entries elsewhere on this site.</p>
+        <p class="lede lede-wide">{rows.length} exchanges in our register hold a Major Payment
+        Institution licence from the Monetary Authority of Singapore (MAS), specifically for the
+        Digital Payment Token Service activity under the Payment Services Act 2019. Like Dubai's
+        VARA licence, this <em>is</em> a genuine crypto-specific licence — not an AML-only
+        registration like the UK/Canada entries elsewhere on this site.</p>
       </>
     ) : isUS ? (
       <>
         <h1>Which crypto exchanges are registered or licensed in the US?</h1>
-        <p class="lede">This page covers two separate, independent regimes. Most brands here have a
-        US entity registered with FinCEN as a Money Services Business (MSB) offering money
-        transmission — as with Canada's FINTRAC registry, this is <em>not</em> a licence:
+        <p class="lede lede-wide">This page covers two separate, independent regimes. Most brands
+        here have a US entity registered with FinCEN as a Money Services Business (MSB) offering
+        money transmission — as with Canada's FINTRAC registry, this is <em>not</em> a licence:
         registration means FinCEN supervises the firm for anti-money-laundering purposes under the
-        Bank Secrecy Act, not that it has assessed or approved the firm's products or conduct. Some
-        brands additionally (or instead) hold a genuine state-level licence from the New York
-        Department of Financial Services — either a Virtual Currency License ("BitLicense") or a
-        Limited Purpose Trust Charter — which <em>is</em> a real crypto-specific licence, not an
-        AML-only registration. Crypto firms serving US customers may also need separate money
-        transmitter licensing in the other 49 states, which isn't covered here, since none of them
-        publish a single, checkable public register the way NYDFS does.</p>
-        <p class="lede caveat">FinCEN's own register has a real fraud problem: its MSB Registrant
-        Search prominently warns that fraudsters register shell companies using recognisable brand
-        names to appear "FinCEN approved". We found and excluded a large cluster of exactly that —
-        near-identical shell filings claiming names like "Crypto.com Exchange Ltd" or "Interactive
-        Brokers Inc." out of a small number of Colorado addresses. Only entries independently
-        matched to a brand's real, known corporate structure are listed below.</p>
+        Bank Secrecy Act, not that it has assessed or approved the firm's products or conduct.</p>
+        <p class="lede lede-wide">Some brands additionally (or instead) hold a genuine state-level
+        licence from the New York Department of Financial Services — either a Virtual Currency
+        License ("BitLicense") or a Limited Purpose Trust Charter — which <em>is</em> a real
+        crypto-specific licence, not an AML-only registration.</p>
+        <p class="lede lede-wide caveat">Crypto firms serving US customers may also need separate
+        money transmitter licensing in the other 49 states, which isn't covered here, since none of
+        them publish a single, checkable public register the way NYDFS does.</p>
+        <p class="lede lede-wide caveat">FinCEN's own register has a real fraud problem: its MSB
+        Registrant Search prominently warns that fraudsters register shell companies using
+        recognisable brand names to appear "FinCEN approved". We found and excluded a large cluster
+        of exactly that — near-identical shell filings claiming names like "Crypto.com Exchange
+        Ltd" or "Interactive Brokers Inc." out of a small number of Colorado addresses. Only
+        entries independently matched to a brand's real, known corporate structure are listed
+        below.</p>
       </>
     ) : isHK ? (
       <>
         <h1>Which crypto exchanges are licensed in Hong Kong?</h1>
-        <p class="lede">{rows.length} exchanges in our register hold a Virtual Asset Trading
-        Platform (VATP) licence from Hong Kong's Securities and Futures Commission (SFC), mandatory
-        since 2023 under the Securities and Futures Ordinance. Like Dubai's VARA licence and
-        Singapore's MAS licence, this <em>is</em> a genuine crypto-specific licence — not an
-        AML-only registration like the UK/Canada/US entries elsewhere on this site. The SFC also
-        publishes separate lists of applicants, returned/refused/withdrawn applicants, and
-        closing-down platforms — only the formally licensed list is shown here.</p>
+        <p class="lede lede-wide">{rows.length} exchanges in our register hold a Virtual Asset
+        Trading Platform (VATP) licence from Hong Kong's Securities and Futures Commission (SFC),
+        mandatory since 2023 under the Securities and Futures Ordinance. Like Dubai's VARA licence
+        and Singapore's MAS licence, this <em>is</em> a genuine crypto-specific licence — not an
+        AML-only registration like the UK/Canada/US entries elsewhere on this site.</p>
+        <p class="lede lede-wide caveat">The SFC also publishes separate lists of applicants,
+        returned/refused/withdrawn applicants, and closing-down platforms — only the formally
+        licensed list is shown here.</p>
       </>
     ) : isGI ? (
       <>
         <h1>Which crypto exchanges are licensed in Gibraltar?</h1>
-        <p class="lede">{rows.length} exchanges in our register hold a Distributed Ledger
+        <p class="lede lede-wide">{rows.length} exchanges in our register hold a Distributed Ledger
         Technology (DLT) licence from the Gibraltar Financial Services Commission (GFSC) — a
         genuine crypto-specific licence, not an AML-only registration.</p>
-        <p class="lede caveat">Unlike every other jurisdiction on this site, this one is not
-        automatically synced. The GFSC's own register sits behind bot protection that blocks
+        <p class="lede lede-wide caveat">Unlike every other jurisdiction on this site, this one is
+        not automatically synced. The GFSC's own register sits behind bot protection that blocks
         scripted access outright, so this list is refreshed only when someone manually re-checks
         the live page in a browser — it can lag more than the weekly-synced sources elsewhere.</p>
       </>
     ) : isJP ? (
       <>
         <h1>Which crypto exchanges are licensed in Japan?</h1>
-        <p class="lede">{rows.length} exchanges in our register hold a Crypto-asset Exchange Service
-        Provider registration from Japan's Financial Services Agency (FSA), under the Payment
-        Services Act — in force since 2017, one of the earliest dedicated crypto-exchange licensing
-        regimes anywhere. Like Dubai's VARA licence and Singapore's MAS licence, this <em>is</em> a
-        genuine crypto-specific licence — it requires segregated custody of user funds (at least
-        95% held offline), annual audits, and JVCEA self-regulatory membership, not just an
-        AML-only registration.</p>
+        <p class="lede lede-wide">{rows.length} exchanges in our register hold a Crypto-asset
+        Exchange Service Provider registration from Japan's Financial Services Agency (FSA), under
+        the Payment Services Act — in force since 2017, one of the earliest dedicated
+        crypto-exchange licensing regimes anywhere.</p>
+        <p class="lede lede-wide">Like Dubai's VARA licence and Singapore's MAS licence, this
+        <em> is</em> a genuine crypto-specific licence — it requires segregated custody of user
+        funds (at least 95% held offline), annual audits, and JVCEA self-regulatory membership, not
+        just an AML-only registration.</p>
       </>
     ) : isMY ? (
       <>
         <h1>Which crypto exchanges are licensed in Malaysia?</h1>
-        <p class="lede">{rows.length} exchanges in our register hold a Recognized Market Operator -
-        Digital Asset Exchange (RMO-DAX) registration from Malaysia's Securities Commission (SC),
-        under the Capital Markets and Services Act. Like Dubai's VARA licence and Singapore's MAS
-        licence, this <em>is</em> a genuine crypto-specific licence — it requires a minimum of
-        RM5,000,000 paid-up capital and a fit-and-proper assessment of directors and senior
-        management, not just an AML-only registration. The SC's list also separately shows
-        historical operators no longer permitted to continue — only the currently registered list
-        is shown here.</p>
+        <p class="lede lede-wide">{rows.length} exchanges in our register hold a Recognized Market
+        Operator - Digital Asset Exchange (RMO-DAX) registration from Malaysia's Securities
+        Commission (SC), under the Capital Markets and Services Act. Like Dubai's VARA licence and
+        Singapore's MAS licence, this <em>is</em> a genuine crypto-specific licence — it requires a
+        minimum of RM5,000,000 paid-up capital and a fit-and-proper assessment of directors and
+        senior management, not just an AML-only registration.</p>
+        <p class="lede lede-wide caveat">The SC's list also separately shows historical operators
+        no longer permitted to continue — only the currently registered list is shown here.</p>
       </>
     ) : isKR ? (
       <>
         <h1>Which crypto exchanges are registered in South Korea?</h1>
-        <p class="lede">{rows.length} exchanges in our register have a Korean entity registered
-        with the Financial Intelligence Unit (FIU) under the Act on Reporting and Using Specified
-        Financial Transaction Information. As with Canada's FINTRAC and the US's FinCEN, this is
-        <em> not</em> a licence: registration means the FIU supervises the firm for
+        <p class="lede lede-wide">{rows.length} exchanges in our register have a Korean entity
+        registered with the Financial Intelligence Unit (FIU) under the Act on Reporting and Using
+        Specified Financial Transaction Information. As with Canada's FINTRAC and the US's FinCEN,
+        this is <em>not</em> a licence: registration means the FIU supervises the firm for
         anti-money-laundering purposes, not that it has assessed or approved the firm's products or
-        conduct. South Korea does not yet have a dedicated cryptoasset business licensing regime.</p>
+        conduct.</p>
+        <p class="lede lede-wide caveat">South Korea does not yet have a dedicated cryptoasset
+        business licensing regime.</p>
       </>
     ) : isNZ ? (
       <>
         <h1>Which crypto exchanges are registered in New Zealand?</h1>
-        <p class="lede">{rows.length} exchanges in our register have an entity on New Zealand's
-        Financial Service Providers Register (FSPR), supervised by the Department of Internal
-        Affairs (DIA) under the AML/CFT Act 2009. As with Canada's FINTRAC, the US's FinCEN, and
-        South Korea's FIU, this is <em>not</em> a licence: New Zealand has no dedicated cryptoasset
-        business licensing regime, and registration means the DIA supervises the firm for
-        anti-money-laundering purposes only.</p>
-        <p class="lede caveat">Unlike most jurisdictions on this site, this one is not
+        <p class="lede lede-wide">{rows.length} exchanges in our register have an entity on New
+        Zealand's Financial Service Providers Register (FSPR), supervised by the Department of
+        Internal Affairs (DIA) under the AML/CFT Act 2009. As with Canada's FINTRAC, the US's
+        FinCEN, and South Korea's FIU, this is <em>not</em> a licence: New Zealand has no dedicated
+        cryptoasset business licensing regime, and registration means the DIA supervises the firm
+        for anti-money-laundering purposes only.</p>
+        <p class="lede lede-wide caveat">Unlike most jurisdictions on this site, this one is not
         automatically synced. The FSPR's public search tool has no fetchable API or bulk export
         available to us, so this list is refreshed only when someone manually re-checks the live
         register — same discipline as Gibraltar and ADGM, but for an AML-only tier rather than a
@@ -342,18 +350,18 @@ const PAGE_DESC = isGB
     ) : isBVI ? (
       <>
         <h1>Which crypto exchanges are licensed in the British Virgin Islands?</h1>
-        <p class="lede">{rows.length} exchanges in our register hold a Virtual Assets Service
-        Provider (VASP) registration from the BVI Financial Services Commission, under the Virtual
-        Assets Service Providers Act, 2022. Like Dubai's VARA licence, Singapore's MAS licence, and
-        Gibraltar's DLT licence, this <em>is</em> a genuine crypto-specific regime — not an AML-only
-        registration like the UK/Canada/US/South Korea/New Zealand entries elsewhere on this
-        site.</p>
-        <p class="lede caveat">Unlike most jurisdictions on this site, this one is not
+        <p class="lede lede-wide">{rows.length} exchanges in our register hold a Virtual Assets
+        Service Provider (VASP) registration from the BVI Financial Services Commission, under the
+        Virtual Assets Service Providers Act, 2022. Like Dubai's VARA licence, Singapore's MAS
+        licence, and Gibraltar's DLT licence, this <em>is</em> a genuine crypto-specific regime —
+        not an AML-only registration like the UK/Canada/US/South Korea/New Zealand entries
+        elsewhere on this site.</p>
+        <p class="lede lede-wide caveat">Unlike most jurisdictions on this site, this one is not
         automatically synced. The FSC's register page returns a hard 403 to scripted requests even
-        with a realistic browser User-Agent and referer, so this list is refreshed only when someone
-        manually re-checks the live register — same discipline as Gibraltar and ADGM. Excludes
-        "Authorised Representatives - VASP" entries, which are local registered-agent firms required
-        by law for any VASP operating from the BVI, not VASPs themselves.</p>
+        with a realistic browser User-Agent and referer, so this list is refreshed only when
+        someone manually re-checks the live register — same discipline as Gibraltar and ADGM.
+        Excludes "Authorised Representatives - VASP" entries, which are local registered-agent
+        firms required by law for any VASP operating from the BVI, not VASPs themselves.</p>
       </>
     ) : (
       <>

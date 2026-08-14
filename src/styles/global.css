@@ -114,6 +114,15 @@ h3 {
 }
 h3:first-child { margin-top: 0; }
 .lede { font-size: 18px; color: var(--ink-soft); max-width: 56ch; margin: 0 0 32px; }
+/* Country pages reuse .lede for real explanatory paragraphs (regime
+   detail, gaps in coverage), not the one-line taglines .lede was sized
+   for elsewhere (homepage, FAQ) -- 56ch turns several sentences into a
+   tall, narrow column next to the much wider table below. Wider column,
+   and each .lede here is now one idea, not a paragraph carrying three --
+   the tighter top margin is for when several sit stacked back to back;
+   a lone .lede elsewhere never matches this selector. */
+.lede-wide { max-width: 68ch; }
+.lede-wide + .lede-wide { margin-top: -20px; }
 /* Plain-English synthesis of the record cards below it -- not a new
    claim, just the same verified data restated as a sentence, so it gets
    a plain neutral box rather than any status colour. */
