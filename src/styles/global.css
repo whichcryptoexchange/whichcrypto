@@ -252,6 +252,11 @@ h3:first-child { margin-top: 0; }
 }
 .tier-filter { display: flex; flex-wrap: wrap; align-items: center; gap: 14px; }
 .tier-filter label { font-weight: 400; }
+.filter-reset {
+  font-family: var(--mono); font-size: 13px; color: var(--warned); background: none;
+  border: 1px solid var(--warned); border-radius: 3px; padding: 5px 10px; cursor: pointer;
+}
+.filter-reset:hover { background: var(--warned); color: #fff; }
 
 /* Registry table — scrolls horizontally within its own box on narrow
    viewports rather than forcing the whole page to overflow sideways. */

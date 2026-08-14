@@ -1,9 +1,10 @@
 ---
-import { loadExchanges, footerStats } from '../lib/data.js';
+import { loadExchanges, footerStats, countriesInData, COUNTRY_NAMES } from '../lib/data.js';
 import '../styles/global.css';
 
 const exchanges = loadExchanges();
 const stats = footerStats(exchanges);
+const countries = countriesInData(exchanges);
 const jurisdictionCount = (ex) => Object.keys(ex.countries ?? {}).length;
 
 const hasGenuineLicence = (ex) => {
@@ -66,6 +67,12 @@ const auditLabel = (ex) => {
   return { label: '—', cls: 'neutral' };
 };
 
+// Status/audit filter values are separate from their display labels
+// (kebab-case, no spaces) so they work cleanly as data-attribute values
+// and <option> values without any escaping.
+const STATUS_FILTER_VALUE = { Licensed: 'licensed', Registered: 'registered', Withdrawn: 'withdrawn', 'Not verified': 'not-verified' };
+const AUDIT_FILTER_VALUE = { Audited: 'audited', 'On file': 'on-file', '—': 'none' };
+
 const rows = exchanges.map((ex) => ({
   ex,
   jurisdictions: jurisdictionCount(ex),
@@ -73,6 +80,7 @@ const rows = exchanges.map((ex) => ({
   since: earliestSince(ex),
   verification: verificationDepth(ex),
   audit: auditLabel(ex),
+  countryCodes: Object.keys(ex.countries ?? {}),
 }));
 const SITEKEY = import.meta.env.PUBLIC_TURNSTILE_SITEKEY || '0x4AAAAAAD84t4OWkoouLP3Y';
 const PAGE_TITLE = `Crypto Exchange List: ${exchanges.length} Tracked | whichcryptoexchange.com`;
@@ -192,7 +200,31 @@ const PAGE_DESC = `A list of every crypto exchange and related firm we track (${
           <option value="verification-desc">Verification depth (most first)</option>
         </select>
       </label>
+      <label>Country
+        <select id="filter-country">
+          <option value="">All countries</option>
+          {countries.map((c) => <option value={c}>{COUNTRY_NAMES[c] ?? c}</option>)}
+        </select>
+      </label>
+      <label>Status
+        <select id="filter-status">
+          <option value="">All statuses</option>
+          <option value="licensed">Licensed only</option>
+          <option value="registered">Registered (AML-only) only</option>
+          <option value="withdrawn">Withdrawn</option>
+          <option value="not-verified">Not verified anywhere</option>
+        </select>
+      </label>
+      <label>Audit &amp; reserves
+        <select id="filter-audit">
+          <option value="">All</option>
+          <option value="audited">Audited (current) only</option>
+          <option value="on-file">Any audit info on file</option>
+        </select>
+      </label>
+      <button type="button" id="filter-reset" class="filter-reset" hidden>Reset filters</button>
     </div>
+    <p class="sourced" id="filter-count"></p>
     <p class="sourced">"Verification depth" is not a rating -- it's a plain count: 2 points for a
     genuine licence (1 for AML-only registration, 0 for neither), plus 2 for a currently
     independently-audited proof-of-reserves or full audit (1 for a weaker or lapsed one on file, 0
@@ -207,8 +239,10 @@ const PAGE_DESC = `A list of every crypto exchange and related firm we track (${
         <th>Exchange</th><th>Status</th><th>Audit</th><th>Jurisdictions</th><th>Since</th>
       </tr></thead>
       <tbody>
-        {rows.map(({ ex, jurisdictions, status, since, verification, audit }) => (
-          <tr data-since={since} data-jurisdictions={jurisdictions} data-verification={verification}>
+        {rows.map(({ ex, jurisdictions, status, since, verification, audit, countryCodes }) => (
+          <tr data-since={since} data-jurisdictions={jurisdictions} data-verification={verification}
+              data-countries={countryCodes.join(' ')} data-status={STATUS_FILTER_VALUE[status.label]}
+              data-audit={AUDIT_FILTER_VALUE[audit.label]}>
             <td class="brand"><a href={`/exchange/${ex.id}/`}>{ex.brand}</a></td>
             <td><span class={`stamp ${status.cls}`}>{status.label}</span></td>
             <td><span class={`stamp ${audit.cls}`}>{audit.label}</span></td>
@@ -240,8 +274,19 @@ const PAGE_DESC = `A list of every crypto exchange and related firm we track (${
   <script>
     const tbody = document.querySelector('.registry tbody');
     const sortSelect = document.getElementById('sort-select');
+    const countryFilter = document.getElementById('filter-country');
+    const statusFilter = document.getElementById('filter-status');
+    const auditFilter = document.getElementById('filter-audit');
+    const resetBtn = document.getElementById('filter-reset');
+    const countEl = document.getElementById('filter-count');
     if (tbody && sortSelect) {
       const originalRows = [...tbody.querySelectorAll('tr')];
+      const total = originalRows.length;
+
+      // Filters narrow which rows are visible; sort only ever reorders --
+      // the two are independent and every apply() re-derives both from
+      // scratch off originalRows, so they never fight over row order or
+      // display state no matter what order the controls are touched in.
       const apply = () => {
         let rows = [...originalRows];
         switch (sortSelect.value) {
@@ -266,8 +311,34 @@ const PAGE_DESC = `A list of every crypto exchange and related firm we track (${
             break; // 'brand': original server-rendered A–Z order
         }
         rows.forEach((r) => tbody.appendChild(r));
+
+        const cc = countryFilter?.value, st = statusFilter?.value, au = auditFilter?.value;
+        let shown = 0;
+        for (const r of rows) {
+          const matchesCountry = !cc || (r.dataset.countries || '').split(' ').includes(cc);
+          const matchesStatus = !st || r.dataset.status === st;
+          // 'on-file' is the broad option -- audited counts as "info on
+          // file" too, only 'none' is excluded. 'audited' is the strict
+          // option -- only the strong tier matches.
+          const matchesAudit = !au || (au === 'on-file' ? r.dataset.audit !== 'none' : r.dataset.audit === au);
+          const visible = matchesCountry && matchesStatus && matchesAudit;
+          r.hidden = !visible;
+          if (visible) shown++;
+        }
+        const filtered = Boolean(cc || st || au);
+        if (resetBtn) resetBtn.hidden = !filtered;
+        if (countEl) countEl.textContent = filtered ? `Showing ${shown} of ${total} exchanges.` : '';
       };
       sortSelect.addEventListener('change', apply);
+      countryFilter?.addEventListener('change', apply);
+      statusFilter?.addEventListener('change', apply);
+      auditFilter?.addEventListener('change', apply);
+      resetBtn?.addEventListener('click', () => {
+        if (countryFilter) countryFilter.value = '';
+        if (statusFilter) statusFilter.value = '';
+        if (auditFilter) auditFilter.value = '';
+        apply();
+      });
     }
   </script>
 
