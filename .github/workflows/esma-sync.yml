@@ -28,10 +28,6 @@ jobs:
         with:
           commit-message: "data: ESMA register sync"
           title: "ESMA register update — review changes"
-          body: |
-            Automated diff against the ESMA interim MiCA register.
-            Review before merging: new brands may need entries in
-            data/brand_map.yaml, and status changes are news-worthy —
-            consider a changelog entry.
+          body-path: .pr-body.md
           branch: esma-sync
           delete-branch: true

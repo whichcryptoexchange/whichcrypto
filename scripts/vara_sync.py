@@ -103,6 +103,11 @@ def main():
     print("Fetching VARA public register...", file=sys.stderr)
     register = fetch_register()
     print(f"Loaded {len(register)} licensed VASP records", file=sys.stderr)
+    # See esma_sync.py's write_pr_body -- same "notable vs routine" split.
+    # A VARA reference disappearing is the one thing worth a second look
+    # here: this is a genuine licence, not an AML registration, so losing
+    # one is a real, checkable event -- not just a date bump.
+    notable = []
 
     for brand_id, refs in sorted(reg_map.items()):
         path = exch_dir / f"{brand_id}.yaml"
@@ -118,6 +123,10 @@ def main():
             if not row:
                 print(f"  WARNING: {reference} for {brand_id} not found in current register — "
                       f"licence may have lapsed or reference changed", file=sys.stderr)
+                notable.append(
+                    f"**{brand_id}**: Dubai VARA reference `{reference}` no longer found in the live "
+                    f"register — licence may have lapsed, or the reference changed."
+                )
                 continue
             entries.append(to_ae_entry(row, reference))
 
@@ -149,6 +158,29 @@ def main():
         print(f"  {brand_id}: wrote {len(entries)} AE entr{'y' if len(entries) == 1 else 'ies'}")
 
     print("Done.")
+    write_pr_body(notable)
+
+
+# Read by .github/workflows/vara-sync.yml as the PR body (body-path).
+def write_pr_body(notable):
+    if notable:
+        header = f"## 🔴 {len(notable)} notable change{'s' if len(notable) != 1 else ''}\n\n" + \
+            "\n".join(f"- {line}" for line in notable) + "\n\n---\n\n"
+    else:
+        header = "No notable changes this run — routine `retrieved` date refresh only.\n\n---\n\n"
+    body = header + (
+        "Automated refresh of data/vara_reg_map.yaml's pinned licence\n"
+        "references against the live VARA public register. This does\n"
+        "NOT discover new brands -- only re-fetches status/dates for\n"
+        "entities already curated in vara_reg_map.yaml. Review for:\n"
+        "  - a reference no longer found (licence lapsed or reference\n"
+        "    changed -- the entry will be dropped from countries.AE)\n\n"
+        "Reminder for every review: VARA covers DUBAI ONLY, never the\n"
+        "wider UAE. Every countries.AE entry's regime string must say\n"
+        "\"Dubai\" explicitly, and any new copy referencing this data\n"
+        "must not imply UAE-wide coverage.\n"
+    )
+    (ROOT / ".pr-body.md").write_text(body)
 
 
 if __name__ == "__main__":

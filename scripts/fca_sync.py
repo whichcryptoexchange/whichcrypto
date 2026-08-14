@@ -105,6 +105,10 @@ def main():
 
     frn_map = yaml.safe_load((DATA / "fca_frn_map.yaml").read_text()) or {}
     exch_dir = DATA / "exchanges"
+    # See esma_sync.py's write_pr_body -- same "notable vs routine" split,
+    # surfaced in the PR body so a real status flip is visible without
+    # opening the diff.
+    notable = []
 
     for brand_id, frns in sorted(frn_map.items()):
         path = exch_dir / f"{brand_id}.yaml"
@@ -134,6 +138,13 @@ def main():
             continue
 
         doc = yaml.safe_load(path.read_text())
+        old_statuses = {e.get("status") for e in (doc.get("countries", {}).get("GB") or [])}
+        new_statuses = {e["status"] for e in entries}
+        if old_statuses and old_statuses != new_statuses:
+            notable.append(
+                f"**{doc.get('brand', brand_id)}**: UK FCA status changed "
+                f"`{'/'.join(sorted(old_statuses))}` → `{'/'.join(sorted(new_statuses))}`."
+            )
         doc.setdefault("countries", {})["GB"] = entries
         sources = doc.setdefault("sources", [])
         if not any(s.get("name") == "UK FCA Register" for s in sources):
@@ -150,6 +161,28 @@ def main():
         print(f"  {brand_id}: wrote {len(entries)} GB entr{'y' if len(entries) == 1 else 'ies'}")
 
     print("Done.")
+    write_pr_body(notable)
+
+
+# Read by .github/workflows/fca-sync.yml as the PR body (body-path).
+def write_pr_body(notable):
+    if notable:
+        header = f"## 🔴 {len(notable)} notable change{'s' if len(notable) != 1 else ''}\n\n" + \
+            "\n".join(f"- {line}" for line in notable) + "\n\n---\n\n"
+    else:
+        header = "No notable changes this run — routine `retrieved` date refresh only.\n\n---\n\n"
+    body = header + (
+        "Automated refresh of data/fca_frn_map.yaml's pinned FRNs against\n"
+        "the live FCA Register. This does NOT discover new brands -- only\n"
+        "re-fetches status/dates for entities already curated in\n"
+        "fca_frn_map.yaml. Review for:\n"
+        "  - a status flip from Registered to something else (lapsed\n"
+        "    MLR registration -- may need dropping from the map)\n"
+        "  - a status flip TO Authorised (a second-tier entry may need\n"
+        "    adding, or an existing one may need re-checking)\n"
+        "Never describe a \"registered\" entry as licensed in any copy.\n"
+    )
+    (ROOT / ".pr-body.md").write_text(body)
 
 
 if __name__ == "__main__":

@@ -5,3 +5,4 @@ __pycache__/
 .env
 admin_key.txt
 .dev.vars
+.pr-body.md

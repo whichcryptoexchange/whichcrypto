@@ -156,6 +156,13 @@ def main():
     ap.add_argument("--as-of", default=dt.date.today().isoformat())
     args = ap.parse_args()
 
+    # Notable changes -- a status actually flipping, a brand appearing or
+    # disappearing -- versus routine `retrieved` date bumps, which are the
+    # vast majority of every run and never worth a second look. Surfaced
+    # in the PR body (see write_pr_body below) so a real change is visible
+    # the moment the PR opens, not just discoverable by reading the diff.
+    notable = []
+
     raw = pathlib.Path(args.input).read_text(encoding="utf-8-sig", errors="replace")
     rows = list(csv.DictReader(io.StringIO(raw)))
     print(f"Read {len(rows)} raw rows")
@@ -283,6 +290,10 @@ def main():
         stale.write_text(yaml.safe_dump(demoted, sort_keys=False, allow_unicode=True, width=100))
         print(f"  {stale.stem}: dropped from ESMA source, demoted to no_eu_entity "
               f"(preserved {', '.join(other_owned_fields) or 'non-EEA countries'})", file=sys.stderr)
+        notable.append(
+            f"**{demoted['brand']}** dropped out of the ESMA MiCA register entirely "
+            f"(was `{existing.get('eu_status')}`) — its EU authorisation record is gone, not just withdrawn."
+        )
     for bid, b in sorted(brands.items()):
         countries = dict(b["countries"])
         other_sources = []
@@ -295,8 +306,11 @@ def main():
         company_facts = None
         notable_incidents = None
         audits = None
+        old_eu_status = None
+        is_new_file = not existing_path.exists()
         if existing_path.exists():
             existing = yaml.safe_load(existing_path.read_text()) or {}
+            old_eu_status = existing.get("eu_status")
             for cc, entry in (existing.get("countries") or {}).items():
                 if cc not in EEA:
                     countries[cc] = entry
@@ -340,6 +354,20 @@ def main():
             yaml.safe_dump(payload, sort_keys=False, allow_unicode=True, width=100)
         )
 
+        # New brand files are excluded here on purpose -- ESMA's CSV has
+        # hundreds of tiny regional banks that dip in and out, and a
+        # never-before-seen ID is almost always one of those, not a
+        # recognisable brand worth a post. A real status change on a
+        # brand we already track is a much stronger signal either way.
+        new_eu_status = b["eu_status"]
+        if not is_new_file and old_eu_status != new_eu_status:
+            if new_eu_status == "authorised":
+                notable.append(f"**{b['brand']}** gained EU MiCA authorisation (was `{old_eu_status}`).")
+            elif old_eu_status == "authorised" and new_eu_status == "withdrawn":
+                notable.append(f"**{b['brand']}**'s EU MiCA authorisation was withdrawn.")
+            else:
+                notable.append(f"**{b['brand']}**: EU MiCA status changed `{old_eu_status}` → `{new_eu_status}`.")
+
     registry = {
         "generated": args.as_of,
         "source": "https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv",
@@ -348,6 +376,27 @@ def main():
     }
     (DATA / "registry" / "esma.json").write_text(json.dumps(registry, indent=2))
     print(f"Wrote {len(brands)} brand files to {out_dir}")
+
+    write_pr_body(notable)
+
+
+# Read by .github/workflows/esma-sync.yml as the PR body (body-path) --
+# notable changes surface at the very top, above the routine boilerplate,
+# so they're visible in the GitHub notification/PR list without opening
+# the diff. Kept out of git (see .gitignore); each run overwrites it.
+def write_pr_body(notable):
+    if notable:
+        header = f"## 🔴 {len(notable)} notable change{'s' if len(notable) != 1 else ''}\n\n" + \
+            "\n".join(f"- {line}" for line in notable) + "\n\n---\n\n"
+    else:
+        header = "No notable changes this run — routine `retrieved` date refresh only.\n\n---\n\n"
+    body = header + (
+        "Automated diff against the ESMA interim MiCA register.\n"
+        "Review before merging: new brands may need entries in\n"
+        "data/brand_map.yaml, and status changes are news-worthy --\n"
+        "consider a changelog entry.\n"
+    )
+    (ROOT / ".pr-body.md").write_text(body)
 
 
 if __name__ == "__main__":
