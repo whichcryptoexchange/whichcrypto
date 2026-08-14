@@ -1,7 +1,7 @@
 {
-  "generated": "2026-08-11",
+  "generated": "2026-08-14",
   "source": "https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv",
-  "brand_count": 317,
+  "brand_count": 318,
   "brands": [
     "21bitcoin",
     "acheron",
@@ -11,7 +11,6 @@
     "alpharoute",
     "altarius-asset-management-limited",
     "altcoins",
-    "altlift-s-r-o",
     "amdax",
     "amina-eu",
     "anceka-verm-gensbetreuungs-aktiengesellschaft",
@@ -218,6 +217,7 @@
     "openbank",
     "orcabay",
     "osl-eu",
+    "partners-banka-a-s",
     "paybis",
     "payhound",
     "paymium",
@@ -289,6 +289,7 @@
     "vermogensbutler",
     "virtu-financial",
     "vivid-money",
+    "volksbank-beilstein-ilsfeld-abstatt-eg",
     "volksbank-eg-die-gestalterbank",
     "volksbank-heiden-eg",
     "volksbank-mittlerer-schwarzwald-eg",
