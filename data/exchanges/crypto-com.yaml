@@ -19,7 +19,7 @@ sources:
   retrieved: '2026-08-13'
 - name: Korea FIU VASP Registration Disclosure
   url: https://www.kofiu.go.kr/kor/notification/notice.do
-  retrieved: '2026-08-05'
+  retrieved: '2026-08-14'
 entities:
 - lei: 2549005CVR5HH70FDO07
   legal_name: Foris DAX MT Limited
