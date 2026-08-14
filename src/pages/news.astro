@@ -19,6 +19,14 @@ const rows = exchanges
 const SITEKEY = import.meta.env.PUBLIC_TURNSTILE_SITEKEY || '0x4AAAAAAD84t4OWkoouLP3Y';
 const PAGE_TITLE = `Crypto Exchange News and Regulation Updates | whichcryptoexchange.com`;
 const PAGE_DESC = `Headlines that name-match a tracked crypto exchange, from The Guardian, BBC, Cointelegraph, The Block, and the SEC and DOJ's own press releases -- newest first, tagged Regulatory when the source or the headline itself is regulatory in nature.`;
+
+const PAGE_URL = 'https://whichcryptoexchange.com/news/';
+const SHARE_TEXT = 'Crypto exchange news and regulation updates, tagged by source (SEC/DOJ direct vs. general coverage) — not just headlines.';
+const SHARE_LINKS = [
+  { name: 'X', href: `https://twitter.com/intent/tweet?text=${encodeURIComponent(SHARE_TEXT)}&url=${encodeURIComponent(PAGE_URL)}` },
+  { name: 'LinkedIn', href: `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(PAGE_URL)}` },
+  { name: 'Reddit', href: `https://www.reddit.com/submit?url=${encodeURIComponent(PAGE_URL)}&title=${encodeURIComponent(SHARE_TEXT)}` },
+];
 ---
 <html lang="en">
 <head>
@@ -28,6 +36,7 @@ const PAGE_DESC = `Headlines that name-match a tracked crypto exchange, from The
   <title>{PAGE_TITLE}</title>
   <meta name="description" content={PAGE_DESC} />
   <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site)} />
+  <link rel="alternate" type="application/rss+xml" title="whichcryptoexchange.com — Crypto Exchange News and Regulation Updates" href="/news.xml" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content={new URL(Astro.url.pathname, Astro.site)} />
   <meta property="og:site_name" content="whichcryptoexchange.com" />
@@ -83,6 +92,36 @@ const PAGE_DESC = `Headlines that name-match a tracked crypto exchange, from The
     keyword/source heuristic, not our own analysis. Read the original story before drawing a
     conclusion from it. An exchange with nothing here just hasn't been named in these sources'
     headlines recently — not a sign of anything either way.</p>
+
+    <div class="page-tools">
+      <a class="rss-link" href="/news.xml">RSS feed ↗</a>
+      <span class="page-tools-share">
+        Share:
+        {SHARE_LINKS.map((s) => <a href={s.href} rel="noopener" target="_blank">{s.name}</a>)}
+      </span>
+    </div>
+
+    {SITEKEY && (
+      <div class="digest-cta">
+        <h3>Get the weekly regulatory roundup</h3>
+        <p>Every status change across every tracked exchange, once a week, straight to your inbox —
+        the same underlying register this page draws from. Free, no spam — one email a week,
+        unsubscribe any time.</p>
+        <form id="digest-form">
+          <div class="digest-cta-row">
+            <input type="email" name="email" placeholder="you@example.com" required maxlength="200" aria-label="Email address" />
+            <button type="submit">Subscribe</button>
+          </div>
+          <label class="consent-label">
+            <input type="checkbox" name="consent" required />
+            I want the weekly regulatory roundup email. See <a href="/about/">how this works</a> —
+            unsubscribe any time, no login needed.
+          </label>
+          <div class="cf-turnstile" data-sitekey={SITEKEY}></div>
+          <p class="form-msg sourced" role="status"></p>
+        </form>
+      </div>
+    )}
 
     <div class="table-scroll">
     <table class="registry">

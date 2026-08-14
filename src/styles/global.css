@@ -499,6 +499,18 @@ footer.site .trustpilot-widget iframe { margin: 0 !important; }
 .news-category.regulatory { color: var(--caution); }
 .news-category.general { color: var(--ink-soft); }
 
+/* Page tools row (RSS + share) -- plain text links, no icon fonts or
+   social SDKs, consistent with not loading third-party tracking scripts
+   beyond what's already on the page. */
+.page-tools {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 8px 20px;
+  margin: 0 0 28px; padding: 12px 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule);
+  font-size: 13px;
+}
+.rss-link { font-family: var(--mono); font-weight: 600; color: var(--licensed); }
+.page-tools-share { color: var(--ink-soft); }
+.page-tools-share a { font-family: var(--mono); margin-left: 8px; }
+
 /* Third-party reviews: deliberately plainer than the .stamp/.record
    colour language used for regulator facts and the .reports card above --
    this is cited external data, not something we're vouching for, so it
