@@ -865,6 +865,10 @@ async function handleAdminLinks(request, env, url) {
      </style>
      <a class="home" href="/admin${url.search}">← Admin home</a>
      <h1>Affiliate links (${brands.length} brands, ${links.length} with a link set)</h1>
+     <p>Reminder from CoinJar's affiliate terms, likely standard across UK-facing partners:
+     link to the exchange's <strong>main website only</strong>, never directly to a signup/
+     registration page. The FCA risk warning is added automatically on every CTA regardless
+     of which URL is set here — see the script on each exchange page.</p>
      <input id="search" placeholder="Filter by brand or id…" oninput="
        const q = this.value.toLowerCase();
        document.querySelectorAll('tbody tr').forEach(r => {

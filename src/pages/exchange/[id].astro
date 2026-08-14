@@ -466,6 +466,12 @@ const PAGE_DESC = `${ex.brand}: official licence records, legal entities, regula
     // for this brand — commercial data, deliberately not baked into the
     // static build (see /admin/links). Built with DOM APIs, not innerHTML,
     // since the URL/label ultimately come from a database value.
+    //
+    // Every affiliate CTA also carries the FCA's mandated cryptoasset
+    // financial promotion risk warning (in force since 8 Oct 2023),
+    // regardless of which exchange it links to or where the visitor is --
+    // simpler and safer than trying to geo-target it at UK visitors only,
+    // and the warning is true regardless of the reader's country anyway.
     (() => {
       const box = document.getElementById('affiliate-cta');
       fetch('/api/links/' + box.dataset.exchange)
@@ -480,7 +486,12 @@ const PAGE_DESC = `${ex.brand}: official licence records, legal entities, regula
           const note = document.createElement('p');
           note.className = 'sourced cta-disclosure';
           note.textContent = 'Affiliate link — we may earn a commission at no extra cost to you.';
-          box.append(a, note);
+          const risk = document.createElement('p');
+          risk.className = 'risk-warning';
+          risk.textContent = "Don't invest unless you're prepared to lose all the money you "
+            + 'invest. This is a high-risk investment and you should not expect to be protected '
+            + 'if something goes wrong. Take 2 mins to learn more.';
+          box.append(a, note, risk);
         })
         .catch(() => {});
     })();

@@ -284,7 +284,17 @@ h3:first-child { margin-top: 0; }
   margin: 4px 0 6px;
 }
 .cta-button:hover { background: #0f5a35; }
-.cta-disclosure { margin: 0 0 24px; }
+.cta-disclosure { margin: 0 0 8px; }
+/* FCA-mandated cryptoasset financial promotion risk warning -- shown on
+   every affiliate CTA regardless of exchange or visitor location (see
+   the script at the bottom of this page). Deliberately its own visible,
+   bordered treatment rather than folded into .cta-disclosure's quiet
+   .sourced styling -- this one needs to be seen, not just present. */
+.risk-warning {
+  font-size: 13px; font-weight: 600; color: var(--warned);
+  border: 1px solid var(--warned); border-radius: 4px;
+  padding: 10px 14px; margin: 0 0 24px; max-width: 480px; line-height: 1.5;
+}
 
 /* Stats */
 .stat-grid {
