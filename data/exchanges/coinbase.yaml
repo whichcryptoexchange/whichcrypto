@@ -293,3 +293,21 @@ company_facts:
   registration_status: issued
   entity_creation_date: '2025-01-10'
   retrieved: '2026-08-12'
+audits:
+- tier: full_audit
+  status: active
+  auditor: Deloitte & Touche LLP
+  frequency: Annual, recurring — required as an SEC-reporting public company
+  last_date: '2024-02-15'
+  summary: 'Coinbase Global, Inc. is a publicly listed, SEC-reporting company, so its full consolidated
+    financial statements -- including internal-control effectiveness -- are independently audited annually
+    by Deloitte & Touche LLP and filed with the SEC as part of its 10-K. This is the strongest tier of
+    assurance on this list: a comprehensive financial audit, not a narrower point-in-time reserves check.
+    Deloitte has signed Coinbase''s auditor''s report in each 10-K filed since Coinbase went public, most
+    recently for fiscal year 2025.'
+  sources:
+  - name: SEC EDGAR — Coinbase Global, Inc. 10-K filings
+    url: https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001679788&type=10-K
+  - name: Coinbase FY2023 10-K, auditor's report (Deloitte & Touche LLP)
+    url: https://www.sec.gov/Archives/edgar/data/1679788/000167978824000022/exhibit23110kq42023.htm
+  retrieved: '2026-08-14'

@@ -54,3 +54,23 @@ notable_incidents:
   - name: CoinDesk
     url: https://www.coindesk.com/policy/2023/11/21/binance-to-settle-charges-with-us-doj-source
   retrieved: '2026-08-13'
+audits:
+- tier: self_reported
+  status: active
+  auditor: null
+  frequency: Quarterly, self-published
+  last_date: null
+  summary: Binance publishes its own Merkle-tree-based proof-of-reserves reports on a quarterly basis,
+    and its official page describes verification as a "self-verification method" -- individual users can
+    check their own balance was included, but Binance's own page does not name an independent third-party
+    auditor or accounting firm attesting to the reports as a whole. This is a materially weaker tier of
+    assurance than Kraken's, OKX's, or KuCoin's programmes, which do name an independent verifier. Binance's
+    original proof-of-reserves auditor, Mazars, withdrew from all crypto proof-of-reserves work in December
+    2022, citing concerns about how such reports were being understood by the public; Binance has not
+    re-engaged a named independent auditor for this purpose since.
+  sources:
+  - name: Binance — Proof of Reserves (official page, "self-verification method")
+    url: https://www.binance.com/en/proof-of-reserves
+  - name: Mazars Group pauses proof-of-reserves work for crypto clients (Dec 2022)
+    url: https://www.coindesk.com/business/2022/12/16/binance-proof-of-reserves-auditor-mazars-pauses-all-work-for-crypto-clients
+  retrieved: '2026-08-14'

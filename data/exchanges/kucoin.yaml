@@ -222,3 +222,22 @@ notable_incidents:
   - name: CoinDesk
     url: https://www.coindesk.com/markets/2020/09/26/over-280m-drained-in-kucoin-crypto-exchange-hack
   retrieved: '2026-08-13'
+audits:
+- tier: proof_of_reserves
+  status: active
+  auditor: Hacken
+  frequency: Monthly, recurring — 44+ consecutive months
+  last_date: '2026-06-30'
+  summary: 'KuCoin publishes a monthly, Merkle-tree-based proof-of-reserves report, with independent verification
+    by Hacken -- 44 consecutive months of publication as of its most recent report, including 14 separate
+    independent Hacken audits, and reserve ratios consistently reported above 100%. This is the same tier
+    as Kraken''s and OKX''s programmes: a genuine, recurring, independently-attested reserves check, not
+    a full financial audit. KuCoin was also one of the exchanges whose original 2022 proof-of-reserves
+    attestation was performed by Mazars, before Mazars withdrew from all crypto proof-of-reserves work
+    that December.'
+  sources:
+  - name: KuCoin Completes Independent Hacken-Audited Proof of Reserves
+    url: https://www.kucoin.com/blog/en-kucoin-completes-independent-hacken-audited-proof-of-reserves-achieves-32nd-consecutive-month-of-publishing-por-reports-sustaining-over-100-coverage
+  - name: KuCoin — Proof of Reserves & Audit (official page)
+    url: https://www.kucoin.com/proof-of-reserves
+  retrieved: '2026-08-14'

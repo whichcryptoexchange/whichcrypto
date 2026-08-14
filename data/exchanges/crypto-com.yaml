@@ -279,3 +279,22 @@ company_facts:
   registration_status: issued
   entity_creation_date: '2018-09-19'
   retrieved: '2026-08-12'
+audits:
+- tier: proof_of_reserves
+  status: lapsed
+  auditor: Mazars Group
+  frequency: One-off — no subsequent independent verification found despite stated intent
+  last_date: '2022-12-07'
+  summary: Crypto.com's own proof-of-reserves page names Mazars Group as an independent third party that
+    verified customer balances were fully backed, under ISRS 4400 procedures -- but that verification
+    is dated 7 December 2022. The same page states Crypto.com was "working with Mazars Group to include
+    additional tokens, protocols and networks" in "subsequent verifications" -- but Mazars withdrew from
+    all crypto proof-of-reserves work later that same month, and no evidence of a later independent attestation
+    was found. The one genuine third-party verification Crypto.com has published is now several years
+    stale.
+  sources:
+  - name: Crypto.com — Proof of Reserves (official page, Mazars attestation dated Dec 2022)
+    url: https://crypto.com/en/proof-of-reserves/
+  - name: Mazars Group pauses proof-of-reserves work for crypto clients (Dec 2022)
+    url: https://www.coindesk.com/business/2022/12/16/binance-proof-of-reserves-auditor-mazars-pauses-all-work-for-crypto-clients
+  retrieved: '2026-08-14'

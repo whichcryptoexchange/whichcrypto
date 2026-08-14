@@ -555,6 +555,30 @@ footer.site .trustpilot-widget iframe { margin: 0 !important; }
 .incident-item h4 { margin: 6px 0; font-family: var(--display); font-size: 16px; }
 .incident-item p { margin: 0 0 8px; font-size: 14px; line-height: 1.55; }
 .incident-item p:last-child { margin-bottom: 0; }
+
+/* Audits & reserves: same card grammar as .incident-item (hand-verified,
+   so it earns the status-colour border), but green/amber for assurance
+   strength rather than severity -- a full audit or an active,
+   independently-named proof-of-reserves programme is "strong" (green);
+   self-reported-only or a lapsed attestation is "weak" (amber). There is
+   deliberately no red tier here -- nothing in this section is a claim of
+   wrongdoing, just a claim about how much independent checking exists. */
+.audits { margin: 40px 0 0; }
+.audit-list { list-style: none; margin: 16px 0 0; padding: 0; display: grid; gap: 12px; }
+.audit-item {
+  background: var(--card); border: 1px solid var(--rule); border-left: 3px solid var(--ink-soft);
+  border-radius: 4px; padding: 14px 16px;
+}
+.audit-item.audit-strong { border-left-color: var(--licensed); }
+.audit-item.audit-weak { border-left-color: var(--caution); }
+.audit-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px; }
+.audit-tier {
+  font-family: var(--mono); font-size: 11px; font-weight: 600; text-transform: uppercase;
+  letter-spacing: 0.06em; color: var(--ink-soft);
+}
+.audit-item h4 { margin: 6px 0; font-family: var(--display); font-size: 16px; }
+.audit-item p { margin: 0 0 8px; font-size: 14px; line-height: 1.55; }
+.audit-item p:last-child { margin-bottom: 0; }
 .report-form { background: var(--card); border: 1px solid var(--rule); border-radius: 4px; padding: 16px; }
 .report-form summary { cursor: pointer; font-family: var(--display); font-weight: 700; padding: 12px 0; }
 .report-form label { display: block; margin: 12px 0 0; font-size: 14px; }

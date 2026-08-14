@@ -1,0 +1,160 @@
+# Hand-curated, hand-verified audit / proof-of-reserves history for tracked
+# exchanges -- applied to data/exchanges/*.yaml by scripts/audits_manual_apply.py.
+#
+# There is no live source for this: no regulator publishes a structured
+# "who got audited" feed, and the crypto industry's own use of the word
+# "audit" is loose enough to be actively misleading -- a proof-of-reserves
+# attestation (a snapshot showing assets >= liabilities at one moment, via
+# a named third party) is genuinely not the same rigor as a full,
+# independent financial statement audit covering liabilities and controls
+# (the kind SEC-reporting public companies file). Conflating the two would
+# be exactly the kind of misleading claim this site exists to see through,
+# so every entry is tagged with a `tier` and a `status`, not a flat
+# "audited: yes".
+#
+# tier: full_audit | proof_of_reserves | self_reported
+#   full_audit         -- independent financial statement audit, e.g. an
+#                          SEC 10-K auditor's report from a registered
+#                          public accounting firm.
+#   proof_of_reserves  -- a named independent third party attests that
+#                          assets >= liabilities at a point in time, via
+#                          cryptographic (Merkle tree) balance verification
+#                          -- real, but narrower in scope than a full audit.
+#   self_reported       -- the exchange publishes its own reserve figures
+#                          or lets users self-verify via Merkle proof, but
+#                          no independent third party is named as attesting
+#                          to the report.
+# status: active (ongoing/recent) | lapsed (was done, hasn't recurred)
+#
+# Each entry researched and cross-checked against multiple sources,
+# including the exchange's own current page where possible, before being
+# added. Absence of a brand here is not a claim it has no audit history --
+# only that nothing has been added yet.
+#
+# retrieved: when the facts below were last checked against source.
+retrieved: '2026-08-14'
+audits:
+  - brand_id: coinbase
+    tier: full_audit
+    status: active
+    auditor: "Deloitte & Touche LLP"
+    frequency: "Annual, recurring — required as an SEC-reporting public company"
+    last_date: '2024-02-15'
+    summary: >-
+      Coinbase Global, Inc. is a publicly listed, SEC-reporting company, so its full
+      consolidated financial statements -- including internal-control effectiveness --
+      are independently audited annually by Deloitte & Touche LLP and filed with the SEC
+      as part of its 10-K. This is the strongest tier of assurance on this list: a
+      comprehensive financial audit, not a narrower point-in-time reserves check.
+      Deloitte has signed Coinbase's auditor's report in each 10-K filed since Coinbase
+      went public, most recently for fiscal year 2025.
+    sources:
+      - name: SEC EDGAR — Coinbase Global, Inc. 10-K filings
+        url: https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001679788&type=10-K
+      - name: Coinbase FY2023 10-K, auditor's report (Deloitte & Touche LLP)
+        url: https://www.sec.gov/Archives/edgar/data/1679788/000167978824000022/exhibit23110kq42023.htm
+
+  - brand_id: kraken
+    tier: proof_of_reserves
+    status: active
+    auditor: "The Network Firm (registered CPA firm)"
+    frequency: "Recurring, roughly quarterly"
+    last_date: '2025-09-30'
+    summary: >-
+      Kraken engages The Network Firm, a registered CPA firm specialising in
+      cryptocurrency attestation, to independently confirm Kraken controls the wallets
+      holding client balances. Reports use a Merkle tree structure with user-verifiable
+      "Merkle Leaf IDs", letting individual clients personally verify their own balance
+      was included. This is a genuine, recurring, independently-attested proof-of-reserves
+      programme -- not a full financial audit (it doesn't cover liabilities or internal
+      controls the way Coinbase's SEC audit does), but among the stronger examples of
+      this tier.
+    sources:
+      - name: Kraken — Proof of Reserves, September 2025
+        url: https://blog.kraken.com/news/september-2025-proof-of-reserves
+      - name: Kraken — Proof of Reserves, June 30 2025
+        url: https://blog.kraken.com/news/proof-of-reserves-june-30-2025
+
+  - brand_id: okx
+    tier: proof_of_reserves
+    status: active
+    auditor: "Hacken"
+    frequency: "Monthly, recurring for 3+ years"
+    last_date: '2025-03-31'
+    summary: >-
+      OKX has published a monthly, Hacken-audited proof-of-reserves report for over three
+      consecutive years -- Hacken is an independent blockchain security firm that verifies
+      OKX's holdings via Merkle tree methodology each month. The most recent milestone
+      found was OKX's 29th consecutive report, showing $24.6 billion in primary assets.
+      Like Kraken's, this is a genuine recurring third-party attestation, not a full
+      financial audit.
+    sources:
+      - name: "OKX's 27th consecutive Proof of Reserves, audited by Hacken"
+        url: https://www.prnewswire.com/news-releases/okxs-27th-consecutive-proof-of-reserves-27-9bn-in-primary-assets-audited-by-hacken-302364040.html
+      - name: "OKX publishes the 29th Proof of Reserves"
+        url: https://en.cryptonomist.ch/2025/03/31/okx-strengthens-trust-with-the-29th-proof-of-reserves-24-6-billion-guaranteed-and-transparent-audit/
+
+  - brand_id: kucoin
+    tier: proof_of_reserves
+    status: active
+    auditor: "Hacken"
+    frequency: "Monthly, recurring — 44+ consecutive months"
+    last_date: '2026-06-30'
+    summary: >-
+      KuCoin publishes a monthly, Merkle-tree-based proof-of-reserves report, with
+      independent verification by Hacken -- 44 consecutive months of publication as of
+      its most recent report, including 14 separate independent Hacken audits, and
+      reserve ratios consistently reported above 100%. This is the same tier as Kraken's
+      and OKX's programmes: a genuine, recurring, independently-attested reserves check,
+      not a full financial audit. KuCoin was also one of the exchanges whose original
+      2022 proof-of-reserves attestation was performed by Mazars, before Mazars withdrew
+      from all crypto proof-of-reserves work that December.
+    sources:
+      - name: "KuCoin Completes Independent Hacken-Audited Proof of Reserves"
+        url: https://www.kucoin.com/blog/en-kucoin-completes-independent-hacken-audited-proof-of-reserves-achieves-32nd-consecutive-month-of-publishing-por-reports-sustaining-over-100-coverage
+      - name: KuCoin — Proof of Reserves & Audit (official page)
+        url: https://www.kucoin.com/proof-of-reserves
+
+  - brand_id: binance
+    tier: self_reported
+    status: active
+    auditor: null
+    frequency: "Quarterly, self-published"
+    last_date: null
+    summary: >-
+      Binance publishes its own Merkle-tree-based proof-of-reserves reports on a
+      quarterly basis, and its official page describes verification as a
+      "self-verification method" -- individual users can check their own balance was
+      included, but Binance's own page does not name an independent third-party auditor
+      or accounting firm attesting to the reports as a whole. This is a materially weaker
+      tier of assurance than Kraken's, OKX's, or KuCoin's programmes, which do name an
+      independent verifier. Binance's original proof-of-reserves auditor, Mazars,
+      withdrew from all crypto proof-of-reserves work in December 2022, citing concerns
+      about how such reports were being understood by the public; Binance has not
+      re-engaged a named independent auditor for this purpose since.
+    sources:
+      - name: Binance — Proof of Reserves (official page, "self-verification method")
+        url: https://www.binance.com/en/proof-of-reserves
+      - name: "Mazars Group pauses proof-of-reserves work for crypto clients (Dec 2022)"
+        url: https://www.coindesk.com/business/2022/12/16/binance-proof-of-reserves-auditor-mazars-pauses-all-work-for-crypto-clients
+
+  - brand_id: crypto-com
+    tier: proof_of_reserves
+    status: lapsed
+    auditor: "Mazars Group"
+    frequency: "One-off — no subsequent independent verification found despite stated intent"
+    last_date: '2022-12-07'
+    summary: >-
+      Crypto.com's own proof-of-reserves page names Mazars Group as an independent
+      third party that verified customer balances were fully backed, under ISRS 4400
+      procedures -- but that verification is dated 7 December 2022. The same page states
+      Crypto.com was "working with Mazars Group to include additional tokens, protocols
+      and networks" in "subsequent verifications" -- but Mazars withdrew from all crypto
+      proof-of-reserves work later that same month, and no evidence of a later
+      independent attestation was found. The one genuine third-party verification
+      Crypto.com has published is now several years stale.
+    sources:
+      - name: Crypto.com — Proof of Reserves (official page, Mazars attestation dated Dec 2022)
+        url: https://crypto.com/en/proof-of-reserves/
+      - name: "Mazars Group pauses proof-of-reserves work for crypto clients (Dec 2022)"
+        url: https://www.coindesk.com/business/2022/12/16/binance-proof-of-reserves-auditor-mazars-pauses-all-work-for-crypto-clients

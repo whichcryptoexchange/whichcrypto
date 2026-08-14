@@ -255,3 +255,20 @@ company_facts:
   registration_status: issued
   entity_creation_date: '2018-09-07'
   retrieved: '2026-08-12'
+audits:
+- tier: proof_of_reserves
+  status: active
+  auditor: Hacken
+  frequency: Monthly, recurring for 3+ years
+  last_date: '2025-03-31'
+  summary: OKX has published a monthly, Hacken-audited proof-of-reserves report for over three consecutive
+    years -- Hacken is an independent blockchain security firm that verifies OKX's holdings via Merkle
+    tree methodology each month. The most recent milestone found was OKX's 29th consecutive report, showing
+    $24.6 billion in primary assets. Like Kraken's, this is a genuine recurring third-party attestation,
+    not a full financial audit.
+  sources:
+  - name: OKX's 27th consecutive Proof of Reserves, audited by Hacken
+    url: https://www.prnewswire.com/news-releases/okxs-27th-consecutive-proof-of-reserves-27-9bn-in-primary-assets-audited-by-hacken-302364040.html
+  - name: OKX publishes the 29th Proof of Reserves
+    url: https://en.cryptonomist.ch/2025/03/31/okx-strengthens-trust-with-the-29th-proof-of-reserves-24-6-billion-guaranteed-and-transparent-audit/
+  retrieved: '2026-08-14'

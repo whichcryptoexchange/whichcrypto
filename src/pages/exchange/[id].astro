@@ -39,6 +39,11 @@ const INCIDENT_TYPE_LABELS = {
   withdrawal_freeze: 'Withdrawal freeze',
   settlement: 'Regulatory settlement',
 };
+const AUDIT_TIER_LABELS = {
+  full_audit: 'Full independent audit',
+  proof_of_reserves: 'Proof-of-reserves attestation',
+  self_reported: 'Self-reported, no independent auditor named',
+};
 // Turnstile site keys are public by design (embedded in client HTML), so hardcoding
 // this as a fallback is safe. The env var still wins if the build environment sets it.
 const SITEKEY = import.meta.env.PUBLIC_TURNSTILE_SITEKEY || '0x4AAAAAAD84t4OWkoouLP3Y';
@@ -338,6 +343,37 @@ const PAGE_DESC = `${ex.brand}: official licence records, legal entities, regula
               ))}</p>
             </li>
           ))}
+        </ul>
+      </section>
+    )}
+
+    {(ex.audits ?? []).length > 0 && (
+      <section class="audits" id="audits">
+        <h3>Audits & reserves</h3>
+        <p class="sourced">Hand-researched and checked against the exchange's own current
+        disclosures — "audit" gets used loosely in crypto, so each entry states plainly
+        whether it's a full independent financial audit, a narrower proof-of-reserves
+        attestation by a named third party, or a figure {ex.brand} publishes itself with
+        no independent check. Absence of an entry here is not a claim either way.</p>
+        <ul class="audit-list">
+          {ex.audits.map((a) => {
+            const strong = a.tier === 'full_audit' || (a.tier === 'proof_of_reserves' && a.status === 'active');
+            const tierLabel = AUDIT_TIER_LABELS[a.tier] ?? a.tier;
+            return (
+              <li class={`audit-item ${strong ? 'audit-strong' : 'audit-weak'}`}>
+                <div class="audit-head">
+                  <span class="audit-tier">{tierLabel}{a.status === 'lapsed' ? ' — lapsed' : ''}</span>
+                  {a.last_date && <span class="datum">{a.last_date}</span>}
+                </div>
+                <h4>{a.auditor ?? 'No named independent auditor'} — {a.frequency}</h4>
+                <p>{a.summary}</p>
+                <p class="sourced">Sources:{' '}
+                {a.sources.map((s, i) => (
+                  <>{i > 0 && ' · '}<a href={s.url} rel="nofollow noopener" target="_blank">{s.name} ↗</a></>
+                ))}</p>
+              </li>
+            );
+          })}
         </ul>
       </section>
     )}
