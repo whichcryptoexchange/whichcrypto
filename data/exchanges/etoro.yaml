@@ -253,9 +253,9 @@ countries:
 third_party_reviews:
 - source: App Store
   rating: 4.39
-  count: 9823
+  count: 9828
   url: https://apps.apple.com/us/app/etoro-trade-invest/id674984916?uo=4
-  retrieved: '2026-08-10'
+  retrieved: '2026-08-15'
 company_facts:
 - lei: 213800GIFQMSV7HROS23
   registered_office:
