@@ -73,6 +73,47 @@ const auditLabel = (ex) => {
 const STATUS_FILTER_VALUE = { Licensed: 'licensed', Registered: 'registered', Withdrawn: 'withdrawn', 'Not verified': 'not-verified' };
 const AUDIT_FILTER_VALUE = { Audited: 'audited', 'On file': 'on-file', '—': 'none' };
 
+// Regulator is a finer axis than country: a country entry's `via` field
+// names the specific regime, since a few countries host more than one
+// independent regulator under the same country code (AE: VARA vs ADGM;
+// US: FinCEN vs NY DFS) -- same taxonomy as /regulators/'s NON_EEA_SOURCES
+// table, kept in sync with it by hand since that page's list is itself
+// hand-maintained, not derived from this one.
+const VIA_REGULATOR = {
+  uk_register: 'FCA',
+  dubai_vara: 'VARA',
+  adgm_manual: 'ADGM',
+  mas_register: 'MAS',
+  sfc_register: 'SFC',
+  gfsc_manual: 'GFSC',
+  jp_fsa_register: 'FSA',
+  my_sc_register: 'SC',
+  kr_fiu_register: 'FIU',
+  nz_manual: 'DIA',
+  bvi_manual: 'BVIFSC',
+  ny_dfs_register: 'NYDFS',
+};
+const REGULATOR_LABELS = {
+  ADGM: 'Abu Dhabi ADGM', BVIFSC: 'BVI FSC', FINTRAC: 'Canada FINTRAC', VARA: 'Dubai VARA',
+  MICA: 'EU/EEA (MiCA, any national regulator)', GFSC: 'Gibraltar GFSC', SFC: 'Hong Kong SFC',
+  FSA: 'Japan FSA', FIU: 'Korea FIU', SC: 'Malaysia SC', DIA: 'New Zealand DIA',
+  MAS: 'Singapore MAS', FCA: 'UK FCA', FINCEN: 'US FinCEN', NYDFS: 'US NY DFS',
+};
+// msb_register is the shared "MSB registration" via value for BOTH US
+// FinCEN and Canada FINTRAC -- the country code, not the via string,
+// disambiguates which regulator actually granted it.
+const regulatorCodesForExchange = (ex) => {
+  const codes = new Set();
+  if (ex.eu_status === 'authorised') codes.add('MICA');
+  for (const [cc, entry] of Object.entries(ex.countries ?? {})) {
+    for (const e of Array.isArray(entry) ? entry : [entry]) {
+      if (e.via === 'msb_register') codes.add(cc === 'CA' ? 'FINTRAC' : 'FINCEN');
+      else if (VIA_REGULATOR[e.via]) codes.add(VIA_REGULATOR[e.via]);
+    }
+  }
+  return codes;
+};
+
 const rows = exchanges.map((ex) => ({
   ex,
   jurisdictions: jurisdictionCount(ex),
@@ -81,7 +122,10 @@ const rows = exchanges.map((ex) => ({
   verification: verificationDepth(ex),
   audit: auditLabel(ex),
   countryCodes: Object.keys(ex.countries ?? {}),
+  regulatorCodes: [...regulatorCodesForExchange(ex)],
 }));
+const regulatorsInData = [...new Set(rows.flatMap((r) => r.regulatorCodes))]
+  .sort((a, b) => REGULATOR_LABELS[a].localeCompare(REGULATOR_LABELS[b]));
 const SITEKEY = import.meta.env.PUBLIC_TURNSTILE_SITEKEY || '0x4AAAAAAD84t4OWkoouLP3Y';
 const PAGE_TITLE = `Crypto Exchange List: ${exchanges.length} Tracked | whichcryptoexchange.com`;
 const PAGE_DESC = `A list of every crypto exchange and related firm we track (${exchanges.length} total), sortable by jurisdiction count or authorisation date. Every entry links to its full regulatory record.`;
@@ -206,6 +250,12 @@ const PAGE_DESC = `A list of every crypto exchange and related firm we track (${
           {countries.map((c) => <option value={c}>{COUNTRY_NAMES[c] ?? c}</option>)}
         </select>
       </label>
+      <label>Regulator
+        <select id="filter-regulator">
+          <option value="">All regulators</option>
+          {regulatorsInData.map((r) => <option value={r}>{REGULATOR_LABELS[r]}</option>)}
+        </select>
+      </label>
       <label>Status
         <select id="filter-status">
           <option value="">All statuses</option>
@@ -239,10 +289,10 @@ const PAGE_DESC = `A list of every crypto exchange and related firm we track (${
         <th>Exchange</th><th>Status</th><th>Audit</th><th>Jurisdictions</th><th>Since</th>
       </tr></thead>
       <tbody>
-        {rows.map(({ ex, jurisdictions, status, since, verification, audit, countryCodes }) => (
+        {rows.map(({ ex, jurisdictions, status, since, verification, audit, countryCodes, regulatorCodes }) => (
           <tr data-since={since} data-jurisdictions={jurisdictions} data-verification={verification}
               data-countries={countryCodes.join(' ')} data-status={STATUS_FILTER_VALUE[status.label]}
-              data-audit={AUDIT_FILTER_VALUE[audit.label]}>
+              data-audit={AUDIT_FILTER_VALUE[audit.label]} data-regulators={regulatorCodes.join(' ')}>
             <td class="brand"><a href={`/exchange/${ex.id}/`}>{ex.brand}</a></td>
             <td><span class={`stamp ${status.cls}`}>{status.label}</span></td>
             <td><span class={`stamp ${audit.cls}`}>{audit.label}</span></td>
@@ -275,6 +325,7 @@ const PAGE_DESC = `A list of every crypto exchange and related firm we track (${
     const tbody = document.querySelector('.registry tbody');
     const sortSelect = document.getElementById('sort-select');
     const countryFilter = document.getElementById('filter-country');
+    const regulatorFilter = document.getElementById('filter-regulator');
     const statusFilter = document.getElementById('filter-status');
     const auditFilter = document.getElementById('filter-audit');
     const resetBtn = document.getElementById('filter-reset');
@@ -312,29 +363,32 @@ const PAGE_DESC = `A list of every crypto exchange and related firm we track (${
         }
         rows.forEach((r) => tbody.appendChild(r));
 
-        const cc = countryFilter?.value, st = statusFilter?.value, au = auditFilter?.value;
+        const cc = countryFilter?.value, rg = regulatorFilter?.value, st = statusFilter?.value, au = auditFilter?.value;
         let shown = 0;
         for (const r of rows) {
           const matchesCountry = !cc || (r.dataset.countries || '').split(' ').includes(cc);
+          const matchesRegulator = !rg || (r.dataset.regulators || '').split(' ').includes(rg);
           const matchesStatus = !st || r.dataset.status === st;
           // 'on-file' is the broad option -- audited counts as "info on
           // file" too, only 'none' is excluded. 'audited' is the strict
           // option -- only the strong tier matches.
           const matchesAudit = !au || (au === 'on-file' ? r.dataset.audit !== 'none' : r.dataset.audit === au);
-          const visible = matchesCountry && matchesStatus && matchesAudit;
+          const visible = matchesCountry && matchesRegulator && matchesStatus && matchesAudit;
           r.hidden = !visible;
           if (visible) shown++;
         }
-        const filtered = Boolean(cc || st || au);
+        const filtered = Boolean(cc || rg || st || au);
         if (resetBtn) resetBtn.hidden = !filtered;
         if (countEl) countEl.textContent = filtered ? `Showing ${shown} of ${total} exchanges.` : '';
       };
       sortSelect.addEventListener('change', apply);
       countryFilter?.addEventListener('change', apply);
+      regulatorFilter?.addEventListener('change', apply);
       statusFilter?.addEventListener('change', apply);
       auditFilter?.addEventListener('change', apply);
       resetBtn?.addEventListener('click', () => {
         if (countryFilter) countryFilter.value = '';
+        if (regulatorFilter) regulatorFilter.value = '';
         if (statusFilter) statusFilter.value = '';
         if (auditFilter) auditFilter.value = '';
         apply();
