@@ -27,6 +27,9 @@ etoro:
 gemini:
   - frn: "900988"   # Gemini Payments UK, Ltd
   - frn: "921817"   # Gemini Intergalactic UK, Ltd
+gfo-x:
+  - frn: "945035"   # Global Futures and Options Ltd — FCA-authorised (MTF operator), the entity's
+                     # entire UK regulatory basis, not a footnote alongside a separate crypto registration
 hidden-road:
   - frn: "828692"   # Hidden Road Partners CIV UK Ltd — FCA-authorised (general)
 interactive-brokers:

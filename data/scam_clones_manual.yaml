@@ -1,0 +1,53 @@
+# Hand-curated clone/scam-firm warnings, sourced only from the tracked
+# brand's own official regulator page -- applied to data/exchanges/ by
+# scripts/scam_clones_manual_apply.py.
+#
+# A "clone" is a scammer using a genuine authorised firm's name, FRN, and
+# sometimes staff names to pose as that firm -- the FCA Register surfaces
+# these under a "Clones of this firm" notice on the real firm's own page
+# when it knows about one. There is no API/feed for this (the public FCA
+# V0.1 REST API used by fca_sync.py does not expose it); each entry here
+# was read directly off the regulator's live register page by hand. This
+# is deliberately NOT exhaustive -- only regulators/brands actually
+# checked so far have entries below. Absence of an entry is not a claim
+# that a brand has no clones; it means none has been found/checked yet.
+#
+# retrieved: when the source_url pages below were last checked.
+retrieved: '2026-08-15'
+clones:
+  - brand_id: gfo-x
+    clone_name: gfo-xx.com
+    regulator: UK FCA Register
+    notice: Clone of FCA Authorised firm
+    added_to_register: '2026-07-24'
+    source_url: https://register.fca.org.uk/s/firm?id=0014G00002c1LFOQA2
+  - brand_id: coinbase
+    clone_name: Coinhosts Inc
+    regulator: UK FCA Register
+    notice: Clone of FCA authorised firm
+    added_to_register: '2021-09-15'
+    source_url: https://register.fca.org.uk/s/firm?id=001b000003O1uMmAAJ
+  - brand_id: coinbase
+    clone_name: Coinbaseie
+    regulator: UK FCA Register
+    notice: Clone of FCA authorised firm
+    added_to_register: '2024-02-09'
+    source_url: https://register.fca.org.uk/s/firm?id=001b000003O1uMmAAJ
+  - brand_id: coinbase
+    clone_name: bitlet.net
+    regulator: UK FCA Register
+    notice: Clone of FCA Registered Firm
+    added_to_register: '2025-02-27'
+    source_url: https://register.fca.org.uk/s/firm?id=001b000003O1uMmAAJ
+  - brand_id: coinjar
+    clone_name: CoinJarmax / CoinJarpro
+    regulator: UK FCA Register
+    notice: Clone of FCA Authorised Firm
+    added_to_register: '2024-01-17'
+    source_url: https://register.fca.org.uk/s/firm?id=0014G00002WMeCnQAL
+  - brand_id: crypto-com
+    clone_name: EpargneCrypto / epargne-crypto.io
+    regulator: UK FCA Register
+    notice: clone of FCA Authorised Firm
+    added_to_register: '2024-02-29'
+    source_url: https://register.fca.org.uk/s/firm?id=0014G00002antHVQAY

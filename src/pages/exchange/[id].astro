@@ -11,7 +11,7 @@ const { ex, stats } = Astro.props;
 const website = brandWebsite(ex);
 const {
   countryCodes, nonEEAEntries, genuineLicenceJurisdictions, amlOnlyJurisdictions,
-  hasSeparateUKAuthorisation, firstSeen, totalEntities,
+  hasSeparateUKAuthorisation, ukAuthorisationIsOnlyCredential, firstSeen, totalEntities,
 } = licenceFacts(ex);
 // Same "additive, never subtractive" logic as /exchanges/'s verification-
 // depth sort: a brand we haven't researched for audits yet (most of them
@@ -190,6 +190,23 @@ const PAGE_DESC = `${ex.brand}: official licence records, legal entities, regula
       {website && <> · <a href={website} rel="nofollow noopener" target="_blank">Visit {ex.brand} ↗</a></>}
     </p>
 
+    {(ex.scam_clones ?? []).length > 0 && (
+      <div class="scam-clone-warning" role="alert">
+        <p class="scam-clone-head">⚠ Scam clone{ex.scam_clones.length > 1 ? 's' : ''} reported</p>
+        <p>
+          {listJoin(ex.scam_clones.map((c) => c.clone_name))} {ex.scam_clones.length > 1 ? 'are' : 'is'} <em>not</em>{' '}
+          {ex.brand} — {listJoin([...new Set(ex.scam_clones.map((c) => c.regulator))])} lists{' '}
+          {ex.scam_clones.length > 1 ? 'them' : 'it'} as clone{ex.scam_clones.length > 1 ? 's' : ''} impersonating
+          this genuine, authorised firm. Only use the contact details and links on this page or the regulator's
+          own register.
+        </p>
+        <p class="sourced">Sources:{' '}
+        {[...new Map(ex.scam_clones.map((c) => [c.source_url, c])).values()].map((c, i) => (
+          <>{i > 0 && ' · '}<a href={c.source_url} rel="nofollow noopener" target="_blank">{c.regulator} ↗</a></>
+        ))}</p>
+      </div>
+    )}
+
     {/* Plain summary of facts already detailed further down the page --
         not a score, not a rating, nothing weighted or blended. Two
         independent lines: licensing (comprehensively synced, fair to
@@ -203,6 +220,8 @@ const PAGE_DESC = `${ex.brand}: official licence records, legal entities, regula
           ? <>Genuine licence held ({listJoin(genuineLicenceJurisdictions)})</>
           : amlOnlyJurisdictions.length > 0
           ? <>AML-registered only, no genuine licence found ({listJoin(amlOnlyJurisdictions)})</>
+          : ukAuthorisationIsOnlyCredential
+          ? <>Full UK FCA authorisation held (not AML-only) — see below for what it covers</>
           : <>Not verified in any jurisdiction we track</>}
       </p>
       <p>
@@ -232,11 +251,13 @@ const PAGE_DESC = `${ex.brand}: official licence records, legal entities, regula
         <>{ex.brand} holds a genuine crypto-specific licence covering {listJoin(genuineLicenceJurisdictions)}.</>
       ) : amlOnlyJurisdictions.length > 0 ? (
         <>{ex.brand} holds an AML-only registration (not a licence) in {listJoin(amlOnlyJurisdictions)}.</>
+      ) : ukAuthorisationIsOnlyCredential ? (
+        <>{ex.brand} holds full FCA authorisation in the UK (a fuller regime than an AML-only registration) — check the entity's specific permissions for exactly what this covers.</>
       ) : ex.eu_status !== 'withdrawn' ? (
         <>We have not independently verified a genuine crypto-specific licence or registration for {ex.brand} in any jurisdiction we track.</>
       ) : null}
       {(() => {
-        const hasLeadSentence = !(genuineLicenceJurisdictions.length === 0 && amlOnlyJurisdictions.length === 0 && ex.eu_status === 'withdrawn');
+        const hasLeadSentence = !(genuineLicenceJurisdictions.length === 0 && amlOnlyJurisdictions.length === 0 && !ukAuthorisationIsOnlyCredential && ex.eu_status === 'withdrawn');
         return firstSeen
           ? <> {hasLeadSentence ? 'It first' : `${ex.brand} first`} appears in our register on <strong class="datum">{firstSeen}</strong></>
           : <> {hasLeadSentence ? 'It' : ex.brand} appears in our register</>;
@@ -246,7 +267,7 @@ const PAGE_DESC = `${ex.brand}: official licence records, legal entities, regula
       {genuineLicenceJurisdictions.length > 0 && amlOnlyJurisdictions.length > 0 && (
         <> It also holds an AML-only registration (not a licence) in {listJoin(amlOnlyJurisdictions)}.</>
       )}
-      {hasSeparateUKAuthorisation && (
+      {hasSeparateUKAuthorisation && !ukAuthorisationIsOnlyCredential && (
         <> A group entity is separately, fully FCA-authorised in the UK, usually for a different, non-crypto activity.</>
       )}
       {ex.eu_status === 'withdrawn' && (

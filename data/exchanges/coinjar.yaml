@@ -233,3 +233,10 @@ company_facts:
   registration_status: issued
   entity_creation_date: '2022-06-09'
   retrieved: '2026-08-12'
+scam_clones:
+- clone_name: CoinJarmax / CoinJarpro
+  regulator: UK FCA Register
+  notice: Clone of FCA Authorised Firm
+  added_to_register: '2024-01-17'
+  source_url: https://register.fca.org.uk/s/firm?id=0014G00002WMeCnQAL
+  retrieved: '2026-08-15'

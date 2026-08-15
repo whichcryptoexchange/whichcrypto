@@ -140,13 +140,29 @@ export function licenceFacts(ex) {
     .filter(([, statuses]) => statuses.has('registered'))
     .map(([prefix]) => prefix);
   const hasSeparateUKAuthorisation = nonEEAStatusesByPrefix.UK?.has('authorised');
+  // "Separately... for a different, non-crypto activity" is only an
+  // honest read when there's an actual primary crypto credential
+  // elsewhere for the UK authorisation to sit alongside as a footnote
+  // (e.g. Revolut Bank UK Ltd's general banking authorisation, next to
+  // Revolut's own MLR-registered crypto entity). When the UK
+  // authorisation is the ONLY credential we've verified anywhere for a
+  // brand, it isn't a footnote about some other part of the group -- it
+  // IS the brand's regulatory story (e.g. GFO-X, whose FCA authorisation
+  // to operate an MTF is specifically what lets it run a crypto
+  // derivatives venue at all), and needs to be described on those terms.
+  const ukAuthorisationIsOnlyCredential = hasSeparateUKAuthorisation
+    && genuineLicenceJurisdictions.length === 0
+    && amlOnlyJurisdictions.length === 0;
   const allDates = [
     ...(ex.entities ?? []).flatMap((ent) => (ent.records ?? []).map((r) => r.authorised).filter(Boolean)),
     ...nonEEAEntries.map((e) => e.since).filter(Boolean),
   ].sort();
   const firstSeen = allDates[0];
   const totalEntities = (ex.entities ?? []).length + new Set(nonEEAEntries.map((e) => e.entity)).size;
-  return { countryCodes, nonEEAEntries, genuineLicenceJurisdictions, amlOnlyJurisdictions, hasSeparateUKAuthorisation, firstSeen, totalEntities };
+  return {
+    countryCodes, nonEEAEntries, genuineLicenceJurisdictions, amlOnlyJurisdictions,
+    hasSeparateUKAuthorisation, ukAuthorisationIsOnlyCredential, firstSeen, totalEntities,
+  };
 }
 
 // Plain-text (no links/markup) version of the same summary shown on a
@@ -171,6 +187,8 @@ export function licenceSummaryText(ex) {
     text = `${ex.brand} holds a genuine crypto-specific licence covering ${listJoin(f.genuineLicenceJurisdictions)}.`;
   } else if (f.amlOnlyJurisdictions.length > 0) {
     text = `${ex.brand} holds an AML-only registration (not a licence) in ${listJoin(f.amlOnlyJurisdictions)}.`;
+  } else if (f.ukAuthorisationIsOnlyCredential) {
+    text = `${ex.brand} holds full FCA authorisation in the UK (a fuller regime than an AML-only registration) -- check the entity's specific permissions for exactly what this covers.`;
   } else if (ex.eu_status !== 'withdrawn') {
     text = `We have not independently verified a genuine crypto-specific licence or registration for ${ex.brand} in any jurisdiction we track.`;
   }
@@ -181,7 +199,7 @@ export function licenceSummaryText(ex) {
   if (f.genuineLicenceJurisdictions.length > 0 && f.amlOnlyJurisdictions.length > 0) {
     text += ` It also holds an AML-only registration (not a licence) in ${listJoin(f.amlOnlyJurisdictions)}.`;
   }
-  if (f.hasSeparateUKAuthorisation) {
+  if (f.hasSeparateUKAuthorisation && !f.ukAuthorisationIsOnlyCredential) {
     text += ' A group entity is separately, fully FCA-authorised in the UK, usually for a different, non-crypto activity.';
   }
   if (ex.eu_status === 'withdrawn') {

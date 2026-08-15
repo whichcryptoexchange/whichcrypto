@@ -271,7 +271,7 @@ def main():
         non_eea_countries = {cc: v for cc, v in (existing.get("countries") or {}).items() if cc not in EEA}
         other_owned_fields = {
             k: existing[k] for k in
-            ("third_party_reviews", "news_mentions", "company_facts", "notable_incidents", "audits")
+            ("third_party_reviews", "news_mentions", "company_facts", "notable_incidents", "audits", "scam_clones")
             if k in existing
         }
         if not non_eea_countries and not other_owned_fields:
@@ -306,6 +306,7 @@ def main():
         company_facts = None
         notable_incidents = None
         audits = None
+        scam_clones = None
         old_eu_status = None
         is_new_file = not existing_path.exists()
         if existing_path.exists():
@@ -326,6 +327,7 @@ def main():
             company_facts = existing.get("company_facts")
             notable_incidents = existing.get("notable_incidents")
             audits = existing.get("audits")
+            scam_clones = existing.get("scam_clones")
         countries = dict(sorted(countries.items()))
 
         payload = {
@@ -350,6 +352,8 @@ def main():
             payload["notable_incidents"] = notable_incidents
         if audits is not None:
             payload["audits"] = audits
+        if scam_clones is not None:
+            payload["scam_clones"] = scam_clones
         existing_path.write_text(
             yaml.safe_dump(payload, sort_keys=False, allow_unicode=True, width=100)
         )

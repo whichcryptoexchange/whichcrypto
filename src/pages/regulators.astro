@@ -95,6 +95,15 @@ function regulatorHref(code) {
   return `/${code.toLowerCase()}/`;
 }
 
+// Scam-clone warnings, sourced only from a genuine tracked firm's own
+// regulator page (data/scam_clones_manual.yaml via
+// scripts/scam_clones_manual_apply.py) -- surfaced here too, not just on
+// the brand's own page, since someone searching a clone's name is
+// exactly who needs to land on a page saying so.
+const scamClones = exchanges
+  .flatMap((ex) => (ex.scam_clones ?? []).map((c) => ({ ...c, brand: ex.brand, id: ex.id })))
+  .sort((a, b) => a.clone_name.localeCompare(b.clone_name));
+
 const SITEKEY = import.meta.env.PUBLIC_TURNSTILE_SITEKEY || '0x4AAAAAAD84t4OWkoouLP3Y';
 const PAGE_TITLE = 'Crypto Regulators Compared | whichcryptoexchange.com';
 const PAGE_DESC = 'What each crypto regulator actually checks -- capital, fit-and-proper, AML -- compared side by side, plus how many tracked brands hold each status right now.';
@@ -175,7 +184,8 @@ const PAGE_DESC = 'What each crypto regulator actually checks -- capital, fit-an
     granting it, and how many tracked brands sit under each one right now.</p>
 
     <p class="sourced">Jump to: <a href="#what-they-check">What each regulator checks</a> ·
-    <a href="#non-eea">Non-EU/EEA sources</a> · <a href="#eea">EU/EEA national regulators</a></p>
+    <a href="#non-eea">Non-EU/EEA sources</a> · <a href="#eea">EU/EEA national regulators</a>{scamClones.length > 0 &&
+    <> · <a href="#scam-clones">Scam clone warnings</a></>}</p>
 
     {SITEKEY && (
       <div class="digest-cta">
@@ -279,6 +289,31 @@ const PAGE_DESC = 'What each crypto regulator actually checks -- capital, fit-an
       </tbody>
     </table>
     </div>
+
+    {scamClones.length > 0 && (
+      <>
+        <h3 id="scam-clones">Scam clone warnings</h3>
+        <p>Regulators sometimes publish a notice when a scammer is impersonating a genuine,
+        authorised firm's name (and sometimes its FRN and staff names too) — a "clone firm". These
+        are sourced only from that genuine firm's own official register page, deliberately not
+        exhaustive: only checked so far, not a claim that an unlisted brand has no clones.</p>
+        <ul class="incident-list">
+          {scamClones.map((c) => (
+            <li class="incident-item incident-hack">
+              <div class="incident-head">
+                <span class="incident-type">⚠ Clone firm</span>
+                <span class="datum">{c.added_to_register ?? c.retrieved}</span>
+              </div>
+              <h4><span class="datum">{c.clone_name}</span> is not <a href={`/exchange/${c.id}/`}>{c.brand}</a></h4>
+              <p>{c.regulator} lists <span class="datum">{c.clone_name}</span> as a clone impersonating
+              the genuine, authorised {c.brand} — {c.notice}. Only use the contact details on {c.brand}'s
+              own page or the regulator's own register.</p>
+              <p class="sourced">Source: <a href={c.source_url} rel="nofollow noopener" target="_blank">{c.regulator} ↗</a></p>
+            </li>
+          ))}
+        </ul>
+      </>
+    )}
 
     <p class="sourced">Missing a regulator or a count looks off? <a href="/contact/">Get in touch</a>.</p>
   </main>

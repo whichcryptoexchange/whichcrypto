@@ -318,3 +318,22 @@ audits:
   - name: Coinbase FY2023 10-K, auditor's report (Deloitte & Touche LLP)
     url: https://www.sec.gov/Archives/edgar/data/1679788/000167978824000022/exhibit23110kq42023.htm
   retrieved: '2026-08-14'
+scam_clones:
+- clone_name: Coinbaseie
+  regulator: UK FCA Register
+  notice: Clone of FCA authorised firm
+  added_to_register: '2024-02-09'
+  source_url: https://register.fca.org.uk/s/firm?id=001b000003O1uMmAAJ
+  retrieved: '2026-08-15'
+- clone_name: Coinhosts Inc
+  regulator: UK FCA Register
+  notice: Clone of FCA authorised firm
+  added_to_register: '2021-09-15'
+  source_url: https://register.fca.org.uk/s/firm?id=001b000003O1uMmAAJ
+  retrieved: '2026-08-15'
+- clone_name: bitlet.net
+  regulator: UK FCA Register
+  notice: Clone of FCA Registered Firm
+  added_to_register: '2025-02-27'
+  source_url: https://register.fca.org.uk/s/firm?id=001b000003O1uMmAAJ
+  retrieved: '2026-08-15'

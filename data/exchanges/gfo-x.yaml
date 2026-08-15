@@ -1,0 +1,29 @@
+id: gfo-x
+brand: GFO-X
+eu_status: no_eu_entity
+website: https://www.gfo-x.com/
+sources:
+- name: UK FCA Register
+  url: https://register.fca.org.uk/
+  retrieved: '2026-08-15'
+entities: []
+countries:
+  GB:
+  - status: authorised
+    regime: UK FCA authorisation
+    via: uk_register
+    entity: Global Futures and Options Ltd
+    frn: '945035'
+    since: '2022-02-15'
+    caveat: Authorised to operate a Multilateral Trading Facility (MTF) trading cash-settled Bitcoin index
+      futures and options, restricted to Eligible Counterparty/Professional clients only -- no retail
+      access, and the firm cannot hold or control client money. This is GFO-X's entire UK regulatory basis
+      for operating the venue, not a separate, unrelated authorisation alongside a different crypto-specific
+      registration.
+scam_clones:
+- clone_name: gfo-xx.com
+  regulator: UK FCA Register
+  notice: Clone of FCA Authorised firm
+  added_to_register: '2026-07-24'
+  source_url: https://register.fca.org.uk/s/firm?id=0014G00002c1LFOQA2
+  retrieved: '2026-08-15'

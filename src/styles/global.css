@@ -308,6 +308,22 @@ h3:first-child { margin-top: 0; }
   padding: 10px 14px; margin: 0 0 24px; max-width: 480px; line-height: 1.5;
 }
 
+/* Scam-clone warning: a scammer impersonating a genuine, tracked firm --
+   sourced only from that firm's own regulator page. Deliberately the
+   loudest treatment on the page (filled background, not just a border
+   like .risk-warning) since this is actionable safety information a
+   visitor needs to see before they act, not a routine disclosure. */
+.scam-clone-warning {
+  background: #fdeceb; border: 1px solid var(--warned); border-radius: 4px;
+  padding: 14px 16px; margin: 0 0 24px;
+}
+.scam-clone-head {
+  margin: 0 0 6px; font-family: var(--display); font-weight: 800;
+  font-size: 15px; color: var(--warned);
+}
+.scam-clone-warning p { margin: 0 0 8px; font-size: 14px; line-height: 1.55; }
+.scam-clone-warning p:last-child { margin-bottom: 0; }
+
 /* Stats */
 .stat-grid {
   display: grid;

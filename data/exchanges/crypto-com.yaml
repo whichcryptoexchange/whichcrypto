@@ -298,3 +298,10 @@ audits:
   - name: Mazars Group pauses proof-of-reserves work for crypto clients (Dec 2022)
     url: https://www.coindesk.com/business/2022/12/16/binance-proof-of-reserves-auditor-mazars-pauses-all-work-for-crypto-clients
   retrieved: '2026-08-14'
+scam_clones:
+- clone_name: EpargneCrypto / epargne-crypto.io
+  regulator: UK FCA Register
+  notice: clone of FCA Authorised Firm
+  added_to_register: '2024-02-29'
+  source_url: https://register.fca.org.uk/s/firm?id=0014G00002antHVQAY
+  retrieved: '2026-08-15'
