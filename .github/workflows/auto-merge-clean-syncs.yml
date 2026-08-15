@@ -1,0 +1,28 @@
+name: Auto-merge clean sync PRs
+
+# Runs independently of any Claude session -- durable, on GitHub's own
+# infrastructure. Deliberately narrow: see scripts/auto_merge_clean_syncs.py
+# for exactly what "clean" means (every changed line across every file is
+# a retrieved-date bump, nothing else) and why news-sync is never eligible.
+# Twice a day is enough to keep the routine backlog from piling up without
+# being wasteful -- none of the underlying syncs run more than a couple of
+# times a week.
+on:
+  schedule:
+    - cron: '17 10,22 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  auto-merge:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Auto-merge pure date-bump sync PRs
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+        run: python3 scripts/auto_merge_clean_syncs.py
