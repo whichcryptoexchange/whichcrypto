@@ -281,9 +281,9 @@ countries:
 third_party_reviews:
 - source: App Store
   rating: 4.68
-  count: 1796218
+  count: 1796398
   url: https://apps.apple.com/us/app/coinbase-buy-crypto-stocks/id886427730?uo=4
-  retrieved: '2026-08-10'
+  retrieved: '2026-08-15'
 news_mentions:
 - source: The Block
   category: regulatory
