@@ -314,6 +314,19 @@ third_party_reviews:
   retrieved: '2026-08-10'
 news_mentions:
 - source: Cointelegraph
+  category: general
+  title: Kraken parent Payward revenue rises 17% as trading volume falls in Q2
+  url: https://cointelegraph.com/news/kraken-parent-payward-revenue-rises-as-trading-volume-falls-q2?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound
+  published: '2026-08-14'
+  retrieved: '2026-08-15'
+- source: The Block
+  category: general
+  title: Kraken parent Payward posts $508 million in Q2 adjusted revenue as growth broadens beyond crypto
+    trading
+  url: https://www.theblock.co/news/business/2026-08-14-kraken-parent-payward-508-million-q2-adjusted-revenue-411818
+  published: '2026-08-14'
+  retrieved: '2026-08-15'
+- source: Cointelegraph
   title: Kraken adds S&P 500 to funded trading program, commodities to follow
   url: https://cointelegraph.com/news/kraken-prop-sp500-perpetual-commodities-next?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound
   published: '2026-08-12'

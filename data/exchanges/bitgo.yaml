@@ -259,6 +259,12 @@ countries:
     entity: BitGo New York Trust Company, LLC
     since: 2021-03
 news_mentions:
+- source: The Block
+  category: general
+  title: Mizuho cuts BitGo price target to $11, but says Clarity Act delays could prove advantageous
+  url: https://www.theblock.co/news/markets/2026-08-14-mizuho-cuts-bitgo-price-target-to-11-but-says-clarity-act-delays-could-prove-advantageous-411878
+  published: '2026-08-14'
+  retrieved: '2026-08-15'
 - source: Cointelegraph
   title: BitGo posts $19M Q2 loss despite 80% revenue surge to $4.3B
   url: https://cointelegraph.com/news/bitgo-q2-19-million-revenue-surge-4-3-billion?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound

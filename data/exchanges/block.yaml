@@ -20,3 +20,10 @@ countries:
       functionality is provided directly by Block, Inc. (which operates in New York as "Block of Delaware"
       for this licence) -- not by Cash App Investing LLC, a separate FINRA/SIPC-member broker-dealer subsidiary
       that handles equities brokerage only and does not trade bitcoin, per Cash App's own disclosures.
+news_mentions:
+- source: The Block
+  category: regulatory
+  title: Binance to block transactions with HTX, 10 other exchanges under EU Russia sanctions
+  url: https://www.theblock.co/news/regulation/2026-08-14-binance-block-transactions-htx-10-other-exchanges-eu-russia-sanctions-411858
+  published: '2026-08-14'
+  retrieved: '2026-08-15'
