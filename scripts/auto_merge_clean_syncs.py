@@ -156,10 +156,17 @@ def is_safe_reviews_diff(repo, pr, files, token):
             after_entry = after_reviews[key]
             rating = after_entry.get("rating")
             count = after_entry.get("count")
+            before_count = before_entry.get("count") or 0
             if rating is None or not (0 <= rating <= 5):
                 return False
-            if count is None or count < (before_entry.get("count") or 0):
-                return False  # a review count going backwards needs a look, not a merge
+            # Real-world finding from the first live run: App Store counts
+            # can drop slightly run to run (Apple periodically prunes
+            # reviews) -- OKX went 22413 -> 22379, Bitstamp 7458 -> 7457,
+            # both entirely normal. A small dip is expected; a big one
+            # (e.g. a mismatched app ID suddenly pointing at a different,
+            # much smaller app) is exactly what this check exists to catch.
+            if count is None or count < before_count * 0.95:
+                return False
     return True
 
 
