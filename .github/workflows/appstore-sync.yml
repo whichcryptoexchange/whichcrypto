@@ -1,0 +1,41 @@
+name: App Store rating sync
+
+on:
+  schedule:
+    - cron: '10 8 * * 3'   # Wed 08:10 UTC — ratings move slowly, weekly is plenty
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.12' }
+      - run: pip install pyyaml
+      - name: Refresh App Store ratings
+        run: python3 scripts/appstore_sync.py
+      - name: Open PR if ratings changed
+        uses: peter-evans/create-pull-request@v6
+        with:
+          commit-message: "data: App Store rating sync"
+          title: "App Store rating update — review changes"
+          body: |
+            Automated refresh of App Store ratings for brands pinned in
+            data/appstore_id_map.yaml, via the public iTunes Lookup API.
+            This does NOT discover new brands or new app IDs -- only
+            re-fetches rating/count for already-verified track IDs.
+
+            A rating/count-only change to an existing source is eligible
+            for auto-merge (see scripts/auto_merge_clean_syncs.py). Review
+            by hand if a brand's App Store ID appears to be wrong (a
+            rating/count that looks implausible for the exchange), or if
+            an app was pulled from the store (see the run log for
+            "no result" warnings -- those brands are left untouched, not
+            silently dropped).
+          branch: appstore-sync
+          delete-branch: true

@@ -1,32 +1,40 @@
 #!/usr/bin/env python3
 """
-auto_merge_clean_syncs.py - auto-merge sync PRs whose entire diff is
-`retrieved:` date bumps, nothing else.
+auto_merge_clean_syncs.py - auto-merge sync PRs that are safe by a purely
+mechanical check, nothing else. Two categories, two different definitions
+of "safe", because they're genuinely different shapes of change:
 
-This is deliberately narrow. It exists because every routine sync PR
-this session has been triaged the same way: pull the diff, confirm every
-changed line is a source's `retrieved` date moving forward and nothing
-else, then squash-merge. That check is a pure mechanical pattern match --
-no judgment involved -- so it's safe to automate. Anything that touches
-entities, countries, statuses, or any other field gets left alone for a
-real review pass, same as it always has.
+DATE_BUMP_BRANCHES (the regulator syncs -- ESMA, FCA, VARA, etc.): safe
+means the substance never changes, only the `retrieved` timestamp does.
+A PR here is auto-merged only if EVERY changed line, across every file,
+matches exactly `[+-]  retrieved: '2026-08-14'`. One non-date line
+anywhere -- a new brand, a status change, an entity, a country -- and
+the whole PR is left untouched.
 
-news-sync is explicitly excluded, always. Matching a brand name against
-a news headline is a judgment call ("shares", "strike", and "block" were
-all real false positives caught by actually reading the headline, not by
-any mechanical rule) -- that stays a human-in-session review forever.
+REVIEWS_BRANCHES (third-party ratings -- App Store, Trustpilot): the
+opposite shape. The substance (rating, review count) is EXPECTED to
+change every run -- that's the point of the sync -- so "only the date
+changed" would almost never fire and the feature would sit unused. Safe
+here means something narrower but still mechanical: only the
+`third_party_reviews` key differs from the file's previous content nothing
+else on the brand does; every (source, url) pair that existed before
+still exists after (no source silently added or removed -- a *new*
+source mapping for a brand still needs a first-time human check that the
+App Store ID or Trustpilot business unit actually matches the right
+company); the rating stays within [0, 5]; and the review count never
+goes backwards. This needs the full before/after file content, not just
+the diff, to compare structurally rather than line-by-line.
 
-A PR is auto-merged only if EVERY changed line, across every file, in
-every hunk, matches exactly:
-    [+-]  retrieved: '2026-08-14'
-Anything else on any changed line -- a new brand, a status change, an
-entity, a country, a services list, a service call -- and the whole PR
-is left untouched. This intentionally has no partial-credit path: one
-non-date line anywhere disqualifies the entire PR.
+news-sync is permanently excluded from both, regardless of what its diff
+looks like. Matching a brand name against a headline is a judgment call
+("shares", "strike", and "block" were all real false positives caught by
+actually reading the headline, not by any mechanical rule) -- that stays
+a human-in-session review forever.
 
 Usage (CI only -- needs a repo-scoped GitHub token):
   GH_TOKEN=... GH_REPO=owner/repo python3 scripts/auto_merge_clean_syncs.py
 """
+import base64
 import os
 import re
 import sys
@@ -34,14 +42,15 @@ import urllib.error
 import urllib.request
 import json
 
+import yaml
+
 API = "https://api.github.com"
 
-# news-sync is never eligible, regardless of what its diff looks like --
-# see the module docstring. Every other sync workflow's branch name.
-ELIGIBLE_BRANCHES = {
+DATE_BUMP_BRANCHES = {
     "esma-sync", "fca-sync", "vara-sync", "fintrac-sync", "fincen-sync",
     "mas-sync", "sfc-sync", "jp-sync", "my-sync", "kr-sync", "ny-sync",
 }
+REVIEWS_BRANCHES = {"appstore-sync", "trustpilot-sync"}
 
 # Matches a whole changed line that is ONLY a retrieved-date value --
 # any surrounding text, a different key, or a malformed date fails this.
@@ -101,9 +110,62 @@ def is_pure_date_bump_diff(files):
     return True
 
 
-def merge_pr(repo, number, title, token):
+def file_at_ref(repo, path, ref, token):
+    try:
+        data = api(f"/repos/{repo}/contents/{path}?ref={ref}", token)
+    except urllib.error.HTTPError as e:
+        if e.code == 404:
+            return None
+        raise
+    return base64.b64decode(data["content"]).decode()
+
+
+def is_safe_reviews_diff(repo, pr, files, token):
+    base_sha, head_sha = pr["base"]["sha"], pr["head"]["sha"]
+    for f in files:
+        if f["status"] != "modified":
+            return False  # a brand-new or deleted file always needs a human look
+        path = f["filename"]
+        before_text = file_at_ref(repo, path, base_sha, token)
+        after_text = file_at_ref(repo, path, head_sha, token)
+        if before_text is None or after_text is None:
+            return False
+        try:
+            before = yaml.safe_load(before_text) or {}
+            after = yaml.safe_load(after_text) or {}
+        except yaml.YAMLError:
+            return False
+
+        # Every key except third_party_reviews must be byte-for-byte
+        # identical -- this sync owns that one key and nothing else.
+        before_rest = {k: v for k, v in before.items() if k != "third_party_reviews"}
+        after_rest = {k: v for k, v in after.items() if k != "third_party_reviews"}
+        if before_rest != after_rest:
+            return False
+
+        before_reviews = {(e.get("source"), e.get("url")): e for e in (before.get("third_party_reviews") or [])}
+        after_reviews = {(e.get("source"), e.get("url")): e for e in (after.get("third_party_reviews") or [])}
+        # No (source, url) pair may appear or disappear -- a brand's
+        # *first* review-source mapping still needs a human to confirm
+        # the App Store ID / Trustpilot business unit actually matches
+        # the right company before it's trusted.
+        if set(before_reviews) != set(after_reviews):
+            return False
+
+        for key, before_entry in before_reviews.items():
+            after_entry = after_reviews[key]
+            rating = after_entry.get("rating")
+            count = after_entry.get("count")
+            if rating is None or not (0 <= rating <= 5):
+                return False
+            if count is None or count < (before_entry.get("count") or 0):
+                return False  # a review count going backwards needs a look, not a merge
+    return True
+
+
+def merge_pr(repo, number, title, reason, token):
     return api(f"/repos/{repo}/pulls/{number}/merge", token, method="PUT", body={
-        "commit_title": f"{title} (auto-merged, verified pure date-bump diff)",
+        "commit_title": f"{title} (auto-merged, {reason})",
         "merge_method": "squash",
     })
 
@@ -113,7 +175,8 @@ def main():
     repo = os.environ["GH_REPO"]
 
     prs = list_open_prs(repo, token)
-    candidates = [p for p in prs if p["head"]["ref"] in ELIGIBLE_BRANCHES]
+    eligible = DATE_BUMP_BRANCHES | REVIEWS_BRANCHES
+    candidates = [p for p in prs if p["head"]["ref"] in eligible]
     print(f"{len(prs)} open PR(s) total, {len(candidates)} on an eligible sync branch.")
 
     merged, skipped = 0, 0
@@ -131,16 +194,26 @@ def main():
             skipped += 1
             continue
 
-        if is_pure_date_bump_diff(files):
+        if branch in DATE_BUMP_BRANCHES:
+            safe, reason = is_pure_date_bump_diff(files), "verified pure date-bump diff"
+        else:
             try:
-                merge_pr(repo, number, title, token)
-                print(f"  #{number} ({branch}): pure date-bump diff across {len(files)} file(s) — merged")
+                safe, reason = is_safe_reviews_diff(repo, pr, files, token), "verified rating/count-only change to existing sources"
+            except urllib.error.HTTPError as e:
+                print(f"  #{number} ({branch}): ERROR comparing file contents: {e}", file=sys.stderr)
+                skipped += 1
+                continue
+
+        if safe:
+            try:
+                merge_pr(repo, number, title, reason, token)
+                print(f"  #{number} ({branch}): {reason} across {len(files)} file(s) — merged")
                 merged += 1
             except urllib.error.HTTPError as e:
                 print(f"  #{number} ({branch}): merge failed: {e}", file=sys.stderr)
                 skipped += 1
         else:
-            print(f"  #{number} ({branch}): touches more than retrieved dates — left for review")
+            print(f"  #{number} ({branch}): does not meet the safe-auto-merge shape — left for review")
             skipped += 1
 
     print(f"Done. {merged} merged, {skipped} left for a human review pass.")
