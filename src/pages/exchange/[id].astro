@@ -187,8 +187,14 @@ const PAGE_DESC = `${ex.brand}: official licence records, legal entities, regula
           {entry.prefix} · {STATUS_STAMP[entry.status]?.label ?? entry.status}{entry.count > 1 ? ` (${entry.count} entities)` : ''}
         </span>
       ))}
-      {website && <> · <a href={website} rel="nofollow noopener" target="_blank">Visit {ex.brand} ↗</a></>}
     </p>
+
+    {/* Affiliate CTA lives right under the licence badges -- the most
+        prominent "go to the exchange" moment on the page. When this brand
+        has no affiliate deal set, the script below falls back to a plain,
+        unstyled link to the same effect as before, so a brand is never
+        left with no way to reach its own site. */}
+    <div id="affiliate-cta" data-exchange={ex.id} data-brand={ex.brand} data-website={website ?? ''}></div>
 
     {(ex.scam_clones ?? []).length > 0 && (
       <div class="scam-clone-warning" role="alert">
@@ -281,8 +287,6 @@ const PAGE_DESC = `${ex.brand}: official licence records, legal entities, regula
         <li><a href={`/${c.toLowerCase()}/`}><span class="cc flag">{countryFlag(c)}</span>{COUNTRY_NAMES[c] ?? c}</a></li>
       ))}
     </ul>
-
-    <div id="affiliate-cta" data-exchange={ex.id} data-brand={ex.brand}></div>
 
     {SITEKEY && (
       <details class="report-form">
@@ -527,6 +531,13 @@ const PAGE_DESC = `${ex.brand}: official licence records, legal entities, regula
     // regardless of which exchange it links to or where the visitor is --
     // simpler and safer than trying to geo-target it at UK visitors only,
     // and the warning is true regardless of the reader's country anyway.
+    //
+    // When this brand has no affiliate deal set (most of them -- /admin/links
+    // is opt-in, not comprehensive), fall back to a plain, unstyled link to
+    // the brand's own site instead -- same href this box's slot used to show
+    // inline next to the licence badges, just relocated here. The two states
+    // are deliberately styled differently: a plain link never gets mistaken
+    // for a paid placement (see /about/'s affiliate-links disclosure).
     (() => {
       const box = document.getElementById('affiliate-cta');
       fetch('/api/links/' + box.dataset.exchange)
@@ -548,7 +559,15 @@ const PAGE_DESC = `${ex.brand}: official licence records, legal entities, regula
             + 'if something goes wrong. Take 2 mins to learn more.';
           box.append(a, note, risk);
         })
-        .catch(() => {});
+        .catch(() => {
+          if (!box.dataset.website) return;
+          const a = document.createElement('a');
+          a.href = box.dataset.website;
+          a.target = '_blank';
+          a.rel = 'nofollow noopener';
+          a.textContent = `Visit ${box.dataset.brand} ↗`;
+          box.append(a);
+        });
     })();
 
     // Aggregates: fetched client-side because pages are static. The

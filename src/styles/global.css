@@ -283,6 +283,7 @@ h3:first-child { margin-top: 0; }
 /* Affiliate CTA — solid and visually distinct from the outlined .stamp
    badges, so it never reads as an official regulator fact. */
 #affiliate-cta:empty { display: none; }
+#affiliate-cta:not(:empty) { display: block; margin: 0 0 24px; }
 .cta-button {
   display: inline-block;
   font-family: var(--display);
