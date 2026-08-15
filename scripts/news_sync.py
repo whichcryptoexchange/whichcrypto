@@ -116,7 +116,7 @@ REGULATORY_PATTERN = re.compile(
 # ordinary sense. Add to this set as further cases turn up in PR review
 # -- this list will never be complete on its own, which is exactly why
 # every run still goes through a reviewed PR rather than a direct push.
-SKIP_BRANDS = {"strike", "shares"}
+SKIP_BRANDS = {"strike", "shares", "block"}
 
 
 def strip_cdata(s):

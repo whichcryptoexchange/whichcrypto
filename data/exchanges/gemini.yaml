@@ -258,6 +258,12 @@ third_party_reviews:
   url: https://apps.apple.com/us/app/gemini-markets-credit-card/id1408914447?uo=4
   retrieved: '2026-08-10'
 news_mentions:
+- source: Cointelegraph
+  category: general
+  title: Gemini posts $108M Q2 net loss despite 37% revenue growth
+  url: https://cointelegraph.com/news/gemini-45m-q2-revenue-financial-services?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound
+  published: '2026-08-14'
+  retrieved: '2026-08-15'
 - source: The Block
   category: general
   title: Gemini shares slide after $108 million loss as Winklevoss says &#8216;we still have work to do&#8217;

@@ -14,3 +14,22 @@ countries:
     via: ny_dfs_register
     entity: GalaxyOne Prime NY LLC
     since: 2026-05
+news_mentions:
+- source: Cointelegraph
+  category: general
+  title: Galaxy lowers CLARITY Act odds to 10%
+  url: https://cointelegraph.com/news/galaxy-lowers-clarity-act-odds-10?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound
+  published: '2026-08-15'
+  retrieved: '2026-08-15'
+- source: Cointelegraph
+  category: general
+  title: Israel’s largest bank taps Galaxy to offer Bitcoin, Ether, Solana trading
+  url: https://cointelegraph.com/news/israels-largest-bank-taps-galaxy-to-offer-bitcoin-ether-and-solana-trading?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound
+  published: '2026-08-14'
+  retrieved: '2026-08-15'
+- source: The Block
+  category: general
+  title: Israel’s largest bank taps Galaxy to offer bitcoin, ether and solana trading
+  url: https://www.theblock.co/news/business/2026-08-14-israels-largest-bank-taps-galaxy-to-offer-bitcoin-ether-and-solana-trading-411868
+  published: '2026-08-14'
+  retrieved: '2026-08-15'
