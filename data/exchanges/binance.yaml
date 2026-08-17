@@ -34,6 +34,24 @@ third_party_reviews:
   retrieved: '2026-08-15'
 news_mentions:
 - source: Cointelegraph
+  category: regulatory
+  title: 'Binance to plan UK relaunch with FCA license application: Report'
+  url: https://cointelegraph.com/news/binance-uk-launch-plans-fca-license?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound
+  published: '2026-08-17'
+  retrieved: '2026-08-17'
+- source: Cointelegraph
+  category: general
+  title: 'Binance gave Russian authorities client data used in terrorism financing case: Report'
+  url: https://cointelegraph.com/news/binance-russia-client-data-used-ukraine-case-report?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound
+  published: '2026-08-17'
+  retrieved: '2026-08-17'
+- source: The Block
+  category: general
+  title: Tokenized equities triple market share as Ondo, Binance and xStocks dominate
+  url: https://www.theblock.co/news/defi/2026-08-17-tokenized-equities-triple-market-share-ondo-binance-xstocks-dominate-411996
+  published: '2026-08-17'
+  retrieved: '2026-08-17'
+- source: Cointelegraph
   category: general
   title: 'Gen Z favors ETFs and trades less than older cohorts: Binance'
   url: https://cointelegraph.com/news/gen-z-favors-etfs-and-trades-less-than-older-cohorts-binance?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound
@@ -63,11 +81,6 @@ news_mentions:
   url: https://cointelegraph.com/news/binance-bstocks-second-largest-tokenized-stock-issuer?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound
   published: '2026-08-13'
   retrieved: '2026-08-14'
-- source: Cointelegraph
-  title: Binance, RedotPay clash over fate of Singapore lawsuit
-  url: https://cointelegraph.com/news/binance-redotpay-clash-singapore-lawsuit?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound
-  published: '2026-08-12'
-  retrieved: '2026-08-13'
 notable_incidents:
 - type: settlement
   date: '2023-11-21'

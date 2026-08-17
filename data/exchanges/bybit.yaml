@@ -231,3 +231,10 @@ notable_incidents:
   - name: CoinDesk (lawsuit update)
     url: https://www.coindesk.com/policy/2026/08/07/bybit-sues-north-korea-and-lazarus-group-over-usd1-5-billion-hack-secures-asset-freeze
   retrieved: '2026-08-13'
+news_mentions:
+- source: Cointelegraph
+  category: general
+  title: Bybit adds Unitree, Moonshot AI to pre-IPO perpetuals lineup
+  url: https://cointelegraph.com/news/bybit-launches-unitree-pre-ipo-perpetual-as-crypto-platforms-push-into-private-markets?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound
+  published: '2026-08-15'
+  retrieved: '2026-08-17'
