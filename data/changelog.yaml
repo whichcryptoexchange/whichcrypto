@@ -6,6 +6,196 @@
 # link row under the body. Genuine internal linking, not just narration --
 # omit it when a change is site-wide (search, sort controls) and there's no
 # single honest page to point at, rather than force a link that doesn't fit.
+- date: "2026-08-17"
+  title: "New: \"Is X the best crypto exchange for you?\" on every exchange page"
+  body: >
+    Same philosophy as the country-page guidance below, scoped to the individual brand: there's
+    no best exchange in absolute terms, only the best fit for a given person's situation, and we
+    don't recommend one -- we hand over what's independently verifiable and let you decide. Each
+    exchange page now lists real facts specific to that brand -- licensing tier, jurisdiction and
+    entity footprint, audit status, notable incidents, scam-clone warnings, third-party ratings
+    where tracked -- every one linking back to the section on the same page where it's actually
+    sourced, so an unlicensed, unaudited brand reads very differently from a fully-licensed,
+    currently-audited one instead of both getting the same boilerplate.
+  pages:
+    - { url: /exchange/coinbase/, label: "Example: Coinbase" }
+- date: "2026-08-17"
+  title: "Filtering /exchanges/ by country now links straight to that country's page"
+  body: >
+    Pick a single country in the filter and a link appears next to it pointing to that country's
+    own dedicated page -- its regulator detail and the which/best-crypto-exchange guidance section
+    below -- rather than making you navigate there separately. Updates live as you change the
+    selection, and disappears again on "All countries" or Reset.
+  pages:
+    - { url: /exchanges/, label: Exchanges }
+- date: "2026-08-17"
+  title: "Fixed: long regulator-name badges were breaking table layout"
+  body: >
+    A status badge carrying a full regime name -- "Licensed · Japan FSA Crypto-asset Exchange
+    Service Provider registration" was the worst offender -- forced its whole table column, and
+    the table itself, wider than the page. A previous patch only fixed this below 560px; it now
+    wraps within a fixed width at every screen size, so the common case (short badges like
+    "Licensed" or "UK · Registered") is unaffected and the long ones no longer break layout on
+    desktop or tablet.
+- date: "2026-08-17"
+  title: "New: \"which/best crypto exchange\" guidance section on every country page"
+  body: >
+    Added a section under each country's exchange table addressing the two searches people
+    actually type -- "which crypto exchange X" and "best crypto exchange X" -- and explaining
+    directly why we never call anything "the best": fit depends on the reader's own situation, not
+    a superlative. Each page also states the practical case for starting with a regulated, KYC
+    exchange, pulled from that country's own real regulator requirements rather than generic
+    filler, and the concrete risks of an unregulated or DeFi alternative -- citing a real,
+    already-sourced incident when a brand tracked on that page has one, general industry history
+    otherwise, never an invented local claim.
+  pages:
+    - { url: /gb/, label: "Example: UK" }
+- date: "2026-08-17"
+  title: "Affiliate button moved above the fold, replacing the old inline link"
+  body: >
+    The "Visit X" button now sits directly under the licence badges at the top of each exchange
+    page instead of near the bottom -- and it replaces the plain text link that used to sit there,
+    rather than duplicating it. Most brands don't have an affiliate deal set up; those still get a
+    plain link to their own site in the same spot, just unstyled, so nobody loses a way to reach
+    the exchange depending on whether we have a commercial relationship with it.
+  pages:
+    - { url: /exchange/kraken/, label: "Example: Kraken" }
+- date: "2026-08-17"
+  title: "New: filter /exchanges/ by regulator, not just by country"
+  body: >
+    Regulator is a finer axis than country -- Dubai's VARA and Abu Dhabi's ADGM are two
+    independent regulators that happen to share a country page, and so are US FinCEN and NY DFS.
+    The new filter isolates any one of the 15 regulators we track directly, alongside the existing
+    country, status, and audit filters.
+  pages:
+    - { url: /exchanges/, label: Exchanges }
+- date: "2026-08-17"
+  title: "Added GFO-X, and a new scam-clone warning system"
+  body: >
+    A GFO-X co-founder emailed to flag we were missing them -- verified directly against the FCA
+    register (FRN 945035, authorised since Feb 2022 to operate a Multilateral Trading Facility for
+    Bitcoin derivatives) before adding anything. That surfaced a real gap in how we described UK
+    authorisations: the copy previously assumed a UK-only "authorised" status was always a
+    footnote about some unrelated part of a group -- true for, say, a banking licence sitting
+    alongside an otherwise separate crypto business, not true for GFO-X, where it's the entire
+    regulatory basis for the venue. Fixed. Also built a new scam-clone warning system: the FCA
+    register sometimes flags scammers impersonating a genuine, authorised firm ("clone firms") --
+    now shown as a banner on the affected brand's own page plus a combined list on /regulators/.
+    Found real ones for GFO-X, Coinbase (three), CoinJar, and Crypto.com while checking a subset of
+    tracked UK entities; not yet exhaustive across every brand or regulator we track.
+  pages:
+    - { url: /exchange/gfo-x/, label: "Example: GFO-X" }
+    - { url: /regulators/, label: Regulators }
+- date: "2026-08-14"
+  title: "New: \"Audits & Reserves\" — full audits vs. proof-of-reserves, clearly distinguished"
+  body: >
+    A new section on exchange pages, and it draws a distinction the crypto
+    industry itself has spent years blurring: a full independent financial
+    audit (the kind SEC-reporting public companies file) is not the same
+    rigor as a proof-of-reserves attestation (a snapshot showing assets
+    cover liabilities at one moment, via a named third party), which is
+    not the same as a figure an exchange just publishes itself with no
+    independent check. Each entry states plainly which of the three
+    applies, and whether it's current or lapsed. Seeded with six verified
+    cases showing the real range: Coinbase's SEC-audited financials
+    (Deloitte & Touche), recurring named-auditor proof-of-reserves at
+    Kraken, OKX, and KuCoin, Binance's self-published-only reports (no
+    independent auditor currently named), and Crypto.com's one-off Mazars
+    attestation from December 2022 that's now years stale despite a
+    stated intent to keep going.
+  pages:
+    - { url: /exchange/coinbase/, label: "Example: Coinbase" }
+    - { url: /about/, label: About }
+- date: "2026-08-14"
+  title: "Homepage now suggests your country automatically — never redirects"
+  body: >
+    A banner above the country picker links straight to your detected
+    country's page in one click. Deliberately not a redirect: geo-IP
+    detection is wrong often enough (VPNs, corporate proxies, mobile
+    carriers) that silently navigating on a guess would read as a bug,
+    and every visitor and every search crawler still sees the same page
+    at the same URL either way. If your country isn't tracked yet, the
+    banner says so directly and links to get in touch, rather than
+    staying silent about the gap.
+  pages:
+    - { url: /, label: Home }
+- date: "2026-08-14"
+  title: "News page: added SEC and DOJ directly, tagged Regulatory vs. General, new tools"
+  body: >
+    Renamed from "News mentions" to "Crypto Exchange News and Regulation
+    Updates" — and rather than just relabel an unfiltered keyword feed,
+    built the substance behind it. The SEC's and DOJ's own press-release
+    feeds are now sources in their own right, tagged Regulatory
+    automatically; headlines from the four general-news sources (The
+    Guardian, BBC, Cointelegraph, The Block) earn the same tag when the
+    headline itself uses recognisably regulatory language. Regulatory
+    mentions now sort first. The page also has an RSS feed, plain
+    share links, and the same weekly-digest email signup used elsewhere
+    on the site.
+  pages:
+    - { url: /news/, label: News }
+- date: "2026-08-13"
+  title: "New: \"Notable incidents\" — hand-verified hacks, settlements, and insolvency events"
+  body: >
+    A new section on exchange pages for the events that actually drive
+    whether people trust an exchange with their money: hacks, insolvency,
+    extended withdrawal freezes, and major regulatory or criminal
+    settlements. There's no live regulator feed for this the way there is
+    for a licence register, so each entry is researched and
+    cross-checked against multiple independent sources by hand before
+    publishing. Seeded with five cases: Bybit's $1.5B cold-wallet hack
+    (FBI-attributed to North Korea's Lazarus Group), Coincheck's $530M
+    NEM hack, KuCoin's $280M hack, Upbit's $50M hack, and Binance's
+    $4.3B DOJ settlement. Deliberately not exhaustive -- a brand with
+    nothing here is not a claim its history is clean, only that nothing
+    has been added yet.
+  pages:
+    - { url: /exchange/bybit/, label: "Example: Bybit" }
+    - { url: /about/, label: About }
+- date: "2026-08-13"
+  title: "Exchange pages reordered: market footprint leads, \"Check your country\" widget removed"
+  body: >
+    Each exchange page's summary now opens with which jurisdictions the
+    brand actually holds a licence or registration in, rather than the
+    administrative "first appears in our register on X" framing that
+    used to lead -- a licence a firm applied for and was granted is a
+    real signal of which markets it deliberately entered. The "Check
+    your country" dropdown has been removed (it just restated the
+    summary and country list in a different form) and the Countries
+    Covered list moved up to take its place, right after the summary.
+  pages:
+    - { url: /exchange/kraken/, label: "Example: Kraken" }
+- date: "2026-08-12"
+  title: "New: verified company facts (registered office, entity status) via GLEIF's LEI registry"
+  body: >
+    Exchange pages with an EEA entity now show a "Registered office" and
+    "Entity registered" date, sourced from the Global Legal Entity
+    Identifier Foundation's free public LEI registry -- not a licensing
+    body, just the authoritative record of the legal entity itself.
+    Labelled carefully: the registration date is when that specific
+    legal entity was created at its national registrar, which can be
+    years after the brand itself started trading, so it's never called
+    "founded". Building this surfaced a real finding along the way:
+    Bitpanda GmbH's LEI record shows as retired, with a successor LEI on
+    file -- now shown as a caveat on its record card instead of quietly
+    going stale.
+  pages:
+    - { url: /exchange/bitpanda/, label: "Example: Bitpanda" }
+    - { url: /about/, label: About }
+- date: "2026-08-11"
+  title: "New homepage and About messaging: why licensed vs. registered actually matters"
+  body: >
+    A registered exchange has filed AML paperwork; a licensed one met
+    the standards a regulator actually sets for running an exchange --
+    that gap is what separated the exchanges that survived 2022 from the
+    ones that didn't. The homepage and About page now say so plainly,
+    including a direct warning: some exchanges dress up a real but
+    unrelated licence (a money-lending licence, a trust registration) to
+    look like the genuine article on their own "Security" pages. We
+    only trust the regulator's own register -- never a company's page.
+  pages:
+    - { url: /, label: Home }
+    - { url: /about/, label: About }
 - date: "2026-08-10"
   title: "British Virgin Islands now tracked (FSC VASP registration)"
   body: >
