@@ -165,7 +165,14 @@ h3:first-child { margin-top: 0; }
   border: 2px solid currentColor;
   border-radius: 3px;
   transform: rotate(-1.5deg);
-  white-space: nowrap;
+  /* Most stamps are short ("Licensed", "UK · Registered") and this never
+     kicks in, but a few carry a full regime name ("Licensed · Japan FSA
+     Crypto-asset Exchange Service Provider registration") long enough to
+     force the whole table column -- and the table itself -- wider than
+     the page if held to one line. Wrap within a fixed max-width instead. */
+  white-space: normal;
+  max-width: 260px;
+  line-height: 1.4;
 }
 .stamp.licensed { color: var(--licensed); }
 .stamp.withdrawn { color: var(--warned); }
