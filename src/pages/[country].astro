@@ -1,6 +1,6 @@
 ---
-import { loadExchanges, loadRegulatorDetails, countriesInData, COUNTRY_NAMES, SERVICE_NAMES, footerStats } from '../lib/data.js';
-import { buildFaqEntries } from '../lib/faq.js';
+import { loadExchanges, loadRegulatorDetails, countriesInData, COUNTRY_NAMES, SERVICE_NAMES, footerStats, listJoin } from '../lib/data.js';
+import { buildFaqEntries, midSentenceLabel } from '../lib/faq.js';
 import '../styles/global.css';
 
 export function getStaticPaths() {
@@ -10,13 +10,17 @@ export function getStaticPaths() {
   // schema, not the full ~445-entry index.
   const faqEntries = buildFaqEntries(exchanges, loadRegulatorDetails());
   const stats = footerStats(exchanges);
+  const regulatorDetails = loadRegulatorDetails();
   return countriesInData(exchanges).map((c) => ({
     params: { country: c.toLowerCase() },
-    props: { code: c, exchanges, faqEntry: faqEntries.find((e) => e.id === `country-${c.toLowerCase()}`), stats },
+    props: {
+      code: c, exchanges, regulatorDetails,
+      faqEntry: faqEntries.find((e) => e.id === `country-${c.toLowerCase()}`), stats,
+    },
   }));
 }
 
-const { code, exchanges, faqEntry, stats } = Astro.props;
+const { code, exchanges, regulatorDetails, faqEntry, stats } = Astro.props;
 const name = COUNTRY_NAMES[code] ?? code;
 // Non-EEA jurisdictions store a LIST of entries per country (a brand can have
 // more than one relevant entity/tier), unlike the single-object EEA/MiCA shape.
@@ -36,6 +40,32 @@ const isNonEEA = isGB || isCA || isAE || isSG || isUS || isHK || isGI || isJP ||
 const rows = exchanges
   .map((ex) => ({ ex, c: ex.countries?.[code] }))
   .filter((r) => r.c);
+
+// Feeds the "Choosing a crypto exchange in {name}" section below the table.
+// Every fact in it traces back to data already verified elsewhere on the
+// site -- regulator_details.yaml's hand-researched checks/notes (same
+// source src/lib/faq.js uses for the per-country FAQ answer), and
+// notable_incidents entries already researched and sourced on the brand's
+// own page. Deliberately does NOT cite country-specific case law or
+// enforcement history we haven't independently verified -- see each
+// regulator's own `note` field for the one exception (the FCA/MiCA
+// "regime not fully in force yet" facts, which are already sourced
+// elsewhere on this site) rather than inventing new legal claims here.
+const regDetails = isNonEEA
+  ? regulatorDetails.filter((d) => d.code === code || d.code.startsWith(`${code}-`))
+  : regulatorDetails.filter((d) => d.code === 'MICA');
+const primaryDetail = regDetails.find((d) => d.tier === 'licensed') ?? regDetails[0];
+const regimeNames = regDetails.map((d) => d.name);
+const hasGenuineLicenceHere = regDetails.some((d) => d.tier === 'licensed');
+// Real, tracked, already-sourced incidents for brands actually listed on
+// THIS country's table -- not a generic industry list. Falls back to
+// general, non-country-specific industry history (Celsius, well-documented
+// and already cited on /about/) when nothing tracked here has one, rather
+// than implying a false local connection.
+const countryIncidents = rows
+  .map((r) => r.ex)
+  .flatMap((ex) => (ex.notable_incidents ?? []).map((inc) => ({ ex, inc })))
+  .sort((a, b) => (b.inc.date || '').localeCompare(a.inc.date || ''));
 const sourceRetrieved = (name_) => exchanges
   .flatMap((ex) => ex.sources ?? [])
   .find((s) => s.name === name_)?.retrieved;
@@ -507,6 +537,84 @@ const PAGE_DESC = isGB
       retrieved {exchanges[0]?.sources?.[0]?.retrieved}. An exchange missing from this list either
       holds no authorisation covering {name} or is not yet in our register.</p>
     )}
+
+    <section class="country-guidance">
+      <h3>Which crypto exchange is right for you in {name}?</h3>
+      <p>The table above shows every exchange we've independently verified as licensed or
+      registered to serve {name}. Here's how to actually use that to make a decision.</p>
+
+      <h3>Why we don't call anything "the best crypto exchange in {name}"</h3>
+      <p>You'll see other sites promise "the best crypto exchange in {name}." We deliberately
+      don't, because it isn't a real answer — it assumes one platform beats every other for every
+      person, which isn't true. The right exchange for someone running high-frequency derivatives
+      trades is rarely the right one for a business that just needs a clean, auditable way to buy
+      and hold. What actually matters is fit: what you're trying to do, how much protection you
+      need if something goes wrong, and whether the platform is answerable to a real regulator in
+      the jurisdictions on this page — a level-headed, practical decision, not a superlative.</p>
+      <p>What we can say with real confidence: starting with a regulated, KYC exchange is the
+      practical default for most people using crypto in {name} today — and especially for
+      businesses. Here's the reasoning behind that, not just the claim.</p>
+
+      <h3>The practical case for a regulated exchange in {name}</h3>
+      <p>{listJoin(regimeNames)} {regDetails.length === 1 ? 'sets' : 'set'} real, checkable
+      standards a platform has to meet before it's allowed to operate under that status
+      {primaryDetail?.checks?.length > 0 && (
+        <> — including {listJoin(primaryDetail.checks.slice(0, 3).map((c) => midSentenceLabel(c)))}</>
+      )}. That's independent scrutiny of a firm's ownership and controls before you ever hand over
+      your own money, not a marketing claim the exchange makes about itself.</p>
+      <p>For an individual, that gives you a real institution to point to if something goes wrong.
+      {!hasGenuineLicenceHere && <> Check the licensing note above, though, for exactly what protection this specific status does and doesn't carry.</>}
+      {' '}For a business, it usually matters more: a regulated counterparty gives you a clean,
+      auditable trail for your own accounting and tax obligations, banking partners are far more
+      willing to work with a business that only transacts through KYC'd, registered platforms, and
+      your own compliance exposure doesn't hinge on a counterparty whose status could change
+      overnight.</p>
+
+      <h3>Risks worth understanding before using an unregulated exchange or DeFi platform</h3>
+      <p>Regulation in this space is still moving, in {name} as everywhere else — the standards on
+      this page can tighten, and new regimes can open, faster than an unregulated platform's own
+      claims about itself change. Three concrete things worth weighing before choosing an
+      unregulated or purely on-chain/DeFi route instead:</p>
+      <ul>
+        <li><strong>No formal dispute resolution or compensation scheme.</strong> If a platform
+        with no regulatory status becomes insolvent or is compromised, you're typically an
+        unsecured creditor with no priority claim on what's left — the position Celsius's own
+        customers found themselves in after its 2022 collapse, despite marketing itself as a safe
+        place to hold funds.</li>
+        <li><strong>Banking friction.</strong> Banks are increasingly cautious about processing
+        transfers to and from platforms that can't demonstrate registered, KYC'd status — under
+        Travel Rule information-sharing obligations now in force across most jurisdictions we
+        track, an unregistered counterparty can mean a blocked transfer or a frozen account, not
+        just a compliance footnote.</li>
+        <li><strong>No independent check on what a platform tells you.</strong>{' '}
+        {(() => {
+          const brands = [...new Map(countryIncidents.map(({ ex }) => [ex.id, ex])).values()];
+          if (brands.length === 0) {
+            return <>The industry's own history — from exchange hacks to outright fraud — is why
+            these regimes exist in the first place. A platform with no regulator behind it has no
+            one requiring it to hold the reserves it claims to hold, audit them, or tell you the
+            truth about either.</>;
+          }
+          const names = listJoin(brands.slice(0, 2).map((ex) => ex.brand));
+          const verb = brands.length === 1 ? 'has' : 'have';
+          const subject = brands.length === 1
+            ? `${names}, tracked on this page, ${verb}`
+            : `${names}, both tracked on this page, ${verb}`;
+          return <>{subject} had a publicly documented
+          incident — see <a href={`/exchange/${brands[0].id}/`}>{brands[0].brand}'s own page</a>{' '}
+          for what happened and how it was handled. Even licensed exchanges aren't immune to this;
+          the difference regulation makes is requiring them to hold, and prove, what they claim
+          to.</>;
+        })()}
+        </li>
+      </ul>
+
+      <p>None of this makes one specific exchange "the best" for you — only you can weigh your own
+      use case, fees, and risk tolerance, and the table above is there to help with exactly that.
+      But as a starting point, particularly if you're transacting as a business or simply want the
+      strongest available protections, a regulated, KYC exchange in {name} is the practical,
+      level-headed default.</p>
+    </section>
   </main>
 
   <footer class="site"><div class="wrap">

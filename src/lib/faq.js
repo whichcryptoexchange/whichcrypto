@@ -19,7 +19,7 @@ function brandQuestion(ex) {
 // Lowercase a regulator tier label for mid-sentence use, but not when it's
 // an acronym like "AML" -- that should stay capitalised regardless of
 // position in the sentence.
-function midSentenceLabel(rawLabel) {
+export function midSentenceLabel(rawLabel) {
   const firstWord = rawLabel.split(/[\s-]/)[0];
   const isAcronym = firstWord.length > 1 && firstWord === firstWord.toUpperCase();
   return isAcronym ? rawLabel : rawLabel.charAt(0).toLowerCase() + rawLabel.slice(1);
