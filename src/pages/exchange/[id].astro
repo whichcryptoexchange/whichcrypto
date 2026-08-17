@@ -510,6 +510,70 @@ const PAGE_DESC = `${ex.brand}: official licence records, legal entities, regula
       </section>
     )}
 
+    <section class="best-fit" id="best-fit">
+      <h3>Is {ex.brand} the best crypto exchange for you?</h3>
+      <p>There's no such thing as the best crypto exchange in absolute terms — only the best fit
+      for a given person's situation. The right choice for a business that needs a clean,
+      auditable compliance trail is rarely the right choice for an individual just holding a small
+      amount long-term, and both are different again from someone trading derivatives
+      professionally. We don't recommend {ex.brand}, or anyone else — we give you what's
+      independently verifiable so you can make that call yourself.</p>
+      <p>Here's what we've actually verified about {ex.brand}, specifically:</p>
+      <ul>
+        {(() => {
+          const facts = [];
+          if (genuineLicenceJurisdictions.length > 0) {
+            facts.push(<>Holds a genuine crypto-specific licence in {listJoin(genuineLicenceJurisdictions)}
+              {amlOnlyJurisdictions.length > 0 && <>, plus AML-only registration in {listJoin(amlOnlyJurisdictions)}</>}.</>);
+          } else if (amlOnlyJurisdictions.length > 0) {
+            facts.push(<>Holds AML-only registration (not a licence) in {listJoin(amlOnlyJurisdictions)} —
+            supervised for money-laundering purposes, not assessed on its products or conduct.</>);
+          } else if (ukAuthorisationIsOnlyCredential) {
+            facts.push(<>Holds full FCA authorisation in the UK — its only regulatory credential we've
+            verified anywhere.</>);
+          } else {
+            facts.push(<>We have not independently verified a licence or registration for {ex.brand} in
+            any jurisdiction we track.</>);
+          }
+          facts.push(<>Tracked across {countryCodes.length} jurisdiction{countryCodes.length === 1 ? '' : 's'}{' '}
+          through {totalEntities} legal entit{totalEntities === 1 ? 'y' : 'ies'}
+          {firstSeen && <>, appearing in our register since <span class="datum">{firstSeen}</span></>}.</>);
+          if (hasCurrentAudit) {
+            facts.push(<>Has a current independent audit or active proof-of-reserves attestation on file —
+            see <a href="#audits">Audits &amp; reserves</a> below.</>);
+          } else if (hasWeakerAuditOnFile) {
+            facts.push(<>Only a self-reported or lapsed audit/reserves claim on file, not a current
+            independent one — see <a href="#audits">Audits &amp; reserves</a> below.</>);
+          } else {
+            facts.push(<>We haven't yet researched {ex.brand}'s audit or proof-of-reserves history —
+            that's an unresearched gap, not a red flag.</>);
+          }
+          if ((ex.notable_incidents ?? []).length > 0) {
+            const incidents = ex.notable_incidents;
+            facts.push(<>{incidents.length} publicly documented incident{incidents.length === 1 ? '' : 's'}{' '}
+            on file, most recently "{incidents[0].headline}" ({incidents[0].date}) — see{' '}
+            <a href="#notable-incidents">Notable incidents</a> below for what happened and how it was
+            handled.</>);
+          }
+          if ((ex.scam_clones ?? []).length > 0) {
+            facts.push(<>{ex.scam_clones.length > 1 ? 'Has scam clones' : 'Has a scam clone'} impersonating
+            it, per its own regulator's register — see the warning above.</>);
+          }
+          if ((ex.third_party_reviews ?? []).length > 0) {
+            const revParts = ex.third_party_reviews.map((r) => `${r.rating}/5 on ${r.source} (${r.count.toLocaleString()} reviews)`);
+            facts.push(<>Third-party ratings we track: {listJoin(revParts)} — not verified by us, see{' '}
+            <a href="#third-party-reviews">What others report</a> below.</>);
+          }
+          return facts.map((f) => <li>{f}</li>);
+        })()}
+      </ul>
+      <p>None of this tells you whether {ex.brand} is right for you — that depends on what you're
+      trying to do, which jurisdiction you're in, your own risk tolerance, and practical details
+      this register doesn't track (fees, product range, day-to-day UX). What it does give you is
+      what's actually checkable, so you're deciding from facts rather than the exchange's own
+      marketing.</p>
+    </section>
+
     <p class="sourced">Sources:{' '}
     {(ex.sources ?? []).map((s, i) => (
       <>
