@@ -39,3 +39,10 @@ company_facts:
   registration_status: issued
   entity_creation_date: '2019-01-28'
   retrieved: '2026-08-12'
+news_mentions:
+- source: Cointelegraph
+  category: general
+  title: Bitcoin could bottom in October, altcoins are ‘basically dead,’ Swan CEO says
+  url: https://cointelegraph.com/markets/bitcoin-bottom-october-altcoins-basically-dead-swan-ceo?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound
+  published: '2026-08-15'
+  retrieved: '2026-08-17'

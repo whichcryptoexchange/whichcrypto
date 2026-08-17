@@ -339,3 +339,16 @@ company_facts:
   registration_status: issued
   entity_creation_date: '2023-10-25'
   retrieved: '2026-08-12'
+news_mentions:
+- source: Cointelegraph
+  category: regulatory
+  title: Bitpanda fined in Austria’s first published MiCA penalty
+  url: https://cointelegraph.com/news/bitpanda-fined-austrian-published-mica-penalty?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound
+  published: '2026-08-17'
+  retrieved: '2026-08-17'
+- source: The Block
+  category: general
+  title: Austria’s FMA fines crypto broker Bitpanda $81,000 in first published MiCA penalty
+  url: https://www.theblock.co/news/regulation/2026-08-17-austria-mica-penalty-bitpanda-411960
+  published: '2026-08-17'
+  retrieved: '2026-08-17'
