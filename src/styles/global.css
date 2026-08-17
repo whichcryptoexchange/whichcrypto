@@ -264,6 +264,8 @@ h3:first-child { margin-top: 0; }
   border: 1px solid var(--warned); border-radius: 3px; padding: 5px 10px; cursor: pointer;
 }
 .filter-reset:hover { background: var(--warned); color: #fff; }
+.country-page-link { font-family: var(--mono); font-size: 13px; color: var(--licensed); text-decoration: none; white-space: nowrap; }
+.country-page-link:hover { text-decoration: underline; }
 
 /* Registry table — scrolls horizontally within its own box on narrow
    viewports rather than forcing the whole page to overflow sideways. */

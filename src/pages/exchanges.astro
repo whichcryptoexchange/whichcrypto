@@ -250,6 +250,7 @@ const PAGE_DESC = `A list of every crypto exchange and related firm we track (${
           {countries.map((c) => <option value={c}>{COUNTRY_NAMES[c] ?? c}</option>)}
         </select>
       </label>
+      <a id="country-page-link" class="country-page-link" href="#" hidden></a>
       <label>Regulator
         <select id="filter-regulator">
           <option value="">All regulators</option>
@@ -325,6 +326,7 @@ const PAGE_DESC = `A list of every crypto exchange and related firm we track (${
     const tbody = document.querySelector('.registry tbody');
     const sortSelect = document.getElementById('sort-select');
     const countryFilter = document.getElementById('filter-country');
+    const countryPageLink = document.getElementById('country-page-link');
     const regulatorFilter = document.getElementById('filter-regulator');
     const statusFilter = document.getElementById('filter-status');
     const auditFilter = document.getElementById('filter-audit');
@@ -364,6 +366,22 @@ const PAGE_DESC = `A list of every crypto exchange and related firm we track (${
         rows.forEach((r) => tbody.appendChild(r));
 
         const cc = countryFilter?.value, rg = regulatorFilter?.value, st = statusFilter?.value, au = auditFilter?.value;
+        // Filtering to a single country is exactly the moment someone wants
+        // that country's own page too -- its regulator detail, its "which/
+        // best crypto exchange" guidance section, none of which belongs
+        // cluttering this cross-country table. Pull the display name straight
+        // off the selected <option> rather than duplicating COUNTRY_NAMES
+        // into this script.
+        if (countryPageLink) {
+          if (cc) {
+            const label = countryFilter.options[countryFilter.selectedIndex]?.textContent ?? cc;
+            countryPageLink.href = `/${cc.toLowerCase()}/`;
+            countryPageLink.textContent = `See the full ${label} page →`;
+            countryPageLink.hidden = false;
+          } else {
+            countryPageLink.hidden = true;
+          }
+        }
         let shown = 0;
         for (const r of rows) {
           const matchesCountry = !cc || (r.dataset.countries || '').split(' ').includes(cc);
