@@ -98,7 +98,7 @@ export const COUNTRY_NAMES = {
   GB: 'United Kingdom', CA: 'Canada', AE: 'UAE (Dubai & Abu Dhabi)',
   SG: 'Singapore', US: 'United States', HK: 'Hong Kong', GI: 'Gibraltar',
   JP: 'Japan', MY: 'Malaysia', KR: 'South Korea', NZ: 'New Zealand',
-  VG: 'British Virgin Islands',
+  VG: 'British Virgin Islands', AU: 'Australia',
 };
 
 // Non-EEA jurisdictions (list-shaped countries.<CC>, unlike the single-object
@@ -110,7 +110,7 @@ export const COUNTRY_NAMES = {
 // have shown a wrong "Dubai · Licensed" badge, so this needs to stay
 // generic. The full Dubai-vs-Abu-Dhabi distinction is explained on the
 // country page itself; this compact badge just needs to not be wrong.
-export const NON_EEA_PREFIX = { GB: 'UK', CA: 'CA', AE: 'UAE', SG: 'SG', US: 'US', HK: 'HK', GI: 'GI', JP: 'JP', MY: 'MY', KR: 'KR', NZ: 'NZ', VG: 'BVI' };
+export const NON_EEA_PREFIX = { GB: 'UK', CA: 'CA', AE: 'UAE', SG: 'SG', US: 'US', HK: 'HK', GI: 'GI', JP: 'JP', MY: 'MY', KR: 'KR', NZ: 'NZ', VG: 'BVI', AU: 'AU' };
 
 export function listJoin(arr) {
   return arr.length <= 1 ? (arr[0] ?? '')

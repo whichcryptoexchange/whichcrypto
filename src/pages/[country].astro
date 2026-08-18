@@ -36,7 +36,8 @@ const isMY = code === 'MY';
 const isKR = code === 'KR';
 const isNZ = code === 'NZ';
 const isBVI = code === 'VG';
-const isNonEEA = isGB || isCA || isAE || isSG || isUS || isHK || isGI || isJP || isMY || isKR || isNZ || isBVI;
+const isAU = code === 'AU';
+const isNonEEA = isGB || isCA || isAE || isSG || isUS || isHK || isGI || isJP || isMY || isKR || isNZ || isBVI || isAU;
 const rows = exchanges
   .map((ex) => ({ ex, c: ex.countries?.[code] }))
   .filter((r) => r.c);
@@ -83,6 +84,7 @@ const myScRetrieved = sourceRetrieved('Malaysia SC List of Registered Digital As
 const krFiuRetrieved = sourceRetrieved('Korea FIU VASP Registration Disclosure');
 const nzFsprRetrieved = sourceRetrieved('New Zealand FSPR');
 const bviFscRetrieved = sourceRetrieved('BVI FSC VASP Register');
+const austracRetrieved = sourceRetrieved('AUSTRAC VASP Register (VASPR)');
 // registered/authorised (UK, CA) are AML-only tiers; licensed (AE/Dubai VARA)
 // is a genuine crypto-specific licence, so it gets the same green stamp as
 // EU MiCA rather than the cautious amber/grey UK-style tiers.
@@ -125,6 +127,8 @@ const PAGE_TITLE = isGB
   ? `Crypto exchanges registered in New Zealand (${YEAR}) | whichcryptoexchange.com`
   : isBVI
   ? `Crypto exchanges licensed in the British Virgin Islands (${YEAR}) | whichcryptoexchange.com`
+  : isAU
+  ? `Crypto exchanges registered in Australia (${YEAR}) | whichcryptoexchange.com`
   : `Crypto exchanges licensed in ${name} (${YEAR}) | whichcryptoexchange.com`;
 const PAGE_DESC = isGB
   ? `${rows.length} crypto exchanges hold a UK FCA registration or authorisation, according to the official FCA Register. See which entity, which regime, and since when.`
@@ -150,6 +154,8 @@ const PAGE_DESC = isGB
   ? `${rows.length} crypto exchanges hold a New Zealand FSPR registration, manually verified against the official Financial Service Providers Register.`
   : isBVI
   ? `${rows.length} crypto exchanges hold a BVI VASP registration, manually verified against the official FSC register.`
+  : isAU
+  ? `${rows.length} crypto exchanges hold an AUSTRAC VASP registration, according to the official VASPR register.`
   : `${rows.length} crypto exchanges hold a licence covering ${name}, according to official regulator registers. See which entity, which regime, and since when.`;
 ---
 <html lang="en">
@@ -393,6 +399,21 @@ const PAGE_DESC = isGB
         Excludes "Authorised Representatives - VASP" entries, which are local registered-agent
         firms required by law for any VASP operating from the BVI, not VASPs themselves.</p>
       </>
+    ) : isAU ? (
+      <>
+        <h1>Which crypto exchanges are registered in Australia?</h1>
+        <p class="lede lede-wide">{rows.length} exchanges in our register have an Australian entity
+        on AUSTRAC's Virtual Asset Service Provider Register (VASPR), which went public in mid-2026.
+        As with the UK, Canada, US, South Korea, and New Zealand entries elsewhere on this site,
+        this is <em>not</em> a licence: registration means AUSTRAC supervises the firm for
+        anti-money-laundering purposes under the AML/CTF Act, not that it has assessed or approved
+        the firm's products or conduct.</p>
+        <p class="lede lede-wide caveat">Australia's first dedicated crypto-specific regime is on
+        its way but isn't tracked here yet: the Corporations Amendment (Digital Assets Framework)
+        Act 2026 extends ASIC's Australian Financial Services Licence (AFSL) to crypto exchanges,
+        custodians, and brokers under two new categories, Digital Asset Platform and Tokenised
+        Custody Platform — still phasing in, with full compliance required by mid-to-late 2026.</p>
+      </>
     ) : (
       <>
         <h1>Which crypto exchanges are licensed in {name}?</h1>
@@ -532,6 +553,10 @@ const PAGE_DESC = isGB
       last manually verified {bviFscRetrieved} — not on an automated schedule. An exchange missing
       from this list either holds no BVI VASP registration, isn't yet in our register, or was added
       after this list was last checked.</p>
+    ) : isAU ? (
+      <p class="sourced">Source: <a href="https://online.apps.austrac.gov.au/vaspr">AUSTRAC VASP Register (VASPR)</a>,
+      retrieved {austracRetrieved}. An exchange missing from this list either holds no AUSTRAC VASP
+      registration, or is not yet in our register.</p>
     ) : (
       <p class="sourced">Source: <a href="https://www.esma.europa.eu/esmas-activities/digital-finance-and-innovation/markets-crypto-assets-regulation-mica">ESMA interim MiCA register</a>,
       retrieved {exchanges[0]?.sources?.[0]?.retrieved}. An exchange missing from this list either

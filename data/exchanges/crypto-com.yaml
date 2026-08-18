@@ -20,6 +20,9 @@ sources:
 - name: Korea FIU VASP Registration Disclosure
   url: https://www.kofiu.go.kr/kor/notification/notice.do
   retrieved: '2026-08-14'
+- name: AUSTRAC VASP Register (VASPR)
+  url: https://online.apps.austrac.gov.au/vaspr
+  retrieved: '2026-08-18'
 entities:
 - lei: 2549005CVR5HH70FDO07
   legal_name: Foris DAX MT Limited
@@ -264,6 +267,13 @@ countries:
     regime: MiCA
     via: mica_passporting
     entity: Foris DAX MT Limited
+  AU:
+  - status: registered
+    regime: AUSTRAC VASP registration
+    via: au_register
+    entity: FORIS DAX AU PTY LTD
+    abn: '76640692735'
+    since: null
 third_party_reviews:
 - source: App Store
   rating: 4.66

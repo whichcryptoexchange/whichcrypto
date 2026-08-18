@@ -8,6 +8,9 @@ sources:
 - name: UK FCA Register
   url: https://register.fca.org.uk/
   retrieved: '2026-08-11'
+- name: AUSTRAC VASP Register (VASPR)
+  url: https://online.apps.austrac.gov.au/vaspr
+  retrieved: '2026-08-18'
 entities:
 - lei: 549300ET4IUR6RCZOL84
   legal_name: Revolut Digital Assets (Europe) Ltd
@@ -216,6 +219,13 @@ countries:
     regime: MiCA
     via: mica_passporting
     entity: Revolut Digital Assets (Europe) Ltd
+  AU:
+  - status: registered
+    regime: AUSTRAC VASP registration
+    via: au_register
+    entity: REVOLUT PAYMENTS AUSTRALIA PTY LTD
+    abn: '21634823180'
+    since: null
 third_party_reviews:
 - source: App Store
   rating: 4.86

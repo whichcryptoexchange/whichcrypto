@@ -14,6 +14,9 @@ sources:
 - name: Dubai VARA Public Register
   url: https://www.vara.ae/en/licenses-and-register/public-register/
   retrieved: '2026-08-13'
+- name: AUSTRAC VASP Register (VASPR)
+  url: https://online.apps.austrac.gov.au/vaspr
+  retrieved: '2026-08-18'
 entities:
 - lei: 54930069NLWEIGLHXU42
   legal_name: OKX Europe Limited
@@ -240,6 +243,13 @@ countries:
     entity: OKX INC.
     reg_number: '29459694'
     since: '2025-11-03'
+  AU:
+  - status: registered
+    regime: AUSTRAC VASP registration
+    via: au_register
+    entity: OKX AUSTRALIA PTY LTD
+    abn: '22636269040'
+    since: null
 third_party_reviews:
 - source: App Store
   rating: 4.59

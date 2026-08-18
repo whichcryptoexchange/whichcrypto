@@ -1,0 +1,17 @@
+id: btc-markets
+brand: BTC Markets
+eu_status: no_eu_entity
+website: https://www.btcmarkets.net/
+sources:
+- name: AUSTRAC VASP Register (VASPR)
+  url: https://online.apps.austrac.gov.au/vaspr
+  retrieved: '2026-08-18'
+entities: []
+countries:
+  AU:
+  - status: registered
+    regime: AUSTRAC VASP registration
+    via: au_register
+    entity: BTC MARKETS PTY LTD
+    abn: '45164093887'
+    since: null

@@ -23,6 +23,9 @@ sources:
 - name: NY DFS List of Licensed Virtual Currency Entities
   url: https://www.dfs.ny.gov/virtual_currency_businesses
   retrieved: '2026-08-14'
+- name: AUSTRAC VASP Register (VASPR)
+  url: https://online.apps.austrac.gov.au/vaspr
+  retrieved: '2026-08-18'
 entities:
 - lei: 984500F14CA4571AAC11
   legal_name: Coinbase Luxembourg S.A
@@ -278,6 +281,13 @@ countries:
     via: ny_dfs_register
     entity: Coinbase, Inc.
     since: 2017-01
+  AU:
+  - status: registered
+    regime: AUSTRAC VASP registration
+    via: au_register
+    entity: COINBASE AUSTRALIA PTY LTD
+    abn: '89654922442'
+    since: null
 third_party_reviews:
 - source: App Store
   rating: 4.68

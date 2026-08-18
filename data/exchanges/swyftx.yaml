@@ -6,6 +6,9 @@ sources:
 - name: New Zealand FSPR
   url: https://fsp-app.companiesoffice.govt.nz/orp-master/service/create.html?targetAppCode=orp-master&service=registerItemSearch
   retrieved: '2026-08-09'
+- name: AUSTRAC VASP Register (VASPR)
+  url: https://online.apps.austrac.gov.au/vaspr
+  retrieved: '2026-08-18'
 entities: []
 countries:
   NZ:
@@ -21,3 +24,10 @@ countries:
     entity: Swyftx Pty Ltd
     reference: FSP1000861
     since: '2021-07-08'
+  AU:
+  - status: registered
+    regime: AUSTRAC VASP registration
+    via: au_register
+    entity: SWYFTX PTY LTD
+    abn: '72623556730'
+    since: null

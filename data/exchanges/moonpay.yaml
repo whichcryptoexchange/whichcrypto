@@ -17,6 +17,9 @@ sources:
 - name: NY DFS List of Licensed Virtual Currency Entities
   url: https://www.dfs.ny.gov/virtual_currency_businesses
   retrieved: '2026-08-14'
+- name: AUSTRAC VASP Register (VASPR)
+  url: https://online.apps.austrac.gov.au/vaspr
+  retrieved: '2026-08-18'
 entities:
 - lei: 254900KXWAZ3B1340G26
   legal_name: MoonPay Europe B.V
@@ -247,6 +250,13 @@ countries:
     via: ny_dfs_register
     entity: MoonPay USA LLC
     since: 2025-06
+  AU:
+  - status: registered
+    regime: AUSTRAC VASP registration
+    via: au_register
+    entity: MOONPAY AUS PTY LTD
+    abn: '95669772285'
+    since: null
 company_facts:
 - lei: 254900KXWAZ3B1340G26
   registered_office:

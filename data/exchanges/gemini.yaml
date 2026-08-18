@@ -17,6 +17,9 @@ sources:
 - name: NY DFS List of Licensed Virtual Currency Entities
   url: https://www.dfs.ny.gov/virtual_currency_businesses
   retrieved: '2026-08-14'
+- name: AUSTRAC VASP Register (VASPR)
+  url: https://online.apps.austrac.gov.au/vaspr
+  retrieved: '2026-08-18'
 entities:
 - lei: 2138002QAMX8PPKSO715
   legal_name: Gemini Intergalactic EU Ltd
@@ -251,6 +254,13 @@ countries:
     via: ny_dfs_register
     entity: Gemini Trust Company, LLC
     since: 2015-10
+  AU:
+  - status: registered
+    regime: AUSTRAC VASP registration
+    via: au_register
+    entity: GEMINI INTERGALACTIC AUSTRALIA, PTY LTD
+    abn: '30679765363'
+    since: null
 third_party_reviews:
 - source: App Store
   rating: 4.76
