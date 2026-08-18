@@ -6,6 +6,29 @@
 # link row under the body. Genuine internal linking, not just narration --
 # omit it when a change is site-wide (search, sort controls) and there's no
 # single honest page to point at, rather than force a link that doesn't fit.
+- date: "2026-08-18"
+  title: "Added Australia (AUSTRAC VASPR) — a fourteenth jurisdiction"
+  body: >
+    AUSTRAC published a genuinely public, searchable Virtual Asset Service Provider Register
+    (VASPR) in mid-2026, with a clean unauthenticated JSON API behind it -- no bot wall, unlike
+    Gibraltar, ADGM, New Zealand, or the BVI. Registration under the AML/CTF Act is
+    anti-money-laundering supervision only, not a business licence -- the same tier as
+    UK/Canada/US/Korea/New Zealand. Australia's actual first crypto-specific regime (ASIC AFSL
+    cover for "Digital Asset Platform" and "Tokenised Custody Platform", under legislation that
+    received Royal Assent in April 2026) is still phasing in through mid-to-late 2026 and isn't
+    tracked yet -- flagged directly on the Australia page, same discipline as the UK's own
+    pre-licensing-regime gap. 16 brands verified individually by ABN against the live register: 13
+    already tracked, plus three added as brands in their own right (CoinSpot, BTC Markets, Digital
+    Surge). Curation caught a real false-positive risk: Binance's AU entity, "InvestByBit Pty
+    Ltd", also matches a plain name search for "Bybit" by pure substring coincidence -- confirmed
+    it's genuinely Binance's Australian arm (formerly linked to TravelbyBit) before adding
+    anything, and left Bybit itself off the Australia page since it has no registration under its
+    own name. That same research surfaced a real, well-documented finding: AUSTRAC directed
+    Binance Australia to appoint an independent auditor in August 2025 over AML/CTF governance
+    concerns, now recorded as a caveat on that record.
+  pages:
+    - { url: /au/, label: Australia }
+    - { url: /exchange/binance/, label: "Example: Binance" }
 - date: "2026-08-17"
   title: "New: \"Is X the best crypto exchange for you?\" on every exchange page"
   body: >
