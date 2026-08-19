@@ -1,6 +1,7 @@
 id: coinjar
 brand: CoinJar
 eu_status: authorised
+risk_summary_url: https://www.coinjar.com/uk/risk-summary
 sources:
 - name: ESMA interim MiCA register (CASPS.csv)
   url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
