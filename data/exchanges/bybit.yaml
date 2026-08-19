@@ -202,9 +202,9 @@ countries:
 third_party_reviews:
 - source: App Store
   rating: 4.69
-  count: 46920
+  count: 46911
   url: https://apps.apple.com/us/app/bybit-buy-crypto-bitcoin/id1488296980?uo=4
-  retrieved: '2026-08-15'
+  retrieved: '2026-08-19'
 company_facts:
 - lei: 5299005V5GBSN2A4C303
   registered_office:
