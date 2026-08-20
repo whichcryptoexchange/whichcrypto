@@ -7,7 +7,7 @@ sources:
   retrieved: '2026-08-14'
 - name: Singapore MAS Financial Institutions Directory
   url: https://eservices.mas.gov.sg/fid/institution
-  retrieved: '2026-08-13'
+  retrieved: '2026-08-20'
 entities:
 - lei: 506700NPCDRP5LN89R92
   legal_name: Sygnum Europe AG
