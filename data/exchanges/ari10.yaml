@@ -4,14 +4,16 @@ eu_status: authorised
 sources:
 - name: ESMA interim MiCA register (CASPS.csv)
   url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
-  retrieved: '2026-08-14'
+  retrieved: '2026-08-20'
 entities:
 - lei: 724500YJVIN0Q94ZZG5
   legal_name: WEB3 Technology B.V
   commercial_name: Ari10
   home_state: NL
   regulator: Netherlands Authority for the Financial Markets (AFM)
-  website: https://ari10.com/en
+  website: 'https://ari10.com/en
+
+    https://ari10.com/en/encashify.eu'
   records:
   - authorised: '2026-02-12'
     withdrawn: null
@@ -52,7 +54,7 @@ entities:
     - SE
     - SI
     - SK
-    last_update: '2026-02-19'
+    last_update: '2026-07-17'
 countries:
   AT:
     status: licensed

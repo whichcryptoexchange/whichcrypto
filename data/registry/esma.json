@@ -1,7 +1,7 @@
 {
-  "generated": "2026-08-14",
+  "generated": "2026-08-20",
   "source": "https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv",
-  "brand_count": 318,
+  "brand_count": 319,
   "brands": [
     "21bitcoin",
     "acheron",
@@ -233,6 +233,7 @@
     "push",
     "qwarks",
     "raiffeisebank-auerbach-freihung-eg",
+    "raiffeisenbank-aidlingen-eg",
     "raiffeisenbank-falkenstein-w-rth",
     "raiffeisenbank-kreis-kelheim-eg",
     "ramp-network",

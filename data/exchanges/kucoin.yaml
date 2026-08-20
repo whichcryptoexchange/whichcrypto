@@ -4,7 +4,7 @@ eu_status: authorised
 sources:
 - name: ESMA interim MiCA register (CASPS.csv)
   url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
-  retrieved: '2026-08-14'
+  retrieved: '2026-08-20'
 - name: AUSTRAC VASP Register (VASPR)
   url: https://online.apps.austrac.gov.au/vaspr
   retrieved: '2026-08-18'
@@ -62,6 +62,13 @@ countries:
     regime: MiCA
     via: home_state
     entity: KuCoin EU Exchange GmbH
+  AU:
+  - status: registered
+    regime: AUSTRAC VASP registration
+    via: au_register
+    entity: AXIS ONE MARKETS PTY LTD
+    abn: '41660251141'
+    since: null
   BE:
     status: licensed
     regime: MiCA
@@ -202,13 +209,6 @@ countries:
     regime: MiCA
     via: mica_passporting
     entity: KuCoin EU Exchange GmbH
-  AU:
-  - status: registered
-    regime: AUSTRAC VASP registration
-    via: au_register
-    entity: AXIS ONE MARKETS PTY LTD
-    abn: '41660251141'
-    since: null
 company_facts:
 - lei: 529900B4G0EGK7Z9KT45
   registered_office:

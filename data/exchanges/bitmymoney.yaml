@@ -4,7 +4,7 @@ eu_status: authorised
 sources:
 - name: ESMA interim MiCA register (CASPS.csv)
   url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
-  retrieved: '2026-08-14'
+  retrieved: '2026-08-20'
 entities:
 - lei: 724500H1WRSMD7CAS549
   legal_name: Bitmymoney B.V

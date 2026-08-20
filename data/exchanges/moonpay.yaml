@@ -4,7 +4,7 @@ eu_status: authorised
 sources:
 - name: ESMA interim MiCA register (CASPS.csv)
   url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
-  retrieved: '2026-08-14'
+  retrieved: '2026-08-20'
 - name: UK FCA Register
   url: https://register.fca.org.uk/
   retrieved: '2026-08-11'
@@ -73,6 +73,13 @@ countries:
     regime: MiCA
     via: mica_passporting
     entity: MoonPay Europe B.V
+  AU:
+  - status: registered
+    regime: AUSTRAC VASP registration
+    via: au_register
+    entity: MOONPAY AUS PTY LTD
+    abn: '95669772285'
+    since: null
   BE:
     status: licensed
     regime: MiCA
@@ -250,13 +257,6 @@ countries:
     via: ny_dfs_register
     entity: MoonPay USA LLC
     since: 2025-06
-  AU:
-  - status: registered
-    regime: AUSTRAC VASP registration
-    via: au_register
-    entity: MOONPAY AUS PTY LTD
-    abn: '95669772285'
-    since: null
 company_facts:
 - lei: 254900KXWAZ3B1340G26
   registered_office:
