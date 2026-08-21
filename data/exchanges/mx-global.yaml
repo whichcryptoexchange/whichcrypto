@@ -4,7 +4,7 @@ eu_status: no_eu_entity
 sources:
 - name: Malaysia SC List of Registered Digital Asset Exchanges
   url: https://www.sc.com.my/regulation/guidelines/recognizedmarkets/list-of-registered-digital-asset-exchanges
-  retrieved: '2026-08-14'
+  retrieved: '2026-08-21'
 entities: []
 countries:
   MY:
