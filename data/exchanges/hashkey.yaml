@@ -10,7 +10,7 @@ sources:
   retrieved: '2026-08-21'
 - name: Japan FSA Registered Crypto-asset Exchange Service Providers List
   url: https://www.fsa.go.jp/en/regulated/licensed/index.html
-  retrieved: '2026-08-14'
+  retrieved: '2026-08-21'
 - name: Dubai VARA Public Register
   url: https://www.vara.ae/en/licenses-and-register/public-register/
   retrieved: '2026-08-13'
