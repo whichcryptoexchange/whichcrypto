@@ -4,7 +4,7 @@ eu_status: no_eu_entity
 sources:
 - name: Japan FSA Registered Crypto-asset Exchange Service Providers List
   url: https://www.fsa.go.jp/en/regulated/licensed/index.html
-  retrieved: '2026-08-14'
+  retrieved: '2026-08-21'
 entities: []
 countries:
   JP:
