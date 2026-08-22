@@ -15,6 +15,11 @@ countries:
     entity: Global Futures and Options Ltd
     frn: '945035'
     since: '2022-02-15'
+    caveat: Authorised to operate a Multilateral Trading Facility (MTF) trading cash-settled Bitcoin index
+      futures and options, restricted to Eligible Counterparty/Professional clients only -- no retail
+      access, and the firm cannot hold or control client money. This is GFO-X's entire UK regulatory basis
+      for operating the venue, not a separate, unrelated authorisation alongside a different crypto-specific
+      registration.
 scam_clones:
 - clone_name: gfo-xx.com
   regulator: UK FCA Register
