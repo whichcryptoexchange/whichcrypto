@@ -4,7 +4,7 @@ eu_status: authorised
 sources:
 - name: ESMA interim MiCA register (CASPS.csv)
   url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
-  retrieved: '2026-08-14'
+  retrieved: '2026-08-22'
 entities:
 - lei: 3912009ZGE8258OMPE28
   legal_name: Crypto Finance (Deutschland) GmbH
@@ -23,11 +23,13 @@ entities:
     - e
     - j
     passported_to:
+    - AT
     - BE
     - DE
     - ES
     - FR
     - GR
+    - HU
     - IT
     - LI
     - LU
@@ -35,8 +37,14 @@ entities:
     - NL
     - PL
     - PT
-    last_update: '2025-05-23'
+    - SK
+    last_update: '2026-06-19'
 countries:
+  AT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Crypto Finance (Deutschland) GmbH
   BE:
     status: licensed
     regime: MiCA
@@ -58,6 +66,11 @@ countries:
     via: mica_passporting
     entity: Crypto Finance (Deutschland) GmbH
   GR:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Crypto Finance (Deutschland) GmbH
+  HU:
     status: licensed
     regime: MiCA
     via: mica_passporting
@@ -93,6 +106,11 @@ countries:
     via: mica_passporting
     entity: Crypto Finance (Deutschland) GmbH
   PT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Crypto Finance (Deutschland) GmbH
+  SK:
     status: licensed
     regime: MiCA
     via: mica_passporting

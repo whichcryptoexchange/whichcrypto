@@ -4,7 +4,7 @@ eu_status: authorised
 sources:
 - name: ESMA interim MiCA register (CASPS.csv)
   url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
-  retrieved: '2026-08-14'
+  retrieved: '2026-08-22'
 entities:
 - lei: 529900MKYC1FZ83V3121
   legal_name: flatexDEGIRO Bank AG
@@ -37,7 +37,7 @@ entities:
     last_update: '2025-04-04'
 - lei: 529900P0204W9HA8JP36
   legal_name: 360 Treasury Systems AG
-  commercial_name: flatexDEGIRO Bank AG
+  commercial_name: 360 Treasury Systems AG
   home_state: DE
   regulator: Federal Financial Supervisory Authority (BaFin)
   website: www.360t.com

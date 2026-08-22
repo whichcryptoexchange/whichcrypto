@@ -4,7 +4,7 @@ eu_status: authorised
 sources:
 - name: ESMA interim MiCA register (CASPS.csv)
   url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
-  retrieved: '2026-08-14'
+  retrieved: '2026-08-22'
 entities:
 - lei: 984500C46B3B7B69Y904
   legal_name: CAPITAL VAULT LTD
@@ -204,6 +204,13 @@ countries:
     regime: MiCA
     via: mica_passporting
     entity: CAPITAL VAULT LTD
+news_mentions:
+- source: Cointelegraph
+  category: general
+  title: Capital.com plans UAE spot crypto services after affiliate wins licence
+  url: https://cointelegraph.com/news/capital-com-uae-spot-crypto-license?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound
+  published: '2026-08-21'
+  retrieved: '2026-08-22'
 company_facts:
 - lei: 984500C46B3B7B69Y904
   registered_office:
@@ -213,10 +220,3 @@ company_facts:
   registration_status: issued
   entity_creation_date: '2025-02-19'
   retrieved: '2026-08-12'
-news_mentions:
-- source: Cointelegraph
-  category: general
-  title: Capital.com plans UAE spot crypto services after affiliate wins licence
-  url: https://cointelegraph.com/news/capital-com-uae-spot-crypto-license?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound
-  published: '2026-08-21'
-  retrieved: '2026-08-22'
