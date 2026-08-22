@@ -323,6 +323,12 @@ third_party_reviews:
   url: https://apps.apple.com/us/app/kraken-buy-crypto-stocks/id1481947260?uo=4
   retrieved: '2026-08-19'
 news_mentions:
+- source: The Block
+  category: general
+  title: Kraken parent Payward explores becoming a ‘full bank’ outside the US
+  url: https://www.theblock.co/news/business/2026-08-20-kraken-parent-payward-explores-becoming-a-full-bank-outside-us-412390
+  published: '2026-08-20'
+  retrieved: '2026-08-22'
 - source: Cointelegraph
   category: general
   title: Kraken parent Payward revenue rises 17% as trading volume falls in Q2

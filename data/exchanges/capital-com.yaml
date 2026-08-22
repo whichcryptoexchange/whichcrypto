@@ -213,3 +213,10 @@ company_facts:
   registration_status: issued
   entity_creation_date: '2025-02-19'
   retrieved: '2026-08-12'
+news_mentions:
+- source: Cointelegraph
+  category: general
+  title: Capital.com plans UAE spot crypto services after affiliate wins licence
+  url: https://cointelegraph.com/news/capital-com-uae-spot-crypto-license?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound
+  published: '2026-08-21'
+  retrieved: '2026-08-22'
