@@ -6,6 +6,28 @@
 # link row under the body. Genuine internal linking, not just narration --
 # omit it when a change is site-wide (search, sort controls) and there's no
 # single honest page to point at, rather than force a link that doesn't fit.
+- date: "2026-08-22"
+  title: "Fixed three silent data-loss bugs in the sync pipeline, caught during routine PR review"
+  body: >
+    Every open sync PR gets read line-by-line before merging, not just skimmed for file count --
+    that review caught three real bugs this round, all the same shape: a regeneration script
+    rebuilding a brand's file from a fixed set of known fields, with no way to know about
+    something added by hand or by a newer script. GFO-X's hand-written caveat (explaining its FCA
+    authorisation is its entire UK regulatory basis) would have been silently deleted by the FCA
+    sync; CoinJar's risk_summary_url (added four days ago) would have been silently deleted by
+    the ESMA sync; and most seriously, NYDFS quietly renamed Circle's trust-charter entity from
+    "Circle Internet Trust Company, LLC" to "Circle Internet Trust Company, LLC. d/b/a Circle New
+    York Trust" -- confirmed directly against the live register that the licence is still fully
+    active, but the exact-string match in our own sync silently dropped the entry, which would
+    have shown Circle as no longer holding a trust charter it actually still holds. All three are
+    fixed at the source (the sync scripts now preserve what they don't own), not just patched in
+    the data -- and the NY DFS sync now surfaces a dropped or renamed entity directly in its PR
+    body instead of only in a log file nobody reads. Also fixed: AUSTRAC syncs were never wired
+    into the auto-merge system that handles routine date-bump PRs automatically, so every
+    Australia sync since launch sat waiting on a manual merge for no reason.
+  pages:
+    - { url: /exchange/gfo-x/, label: "Example: GFO-X" }
+    - { url: /exchange/circle/, label: "Example: Circle" }
 - date: "2026-08-18"
   title: "Added Australia (AUSTRAC VASPR) — a fourteenth jurisdiction"
   body: >
