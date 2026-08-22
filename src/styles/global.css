@@ -317,6 +317,7 @@ h3:first-child { margin-top: 0; }
   border: 1px solid var(--warned); border-radius: 4px;
   padding: 10px 14px; margin: 0 0 24px; max-width: 480px; line-height: 1.5;
 }
+.risk-warning-link { color: inherit; text-decoration: underline; }
 
 /* Scam-clone warning: a scammer impersonating a genuine, tracked firm --
    sourced only from that firm's own regulator page. Deliberately the

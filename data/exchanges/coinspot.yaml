@@ -1,0 +1,17 @@
+id: coinspot
+brand: CoinSpot
+eu_status: no_eu_entity
+website: https://www.coinspot.com.au/
+sources:
+- name: AUSTRAC VASP Register (VASPR)
+  url: https://online.apps.austrac.gov.au/vaspr
+  retrieved: '2026-08-18'
+entities: []
+countries:
+  AU:
+  - status: registered
+    regime: AUSTRAC VASP registration
+    via: au_register
+    entity: CASEY BLOCK SERVICES PTY LTD
+    abn: '19619574186'
+    since: null

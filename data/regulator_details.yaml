@@ -211,3 +211,16 @@
   note: The FSC's register page (bvifsc.vg/regulated-entities-vasp) returns a hard 403 to scripted requests even with a realistic browser User-Agent and referer -- confirmed directly. This list is manually verified against the live paginated register rather than synced on a schedule, same discipline as Gibraltar and ADGM. Excludes "Authorised Representatives - VASP" entries, which are local registered-agent firms required by law for any VASP operating from the BVI, not VASPs themselves.
   source_url: https://www.bvifsc.vg/regulated-entities-vasp
   verified: '2026-08-10'
+- code: AU
+  name: Australian Transaction Reports and Analysis Centre (AUSTRAC)
+  tier: gb-registered
+  tier_label: AML-only registration
+  scope: Federal registration only -- covers AUSTRAC's AML/CTF supervision. Does not cover ASIC's Australian Financial Services Licence (AFSL), which was extended to crypto exchanges, custodians, and brokers by the Corporations Amendment (Digital Assets Framework) Act 2026 (Royal Assent 8 Apr 2026) under two new categories, Digital Asset Platform and Tokenised Custody Platform -- that regime is still phasing in and not yet tracked here.
+  capital: "No minimum capital requirement -- this is an AML/CFT reporting regime, not a business licence"
+  checks:
+    - Registration with AUSTRAC as a virtual asset service provider before offering any designated virtual asset service (exchange, safekeeping, transfer, or facilitating the offer/sale of a virtual asset)
+    - A written AML/CTF programme, ongoing customer due diligence, and suspicious-matter reporting
+    - AUSTRAC can suspend, cancel, or refuse to renew a registration -- or refuse an application outright -- if it identifies an unacceptable money-laundering, terrorism-financing, or serious-crime risk
+  note: AUSTRAC published a genuinely public, searchable register (VASPR) in mid-2026, with a clean unauthenticated JSON search API behind it -- no bot wall, unlike Gibraltar/ADGM/NZ/BVI. Matched by ABN, not name, since AUSTRAC's own legal names routinely have nothing to do with the consumer brand.
+  source_url: https://online.apps.austrac.gov.au/vaspr
+  verified: '2026-08-18'

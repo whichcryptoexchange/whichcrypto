@@ -1,0 +1,50 @@
+# Pinned AUSTRAC Virtual Asset Service Provider Register (VASPR) legal
+# entities -> brand_id, matched by ABN -- the stable identifier, since
+# legal names on this register often differ sharply from the brand id
+# (Kraken's AU entity is "Bit Trade Pty Limited"; Binance's is "InvestByBit
+# Pty Ltd"). Verify each ABN on the live register
+# (https://online.apps.austrac.gov.au/vaspr) before adding -- no guesses.
+#
+# scripts/au_sync.py fetches live status/details per ABN via VASPR's own
+# public JSON search API at sync time -- this file only pins identity, same
+# curation pattern as fca_frn_map.yaml pins FRNs.
+#
+# Binance's AU entity, InvestByBit Pty Ltd, also matched a name search for
+# "Bybit" -- pure substring coincidence (Invest-BY-BIT), not a real Bybit
+# registration. Confirmed via CoinDesk/AUSTRAC coverage that InvestByBit is
+# genuinely Binance's Australian arm (formerly linked to TravelbyBit, which
+# Binance partnered with/absorbed to launch Binance Australia in 2020) --
+# Bybit itself has no AU registration found under its own name and is
+# deliberately not listed here.
+binance:
+  - abn: "98621652579"   # InvestByBit Pty Ltd, t/a Binance Australia
+btc-markets:
+  - abn: "45164093887"   # BTC Markets Pty Ltd
+coinbase:
+  - abn: "89654922442"   # Coinbase Australia Pty Ltd
+coinjar:
+  - abn: "75648570807"   # CoinJar Australia Pty Ltd
+coinspot:
+  - abn: "19619574186"   # Casey Block Services Pty Ltd, t/a CoinSpot
+crypto-com:
+  - abn: "76640692735"   # Foris DAX AU Pty Ltd
+digital-surge:
+  - abn: "89620473109"   # Digital Surge Pty Ltd
+etoro:
+  - abn: "66612791803"   # eToro AUS Capital Limited
+gemini:
+  - abn: "30679765363"   # Gemini Intergalactic Australia, Pty Ltd
+independent-reserve:
+  - abn: "46164257069"   # Independent Reserve Pty Ltd
+kraken:
+  - abn: "42163237634"   # Bit Trade Pty Limited
+kucoin:
+  - abn: "41660251141"   # Axis One Markets Pty Ltd, t/a KuCoin AU
+moonpay:
+  - abn: "95669772285"   # MoonPay Aus Pty Ltd
+okx:
+  - abn: "22636269040"   # OKX Australia Pty Ltd
+revolut:
+  - abn: "21634823180"   # Revolut Payments Australia Pty Ltd
+swyftx:
+  - abn: "72623556730"   # Swyftx Pty Ltd

@@ -8,6 +8,9 @@ sources:
 - name: Dubai VARA Public Register
   url: https://www.vara.ae/en/licenses-and-register/public-register/
   retrieved: '2026-08-13'
+- name: AUSTRAC VASP Register (VASPR)
+  url: https://online.apps.austrac.gov.au/vaspr
+  retrieved: '2026-08-18'
 entities: []
 countries:
   JP:
@@ -26,12 +29,23 @@ countries:
     licensed_activities: Broker-Dealer Services Management and Investment Services Lending and Borrowing
       Services Exchange Services (including VA Derivatives Trading)
     since: '2024-04-15'
+  AU:
+  - status: registered
+    regime: AUSTRAC VASP registration
+    via: au_register
+    entity: INVESTBYBIT PTY LTD
+    abn: '98621652579'
+    since: null
+    caveat: InvestByBit Pty Ltd trades as "Binance Australia" -- it is genuinely Binance's Australian
+      arm, formerly linked to TravelbyBit, which Binance partnered with/absorbed to launch Binance Australia
+      in 2020, not an unrelated business. In August 2025 AUSTRAC directed it to appoint an independent
+      auditor over AML/CTF governance concerns (high staff turnover, inadequate local oversight).
 third_party_reviews:
 - source: App Store
   rating: 4.65
-  count: 118549
+  count: 118666
   url: https://apps.apple.com/gb/app/binance-buy-bitcoin-crypto/id1436799971?uo=4
-  retrieved: '2026-08-15'
+  retrieved: '2026-08-19'
 news_mentions:
 - source: Cointelegraph
   category: regulatory

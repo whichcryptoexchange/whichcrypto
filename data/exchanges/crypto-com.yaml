@@ -10,7 +10,7 @@ sources:
   retrieved: '2026-08-18'
 - name: Canada FINTRAC MSB Registry
   url: https://fintrac-canafe.canada.ca/msb-esm/reg-eng
-  retrieved: '2026-08-12'
+  retrieved: '2026-08-19'
 - name: Dubai VARA Public Register
   url: https://www.vara.ae/en/licenses-and-register/public-register/
   retrieved: '2026-08-13'
@@ -20,6 +20,9 @@ sources:
 - name: Korea FIU VASP Registration Disclosure
   url: https://www.kofiu.go.kr/kor/notification/notice.do
   retrieved: '2026-08-14'
+- name: AUSTRAC VASP Register (VASPR)
+  url: https://online.apps.austrac.gov.au/vaspr
+  retrieved: '2026-08-18'
 entities:
 - lei: 2549005CVR5HH70FDO07
   legal_name: Foris DAX MT Limited
@@ -264,12 +267,19 @@ countries:
     regime: MiCA
     via: mica_passporting
     entity: Foris DAX MT Limited
+  AU:
+  - status: registered
+    regime: AUSTRAC VASP registration
+    via: au_register
+    entity: FORIS DAX AU PTY LTD
+    abn: '76640692735'
+    since: null
 third_party_reviews:
 - source: App Store
   rating: 4.66
-  count: 332507
+  count: 332619
   url: https://apps.apple.com/us/app/crypto-com-trade-every-market/id1262148500?uo=4
-  retrieved: '2026-08-15'
+  retrieved: '2026-08-19'
 company_facts:
 - lei: 2549005CVR5HH70FDO07
   registered_office:

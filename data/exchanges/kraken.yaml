@@ -10,7 +10,7 @@ sources:
   retrieved: '2026-08-18'
 - name: Canada FINTRAC MSB Registry
   url: https://fintrac-canafe.canada.ca/msb-esm/reg-eng
-  retrieved: '2026-08-12'
+  retrieved: '2026-08-19'
 - name: US FinCEN MSB Registrant Search
   url: https://msb.fincen.gov/
   retrieved: '2026-07-27'
@@ -20,6 +20,9 @@ sources:
 - name: BVI FSC VASP Register
   url: https://www.bvifsc.vg/regulated-entities-vasp
   retrieved: '2026-08-10'
+- name: AUSTRAC VASP Register (VASPR)
+  url: https://online.apps.austrac.gov.au/vaspr
+  retrieved: '2026-08-18'
 entities:
 - lei: 9845003D98SCC2851458
   legal_name: Payward Global Solutions Limited
@@ -306,12 +309,19 @@ countries:
       assets and fiat currency; safekeeping and/or administration of virtual assets; transfer of virtual
       assets
     since: null
+  AU:
+  - status: registered
+    regime: AUSTRAC VASP registration
+    via: au_register
+    entity: BIT TRADE PTY LIMITED
+    abn: '42163237634'
+    since: null
 third_party_reviews:
 - source: App Store
   rating: 4.74
-  count: 33746
+  count: 33853
   url: https://apps.apple.com/us/app/kraken-buy-crypto-stocks/id1481947260?uo=4
-  retrieved: '2026-08-15'
+  retrieved: '2026-08-19'
 news_mentions:
 - source: Cointelegraph
   category: general

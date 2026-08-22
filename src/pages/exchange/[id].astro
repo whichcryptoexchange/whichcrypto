@@ -194,7 +194,8 @@ const PAGE_DESC = `${ex.brand}: official licence records, legal entities, regula
         has no affiliate deal set, the script below falls back to a plain,
         unstyled link to the same effect as before, so a brand is never
         left with no way to reach its own site. */}
-    <div id="affiliate-cta" data-exchange={ex.id} data-brand={ex.brand} data-website={website ?? ''}></div>
+    <div id="affiliate-cta" data-exchange={ex.id} data-brand={ex.brand} data-website={website ?? ''}
+         data-risk-summary={ex.risk_summary_url ?? ''}></div>
 
     {(ex.scam_clones ?? []).length > 0 && (
       <div class="scam-clone-warning" role="alert">
@@ -595,6 +596,11 @@ const PAGE_DESC = `${ex.brand}: official licence records, legal entities, regula
     // regardless of which exchange it links to or where the visitor is --
     // simpler and safer than trying to geo-target it at UK visitors only,
     // and the warning is true regardless of the reader's country anyway.
+    // "Take 2 mins to learn more" links to the brand's OWN published risk
+    // summary when we've verified one (data/exchanges/<id>.yaml's
+    // risk_summary_url -- most UK-promoting firms are required to publish
+    // one under COBS 4.12A, and it's brand-specific, not something we can
+    // guess or default) -- plain text otherwise, never a fabricated link.
     //
     // When this brand has no affiliate deal set (most of them -- /admin/links
     // is opt-in, not comprehensive), fall back to a plain, unstyled link to
@@ -618,9 +624,20 @@ const PAGE_DESC = `${ex.brand}: official licence records, legal entities, regula
           note.textContent = 'Affiliate link — we may earn a commission at no extra cost to you.';
           const risk = document.createElement('p');
           risk.className = 'risk-warning';
-          risk.textContent = "Don't invest unless you're prepared to lose all the money you "
-            + 'invest. This is a high-risk investment and you should not expect to be protected '
-            + 'if something goes wrong. Take 2 mins to learn more.';
+          risk.append("Don't invest unless you're prepared to lose all the money you invest. "
+            + 'This is a high-risk investment and you should not expect to be protected if '
+            + 'something goes wrong. ');
+          if (box.dataset.riskSummary) {
+            const learnMore = document.createElement('a');
+            learnMore.href = box.dataset.riskSummary;
+            learnMore.target = '_blank';
+            learnMore.rel = 'nofollow noopener';
+            learnMore.className = 'risk-warning-link';
+            learnMore.textContent = 'Take 2 mins to learn more.';
+            risk.append(learnMore);
+          } else {
+            risk.append('Take 2 mins to learn more.');
+          }
           box.append(a, note, risk);
         })
         .catch(() => {

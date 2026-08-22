@@ -10,13 +10,16 @@ sources:
   retrieved: '2026-08-18'
 - name: Canada FINTRAC MSB Registry
   url: https://fintrac-canafe.canada.ca/msb-esm/reg-eng
-  retrieved: '2026-08-12'
+  retrieved: '2026-08-19'
 - name: US FinCEN MSB Registrant Search
   url: https://msb.fincen.gov/
   retrieved: '2026-07-27'
 - name: NY DFS List of Licensed Virtual Currency Entities
   url: https://www.dfs.ny.gov/virtual_currency_businesses
   retrieved: '2026-08-14'
+- name: AUSTRAC VASP Register (VASPR)
+  url: https://online.apps.austrac.gov.au/vaspr
+  retrieved: '2026-08-18'
 entities:
 - lei: 2138002QAMX8PPKSO715
   legal_name: Gemini Intergalactic EU Ltd
@@ -251,12 +254,19 @@ countries:
     via: ny_dfs_register
     entity: Gemini Trust Company, LLC
     since: 2015-10
+  AU:
+  - status: registered
+    regime: AUSTRAC VASP registration
+    via: au_register
+    entity: GEMINI INTERGALACTIC AUSTRALIA, PTY LTD
+    abn: '30679765363'
+    since: null
 third_party_reviews:
 - source: App Store
   rating: 4.76
-  count: 109557
+  count: 109573
   url: https://apps.apple.com/us/app/gemini-markets-credit-card/id1408914447?uo=4
-  retrieved: '2026-08-15'
+  retrieved: '2026-08-19'
 news_mentions:
 - source: Cointelegraph
   category: general

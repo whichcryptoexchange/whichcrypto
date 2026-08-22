@@ -28,6 +28,7 @@ const NON_EEA_SOURCES = [
   { cc: 'KR', regulator: 'Korea Financial Intelligence Unit (FIU)', regime: 'VASP registration', tier: 'AML-only', sourceName: 'Korea FIU VASP Registration Disclosure', url: 'https://www.kofiu.go.kr/kor/notification/notice.do' },
   { cc: 'NZ', regulator: 'New Zealand Department of Internal Affairs (DIA)', regime: 'FSPR registration', tier: 'AML-only (manually verified)', sourceName: 'New Zealand FSPR', url: 'https://fsp-app.companiesoffice.govt.nz/orp-master/service/create.html?targetAppCode=orp-master&service=registerItemSearch' },
   { cc: 'VG', regulator: 'BVI Financial Services Commission (FSC)', regime: 'VASP registration', tier: 'Genuine licence (manually verified)', sourceName: 'BVI FSC VASP Register', url: 'https://www.bvifsc.vg/regulated-entities-vasp' },
+  { cc: 'AU', regulator: 'AUSTRAC', regime: 'VASP registration', tier: 'AML-only', sourceName: 'AUSTRAC VASP Register (VASPR)', url: 'https://online.apps.austrac.gov.au/vaspr' },
 ].map((s) => ({
   ...s,
   // AE now also carries ADGM entries -- this row is specifically about

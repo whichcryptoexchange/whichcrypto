@@ -17,6 +17,9 @@ sources:
 - name: NY DFS List of Licensed Virtual Currency Entities
   url: https://www.dfs.ny.gov/virtual_currency_businesses
   retrieved: '2026-08-14'
+- name: AUSTRAC VASP Register (VASPR)
+  url: https://online.apps.austrac.gov.au/vaspr
+  retrieved: '2026-08-18'
 entities:
 - lei: 213800GIFQMSV7HROS23
   legal_name: eToro (Europe) Ltd
@@ -250,12 +253,19 @@ countries:
     via: ny_dfs_register
     entity: eToro NY LLC
     since: 2023-02
+  AU:
+  - status: registered
+    regime: AUSTRAC VASP registration
+    via: au_register
+    entity: ETORO AUS CAPITAL LIMITED
+    abn: '66612791803'
+    since: null
 third_party_reviews:
 - source: App Store
   rating: 4.39
-  count: 9828
+  count: 9836
   url: https://apps.apple.com/us/app/etoro-trade-invest/id674984916?uo=4
-  retrieved: '2026-08-15'
+  retrieved: '2026-08-19'
 company_facts:
 - lei: 213800GIFQMSV7HROS23
   registered_office:
