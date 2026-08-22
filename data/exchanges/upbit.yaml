@@ -39,3 +39,10 @@ notable_incidents:
   - name: CryptoGlobe
     url: https://www.cryptoglobe.com/latest/2019/12/upbit-s-hackers-start-spreading-out-the-stolen-ethereum/
   retrieved: '2026-08-13'
+news_mentions:
+- source: The Block
+  category: general
+  title: Upbit trading volume spikes 273% as South Korean investors re-enter crypto
+  url: https://www.theblock.co/news/markets/2026-08-21-upbit-trading-volume-spikes-412435
+  published: '2026-08-21'
+  retrieved: '2026-08-22'

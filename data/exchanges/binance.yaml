@@ -48,6 +48,18 @@ third_party_reviews:
   retrieved: '2026-08-19'
 news_mentions:
 - source: Cointelegraph
+  category: general
+  title: Binance says employees questioned in UAE cleared and released
+  url: https://cointelegraph.com/news/binance-employees-questioned-uae-released?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound
+  published: '2026-08-21'
+  retrieved: '2026-08-22'
+- source: Cointelegraph
+  category: general
+  title: Binance opens crypto trading to AI agents with user-set controls
+  url: https://cointelegraph.com/news/binance-opens-crypto-trading-to-ai-agents-with-user-set-controls?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound
+  published: '2026-08-20'
+  retrieved: '2026-08-22'
+- source: Cointelegraph
   category: regulatory
   title: 'Binance to plan UK relaunch with FCA license application: Report'
   url: https://cointelegraph.com/news/binance-uk-launch-plans-fca-license?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound
@@ -83,18 +95,6 @@ news_mentions:
   url: https://cointelegraph.com/markets/bitcoin-liquidation-cleanout-open-interest-falls-btc?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound
   published: '2026-08-14'
   retrieved: '2026-08-15'
-- source: The Block
-  category: regulatory
-  title: Binance to block transactions with HTX, 10 other exchanges under EU Russia sanctions
-  url: https://www.theblock.co/news/regulation/2026-08-14-binance-block-transactions-htx-10-other-exchanges-eu-russia-sanctions-411858
-  published: '2026-08-14'
-  retrieved: '2026-08-15'
-- source: Cointelegraph
-  category: general
-  title: Binance bStocks pass xStocks as second-largest tokenized stock issuer
-  url: https://cointelegraph.com/news/binance-bstocks-second-largest-tokenized-stock-issuer?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound
-  published: '2026-08-13'
-  retrieved: '2026-08-14'
 notable_incidents:
 - type: settlement
   date: '2023-11-21'

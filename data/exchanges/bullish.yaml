@@ -265,6 +265,13 @@ countries:
     entity: Bullish US Operations LLC
     since: 2025-09
 news_mentions:
+- source: The Block
+  category: general
+  title: 'Inside the Oval Office meeting: Trump appears ‘bullish’ on Clarity Act as he solicits feedback
+    from crypto, finance CEOs'
+  url: https://www.theblock.co/news/regulation/2026-08-20-inside-oval-office-meeting-trump-bullish-clarity-act-solicits-feedback-crypto-finance-ceos-412340
+  published: '2026-08-20'
+  retrieved: '2026-08-22'
 - source: Cointelegraph
   category: general
   title: Bullish shares jump 10% as Q2 adjusted EBITDA more than triples

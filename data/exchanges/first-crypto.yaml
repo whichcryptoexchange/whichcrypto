@@ -15,3 +15,10 @@ countries:
     reference: VL/26/04/004
     licensed_activities: Broker-Dealer Services
     since: '2026-04-26'
+news_mentions:
+- source: Cointelegraph
+  category: general
+  title: Laser Digital gets Japan’s first crypto exchange approval in 4 years
+  url: https://cointelegraph.com/news/nomuras-laser-digital-japans-first-crypto-exchange-4-years?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound
+  published: '2026-08-21'
+  retrieved: '2026-08-22'
