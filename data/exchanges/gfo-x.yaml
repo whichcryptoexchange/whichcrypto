@@ -5,7 +5,7 @@ website: https://www.gfo-x.com/
 sources:
 - name: UK FCA Register
   url: https://register.fca.org.uk/
-  retrieved: '2026-08-15'
+  retrieved: '2026-08-18'
 entities: []
 countries:
   GB:

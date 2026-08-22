@@ -7,7 +7,7 @@ sources:
   retrieved: '2026-08-14'
 - name: UK FCA Register
   url: https://register.fca.org.uk/
-  retrieved: '2026-08-11'
+  retrieved: '2026-08-18'
 entities:
 - lei: 213800QBQVHWRBHJTA89
   legal_name: Paysafe Payment Solutions Limited

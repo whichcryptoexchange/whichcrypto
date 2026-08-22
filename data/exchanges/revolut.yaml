@@ -7,7 +7,7 @@ sources:
   retrieved: '2026-08-14'
 - name: UK FCA Register
   url: https://register.fca.org.uk/
-  retrieved: '2026-08-11'
+  retrieved: '2026-08-18'
 - name: AUSTRAC VASP Register (VASPR)
   url: https://online.apps.austrac.gov.au/vaspr
   retrieved: '2026-08-18'
