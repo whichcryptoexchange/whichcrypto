@@ -49,6 +49,7 @@ API = "https://api.github.com"
 DATE_BUMP_BRANCHES = {
     "esma-sync", "fca-sync", "vara-sync", "fintrac-sync", "fincen-sync",
     "mas-sync", "sfc-sync", "jp-sync", "my-sync", "kr-sync", "ny-sync",
+    "au-sync",
 }
 REVIEWS_BRANCHES = {"appstore-sync", "trustpilot-sync"}
 

@@ -87,7 +87,7 @@ def to_gb_entry(detail, frn):
               file=sys.stderr)
         return None
     since = parse_date(detail.get("MLRs Status Effective Date")) or parse_date(detail.get("Status Effective Date"))
-    return {
+    entry = {
         "status": status,
         "regime": regime,
         "via": "uk_register",
@@ -95,6 +95,7 @@ def to_gb_entry(detail, frn):
         "frn": frn,
         "since": since,
     }
+    return entry
 
 
 def main():
@@ -117,6 +118,18 @@ def main():
                   file=sys.stderr)
             continue
 
+        # A hand-added caveat (e.g. GFO-X's note that its FCA authorisation
+        # is its entire UK regulatory basis, not a footnote alongside a
+        # separate crypto-specific registration) would otherwise be wiped
+        # every run, since this script fully replaces countries.GB each
+        # time -- carry it forward by FRN rather than losing it silently.
+        existing_doc_peek = yaml.safe_load(path.read_text()) or {}
+        caveats_by_frn = {
+            e.get("frn"): e["caveat"]
+            for e in (existing_doc_peek.get("countries", {}).get("GB") or [])
+            if e.get("caveat")
+        }
+
         entries = []
         for item in frns:
             frn = str(item["frn"])
@@ -130,6 +143,8 @@ def main():
                 continue
             entry = to_gb_entry(detail, frn)
             if entry:
+                if frn in caveats_by_frn:
+                    entry["caveat"] = caveats_by_frn[frn]
                 entries.append(entry)
             time.sleep(0.2)
 

@@ -111,6 +111,17 @@ def main():
     for item in reg_map:
         by_brand.setdefault(item["brand_id"], []).append(item)
 
+    # Surfaced in the PR body so a dropped entity is visible without opening
+    # the Action run's logs. A real, live example of exactly why this
+    # matters: NYDFS quietly changed Circle's trust-charter display name
+    # from "Circle Internet Trust Company, LLC" to "Circle Internet Trust
+    # Company, LLC. d/b/a Circle New York Trust" (an added period AND a
+    # d/b/a suffix) -- the entity never left the register, but the exact-
+    # string match against ny_reg_map.yaml silently failed and the entry
+    # was dropped from the brand's file with only a stderr warning, easy to
+    # miss in a routine date-bump-looking PR.
+    notable = []
+
     for brand_id, items in sorted(by_brand.items()):
         path = exch_dir / f"{brand_id}.yaml"
         if not path.exists():
@@ -125,11 +136,20 @@ def main():
             if live_type is None:
                 print(f"  WARNING: {entity} for {brand_id} not found in the current NYDFS licensee "
                       f"table — may have surrendered its licence", file=sys.stderr)
+                notable.append(
+                    f"**{brand_id}**: `{entity}` no longer found on the live NYDFS licensee table — "
+                    f"either it genuinely surrendered its licence, or NYDFS changed its display name "
+                    f"(check for a close-but-not-exact match on the live page before assuming the former)."
+                )
                 continue
             if live_type != item["licence_type"]:
                 print(f"  WARNING: {entity} for {brand_id} now shows licence_type={live_type!r} on the "
                       f"live page, but ny_reg_map.yaml says {item['licence_type']!r} — update the map",
                       file=sys.stderr)
+                notable.append(
+                    f"**{brand_id}**: `{entity}` now shows licence_type `{live_type}` on the live page, "
+                    f"but ny_reg_map.yaml says `{item['licence_type']}` — update the map."
+                )
             entry = {
                 "status": "licensed",
                 "regime": REGIME_LABELS[item["licence_type"]],
@@ -168,6 +188,41 @@ def main():
         print(f"  {brand_id}: wrote {len(entries)} NY entr{'y' if len(entries) == 1 else 'ies'}")
 
     print("Done.")
+    write_pr_body(notable)
+
+
+# Read by .github/workflows/ny-sync.yml as the PR body (body-path).
+def write_pr_body(notable):
+    if notable:
+        header = f"## 🔴 {len(notable)} notable change{'s' if len(notable) != 1 else ''} -- check before merging\n\n" + \
+            "\n".join(f"- {line}" for line in notable) + "\n\n---\n\n"
+    else:
+        header = "No notable changes this run — routine `retrieved` date refresh only.\n\n---\n\n"
+    body = header + (
+        "Automated refresh of data/ny_reg_map.yaml's pinned legal entity\n"
+        "names against NYDFS's live \"List of Licensed Virtual Currency\n"
+        "Entities\" table. This does NOT discover new brands -- only\n"
+        "re-confirms entities already curated in ny_reg_map.yaml still\n"
+        "hold their licence/charter, and catches a licence_type drift\n"
+        "(BitLicense vs money transmitter vs trust charter) between the\n"
+        "map and the live page. Review for:\n"
+        "  - a pinned entity no longer found on the current list (may\n"
+        "    have surrendered its licence -- confirm before merging, but\n"
+        "    ALSO check whether NYDFS just changed its display name --\n"
+        "    matching is by exact legal-entity-name string, so a single\n"
+        "    added word or punctuation mark is enough to silently drop a\n"
+        "    still-active entry)\n"
+        "  - a licence_type mismatch warning (the live page changed what\n"
+        "    it says a brand holds)\n"
+        "A NY DFS virtual currency licence or limited purpose trust\n"
+        "charter is a genuine, state-chartered regime -- distinct from\n"
+        "(and never a substitute for) the federal FinCEN MSB\n"
+        "registration synced separately by fincen_sync.py under the\n"
+        "same countries.US key. Both scripts only ever touch their own\n"
+        "slice of that array (matched by the \"via\" field); do not merge\n"
+        "a change here that clobbers the other's entries.\n"
+    )
+    (ROOT / ".pr-body.md").write_text(body)
 
 
 if __name__ == "__main__":
