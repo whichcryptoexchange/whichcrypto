@@ -1,0 +1,29 @@
+id: ihre-volksbank-eg-neckar-odenwald-main-tauber
+brand: Ihre Volksbank eG Neckar Odenwald Main Tauber
+eu_status: authorised
+sources:
+- name: ESMA interim MiCA register (CASPS.csv)
+  url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
+  retrieved: '2026-08-22'
+entities:
+- lei: 529900XUBIXXFHP44185
+  legal_name: Ihre Volksbank eG Neckar Odenwald Main Tauber
+  commercial_name: Ihre Volksbank eG Neckar Odenwald Main Tauber
+  home_state: DE
+  regulator: Federal Financial Supervisory Authority (BaFin)
+  website: www.ihre-vb.de
+  records:
+  - authorised: '2026-08-18'
+    withdrawn: null
+    status: authorised
+    services:
+    - e
+    passported_to:
+    - DE
+    last_update: '2026-08-18'
+countries:
+  DE:
+    status: licensed
+    regime: MiCA
+    via: home_state
+    entity: Ihre Volksbank eG Neckar Odenwald Main Tauber

@@ -4,7 +4,7 @@ eu_status: authorised
 sources:
 - name: ESMA interim MiCA register (CASPS.csv)
   url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
-  retrieved: '2026-08-14'
+  retrieved: '2026-08-22'
 - name: Singapore MAS Financial Institutions Directory
   url: https://eservices.mas.gov.sg/fid/institution
   retrieved: '2026-08-20'
@@ -84,6 +84,13 @@ countries:
     regime: MiCA
     via: mica_passporting
     entity: OKX Europe Limited
+  AU:
+  - status: registered
+    regime: AUSTRAC VASP registration
+    via: au_register
+    entity: OKX AUSTRALIA PTY LTD
+    abn: '22636269040'
+    since: null
   BE:
     status: licensed
     regime: MiCA
@@ -243,13 +250,6 @@ countries:
     entity: OKX INC.
     reg_number: '29459694'
     since: '2025-11-03'
-  AU:
-  - status: registered
-    regime: AUSTRAC VASP registration
-    via: au_register
-    entity: OKX AUSTRALIA PTY LTD
-    abn: '22636269040'
-    since: null
 third_party_reviews:
 - source: App Store
   rating: 4.59

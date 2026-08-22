@@ -4,7 +4,7 @@ eu_status: authorised
 sources:
 - name: ESMA interim MiCA register (CASPS.csv)
   url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
-  retrieved: '2026-08-14'
+  retrieved: '2026-08-22'
 - name: UK FCA Register
   url: https://register.fca.org.uk/
   retrieved: '2026-08-18'
@@ -83,6 +83,13 @@ countries:
     regime: MiCA
     via: mica_passporting
     entity: Coinbase Luxembourg S.A
+  AU:
+  - status: registered
+    regime: AUSTRAC VASP registration
+    via: au_register
+    entity: COINBASE AUSTRALIA PTY LTD
+    abn: '89654922442'
+    since: null
   BE:
     status: licensed
     regime: MiCA
@@ -281,13 +288,6 @@ countries:
     via: ny_dfs_register
     entity: Coinbase, Inc.
     since: 2017-01
-  AU:
-  - status: registered
-    regime: AUSTRAC VASP registration
-    via: au_register
-    entity: COINBASE AUSTRALIA PTY LTD
-    abn: '89654922442'
-    since: null
 third_party_reviews:
 - source: App Store
   rating: 4.68

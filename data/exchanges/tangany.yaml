@@ -4,7 +4,7 @@ eu_status: authorised
 sources:
 - name: ESMA interim MiCA register (CASPS.csv)
   url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
-  retrieved: '2026-08-14'
+  retrieved: '2026-08-22'
 entities:
 - lei: 529900WKXS5ZPJY9W498
   legal_name: Tangany GmbH
@@ -35,19 +35,22 @@ entities:
     - HR
     - HU
     - IE
+    - IS
     - IT
+    - LI
     - LT
     - LU
     - LV
     - MT
     - NL
+    - 'NO'
     - PL
     - PT
     - RO
     - SE
     - SI
     - SK
-    last_update: '2025-08-08'
+    last_update: '2026-06-22'
 countries:
   AT:
     status: licensed
@@ -124,7 +127,17 @@ countries:
     regime: MiCA
     via: mica_passporting
     entity: Tangany GmbH
+  IS:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Tangany GmbH
   IT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Tangany GmbH
+  LI:
     status: licensed
     regime: MiCA
     via: mica_passporting
@@ -150,6 +163,11 @@ countries:
     via: mica_passporting
     entity: Tangany GmbH
   NL:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Tangany GmbH
+  'NO':
     status: licensed
     regime: MiCA
     via: mica_passporting
