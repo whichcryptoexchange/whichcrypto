@@ -13,7 +13,7 @@ sources:
   retrieved: '2026-08-21'
 - name: Dubai VARA Public Register
   url: https://www.vara.ae/en/licenses-and-register/public-register/
-  retrieved: '2026-08-13'
+  retrieved: '2026-08-20'
 entities: []
 countries:
   SG:
@@ -43,7 +43,8 @@ countries:
     via: dubai_vara
     entity: Hashkey MENA FZE (HashKey)
     reference: VL/25/03/002
-    licensed_activities: Broker-Dealer Services Exchange Services
+    licensed_activities: Broker-Dealer Services Exchange Services (including Exchange Traded Derivative
+      Services)
     since: '2025-04-14'
 news_mentions:
 - source: Cointelegraph
