@@ -13,7 +13,7 @@ sources:
   retrieved: '2026-07-27'
 - name: NY DFS List of Licensed Virtual Currency Entities
   url: https://www.dfs.ny.gov/virtual_currency_businesses
-  retrieved: '2026-08-14'
+  retrieved: '2026-08-22'
 entities:
 - lei: 724500F2THLY5MHEIM78
   legal_name: BitPay B.V

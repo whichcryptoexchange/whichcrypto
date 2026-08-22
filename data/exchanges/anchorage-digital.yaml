@@ -7,7 +7,7 @@ sources:
   retrieved: '2026-08-20'
 - name: NY DFS List of Licensed Virtual Currency Entities
   url: https://www.dfs.ny.gov/virtual_currency_businesses
-  retrieved: '2026-08-14'
+  retrieved: '2026-08-22'
 entities: []
 countries:
   SG:
