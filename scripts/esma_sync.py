@@ -271,7 +271,8 @@ def main():
         non_eea_countries = {cc: v for cc, v in (existing.get("countries") or {}).items() if cc not in EEA}
         other_owned_fields = {
             k: existing[k] for k in
-            ("third_party_reviews", "news_mentions", "company_facts", "notable_incidents", "audits", "scam_clones")
+            ("third_party_reviews", "news_mentions", "company_facts", "notable_incidents", "audits",
+             "scam_clones", "risk_summary_url")
             if k in existing
         }
         if not non_eea_countries and not other_owned_fields:
@@ -307,6 +308,7 @@ def main():
         notable_incidents = None
         audits = None
         scam_clones = None
+        risk_summary_url = None
         old_eu_status = None
         is_new_file = not existing_path.exists()
         if existing_path.exists():
@@ -319,21 +321,24 @@ def main():
                               if s.get("name") != "ESMA interim MiCA register (CASPS.csv)"]
             # Fields owned by other sync scripts (appstore_sync.py,
             # news_sync.py, gleif_sync.py, notable_incidents_manual_apply.py,
-            # audits_manual_apply.py) — this script doesn't know how to
-            # produce them, so preserve whatever's already on disk rather
-            # than dropping it.
+            # audits_manual_apply.py) or hand-curated directly (risk_summary_url,
+            # verified brand-by-brand -- see the CoinJar example) -- this
+            # script doesn't know how to produce any of these, so preserve
+            # whatever's already on disk rather than dropping it.
             third_party_reviews = existing.get("third_party_reviews")
             news_mentions = existing.get("news_mentions")
             company_facts = existing.get("company_facts")
             notable_incidents = existing.get("notable_incidents")
             audits = existing.get("audits")
             scam_clones = existing.get("scam_clones")
+            risk_summary_url = existing.get("risk_summary_url")
         countries = dict(sorted(countries.items()))
 
         payload = {
             "id": b["id"],
             "brand": b["brand"],
             "eu_status": b["eu_status"],
+            **({"risk_summary_url": risk_summary_url} if risk_summary_url is not None else {}),
             "sources": [{
                 "name": "ESMA interim MiCA register (CASPS.csv)",
                 "url": "https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv",
