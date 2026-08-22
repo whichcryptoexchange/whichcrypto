@@ -13,7 +13,7 @@ sources:
   retrieved: '2026-07-27'
 - name: NY DFS List of Licensed Virtual Currency Entities
   url: https://www.dfs.ny.gov/virtual_currency_businesses
-  retrieved: '2026-08-14'
+  retrieved: '2026-08-22'
 entities:
 - lei: 969500OYUDADGZKCR583
   legal_name: CIRCLE INTERNET FINANCIAL EUROPE SAS
@@ -232,7 +232,7 @@ countries:
   - status: licensed
     regime: NY DFS Limited Purpose Trust Charter
     via: ny_dfs_register
-    entity: Circle Internet Trust Company, LLC
+    entity: Circle Internet Trust Company, LLC. d/b/a Circle New York Trust
     since: 2026-07
 company_facts:
 - lei: 969500OYUDADGZKCR583
