@@ -10,7 +10,7 @@ sources:
   retrieved: '2026-08-18'
 - name: Canada FINTRAC MSB Registry
   url: https://fintrac-canafe.canada.ca/msb-esm/reg-eng
-  retrieved: '2026-08-19'
+  retrieved: '2026-08-26'
 - name: Singapore MAS Financial Institutions Directory
   url: https://eservices.mas.gov.sg/fid/institution
   retrieved: '2026-08-20'
