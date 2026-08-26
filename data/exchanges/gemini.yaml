@@ -264,9 +264,9 @@ countries:
 third_party_reviews:
 - source: App Store
   rating: 4.76
-  count: 109573
+  count: 109641
   url: https://apps.apple.com/us/app/gemini-markets-credit-card/id1408914447?uo=4
-  retrieved: '2026-08-19'
+  retrieved: '2026-08-26'
 news_mentions:
 - source: Cointelegraph
   category: general

@@ -319,9 +319,9 @@ countries:
 third_party_reviews:
 - source: App Store
   rating: 4.74
-  count: 33853
+  count: 34247
   url: https://apps.apple.com/us/app/kraken-buy-crypto-stocks/id1481947260?uo=4
-  retrieved: '2026-08-19'
+  retrieved: '2026-08-26'
 news_mentions:
 - source: The Block
   category: general
