@@ -10,7 +10,7 @@ sources:
   retrieved: '2026-08-18'
 - name: Canada FINTRAC MSB Registry
   url: https://fintrac-canafe.canada.ca/msb-esm/reg-eng
-  retrieved: '2026-08-19'
+  retrieved: '2026-08-26'
 - name: Dubai VARA Public Register
   url: https://www.vara.ae/en/licenses-and-register/public-register/
   retrieved: '2026-08-20'
