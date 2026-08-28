@@ -19,7 +19,7 @@ sources:
   retrieved: '2026-08-22'
 - name: AUSTRAC VASP Register (VASPR)
   url: https://online.apps.austrac.gov.au/vaspr
-  retrieved: '2026-08-21'
+  retrieved: '2026-08-28'
 entities:
 - lei: 213800GIFQMSV7HROS23
   legal_name: eToro (Europe) Ltd
