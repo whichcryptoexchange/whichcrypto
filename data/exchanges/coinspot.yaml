@@ -5,7 +5,7 @@ website: https://www.coinspot.com.au/
 sources:
 - name: AUSTRAC VASP Register (VASPR)
   url: https://online.apps.austrac.gov.au/vaspr
-  retrieved: '2026-08-21'
+  retrieved: '2026-08-28'
 entities: []
 countries:
   AU:
