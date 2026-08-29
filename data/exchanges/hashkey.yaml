@@ -4,7 +4,7 @@ eu_status: no_eu_entity
 sources:
 - name: Singapore MAS Financial Institutions Directory
   url: https://eservices.mas.gov.sg/fid/institution
-  retrieved: '2026-08-20'
+  retrieved: '2026-08-28'
 - name: Hong Kong SFC VATP List
   url: https://www.sfc.hk/en/Welcome-to-the-Fintech-Contact-Point/Virtual-assets/Virtual-asset-trading-platforms-operators/Lists-of-virtual-asset-trading-platforms
   retrieved: '2026-08-28'
