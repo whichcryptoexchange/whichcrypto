@@ -10,7 +10,7 @@ sources:
   retrieved: '2026-08-21'
 - name: Japan FSA Registered Crypto-asset Exchange Service Providers List
   url: https://www.fsa.go.jp/en/regulated/licensed/index.html
-  retrieved: '2026-08-21'
+  retrieved: '2026-08-28'
 entities:
 - lei: 8945001TKX2A5OJMNR45
   legal_name: OSL EU GmbH
