@@ -6,15 +6,15 @@ const exchanges = loadExchanges();
 const stats = footerStats(exchanges);
 
 // One row per (brand, mention) pair -- a brand can have several matches.
-// Regulatory-tagged mentions sort first (see scripts/news_sync.py for how
-// that's decided -- source itself, e.g. SEC/DOJ, or regulatory-action
-// language in the headline), newest first within each group.
+// Pure chronological (newest first), same as news.xml's RSS feed --
+// previously sorted regulatory-tagged mentions first regardless of date,
+// which meant a week-old regulatory item could sit above a same-day
+// general one, reading as out of order despite each group individually
+// being date-sorted. The Regulatory/General tag is still shown per row;
+// it just no longer overrides date order.
 const rows = exchanges
   .flatMap((ex) => (ex.news_mentions ?? []).map((n) => ({ ex, ...n })))
-  .sort((a, b) => {
-    const catDiff = (b.category === 'regulatory') - (a.category === 'regulatory');
-    return catDiff !== 0 ? catDiff : (b.published || '').localeCompare(a.published || '');
-  });
+  .sort((a, b) => (b.published || '').localeCompare(a.published || ''));
 
 const SITEKEY = import.meta.env.PUBLIC_TURNSTILE_SITEKEY || '0x4AAAAAAD84t4OWkoouLP3Y';
 const PAGE_TITLE = `Crypto Exchange News and Regulation Updates | whichcryptoexchange.com`;

@@ -1,9 +1,7 @@
 // RSS 2.0 feed of news mentions -- same hand-rolled pattern as
-// changelog.xml.js. Chronological (newest first) rather than the
-// regulatory-first sort news.astro uses for display: an RSS reader
-// expects a feed to move forward in time, not have items jump around
-// as new regulatory-tagged entries arrive and get pinned above older
-// unread ones.
+// changelog.xml.js. Chronological (newest first), same sort news.astro
+// uses for display: an RSS reader expects a feed to move forward in
+// time, not have items jump around as new entries arrive.
 import { loadExchanges } from '../lib/data.js';
 
 const SITE = 'https://whichcryptoexchange.com';
