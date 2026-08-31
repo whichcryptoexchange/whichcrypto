@@ -19,3 +19,16 @@ countries:
     via: ny_dfs_register
     entity: NYDIG Trust Company LLC
     since: 2018-11
+news_mentions:
+- source: Cointelegraph
+  category: general
+  title: BitGo buys NYDIG trading arm to deepen institutional crypto push
+  url: https://cointelegraph.com/news/bitgo-nydig-trading-arm-acquisition?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound
+  published: '2026-08-28'
+  retrieved: '2026-08-31'
+- source: The Block
+  category: general
+  title: BitGo buys NYDIG’s institutional trading business, expanding derivatives offering
+  url: https://www.theblock.co/news/business/2026-08-27-bitgo-buys-nydig-institutional-trading-412975
+  published: '2026-08-28'
+  retrieved: '2026-08-31'

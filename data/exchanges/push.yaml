@@ -215,3 +215,16 @@ company_facts:
   registration_status: issued
   entity_creation_date: '2023-10-26'
   retrieved: '2026-08-12'
+news_mentions:
+- source: Cointelegraph
+  category: general
+  title: BitGo buys NYDIG trading arm to deepen institutional crypto push
+  url: https://cointelegraph.com/news/bitgo-nydig-trading-arm-acquisition?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound
+  published: '2026-08-28'
+  retrieved: '2026-08-31'
+- source: The Block
+  category: general
+  title: SBI Holdings invests $270 million in Ajaib, taking 20% stake amid Asia digital asset push
+  url: https://www.theblock.co/news/deals/2026-08-28-sbi-holdings-invests-270-million-in-ajaib-taking-20-stake-amid-asia-digital-asset-push-413023
+  published: '2026-08-28'
+  retrieved: '2026-08-31'

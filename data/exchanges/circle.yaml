@@ -243,3 +243,10 @@ company_facts:
   registration_status: issued
   entity_creation_date: '2023-06-29'
   retrieved: '2026-08-12'
+news_mentions:
+- source: The Block
+  category: general
+  title: Circle strikes Chelsea front-of-shirt sponsorship deal featuring USDC
+  url: https://www.theblock.co/news/business/2026-08-28-circle-strikes-chelsea-front-of-shirt-sponsorship-deal-featuring-usdc-413002
+  published: '2026-08-28'
+  retrieved: '2026-08-31'
