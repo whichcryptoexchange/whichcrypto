@@ -315,3 +315,10 @@ scam_clones:
   added_to_register: '2024-02-29'
   source_url: https://register.fca.org.uk/s/firm?id=0014G00002antHVQAY
   retrieved: '2026-08-15'
+news_mentions:
+- source: The Block
+  category: general
+  title: Crypto.com-linked Cronos network halts after Tectonic exploit estimated at $75 million
+  url: https://www.theblock.co/news/defi/2026-08-30-crypto-com-linked-cronos-network-halts-after-tectonic-exploit-estimated-at-75-million-413069
+  published: '2026-08-30'
+  retrieved: '2026-08-31'

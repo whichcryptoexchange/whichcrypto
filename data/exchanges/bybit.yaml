@@ -206,6 +206,12 @@ third_party_reviews:
   url: https://apps.apple.com/us/app/bybit-buy-crypto-bitcoin/id1488296980?uo=4
   retrieved: '2026-08-26'
 news_mentions:
+- source: The Block
+  category: general
+  title: Bybit launches 24/7 options on stock perpetuals, starting with SpaceX and Nvidia
+  url: https://www.theblock.co/news/markets/2026-08-28-bybit-launches-24-7-options-on-stock-perpetuals-starting-with-spacex-and-nvidia-413032
+  published: '2026-08-28'
+  retrieved: '2026-08-31'
 - source: Cointelegraph
   category: general
   title: Bybit adds Unitree, Moonshot AI to pre-IPO perpetuals lineup
