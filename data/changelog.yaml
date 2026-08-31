@@ -6,6 +6,22 @@
 # link row under the body. Genuine internal linking, not just narration --
 # omit it when a change is site-wide (search, sort controls) and there's no
 # single honest page to point at, rather than force a link that doesn't fit.
+- date: "2026-08-31"
+  title: "Blockchain.com's UK entity renamed; a real $75M exploit and two more common-word false positives caught"
+  body: >
+    Routine review of the week's backlog turned up a genuine, notable change: Blockchain.com's UK
+    FCA-registered entity renamed from "BC Operations Limited" to "Blockchain.com Operations (UK)
+    Limited" -- confirmed directly against Companies House's own primary record before merging,
+    same FRN throughout, so this reads as a real corporate rename rather than a new entity. Also
+    picked up a real, serious news item for Crypto.com: its linked Cronos network briefly halted
+    after a Tectonic protocol exploit estimated at $75 million. On the automated side, two more
+    brand names collided with ordinary English phrases in unrelated headlines -- "Push" matched
+    headlines ending in the generic phrase "...crypto push" (marketing-push sense, not the
+    company), and "Bridge" matched a story about a blockchain bridge exploit, not the company of
+    the same name -- both added to the same skip-list as Strike, Block, and Bullish before them.
+  pages:
+    - { url: /exchange/blockchain-com/, label: "Example: Blockchain.com" }
+    - { url: /exchange/crypto-com/, label: "Example: Crypto.com" }
 - date: "2026-08-22"
   title: "Fixed three silent data-loss bugs in the sync pipeline, caught during routine PR review"
   body: >
