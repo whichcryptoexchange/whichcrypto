@@ -7,7 +7,7 @@ sources:
   retrieved: '2026-08-31'
 - name: UK FCA Register
   url: https://register.fca.org.uk/
-  retrieved: '2026-08-25'
+  retrieved: '2026-09-01'
 - name: Singapore MAS Financial Institutions Directory
   url: https://eservices.mas.gov.sg/fid/institution
   retrieved: '2026-08-28'

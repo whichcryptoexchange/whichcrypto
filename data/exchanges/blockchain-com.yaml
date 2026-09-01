@@ -13,7 +13,7 @@ sources:
   retrieved: '2026-07-27'
 - name: UK FCA Register
   url: https://register.fca.org.uk/
-  retrieved: '2026-08-25'
+  retrieved: '2026-09-01'
 entities:
 - lei: 254900GDCT8070R2VV26
   legal_name: Blue Cube (Malta) Limited
