@@ -277,9 +277,9 @@ countries:
 third_party_reviews:
 - source: App Store
   rating: 4.66
-  count: 333201
+  count: 333493
   url: https://apps.apple.com/us/app/crypto-com-trade-every-market/id1262148500?uo=4
-  retrieved: '2026-08-26'
+  retrieved: '2026-09-02'
 company_facts:
 - lei: 2549005CVR5HH70FDO07
   registered_office:
