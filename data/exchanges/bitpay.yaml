@@ -7,7 +7,7 @@ sources:
   retrieved: '2026-08-31'
 - name: Canada FINTRAC MSB Registry
   url: https://fintrac-canafe.canada.ca/msb-esm/reg-eng
-  retrieved: '2026-08-26'
+  retrieved: '2026-09-02'
 - name: US FinCEN MSB Registrant Search
   url: https://msb.fincen.gov/
   retrieved: '2026-07-27'
@@ -83,7 +83,7 @@ countries:
     entity: BITPAY INC.
     reg_number: M23611454
     since: '2023-11-21'
-    expires: '2026-06-30'
+    expires: '2028-08-20'
   CY:
     status: licensed
     regime: MiCA
