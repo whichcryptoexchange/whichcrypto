@@ -577,10 +577,11 @@ async function handleAdminIndex(request, env, url) {
   if (key !== env.ADMIN_KEY || !env.ADMIN_KEY) {
     return new Response('forbidden', { status: 403 });
   }
-  const [reports, submissions, providerSubmissions] = await Promise.all([
+  const [reports, submissions, providerSubmissions, exchangeClaims] = await Promise.all([
     env.DB.prepare("SELECT COUNT(*) AS n FROM reports WHERE status = 'pending'").first(),
     env.DB.prepare("SELECT COUNT(*) AS n FROM submissions WHERE status = 'pending'").first(),
     env.DB.prepare("SELECT COUNT(*) AS n FROM provider_submissions WHERE status = 'pending'").first(),
+    env.DB.prepare("SELECT COUNT(*) AS n FROM exchange_claims WHERE status = 'pending'").first(),
   ]);
   const q = `?key=${encodeURIComponent(key)}`;
   return new Response(
@@ -592,6 +593,7 @@ async function handleAdminIndex(request, env, url) {
        <li><a href="/admin/reports${q}">User reports</a> <span class="n">(${reports.n} pending)</span></li>
        <li><a href="/admin/submissions${q}">Exchange submissions</a> <span class="n">(${submissions.n} pending)</span></li>
        <li><a href="/admin/provider-submissions${q}">Provider submissions</a> <span class="n">(${providerSubmissions.n} pending)</span></li>
+       <li><a href="/admin/exchange-claims${q}">Exchange claims</a> <span class="n">(${exchangeClaims.n} pending)</span></li>
        <li><a href="/admin/links${q}">Affiliate links</a> <span class="n">(live management, not a queue)</span></li>
      </ul>`,
     { headers: { 'Content-Type': 'text/html; charset=utf-8' } });
@@ -760,6 +762,134 @@ async function handleAdminProviderSubmissions(request, env, url) {
     { headers: { 'Content-Type': 'text/html; charset=utf-8' } });
 }
 
+// Self-service claim requests from someone who says they work at an
+// already-tracked exchange -- distinct from handleSubmission (a brand NOT
+// yet tracked at all) and handleProviderSubmission (the unlicensed-provider
+// section). Same tip-queue discipline as both: nothing on the site changes
+// until an admin independently verifies this and hand-sets
+// `claimed: {status: true}` in data/exchanges/<id>.yaml. Never grants any
+// ability to edit or submit a brand's own regulator-sourced facts -- only
+// ever unlocks the claimed badge, plus being a prerequisite admin checks
+// before adding an affiliate link via /admin/links.
+async function handleExchangeClaim(request, env) {
+  let body;
+  try { body = await request.json(); } catch { return json({ error: 'invalid JSON' }, 400); }
+
+  const ip = request.headers.get('CF-Connecting-IP') || '0.0.0.0';
+  if (!(await verifyTurnstile(body.turnstile_token, env.TURNSTILE_SECRET, ip))) {
+    return json({ error: 'verification failed — please retry the challenge' }, 403);
+  }
+
+  const exchange_id = String(body.exchange_id || '').toLowerCase();
+  const brand_name = sanitizeHeader(body.brand_name, 200);
+  const website = sanitizeHeader(body.website, 300);
+  const contact_name = sanitizeHeader(body.contact_name, 200);
+  const role = sanitizeHeader(body.role, 100);
+  const contact_email = sanitizeHeader(body.contact_email, 200);
+  const notes = String(body.notes || '').trim().slice(0, 1000);
+
+  if (!/^[a-z0-9-]{1,60}$/.test(exchange_id)) return json({ error: 'invalid exchange' }, 400);
+  const knownBrands = await fetchBrandList(env, request);
+  if (!knownBrands.some((b) => b.id === exchange_id)) return json({ error: 'unrecognised exchange' }, 400);
+  if (!brand_name) return json({ error: 'brand name is required' }, 400);
+  if (!isHttpUrl(website)) return json({ error: 'a valid website URL is required' }, 400);
+  if (!contact_name) return json({ error: 'your name is required' }, 400);
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(contact_email)) return json({ error: 'a valid contact email is required' }, 400);
+  if (!body.consent) return json({ error: 'consent is required' }, 400);
+
+  const ip_hash = await sha256hex(env.IP_SALT + ip);
+  const { results: recent } = await env.DB.prepare(
+    "SELECT COUNT(*) AS n FROM exchange_claims WHERE ip_hash = ? AND created_at > datetime('now','-1 day')"
+  ).bind(ip_hash).all();
+  if (recent[0].n >= 5) return json({ error: 'rate limit reached — try again tomorrow' }, 429);
+
+  const token = randomToken();
+  await env.DB.prepare(
+    'INSERT INTO exchange_claims (exchange_id, brand_name, website, contact_name, role, contact_email, notes, ip_hash, token) VALUES (?,?,?,?,?,?,?,?,?)'
+  ).bind(exchange_id, brand_name, website, contact_name, role || null, contact_email, notes || null, ip_hash, token).run();
+
+  try {
+    await sendExchangeClaimConfirmEmail(env, contact_email, brand_name, token);
+  } catch {
+    return json({ error: 'could not send confirmation email — please try again later' }, 502);
+  }
+
+  return json({ ok: true, message: 'Check your email to confirm the address you gave us. We only review confirmed claims, and independently verify each one before anything changes — confirming does not guarantee the badge gets added.' });
+}
+
+async function sendExchangeClaimConfirmEmail(env, email, brandName, token) {
+  const confirmUrl = `https://whichcryptoexchange.com/api/claim-exchange/confirm?token=${token}`;
+  const text = [
+    `Someone (hopefully you, on behalf of ${brandName}) asked to claim ${brandName}'s listing on whichcryptoexchange.com.`,
+    '',
+    'Confirm this email address to move the claim into our review queue:',
+    confirmUrl,
+    '',
+    "If you didn't request this, ignore this email -- nothing changes on the site unless we independently verify the claim, regardless of whether this link is clicked.",
+  ].join('\n');
+  await sendResendEmail(env, email, `Confirm your claim request for ${brandName}`, text);
+}
+
+async function handleExchangeClaimConfirm(env, token) {
+  const row = await env.DB.prepare('SELECT * FROM exchange_claims WHERE token = ?').bind(token).first();
+  if (!row) return watchPage('Link not found', '<p>This confirmation link is invalid or has already been used.</p>');
+  if (!row.email_confirmed) {
+    await env.DB.prepare(
+      "UPDATE exchange_claims SET email_confirmed = 1, confirmed_at = datetime('now') WHERE token = ?"
+    ).bind(token).run();
+  }
+  return watchPage('Email confirmed', `<p>Thanks — your claim request for ${esc(row.brand_name)} is now in our review queue.
+    We independently verify each claim before anything changes on the site, so there's no fixed timeline
+    and this does not guarantee the badge gets added.</p>`);
+}
+
+async function handleAdminExchangeClaims(request, env, url) {
+  if (url.searchParams.get('key') !== env.ADMIN_KEY || !env.ADMIN_KEY) {
+    return new Response('forbidden', { status: 403 });
+  }
+  if (request.method === 'POST') {
+    const form = await request.formData();
+    const id = Number(form.get('id'));
+    const action = form.get('action') === 'approve' ? 'approved' : 'rejected';
+    await env.DB.prepare('UPDATE exchange_claims SET status = ? WHERE id = ?').bind(action, id).run();
+    return Response.redirect(url.origin + url.pathname + '?key=' + env.ADMIN_KEY, 303);
+  }
+  const { results } = await env.DB.prepare(
+    "SELECT * FROM exchange_claims WHERE status = 'pending' ORDER BY created_at ASC LIMIT 100"
+  ).all();
+  const rows = results.map((r) => {
+    const match = domainOf(r.website) && domainOf(r.website) === emailDomain(r.contact_email);
+    return `
+    <tr>
+      <td>${r.id}</td><td>${esc(r.exchange_id)}</td><td>${esc(r.brand_name)}</td>
+      <td><a href="${esc(r.website)}">${esc(r.website)}</a></td>
+      <td>${esc(r.contact_name)}</td><td>${esc(r.role ?? '')}</td>
+      <td>${esc(r.contact_email)}${match ? ' ✓ domain match' : ' ⚠ domain mismatch'}</td>
+      <td>${r.email_confirmed ? `✓ ${esc(r.confirmed_at ?? '')}` : '✗ unconfirmed'}</td>
+      <td>${esc(r.notes ?? '')}</td><td>${esc(r.created_at)}</td>
+      <td>
+        <form method="post" style="display:inline"><input type="hidden" name="id" value="${r.id}">
+          <button name="action" value="approve">approve</button>
+          <button name="action" value="reject">reject</button></form>
+      </td>
+    </tr>`;
+  }).join('');
+  return new Response(
+    `<!doctype html><meta charset="utf-8"><title>Pending exchange claims</title>
+     <style>body{font:14px monospace;padding:20px}table{border-collapse:collapse}td,th{border:1px solid #ccc;padding:6px;text-align:left;max-width:220px;word-break:break-word} a.home{display:inline-block;margin-bottom:12px}</style>
+     <a class="home" href="/admin${url.search}">← Admin home</a>
+     <h1>Pending exchange claims (${results.length})</h1>
+     <p>Approving here does NOT publish anything -- confirm the domain match and email confirmation
+     below, then hand-set <code>claimed: {status: true}</code> in the brand's data/exchanges/*.yaml
+     through the normal reviewed git process. Never grants any ability to edit the brand's own
+     regulator-sourced facts. Consider also adding the contact's email to the watchers table for
+     their own brand, so a claimed exchange automatically gets the existing "email me if this
+     changes" alert.</p>
+     <table><tr><th>id</th><th>exchange_id</th><th>brand</th><th>website</th><th>contact</th>
+     <th>role</th><th>email</th><th>email confirmed</th><th>notes</th><th>submitted</th><th>action</th></tr>${rows}</table>`,
+    { headers: { 'Content-Type': 'text/html; charset=utf-8' } });
+}
+
 async function handleLinkGet(env, exchangeId) {
   const row = await env.DB.prepare(
     'SELECT url, label FROM affiliate_links WHERE exchange_id = ?'
@@ -891,6 +1021,10 @@ export default {
     if (url.pathname === '/api/submit-provider/confirm' && request.method === 'GET') {
       return handleProviderSubmissionConfirm(env, url.searchParams.get('token') || '');
     }
+    if (url.pathname === '/api/claim-exchange' && request.method === 'POST') return handleExchangeClaim(request, env);
+    if (url.pathname === '/api/claim-exchange/confirm' && request.method === 'GET') {
+      return handleExchangeClaimConfirm(env, url.searchParams.get('token') || '');
+    }
     if (url.pathname === '/api/watch' && request.method === 'POST') return handleWatchSignup(request, env);
     if (url.pathname === '/api/watch/confirm' && request.method === 'GET') {
       return handleWatchConfirm(env, request, url.searchParams.get('token') || '');
@@ -916,6 +1050,7 @@ export default {
     if (url.pathname === '/admin/links') return handleAdminLinks(request, env, url);
     if (url.pathname === '/admin/submissions') return handleAdminSubmissions(request, env, url);
     if (url.pathname === '/admin/provider-submissions') return handleAdminProviderSubmissions(request, env, url);
+    if (url.pathname === '/admin/exchange-claims') return handleAdminExchangeClaims(request, env, url);
     const link = url.pathname.match(/^\/api\/links\/([a-z0-9-]{1,60})$/);
     if (link && request.method === 'GET') return handleLinkGet(env, link[1]);
     // Genuine catch-all: no route matched and no static asset matched either.

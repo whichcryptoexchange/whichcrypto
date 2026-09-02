@@ -394,7 +394,7 @@ h3:first-child { margin-top: 0; }
    combined into one badge: Verified Facts (editorial fact-check, free),
    Claimed Profile (company proved control via email + backlink, free). */
 .provider-badges { margin: 4px 0 14px; }
-.provider-badges .badge {
+.badge {
   display: inline-block;
   font-family: var(--mono);
   font-size: 11px;

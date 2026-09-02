@@ -189,6 +189,17 @@ const PAGE_DESC = `${ex.brand}: official licence records, legal entities, regula
       ))}
     </p>
 
+    {/* Claiming only ever adds this badge and makes the brand eligible for
+        admin to consider an affiliate link -- it never grants any ability
+        to edit or submit changes to the regulator-sourced facts on this
+        page. See /claim/ and worker/index.js's handleExchangeClaim. */}
+    {ex.claimed?.status ? (
+      <p class="sourced"><span class="badge badge-claimed">✓ Claimed by {ex.brand}</span></p>
+    ) : website && (
+      <p class="sourced">Is this your listing?{' '}
+      <a href={`/claim/?exchange=${ex.id}&brand=${encodeURIComponent(ex.brand)}&website=${encodeURIComponent(website)}`}>Claim it</a></p>
+    )}
+
     {/* Affiliate CTA lives right under the licence badges -- the most
         prominent "go to the exchange" moment on the page. When this brand
         has no affiliate deal set, the script below falls back to a plain,

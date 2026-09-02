@@ -1,0 +1,179 @@
+---
+import { loadExchanges, footerStats } from '../lib/data.js';
+import '../styles/global.css';
+// Turnstile site keys are public by design (embedded in client HTML), so hardcoding
+// this as a fallback is safe. The env var still wins if the build environment sets it.
+const SITEKEY = import.meta.env.PUBLIC_TURNSTILE_SITEKEY || '0x4AAAAAAD84t4OWkoouLP3Y';
+const stats = footerStats(loadExchanges());
+const PAGE_TITLE = 'Claim Your Exchange Listing | whichcryptoexchange.com';
+const PAGE_DESC = 'Work at an exchange already tracked on this register? Verify a contact channel to request the claimed badge on your own listing -- this never changes any regulator-sourced fact.';
+---
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{PAGE_TITLE}</title>
+  <meta name="description" content={PAGE_DESC} />
+  <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site)} />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content={new URL(Astro.url.pathname, Astro.site)} />
+  <meta property="og:site_name" content="whichcryptoexchange.com" />
+  <meta property="og:title" content={PAGE_TITLE} />
+  <meta property="og:description" content={PAGE_DESC} />
+  <meta property="og:image" content="https://whichcryptoexchange.com/og-image.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={PAGE_TITLE} />
+  <meta name="twitter:description" content={PAGE_DESC} />
+  <meta name="twitter:image" content="https://whichcryptoexchange.com/og-image.jpg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <script src="https://analytics.ahrefs.com/analytics.js" data-key="QTM3lN9yt0oU0rxrj5zadA" async></script>
+  <!-- TrustBox script -->
+  <script type="text/javascript" src="//widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js" async></script>
+  <!-- End TrustBox script -->
+</head>
+<body>
+  <header class="site">
+    <div class="wrap">
+      <a class="logo" href="/">which<em>crypto</em>exchange</a>
+      <div class="header-right">
+        <div class="site-search">
+          <input type="search" id="site-search" placeholder="Search exchanges or countries…" autocomplete="off" aria-label="Search exchanges" />
+          <div class="site-search-results" id="site-search-results" hidden></div>
+        </div>
+        <span class="sourced">source: official regulator registers</span>
+      </div>
+    </div>
+    <nav class="site-nav"><div class="wrap">
+      <a href="/exchanges/">Exchanges</a>
+      <a href="/regulators/">Regulators</a>
+      <a href="/providers/">Providers</a>
+      <a href="/faq/">FAQ</a>
+      <a href="/stats/">Stats</a>
+      <a href="/reviews/">Reviews</a>
+      <a href="/news/">News</a>
+    </div></nav>
+  </header>
+
+  <main class="wrap">
+    <h1 id="claim-heading">Claim your exchange listing</h1>
+    <p class="sourced" id="no-exchange-notice" hidden>This page is reached from a specific exchange's
+    own page — go to <a href="/exchanges/">the full exchange list</a>, find your brand, and use the
+    "Is this your listing? Claim it" link there.</p>
+    <p class="lede" id="claim-lede">Verify a contact channel at your company to request the claimed
+    badge on your exchange's own page. This is <strong>not</strong> a way to edit or submit changes
+    to your regulatory record — every licence, registration, and entity fact on this site comes
+    directly from the official regulator and stays that way regardless of claim status. Claiming
+    only adds a visible "claimed" badge, and makes your listing eligible for admin to consider for
+    an affiliate link.</p>
+    <p class="sourced">The strongest signal we can check is whether your contact email's domain
+    matches your exchange's own registered website — use a work address at that domain, not a
+    personal or generic one, for the fastest review.</p>
+    <p class="sourced">After you submit, we'll email you a confirmation link — we only review
+    confirmed claims. Confirming your email doesn't add the badge on its own: we independently
+    verify the domain match before anything changes on the site.</p>
+
+    {SITEKEY ? (
+      <form id="claim-form" class="report-form">
+        <p class="sourced">Claiming: <strong id="claim-brand-display">—</strong></p>
+        <input type="hidden" name="exchange_id" />
+        <input type="hidden" name="brand_name" />
+        <input type="hidden" name="website" />
+        <label>Your name
+          <input type="text" name="contact_name" required maxlength="200" />
+        </label>
+        <label>Your role
+          <select name="role">
+            <option value="">Select…</option>
+            <option value="Compliance">Compliance</option>
+            <option value="Marketing">Marketing</option>
+            <option value="Founder/Executive">Founder/Executive</option>
+            <option value="Other">Other</option>
+          </select>
+        </label>
+        <label>Your work email
+          <input type="email" name="contact_email" required maxlength="200" />
+        </label>
+        <label>Anything else we should know? (optional)
+          <textarea name="notes" maxlength="1000" rows="3"></textarea>
+        </label>
+        <label class="consent-label">
+          <input type="checkbox" name="consent" required />
+          I confirm I'm authorised to make this request on behalf of the company above, and
+          understand this is a verification queue, not a guarantee the badge gets added.
+        </label>
+        <div class="cf-turnstile" data-sitekey={SITEKEY}></div>
+        <button type="submit" id="claim-submit-btn">Submit for verification</button>
+        <p class="form-msg sourced" role="status"></p>
+      </form>
+    ) : (
+      <p class="sourced">The claim form is opening soon — in the meantime, email
+      contact@whichcryptoexchange.com directly.</p>
+    )}
+  </main>
+
+  <footer class="site"><div class="wrap">
+    <div class="footer-top">
+      <p><a href="/about/">About</a> · <a href="/contact/">Contact</a> · <a href="/changelog/">Changelog</a> · <a href="/exchanges/">Exchanges</a> · <a href="/regulators/">Regulators</a> · <a href="/stats/">Stats</a> · <a href="/reviews/">Reviews</a> · <a href="/news/">News</a> · <a href="/providers/">Providers</a> · <a href="/faq/">FAQ</a> · <a href="https://x.com/whichcex">X</a></p>
+      <!-- TrustBox widget - Review Collector -->
+      <div class="trustpilot-widget" data-locale="en-US" data-template-id="56278e9abfbbba0bdcd568bc" data-businessunit-id="6a79a88069053747f3a86e5d" data-style-height="52px" data-style-width="100%" data-token="4446dd34-abb7-486d-9d18-4cb40eab0921">
+        <a href="https://www.trustpilot.com/review/whichcryptoexchange.com" target="_blank" rel="noopener">Trustpilot</a>
+      </div>
+      <!-- End TrustBox widget -->
+    </div>
+    <p class="footer-meta">{stats.brandCount} brands tracked across {stats.jurisdictionCount} jurisdictions · Data last synced {stats.lastSynced} · <a href="/changelog.xml">RSS</a></p>
+    <p>Independent register. Not affiliated with any regulator. Not financial advice.</p>
+  </div></footer>
+
+  {SITEKEY && <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>}
+  <script>
+    const form = document.getElementById('claim-form');
+    const params = new URLSearchParams(location.search);
+    const exchangeId = params.get('exchange');
+    const brand = params.get('brand');
+    const website = params.get('website');
+
+    if (!exchangeId || !brand || !website) {
+      document.getElementById('no-exchange-notice').hidden = false;
+      document.getElementById('claim-lede').hidden = true;
+      if (form) form.hidden = true;
+    } else {
+      form?.querySelector('[name="exchange_id"]').setAttribute('value', exchangeId);
+      form?.querySelector('[name="brand_name"]').setAttribute('value', brand);
+      form?.querySelector('[name="website"]').setAttribute('value', website);
+      const display = document.getElementById('claim-brand-display');
+      if (display) display.textContent = brand;
+      document.getElementById('claim-heading').textContent = `Claim ${brand}'s listing`;
+    }
+
+    form?.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const msg = form.querySelector('.form-msg');
+      const fd = new FormData(form);
+      const token = form.querySelector('[name="cf-turnstile-response"]')?.value;
+      msg.textContent = 'Submitting…';
+      try {
+        const res = await fetch('/api/claim-exchange', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            exchange_id: fd.get('exchange_id'), brand_name: fd.get('brand_name'),
+            website: fd.get('website'), contact_name: fd.get('contact_name'),
+            role: fd.get('role'), contact_email: fd.get('contact_email'),
+            notes: fd.get('notes'), consent: fd.get('consent') === 'on',
+            turnstile_token: token,
+          }),
+        });
+        const data = await res.json();
+        msg.textContent = data.message ?? data.error ?? 'Something went wrong.';
+        if (res.ok) form.reset();
+      } catch { msg.textContent = 'Network error — please try again.'; }
+    });
+  </script>
+
+  <script src="/search.js" defer></script>
+</body>
+</html>
