@@ -6,6 +6,18 @@
 # link row under the body. Genuine internal linking, not just narration --
 # omit it when a change is site-wide (search, sort controls) and there's no
 # single honest page to point at, rather than force a link that doesn't fit.
+- date: "2026-09-02"
+  title: "Exchanges can now claim their own listing"
+  body: >
+    Every tracked exchange's page now carries a quiet "Is this your listing? Claim it" prompt.
+    Anyone at the company can verify a work email at their exchange's own registered domain to
+    request a "claimed" badge -- we check the domain match by hand before it's added, the same
+    verification bar already used for Technology Provider profiles. Claiming is strictly additive:
+    it never grants any ability to edit or submit changes to the regulator-sourced facts on a
+    brand's page -- licensing, entities, and countries stay sourced from official registers
+    regardless of claim status, exactly as before.
+  pages:
+    - { url: /claim/, label: "Claim a listing" }
 - date: "2026-08-31"
   title: "Blockchain.com's UK entity renamed; a real $75M exploit and two more common-word false positives caught"
   body: >
