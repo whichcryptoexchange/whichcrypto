@@ -10,7 +10,7 @@ sources:
   retrieved: '2026-09-01'
 - name: Dubai VARA Public Register
   url: https://www.vara.ae/en/licenses-and-register/public-register/
-  retrieved: '2026-08-28'
+  retrieved: '2026-09-03'
 entities:
 - lei: 5493007WZ7IFULIL8G21
   legal_name: Bitpanda GmbH
