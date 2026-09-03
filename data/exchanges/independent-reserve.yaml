@@ -4,7 +4,7 @@ eu_status: no_eu_entity
 sources:
 - name: Singapore MAS Financial Institutions Directory
   url: https://eservices.mas.gov.sg/fid/institution
-  retrieved: '2026-08-28'
+  retrieved: '2026-09-03'
 - name: New Zealand FSPR
   url: https://fsp-app.companiesoffice.govt.nz/orp-master/service/create.html?targetAppCode=orp-master&service=registerItemSearch
   retrieved: '2026-08-09'
