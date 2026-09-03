@@ -5,7 +5,7 @@ risk_summary_url: https://www.coinjar.com/uk/risk-summary
 sources:
 - name: ESMA interim MiCA register (CASPS.csv)
   url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
-  retrieved: '2026-08-31'
+  retrieved: '2026-09-03'
 - name: US FinCEN MSB Registrant Search
   url: https://msb.fincen.gov/
   retrieved: '2026-07-27'

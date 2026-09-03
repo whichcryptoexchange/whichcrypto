@@ -4,7 +4,7 @@ eu_status: authorised
 sources:
 - name: ESMA interim MiCA register (CASPS.csv)
   url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
-  retrieved: '2026-08-31'
+  retrieved: '2026-09-03'
 - name: Singapore MAS Financial Institutions Directory
   url: https://eservices.mas.gov.sg/fid/institution
   retrieved: '2026-08-28'
@@ -234,6 +234,13 @@ countries:
     via: ny_dfs_register
     entity: Circle Internet Trust Company, LLC. d/b/a Circle New York Trust
     since: 2026-07
+news_mentions:
+- source: The Block
+  category: general
+  title: Circle strikes Chelsea front-of-shirt sponsorship deal featuring USDC
+  url: https://www.theblock.co/news/business/2026-08-28-circle-strikes-chelsea-front-of-shirt-sponsorship-deal-featuring-usdc-413002
+  published: '2026-08-28'
+  retrieved: '2026-08-31'
 company_facts:
 - lei: 969500OYUDADGZKCR583
   registered_office:
@@ -243,10 +250,3 @@ company_facts:
   registration_status: issued
   entity_creation_date: '2023-06-29'
   retrieved: '2026-08-12'
-news_mentions:
-- source: The Block
-  category: general
-  title: Circle strikes Chelsea front-of-shirt sponsorship deal featuring USDC
-  url: https://www.theblock.co/news/business/2026-08-28-circle-strikes-chelsea-front-of-shirt-sponsorship-deal-featuring-usdc-413002
-  published: '2026-08-28'
-  retrieved: '2026-08-31'

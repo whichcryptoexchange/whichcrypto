@@ -4,7 +4,7 @@ eu_status: authorised
 sources:
 - name: ESMA interim MiCA register (CASPS.csv)
   url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
-  retrieved: '2026-08-31'
+  retrieved: '2026-09-03'
 - name: UK FCA Register
   url: https://register.fca.org.uk/
   retrieved: '2026-09-01'
@@ -280,6 +280,13 @@ third_party_reviews:
   count: 333493
   url: https://apps.apple.com/us/app/crypto-com-trade-every-market/id1262148500?uo=4
   retrieved: '2026-09-02'
+news_mentions:
+- source: The Block
+  category: general
+  title: Crypto.com-linked Cronos network halts after Tectonic exploit estimated at $75 million
+  url: https://www.theblock.co/news/defi/2026-08-30-crypto-com-linked-cronos-network-halts-after-tectonic-exploit-estimated-at-75-million-413069
+  published: '2026-08-30'
+  retrieved: '2026-08-31'
 company_facts:
 - lei: 2549005CVR5HH70FDO07
   registered_office:
@@ -315,10 +322,3 @@ scam_clones:
   added_to_register: '2024-02-29'
   source_url: https://register.fca.org.uk/s/firm?id=0014G00002antHVQAY
   retrieved: '2026-08-15'
-news_mentions:
-- source: The Block
-  category: general
-  title: Crypto.com-linked Cronos network halts after Tectonic exploit estimated at $75 million
-  url: https://www.theblock.co/news/defi/2026-08-30-crypto-com-linked-cronos-network-halts-after-tectonic-exploit-estimated-at-75-million-413069
-  published: '2026-08-30'
-  retrieved: '2026-08-31'
