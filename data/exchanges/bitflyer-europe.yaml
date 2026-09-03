@@ -4,7 +4,7 @@ eu_status: authorised
 sources:
 - name: ESMA interim MiCA register (CASPS.csv)
   url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
-  retrieved: '2026-08-31'
+  retrieved: '2026-09-03'
 - name: Japan FSA Registered Crypto-asset Exchange Service Providers List
   url: https://www.fsa.go.jp/en/regulated/licensed/index.html
   retrieved: '2026-08-28'

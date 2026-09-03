@@ -4,7 +4,7 @@ eu_status: authorised
 sources:
 - name: ESMA interim MiCA register (CASPS.csv)
   url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
-  retrieved: '2026-08-31'
+  retrieved: '2026-09-03'
 entities:
 - lei: 213800QT8WZK738XGX35
   legal_name: Trading.com Markets EU Ltd
