@@ -22,7 +22,7 @@ sources:
   retrieved: '2026-08-10'
 - name: AUSTRAC VASP Register (VASPR)
   url: https://online.apps.austrac.gov.au/vaspr
-  retrieved: '2026-08-21'
+  retrieved: '2026-09-04'
 entities:
 - lei: 9845003D98SCC2851458
   legal_name: Payward Global Solutions Limited
