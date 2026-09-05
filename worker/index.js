@@ -771,6 +771,32 @@ async function handleAdminProviderSubmissions(request, env, url) {
 // ability to edit or submit a brand's own regulator-sourced facts -- only
 // ever unlocks the claimed badge, plus being a prerequisite admin checks
 // before adding an affiliate link via /admin/links.
+// Server-side companion to the client-side X (Twitter) pixel -- best-effort
+// only, never allowed to affect the claim submission's own success/failure.
+// X requires the email trimmed + lowercased before SHA-256, no salt, or it
+// silently fails to match (still returns 200, just doesn't attribute).
+// Both env vars are unset until X_PIXEL_TOKEN and X_CLAIM_EVENT_ID are
+// provisioned as Worker secrets -- until then this is a silent no-op.
+async function sendClaimSubmittedConversion(env, contactEmail) {
+  if (!env.X_PIXEL_TOKEN || !env.X_CLAIM_EVENT_ID) return;
+  try {
+    const hashed_email = await sha256hex(contactEmail.trim().toLowerCase());
+    await fetch('https://ads-api.x.com/12/measurement/conversions/ref28', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'X-Pixel-Token': env.X_PIXEL_TOKEN },
+      body: JSON.stringify({
+        conversions: [{
+          conversion_time: new Date().toISOString(),
+          event_id: env.X_CLAIM_EVENT_ID,
+          identifiers: [{ hashed_email }],
+        }],
+      }),
+    });
+  } catch {
+    // ads attribution is never allowed to break the claim flow
+  }
+}
+
 async function handleExchangeClaim(request, env) {
   let body;
   try { body = await request.json(); } catch { return json({ error: 'invalid JSON' }, 400); }
@@ -807,6 +833,8 @@ async function handleExchangeClaim(request, env) {
   await env.DB.prepare(
     'INSERT INTO exchange_claims (exchange_id, brand_name, website, contact_name, role, contact_email, notes, ip_hash, token) VALUES (?,?,?,?,?,?,?,?,?)'
   ).bind(exchange_id, brand_name, website, contact_name, role || null, contact_email, notes || null, ip_hash, token).run();
+
+  await sendClaimSubmittedConversion(env, contact_email);
 
   try {
     await sendExchangeClaimConfirmEmail(env, contact_email, brand_name, token);
