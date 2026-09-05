@@ -241,3 +241,16 @@ company_facts:
   registration_status: issued
   entity_creation_date: '2022-01-21'
   retrieved: '2026-08-12'
+news_mentions:
+- source: Cointelegraph
+  category: general
+  title: Revolut, OpenReserve get preliminary US bank approval with crypto plans
+  url: https://cointelegraph.com/news/revolut-openreserve-occ-approval-national-bank-crypto-plan?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound
+  published: '2026-09-04'
+  retrieved: '2026-09-05'
+- source: The Block
+  category: general
+  title: Revolut takes ‘important’ step toward becoming a US bank with conditional OCC approval
+  url: https://www.theblock.co/news/regulation/2026-09-03-revolut-takes-important-step-toward-becoming-a-us-bank-with-conditional-occ-approval-413474
+  published: '2026-09-03'
+  retrieved: '2026-09-05'

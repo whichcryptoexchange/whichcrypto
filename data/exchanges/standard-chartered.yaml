@@ -205,6 +205,12 @@ countries:
 news_mentions:
 - source: Cointelegraph
   category: general
+  title: Standard Chartered launches spot Bitcoin and Ether trading in UAE
+  url: https://cointelegraph.com/news/standard-chartered-bitcoin-ether-trading-uae?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound
+  published: '2026-09-03'
+  retrieved: '2026-09-05'
+- source: Cointelegraph
+  category: general
   title: Standard Chartered wavers on $100K Bitcoin year-end call, says it may be ‘too low’
   url: https://cointelegraph.com/news/standard-chartered-100k-bitcoin-2026-prediction-low?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound
   published: '2026-08-21'
