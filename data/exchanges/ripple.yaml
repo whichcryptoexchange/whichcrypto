@@ -297,3 +297,10 @@ company_facts:
   registration_status: issued
   entity_creation_date: '2025-04-03'
   retrieved: '2026-08-12'
+news_mentions:
+- source: The Block
+  category: general
+  title: Ripple expands college sports push with XRP partnership at Florida
+  url: https://www.theblock.co/news/business/2026-09-04-ripple-college-sports-push-xrp-partnership-florida-gators-413576
+  published: '2026-09-04'
+  retrieved: '2026-09-05'

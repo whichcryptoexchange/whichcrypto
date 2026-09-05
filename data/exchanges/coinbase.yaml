@@ -297,6 +297,18 @@ third_party_reviews:
 news_mentions:
 - source: The Block
   category: regulatory
+  title: Coinbase seeks SEC greenlight to list equity perpetuals
+  url: https://www.theblock.co/news/regulation/2026-09-03-coinbase-seeks-sec-greenlight-to-list-24-7-equity-perpetuals-413487
+  published: '2026-09-03'
+  retrieved: '2026-09-05'
+- source: The Block
+  category: general
+  title: Anthony Armstrong, former CFO at Elon Musk’s xAI and X, joins Coinbase board
+  url: https://www.theblock.co/news/business/2026-09-02-anthony-armstrong-former-cfo-elon-musk-xai-x-joins-coinbase-board-413405
+  published: '2026-09-02'
+  retrieved: '2026-09-05'
+- source: The Block
+  category: regulatory
   title: Baltimore sues Kalshi and Polymarket, roping Coinbase, Robinhood and Webull into the fight
   url: https://www.theblock.co/news/business/2026-08-13-baltimore-sues-kalshi-polymarket-roping-coinbase-robinhood-webull-into-fight-411746
   published: '2026-08-13'

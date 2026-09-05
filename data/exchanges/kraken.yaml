@@ -323,6 +323,18 @@ third_party_reviews:
   url: https://apps.apple.com/us/app/kraken-buy-crypto-stocks/id1481947260?uo=4
   retrieved: '2026-09-02'
 news_mentions:
+- source: Cointelegraph
+  category: regulatory
+  title: Kraken parent Payward partners with SoFi on stablecoin, 24/7 settlement
+  url: https://cointelegraph.com/news/kraken-parent-payward-partners-with-sofi-stablecoin-247-settlement?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound
+  published: '2026-09-03'
+  retrieved: '2026-09-05'
+- source: The Block
+  category: general
+  title: SoFi, Payward agree to link banking network with Kraken infrastructure
+  url: https://www.theblock.co/news/business/2026-09-03-sofi-payward-agree-to-link-banking-network-with-kraken-infrastructure-413432
+  published: '2026-09-03'
+  retrieved: '2026-09-05'
 - source: The Block
   category: general
   title: Kraken parent Payward explores becoming a ‘full bank’ outside the US

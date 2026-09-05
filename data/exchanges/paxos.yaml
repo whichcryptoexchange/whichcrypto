@@ -20,3 +20,10 @@ countries:
     entity: PAXOS GLOBAL PTE. LTD.
     reference: 408012-PAXOS-GLOBAL-PTE-LTD
     since: null
+news_mentions:
+- source: Cointelegraph
+  category: general
+  title: Mantle adds Paxos’ USDG stablecoin, joins Global Dollar Network
+  url: https://cointelegraph.com/news/paxos-usdg-goes-live-mantle-network-joins-global-dollar-network?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound
+  published: '2026-09-03'
+  retrieved: '2026-09-05'

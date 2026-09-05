@@ -230,6 +230,18 @@ countries:
 news_mentions:
 - source: Cointelegraph
   category: general
+  title: AMC chief criticizes Robinhood’s tokenized stock plan
+  url: https://cointelegraph.com/news/amc-ceo-criticizes-robinhoods-tokenized-stock?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound
+  published: '2026-09-04'
+  retrieved: '2026-09-05'
+- source: The Block
+  category: general
+  title: AMC stock jumps 21% overnight as CEO slams Robinhood over ‘outrageous’ tokenized shares
+  url: https://www.theblock.co/news/business/2026-09-04-amc-ceo-slams-robinhood-413513
+  published: '2026-09-04'
+  retrieved: '2026-09-05'
+- source: Cointelegraph
+  category: general
   title: 'Robinhood Chain nears $1B TVL as Uniswap drives liquidity: Standard Chartered'
   url: https://cointelegraph.com/news/robinhood-chain-uniswap-liquidity-uni-burns?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound
   published: '2026-08-13'
