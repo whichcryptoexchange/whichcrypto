@@ -230,6 +230,19 @@ countries:
 news_mentions:
 - source: Cointelegraph
   category: general
+  title: 'Robinhood chain to generate $160M in annual fees by 2028: Bernstein'
+  url: https://cointelegraph.com/news/robinhood-chain-160m-annual-fees-2028-bernstein?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound
+  published: '2026-09-08'
+  retrieved: '2026-09-08'
+- source: The Block
+  category: general
+  title: '‘The chain is now earnings’: Bernstein sees 31% upside for Robinhood as fees top Solana, BNB
+    Chain'
+  url: https://www.theblock.co/news/markets/2026-09-08-bernstein-sees-upside-robinhood-413729
+  published: '2026-09-08'
+  retrieved: '2026-09-08'
+- source: Cointelegraph
+  category: general
   title: 'Robinhood Chain nears $1B TVL as Uniswap drives liquidity: Standard Chartered'
   url: https://cointelegraph.com/news/robinhood-chain-uniswap-liquidity-uni-burns?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound
   published: '2026-08-13'

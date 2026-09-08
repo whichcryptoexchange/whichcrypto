@@ -78,3 +78,10 @@ company_facts:
   registration_status: issued
   entity_creation_date: '2019-01-31'
   retrieved: '2026-08-12'
+news_mentions:
+- source: Cointelegraph
+  category: general
+  title: 'Bitcoin fund flows show investors trading Fed rate path, not exiting market: CoinShares'
+  url: https://cointelegraph.com/markets/crypto-fund-flows-show-investors-trading-fed-rate-path-not-exiting-market-coinshares?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound
+  published: '2026-09-07'
+  retrieved: '2026-09-08'
