@@ -296,6 +296,12 @@ third_party_reviews:
   retrieved: '2026-09-02'
 news_mentions:
 - source: The Block
+  category: general
+  title: Coinbase-backed Router Protocol to shut down, burn 303 million ROUTE tokens
+  url: https://www.theblock.co/news/defi/2026-09-06-coinbase-backed-router-protocol-to-shut-down-burn-303-million-route-tokens-413618
+  published: '2026-09-06'
+  retrieved: '2026-09-08'
+- source: The Block
   category: regulatory
   title: Baltimore sues Kalshi and Polymarket, roping Coinbase, Robinhood and Webull into the fight
   url: https://www.theblock.co/news/business/2026-08-13-baltimore-sues-kalshi-polymarket-roping-coinbase-robinhood-webull-into-fight-411746
