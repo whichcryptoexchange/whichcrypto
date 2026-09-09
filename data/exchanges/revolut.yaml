@@ -229,9 +229,9 @@ countries:
 third_party_reviews:
 - source: App Store
   rating: 4.86
-  count: 1068510
+  count: 1072589
   url: https://apps.apple.com/gb/app/revolut-mobile-finance/id932493382?uo=4
-  retrieved: '2026-09-02'
+  retrieved: '2026-09-09'
 company_facts:
 - lei: 549300ET4IUR6RCZOL84
   registered_office:
