@@ -16,7 +16,7 @@ sources:
   retrieved: '2026-09-04'
 - name: Dubai VARA Public Register
   url: https://www.vara.ae/en/licenses-and-register/public-register/
-  retrieved: '2026-09-03'
+  retrieved: '2026-09-10'
 entities:
 - lei: 391200IJ3B1IP7993O16
   legal_name: BitGo Europe GmbH
