@@ -4,7 +4,7 @@ eu_status: authorised
 sources:
 - name: ESMA interim MiCA register (CASPS.csv)
   url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
-  retrieved: '2026-09-07'
+  retrieved: '2026-09-10'
 entities:
 - lei: 984500AB011S3AEF6706
   legal_name: FLOWDESK EUROPE SAS
@@ -26,7 +26,7 @@ entities:
     - DE
     - EE
     - ES
-    - HR
+    - GR
     - LI
     - LU
     - LV
@@ -78,7 +78,7 @@ countries:
     regime: MiCA
     via: home_state
     entity: FLOWDESK EUROPE SAS
-  HR:
+  GR:
     status: licensed
     regime: MiCA
     via: mica_passporting
