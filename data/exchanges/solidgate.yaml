@@ -4,7 +4,7 @@ eu_status: authorised
 sources:
 - name: ESMA interim MiCA register (CASPS.csv)
   url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
-  retrieved: '2026-09-07'
+  retrieved: '2026-09-10'
 entities:
 - lei: 254900YI6BJ1QQQZIY62
   legal_name: SG Digital Assets Limited
@@ -24,13 +24,187 @@ entities:
     - g
     - j
     passported_to:
+    - AT
+    - BE
+    - BG
     - CY
-    last_update: '2026-07-17'
+    - CZ
+    - DE
+    - DK
+    - EE
+    - ES
+    - FI
+    - FR
+    - GR
+    - HR
+    - HU
+    - IE
+    - IS
+    - IT
+    - LI
+    - LT
+    - LU
+    - LV
+    - MT
+    - NL
+    - 'NO'
+    - PL
+    - PT
+    - RO
+    - SE
+    - SI
+    - SK
+    last_update: '2026-08-26'
 countries:
+  AT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: SG Digital Assets Limited
+  BE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: SG Digital Assets Limited
+  BG:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: SG Digital Assets Limited
   CY:
     status: licensed
     regime: MiCA
     via: home_state
+    entity: SG Digital Assets Limited
+  CZ:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: SG Digital Assets Limited
+  DE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: SG Digital Assets Limited
+  DK:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: SG Digital Assets Limited
+  EE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: SG Digital Assets Limited
+  ES:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: SG Digital Assets Limited
+  FI:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: SG Digital Assets Limited
+  FR:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: SG Digital Assets Limited
+  GR:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: SG Digital Assets Limited
+  HR:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: SG Digital Assets Limited
+  HU:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: SG Digital Assets Limited
+  IE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: SG Digital Assets Limited
+  IS:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: SG Digital Assets Limited
+  IT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: SG Digital Assets Limited
+  LI:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: SG Digital Assets Limited
+  LT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: SG Digital Assets Limited
+  LU:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: SG Digital Assets Limited
+  LV:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: SG Digital Assets Limited
+  MT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: SG Digital Assets Limited
+  NL:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: SG Digital Assets Limited
+  'NO':
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: SG Digital Assets Limited
+  PL:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: SG Digital Assets Limited
+  PT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: SG Digital Assets Limited
+  RO:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: SG Digital Assets Limited
+  SE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: SG Digital Assets Limited
+  SI:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: SG Digital Assets Limited
+  SK:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
     entity: SG Digital Assets Limited
 company_facts:
 - lei: 254900YI6BJ1QQQZIY62

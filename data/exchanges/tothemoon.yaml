@@ -4,7 +4,7 @@ eu_status: authorised
 sources:
 - name: ESMA interim MiCA register (CASPS.csv)
   url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
-  retrieved: '2026-09-07'
+  retrieved: '2026-09-10'
 entities:
 - lei: 9845009846V10FGD4840
   legal_name: Brilliantscope Trading Limited
@@ -25,13 +25,187 @@ entities:
     - g
     - j
     passported_to:
+    - AT
+    - BE
+    - BG
     - CY
-    last_update: '2026-07-15'
+    - CZ
+    - DE
+    - DK
+    - EE
+    - ES
+    - FI
+    - FR
+    - GR
+    - HR
+    - HU
+    - IE
+    - IS
+    - IT
+    - LI
+    - LT
+    - LU
+    - LV
+    - MT
+    - NL
+    - 'NO'
+    - PL
+    - PT
+    - RO
+    - SE
+    - SI
+    - SK
+    last_update: '2026-07-24'
 countries:
+  AT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Brilliantscope Trading Limited
+  BE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Brilliantscope Trading Limited
+  BG:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Brilliantscope Trading Limited
   CY:
     status: licensed
     regime: MiCA
     via: home_state
+    entity: Brilliantscope Trading Limited
+  CZ:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Brilliantscope Trading Limited
+  DE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Brilliantscope Trading Limited
+  DK:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Brilliantscope Trading Limited
+  EE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Brilliantscope Trading Limited
+  ES:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Brilliantscope Trading Limited
+  FI:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Brilliantscope Trading Limited
+  FR:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Brilliantscope Trading Limited
+  GR:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Brilliantscope Trading Limited
+  HR:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Brilliantscope Trading Limited
+  HU:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Brilliantscope Trading Limited
+  IE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Brilliantscope Trading Limited
+  IS:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Brilliantscope Trading Limited
+  IT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Brilliantscope Trading Limited
+  LI:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Brilliantscope Trading Limited
+  LT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Brilliantscope Trading Limited
+  LU:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Brilliantscope Trading Limited
+  LV:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Brilliantscope Trading Limited
+  MT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Brilliantscope Trading Limited
+  NL:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Brilliantscope Trading Limited
+  'NO':
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Brilliantscope Trading Limited
+  PL:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Brilliantscope Trading Limited
+  PT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Brilliantscope Trading Limited
+  RO:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Brilliantscope Trading Limited
+  SE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Brilliantscope Trading Limited
+  SI:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Brilliantscope Trading Limited
+  SK:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
     entity: Brilliantscope Trading Limited
 company_facts:
 - lei: 9845009846V10FGD4840

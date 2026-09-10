@@ -4,7 +4,7 @@ eu_status: authorised
 sources:
 - name: ESMA interim MiCA register (CASPS.csv)
   url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
-  retrieved: '2026-09-07'
+  retrieved: '2026-09-10'
 entities:
 - lei: 5067009TZLDD94Q3W662
   legal_name: Bitcoin Suisse (Europe) AG
@@ -36,6 +36,7 @@ entities:
     - GR
     - HR
     - IE
+    - IS
     - IT
     - LI
     - LU
@@ -46,7 +47,7 @@ entities:
     - SE
     - SI
     - SK
-    last_update: '2026-06-24'
+    last_update: '2026-08-24'
 countries:
   AT:
     status: licensed
@@ -104,6 +105,11 @@ countries:
     via: mica_passporting
     entity: Bitcoin Suisse (Europe) AG
   IE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Bitcoin Suisse (Europe) AG
+  IS:
     status: licensed
     regime: MiCA
     via: mica_passporting

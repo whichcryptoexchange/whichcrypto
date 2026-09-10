@@ -4,7 +4,7 @@ eu_status: authorised
 sources:
 - name: ESMA interim MiCA register (CASPS.csv)
   url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
-  retrieved: '2026-09-07'
+  retrieved: '2026-09-10'
 entities:
 - lei: 984500A64C0EA64BC554
   legal_name: Stable Mint Ltd
@@ -20,13 +20,186 @@ entities:
     - a
     - j
     passported_to:
-    - MT
-    last_update: '2026-06-03'
+    - AT
+    - BE
+    - BG
+    - CY
+    - CZ
+    - DE
+    - DK
+    - EE
+    - ES
+    - FI
+    - FR
+    - GR
+    - HR
+    - HU
+    - IE
+    - IS
+    - IT
+    - LI
+    - LT
+    - LU
+    - LV
+    - NL
+    - 'NO'
+    - PL
+    - PT
+    - RO
+    - SE
+    - SI
+    - SK
+    last_update: '2026-06-19'
 countries:
+  AT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Stable Mint Ltd
+  BE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Stable Mint Ltd
+  BG:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Stable Mint Ltd
+  CY:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Stable Mint Ltd
+  CZ:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Stable Mint Ltd
+  DE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Stable Mint Ltd
+  DK:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Stable Mint Ltd
+  EE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Stable Mint Ltd
+  ES:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Stable Mint Ltd
+  FI:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Stable Mint Ltd
+  FR:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Stable Mint Ltd
+  GR:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Stable Mint Ltd
+  HR:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Stable Mint Ltd
+  HU:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Stable Mint Ltd
+  IE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Stable Mint Ltd
+  IS:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Stable Mint Ltd
+  IT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Stable Mint Ltd
+  LI:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Stable Mint Ltd
+  LT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Stable Mint Ltd
+  LU:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Stable Mint Ltd
+  LV:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Stable Mint Ltd
   MT:
     status: licensed
     regime: MiCA
     via: home_state
+    entity: Stable Mint Ltd
+  NL:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Stable Mint Ltd
+  'NO':
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Stable Mint Ltd
+  PL:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Stable Mint Ltd
+  PT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Stable Mint Ltd
+  RO:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Stable Mint Ltd
+  SE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Stable Mint Ltd
+  SI:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Stable Mint Ltd
+  SK:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
     entity: Stable Mint Ltd
 company_facts:
 - lei: 984500A64C0EA64BC554

@@ -1,0 +1,29 @@
+id: volksbank-alb-eg
+brand: Volksbank Alb eG
+eu_status: authorised
+sources:
+- name: ESMA interim MiCA register (CASPS.csv)
+  url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
+  retrieved: '2026-09-10'
+entities:
+- lei: 529900OBUVM58249Q315
+  legal_name: Volksbank Alb eG
+  commercial_name: Volksbank Alb eG
+  home_state: DE
+  regulator: Federal Financial Supervisory Authority (BaFin)
+  website: www.voba-alb.de
+  records:
+  - authorised: '2026-08-27'
+    withdrawn: null
+    status: authorised
+    services:
+    - e
+    passported_to:
+    - DE
+    last_update: '2026-08-27'
+countries:
+  DE:
+    status: licensed
+    regime: MiCA
+    via: home_state
+    entity: Volksbank Alb eG

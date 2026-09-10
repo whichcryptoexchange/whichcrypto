@@ -1,0 +1,29 @@
+id: raiffeisenbank-schwaben-mitte-eg
+brand: Raiffeisenbank Schwaben Mitte eG
+eu_status: authorised
+sources:
+- name: ESMA interim MiCA register (CASPS.csv)
+  url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
+  retrieved: '2026-09-10'
+entities:
+- lei: 529900K4NCP94LQNCG60
+  legal_name: Raiffeisenbank Schwaben Mitte eG
+  commercial_name: Raiffeisenbank Schwaben Mitte eG
+  home_state: DE
+  regulator: Federal Financial Supervisory Authority (BaFin)
+  website: www.rb-schwaben.de
+  records:
+  - authorised: '2026-08-13'
+    withdrawn: null
+    status: authorised
+    services:
+    - e
+    passported_to:
+    - DE
+    last_update: '2026-08-13'
+countries:
+  DE:
+    status: licensed
+    regime: MiCA
+    via: home_state
+    entity: Raiffeisenbank Schwaben Mitte eG

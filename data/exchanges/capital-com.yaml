@@ -4,7 +4,7 @@ eu_status: authorised
 sources:
 - name: ESMA interim MiCA register (CASPS.csv)
   url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
-  retrieved: '2026-09-07'
+  retrieved: '2026-09-10'
 entities:
 - lei: 984500C46B3B7B69Y904
   legal_name: CAPITAL VAULT LTD
@@ -21,6 +21,7 @@ entities:
     - c
     - d
     - e
+    - j
     passported_to:
     - AT
     - BE
@@ -52,7 +53,7 @@ entities:
     - SE
     - SI
     - SK
-    last_update: '2026-05-21'
+    last_update: '2026-07-17'
 countries:
   AT:
     status: licensed

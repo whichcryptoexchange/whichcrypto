@@ -1,0 +1,29 @@
+id: frankfurter-volksbank-rhein-main-eg
+brand: Frankfurter Volksbank Rhein/Main eG
+eu_status: authorised
+sources:
+- name: ESMA interim MiCA register (CASPS.csv)
+  url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
+  retrieved: '2026-09-10'
+entities:
+- lei: 529900967AJZ6T29Q111
+  legal_name: Frankfurter Volksbank Rhein/Main eG
+  commercial_name: Frankfurter Volksbank Rhein/Main eG
+  home_state: DE
+  regulator: Federal Financial Supervisory Authority (BaFin)
+  website: www.frankfurter-volksbank.de
+  records:
+  - authorised: '2026-08-21'
+    withdrawn: null
+    status: authorised
+    services:
+    - e
+    passported_to:
+    - DE
+    last_update: '2026-08-27'
+countries:
+  DE:
+    status: licensed
+    regime: MiCA
+    via: home_state
+    entity: Frankfurter Volksbank Rhein/Main eG

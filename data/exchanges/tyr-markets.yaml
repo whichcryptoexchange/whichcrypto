@@ -4,7 +4,7 @@ eu_status: authorised
 sources:
 - name: ESMA interim MiCA register (CASPS.csv)
   url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
-  retrieved: '2026-09-07'
+  retrieved: '2026-09-10'
 entities:
 - lei: 984500678DAPX7H3BC86
   legal_name: TÝR MARKETS AS
@@ -23,12 +23,18 @@ entities:
     - j
     passported_to:
     - 'NO'
-    last_update: '2026-05-19'
+    - SE
+    last_update: '2026-08-18'
 countries:
   'NO':
     status: licensed
     regime: MiCA
     via: home_state
+    entity: TÝR MARKETS AS
+  SE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
     entity: TÝR MARKETS AS
 company_facts:
 - lei: 984500678DAPX7H3BC86

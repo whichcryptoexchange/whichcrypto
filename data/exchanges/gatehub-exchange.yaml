@@ -1,0 +1,206 @@
+id: gatehub-exchange
+brand: GateHub Exchange
+eu_status: authorised
+sources:
+- name: ESMA interim MiCA register (CASPS.csv)
+  url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
+  retrieved: '2026-09-10'
+entities:
+- lei: 485100FKB79GMCXY4P55
+  legal_name: GateHub Exchange družba za izvajanje storitev v zvezi s kriptosredstvi d.o.o
+  commercial_name: GateHub Exchange
+  home_state: SI
+  regulator: Securities Market Agency (ATVP)
+  website: https://www.gatehub.net/
+  records:
+  - authorised: '2026-08-24'
+    withdrawn: null
+    status: authorised
+    services:
+    - a
+    - c
+    - d
+    - j
+    passported_to:
+    - AT
+    - BE
+    - BG
+    - CY
+    - CZ
+    - DE
+    - DK
+    - EE
+    - ES
+    - FI
+    - FR
+    - GR
+    - HR
+    - HU
+    - IE
+    - IS
+    - IT
+    - LI
+    - LT
+    - LU
+    - LV
+    - MT
+    - NL
+    - 'NO'
+    - PL
+    - PT
+    - RO
+    - SE
+    - SI
+    - SK
+    last_update: '2026-09-02'
+countries:
+  AT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: GateHub Exchange družba za izvajanje storitev v zvezi s kriptosredstvi d.o.o
+  BE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: GateHub Exchange družba za izvajanje storitev v zvezi s kriptosredstvi d.o.o
+  BG:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: GateHub Exchange družba za izvajanje storitev v zvezi s kriptosredstvi d.o.o
+  CY:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: GateHub Exchange družba za izvajanje storitev v zvezi s kriptosredstvi d.o.o
+  CZ:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: GateHub Exchange družba za izvajanje storitev v zvezi s kriptosredstvi d.o.o
+  DE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: GateHub Exchange družba za izvajanje storitev v zvezi s kriptosredstvi d.o.o
+  DK:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: GateHub Exchange družba za izvajanje storitev v zvezi s kriptosredstvi d.o.o
+  EE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: GateHub Exchange družba za izvajanje storitev v zvezi s kriptosredstvi d.o.o
+  ES:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: GateHub Exchange družba za izvajanje storitev v zvezi s kriptosredstvi d.o.o
+  FI:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: GateHub Exchange družba za izvajanje storitev v zvezi s kriptosredstvi d.o.o
+  FR:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: GateHub Exchange družba za izvajanje storitev v zvezi s kriptosredstvi d.o.o
+  GR:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: GateHub Exchange družba za izvajanje storitev v zvezi s kriptosredstvi d.o.o
+  HR:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: GateHub Exchange družba za izvajanje storitev v zvezi s kriptosredstvi d.o.o
+  HU:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: GateHub Exchange družba za izvajanje storitev v zvezi s kriptosredstvi d.o.o
+  IE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: GateHub Exchange družba za izvajanje storitev v zvezi s kriptosredstvi d.o.o
+  IS:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: GateHub Exchange družba za izvajanje storitev v zvezi s kriptosredstvi d.o.o
+  IT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: GateHub Exchange družba za izvajanje storitev v zvezi s kriptosredstvi d.o.o
+  LI:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: GateHub Exchange družba za izvajanje storitev v zvezi s kriptosredstvi d.o.o
+  LT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: GateHub Exchange družba za izvajanje storitev v zvezi s kriptosredstvi d.o.o
+  LU:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: GateHub Exchange družba za izvajanje storitev v zvezi s kriptosredstvi d.o.o
+  LV:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: GateHub Exchange družba za izvajanje storitev v zvezi s kriptosredstvi d.o.o
+  MT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: GateHub Exchange družba za izvajanje storitev v zvezi s kriptosredstvi d.o.o
+  NL:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: GateHub Exchange družba za izvajanje storitev v zvezi s kriptosredstvi d.o.o
+  'NO':
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: GateHub Exchange družba za izvajanje storitev v zvezi s kriptosredstvi d.o.o
+  PL:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: GateHub Exchange družba za izvajanje storitev v zvezi s kriptosredstvi d.o.o
+  PT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: GateHub Exchange družba za izvajanje storitev v zvezi s kriptosredstvi d.o.o
+  RO:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: GateHub Exchange družba za izvajanje storitev v zvezi s kriptosredstvi d.o.o
+  SE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: GateHub Exchange družba za izvajanje storitev v zvezi s kriptosredstvi d.o.o
+  SI:
+    status: licensed
+    regime: MiCA
+    via: home_state
+    entity: GateHub Exchange družba za izvajanje storitev v zvezi s kriptosredstvi d.o.o
+  SK:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: GateHub Exchange družba za izvajanje storitev v zvezi s kriptosredstvi d.o.o

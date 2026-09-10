@@ -4,7 +4,7 @@ eu_status: authorised
 sources:
 - name: ESMA interim MiCA register (CASPS.csv)
   url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
-  retrieved: '2026-09-07'
+  retrieved: '2026-09-10'
 - name: Singapore MAS Financial Institutions Directory
   url: https://eservices.mas.gov.sg/fid/institution
   retrieved: '2026-09-03'
@@ -16,7 +16,7 @@ sources:
   retrieved: '2026-09-08'
 entities:
 - lei: 254900GDCT8070R2VV26
-  legal_name: Blue Cube (Malta) Limited
+  legal_name: Blockchain.com Operations (Malta) Limited
   commercial_name: Blockchain.com
   home_state: MT
   regulator: Malta Financial Services Authority (MFSA)
@@ -61,63 +61,63 @@ entities:
     - SE
     - SI
     - SK
-    last_update: '2025-11-17'
+    last_update: '2026-08-26'
 countries:
   AT:
     status: licensed
     regime: MiCA
     via: mica_passporting
-    entity: Blue Cube (Malta) Limited
+    entity: Blockchain.com Operations (Malta) Limited
   BE:
     status: licensed
     regime: MiCA
     via: mica_passporting
-    entity: Blue Cube (Malta) Limited
+    entity: Blockchain.com Operations (Malta) Limited
   BG:
     status: licensed
     regime: MiCA
     via: mica_passporting
-    entity: Blue Cube (Malta) Limited
+    entity: Blockchain.com Operations (Malta) Limited
   CY:
     status: licensed
     regime: MiCA
     via: mica_passporting
-    entity: Blue Cube (Malta) Limited
+    entity: Blockchain.com Operations (Malta) Limited
   CZ:
     status: licensed
     regime: MiCA
     via: mica_passporting
-    entity: Blue Cube (Malta) Limited
+    entity: Blockchain.com Operations (Malta) Limited
   DE:
     status: licensed
     regime: MiCA
     via: mica_passporting
-    entity: Blue Cube (Malta) Limited
+    entity: Blockchain.com Operations (Malta) Limited
   DK:
     status: licensed
     regime: MiCA
     via: mica_passporting
-    entity: Blue Cube (Malta) Limited
+    entity: Blockchain.com Operations (Malta) Limited
   EE:
     status: licensed
     regime: MiCA
     via: mica_passporting
-    entity: Blue Cube (Malta) Limited
+    entity: Blockchain.com Operations (Malta) Limited
   ES:
     status: licensed
     regime: MiCA
     via: mica_passporting
-    entity: Blue Cube (Malta) Limited
+    entity: Blockchain.com Operations (Malta) Limited
   FI:
     status: licensed
     regime: MiCA
     via: mica_passporting
-    entity: Blue Cube (Malta) Limited
+    entity: Blockchain.com Operations (Malta) Limited
   FR:
     status: licensed
     regime: MiCA
     via: mica_passporting
-    entity: Blue Cube (Malta) Limited
+    entity: Blockchain.com Operations (Malta) Limited
   GB:
   - status: registered
     regime: UK MLR registration
@@ -129,87 +129,87 @@ countries:
     status: licensed
     regime: MiCA
     via: mica_passporting
-    entity: Blue Cube (Malta) Limited
+    entity: Blockchain.com Operations (Malta) Limited
   HR:
     status: licensed
     regime: MiCA
     via: mica_passporting
-    entity: Blue Cube (Malta) Limited
+    entity: Blockchain.com Operations (Malta) Limited
   HU:
     status: licensed
     regime: MiCA
     via: mica_passporting
-    entity: Blue Cube (Malta) Limited
+    entity: Blockchain.com Operations (Malta) Limited
   IE:
     status: licensed
     regime: MiCA
     via: mica_passporting
-    entity: Blue Cube (Malta) Limited
+    entity: Blockchain.com Operations (Malta) Limited
   IS:
     status: licensed
     regime: MiCA
     via: mica_passporting
-    entity: Blue Cube (Malta) Limited
+    entity: Blockchain.com Operations (Malta) Limited
   IT:
     status: licensed
     regime: MiCA
     via: mica_passporting
-    entity: Blue Cube (Malta) Limited
+    entity: Blockchain.com Operations (Malta) Limited
   LI:
     status: licensed
     regime: MiCA
     via: mica_passporting
-    entity: Blue Cube (Malta) Limited
+    entity: Blockchain.com Operations (Malta) Limited
   LT:
     status: licensed
     regime: MiCA
     via: mica_passporting
-    entity: Blue Cube (Malta) Limited
+    entity: Blockchain.com Operations (Malta) Limited
   LU:
     status: licensed
     regime: MiCA
     via: mica_passporting
-    entity: Blue Cube (Malta) Limited
+    entity: Blockchain.com Operations (Malta) Limited
   LV:
     status: licensed
     regime: MiCA
     via: mica_passporting
-    entity: Blue Cube (Malta) Limited
+    entity: Blockchain.com Operations (Malta) Limited
   MT:
     status: licensed
     regime: MiCA
     via: home_state
-    entity: Blue Cube (Malta) Limited
+    entity: Blockchain.com Operations (Malta) Limited
   NL:
     status: licensed
     regime: MiCA
     via: mica_passporting
-    entity: Blue Cube (Malta) Limited
+    entity: Blockchain.com Operations (Malta) Limited
   'NO':
     status: licensed
     regime: MiCA
     via: mica_passporting
-    entity: Blue Cube (Malta) Limited
+    entity: Blockchain.com Operations (Malta) Limited
   PL:
     status: licensed
     regime: MiCA
     via: mica_passporting
-    entity: Blue Cube (Malta) Limited
+    entity: Blockchain.com Operations (Malta) Limited
   PT:
     status: licensed
     regime: MiCA
     via: mica_passporting
-    entity: Blue Cube (Malta) Limited
+    entity: Blockchain.com Operations (Malta) Limited
   RO:
     status: licensed
     regime: MiCA
     via: mica_passporting
-    entity: Blue Cube (Malta) Limited
+    entity: Blockchain.com Operations (Malta) Limited
   SE:
     status: licensed
     regime: MiCA
     via: mica_passporting
-    entity: Blue Cube (Malta) Limited
+    entity: Blockchain.com Operations (Malta) Limited
   SG:
   - status: licensed
     regime: Singapore MAS MPI licence (DPT)
@@ -221,12 +221,12 @@ countries:
     status: licensed
     regime: MiCA
     via: mica_passporting
-    entity: Blue Cube (Malta) Limited
+    entity: Blockchain.com Operations (Malta) Limited
   SK:
     status: licensed
     regime: MiCA
     via: mica_passporting
-    entity: Blue Cube (Malta) Limited
+    entity: Blockchain.com Operations (Malta) Limited
   US:
   - status: registered
     regime: US FinCEN MSB registration

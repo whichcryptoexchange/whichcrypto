@@ -4,7 +4,7 @@ eu_status: authorised
 sources:
 - name: ESMA interim MiCA register (CASPS.csv)
   url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
-  retrieved: '2026-09-07'
+  retrieved: '2026-09-10'
 entities:
 - lei: 6367008S3JL8VVP6T689
   legal_name: K33 MARKETS as
@@ -21,13 +21,37 @@ entities:
     - e
     - j
     passported_to:
+    - DK
+    - FI
+    - GR
     - 'NO'
-    last_update: '2026-06-16'
+    - SE
+    last_update: '2026-08-18'
 countries:
+  DK:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: K33 MARKETS as
+  FI:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: K33 MARKETS as
+  GR:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: K33 MARKETS as
   'NO':
     status: licensed
     regime: MiCA
     via: home_state
+    entity: K33 MARKETS as
+  SE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
     entity: K33 MARKETS as
 company_facts:
 - lei: 6367008S3JL8VVP6T689

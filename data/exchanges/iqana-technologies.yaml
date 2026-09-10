@@ -4,13 +4,13 @@ eu_status: authorised
 sources:
 - name: ESMA interim MiCA register (CASPS.csv)
   url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
-  retrieved: '2026-09-07'
+  retrieved: '2026-09-10'
 entities:
 - lei: 959800AZT2DVBLZQY241
   legal_name: IQANA TECHNOLOGIES S.L
   commercial_name: IQANA TECHNOLOGIES S.L
   home_state: ES
-  regulator: Comisión Nacional del Mercado de Valores (CNMV)
+  regulator: Comision Nacional del Mercado de Valores (CNMV)
   website: https://iqana.io/
   records:
   - authorised: '2026-07-10'
