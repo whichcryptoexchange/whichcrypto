@@ -14,7 +14,7 @@ sources:
   retrieved: '2026-09-08'
 - name: AUSTRAC VASP Register (VASPR)
   url: https://online.apps.austrac.gov.au/vaspr
-  retrieved: '2026-09-04'
+  retrieved: '2026-09-11'
 entities:
 - lei: 98450066Q3A1G1A4T786
   legal_name: CoinJar Europe Limited

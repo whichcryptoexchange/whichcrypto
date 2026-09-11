@@ -10,7 +10,7 @@ sources:
   retrieved: '2026-09-08'
 - name: AUSTRAC VASP Register (VASPR)
   url: https://online.apps.austrac.gov.au/vaspr
-  retrieved: '2026-08-18'
+  retrieved: '2026-09-11'
 entities:
 - lei: 549300ET4IUR6RCZOL84
   legal_name: Revolut Digital Assets (Europe) Ltd
