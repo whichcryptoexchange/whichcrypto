@@ -295,6 +295,32 @@ third_party_reviews:
   url: https://apps.apple.com/us/app/coinbase-buy-crypto-stocks/id886427730?uo=4
   retrieved: '2026-09-09'
 news_mentions:
+- source: Cointelegraph
+  category: general
+  title: Coinbase, Moov to provide stablecoin infrastructure for US community banks
+  url: https://cointelegraph.com/news/coinbase-moov-stablecoin-infrastructure-banks?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound
+  published: '2026-09-10'
+  retrieved: '2026-09-12'
+- source: The Block
+  category: general
+  title: Coinbase rebrands Base App back to Coinbase Wallet after just over a year as social experiment
+    falls short
+  url: https://www.theblock.co/news/defi/2026-09-10-coinbase-rebrands-base-app-back-to-coinbase-wallet-after-just-over-a-year-as-social-experiment-falls-short-414115
+  published: '2026-09-10'
+  retrieved: '2026-09-12'
+- source: The Block
+  category: general
+  title: Coinbase, Moov to bring stablecoin payment infrastructure to community banks and credit unions
+  url: https://www.theblock.co/news/business/2026-09-10-coinbase-moov-bring-stablecoin-payment-infrastructure-community-banks-credit-unions-414153
+  published: '2026-09-10'
+  retrieved: '2026-09-12'
+- source: The Block
+  category: general
+  title: Coinbase CEO Brian Armstrong says bitcoin has bottomed for current cycle, expects uptrend over
+    next two years
+  url: https://www.theblock.co/news/markets/2026-09-10-coinbase-ceo-brian-armstrong-says-bitcoin-has-bottomed-for-current-cycle-expects-uptrend-over-next-two-years-414104
+  published: '2026-09-10'
+  retrieved: '2026-09-12'
 - source: The Block
   category: general
   title: Coinbase-backed Router Protocol to shut down, burn 303 million ROUTE tokens

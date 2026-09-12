@@ -205,6 +205,18 @@ countries:
 news_mentions:
 - source: Cointelegraph
   category: general
+  title: Standard Chartered forecasts SKY rising fivefold to $0.325 by 2028
+  url: https://cointelegraph.com/news/sky-value-token-holders-standard-chartered?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound
+  published: '2026-09-11'
+  retrieved: '2026-09-12'
+- source: The Block
+  category: general
+  title: '‘DeFi’s federal bank’: Standard Chartered sees SKY token rising fivefold by end-2028'
+  url: https://www.theblock.co/news/markets/2026-09-11-standard-chartered-sky-token-defi-federal-bank-414280
+  published: '2026-09-11'
+  retrieved: '2026-09-12'
+- source: Cointelegraph
+  category: general
   title: Standard Chartered wavers on $100K Bitcoin year-end call, says it may be ‘too low’
   url: https://cointelegraph.com/news/standard-chartered-100k-bitcoin-2026-prediction-low?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound
   published: '2026-08-21'

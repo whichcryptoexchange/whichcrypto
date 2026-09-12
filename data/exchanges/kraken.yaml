@@ -323,6 +323,18 @@ third_party_reviews:
   url: https://apps.apple.com/us/app/kraken-buy-crypto-stocks/id1481947260?uo=4
   retrieved: '2026-09-09'
 news_mentions:
+- source: Cointelegraph
+  category: general
+  title: 'Nasdaq invests $100M in Kraken parent at $21B valuation: Report'
+  url: https://cointelegraph.com/news/nasdaq-invests-100m-kraken-parent-21b-valuation?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound
+  published: '2026-09-10'
+  retrieved: '2026-09-12'
+- source: The Block
+  category: general
+  title: Nasdaq to invest $100 million in Kraken parent Payward as firms expand partnership
+  url: https://www.theblock.co/news/deals/2026-09-10-nasdaq-to-invest-100-million-in-kraken-parent-payward-as-firms-expand-partnership-414120
+  published: '2026-09-10'
+  retrieved: '2026-09-12'
 - source: The Block
   category: general
   title: Kraken parent Payward explores becoming a ‘full bank’ outside the US
