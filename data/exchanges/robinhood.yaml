@@ -230,6 +230,12 @@ countries:
 news_mentions:
 - source: Cointelegraph
   category: general
+  title: Robinhood’s crypto volume increases 61% in August, still down 38% YoY
+  url: https://cointelegraph.com/news/robinhoods-crypto-volume-rebounds-august?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound
+  published: '2026-09-11'
+  retrieved: '2026-09-12'
+- source: Cointelegraph
+  category: general
   title: 'Robinhood chain to generate $160M in annual fees by 2028: Bernstein'
   url: https://cointelegraph.com/news/robinhood-chain-160m-annual-fees-2028-bernstein?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound
   published: '2026-09-08'

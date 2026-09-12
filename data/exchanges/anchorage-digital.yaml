@@ -23,3 +23,10 @@ countries:
     via: ny_dfs_register
     entity: Anchorage Digital NY, LLC
     since: 2024-12
+news_mentions:
+- source: Cointelegraph
+  category: general
+  title: Anchorage Digital adds institutional access to Frgmnt’s fUSD stablecoin
+  url: https://cointelegraph.com/news/anchorage-digital-adds-institutional-access-to-frgmnts-fusd-stablecoin?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound
+  published: '2026-09-11'
+  retrieved: '2026-09-12'
