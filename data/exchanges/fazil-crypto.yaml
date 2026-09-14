@@ -1,16 +1,16 @@
-id: basque-pay-s-l
-brand: BASQUE PAY S.L
+id: fazil-crypto
+brand: FAZIL CRYPTO
 eu_status: authorised
 sources:
 - name: ESMA interim MiCA register (CASPS.csv)
   url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
-  retrieved: '2026-09-07'
+  retrieved: '2026-09-10'
 entities:
 - lei: 9598005WW6HZ4V82BZ26
   legal_name: BASQUE PAY S.L
-  commercial_name: BASQUE PAY S.L
+  commercial_name: FAZIL CRYPTO
   home_state: ES
-  regulator: Comisión Nacional del Mercado de Valores (CNMV)
+  regulator: Comision Nacional del Mercado de Valores (CNMV)
   website: https://fazilcrypto.com/es/
   records:
   - authorised: '2026-07-31'

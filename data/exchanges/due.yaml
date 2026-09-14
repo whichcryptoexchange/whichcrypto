@@ -4,13 +4,13 @@ eu_status: authorised
 sources:
 - name: ESMA interim MiCA register (CASPS.csv)
   url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
-  retrieved: '2026-09-07'
+  retrieved: '2026-09-10'
 entities:
 - lei: 89450026TTLUZJV1XM36
   legal_name: DUE NETWORK S.L
   commercial_name: DUE
   home_state: ES
-  regulator: Comisión Nacional del Mercado de Valores (CNMV)
+  regulator: Comision Nacional del Mercado de Valores (CNMV)
   website: http://www.opendue.com/
   records:
   - authorised: '2026-06-12'

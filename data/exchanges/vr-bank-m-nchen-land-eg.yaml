@@ -1,0 +1,29 @@
+id: vr-bank-m-nchen-land-eg
+brand: VR Bank München Land eG
+eu_status: authorised
+sources:
+- name: ESMA interim MiCA register (CASPS.csv)
+  url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
+  retrieved: '2026-09-10'
+entities:
+- lei: 5299008QOOWW0IUSDH15
+  legal_name: VR Bank München Land eG
+  commercial_name: VR Bank München Land eG
+  home_state: DE
+  regulator: Federal Financial Supervisory Authority (BaFin)
+  website: www.vr-bank-muenchen-land.de
+  records:
+  - authorised: '2026-09-08'
+    withdrawn: null
+    status: authorised
+    services:
+    - e
+    passported_to:
+    - DE
+    last_update: '2026-09-08'
+countries:
+  DE:
+    status: licensed
+    regime: MiCA
+    via: home_state
+    entity: VR Bank München Land eG

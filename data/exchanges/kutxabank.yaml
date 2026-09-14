@@ -4,13 +4,13 @@ eu_status: authorised
 sources:
 - name: ESMA interim MiCA register (CASPS.csv)
   url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
-  retrieved: '2026-09-07'
+  retrieved: '2026-09-10'
 entities:
 - lei: 549300U4LIZV0REEQQ46
   legal_name: KUTXABANK S.A
   commercial_name: KUTXABANK
   home_state: ES
-  regulator: Comisión Nacional del Mercado de Valores (CNMV)
+  regulator: Comision Nacional del Mercado de Valores (CNMV)
   website: https://portal.kutxabank.es/cs/ Satellite/kb/es/particulares
   records:
   - authorised: '2026-03-27'

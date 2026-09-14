@@ -4,7 +4,7 @@ eu_status: authorised
 sources:
 - name: ESMA interim MiCA register (CASPS.csv)
   url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
-  retrieved: '2026-09-07'
+  retrieved: '2026-09-10'
 entities:
 - lei: 9845003B8462B18FHE35
   legal_name: FIRI AS
@@ -24,12 +24,149 @@ entities:
     - e
     - j
     passported_to:
+    - AT
+    - BE
+    - BG
+    - CY
+    - CZ
+    - DE
     - DK
+    - EE
+    - ES
+    - FI
+    - FR
+    - GR
+    - HR
+    - HU
+    - IE
+    - IS
+    - IT
+    - LI
+    - LT
+    - LU
+    - LV
+    - MT
+    - NL
     - 'NO'
+    - PL
+    - PT
+    - RO
     - SE
-    last_update: '2026-05-29'
+    - SI
+    - SK
+    last_update: '2026-08-21'
 countries:
+  AT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: FIRI AS
+  BE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: FIRI AS
+  BG:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: FIRI AS
+  CY:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: FIRI AS
+  CZ:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: FIRI AS
+  DE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: FIRI AS
   DK:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: FIRI AS
+  EE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: FIRI AS
+  ES:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: FIRI AS
+  FI:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: FIRI AS
+  FR:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: FIRI AS
+  GR:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: FIRI AS
+  HR:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: FIRI AS
+  HU:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: FIRI AS
+  IE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: FIRI AS
+  IS:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: FIRI AS
+  IT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: FIRI AS
+  LI:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: FIRI AS
+  LT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: FIRI AS
+  LU:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: FIRI AS
+  LV:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: FIRI AS
+  MT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: FIRI AS
+  NL:
     status: licensed
     regime: MiCA
     via: mica_passporting
@@ -39,7 +176,32 @@ countries:
     regime: MiCA
     via: home_state
     entity: FIRI AS
+  PL:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: FIRI AS
+  PT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: FIRI AS
+  RO:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: FIRI AS
   SE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: FIRI AS
+  SI:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: FIRI AS
+  SK:
     status: licensed
     regime: MiCA
     via: mica_passporting

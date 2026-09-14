@@ -4,7 +4,7 @@ eu_status: authorised
 sources:
 - name: ESMA interim MiCA register (CASPS.csv)
   url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
-  retrieved: '2026-09-07'
+  retrieved: '2026-09-10'
 entities:
 - lei: 64880741U1SN9TUWJ897
   legal_name: Invity Finance s.r.o
@@ -26,9 +26,12 @@ entities:
     passported_to:
     - AT
     - DE
+    - ES
     - IT
+    - NL
+    - PL
     - SK
-    last_update: '2026-02-13'
+    last_update: '2026-09-01'
 countries:
   AT:
     status: licensed
@@ -45,7 +48,22 @@ countries:
     regime: MiCA
     via: mica_passporting
     entity: Invity Finance s.r.o
+  ES:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Invity Finance s.r.o
   IT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Invity Finance s.r.o
+  NL:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Invity Finance s.r.o
+  PL:
     status: licensed
     regime: MiCA
     via: mica_passporting
