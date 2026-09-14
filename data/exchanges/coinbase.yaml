@@ -297,6 +297,19 @@ third_party_reviews:
 news_mentions:
 - source: The Block
   category: general
+  title: Coinbase rebrands Base App back to Coinbase Wallet after just over a year as social experiment
+    falls short
+  url: https://www.theblock.co/news/defi/2026-09-10-coinbase-rebrands-base-app-back-to-coinbase-wallet-after-just-over-a-year-as-social-experiment-falls-short-414115
+  published: '2026-09-10'
+  retrieved: '2026-09-13'
+- source: The Block
+  category: general
+  title: Coinbase, Moov to bring stablecoin payment infrastructure to community banks and credit unions
+  url: https://www.theblock.co/news/business/2026-09-10-coinbase-moov-bring-stablecoin-payment-infrastructure-community-banks-credit-unions-414153
+  published: '2026-09-10'
+  retrieved: '2026-09-13'
+- source: The Block
+  category: general
   title: Coinbase-backed Router Protocol to shut down, burn 303 million ROUTE tokens
   url: https://www.theblock.co/news/defi/2026-09-06-coinbase-backed-router-protocol-to-shut-down-burn-303-million-route-tokens-413618
   published: '2026-09-06'

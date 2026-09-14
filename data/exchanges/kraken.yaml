@@ -325,6 +325,12 @@ third_party_reviews:
 news_mentions:
 - source: The Block
   category: general
+  title: Nasdaq to invest $100 million in Kraken parent Payward as firms expand partnership
+  url: https://www.theblock.co/news/deals/2026-09-10-nasdaq-to-invest-100-million-in-kraken-parent-payward-as-firms-expand-partnership-414120
+  published: '2026-09-10'
+  retrieved: '2026-09-13'
+- source: The Block
+  category: general
   title: Kraken parent Payward explores becoming a ‘full bank’ outside the US
   url: https://www.theblock.co/news/business/2026-08-20-kraken-parent-payward-explores-becoming-a-full-bank-outside-us-412390
   published: '2026-08-20'

@@ -241,3 +241,16 @@ company_facts:
   registration_status: issued
   entity_creation_date: '2022-01-21'
   retrieved: '2026-08-12'
+news_mentions:
+- source: Cointelegraph
+  category: general
+  title: Revolut says customer data exposed through fake government email
+  url: https://cointelegraph.com/news/revolut-says-customer-data-exposed-through-fake-government-email?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound
+  published: '2026-09-13'
+  retrieved: '2026-09-13'
+- source: The Block
+  category: general
+  title: Revolut says customer KYC, Bitcoin transaction data exposed after fake request from gov’t domain
+  url: https://www.theblock.co/news/business/2026-09-12-revolut-says-customer-kyc-bitcoin-transaction-data-exposed-after-fake-request-from-govt-domain-414516
+  published: '2026-09-12'
+  retrieved: '2026-09-13'
