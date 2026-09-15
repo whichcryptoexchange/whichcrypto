@@ -244,6 +244,12 @@ company_facts:
 news_mentions:
 - source: Cointelegraph
   category: general
+  title: Revolut attackers threaten daily customer data leaks
+  url: https://cointelegraph.com/news/revolut-attackers-threaten-daily-customer-data-leaks?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound
+  published: '2026-09-14'
+  retrieved: '2026-09-15'
+- source: Cointelegraph
+  category: general
   title: Revolut says customer data exposed through fake government email
   url: https://cointelegraph.com/news/revolut-says-customer-data-exposed-through-fake-government-email?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound
   published: '2026-09-13'

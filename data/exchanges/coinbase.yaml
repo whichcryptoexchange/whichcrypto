@@ -297,6 +297,12 @@ third_party_reviews:
 news_mentions:
 - source: The Block
   category: general
+  title: Ark Invest sells $14 million in Circle, trims Coinbase as crypto stocks rally
+  url: https://www.theblock.co/news/business/2026-09-15-ark-invest-sells-circle-coinbase-414811
+  published: '2026-09-15'
+  retrieved: '2026-09-15'
+- source: The Block
+  category: general
   title: Coinbase rebrands Base App back to Coinbase Wallet after just over a year as social experiment
     falls short
   url: https://www.theblock.co/news/defi/2026-09-10-coinbase-rebrands-base-app-back-to-coinbase-wallet-after-just-over-a-year-as-social-experiment-falls-short-414115
