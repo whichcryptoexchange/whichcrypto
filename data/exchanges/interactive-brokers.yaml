@@ -7,7 +7,7 @@ sources:
   retrieved: '2026-09-10'
 - name: UK FCA Register
   url: https://register.fca.org.uk/
-  retrieved: '2026-09-08'
+  retrieved: '2026-09-15'
 entities:
 - lei: 5493001B9LDFCQUY9273
   legal_name: Interactive Brokers Ireland Limited
