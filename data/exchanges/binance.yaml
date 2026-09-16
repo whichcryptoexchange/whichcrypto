@@ -43,9 +43,9 @@ countries:
 third_party_reviews:
 - source: App Store
   rating: 4.65
-  count: 119525
+  count: 119782
   url: https://apps.apple.com/gb/app/binance-buy-bitcoin-crypto/id1436799971?uo=4
-  retrieved: '2026-09-09'
+  retrieved: '2026-09-16'
 news_mentions:
 - source: Cointelegraph
   category: general
