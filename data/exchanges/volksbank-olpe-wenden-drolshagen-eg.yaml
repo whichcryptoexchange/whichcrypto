@@ -1,0 +1,29 @@
+id: volksbank-olpe-wenden-drolshagen-eg
+brand: Volksbank Olpe-Wenden-Drolshagen eG
+eu_status: authorised
+sources:
+- name: ESMA interim MiCA register (CASPS.csv)
+  url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
+  retrieved: '2026-09-17'
+entities:
+- lei: 529900AOIGZIIUZHID69
+  legal_name: Volksbank Olpe-Wenden-Drolshagen eG
+  commercial_name: Volksbank Olpe-Wenden-Drolshagen eG
+  home_state: DE
+  regulator: Federal Financial Supervisory Authority (BaFin)
+  website: https://www.voba-owd.de
+  records:
+  - authorised: '2026-09-29'
+    withdrawn: null
+    status: authorised
+    services:
+    - e
+    passported_to:
+    - DE
+    last_update: '2026-09-09'
+countries:
+  DE:
+    status: licensed
+    regime: MiCA
+    via: home_state
+    entity: Volksbank Olpe-Wenden-Drolshagen eG

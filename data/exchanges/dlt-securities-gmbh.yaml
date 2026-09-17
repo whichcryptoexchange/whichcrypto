@@ -4,7 +4,7 @@ eu_status: authorised
 sources:
 - name: ESMA interim MiCA register (CASPS.csv)
   url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
-  retrieved: '2026-09-10'
+  retrieved: '2026-09-17'
 entities:
 - lei: 391200EYHDBM1YQI7A32
   legal_name: DLT Securities GmbH
@@ -25,13 +25,175 @@ entities:
     - h
     - i
     passported_to:
+    - AT
+    - BE
+    - BG
+    - CY
+    - CZ
     - DE
-    last_update: '2026-04-01'
+    - DK
+    - EE
+    - ES
+    - FI
+    - FR
+    - HR
+    - HU
+    - IE
+    - IS
+    - IT
+    - LI
+    - LT
+    - LU
+    - MT
+    - NL
+    - 'NO'
+    - PL
+    - PT
+    - RO
+    - SE
+    - SI
+    - SK
+    last_update: '2026-07-31'
 countries:
+  AT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: DLT Securities GmbH
+  BE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: DLT Securities GmbH
+  BG:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: DLT Securities GmbH
+  CY:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: DLT Securities GmbH
+  CZ:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: DLT Securities GmbH
   DE:
     status: licensed
     regime: MiCA
     via: home_state
+    entity: DLT Securities GmbH
+  DK:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: DLT Securities GmbH
+  EE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: DLT Securities GmbH
+  ES:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: DLT Securities GmbH
+  FI:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: DLT Securities GmbH
+  FR:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: DLT Securities GmbH
+  HR:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: DLT Securities GmbH
+  HU:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: DLT Securities GmbH
+  IE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: DLT Securities GmbH
+  IS:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: DLT Securities GmbH
+  IT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: DLT Securities GmbH
+  LI:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: DLT Securities GmbH
+  LT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: DLT Securities GmbH
+  LU:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: DLT Securities GmbH
+  MT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: DLT Securities GmbH
+  NL:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: DLT Securities GmbH
+  'NO':
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: DLT Securities GmbH
+  PL:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: DLT Securities GmbH
+  PT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: DLT Securities GmbH
+  RO:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: DLT Securities GmbH
+  SE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: DLT Securities GmbH
+  SI:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: DLT Securities GmbH
+  SK:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
     entity: DLT Securities GmbH
 company_facts:
 - lei: 391200EYHDBM1YQI7A32
