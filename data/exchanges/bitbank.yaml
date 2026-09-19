@@ -14,3 +14,16 @@ countries:
     entity: bitbank, inc.
     reference: Kanto No.00004
     since: '2017-09-29'
+news_mentions:
+- source: Cointelegraph
+  category: regulatory
+  title: US sanctions Iran’s BitBank, saying it processes ‘Hormuz Safe’ Bitcoin payments
+  url: https://cointelegraph.com/news/us-sanctions-irans-bitbank-saying-it-processes-hormuz-safe-bitcoin-payments?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound
+  published: '2026-09-18'
+  retrieved: '2026-09-19'
+- source: The Block
+  category: regulatory
+  title: US sanctions Iranian crypto exchange BitBank over alleged bitcoin transfers to IRGC
+  url: https://www.theblock.co/news/regulation/2026-09-17-us-sanctions-iranian-crypto-exchange-bitbank-alleged-bitcoin-transfers-to-irgc-415462
+  published: '2026-09-17'
+  retrieved: '2026-09-19'

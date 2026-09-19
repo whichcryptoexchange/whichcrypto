@@ -266,3 +266,10 @@ company_facts:
   registration_status: issued
   entity_creation_date: '2024-04-04'
   retrieved: '2026-08-12'
+news_mentions:
+- source: Cointelegraph
+  category: general
+  title: WisdomTree, MoonPay team up to expand US access to tokenized money market fund
+  url: https://cointelegraph.com/news/wisdomtree-moonpay-team-up-to-expand-us-access-to-tokenized-money-market-fund?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound
+  published: '2026-09-17'
+  retrieved: '2026-09-19'
