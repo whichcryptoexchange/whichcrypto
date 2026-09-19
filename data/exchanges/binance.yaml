@@ -49,6 +49,18 @@ third_party_reviews:
 news_mentions:
 - source: Cointelegraph
   category: general
+  title: Binance launches 24/7 FX perps with weekend pricing system
+  url: https://cointelegraph.com/news/binance-expands-tradfi-push-with-247-foreign-exchange-perpetuals?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound
+  published: '2026-09-18'
+  retrieved: '2026-09-19'
+- source: Cointelegraph
+  category: general
+  title: Binance brushes off Lagarde MiCA speculation, reaffirms Europe commitment
+  url: https://cointelegraph.com/news/binance-cites-speculation-report-ecb-chief-mica-intervention?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound
+  published: '2026-09-18'
+  retrieved: '2026-09-19'
+- source: Cointelegraph
+  category: general
   title: Binance says employees questioned in UAE cleared and released
   url: https://cointelegraph.com/news/binance-employees-questioned-uae-released?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound
   published: '2026-08-21'
@@ -81,18 +93,6 @@ news_mentions:
   category: general
   title: 'Gen Z favors ETFs and trades less than older cohorts: Binance'
   url: https://cointelegraph.com/news/gen-z-favors-etfs-and-trades-less-than-older-cohorts-binance?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound
-  published: '2026-08-14'
-  retrieved: '2026-08-15'
-- source: Cointelegraph
-  category: general
-  title: Binance to restrict transactions involving HTX, 10 other crypto platforms
-  url: https://cointelegraph.com/news/binance-restrict-htx-10-crypto-platforms?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound
-  published: '2026-08-14'
-  retrieved: '2026-08-15'
-- source: Cointelegraph
-  category: general
-  title: Bitcoin eyes new August lows as Binance longs face ‘cleanout’
-  url: https://cointelegraph.com/markets/bitcoin-liquidation-cleanout-open-interest-falls-btc?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound
   published: '2026-08-14'
   retrieved: '2026-08-15'
 notable_incidents:

@@ -295,6 +295,12 @@ third_party_reviews:
   url: https://apps.apple.com/us/app/coinbase-buy-crypto-stocks/id886427730?uo=4
   retrieved: '2026-09-16'
 news_mentions:
+- source: Cointelegraph
+  category: general
+  title: Coinbase files to bring single-stock perpetual futures to US market
+  url: https://cointelegraph.com/news/coinbase-files-to-bring-single-stock-perpetual-futures-to-us-market?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound
+  published: '2026-09-18'
+  retrieved: '2026-09-19'
 - source: The Block
   category: general
   title: Coinbase rebrands Base App back to Coinbase Wallet after just over a year as social experiment

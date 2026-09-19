@@ -281,6 +281,18 @@ third_party_reviews:
   url: https://apps.apple.com/us/app/crypto-com-trade-every-market/id1262148500?uo=4
   retrieved: '2026-09-16'
 news_mentions:
+- source: Cointelegraph
+  category: regulatory
+  title: OG.com cleared by SEC to offer single-stock futures, says Crypto.com CEO
+  url: https://cointelegraph.com/news/ogcom-cleared-sec-stock-futures-cryptocom-ceo?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound
+  published: '2026-09-17'
+  retrieved: '2026-09-19'
+- source: The Block
+  category: regulatory
+  title: Crypto.com registers with SEC for single-stock futures, plans US stock perps
+  url: https://www.theblock.co/news/business/2026-09-17-crypto-com-registers-with-sec-for-single-stock-futures-plans-us-stock-perps-415355
+  published: '2026-09-17'
+  retrieved: '2026-09-19'
 - source: The Block
   category: general
   title: Crypto.com-linked Cronos network halts after Tectonic exploit estimated at $75 million
