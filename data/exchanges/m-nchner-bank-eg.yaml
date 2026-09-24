@@ -1,0 +1,29 @@
+id: m-nchner-bank-eg
+brand: Münchner Bank eG
+eu_status: authorised
+sources:
+- name: ESMA interim MiCA register (CASPS.csv)
+  url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
+  retrieved: '2026-09-24'
+entities:
+- lei: 529900VHU3S8ZYAQYZ61
+  legal_name: Münchner Bank eG
+  commercial_name: Münchner Bank eG
+  home_state: DE
+  regulator: Federal Financial Supervisory Authority (BaFin)
+  website: www.muenchner-bank.de
+  records:
+  - authorised: '2026-10-12'
+    withdrawn: null
+    status: authorised
+    services:
+    - e
+    passported_to:
+    - DE
+    last_update: '2026-09-22'
+countries:
+  DE:
+    status: licensed
+    regime: MiCA
+    via: home_state
+    entity: Münchner Bank eG

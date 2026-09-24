@@ -1,0 +1,206 @@
+id: regular
+brand: REGULAR
+eu_status: authorised
+sources:
+- name: ESMA interim MiCA register (CASPS.csv)
+  url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
+  retrieved: '2026-09-24'
+entities:
+- lei: 969500Y5SNO2WBYDB059
+  legal_name: REGULAR FINANCE SAS
+  commercial_name: REGULAR
+  home_state: FR
+  regulator: Autorité des Marchés Financiers (AMF)
+  website: https://www.regular.eu/
+  records:
+  - authorised: '2028-09-11'
+    withdrawn: null
+    status: authorised
+    services:
+    - a
+    - c
+    - h
+    - i
+    - j
+    passported_to:
+    - AT
+    - BE
+    - BG
+    - CY
+    - CZ
+    - DE
+    - DK
+    - EE
+    - ES
+    - FI
+    - GR
+    - HR
+    - HU
+    - IE
+    - IS
+    - IT
+    - LI
+    - LT
+    - LU
+    - LV
+    - MT
+    - NL
+    - 'NO'
+    - PL
+    - PT
+    - RO
+    - SE
+    - SI
+    - SK
+    last_update: '2028-09-11'
+countries:
+  AT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: REGULAR FINANCE SAS
+  BE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: REGULAR FINANCE SAS
+  BG:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: REGULAR FINANCE SAS
+  CY:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: REGULAR FINANCE SAS
+  CZ:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: REGULAR FINANCE SAS
+  DE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: REGULAR FINANCE SAS
+  DK:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: REGULAR FINANCE SAS
+  EE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: REGULAR FINANCE SAS
+  ES:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: REGULAR FINANCE SAS
+  FI:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: REGULAR FINANCE SAS
+  FR:
+    status: licensed
+    regime: MiCA
+    via: home_state
+    entity: REGULAR FINANCE SAS
+  GR:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: REGULAR FINANCE SAS
+  HR:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: REGULAR FINANCE SAS
+  HU:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: REGULAR FINANCE SAS
+  IE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: REGULAR FINANCE SAS
+  IS:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: REGULAR FINANCE SAS
+  IT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: REGULAR FINANCE SAS
+  LI:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: REGULAR FINANCE SAS
+  LT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: REGULAR FINANCE SAS
+  LU:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: REGULAR FINANCE SAS
+  LV:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: REGULAR FINANCE SAS
+  MT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: REGULAR FINANCE SAS
+  NL:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: REGULAR FINANCE SAS
+  'NO':
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: REGULAR FINANCE SAS
+  PL:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: REGULAR FINANCE SAS
+  PT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: REGULAR FINANCE SAS
+  RO:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: REGULAR FINANCE SAS
+  SE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: REGULAR FINANCE SAS
+  SI:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: REGULAR FINANCE SAS
+  SK:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: REGULAR FINANCE SAS

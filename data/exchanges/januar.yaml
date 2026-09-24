@@ -4,7 +4,7 @@ eu_status: authorised
 sources:
 - name: ESMA interim MiCA register (CASPS.csv)
   url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
-  retrieved: '2026-09-10'
+  retrieved: '2026-09-24'
 entities:
 - lei: 984500A43E7FFC73CR76
   legal_name: Januar ApS
@@ -21,9 +21,12 @@ entities:
     - e
     - j
     passported_to:
+    - AT
     - BE
     - BG
     - CY
+    - CZ
+    - DE
     - DK
     - EE
     - ES
@@ -31,6 +34,7 @@ entities:
     - FR
     - GR
     - HR
+    - HU
     - IE
     - IS
     - IT
@@ -44,10 +48,16 @@ entities:
     - PL
     - PT
     - RO
+    - SE
     - SI
     - SK
-    last_update: '2026-07-17'
+    last_update: '2026-09-10'
 countries:
+  AT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Januar ApS
   BE:
     status: licensed
     regime: MiCA
@@ -59,6 +69,16 @@ countries:
     via: mica_passporting
     entity: Januar ApS
   CY:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Januar ApS
+  CZ:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Januar ApS
+  DE:
     status: licensed
     regime: MiCA
     via: mica_passporting
@@ -94,6 +114,11 @@ countries:
     via: mica_passporting
     entity: Januar ApS
   HR:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Januar ApS
+  HU:
     status: licensed
     regime: MiCA
     via: mica_passporting
@@ -159,6 +184,11 @@ countries:
     via: mica_passporting
     entity: Januar ApS
   RO:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Januar ApS
+  SE:
     status: licensed
     regime: MiCA
     via: mica_passporting

@@ -4,7 +4,7 @@ eu_status: authorised
 sources:
 - name: ESMA interim MiCA register (CASPS.csv)
   url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
-  retrieved: '2026-09-10'
+  retrieved: '2026-09-24'
 entities:
 - lei: 724500Z8JCXSX3351I94
   legal_name: BLOX B.V
@@ -21,13 +21,59 @@ entities:
     - c
     - j
     passported_to:
+    - AT
     - BE
+    - BG
+    - CY
+    - CZ
     - DE
+    - DK
+    - EE
     - ES
+    - FI
+    - FR
+    - GR
+    - HR
+    - HU
+    - IE
+    - IS
+    - IT
+    - LI
+    - LT
+    - LU
+    - LV
+    - MT
     - NL
-    last_update: '2025-10-01'
+    - 'NO'
+    - PL
+    - PT
+    - RO
+    - SE
+    - SI
+    - SK
+    last_update: '2026-06-29'
 countries:
+  AT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: BLOX B.V
   BE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: BLOX B.V
+  BG:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: BLOX B.V
+  CY:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: BLOX B.V
+  CZ:
     status: licensed
     regime: MiCA
     via: mica_passporting
@@ -37,7 +83,82 @@ countries:
     regime: MiCA
     via: mica_passporting
     entity: BLOX B.V
+  DK:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: BLOX B.V
+  EE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: BLOX B.V
   ES:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: BLOX B.V
+  FI:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: BLOX B.V
+  FR:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: BLOX B.V
+  GR:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: BLOX B.V
+  HR:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: BLOX B.V
+  HU:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: BLOX B.V
+  IE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: BLOX B.V
+  IS:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: BLOX B.V
+  IT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: BLOX B.V
+  LI:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: BLOX B.V
+  LT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: BLOX B.V
+  LU:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: BLOX B.V
+  LV:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: BLOX B.V
+  MT:
     status: licensed
     regime: MiCA
     via: mica_passporting
@@ -46,6 +167,41 @@ countries:
     status: licensed
     regime: MiCA
     via: home_state
+    entity: BLOX B.V
+  'NO':
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: BLOX B.V
+  PL:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: BLOX B.V
+  PT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: BLOX B.V
+  RO:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: BLOX B.V
+  SE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: BLOX B.V
+  SI:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: BLOX B.V
+  SK:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
     entity: BLOX B.V
 company_facts:
 - lei: 724500Z8JCXSX3351I94
