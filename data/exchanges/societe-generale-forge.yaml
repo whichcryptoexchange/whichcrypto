@@ -4,7 +4,7 @@ eu_status: authorised
 sources:
 - name: ESMA interim MiCA register (CASPS.csv)
   url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
-  retrieved: '2026-09-10'
+  retrieved: '2026-09-24'
 entities:
 - lei: 969500FX8K40ZDW4F377
   legal_name: SOCIETE GENERALE - FORGE
@@ -18,7 +18,6 @@ entities:
     status: authorised
     services:
     - a
-    - e
     - j
     passported_to:
     - AT
@@ -50,7 +49,7 @@ entities:
     - SE
     - SI
     - SK
-    last_update: '2026-08-25'
+    last_update: '2025-10-23'
 countries:
   AT:
     status: licensed
