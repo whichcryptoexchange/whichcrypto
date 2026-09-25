@@ -10,7 +10,7 @@ sources:
   retrieved: '2026-09-24'
 - name: AUSTRAC VASP Register (VASPR)
   url: https://online.apps.austrac.gov.au/vaspr
-  retrieved: '2026-09-18'
+  retrieved: '2026-09-25'
 entities: []
 countries:
   JP:
