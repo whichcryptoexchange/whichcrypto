@@ -297,6 +297,18 @@ third_party_reviews:
 news_mentions:
 - source: The Block
   category: general
+  title: Aave V4 on Base adds Coinbase tokenized stocks as collateral for USDC loans
+  url: https://www.theblock.co/news/defi/2026-09-25-aave-v4-on-base-adds-coinbase-tokenized-stocks-as-collateral-for-usdc-loans-416372
+  published: '2026-09-25'
+  retrieved: '2026-09-26'
+- source: The Block
+  category: general
+  title: Brooklyn man gets up to 12 years over $16 million Coinbase social engineering scheme
+  url: https://www.theblock.co/news/regulation/2026-09-24-brooklyn-man-12-years-scheme-416231
+  published: '2026-09-24'
+  retrieved: '2026-09-26'
+- source: The Block
+  category: general
   title: Coinbase rebrands Base App back to Coinbase Wallet after just over a year as social experiment
     falls short
   url: https://www.theblock.co/news/defi/2026-09-10-coinbase-rebrands-base-app-back-to-coinbase-wallet-after-just-over-a-year-as-social-experiment-falls-short-414115

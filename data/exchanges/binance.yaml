@@ -47,6 +47,18 @@ third_party_reviews:
   url: https://apps.apple.com/gb/app/binance-buy-bitcoin-crypto/id1436799971?uo=4
   retrieved: '2026-09-16'
 news_mentions:
+- source: The Block
+  category: general
+  title: Ethena expands USDe backing strategy into bStocks and equity perpetuals on Binance
+  url: https://www.theblock.co/news/deals/2026-09-25-ethena-expands-usde-backing-strategy-into-bstocks-and-equity-perpetuals-on-binance-416367
+  published: '2026-09-25'
+  retrieved: '2026-09-26'
+- source: The Block
+  category: general
+  title: Solana Foundation taps Binance, Polygon vets to drive institutional adoption and payments
+  url: https://www.theblock.co/news/ecosystems/2026-09-24-solana-foundation-taps-binance-polygon-vets-to-drive-institutional-adoption-and-payments-416254
+  published: '2026-09-24'
+  retrieved: '2026-09-26'
 - source: Cointelegraph
   category: general
   title: Binance says employees questioned in UAE cleared and released
@@ -81,18 +93,6 @@ news_mentions:
   category: general
   title: 'Gen Z favors ETFs and trades less than older cohorts: Binance'
   url: https://cointelegraph.com/news/gen-z-favors-etfs-and-trades-less-than-older-cohorts-binance?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound
-  published: '2026-08-14'
-  retrieved: '2026-08-15'
-- source: Cointelegraph
-  category: general
-  title: Binance to restrict transactions involving HTX, 10 other crypto platforms
-  url: https://cointelegraph.com/news/binance-restrict-htx-10-crypto-platforms?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound
-  published: '2026-08-14'
-  retrieved: '2026-08-15'
-- source: Cointelegraph
-  category: general
-  title: Bitcoin eyes new August lows as Binance longs face ‘cleanout’
-  url: https://cointelegraph.com/markets/bitcoin-liquidation-cleanout-open-interest-falls-btc?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound
   published: '2026-08-14'
   retrieved: '2026-08-15'
 notable_incidents:
