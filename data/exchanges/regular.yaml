@@ -16,6 +16,10 @@ entities:
   - authorised: '2028-09-11'
     withdrawn: null
     status: authorised
+    caveat: ESMA's own CASPS register lists this authorisation's notification and last-update
+      date as 11/09/2028 -- almost certainly a data-entry error on the regulator's side (a future
+      date for an authorisation already in force), reproduced here faithfully rather than silently
+      corrected to a guessed year.
     services:
     - a
     - c

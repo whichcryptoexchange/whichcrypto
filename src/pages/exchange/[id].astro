@@ -354,6 +354,7 @@ const PAGE_DESC = `${ex.brand}: official licence records, legal entities, regula
             this describes the LEI record's own lifecycle, not necessarily the company's current
             trading status.</p>
           )}
+          {rec.caveat && <p class="caveat">{rec.caveat}</p>}
         </div>
       ));
     })}
