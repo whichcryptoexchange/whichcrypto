@@ -1,0 +1,33 @@
+id: iconomi
+brand: Iconomi
+eu_status: authorised
+sources:
+- name: ESMA interim MiCA register (CASPS.csv)
+  url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
+  retrieved: '2026-09-24'
+entities:
+- lei: 485100CIMEOMSMFT8G48
+  legal_name: ICONOMI EUROPE, borznoposredniška družba, d.o.o
+  commercial_name: Iconomi
+  home_state: SI
+  regulator: Securities Market Agency (ATVP)
+  website: https://www.iconomi.com/
+  records:
+  - authorised: '2026-09-06'
+    withdrawn: null
+    status: authorised
+    services:
+    - a
+    - e
+    - g
+    - h
+    - i
+    passported_to:
+    - SI
+    last_update: '2026-09-21'
+countries:
+  SI:
+    status: licensed
+    regime: MiCA
+    via: home_state
+    entity: ICONOMI EUROPE, borznoposredniška družba, d.o.o

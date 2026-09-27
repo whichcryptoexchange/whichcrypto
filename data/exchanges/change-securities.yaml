@@ -4,12 +4,11 @@ eu_status: authorised
 sources:
 - name: ESMA interim MiCA register (CASPS.csv)
   url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
-  retrieved: '2026-09-10'
+  retrieved: '2026-09-24'
 entities:
 - lei: 7245009PUAT6U71IXZ51
   legal_name: Change Securities B.V
-  commercial_name: Change, Change Invest, getchange.com, ChangePro, changeinvest.com, AgenaTrader, agenatrader.com,
-    TradersYard, tradersyard.com
+  commercial_name: Change
   home_state: NL
   regulator: Netherlands Authority for the Financial Markets (AFM)
   website: https://www.changeinvest.com/

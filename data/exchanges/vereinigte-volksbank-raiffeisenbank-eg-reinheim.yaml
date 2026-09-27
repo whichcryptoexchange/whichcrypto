@@ -1,0 +1,29 @@
+id: vereinigte-volksbank-raiffeisenbank-eg-reinheim
+brand: Vereinigte Volksbank Raiffeisenbank eG, Reinheim
+eu_status: authorised
+sources:
+- name: ESMA interim MiCA register (CASPS.csv)
+  url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
+  retrieved: '2026-09-24'
+entities:
+- lei: 529900TBT1Z4FKTX5T93
+  legal_name: Vereinigte Volksbank Raiffeisenbank eG, Reinheim
+  commercial_name: Vereinigte Volksbank Raiffeisenbank eG, Reinheim
+  home_state: DE
+  regulator: Federal Financial Supervisory Authority (BaFin)
+  website: www.vvrb.de
+  records:
+  - authorised: '2026-09-24'
+    withdrawn: null
+    status: authorised
+    services:
+    - e
+    passported_to:
+    - DE
+    last_update: '2026-09-15'
+countries:
+  DE:
+    status: licensed
+    regime: MiCA
+    via: home_state
+    entity: Vereinigte Volksbank Raiffeisenbank eG, Reinheim

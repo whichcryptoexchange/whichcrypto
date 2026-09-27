@@ -1,0 +1,35 @@
+id: ff-digital
+brand: FF Digital
+eu_status: authorised
+sources:
+- name: ESMA interim MiCA register (CASPS.csv)
+  url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
+  retrieved: '2026-09-24'
+entities:
+- lei: 648851FOKWX4PG639059
+  legal_name: FF Digital EOOD
+  commercial_name: FF Digital
+  home_state: BG
+  regulator: Financial Supervision Commission (FSC)
+  website: https://www.ffdigital.eu/
+  records:
+  - authorised: '2026-09-10'
+    withdrawn: null
+    status: authorised
+    services:
+    - a
+    - b
+    - c
+    - e
+    - g
+    - i
+    - j
+    passported_to:
+    - BG
+    last_update: '2026-09-10'
+countries:
+  BG:
+    status: licensed
+    regime: MiCA
+    via: home_state
+    entity: FF Digital EOOD

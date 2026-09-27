@@ -1,0 +1,29 @@
+id: bcash
+brand: BCASH
+eu_status: authorised
+sources:
+- name: ESMA interim MiCA register (CASPS.csv)
+  url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
+  retrieved: '2026-09-24'
+entities:
+- lei: null
+  legal_name: BCASH SOCIETE ANONYME
+  commercial_name: BCASH
+  home_state: GR
+  regulator: Hellenic Capital Market Commission (HCMC)
+  website: www.bcash.eu
+  records:
+  - authorised: '2026-06-30'
+    withdrawn: null
+    status: authorised
+    services:
+    - c
+    passported_to:
+    - GR
+    last_update: '2026-07-01'
+countries:
+  GR:
+    status: licensed
+    regime: MiCA
+    via: home_state
+    entity: BCASH SOCIETE ANONYME

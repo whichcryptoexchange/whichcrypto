@@ -1,0 +1,64 @@
+id: capital-wallet-sa
+brand: CAPITAL WALLET SA
+eu_status: authorised
+sources:
+- name: ESMA interim MiCA register (CASPS.csv)
+  url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
+  retrieved: '2026-09-24'
+entities:
+- lei: null
+  legal_name: CAPITAL WALLET GREECE S.A
+  commercial_name: CAPITAL WALLET SA
+  home_state: GR
+  regulator: Hellenic Capital Market Commission (HCMC)
+  website: www.capitalwallet.com/eu
+  records:
+  - authorised: '2026-07-22'
+    withdrawn: null
+    status: authorised
+    services:
+    - a
+    - c
+    - d
+    - e
+    - g
+    - j
+    passported_to:
+    - CY
+    - DE
+    - ES
+    - FR
+    - GR
+    - IT
+    last_update: '2026-07-23'
+countries:
+  CY:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: CAPITAL WALLET GREECE S.A
+  DE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: CAPITAL WALLET GREECE S.A
+  ES:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: CAPITAL WALLET GREECE S.A
+  FR:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: CAPITAL WALLET GREECE S.A
+  GR:
+    status: licensed
+    regime: MiCA
+    via: home_state
+    entity: CAPITAL WALLET GREECE S.A
+  IT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: CAPITAL WALLET GREECE S.A

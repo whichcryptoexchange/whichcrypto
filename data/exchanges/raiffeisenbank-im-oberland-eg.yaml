@@ -1,0 +1,29 @@
+id: raiffeisenbank-im-oberland-eg
+brand: Raiffeisenbank im Oberland eG
+eu_status: authorised
+sources:
+- name: ESMA interim MiCA register (CASPS.csv)
+  url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
+  retrieved: '2026-09-24'
+entities:
+- lei: 529900Q4W1LSVUCO8L66
+  legal_name: Raiffeisenbank im Oberland eG
+  commercial_name: Raiffeisenbank im Oberland eG
+  home_state: DE
+  regulator: Federal Financial Supervisory Authority (BaFin)
+  website: www.oberlandbank.de
+  records:
+  - authorised: '2026-10-12'
+    withdrawn: null
+    status: authorised
+    services:
+    - e
+    passported_to:
+    - DE
+    last_update: '2026-09-18'
+countries:
+  DE:
+    status: licensed
+    regime: MiCA
+    via: home_state
+    entity: Raiffeisenbank im Oberland eG
