@@ -1,29 +1,29 @@
-id: volksbank-raiffeisenbank-dachau-eg
-brand: Volksbank Raiffeisenbank Dachau eG
+id: vr-bank-zwischen-den-meeren-eg
+brand: VR Bank zwischen den Meeren eG
 eu_status: authorised
 sources:
 - name: ESMA interim MiCA register (CASPS.csv)
   url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
   retrieved: '2026-10-01'
 entities:
-- lei: 391200TWGO2RBL7WG010
-  legal_name: Volksbank Raiffeisenbank Dachau eG
-  commercial_name: Volksbank Raiffeisenbank Dachau eG
+- lei: 529900OPEDQJAXAQT146
+  legal_name: VR Bank zwischen den Meeren eG
+  commercial_name: VR Bank zwischen den Meeren eG
   home_state: DE
   regulator: Federal Financial Supervisory Authority (BaFin)
-  website: www.voba-raiba-dachau.de
+  website: www.meine-vrbank.de
   records:
-  - authorised: '2026-08-31'
+  - authorised: '2026-09-24'
     withdrawn: null
     status: authorised
     services:
     - e
     passported_to:
     - DE
-    last_update: '2026-08-31'
+    last_update: '2026-09-24'
 countries:
   DE:
     status: licensed
     regime: MiCA
     via: home_state
-    entity: Volksbank Raiffeisenbank Dachau eG
+    entity: VR Bank zwischen den Meeren eG
