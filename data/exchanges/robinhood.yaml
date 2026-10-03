@@ -228,6 +228,19 @@ countries:
     entity: Robinhood Crypto, LLC
     since: 2019-01
 news_mentions:
+- source: The Block
+  category: regulatory
+  title: SEC’s innovation exemption poses constraint on bringing stock tokens to US, Robinhood crypto
+    chief says
+  url: https://www.theblock.co/news/regulation/2026-10-02-secs-innovation-exemption-robinhood-417538
+  published: '2026-10-02'
+  retrieved: '2026-10-03'
+- source: The Block
+  category: general
+  title: Robinhood Wallet integrates Arcus RFQ system for stock token swaps
+  url: https://www.theblock.co/news/business/2026-10-01-robinhood-wallet-integrates-arcus-rfq-system-for-stock-token-swaps-417394
+  published: '2026-10-01'
+  retrieved: '2026-10-03'
 - source: Cointelegraph
   category: general
   title: Robinhood’s crypto volume increases 61% in August, still down 38% YoY

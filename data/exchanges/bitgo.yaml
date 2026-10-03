@@ -259,6 +259,13 @@ countries:
     entity: BitGo New York Trust Company, LLC
     since: 2021-03
 news_mentions:
+- source: The Block
+  category: general
+  title: BitGo CEO says Clarity’s failure left capital markets exposed to risk potentially worse than
+    Lehman
+  url: https://www.theblock.co/news/regulation/2026-10-02-mike-belshe-bitgo-interview-clarity-417560
+  published: '2026-10-02'
+  retrieved: '2026-10-03'
 - source: Cointelegraph
   category: general
   title: BitGo buys NYDIG trading arm to deepen institutional crypto push
