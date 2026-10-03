@@ -316,6 +316,12 @@ third_party_reviews:
   retrieved: '2026-09-23'
 news_mentions:
 - source: Cointelegraph
+  category: general
+  title: 'European crypto users have ‘more faith’ in regulated firms under MiCA: Bitpanda co-CEO'
+  url: https://cointelegraph.com/news/mica-strengthened-retail-trust-regulated-crypto-exchanges-bitpanda-ceo-says?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound
+  published: '2026-10-02'
+  retrieved: '2026-10-03'
+- source: Cointelegraph
   category: regulatory
   title: Bitpanda fined in Austria’s first published MiCA penalty
   url: https://cointelegraph.com/news/bitpanda-fined-austrian-published-mica-penalty?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound

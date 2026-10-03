@@ -235,6 +235,18 @@ countries:
     entity: Circle Internet Trust Company, LLC. d/b/a Circle New York Trust
     since: 2026-07
 news_mentions:
+- source: Cointelegraph
+  category: general
+  title: Circle urges EU to revise stablecoin reserve rules in MiCA review
+  url: https://cointelegraph.com/news/circle-eu-stablecoin-reserve-rules-mica-review?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound
+  published: '2026-10-02'
+  retrieved: '2026-10-03'
+- source: The Block
+  category: general
+  title: Hyperliquid Policy Center, Circle press EU on perps and stablecoin reserves in MiCA review
+  url: https://www.theblock.co/news/regulation/2026-10-01-hyperliquid-circle-mica-review-417452
+  published: '2026-10-01'
+  retrieved: '2026-10-03'
 - source: The Block
   category: general
   title: Circle strikes Chelsea front-of-shirt sponsorship deal featuring USDC
