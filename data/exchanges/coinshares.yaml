@@ -70,6 +70,12 @@ countries:
     via: mica_passporting
     entity: COINSHARES ASSET MANAGEMENT
 news_mentions:
+- source: The Block
+  category: general
+  title: Visa, CoinShares find growing crypto appetite among consumers and affluent investors
+  url: https://www.theblock.co/news/business/2026-10-05-visa-coinshares-find-growing-crypto-appetite-among-consumers-and-affluent-investors-417642
+  published: '2026-10-05'
+  retrieved: '2026-10-06'
 - source: Cointelegraph
   category: general
   title: 'Bitcoin fund flows show investors trading Fed rate path, not exiting market: CoinShares'

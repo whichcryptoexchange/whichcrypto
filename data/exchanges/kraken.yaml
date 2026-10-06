@@ -323,6 +323,12 @@ third_party_reviews:
   url: https://apps.apple.com/us/app/kraken-buy-crypto-stocks/id1481947260?uo=4
   retrieved: '2026-09-23'
 news_mentions:
+- source: Cointelegraph
+  category: regulatory
+  title: Kraken parent adds 24/7 dollar settlement with Singapore Gulf Bank
+  url: https://cointelegraph.com/news/payward-partners-singapore-gulf-bank-settlement?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound
+  published: '2026-10-05'
+  retrieved: '2026-10-06'
 - source: The Block
   category: general
   title: Nasdaq to invest $100 million in Kraken parent Payward as firms expand partnership
