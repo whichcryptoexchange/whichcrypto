@@ -103,6 +103,16 @@ const jurisdictionCount = (ex) => Object.keys(ex.countries ?? {}).length;
 const tiersOnPage = isNonEEA
   ? [...new Set(rows.flatMap(({ c }) => c.map((e) => e.status)))]
   : [];
+// At-a-glance counts for the stat strip -- plain facts already implied by
+// the table below, just surfaced before a visitor has to read every row.
+// EEA: how many hold their MiCA authorisation directly here (home_state)
+// vs reach this country only via EU/EEA passporting from elsewhere.
+const homeStateCount = !isNonEEA ? rows.filter(({ c }) => c.via === 'home_state').length : 0;
+const passportedCount = !isNonEEA ? rows.length - homeStateCount : 0;
+// Non-EEA with mixed tiers (GB: registered vs authorised): a count per tier.
+const tierCounts = isNonEEA
+  ? Object.fromEntries(tiersOnPage.map((t) => [t, rows.filter(({ c }) => c.some((e) => e.status === t)).length]))
+  : {};
 const YEAR = new Date().getFullYear();
 const PAGE_TITLE = isGB
   ? `UK Crypto Exchanges: Registered or Authorised | whichcryptoexchange.com`
@@ -479,6 +489,20 @@ const PAGE_DESC = isGB
       </>
     )}
 
+    <div class="stat-grid country-stat-grid">
+      <div class="stat-card"><div class="stat-num">{rows.length}</div><div class="stat-label">Exchange{rows.length === 1 ? '' : 's'} tracked covering {name}</div></div>
+      {isNonEEA ? (
+        tiersOnPage.map((t) => (
+          <div class="stat-card"><div class="stat-num">{tierCounts[t]}</div><div class="stat-label">{STATUS_STAMP[t]?.label ?? t}</div></div>
+        ))
+      ) : (
+        <>
+          <div class="stat-card"><div class="stat-num">{homeStateCount}</div><div class="stat-label">Licensed directly in {name} (home state)</div></div>
+          <div class="stat-card"><div class="stat-num">{passportedCount}</div><div class="stat-label">Reach {name} via EU/EEA passporting from elsewhere</div></div>
+        </>
+      )}
+    </div>
+
     <div class="table-controls">
       <label>Sort by
         <select id="sort-select">
@@ -697,6 +721,13 @@ const PAGE_DESC = isGB
       strongest available protections, a regulated, KYC exchange in {name} is the practical,
       level-headed default.</p>
     </section>
+
+    {faqEntry && (
+      <section class="country-faq">
+        <h3>{faqEntry.question}</h3>
+        <p>{faqEntry.answer}</p>
+      </section>
+    )}
   </main>
 
   <footer class="site"><div class="wrap">
