@@ -202,9 +202,9 @@ countries:
 third_party_reviews:
 - source: App Store
   rating: 4.69
-  count: 46920
+  count: 46927
   url: https://apps.apple.com/us/app/bybit-new-financial-platform/id1488296980?uo=4
-  retrieved: '2026-09-30'
+  retrieved: '2026-10-07'
 news_mentions:
 - source: The Block
   category: general
