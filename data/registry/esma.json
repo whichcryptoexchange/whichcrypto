@@ -1,7 +1,7 @@
 {
-  "generated": "2026-09-24",
+  "generated": "2026-10-05",
   "source": "https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv",
-  "brand_count": 353,
+  "brand_count": 355,
   "brands": [
     "21bitcoin",
     "acheron",
@@ -336,7 +336,9 @@
     "vr-bank-rottal-inn-eg",
     "vr-bank-s-dpfalz-eg",
     "vr-bank-schleswig-holstein-mitte-eg",
+    "vr-bank-zwischen-den-meeren-eg",
     "vr-teilhaberbank-metropolregion-n-rnberg-eg",
+    "vs-digital",
     "wbtcb-cz-s-r-o",
     "webot",
     "webull",
