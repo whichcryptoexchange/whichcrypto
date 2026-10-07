@@ -123,6 +123,10 @@ h3:first-child { margin-top: 0; }
    a lone .lede elsewhere never matches this selector. */
 .lede-wide { max-width: 68ch; }
 .lede-wide + .lede-wide { margin-top: -20px; }
+/* Dateline-style strip at the very top of country pages -- freshness and
+   primary-source link, stated before any explanatory prose so a visitor
+   landing from search sees "official register, checked on X" first. */
+.orientation { max-width: 68ch; margin: 0 0 16px; }
 /* Verification summary (exchange pages) -- two plain lines restating
    facts already detailed further down the page, not a new claim or a
    blended score. Deliberately plain text, no stamp/badge chrome, no

@@ -70,6 +70,7 @@ const countryIncidents = rows
 const sourceRetrieved = (name_) => exchanges
   .flatMap((ex) => ex.sources ?? [])
   .find((s) => s.name === name_)?.retrieved;
+const esmaRetrieved = sourceRetrieved('ESMA interim MiCA register (CASPS.csv)');
 const fcaRetrieved = sourceRetrieved('UK FCA Register');
 const fintracRetrieved = sourceRetrieved('Canada FINTRAC MSB Registry');
 const varaRetrieved = sourceRetrieved('Dubai VARA Public Register');
@@ -239,6 +240,9 @@ const PAGE_DESC = isGB
     {isGB ? (
       <>
         <h1>Which crypto exchanges are registered or authorised in the UK?</h1>
+        <p class="sourced orientation">Official register data, not user reviews or rankings —
+        last checked {fcaRetrieved}. Source: <a href="https://register.fca.org.uk/">UK FCA
+        Register</a>.</p>
         <p class="lede lede-wide">{rows.length} exchanges in our register have a UK entity on the
         FCA Register. The UK does not yet have a dedicated cryptoasset licensing regime — that
         opens for applications 30 Sep 2026 and is expected to start 25 Oct 2027.</p>
@@ -254,6 +258,9 @@ const PAGE_DESC = isGB
     ) : isCA ? (
       <>
         <h1>Which crypto exchanges are registered in Canada?</h1>
+        <p class="sourced orientation">Official register data, not user reviews or rankings —
+        last checked {fintracRetrieved}. Source: <a href="https://fintrac-canafe.canada.ca/msb-esm/reg-eng">FINTRAC
+        MSB Registry</a>.</p>
         <p class="lede lede-wide">{rows.length} exchanges in our register have a Canadian entity
         registered with FINTRAC as a Money Services Business (MSB) offering virtual currency
         services. As FINTRAC's own registry states, this is <em>not</em> a licence: registration
@@ -269,6 +276,11 @@ const PAGE_DESC = isGB
     ) : isAE ? (
       <>
         <h1>Which crypto exchanges are licensed in Dubai or Abu Dhabi?</h1>
+        <p class="sourced orientation">Official register data, not user reviews or rankings —
+        VARA last checked {varaRetrieved}, ADGM last manually verified {adgmRetrieved}. Sources: <a
+        href="https://www.vara.ae/en/licenses-and-register/public-register/">Dubai VARA Public
+        Register</a>, <a href="https://www.adgm.com/public-registers">ADGM FSRA Public
+        Register</a>.</p>
         <p class="lede lede-wide caveat">This page covers two of the UAE's free zones, not the UAE
         as a whole: Dubai's VARA and Abu Dhabi Global Market's FSRA. Dubai's own DIFC free zone
         (regulated separately by the DFSA) and the federal mainland (regulated by the SCA) are
@@ -288,6 +300,9 @@ const PAGE_DESC = isGB
     ) : isSG ? (
       <>
         <h1>Which crypto exchanges are licensed in Singapore?</h1>
+        <p class="sourced orientation">Official register data, not user reviews or rankings —
+        last checked {masRetrieved}. Source: <a href="https://eservices.mas.gov.sg/fid/institution">MAS
+        Financial Institutions Directory</a>.</p>
         <p class="lede lede-wide">{rows.length} exchanges in our register hold a Major Payment
         Institution licence from the Monetary Authority of Singapore (MAS), specifically for the
         Digital Payment Token Service activity under the Payment Services Act 2019. Like Dubai's
@@ -297,6 +312,11 @@ const PAGE_DESC = isGB
     ) : isUS ? (
       <>
         <h1>Which crypto exchanges are registered or licensed in the US?</h1>
+        <p class="sourced orientation">Official register data, not user reviews or rankings —
+        FinCEN last checked {fincenRetrieved}, NY DFS last checked {nyDfsRetrieved}. Sources: <a
+        href="https://msb.fincen.gov/">FinCEN MSB Registrant Search</a>, <a
+        href="https://www.dfs.ny.gov/virtual_currency_businesses">NY DFS List of Licensed Virtual
+        Currency Entities</a>.</p>
         <p class="lede lede-wide">This page covers two separate, independent regimes. Most brands
         here have a US entity registered with FinCEN as a Money Services Business (MSB) offering
         money transmission — as with Canada's FINTRAC registry, this is <em>not</em> a licence:
@@ -320,6 +340,9 @@ const PAGE_DESC = isGB
     ) : isHK ? (
       <>
         <h1>Which crypto exchanges are licensed in Hong Kong?</h1>
+        <p class="sourced orientation">Official register data, not user reviews or rankings —
+        last checked {sfcRetrieved}. Source: <a href="https://www.sfc.hk/en/Welcome-to-the-Fintech-Contact-Point/Virtual-assets/Virtual-asset-trading-platforms-operators/Lists-of-virtual-asset-trading-platforms">Hong
+        Kong SFC VATP List</a>.</p>
         <p class="lede lede-wide">{rows.length} exchanges in our register hold a Virtual Asset
         Trading Platform (VATP) licence from Hong Kong's Securities and Futures Commission (SFC),
         mandatory since 2023 under the Securities and Futures Ordinance. Like Dubai's VARA licence
@@ -332,6 +355,10 @@ const PAGE_DESC = isGB
     ) : isGI ? (
       <>
         <h1>Which crypto exchanges are licensed in Gibraltar?</h1>
+        <p class="sourced orientation">Official register data, not user reviews or rankings —
+        last manually verified {gfscRetrieved} (not on an automated schedule). Source: <a
+        href="https://www.fsc.gi/regulated-entities/dlt-providers-38">Gibraltar GFSC DLT
+        Providers List</a>.</p>
         <p class="lede lede-wide">{rows.length} exchanges in our register hold a Distributed Ledger
         Technology (DLT) licence from the Gibraltar Financial Services Commission (GFSC) — a
         genuine crypto-specific licence, not an AML-only registration.</p>
@@ -343,6 +370,9 @@ const PAGE_DESC = isGB
     ) : isJP ? (
       <>
         <h1>Which crypto exchanges are licensed in Japan?</h1>
+        <p class="sourced orientation">Official register data, not user reviews or rankings —
+        last checked {jpFsaRetrieved}. Source: <a href="https://www.fsa.go.jp/en/regulated/licensed/index.html">Japan
+        FSA Registered Crypto-asset Exchange Service Providers List</a>.</p>
         <p class="lede lede-wide">{rows.length} exchanges in our register hold a Crypto-asset
         Exchange Service Provider registration from Japan's Financial Services Agency (FSA), under
         the Payment Services Act — in force since 2017, one of the earliest dedicated
@@ -355,6 +385,9 @@ const PAGE_DESC = isGB
     ) : isMY ? (
       <>
         <h1>Which crypto exchanges are licensed in Malaysia?</h1>
+        <p class="sourced orientation">Official register data, not user reviews or rankings —
+        last checked {myScRetrieved}. Source: <a href="https://www.sc.com.my/regulation/guidelines/recognizedmarkets/list-of-registered-digital-asset-exchanges">Malaysia
+        SC List of Registered Digital Asset Exchanges</a>.</p>
         <p class="lede lede-wide">{rows.length} exchanges in our register hold a Recognized Market
         Operator - Digital Asset Exchange (RMO-DAX) registration from Malaysia's Securities
         Commission (SC), under the Capital Markets and Services Act. Like Dubai's VARA licence and
@@ -367,6 +400,9 @@ const PAGE_DESC = isGB
     ) : isKR ? (
       <>
         <h1>Which crypto exchanges are registered in South Korea?</h1>
+        <p class="sourced orientation">Official register data, not user reviews or rankings —
+        last checked {krFiuRetrieved}. Source: <a href="https://www.kofiu.go.kr/kor/notification/notice.do">Korea
+        FIU VASP Registration Disclosure</a>.</p>
         <p class="lede lede-wide">{rows.length} exchanges in our register have a Korean entity
         registered with the Financial Intelligence Unit (FIU) under the Act on Reporting and Using
         Specified Financial Transaction Information. As with Canada's FINTRAC and the US's FinCEN,
@@ -379,6 +415,10 @@ const PAGE_DESC = isGB
     ) : isNZ ? (
       <>
         <h1>Which crypto exchanges are registered in New Zealand?</h1>
+        <p class="sourced orientation">Official register data, not user reviews or rankings —
+        last manually verified {nzFsprRetrieved} (not on an automated schedule). Source: <a
+        href="https://fsp-app.companiesoffice.govt.nz/orp-master/service/create.html?targetAppCode=orp-master&service=registerItemSearch">New
+        Zealand Financial Service Providers Register</a>.</p>
         <p class="lede lede-wide">{rows.length} exchanges in our register have an entity on New
         Zealand's Financial Service Providers Register (FSPR), supervised by the Department of
         Internal Affairs (DIA) under the AML/CFT Act 2009. As with Canada's FINTRAC, the US's
@@ -394,6 +434,9 @@ const PAGE_DESC = isGB
     ) : isBVI ? (
       <>
         <h1>Which crypto exchanges are licensed in the British Virgin Islands?</h1>
+        <p class="sourced orientation">Official register data, not user reviews or rankings —
+        last manually verified {bviFscRetrieved} (not on an automated schedule). Source: <a
+        href="https://www.bvifsc.vg/regulated-entities-vasp">BVI FSC VASP Register</a>.</p>
         <p class="lede lede-wide">{rows.length} exchanges in our register hold a Virtual Assets
         Service Provider (VASP) registration from the BVI Financial Services Commission, under the
         Virtual Assets Service Providers Act, 2022. Like Dubai's VARA licence, Singapore's MAS
@@ -410,6 +453,9 @@ const PAGE_DESC = isGB
     ) : isAU ? (
       <>
         <h1>Which crypto exchanges are registered in Australia?</h1>
+        <p class="sourced orientation">Official register data, not user reviews or rankings —
+        last checked {austracRetrieved}. Source: <a href="https://online.apps.austrac.gov.au/vaspr">AUSTRAC
+        VASP Register (VASPR)</a>.</p>
         <p class="lede lede-wide">{rows.length} exchanges in our register have an Australian entity
         on AUSTRAC's Virtual Asset Service Provider Register (VASPR), which went public in mid-2026.
         As with the UK, Canada, US, South Korea, and New Zealand entries elsewhere on this site,
@@ -425,6 +471,9 @@ const PAGE_DESC = isGB
     ) : (
       <>
         <h1>Which crypto exchanges are licensed in {name}?</h1>
+        <p class="sourced orientation">Official register data, not user reviews or rankings —
+        last checked {esmaRetrieved}. Source: <a href="https://www.esma.europa.eu/esmas-activities/digital-finance-and-innovation/markets-crypto-assets-regulation-mica">ESMA
+        interim MiCA register</a>.</p>
         <p class="lede">{rows.length} exchanges in our register hold an authorisation covering {name},
         per the official ESMA MiCA register. Licensed means the regulator says so — not us.</p>
       </>
