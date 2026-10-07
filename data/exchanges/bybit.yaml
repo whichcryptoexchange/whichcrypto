@@ -208,6 +208,13 @@ third_party_reviews:
 news_mentions:
 - source: The Block
   category: general
+  title: ZachXBT says he fronted $349,700 to infiltrate alleged Chinese launderers tied to Lazarus, Bybit
+    hack
+  url: https://www.theblock.co/news/defi/2026-10-06-zachxbt-infiltrated-chinese-launderers-lazarus-hack-417767
+  published: '2026-10-06'
+  retrieved: '2026-10-06'
+- source: The Block
+  category: general
   title: Bybit launches 24/7 options on stock perpetuals, starting with SpaceX and Nvidia
   url: https://www.theblock.co/news/markets/2026-08-28-bybit-launches-24-7-options-on-stock-perpetuals-starting-with-spacex-and-nvidia-413032
   published: '2026-08-28'
