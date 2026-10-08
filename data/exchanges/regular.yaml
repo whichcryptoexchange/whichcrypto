@@ -4,7 +4,7 @@ eu_status: authorised
 sources:
 - name: ESMA interim MiCA register (CASPS.csv)
   url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
-  retrieved: '2026-10-05'
+  retrieved: '2026-10-08'
 entities:
 - lei: 969500Y5SNO2WBYDB059
   legal_name: REGULAR FINANCE SAS
@@ -16,10 +16,6 @@ entities:
   - authorised: '2028-09-11'
     withdrawn: null
     status: authorised
-    caveat: ESMA's own CASPS register lists this authorisation's notification and last-update
-      date as 11/09/2028 -- almost certainly a data-entry error on the regulator's side (a future
-      date for an authorisation already in force), reproduced here faithfully rather than silently
-      corrected to a guessed year.
     services:
     - a
     - c

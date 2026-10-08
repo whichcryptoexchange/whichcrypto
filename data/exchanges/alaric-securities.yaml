@@ -4,7 +4,7 @@ eu_status: authorised
 sources:
 - name: ESMA interim MiCA register (CASPS.csv)
   url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
-  retrieved: '2026-10-05'
+  retrieved: '2026-10-08'
 entities:
 - lei: 549300I48OJHSE9OZS95
   legal_name: Alaric Securities OOD
@@ -27,13 +27,187 @@ entities:
     - i
     - j
     passported_to:
+    - AT
+    - BE
     - BG
-    last_update: '2025-12-22'
+    - CY
+    - CZ
+    - DE
+    - DK
+    - EE
+    - ES
+    - FI
+    - FR
+    - GR
+    - HR
+    - HU
+    - IE
+    - IS
+    - IT
+    - LI
+    - LT
+    - LU
+    - LV
+    - MT
+    - NL
+    - 'NO'
+    - PL
+    - PT
+    - RO
+    - SE
+    - SI
+    - SK
+    last_update: '2026-10-06'
 countries:
+  AT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Alaric Securities OOD
+  BE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Alaric Securities OOD
   BG:
     status: licensed
     regime: MiCA
     via: home_state
+    entity: Alaric Securities OOD
+  CY:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Alaric Securities OOD
+  CZ:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Alaric Securities OOD
+  DE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Alaric Securities OOD
+  DK:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Alaric Securities OOD
+  EE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Alaric Securities OOD
+  ES:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Alaric Securities OOD
+  FI:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Alaric Securities OOD
+  FR:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Alaric Securities OOD
+  GR:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Alaric Securities OOD
+  HR:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Alaric Securities OOD
+  HU:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Alaric Securities OOD
+  IE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Alaric Securities OOD
+  IS:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Alaric Securities OOD
+  IT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Alaric Securities OOD
+  LI:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Alaric Securities OOD
+  LT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Alaric Securities OOD
+  LU:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Alaric Securities OOD
+  LV:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Alaric Securities OOD
+  MT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Alaric Securities OOD
+  NL:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Alaric Securities OOD
+  'NO':
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Alaric Securities OOD
+  PL:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Alaric Securities OOD
+  PT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Alaric Securities OOD
+  RO:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Alaric Securities OOD
+  SE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Alaric Securities OOD
+  SI:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Alaric Securities OOD
+  SK:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
     entity: Alaric Securities OOD
 company_facts:
 - lei: 549300I48OJHSE9OZS95

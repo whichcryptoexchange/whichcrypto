@@ -4,7 +4,7 @@ eu_status: authorised
 sources:
 - name: ESMA interim MiCA register (CASPS.csv)
   url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
-  retrieved: '2026-10-05'
+  retrieved: '2026-10-08'
 entities:
 - lei: 648851FOKWX4PG639059
   legal_name: FF Digital EOOD
@@ -26,10 +26,46 @@ entities:
     - j
     passported_to:
     - BG
-    last_update: '2026-09-10'
+    - CY
+    - CZ
+    - DE
+    - GR
+    - LT
+    - NL
+    last_update: '2026-09-24'
 countries:
   BG:
     status: licensed
     regime: MiCA
     via: home_state
+    entity: FF Digital EOOD
+  CY:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: FF Digital EOOD
+  CZ:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: FF Digital EOOD
+  DE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: FF Digital EOOD
+  GR:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: FF Digital EOOD
+  LT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: FF Digital EOOD
+  NL:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
     entity: FF Digital EOOD

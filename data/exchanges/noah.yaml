@@ -1,0 +1,206 @@
+id: noah
+brand: Noah
+eu_status: authorised
+sources:
+- name: ESMA interim MiCA register (CASPS.csv)
+  url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
+  retrieved: '2026-10-08'
+entities:
+- lei: 984500F4C47H19274320
+  legal_name: Noah LV SIA
+  commercial_name: Noah
+  home_state: LV
+  regulator: Latvijas Banka
+  website: https://noah.com/en/eu
+  records:
+  - authorised: '2026-09-30'
+    withdrawn: null
+    status: authorised
+    services:
+    - a
+    - c
+    - e
+    - j
+    passported_to:
+    - AT
+    - BE
+    - BG
+    - CY
+    - CZ
+    - DE
+    - DK
+    - EE
+    - ES
+    - FI
+    - FR
+    - GR
+    - HR
+    - HU
+    - IE
+    - IS
+    - IT
+    - LI
+    - LT
+    - LU
+    - LV
+    - MT
+    - NL
+    - 'NO'
+    - PL
+    - PT
+    - RO
+    - SE
+    - SI
+    - SK
+    last_update: '2026-10-02'
+countries:
+  AT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Noah LV SIA
+  BE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Noah LV SIA
+  BG:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Noah LV SIA
+  CY:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Noah LV SIA
+  CZ:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Noah LV SIA
+  DE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Noah LV SIA
+  DK:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Noah LV SIA
+  EE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Noah LV SIA
+  ES:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Noah LV SIA
+  FI:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Noah LV SIA
+  FR:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Noah LV SIA
+  GR:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Noah LV SIA
+  HR:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Noah LV SIA
+  HU:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Noah LV SIA
+  IE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Noah LV SIA
+  IS:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Noah LV SIA
+  IT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Noah LV SIA
+  LI:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Noah LV SIA
+  LT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Noah LV SIA
+  LU:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Noah LV SIA
+  LV:
+    status: licensed
+    regime: MiCA
+    via: home_state
+    entity: Noah LV SIA
+  MT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Noah LV SIA
+  NL:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Noah LV SIA
+  'NO':
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Noah LV SIA
+  PL:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Noah LV SIA
+  PT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Noah LV SIA
+  RO:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Noah LV SIA
+  SE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Noah LV SIA
+  SI:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Noah LV SIA
+  SK:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Noah LV SIA
