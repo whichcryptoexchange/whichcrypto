@@ -4,7 +4,7 @@ eu_status: no_eu_entity
 sources:
 - name: Dubai VARA Public Register
   url: https://www.vara.ae/en/licenses-and-register/public-register/
-  retrieved: '2026-10-01'
+  retrieved: '2026-10-08'
 entities: []
 countries:
   AE:
@@ -14,4 +14,4 @@ countries:
     entity: Morpheus Software Technology FZE (FUZE)
     reference: VL/23/10/002
     licensed_activities: Broker-Dealer Services
-    since: '2023-11-17'
+    since: '2023-10-19'
