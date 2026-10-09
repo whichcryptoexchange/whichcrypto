@@ -4,7 +4,7 @@ eu_status: no_eu_entity
 sources:
 - name: Japan FSA Registered Crypto-asset Exchange Service Providers List
   url: https://www.fsa.go.jp/en/regulated/licensed/index.html
-  retrieved: '2026-10-02'
+  retrieved: '2026-10-09'
 - name: Dubai VARA Public Register
   url: https://www.vara.ae/en/licenses-and-register/public-register/
   retrieved: '2026-10-01'
