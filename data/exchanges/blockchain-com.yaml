@@ -243,3 +243,17 @@ company_facts:
   registration_status: issued
   entity_creation_date: '2025-07-28'
   retrieved: '2026-08-12'
+news_mentions:
+- source: Cointelegraph
+  category: regulatory
+  title: 'Blockchain.com pursues CFTC approval for prediction markets: CNBC'
+  url: https://cointelegraph.com/news/blockchain-cftc-approval-derivatives-prediction-markets?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound
+  published: '2026-10-09'
+  retrieved: '2026-10-10'
+- source: The Block
+  category: regulatory
+  title: 'Blockchain.com seeks CFTC greenlight for US prediction markets, crypto derivatives trading:
+    CNBC'
+  url: https://www.theblock.co/news/business/2026-10-09-blockchain-com-cftc-license-prediction-markets-derivatives-418192
+  published: '2026-10-09'
+  retrieved: '2026-10-10'
