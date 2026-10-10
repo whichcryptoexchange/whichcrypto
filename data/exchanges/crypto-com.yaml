@@ -22,7 +22,7 @@ sources:
   retrieved: '2026-10-02'
 - name: AUSTRAC VASP Register (VASPR)
   url: https://online.apps.austrac.gov.au/vaspr
-  retrieved: '2026-10-02'
+  retrieved: '2026-10-09'
 entities:
 - lei: 2549005CVR5HH70FDO07
   legal_name: Foris DAX MT Limited
