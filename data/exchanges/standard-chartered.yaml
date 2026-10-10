@@ -203,6 +203,12 @@ countries:
     via: mica_passporting
     entity: Standard Chartered Luxembourg S.A
 news_mentions:
+- source: The Block
+  category: general
+  title: Standard Chartered to expand crypto custody services in Singapore
+  url: https://www.theblock.co/news/business/2026-10-08-standard-chartered-crypto-custody-singapore-418017
+  published: '2026-10-08'
+  retrieved: '2026-10-10'
 - source: Cointelegraph
   category: general
   title: Standard Chartered forecasts SKY rising fivefold to $0.325 by 2028

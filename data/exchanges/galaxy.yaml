@@ -17,6 +17,12 @@ countries:
 news_mentions:
 - source: The Block
   category: general
+  title: Samsung to launch USDC transfers on Solana for US Galaxy users
+  url: https://www.theblock.co/news/business/2026-10-07-samsung-to-launch-usdc-transfers-on-solana-for-us-galaxy-users-418004
+  published: '2026-10-08'
+  retrieved: '2026-10-10'
+- source: The Block
+  category: general
   title: Coldcard exploiter moves 45% of funds stolen from ‘Wave 3’ attacks, Galaxy says
   url: https://www.theblock.co/news/defi/2026-09-07-coldcard-exploiter-moves-wave-3-413661
   published: '2026-09-07'
