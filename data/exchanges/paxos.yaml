@@ -4,7 +4,7 @@ eu_status: no_eu_entity
 sources:
 - name: Singapore MAS Financial Institutions Directory
   url: https://eservices.mas.gov.sg/fid/institution
-  retrieved: '2026-10-08'
+  retrieved: '2026-10-15'
 entities: []
 countries:
   SG:
