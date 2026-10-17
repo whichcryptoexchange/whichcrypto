@@ -49,6 +49,12 @@ third_party_reviews:
 news_mentions:
 - source: Cointelegraph
   category: general
+  title: 'Binance.US seeks $1B valuation in potential $100M funding round: Report'
+  url: https://cointelegraph.com/news/binance-us-funding-valuation-billion?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound
+  published: '2026-10-15'
+  retrieved: '2026-10-17'
+- source: Cointelegraph
+  category: general
   title: Binance BTC outflows hit highest since mid-2023 as whales deposit stablecoins
   url: https://cointelegraph.com/markets/binance-btc-outflows-hit-highest-since-mid-2023-as-whales-deposit-stablecoins?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound
   published: '2026-10-06'
@@ -87,12 +93,6 @@ news_mentions:
   category: general
   title: 'Binance gave Russian authorities client data used in terrorism financing case: Report'
   url: https://cointelegraph.com/news/binance-russia-client-data-used-ukraine-case-report?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound
-  published: '2026-08-17'
-  retrieved: '2026-08-17'
-- source: The Block
-  category: general
-  title: Tokenized equities triple market share as Ondo, Binance and xStocks dominate
-  url: https://www.theblock.co/news/defi/2026-08-17-tokenized-equities-triple-market-share-ondo-binance-xstocks-dominate-411996
   published: '2026-08-17'
   retrieved: '2026-08-17'
 notable_incidents:
