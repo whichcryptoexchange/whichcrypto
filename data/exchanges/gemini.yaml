@@ -269,6 +269,18 @@ third_party_reviews:
   retrieved: '2026-10-14'
 news_mentions:
 - source: Cointelegraph
+  category: regulatory
+  title: Judge rejects CFTC, Gemini bid to undo $5M settlement
+  url: https://cointelegraph.com/news/judge-rejects-cftc-gemini-5m-settlement-reversal?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound
+  published: '2026-10-16'
+  retrieved: '2026-10-17'
+- source: The Block
+  category: regulatory
+  title: US federal judge denies joint Gemini-CFTC bid to undo $5 million settlement
+  url: https://www.theblock.co/news/regulation/2026-10-16-us-judge-denies-joint-gemini-cftc-bid-418775
+  published: '2026-10-16'
+  retrieved: '2026-10-17'
+- source: Cointelegraph
   category: general
   title: Gemini posts $108M Q2 net loss despite 37% revenue growth
   url: https://cointelegraph.com/news/gemini-45m-q2-revenue-financial-services?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound

@@ -14,3 +14,10 @@ countries:
     via: ny_dfs_register
     entity: Mastercard Transaction Services (US) LLC
     since: 2026-05
+news_mentions:
+- source: Cointelegraph
+  category: general
+  title: Mastercard brings stablecoin balances into traditional banking and card payments
+  url: https://cointelegraph.com/news/mastercard-bvnk-global-money-platform-stablecoins?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound
+  published: '2026-10-15'
+  retrieved: '2026-10-17'

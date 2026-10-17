@@ -297,6 +297,12 @@ third_party_reviews:
 news_mentions:
 - source: The Block
   category: general
+  title: Coinbase to power stablecoin-backed cards for Marqeta customers
+  url: https://www.theblock.co/news/business/2026-10-16-coinbase-to-power-stablecoin-backed-cards-for-marqeta-customers-418833
+  published: '2026-10-16'
+  retrieved: '2026-10-17'
+- source: The Block
+  category: general
   title: Aave V4 on Base adds Coinbase tokenized stocks as collateral for USDC loans
   url: https://www.theblock.co/news/defi/2026-09-25-aave-v4-on-base-adds-coinbase-tokenized-stocks-as-collateral-for-usdc-loans-416372
   published: '2026-09-25'
