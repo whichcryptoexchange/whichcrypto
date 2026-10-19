@@ -1,0 +1,30 @@
+id: ksw-verm-gensverwaltung-ag
+brand: KSW Vermögensverwaltung AG
+eu_status: authorised
+sources:
+- name: ESMA interim MiCA register (CASPS.csv)
+  url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
+  retrieved: '2026-10-19'
+entities:
+- lei: 5299007QRBQF1SF24853
+  legal_name: KSW Vermögensverwaltung AG
+  commercial_name: KSW Vermögensverwaltung AG
+  home_state: DE
+  regulator: Federal Financial Supervisory Authority (BaFin)
+  website: http://www.ksw-vermoegen.de
+  records:
+  - authorised: '2026-10-07'
+    withdrawn: null
+    status: authorised
+    services:
+    - g
+    - i
+    passported_to:
+    - DE
+    last_update: '2026-10-07'
+countries:
+  DE:
+    status: licensed
+    regime: MiCA
+    via: home_state
+    entity: KSW Vermögensverwaltung AG

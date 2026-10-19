@@ -1,0 +1,29 @@
+id: vr-bank-im-s-dlichen-franken-eg
+brand: VR Bank im südlichen Franken eG
+eu_status: authorised
+sources:
+- name: ESMA interim MiCA register (CASPS.csv)
+  url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
+  retrieved: '2026-10-19'
+entities:
+- lei: 529900PEKQWL9DDI8J02
+  legal_name: VR Bank im südlichen Franken eG
+  commercial_name: VR Bank im südlichen Franken eG
+  home_state: DE
+  regulator: Federal Financial Supervisory Authority (BaFin)
+  website: www.vr-sf.de
+  records:
+  - authorised: '2026-10-12'
+    withdrawn: null
+    status: authorised
+    services:
+    - e
+    passported_to:
+    - DE
+    last_update: '2026-10-12'
+countries:
+  DE:
+    status: licensed
+    regime: MiCA
+    via: home_state
+    entity: VR Bank im südlichen Franken eG
