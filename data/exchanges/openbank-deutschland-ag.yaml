@@ -1,0 +1,30 @@
+id: openbank-deutschland-ag
+brand: Openbank Deutschland AG
+eu_status: authorised
+sources:
+- name: ESMA interim MiCA register (CASPS.csv)
+  url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
+  retrieved: '2026-10-19'
+entities:
+- lei: 5299002CRNX7K6KOL397
+  legal_name: Openbank Deutschland AG
+  commercial_name: Openbank Deutschland AG
+  home_state: DE
+  regulator: Federal Financial Supervisory Authority (BaFin)
+  website: www.openbank.de
+  records:
+  - authorised: '2026-10-23'
+    withdrawn: null
+    status: authorised
+    services:
+    - a
+    - e
+    passported_to:
+    - DE
+    last_update: '2026-10-07'
+countries:
+  DE:
+    status: licensed
+    regime: MiCA
+    via: home_state
+    entity: Openbank Deutschland AG

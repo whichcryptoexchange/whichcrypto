@@ -1,0 +1,43 @@
+id: goin-crypto
+brand: GOIN CRYPTO
+eu_status: authorised
+sources:
+- name: ESMA interim MiCA register (CASPS.csv)
+  url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
+  retrieved: '2026-10-19'
+entities:
+- lei: 959800BLRZ4Z36U5HK79
+  legal_name: PRAKMA MARKETS S.L
+  commercial_name: GOIN CRYPTO
+  home_state: ES
+  regulator: Comision Nacional del Mercado de Valores (CNMV)
+  website: https://www.goin.app/
+  records:
+  - authorised: '2026-10-09'
+    withdrawn: null
+    status: authorised
+    services:
+    - a
+    - g
+    - j
+    passported_to:
+    - ES
+    - FR
+    - IT
+    last_update: '2026-10-09'
+countries:
+  ES:
+    status: licensed
+    regime: MiCA
+    via: home_state
+    entity: PRAKMA MARKETS S.L
+  FR:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: PRAKMA MARKETS S.L
+  IT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: PRAKMA MARKETS S.L
