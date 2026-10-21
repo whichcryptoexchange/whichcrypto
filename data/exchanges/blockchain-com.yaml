@@ -243,3 +243,10 @@ company_facts:
   registration_status: issued
   entity_creation_date: '2025-07-28'
   retrieved: '2026-08-12'
+news_mentions:
+- source: The Block
+  category: general
+  title: Blockchain.com rolls out crypto options as it pursues US derivatives licenses
+  url: https://www.theblock.co/news/markets/2026-10-20-blockchain-com-launches-options-trading-bitcoin-ether-sol-421326
+  published: '2026-10-20'
+  retrieved: '2026-10-21'

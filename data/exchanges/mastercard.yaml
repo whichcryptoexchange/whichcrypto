@@ -14,3 +14,10 @@ countries:
     via: ny_dfs_register
     entity: Mastercard Transaction Services (US) LLC
     since: 2026-05
+news_mentions:
+- source: The Block
+  category: general
+  title: Mastercard opens early access to AI agent payments following pilots with Coinbase, Base and Cloudflare
+  url: https://www.theblock.co/news/business/2026-10-20-mastercard-opens-early-access-to-ai-agent-payments-following-pilots-with-coinbase-base-and-cloudflare-421406
+  published: '2026-10-20'
+  retrieved: '2026-10-21'
