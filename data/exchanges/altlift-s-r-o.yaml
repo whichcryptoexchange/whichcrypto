@@ -11,7 +11,7 @@ entities:
   commercial_name: null
   home_state: CZ
   regulator: Czech National Bank (CNB)
-  website: ttps://www.altlift.cz/
+  website: https://www.altlift.cz/
   records:
   - authorised: '2026-06-30'
     withdrawn: null

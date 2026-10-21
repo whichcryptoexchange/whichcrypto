@@ -11,9 +11,7 @@ entities:
   commercial_name: TRIA BRIDGE
   home_state: CY
   regulator: Cyprus Securities and Exchange Commission (CySEC)
-  website: 'https://triabridge.com/
-
-    https://thevault.inc/'
+  website: https://triabridge.com/
   records:
   - authorised: '2026-06-29'
     withdrawn: null

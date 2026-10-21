@@ -48,6 +48,15 @@ EEA = {
 # Observed non-ISO codes in the live file -> ISO 3166-1 alpha-2.
 COUNTRY_FIXES = {"EL": "GR", "SL": "SI", "UK": "GB"}
 
+# Per-LEI corrections for known-bad ae_website values that keep recurring
+# across syncs and aren't otherwise auto-detectable (not a multi-value
+# field, not flagged by ac_comments -- just a plain typo on ESMA's side).
+# Re-verify against the raw CSV before removing an entry, in case ESMA
+# fixes it upstream.
+WEBSITE_FIXES = {
+    "8945004PZEJSSPTTVB16": "https://www.altlift.cz/",  # Altlift s.r.o: "ttps://" typo, recurring since 2026-09
+}
+
 # MiCA Title V service letters (Art. 3(1)(16)). Keyword -> canonical code.
 SERVICE_KEYWORDS = [
     ("custody and administration", "a"),
@@ -88,6 +97,19 @@ def clean(s: str) -> str:
 def primary_alias(raw: str):
     """Some rows list multiple trading names in one field (e.g. "Amdax B.V.|Amdax
     Group|Novelist"). Take the first as the primary commercial name."""
+    for tok in LIST_SPLIT.split(raw or ""):
+        tok = clean(tok)
+        if tok:
+            return tok
+    return None
+
+
+def primary_website(raw: str):
+    """Some rows list more than one URL in ae_website (seen: a pipe- or
+    newline-separated pair, e.g. Tria Bridge's own site plus a second,
+    unrelated-looking product site). Take the first, same convention as
+    primary_alias -- keeps the stored YAML clean rather than pushing a
+    multi-line value downstream for the frontend to untangle."""
     for tok in LIST_SPLIT.split(raw or ""):
         tok = clean(tok)
         if tok:
@@ -187,24 +209,42 @@ def main():
             continue
         seen_rows.add(fingerprint)
 
+        website = WEBSITE_FIXES.get(lei) or primary_website(row.get("ae_website", ""))
+        comments = clean(row.get("ac_comments", ""))
+        # ESMA sometimes publishes a visible placeholder (observed: a Figma
+        # design-file link) with its own comment explicitly disclaiming it,
+        # e.g. "This is a dummy website link." -- don't show that as a real
+        # company website, but keep ESMA's own words as a caveat rather than
+        # inventing our own paraphrase of why it's missing.
+        dummy_website = bool(website) and "dummy" in comments.lower() and "website" in comments.lower()
+
         ent = entities.setdefault(key, {
             "lei": lei or None,
             "legal_name": legal_name,
             "commercial_name": primary_alias(row.get("ae_commercial_name", "")),
             "home_state": clean(row.get("ae_homeMemberState", "")).upper() or None,
             "regulator": clean(row.get("ae_competentAuthority", "")) or None,
-            "website": clean(row.get("ae_website", "")) or None,
+            "website": None if dummy_website else website,
             "records": [],
         })
+        if dummy_website:
+            ent["website"] = None  # covers a dummy-link comment arriving on a later row than the one that set website
+
         end_date = parse_date(row.get("ac_authorisationEndDate", ""))
-        ent["records"].append({
+        record = {
             "authorised": parse_date(row.get("ac_authorisationNotificationDate", "")),
             "withdrawn": end_date,
             "status": "withdrawn" if end_date else "authorised",
             "services": parse_services(row.get("ac_serviceCode", "")),
             "passported_to": parse_countries(row.get("ac_serviceCode_cou", "")),
             "last_update": parse_date(row.get("ac_lastupdate", "")),
-        })
+        }
+        if dummy_website:
+            record["caveat"] = (
+                f'ESMA\'s own CASPS register carries this comment on the record: "{comments}" -- '
+                "no real website is published here until ESMA's register reflects one."
+            )
+        ent["records"].append(record)
 
     print(f"Grouped into {len(entities)} legal entities")
 
