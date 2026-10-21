@@ -311,9 +311,9 @@ countries:
 third_party_reviews:
 - source: App Store
   rating: 4.71
-  count: 26288
+  count: 26316
   url: https://apps.apple.com/at/app/bitpanda-krypto-aktien-etf/id1449018960?uo=4
-  retrieved: '2026-10-14'
+  retrieved: '2026-10-21'
 news_mentions:
 - source: Cointelegraph
   category: regulatory
