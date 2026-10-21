@@ -259,6 +259,12 @@ countries:
     entity: BitGo New York Trust Company, LLC
     since: 2021-03
 news_mentions:
+- source: The Block
+  category: general
+  title: BitGo launches innovation unit to design crypto’s next breakout application
+  url: https://www.theblock.co/news/business/2026-10-21-bitgo-launches-research-unit-421502
+  published: '2026-10-21'
+  retrieved: '2026-10-21'
 - source: Cointelegraph
   category: general
   title: BitGo buys NYDIG trading arm to deepen institutional crypto push

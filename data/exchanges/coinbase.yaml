@@ -295,6 +295,25 @@ third_party_reviews:
   url: https://apps.apple.com/us/app/coinbase-buy-crypto-stocks/id886427730?uo=4
   retrieved: '2026-10-21'
 news_mentions:
+- source: Cointelegraph
+  category: general
+  title: Kazakhstan court orders curbs on Coinbase, BingX and four others
+  url: https://cointelegraph.com/news/kazakhstan-court-limits-coinbase-bingx-four?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound
+  published: '2026-10-20'
+  retrieved: '2026-10-21'
+- source: The Block
+  category: general
+  title: Mastercard opens early access to AI agent payments following pilots with Coinbase, Base and Cloudflare
+  url: https://www.theblock.co/news/business/2026-10-20-mastercard-opens-early-access-to-ai-agent-payments-following-pilots-with-coinbase-base-and-cloudflare-421406
+  published: '2026-10-20'
+  retrieved: '2026-10-21'
+- source: The Block
+  category: general
+  title: Stablecoins move over $400 million per hour on average as off-hours transfers dominate, Coinbase
+    and The Block study finds
+  url: https://www.theblock.co/news/web3/2026-10-20-stablecoins-move-400-million-per-hour-421111
+  published: '2026-10-20'
+  retrieved: '2026-10-21'
 - source: The Block
   category: general
   title: Aave V4 on Base adds Coinbase tokenized stocks as collateral for USDC loans
@@ -326,12 +345,6 @@ news_mentions:
   url: https://www.theblock.co/news/defi/2026-09-06-coinbase-backed-router-protocol-to-shut-down-burn-303-million-route-tokens-413618
   published: '2026-09-06'
   retrieved: '2026-09-08'
-- source: The Block
-  category: regulatory
-  title: Baltimore sues Kalshi and Polymarket, roping Coinbase, Robinhood and Webull into the fight
-  url: https://www.theblock.co/news/business/2026-08-13-baltimore-sues-kalshi-polymarket-roping-coinbase-robinhood-webull-into-fight-411746
-  published: '2026-08-13'
-  retrieved: '2026-08-14'
 company_facts:
 - lei: 984500F14CA4571AAC11
   registered_office:
