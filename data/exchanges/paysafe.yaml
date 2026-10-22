@@ -4,7 +4,7 @@ eu_status: authorised
 sources:
 - name: ESMA interim MiCA register (CASPS.csv)
   url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
-  retrieved: '2026-10-19'
+  retrieved: '2026-10-22'
 - name: UK FCA Register
   url: https://register.fca.org.uk/
   retrieved: '2026-10-20'
@@ -14,9 +14,7 @@ entities:
   commercial_name: Skrill, NETELLER
   home_state: IE
   regulator: Central Bank of Ireland (CBI)
-  website: 'www.skrill.com
-
-    www.neteller.com'
+  website: www.skrill.com
   records:
   - authorised: '2025-12-03'
     withdrawn: null

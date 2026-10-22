@@ -4,14 +4,14 @@ eu_status: authorised
 sources:
 - name: ESMA interim MiCA register (CASPS.csv)
   url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
-  retrieved: '2026-10-19'
+  retrieved: '2026-10-22'
 entities:
 - lei: 7245009PN18D4I1TKJ50
   legal_name: BitStaete B.V
   commercial_name: BitStaete B.V
   home_state: NL
   regulator: Netherlands Authority for the Financial Markets (AFM)
-  website: https://bitstaete.nl/ | http://www.bitstaete.com/
+  website: https://bitstaete.nl/
   records:
   - authorised: '2024-12-30'
     withdrawn: null

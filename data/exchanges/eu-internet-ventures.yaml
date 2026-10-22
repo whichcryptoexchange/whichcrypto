@@ -4,16 +4,14 @@ eu_status: authorised
 sources:
 - name: ESMA interim MiCA register (CASPS.csv)
   url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
-  retrieved: '2026-10-19'
+  retrieved: '2026-10-22'
 entities:
 - lei: 69940000HAL9ODW3IMO22
   legal_name: EU Internet Ventures B.V
   commercial_name: EU Internet Ventures
   home_state: NL
   regulator: Netherlands Authority for the Financial Markets (AFM)
-  website: 'https://banxa.com
-
-    https://www.osl-pay.com/'
+  website: https://banxa.com
   records:
   - authorised: '2025-10-08'
     withdrawn: null

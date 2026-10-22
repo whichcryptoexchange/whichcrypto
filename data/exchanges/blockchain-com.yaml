@@ -4,7 +4,7 @@ eu_status: authorised
 sources:
 - name: ESMA interim MiCA register (CASPS.csv)
   url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
-  retrieved: '2026-10-19'
+  retrieved: '2026-10-22'
 - name: Singapore MAS Financial Institutions Directory
   url: https://eservices.mas.gov.sg/fid/institution
   retrieved: '2026-10-15'
@@ -234,6 +234,13 @@ countries:
     entity: Blockchain.com, Inc
     reg_number: '29460378'
     since: '2025-11-14'
+news_mentions:
+- source: The Block
+  category: general
+  title: Blockchain.com rolls out crypto options as it pursues US derivatives licenses
+  url: https://www.theblock.co/news/markets/2026-10-20-blockchain-com-launches-options-trading-bitcoin-ether-sol-421326
+  published: '2026-10-20'
+  retrieved: '2026-10-21'
 company_facts:
 - lei: 254900GDCT8070R2VV26
   registered_office:
@@ -243,10 +250,3 @@ company_facts:
   registration_status: issued
   entity_creation_date: '2025-07-28'
   retrieved: '2026-08-12'
-news_mentions:
-- source: The Block
-  category: general
-  title: Blockchain.com rolls out crypto options as it pursues US derivatives licenses
-  url: https://www.theblock.co/news/markets/2026-10-20-blockchain-com-launches-options-trading-bitcoin-ether-sol-421326
-  published: '2026-10-20'
-  retrieved: '2026-10-21'

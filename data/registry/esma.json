@@ -1,7 +1,7 @@
 {
-  "generated": "2026-10-19",
+  "generated": "2026-10-22",
   "source": "https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv",
-  "brand_count": 369,
+  "brand_count": 370,
   "brands": [
     "21bitcoin",
     "acheron",
@@ -242,6 +242,7 @@
     "paysafe",
     "paytop",
     "pelican-exchange",
+    "penning",
     "piraeus-bank-soci-t-anonyme-s-a",
     "pluso",
     "plutos-vermogensverwaltung",
