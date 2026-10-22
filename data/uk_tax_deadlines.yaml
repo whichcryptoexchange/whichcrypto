@@ -1,0 +1,30 @@
+# UK Self Assessment deadlines relevant to crypto holders/taxpayers.
+# Recurring annually by month/day -- these are fixed calendar dates
+# regardless of year, not tied to the UK tax year's own 6 Apr - 5 Apr
+# boundary. Both the /tax-reminders/ page and scripts/tax_reminder_check.py
+# read this file, so they can't drift apart. Re-verify against gov.uk
+# directly before changing any date here.
+- id: register_first_time
+  month: 10
+  day: 5
+  label: "Register for Self Assessment (first-time filers)"
+  detail: "If this is your first year needing to declare crypto gains or income, you must register with HMRC by this date."
+  source: "https://www.gov.uk/register-for-self-assessment"
+- id: paper_return
+  month: 10
+  day: 31
+  label: "Paper Self Assessment return deadline"
+  detail: "Deadline to submit a paper Self Assessment return for the previous tax year."
+  source: "https://www.gov.uk/self-assessment-tax-returns/deadlines"
+- id: online_return_and_balancing_payment
+  month: 1
+  day: 31
+  label: "Online Self Assessment return + balancing payment due"
+  detail: "Deadline to file online and pay any tax owed for the previous tax year, including the first payment on account if one applies."
+  source: "https://www.gov.uk/self-assessment-tax-returns/deadlines"
+- id: second_payment_on_account
+  month: 7
+  day: 31
+  label: "Second payment on account due"
+  detail: "If HMRC has you paying tax in advance via payments on account, the second instalment for the current tax year is due."
+  source: "https://www.gov.uk/understand-self-assessment-bill/payments-on-account"

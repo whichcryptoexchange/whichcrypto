@@ -28,6 +28,12 @@
 //                     the weekly-roundup fan-out (separate from ADMIN_KEY --
 //                     see handleDigestSend for why). Called only by the
 //                     weekly-digest GitHub Actions workflow.
+//   TAX_REMINDER_SEND_KEY - secret: long random string gating
+//                     /api/admin/tax-reminder-send, the UK tax deadline
+//                     list's fan-out (same blast-radius isolation as
+//                     DIGEST_SEND_KEY). Called by the daily tax-reminder-
+//                     check GitHub Actions workflow, and manually via curl
+//                     for ad-hoc rate/rule-change alerts.
 //   IP_SALT         - secret: random string for privacy-preserving IP hashing
 
 import { EmailMessage } from 'cloudflare:email';
@@ -522,6 +528,124 @@ async function handleDigestSend(request, env, url) {
   return json({ total: subscribers.length, sent, failed });
 }
 
+// UK crypto tax deadline reminders + occasional "rules changed" alerts --
+// same double opt-in mechanism as digest_subscribers, but a separate list
+// (different content, different cadence/triggers; see migrations/0011).
+async function sendTaxReminderConfirmEmail(env, email, token) {
+  const confirmUrl = `https://whichcryptoexchange.com/api/tax-reminders/confirm?token=${token}`;
+  const text = [
+    'Someone (hopefully you) asked to get UK crypto tax deadline reminders from whichcryptoexchange.com -- a heads-up before Self Assessment dates relevant to crypto holders, plus occasional emails if the rules actually change.',
+    '',
+    'This is not personalised tax advice -- just dated, sourced reminders of what\'s coming up and why it matters.',
+    '',
+    'Confirm and subscribe:',
+    confirmUrl,
+    '',
+    "If you didn't request this, ignore this email -- nothing is created unless you click the link above.",
+  ].join('\n');
+  await sendResendEmail(env, email, 'Confirm: UK crypto tax deadline reminders', text);
+}
+
+async function handleTaxReminderSignup(request, env) {
+  let body;
+  try { body = await request.json(); } catch { return json({ error: 'invalid JSON' }, 400); }
+
+  const ip = request.headers.get('CF-Connecting-IP') || '0.0.0.0';
+  if (!(await verifyTurnstile(body.turnstile_token, env.TURNSTILE_SECRET, ip))) {
+    return json({ error: 'verification failed — please retry the challenge' }, 403);
+  }
+
+  const email = sanitizeHeader(body.email, 200);
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return json({ error: 'a valid email is required' }, 400);
+  if (!body.consent) return json({ error: 'consent is required to subscribe' }, 400);
+
+  const ip_hash = await sha256hex(env.IP_SALT + ip);
+  const { results: recent } = await env.DB.prepare(
+    "SELECT COUNT(*) AS n FROM tax_reminder_subscribers WHERE ip_hash = ? AND created_at > datetime('now','-1 hour')"
+  ).bind(ip_hash).all();
+  if (recent[0].n >= 10) return json({ error: 'rate limit reached — try again later' }, 429);
+
+  const existing = await env.DB.prepare(
+    'SELECT token, confirmed FROM tax_reminder_subscribers WHERE email = ?'
+  ).bind(email).first();
+
+  if (existing?.confirmed) {
+    return json({ ok: true, message: "You're already subscribed to tax deadline reminders." });
+  }
+
+  const token = existing?.token ?? randomToken();
+  if (!existing) {
+    await env.DB.prepare(
+      'INSERT INTO tax_reminder_subscribers (email, token, ip_hash) VALUES (?,?,?)'
+    ).bind(email, token, ip_hash).run();
+  }
+
+  try {
+    await sendTaxReminderConfirmEmail(env, email, token);
+  } catch {
+    return json({ error: 'could not send confirmation email — please try again later' }, 502);
+  }
+
+  return json({ ok: true, message: 'Check your email to confirm your subscription.' });
+}
+
+async function handleTaxReminderConfirm(env, token) {
+  const row = await env.DB.prepare('SELECT * FROM tax_reminder_subscribers WHERE token = ?').bind(token).first();
+  if (!row) return watchPage('Link not found', '<p>This confirmation link is invalid or has already been used.</p>');
+
+  if (!row.confirmed) {
+    await env.DB.prepare(
+      "UPDATE tax_reminder_subscribers SET confirmed = 1, confirmed_at = datetime('now') WHERE token = ?"
+    ).bind(token).run();
+  }
+  return watchPage('Subscribed',
+    `<p>You'll get UK crypto tax deadline reminders from whichcryptoexchange.com -- not personalised advice, just dated, sourced heads-ups.</p>
+     <p><a href="/api/tax-reminders/unsubscribe?token=${esc(token)}">Unsubscribe</a> any time, no login needed.</p>`);
+}
+
+async function handleTaxReminderUnsubscribe(env, token) {
+  const row = await env.DB.prepare('SELECT id FROM tax_reminder_subscribers WHERE token = ?').bind(token).first();
+  await env.DB.prepare('DELETE FROM tax_reminder_subscribers WHERE token = ?').bind(token).run();
+  return watchPage('Unsubscribed', row
+    ? '<p>You will not receive tax deadline reminders any more.</p>'
+    : '<p>Already unsubscribed, or this link was invalid.</p>');
+}
+
+// Fan-out for both triggers: the daily GitHub Actions cron (scripts/
+// tax_reminder_check.py checks the UK tax calendar and posts the result
+// here when a deadline is within its lead window) and ad-hoc "rules
+// changed" alerts sent by hand via curl once a real change is verified
+// against gov.uk directly. Uses its own TAX_REMINDER_SEND_KEY rather than
+// ADMIN_KEY or DIGEST_SEND_KEY -- a leaked key here can only email this
+// one list, same blast-radius reasoning as handleDigestSend.
+async function handleTaxReminderSend(request, env, url) {
+  if (!env.TAX_REMINDER_SEND_KEY || url.searchParams.get('key') !== env.TAX_REMINDER_SEND_KEY) {
+    return json({ error: 'forbidden' }, 403);
+  }
+  let body;
+  try { body = await request.json(); } catch { return json({ error: 'invalid JSON' }, 400); }
+  const subject = String(body.subject || '').slice(0, 200);
+  const text = String(body.text || '').slice(0, 20000);
+  if (!subject || !text) return json({ error: 'subject and text are required' }, 400);
+
+  const { results: subscribers } = await env.DB.prepare(
+    'SELECT email, token FROM tax_reminder_subscribers WHERE confirmed = 1'
+  ).all();
+
+  let sent = 0;
+  let failed = 0;
+  for (const sub of subscribers) {
+    const unsubUrl = `https://whichcryptoexchange.com/api/tax-reminders/unsubscribe?token=${sub.token}`;
+    try {
+      await sendResendEmail(env, sub.email, subject, `${text}\n\n---\nUnsubscribe: ${unsubUrl}`);
+      sent++;
+    } catch {
+      failed++;
+    }
+  }
+  return json({ total: subscribers.length, sent, failed });
+}
+
 async function handleAggregates(env, exchangeId) {
   const { results } = await env.DB.prepare(
     `SELECT country, outcome, COUNT(*) AS n, MAX(created_at) AS latest
@@ -577,11 +701,12 @@ async function handleAdminIndex(request, env, url) {
   if (key !== env.ADMIN_KEY || !env.ADMIN_KEY) {
     return new Response('forbidden', { status: 403 });
   }
-  const [reports, submissions, providerSubmissions, exchangeClaims] = await Promise.all([
+  const [reports, submissions, providerSubmissions, exchangeClaims, taxReminders] = await Promise.all([
     env.DB.prepare("SELECT COUNT(*) AS n FROM reports WHERE status = 'pending'").first(),
     env.DB.prepare("SELECT COUNT(*) AS n FROM submissions WHERE status = 'pending'").first(),
     env.DB.prepare("SELECT COUNT(*) AS n FROM provider_submissions WHERE status = 'pending'").first(),
     env.DB.prepare("SELECT COUNT(*) AS n FROM exchange_claims WHERE status = 'pending'").first(),
+    env.DB.prepare("SELECT COUNT(*) AS n FROM tax_reminder_subscribers WHERE confirmed = 1").first(),
   ]);
   const q = `?key=${encodeURIComponent(key)}`;
   return new Response(
@@ -595,6 +720,7 @@ async function handleAdminIndex(request, env, url) {
        <li><a href="/admin/provider-submissions${q}">Provider submissions</a> <span class="n">(${providerSubmissions.n} pending)</span></li>
        <li><a href="/admin/exchange-claims${q}">Exchange claims</a> <span class="n">(${exchangeClaims.n} pending)</span></li>
        <li><a href="/admin/links${q}">Affiliate links</a> <span class="n">(live management, not a queue)</span></li>
+       <li>Tax reminder subscribers <span class="n">(${taxReminders.n} confirmed)</span></li>
      </ul>`,
     { headers: { 'Content-Type': 'text/html; charset=utf-8' } });
 }
@@ -1069,6 +1195,16 @@ export default {
     }
     if (url.pathname === '/api/admin/digest-send' && request.method === 'POST') {
       return handleDigestSend(request, env, url);
+    }
+    if (url.pathname === '/api/tax-reminders' && request.method === 'POST') return handleTaxReminderSignup(request, env);
+    if (url.pathname === '/api/tax-reminders/confirm' && request.method === 'GET') {
+      return handleTaxReminderConfirm(env, url.searchParams.get('token') || '');
+    }
+    if (url.pathname === '/api/tax-reminders/unsubscribe' && request.method === 'GET') {
+      return handleTaxReminderUnsubscribe(env, url.searchParams.get('token') || '');
+    }
+    if (url.pathname === '/api/admin/tax-reminder-send' && request.method === 'POST') {
+      return handleTaxReminderSend(request, env, url);
     }
     if (url.pathname === '/api/reports/latest' && request.method === 'GET') return handleLatestReports(env, request);
     const agg = url.pathname.match(/^\/api\/reports\/([a-z0-9-]{1,60})$/);

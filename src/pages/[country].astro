@@ -2,6 +2,9 @@
 import { loadExchanges, loadRegulatorDetails, countriesInData, COUNTRY_NAMES, SERVICE_NAMES, footerStats, listJoin } from '../lib/data.js';
 import { buildFaqEntries, midSentenceLabel } from '../lib/faq.js';
 import '../styles/global.css';
+// Turnstile site keys are public by design (embedded in client HTML), so hardcoding
+// this as a fallback is safe. The env var still wins if the build environment sets it.
+const SITEKEY = import.meta.env.PUBLIC_TURNSTILE_SITEKEY || '0x4AAAAAAD84t4OWkoouLP3Y';
 
 export function getStaticPaths() {
   const exchanges = loadExchanges();
@@ -722,6 +725,28 @@ const PAGE_DESC = isGB
       level-headed default.</p>
     </section>
 
+    {isGB && SITEKEY && (
+      <div class="digest-cta">
+        <h3>Get UK crypto tax deadline reminders</h3>
+        <p>Free email reminders ahead of Self Assessment deadlines relevant to crypto holders,
+        plus occasional alerts if the rules change — not advice, just dated, sourced heads-ups.
+        <a href="/tax-reminders/">More about this</a>.</p>
+        <form id="tax-reminder-form">
+          <div class="digest-cta-row">
+            <input type="email" name="email" placeholder="you@example.com" required maxlength="200" aria-label="Email address" />
+            <button type="submit">Subscribe</button>
+          </div>
+          <label class="consent-label">
+            <input type="checkbox" name="consent" required />
+            I want occasional email reminders about UK crypto tax deadlines, and alerts if the
+            rules change. Unsubscribe any time, no login needed.
+          </label>
+          <div class="cf-turnstile" data-sitekey={SITEKEY}></div>
+          <p class="form-msg sourced" role="status"></p>
+        </form>
+      </div>
+    )}
+
     {faqEntry && (
       <section class="country-faq">
         <h3>{faqEntry.question}</h3>
@@ -793,6 +818,7 @@ const PAGE_DESC = isGB
     }
   </script>
 
+  {SITEKEY && <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>}
   <script src="/search.js" defer></script>
 </body>
 </html>

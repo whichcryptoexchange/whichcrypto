@@ -18,6 +18,28 @@ export function loadChangelog() {
     .sort((a, b) => b.date.localeCompare(a.date));
 }
 
+// Recurring UK tax deadlines relevant to crypto holders -- same file
+// scripts/tax_reminder_check.py reads, so the landing page and the
+// automated reminders can never drift apart. Sorted by the next real
+// calendar occurrence (month/day), not just numeric month, so e.g. a
+// January deadline correctly comes before an October one when today is
+// in November.
+export function loadTaxDeadlines() {
+  const file = path.resolve('data/uk_tax_deadlines.yaml');
+  const today = new Date();
+  const todayKey = today.getMonth() * 100 + today.getDate();
+  const occursIn = (d) => {
+    const key = (d.month - 1) * 100 + d.day;
+    return key >= todayKey ? 0 : 1; // 0 = later this year, 1 = next year
+  };
+  return (yaml.load(fs.readFileSync(file, 'utf8')) || [])
+    .sort((a, b) => {
+      const yearDiff = occursIn(a) - occursIn(b);
+      if (yearDiff !== 0) return yearDiff;
+      return (a.month * 100 + a.day) - (b.month * 100 + b.day);
+    });
+}
+
 // Editorial "Technology Provider Profile" pages -- explicitly NOT part of
 // the regulator register. These cover companies that are not themselves
 // licensed/registered anywhere, but rely on a custodian/execution partner

@@ -1,0 +1,28 @@
+name: UK tax reminder check
+
+on:
+  schedule:
+    - cron: '0 7 * * *'   # 07:00 UTC daily
+  workflow_dispatch:
+
+jobs:
+  send:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.12' }
+      - run: pip install pyyaml
+      - name: Check for due reminders
+        run: python3 scripts/tax_reminder_check.py > reminder.json
+      - name: Send via the worker, if anything is due today
+        run: |
+          count=$(python3 -c "import json; print(json.load(open('reminder.json'))['count'])")
+          echo "reminders due: $count"
+          if [ "$count" = "0" ]; then
+            echo "Nothing due today -- skipping send."
+            exit 0
+          fi
+          curl -sf -X POST "https://whichcryptoexchange.com/api/admin/tax-reminder-send?key=${{ secrets.TAX_REMINDER_SEND_KEY }}" \
+            -H 'Content-Type: application/json' \
+            --data-binary @reminder.json

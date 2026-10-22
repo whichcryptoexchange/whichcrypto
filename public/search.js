@@ -131,3 +131,31 @@
     } catch { msg.textContent = 'Network error — please try again.'; }
   });
 })();
+
+// UK tax reminder signup -- same shared-handler pattern as digest-form
+// above, used by both the full /tax-reminders/ landing page and the
+// embedded CTA on the GB country page.
+(() => {
+  const form = document.getElementById('tax-reminder-form');
+  if (!form) return;
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const msg = form.querySelector('.form-msg');
+    const fd = new FormData(form);
+    const token = form.querySelector('[name="cf-turnstile-response"]')?.value;
+    msg.textContent = 'Submitting…';
+    try {
+      const res = await fetch('/api/tax-reminders', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          email: fd.get('email'), consent: fd.get('consent') === 'on', turnstile_token: token,
+        }),
+      });
+      const data = await res.json();
+      msg.textContent = data.message ?? data.error ?? 'Something went wrong.';
+      if (res.ok) form.reset();
+    } catch { msg.textContent = 'Network error — please try again.'; }
+  });
+})();

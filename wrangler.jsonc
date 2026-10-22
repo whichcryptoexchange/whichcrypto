@@ -22,5 +22,6 @@
 		}
 	]
 	// Secrets (set via dashboard or `npx wrangler secret put NAME`):
-	//   TURNSTILE_SECRET, ADMIN_KEY, IP_SALT
+	//   TURNSTILE_SECRET, ADMIN_KEY, IP_SALT, RESEND_API_KEY, DIGEST_SEND_KEY,
+	//   TAX_REMINDER_SEND_KEY
 }
