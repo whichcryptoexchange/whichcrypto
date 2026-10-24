@@ -297,6 +297,18 @@ third_party_reviews:
 news_mentions:
 - source: Cointelegraph
   category: general
+  title: Irish cenbank fines Coinbase arm $3.6M for oversight, safeguard failures
+  url: https://cointelegraph.com/news/ireland-central-bank-coinbase-oversight-safeguard-failure?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound
+  published: '2026-10-22'
+  retrieved: '2026-10-24'
+- source: The Block
+  category: regulatory
+  title: Coinbase Ireland fined $3.6 million over customer fund segregation, oversight failures
+  url: https://www.theblock.co/news/regulation/2026-10-22-coinbase-ireland-fined-3-6-million-over-customer-fund-segregation-oversight-failures-421943
+  published: '2026-10-22'
+  retrieved: '2026-10-24'
+- source: Cointelegraph
+  category: general
   title: Kazakhstan court orders curbs on Coinbase, BingX and four others
   url: https://cointelegraph.com/news/kazakhstan-court-limits-coinbase-bingx-four?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound
   published: '2026-10-20'
@@ -333,18 +345,6 @@ news_mentions:
   url: https://www.theblock.co/news/defi/2026-09-10-coinbase-rebrands-base-app-back-to-coinbase-wallet-after-just-over-a-year-as-social-experiment-falls-short-414115
   published: '2026-09-10'
   retrieved: '2026-09-13'
-- source: The Block
-  category: general
-  title: Coinbase, Moov to bring stablecoin payment infrastructure to community banks and credit unions
-  url: https://www.theblock.co/news/business/2026-09-10-coinbase-moov-bring-stablecoin-payment-infrastructure-community-banks-credit-unions-414153
-  published: '2026-09-10'
-  retrieved: '2026-09-13'
-- source: The Block
-  category: general
-  title: Coinbase-backed Router Protocol to shut down, burn 303 million ROUTE tokens
-  url: https://www.theblock.co/news/defi/2026-09-06-coinbase-backed-router-protocol-to-shut-down-burn-303-million-route-tokens-413618
-  published: '2026-09-06'
-  retrieved: '2026-09-08'
 company_facts:
 - lei: 984500F14CA4571AAC11
   registered_office:

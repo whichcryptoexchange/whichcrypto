@@ -228,6 +228,12 @@ countries:
     entity: Robinhood Crypto, LLC
     since: 2019-01
 news_mentions:
+- source: The Block
+  category: general
+  title: Uniswap’s aggregator hooks go live on Ethereum, Base and Robinhood Chain
+  url: https://www.theblock.co/news/defi/2026-10-22-uniswaps-aggregator-hooks-go-live-ethereum-base-robinhood-chain-421932
+  published: '2026-10-22'
+  retrieved: '2026-10-24'
 - source: Cointelegraph
   category: general
   title: Robinhood’s crypto volume increases 61% in August, still down 38% YoY

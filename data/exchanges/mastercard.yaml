@@ -17,6 +17,13 @@ countries:
 news_mentions:
 - source: The Block
   category: general
+  title: Singapore, Malaysia and Thailand central banks expand cross-border stablecoin initiative involving
+    Ripple, Visa and Mastercard
+  url: https://www.theblock.co/news/regulation/2026-10-23-singapore-malaysia-and-thailand-central-banks-expand-cross-border-stablecoin-initiative-involving-ripple-visa-and-mastercard-426492
+  published: '2026-10-23'
+  retrieved: '2026-10-24'
+- source: The Block
+  category: general
   title: Mastercard opens early access to AI agent payments following pilots with Coinbase, Base and Cloudflare
   url: https://www.theblock.co/news/business/2026-10-20-mastercard-opens-early-access-to-ai-agent-payments-following-pilots-with-coinbase-base-and-cloudflare-421406
   published: '2026-10-20'

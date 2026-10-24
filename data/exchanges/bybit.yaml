@@ -206,6 +206,12 @@ third_party_reviews:
   url: https://apps.apple.com/us/app/bybit-new-financial-platform/id1488296980?uo=4
   retrieved: '2026-10-21'
 news_mentions:
+- source: Cointelegraph
+  category: general
+  title: Bybit secures first full Dubai license for spot trading services
+  url: https://cointelegraph.com/news/bybit-first-full-dubai-spot-trading-license?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound
+  published: '2026-10-23'
+  retrieved: '2026-10-24'
 - source: The Block
   category: general
   title: ZachXBT says he fronted $349,700 to infiltrate alleged Chinese launderers tied to Lazarus, Bybit
