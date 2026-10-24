@@ -235,6 +235,12 @@ countries:
     entity: Circle Internet Trust Company, LLC. d/b/a Circle New York Trust
     since: 2026-07
 news_mentions:
+- source: Cointelegraph
+  category: regulatory
+  title: Circle shareholder sues Trump, World Liberty and Steve Witkoff over crypto deals
+  url: https://cointelegraph.com/news/circle-shareholder-lawsuit-donald-trump-world-liberty-financial-steve-witkoff-crypto-corruption?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound
+  published: '2026-10-22'
+  retrieved: '2026-10-24'
 - source: The Block
   category: general
   title: Circle strikes Chelsea front-of-shirt sponsorship deal featuring USDC

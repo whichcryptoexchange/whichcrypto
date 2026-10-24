@@ -14,3 +14,16 @@ countries:
     via: ny_dfs_register
     entity: Fireblocks Trust Company, LLC
     since: 2024-08
+news_mentions:
+- source: Cointelegraph
+  category: general
+  title: Fireblocks disputes report of $2.5B Visa acquisition talks
+  url: https://cointelegraph.com/news/fireblocks-disputes-report-of-25b-visa-acquisition-talks?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound
+  published: '2026-10-22'
+  retrieved: '2026-10-24'
+- source: The Block
+  category: general
+  title: Fireblocks denies report of $2.5 billion acquisition talks with Visa
+  url: https://www.theblock.co/news/deals/2026-10-22-visa-in-talks-acquire-crypto-custody-firm-fireblocks-around-2-5-billion-axios-421926
+  published: '2026-10-22'
+  retrieved: '2026-10-24'

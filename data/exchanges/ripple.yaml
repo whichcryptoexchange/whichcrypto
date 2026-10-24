@@ -297,3 +297,11 @@ company_facts:
   registration_status: issued
   entity_creation_date: '2025-04-03'
   retrieved: '2026-08-12'
+news_mentions:
+- source: The Block
+  category: general
+  title: Singapore, Malaysia and Thailand central banks expand cross-border stablecoin initiative involving
+    Ripple, Visa and Mastercard
+  url: https://www.theblock.co/news/regulation/2026-10-23-singapore-malaysia-and-thailand-central-banks-expand-cross-border-stablecoin-initiative-involving-ripple-visa-and-mastercard-426492
+  published: '2026-10-23'
+  retrieved: '2026-10-24'
