@@ -10,7 +10,7 @@ sources:
   retrieved: '2026-10-27'
 - name: Canada FINTRAC MSB Registry
   url: https://fintrac-canafe.canada.ca/msb-esm/reg-eng
-  retrieved: '2026-10-21'
+  retrieved: '2026-10-28'
 - name: US FinCEN MSB Registrant Search
   url: https://msb.fincen.gov/
   retrieved: '2026-07-27'
@@ -99,8 +99,8 @@ countries:
     via: msb_register
     entity: GEMINI TRUST COMPANY
     reg_number: M20046728
-    since: '2020-06-19'
-    expires: '2027-02-07'
+    since: 6/19/2020
+    expires: 2/7/2027
   CY:
     status: licensed
     regime: MiCA

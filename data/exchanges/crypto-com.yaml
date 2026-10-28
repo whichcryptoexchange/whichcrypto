@@ -10,7 +10,7 @@ sources:
   retrieved: '2026-10-27'
 - name: Canada FINTRAC MSB Registry
   url: https://fintrac-canafe.canada.ca/msb-esm/reg-eng
-  retrieved: '2026-10-21'
+  retrieved: '2026-10-28'
 - name: Dubai VARA Public Register
   url: https://www.vara.ae/en/licenses-and-register/public-register/
   retrieved: '2026-10-22'
@@ -110,15 +110,15 @@ countries:
     via: msb_register
     entity: FORIS DAX INC.
     reg_number: M21385577
-    since: '2021-02-18'
-    expires: '2026-12-18'
+    since: 2/18/2021
+    expires: 12/18/2026
   - status: registered
     regime: Canada MSB registration
     via: msb_register
     entity: FORIS DAX CAN ULC
     reg_number: C100000094
-    since: '2024-09-18'
-    expires: '2027-06-30'
+    since: 9/18/2024
+    expires: 6/30/2027
   CY:
     status: licensed
     regime: MiCA

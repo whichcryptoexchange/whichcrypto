@@ -10,7 +10,7 @@ sources:
   retrieved: '2026-10-27'
 - name: Canada FINTRAC MSB Registry
   url: https://fintrac-canafe.canada.ca/msb-esm/reg-eng
-  retrieved: '2026-10-21'
+  retrieved: '2026-10-28'
 - name: US FinCEN MSB Registrant Search
   url: https://msb.fincen.gov/
   retrieved: '2026-07-27'
@@ -96,8 +96,8 @@ countries:
     via: msb_register
     entity: MOONPAY CANADA INC.
     reg_number: C10001378
-    since: '2025-10-31'
-    expires: '2028-06-30'
+    since: 10/31/2025
+    expires: 6/30/2028
   CY:
     status: licensed
     regime: MiCA
