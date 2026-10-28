@@ -10,7 +10,7 @@ sources:
   retrieved: '2026-10-27'
 - name: Canada FINTRAC MSB Registry
   url: https://fintrac-canafe.canada.ca/msb-esm/reg-eng
-  retrieved: '2026-10-21'
+  retrieved: '2026-10-28'
 - name: US FinCEN MSB Registrant Search
   url: https://msb.fincen.gov/
   retrieved: '2026-07-27'
@@ -128,8 +128,8 @@ countries:
     via: msb_register
     entity: PAYWARD CANADA INC.
     reg_number: M19343731
-    since: '2019-11-27'
-    expires: '2028-08-25'
+    since: 11/27/2019
+    expires: 8/25/2028
   CY:
     status: licensed
     regime: MiCA

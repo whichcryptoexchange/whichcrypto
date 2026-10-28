@@ -7,7 +7,7 @@ sources:
   retrieved: '2026-10-22'
 - name: Canada FINTRAC MSB Registry
   url: https://fintrac-canafe.canada.ca/msb-esm/reg-eng
-  retrieved: '2026-10-21'
+  retrieved: '2026-10-28'
 - name: US FinCEN MSB Registrant Search
   url: https://msb.fincen.gov/
   retrieved: '2026-07-27'
@@ -91,8 +91,8 @@ countries:
     via: msb_register
     entity: Bullish (GI) Limited
     reg_number: C100000016
-    since: '2024-02-29'
-    expires: '2027-04-30'
+    since: 2/29/2024
+    expires: 4/30/2027
   CY:
     status: licensed
     regime: MiCA
