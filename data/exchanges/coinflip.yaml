@@ -4,7 +4,7 @@ eu_status: authorised
 sources:
 - name: ESMA interim MiCA register (CASPS.csv)
   url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
-  retrieved: '2026-10-22'
+  retrieved: '2026-10-29'
 entities:
 - lei: 81560042B094A85D8F89
   legal_name: OLLIV ITALIA S.R.L
@@ -13,7 +13,7 @@ entities:
   regulator: Commissione Nazionale per le Societa e la Borsa (CONSOB)
   website: https://coinflip.tech/it-IT
   records:
-  - authorised: 04-Jun
+  - authorised: '2026-06-04'
     withdrawn: null
     status: authorised
     services:

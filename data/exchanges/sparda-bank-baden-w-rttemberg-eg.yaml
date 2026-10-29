@@ -1,0 +1,29 @@
+id: sparda-bank-baden-w-rttemberg-eg
+brand: Sparda-Bank Baden-Württemberg eG
+eu_status: authorised
+sources:
+- name: ESMA interim MiCA register (CASPS.csv)
+  url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
+  retrieved: '2026-10-29'
+entities:
+- lei: 5299004HBAECUACNWN98
+  legal_name: Sparda-Bank Baden-Württemberg eG
+  commercial_name: Sparda-Bank Baden-Württemberg eG
+  home_state: DE
+  regulator: Federal Financial Supervisory Authority (BaFin)
+  website: www.sparda-bw.de
+  records:
+  - authorised: '2026-10-19'
+    withdrawn: null
+    status: authorised
+    services:
+    - e
+    passported_to:
+    - DE
+    last_update: '2026-10-19'
+countries:
+  DE:
+    status: licensed
+    regime: MiCA
+    via: home_state
+    entity: Sparda-Bank Baden-Württemberg eG
