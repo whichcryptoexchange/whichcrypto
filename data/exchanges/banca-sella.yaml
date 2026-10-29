@@ -4,7 +4,7 @@ eu_status: authorised
 sources:
 - name: ESMA interim MiCA register (CASPS.csv)
   url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
-  retrieved: '2026-10-22'
+  retrieved: '2026-10-29'
 entities:
 - lei: 549300I7OIUB41P86L19
   legal_name: BANCA SELLA
@@ -13,7 +13,7 @@ entities:
   regulator: Commissione Nazionale per le Societa e la Borsa (CONSOB)
   website: www.sella.it
   records:
-  - authorised: 27-Apr
+  - authorised: '2026-04-27'
     withdrawn: null
     status: authorised
     services:
