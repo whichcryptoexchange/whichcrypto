@@ -4,7 +4,7 @@ eu_status: no_eu_entity
 sources:
 - name: Dubai VARA Public Register
   url: https://www.vara.ae/en/licenses-and-register/public-register/
-  retrieved: '2026-10-22'
+  retrieved: '2026-10-29'
 entities: []
 countries:
   AE:
@@ -13,5 +13,5 @@ countries:
     via: dubai_vara
     entity: Prypco FZE
     reference: VL/25/05/001
-    licensed_activities: Broker-Dealer Services
+    licensed_activities: Broker-Dealer Services Category 1 VA Issuance
     since: '2025-05-24'
