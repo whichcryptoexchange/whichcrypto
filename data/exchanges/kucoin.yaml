@@ -251,3 +251,10 @@ audits:
   - name: KuCoin — Proof of Reserves & Audit (official page)
     url: https://www.kucoin.com/proof-of-reserves
   retrieved: '2026-08-14'
+news_mentions:
+- source: Cointelegraph
+  category: general
+  title: KuCoin suspends services in Russia and Belarus
+  url: https://cointelegraph.com/news/kucoin-services-russia-belarus-suspended?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound
+  published: '2026-10-29'
+  retrieved: '2026-10-31'

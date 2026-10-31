@@ -297,6 +297,30 @@ third_party_reviews:
 news_mentions:
 - source: Cointelegraph
   category: general
+  title: Coinbase leads crypto stock selloff following $6.3B Binance hack
+  url: https://cointelegraph.com/markets/coinbase-leads-crypto-stock-selloff-shares-tumble?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound
+  published: '2026-10-30'
+  retrieved: '2026-10-31'
+- source: Cointelegraph
+  category: general
+  title: Binance hacker’s Bitcoin haul tops Coinbase’s corporate treasury
+  url: https://cointelegraph.com/news/binance-hacker-bitcoin-holdings-exceed-coinbase-btc-treasury?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound
+  published: '2026-10-30'
+  retrieved: '2026-10-31'
+- source: The Block
+  category: general
+  title: Coinbase Q3 net income jumps 66% as prediction markets gain traction
+  url: https://www.theblock.co/news/business/2026-10-30-coinbase-q3-net-income-jumps-432189
+  published: '2026-10-30'
+  retrieved: '2026-10-31'
+- source: The Block
+  category: general
+  title: Coinbase adds Ripple’s RLUSD stablecoin across retail, exchange and Prime platforms
+  url: https://www.theblock.co/news/business/2026-10-28-coinbase-adds-ripple-rlusd-stablecoin-432009
+  published: '2026-10-28'
+  retrieved: '2026-10-31'
+- source: Cointelegraph
+  category: general
   title: Kazakhstan court orders curbs on Coinbase, BingX and four others
   url: https://cointelegraph.com/news/kazakhstan-court-limits-coinbase-bingx-four?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound
   published: '2026-10-20'
@@ -320,31 +344,6 @@ news_mentions:
   url: https://www.theblock.co/news/defi/2026-09-25-aave-v4-on-base-adds-coinbase-tokenized-stocks-as-collateral-for-usdc-loans-416372
   published: '2026-09-25'
   retrieved: '2026-09-26'
-- source: The Block
-  category: general
-  title: Brooklyn man gets up to 12 years over $16 million Coinbase social engineering scheme
-  url: https://www.theblock.co/news/regulation/2026-09-24-brooklyn-man-12-years-scheme-416231
-  published: '2026-09-24'
-  retrieved: '2026-09-26'
-- source: The Block
-  category: general
-  title: Coinbase rebrands Base App back to Coinbase Wallet after just over a year as social experiment
-    falls short
-  url: https://www.theblock.co/news/defi/2026-09-10-coinbase-rebrands-base-app-back-to-coinbase-wallet-after-just-over-a-year-as-social-experiment-falls-short-414115
-  published: '2026-09-10'
-  retrieved: '2026-09-13'
-- source: The Block
-  category: general
-  title: Coinbase, Moov to bring stablecoin payment infrastructure to community banks and credit unions
-  url: https://www.theblock.co/news/business/2026-09-10-coinbase-moov-bring-stablecoin-payment-infrastructure-community-banks-credit-unions-414153
-  published: '2026-09-10'
-  retrieved: '2026-09-13'
-- source: The Block
-  category: general
-  title: Coinbase-backed Router Protocol to shut down, burn 303 million ROUTE tokens
-  url: https://www.theblock.co/news/defi/2026-09-06-coinbase-backed-router-protocol-to-shut-down-burn-303-million-route-tokens-413618
-  published: '2026-09-06'
-  retrieved: '2026-09-08'
 company_facts:
 - lei: 984500F14CA4571AAC11
   registered_office:
