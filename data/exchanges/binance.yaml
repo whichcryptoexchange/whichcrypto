@@ -47,54 +47,54 @@ third_party_reviews:
   url: https://apps.apple.com/gb/app/binance-buy-bitcoin-crypto/id1436799971?uo=4
   retrieved: '2026-10-28'
 news_mentions:
+- source: BBC
+  category: general
+  title: Why North Korea's 'elite' hackers are the prime suspect in major Binance hack
+  url: https://www.bbc.co.uk/news/articles/ck9dz3v7z7v3o?at_medium=RSS&amp;at_campaign=rss
+  published: '2026-10-31'
+  retrieved: '2026-10-31'
 - source: Cointelegraph
   category: general
-  title: Binance BTC outflows hit highest since mid-2023 as whales deposit stablecoins
-  url: https://cointelegraph.com/markets/binance-btc-outflows-hit-highest-since-mid-2023-as-whales-deposit-stablecoins?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound
-  published: '2026-10-06'
-  retrieved: '2026-10-06'
-- source: The Block
+  title: Binance $6.3B record hack sparks pre-election political clashes
+  url: https://cointelegraph.com/news/binance-63b-record-hack-sparks-pre-election-political-chatter?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound
+  published: '2026-10-31'
+  retrieved: '2026-10-31'
+- source: The Guardian
   category: general
-  title: Ethena expands USDe backing strategy into bStocks and equity perpetuals on Binance
-  url: https://www.theblock.co/news/deals/2026-09-25-ethena-expands-usde-backing-strategy-into-bstocks-and-equity-perpetuals-on-binance-416367
-  published: '2026-09-25'
-  retrieved: '2026-09-26'
-- source: The Block
+  title: How big a deal is the $6.3bn Binance crypto heist, who did it, and are investments safe?
+  url: https://www.theguardian.com/business/2026/oct/30/crypto-heist-binance-who-did-it-are-investments-safe
+  published: '2026-10-30'
+  retrieved: '2026-10-31'
+- source: The Guardian
   category: general
-  title: Solana Foundation taps Binance, Polygon vets to drive institutional adoption and payments
-  url: https://www.theblock.co/news/ecosystems/2026-09-24-solana-foundation-taps-binance-polygon-vets-to-drive-institutional-adoption-and-payments-416254
-  published: '2026-09-24'
-  retrieved: '2026-09-26'
-- source: Cointelegraph
+  title: 'Tell us: have you been affected by the Binance hack?'
+  url: https://www.theguardian.com/business/2026/oct/30/tell-us-have-you-been-affected-by-the-binance-hack
+  published: '2026-10-30'
+  retrieved: '2026-10-31'
+- source: BBC
   category: general
-  title: Binance says employees questioned in UAE cleared and released
-  url: https://cointelegraph.com/news/binance-employees-questioned-uae-released?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound
-  published: '2026-08-21'
-  retrieved: '2026-08-22'
-- source: Cointelegraph
+  title: Crypto giant Binance attempting to recover $6.3bn stolen in hack linked to North Korea
+  url: https://www.bbc.co.uk/news/articles/cwe8lp7zy07zo?at_medium=RSS&amp;at_campaign=rss
+  published: '2026-10-30'
+  retrieved: '2026-10-31'
+- source: BBC
   category: general
-  title: Binance opens crypto trading to AI agents with user-set controls
-  url: https://cointelegraph.com/news/binance-opens-crypto-trading-to-ai-agents-with-user-set-controls?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound
-  published: '2026-08-20'
-  retrieved: '2026-08-22'
-- source: Cointelegraph
-  category: regulatory
-  title: 'Binance to plan UK relaunch with FCA license application: Report'
-  url: https://cointelegraph.com/news/binance-uk-launch-plans-fca-license?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound
-  published: '2026-08-17'
-  retrieved: '2026-08-17'
-- source: Cointelegraph
+  title: What we know about Binance's $6.3bn hack
+  url: https://www.bbc.co.uk/news/videos/cv2d62e34rw5o?at_medium=RSS&amp;at_campaign=rss
+  published: '2026-10-30'
+  retrieved: '2026-10-31'
+- source: BBC
   category: general
-  title: 'Binance gave Russian authorities client data used in terrorism financing case: Report'
-  url: https://cointelegraph.com/news/binance-russia-client-data-used-ukraine-case-report?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound
-  published: '2026-08-17'
-  retrieved: '2026-08-17'
-- source: The Block
+  title: Crypto giant Binance hit by $6.3bn hack suspected to be largest in history
+  url: https://www.bbc.co.uk/news/articles/cwg7xp8kx4v5o?at_medium=RSS&amp;at_campaign=rss
+  published: '2026-10-30'
+  retrieved: '2026-10-31'
+- source: BBC
   category: general
-  title: Tokenized equities triple market share as Ondo, Binance and xStocks dominate
-  url: https://www.theblock.co/news/defi/2026-08-17-tokenized-equities-triple-market-share-ondo-binance-xstocks-dominate-411996
-  published: '2026-08-17'
-  retrieved: '2026-08-17'
+  title: Binance's $6.3bn crypto hack biggest in history
+  url: https://www.bbc.co.uk/news/videos/c6m2dpz0yxn8o?at_medium=RSS&amp;at_campaign=rss
+  published: '2026-10-30'
+  retrieved: '2026-10-31'
 notable_incidents:
 - type: settlement
   date: '2023-11-21'

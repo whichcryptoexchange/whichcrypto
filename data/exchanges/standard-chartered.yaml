@@ -205,6 +205,12 @@ countries:
 news_mentions:
 - source: Cointelegraph
   category: general
+  title: 'Binance hack could accelerate shift to DEXs: Standard Chartered'
+  url: https://cointelegraph.com/news/binance-hack-could-accelerate-shift-to-dexs-standard-chartered?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound
+  published: '2026-10-30'
+  retrieved: '2026-10-31'
+- source: Cointelegraph
+  category: general
   title: Standard Chartered forecasts SKY rising fivefold to $0.325 by 2028
   url: https://cointelegraph.com/news/sky-value-token-holders-standard-chartered?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound
   published: '2026-09-11'
