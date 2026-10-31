@@ -16,8 +16,31 @@
 # `type` is one of: hack, insolvency, withdrawal_freeze, settlement.
 #
 # retrieved: when the facts below were last checked against source.
-retrieved: '2026-08-13'
+retrieved: '2026-10-31'
 incidents:
+  - brand_id: binance
+    type: hack
+    date: '2026-10-29'
+    headline: "Hot wallet compromise — ~$6.36B stolen, the largest crypto exchange hack on record"
+    summary: >-
+      An attacker gained the ability to sign arbitrary transactions from Binance's hot
+      wallet infrastructure across ten blockchains, draining roughly $6.36 billion -- most
+      of it within about 20 minutes starting at 20:05 UTC. Blockchain intelligence firm TRM
+      Labs attributed the attack "with high confidence" to TraderTraitor, North Korea's
+      elite hacking unit (the same group tracked under the Lazarus Group umbrella), based
+      on on- and off-chain intelligence. Roughly $2.7 billion was frozen within days with
+      help from Tether, Circle, Ripple, and others; the attacker retained an estimated $2.4
+      billion, chiefly in ETH and BTC. Binance said user funds remain safe and suspended
+      withdrawals on multiple networks while investigating; a root cause analysis had not
+      been published as of the retrieved date above.
+    sources:
+      - name: TRM Labs
+        url: https://www.trmlabs.com/resources/blog/north-korea-steals-usd-6-36-billion-from-binance-in-the-largest-hack-in-history
+      - name: CBS News
+        url: https://www.cbsnews.com/news/binance-hack-north-korea/
+      - name: NPR
+        url: https://www.npr.org/2026/10/30/g-s1-150902/blockchain-intelligence-firms-link-north-korea-to-6-3b-hack-on-binance
+
   - brand_id: bybit
     type: hack
     date: '2025-02-21'
@@ -25,9 +48,10 @@ incidents:
     summary: >-
       Attackers compromised the Safe{Wallet} multisig interface Bybit used to sign
       transactions from its ETH cold wallet, tricking signers into approving a malicious
-      transaction, and drained roughly $1.5 billion -- the largest crypto exchange hack on
-      record. The FBI publicly attributed the theft to North Korea's Lazarus Group (tracked
-      as "TraderTraitor"). Bybit said it remained solvent throughout, backed by bridge loans
+      transaction, and drained roughly $1.5 billion -- at the time, the largest crypto
+      exchange hack on record (since surpassed by Binance's ~$6.36B October 2026 hack). The
+      FBI publicly attributed the theft to North Korea's Lazarus Group (tracked as
+      "TraderTraitor"). Bybit said it remained solvent throughout, backed by bridge loans
       from other exchanges, and continued honouring withdrawals. Bybit later sued North
       Korea and the Lazarus Group in US federal court (filed June 2026), recovering roughly
       $48.4 million of the stolen funds so far, with a preliminary asset freeze granted by

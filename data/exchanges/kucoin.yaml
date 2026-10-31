@@ -231,7 +231,7 @@ notable_incidents:
     url: https://www.theblock.co/linked/84248/kucoin-280m-stolen-recovered
   - name: CoinDesk
     url: https://www.coindesk.com/markets/2020/09/26/over-280m-drained-in-kucoin-crypto-exchange-hack
-  retrieved: '2026-08-13'
+  retrieved: '2026-10-31'
 audits:
 - tier: proof_of_reserves
   status: active

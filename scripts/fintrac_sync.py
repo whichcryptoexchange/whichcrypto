@@ -61,6 +61,23 @@ def legal_name(org_field):
     return m.group(1).strip() if m else (org_field or "").strip()
 
 
+def parse_date(raw):
+    """Normalise FINTRAC's export date to ISO 8601, matching every other
+    date field on the site. Observed formats: YYYY-MM-DD (original) and
+    M/D/YYYY (FINTRAC switched to this unannounced circa 2026-10-28) --
+    handle both so a future format change back doesn't silently break."""
+    raw = (raw or "").strip()
+    if not raw:
+        return None
+    for fmt in ("%Y-%m-%d", "%m/%d/%Y"):
+        try:
+            return dt.datetime.strptime(raw, fmt).date().isoformat()
+        except ValueError:
+            continue
+    print(f"  WARNING: unparseable FINTRAC date {raw!r} left as-is", file=sys.stderr)
+    return raw
+
+
 def to_ca_entry(row, reg_number):
     status_raw = (row.get("MSB Registration Status") or "").strip()
     entity = legal_name(row.get("Organization Names (Legal and Operating)"))
@@ -74,8 +91,8 @@ def to_ca_entry(row, reg_number):
         "via": "msb_register",
         "entity": entity,
         "reg_number": reg_number,
-        "since": (row.get("Date Initial MSB Registration Approval") or "").strip() or None,
-        "expires": (row.get("MSB Registration Expiry Date") or "").strip() or None,
+        "since": parse_date(row.get("Date Initial MSB Registration Approval")),
+        "expires": parse_date(row.get("MSB Registration Expiry Date")),
     }
 
 
