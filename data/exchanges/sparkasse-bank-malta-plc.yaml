@@ -1,0 +1,31 @@
+id: sparkasse-bank-malta-plc
+brand: Sparkasse Bank Malta Plc
+eu_status: authorised
+sources:
+- name: ESMA interim MiCA register (CASPS.csv)
+  url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
+  retrieved: '2026-11-05'
+entities:
+- lei: 21380099RT73NFBYS559
+  legal_name: Sparkasse Bank Malta Plc
+  commercial_name: Sparkasse Bank Malta Plc
+  home_state: MT
+  regulator: Malta Financial Services Authority (MFSA)
+  website: https://sbm.bank/
+  records:
+  - authorised: '2026-10-02'
+    withdrawn: null
+    status: authorised
+    services:
+    - a
+    - e
+    - g
+    passported_to:
+    - MT
+    last_update: '2026-10-02'
+countries:
+  MT:
+    status: licensed
+    regime: MiCA
+    via: home_state
+    entity: Sparkasse Bank Malta Plc

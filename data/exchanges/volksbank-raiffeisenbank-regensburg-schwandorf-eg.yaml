@@ -1,0 +1,29 @@
+id: volksbank-raiffeisenbank-regensburg-schwandorf-eg
+brand: Volksbank Raiffeisenbank Regensburg-Schwandorf eG
+eu_status: authorised
+sources:
+- name: ESMA interim MiCA register (CASPS.csv)
+  url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
+  retrieved: '2026-11-05'
+entities:
+- lei: 5299004D2UMCDTD9JG58
+  legal_name: Volksbank Raiffeisenbank Regensburg-Schwandorf eG
+  commercial_name: Volksbank Raiffeisenbank Regensburg-Schwandorf eG
+  home_state: DE
+  regulator: Federal Financial Supervisory Authority (BaFin)
+  website: www.vr-rs.de
+  records:
+  - authorised: '2026-11-05'
+    withdrawn: null
+    status: authorised
+    services:
+    - e
+    passported_to:
+    - DE
+    last_update: '2026-10-21'
+countries:
+  DE:
+    status: licensed
+    regime: MiCA
+    via: home_state
+    entity: Volksbank Raiffeisenbank Regensburg-Schwandorf eG
