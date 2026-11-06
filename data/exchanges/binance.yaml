@@ -49,52 +49,52 @@ third_party_reviews:
 news_mentions:
 - source: Cointelegraph
   category: general
-  title: Binance BTC outflows hit highest since mid-2023 as whales deposit stablecoins
-  url: https://cointelegraph.com/markets/binance-btc-outflows-hit-highest-since-mid-2023-as-whales-deposit-stablecoins?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound
-  published: '2026-10-06'
-  retrieved: '2026-10-06'
-- source: The Block
-  category: general
-  title: Ethena expands USDe backing strategy into bStocks and equity perpetuals on Binance
-  url: https://www.theblock.co/news/deals/2026-09-25-ethena-expands-usde-backing-strategy-into-bstocks-and-equity-perpetuals-on-binance-416367
-  published: '2026-09-25'
-  retrieved: '2026-09-26'
-- source: The Block
-  category: general
-  title: Solana Foundation taps Binance, Polygon vets to drive institutional adoption and payments
-  url: https://www.theblock.co/news/ecosystems/2026-09-24-solana-foundation-taps-binance-polygon-vets-to-drive-institutional-adoption-and-payments-416254
-  published: '2026-09-24'
-  retrieved: '2026-09-26'
+  title: Binance hackers had 8 weeks of access before $6.3B exploit, Security Alliance estimates
+  url: https://cointelegraph.com/news/binance-hackers-8-weeks-access-63b-exploit-security-alliance?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound
+  published: '2026-11-06'
+  retrieved: '2026-11-06'
 - source: Cointelegraph
   category: general
-  title: Binance says employees questioned in UAE cleared and released
-  url: https://cointelegraph.com/news/binance-employees-questioned-uae-released?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound
-  published: '2026-08-21'
-  retrieved: '2026-08-22'
+  title: Binance’s $6.3B hack leaves questions over hot wallet safeguards
+  url: https://cointelegraph.com/news/binances-hack-questions-hot-wallet-risk-controls?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound
+  published: '2026-11-06'
+  retrieved: '2026-11-06'
 - source: Cointelegraph
   category: general
-  title: Binance opens crypto trading to AI agents with user-set controls
-  url: https://cointelegraph.com/news/binance-opens-crypto-trading-to-ai-agents-with-user-set-controls?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound
-  published: '2026-08-20'
-  retrieved: '2026-08-22'
-- source: Cointelegraph
-  category: regulatory
-  title: 'Binance to plan UK relaunch with FCA license application: Report'
-  url: https://cointelegraph.com/news/binance-uk-launch-plans-fca-license?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound
-  published: '2026-08-17'
-  retrieved: '2026-08-17'
+  title: Crypto exchanges tout cold storage ratios after Binance attack
+  url: https://cointelegraph.com/news/binance-hack-puts-crypto-exchanges-cold-wallet-ratio-under-spotlight?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound
+  published: '2026-11-06'
+  retrieved: '2026-11-06'
 - source: Cointelegraph
   category: general
-  title: 'Binance gave Russian authorities client data used in terrorism financing case: Report'
-  url: https://cointelegraph.com/news/binance-russia-client-data-used-ukraine-case-report?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound
-  published: '2026-08-17'
-  retrieved: '2026-08-17'
-- source: The Block
+  title: Binance, Deribit revoke SignalPlus API keys after fake Teams invite attack
+  url: https://cointelegraph.com/news/binance-deribit-revoke-signalplus-api-fake-teams-attack?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound
+  published: '2026-11-05'
+  retrieved: '2026-11-06'
+- source: Cointelegraph
   category: general
-  title: Tokenized equities triple market share as Ondo, Binance and xStocks dominate
-  url: https://www.theblock.co/news/defi/2026-08-17-tokenized-equities-triple-market-share-ondo-binance-xstocks-dominate-411996
-  published: '2026-08-17'
-  retrieved: '2026-08-17'
+  title: Fed, OCC check US banks after Binance hack as experts flag security risks
+  url: https://cointelegraph.com/news/fed-occ-check-us-banks-binance-hack-security-risks?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound
+  published: '2026-11-05'
+  retrieved: '2026-11-06'
+- source: The Guardian
+  category: general
+  title: Hackers behind $6.3bn Binance heist ‘used malware and bogus job interviews’
+  url: https://www.theguardian.com/business/2026/nov/03/hackers-63bn-binance-heist-malware-bogus-job-interviews-cryptocurrency
+  published: '2026-11-03'
+  retrieved: '2026-11-06'
+- source: The Guardian
+  category: general
+  title: Binance battles to save its brand after record $6.3bn crypto hack
+  url: https://www.theguardian.com/technology/2026/nov/02/binance-cryptocurrency-exchange-hack
+  published: '2026-11-03'
+  retrieved: '2026-11-06'
+- source: BBC
+  category: general
+  title: Binance says fake job interviews used as part of $6.3bn crypto hack
+  url: https://www.bbc.co.uk/news/articles/ck5ynwz9gy67o?at_medium=RSS&amp;at_campaign=rss
+  published: '2026-11-03'
+  retrieved: '2026-11-06'
 notable_incidents:
 - type: settlement
   date: '2023-11-21'

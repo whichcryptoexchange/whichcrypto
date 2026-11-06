@@ -17,6 +17,12 @@ countries:
 news_mentions:
 - source: The Block
   category: general
+  title: Samsung Wallet launches USDC accounts on Solana for US Galaxy users
+  url: https://www.theblock.co/news/business/2026-11-05-samsung-wallet-launches-usdc-accounts-solana-us-galaxy-users-434523
+  published: '2026-11-05'
+  retrieved: '2026-11-06'
+- source: The Block
+  category: general
   title: Coldcard exploiter moves 45% of funds stolen from ‘Wave 3’ attacks, Galaxy says
   url: https://www.theblock.co/news/defi/2026-09-07-coldcard-exploiter-moves-wave-3-413661
   published: '2026-09-07'
