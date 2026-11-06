@@ -13,3 +13,10 @@ countries:
     via: kr_fiu_register
     entity: 주식회사 스트리미
     since: '2021-12-09'
+news_mentions:
+- source: Cointelegraph
+  category: general
+  title: GOPAX halts crypto trading, withdrawals to move all assets to cold storage
+  url: https://cointelegraph.com/news/gopax-halts-crypto-trading-withdrawals-cold-storage?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound
+  published: '2026-11-06'
+  retrieved: '2026-11-06'
