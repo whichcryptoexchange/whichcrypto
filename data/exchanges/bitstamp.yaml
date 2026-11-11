@@ -273,9 +273,9 @@ countries:
 third_party_reviews:
 - source: App Store
   rating: 4.76
-  count: 7483
+  count: 7484
   url: https://apps.apple.com/us/app/bitstamp-by-robinhood-buy-btc/id1406825640?uo=4
-  retrieved: '2026-11-04'
+  retrieved: '2026-11-11'
 company_facts:
 - lei: 549300XIBGTJ0PLIEO72
   registered_office:
