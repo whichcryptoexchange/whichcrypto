@@ -1,0 +1,29 @@
+id: vr-bank-ostalb-eg
+brand: VR-Bank Ostalb eG
+eu_status: authorised
+sources:
+- name: ESMA interim MiCA register (CASPS.csv)
+  url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
+  retrieved: '2026-11-12'
+entities:
+- lei: 5299009EELDZG8AZOX61
+  legal_name: VR-Bank Ostalb eG
+  commercial_name: VR-Bank Ostalb eG
+  home_state: DE
+  regulator: Federal Financial Supervisory Authority (BaFin)
+  website: www.vrbank-ostalb.de
+  records:
+  - authorised: '2026-11-02'
+    withdrawn: null
+    status: authorised
+    services:
+    - e
+    passported_to:
+    - DE
+    last_update: '2026-11-02'
+countries:
+  DE:
+    status: licensed
+    regime: MiCA
+    via: home_state
+    entity: VR-Bank Ostalb eG

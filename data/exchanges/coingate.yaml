@@ -4,10 +4,10 @@ eu_status: authorised
 sources:
 - name: ESMA interim MiCA register (CASPS.csv)
   url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
-  retrieved: '2026-10-22'
+  retrieved: '2026-11-12'
 entities:
 - lei: 6488907MV9XAA08E4E40
-  legal_name: UAB Decentralized
+  legal_name: UAB "Decentralized"
   commercial_name: Coingate
   home_state: LT
   regulator: Bank of Lithuania (LSC)
@@ -57,152 +57,152 @@ countries:
     status: licensed
     regime: MiCA
     via: mica_passporting
-    entity: UAB Decentralized
+    entity: UAB "Decentralized"
   BE:
     status: licensed
     regime: MiCA
     via: mica_passporting
-    entity: UAB Decentralized
+    entity: UAB "Decentralized"
   BG:
     status: licensed
     regime: MiCA
     via: mica_passporting
-    entity: UAB Decentralized
+    entity: UAB "Decentralized"
   CY:
     status: licensed
     regime: MiCA
     via: mica_passporting
-    entity: UAB Decentralized
+    entity: UAB "Decentralized"
   CZ:
     status: licensed
     regime: MiCA
     via: mica_passporting
-    entity: UAB Decentralized
+    entity: UAB "Decentralized"
   DE:
     status: licensed
     regime: MiCA
     via: mica_passporting
-    entity: UAB Decentralized
+    entity: UAB "Decentralized"
   DK:
     status: licensed
     regime: MiCA
     via: mica_passporting
-    entity: UAB Decentralized
+    entity: UAB "Decentralized"
   EE:
     status: licensed
     regime: MiCA
     via: mica_passporting
-    entity: UAB Decentralized
+    entity: UAB "Decentralized"
   ES:
     status: licensed
     regime: MiCA
     via: mica_passporting
-    entity: UAB Decentralized
+    entity: UAB "Decentralized"
   FI:
     status: licensed
     regime: MiCA
     via: mica_passporting
-    entity: UAB Decentralized
+    entity: UAB "Decentralized"
   FR:
     status: licensed
     regime: MiCA
     via: mica_passporting
-    entity: UAB Decentralized
+    entity: UAB "Decentralized"
   GR:
     status: licensed
     regime: MiCA
     via: mica_passporting
-    entity: UAB Decentralized
+    entity: UAB "Decentralized"
   HR:
     status: licensed
     regime: MiCA
     via: mica_passporting
-    entity: UAB Decentralized
+    entity: UAB "Decentralized"
   HU:
     status: licensed
     regime: MiCA
     via: mica_passporting
-    entity: UAB Decentralized
+    entity: UAB "Decentralized"
   IE:
     status: licensed
     regime: MiCA
     via: mica_passporting
-    entity: UAB Decentralized
+    entity: UAB "Decentralized"
   IS:
     status: licensed
     regime: MiCA
     via: mica_passporting
-    entity: UAB Decentralized
+    entity: UAB "Decentralized"
   IT:
     status: licensed
     regime: MiCA
     via: mica_passporting
-    entity: UAB Decentralized
+    entity: UAB "Decentralized"
   LI:
     status: licensed
     regime: MiCA
     via: mica_passporting
-    entity: UAB Decentralized
+    entity: UAB "Decentralized"
   LT:
     status: licensed
     regime: MiCA
     via: home_state
-    entity: UAB Decentralized
+    entity: UAB "Decentralized"
   LU:
     status: licensed
     regime: MiCA
     via: mica_passporting
-    entity: UAB Decentralized
+    entity: UAB "Decentralized"
   LV:
     status: licensed
     regime: MiCA
     via: mica_passporting
-    entity: UAB Decentralized
+    entity: UAB "Decentralized"
   MT:
     status: licensed
     regime: MiCA
     via: mica_passporting
-    entity: UAB Decentralized
+    entity: UAB "Decentralized"
   NL:
     status: licensed
     regime: MiCA
     via: mica_passporting
-    entity: UAB Decentralized
+    entity: UAB "Decentralized"
   'NO':
     status: licensed
     regime: MiCA
     via: mica_passporting
-    entity: UAB Decentralized
+    entity: UAB "Decentralized"
   PL:
     status: licensed
     regime: MiCA
     via: mica_passporting
-    entity: UAB Decentralized
+    entity: UAB "Decentralized"
   PT:
     status: licensed
     regime: MiCA
     via: mica_passporting
-    entity: UAB Decentralized
+    entity: UAB "Decentralized"
   RO:
     status: licensed
     regime: MiCA
     via: mica_passporting
-    entity: UAB Decentralized
+    entity: UAB "Decentralized"
   SE:
     status: licensed
     regime: MiCA
     via: mica_passporting
-    entity: UAB Decentralized
+    entity: UAB "Decentralized"
   SI:
     status: licensed
     regime: MiCA
     via: mica_passporting
-    entity: UAB Decentralized
+    entity: UAB "Decentralized"
   SK:
     status: licensed
     regime: MiCA
     via: mica_passporting
-    entity: UAB Decentralized
+    entity: UAB "Decentralized"
 company_facts:
 - lei: 6488907MV9XAA08E4E40
   registered_office:

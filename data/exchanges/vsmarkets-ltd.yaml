@@ -1,0 +1,34 @@
+id: vsmarkets-ltd
+brand: VSMARKETS LTD
+eu_status: authorised
+sources:
+- name: ESMA interim MiCA register (CASPS.csv)
+  url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
+  retrieved: '2026-11-12'
+entities:
+- lei: 213800HP6KZ9XS1D1U57
+  legal_name: VSMARKETS LTD
+  commercial_name: null
+  home_state: CY
+  regulator: Cyprus Securities and Exchange Commission (CySEC)
+  website: www.vsmarkets.com
+  records:
+  - authorised: '2026-11-02'
+    withdrawn: null
+    status: authorised
+    services:
+    - a
+    - c
+    - d
+    - e
+    - g
+    - j
+    passported_to:
+    - CY
+    last_update: '2026-11-10'
+countries:
+  CY:
+    status: licensed
+    regime: MiCA
+    via: home_state
+    entity: VSMARKETS LTD

@@ -1,0 +1,29 @@
+id: tatra-banka
+brand: Tatra banka
+eu_status: authorised
+sources:
+- name: ESMA interim MiCA register (CASPS.csv)
+  url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
+  retrieved: '2026-11-12'
+entities:
+- lei: 3157002JBFAI478MD587
+  legal_name: Tatra banka, a.s
+  commercial_name: Tatra banka
+  home_state: SK
+  regulator: National Bank of Slovakia (NBS)
+  website: https://www.tatrabanka.sk/
+  records:
+  - authorised: '2026-08-31'
+    withdrawn: null
+    status: authorised
+    services:
+    - e
+    passported_to:
+    - SK
+    last_update: '2026-11-03'
+countries:
+  SK:
+    status: licensed
+    regime: MiCA
+    via: home_state
+    entity: Tatra banka, a.s
