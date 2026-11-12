@@ -1,0 +1,203 @@
+id: transak
+brand: Transak
+eu_status: authorised
+sources:
+- name: ESMA interim MiCA register (CASPS.csv)
+  url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
+  retrieved: '2026-11-12'
+entities:
+- lei: 529900EEGMA1G5Y2DT85
+  legal_name: Transak GmbH
+  commercial_name: Transak
+  home_state: AT
+  regulator: Austrian Financial Market Authority (FMA)
+  website: eu.transak.com
+  records:
+  - authorised: '2026-11-10'
+    withdrawn: null
+    status: authorised
+    services:
+    - c
+    passported_to:
+    - AT
+    - BE
+    - BG
+    - CY
+    - CZ
+    - DE
+    - DK
+    - EE
+    - ES
+    - FI
+    - FR
+    - GR
+    - HR
+    - HU
+    - IE
+    - IS
+    - IT
+    - LI
+    - LT
+    - LU
+    - LV
+    - MT
+    - NL
+    - 'NO'
+    - PL
+    - PT
+    - RO
+    - SE
+    - SI
+    - SK
+    last_update: '2026-11-11'
+countries:
+  AT:
+    status: licensed
+    regime: MiCA
+    via: home_state
+    entity: Transak GmbH
+  BE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Transak GmbH
+  BG:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Transak GmbH
+  CY:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Transak GmbH
+  CZ:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Transak GmbH
+  DE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Transak GmbH
+  DK:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Transak GmbH
+  EE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Transak GmbH
+  ES:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Transak GmbH
+  FI:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Transak GmbH
+  FR:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Transak GmbH
+  GR:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Transak GmbH
+  HR:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Transak GmbH
+  HU:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Transak GmbH
+  IE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Transak GmbH
+  IS:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Transak GmbH
+  IT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Transak GmbH
+  LI:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Transak GmbH
+  LT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Transak GmbH
+  LU:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Transak GmbH
+  LV:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Transak GmbH
+  MT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Transak GmbH
+  NL:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Transak GmbH
+  'NO':
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Transak GmbH
+  PL:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Transak GmbH
+  PT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Transak GmbH
+  RO:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Transak GmbH
+  SE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Transak GmbH
+  SI:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Transak GmbH
+  SK:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: Transak GmbH

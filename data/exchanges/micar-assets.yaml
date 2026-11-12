@@ -1,0 +1,207 @@
+id: micar-assets
+brand: Micar Assets
+eu_status: authorised
+sources:
+- name: ESMA interim MiCA register (CASPS.csv)
+  url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
+  retrieved: '2026-11-12'
+entities:
+- lei: 894500R6HJP62BZX4M89
+  legal_name: UAB Micar assets
+  commercial_name: Micar Assets
+  home_state: LT
+  regulator: Bank of Lithuania (LSC)
+  website: https://micarassets.com
+  records:
+  - authorised: '2026-02-26'
+    withdrawn: null
+    status: authorised
+    services:
+    - a
+    - c
+    - d
+    - e
+    - g
+    - j
+    passported_to:
+    - AT
+    - BE
+    - BG
+    - CY
+    - CZ
+    - DE
+    - DK
+    - EE
+    - ES
+    - FI
+    - FR
+    - GR
+    - HR
+    - HU
+    - IE
+    - IS
+    - IT
+    - LI
+    - LU
+    - LV
+    - MT
+    - NL
+    - 'NO'
+    - PL
+    - PT
+    - RO
+    - SE
+    - SI
+    - SK
+    last_update: '2026-11-10'
+countries:
+  AT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: UAB Micar assets
+  BE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: UAB Micar assets
+  BG:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: UAB Micar assets
+  CY:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: UAB Micar assets
+  CZ:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: UAB Micar assets
+  DE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: UAB Micar assets
+  DK:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: UAB Micar assets
+  EE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: UAB Micar assets
+  ES:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: UAB Micar assets
+  FI:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: UAB Micar assets
+  FR:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: UAB Micar assets
+  GR:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: UAB Micar assets
+  HR:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: UAB Micar assets
+  HU:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: UAB Micar assets
+  IE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: UAB Micar assets
+  IS:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: UAB Micar assets
+  IT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: UAB Micar assets
+  LI:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: UAB Micar assets
+  LT:
+    status: licensed
+    regime: MiCA
+    via: home_state
+    entity: UAB Micar assets
+  LU:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: UAB Micar assets
+  LV:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: UAB Micar assets
+  MT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: UAB Micar assets
+  NL:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: UAB Micar assets
+  'NO':
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: UAB Micar assets
+  PL:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: UAB Micar assets
+  PT:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: UAB Micar assets
+  RO:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: UAB Micar assets
+  SE:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: UAB Micar assets
+  SI:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: UAB Micar assets
+  SK:
+    status: licensed
+    regime: MiCA
+    via: mica_passporting
+    entity: UAB Micar assets

@@ -4,7 +4,7 @@ eu_status: authorised
 sources:
 - name: ESMA interim MiCA register (CASPS.csv)
   url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
-  retrieved: '2026-10-22'
+  retrieved: '2026-11-12'
 entities:
 - lei: 529900032TYR45XIEW79
   legal_name: EUWAX AG
@@ -57,7 +57,29 @@ entities:
     services:
     - e
     passported_to:
+    - BE
+    - BG
+    - CY
+    - CZ
     - DE
+    - DK
+    - EE
+    - FI
+    - HR
+    - HU
+    - IE
+    - IS
+    - LI
+    - LT
+    - LU
+    - LV
+    - MT
+    - NL
+    - 'NO'
+    - PL
+    - PT
+    - RO
+    - SE
     last_update: '2025-11-21'
 countries:
   AT:
