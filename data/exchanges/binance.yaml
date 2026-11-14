@@ -47,54 +47,54 @@ third_party_reviews:
   url: https://apps.apple.com/gb/app/binance-buy-bitcoin-crypto/id1436799971?uo=4
   retrieved: '2026-11-11'
 news_mentions:
-- source: Cointelegraph
-  category: general
-  title: Binance BTC outflows hit highest since mid-2023 as whales deposit stablecoins
-  url: https://cointelegraph.com/markets/binance-btc-outflows-hit-highest-since-mid-2023-as-whales-deposit-stablecoins?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound
-  published: '2026-10-06'
-  retrieved: '2026-10-06'
 - source: The Block
-  category: general
-  title: Ethena expands USDe backing strategy into bStocks and equity perpetuals on Binance
-  url: https://www.theblock.co/news/deals/2026-09-25-ethena-expands-usde-backing-strategy-into-bstocks-and-equity-perpetuals-on-binance-416367
-  published: '2026-09-25'
-  retrieved: '2026-09-26'
-- source: The Block
-  category: general
-  title: Solana Foundation taps Binance, Polygon vets to drive institutional adoption and payments
-  url: https://www.theblock.co/news/ecosystems/2026-09-24-solana-foundation-taps-binance-polygon-vets-to-drive-institutional-adoption-and-payments-416254
-  published: '2026-09-24'
-  retrieved: '2026-09-26'
-- source: Cointelegraph
-  category: general
-  title: Binance says employees questioned in UAE cleared and released
-  url: https://cointelegraph.com/news/binance-employees-questioned-uae-released?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound
-  published: '2026-08-21'
-  retrieved: '2026-08-22'
-- source: Cointelegraph
-  category: general
-  title: Binance opens crypto trading to AI agents with user-set controls
-  url: https://cointelegraph.com/news/binance-opens-crypto-trading-to-ai-agents-with-user-set-controls?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound
-  published: '2026-08-20'
-  retrieved: '2026-08-22'
+  category: regulatory
+  title: Meta tests prediction-market app, DOJ moves to seize $1.2 billion from Binance hack, and more
+  url: https://www.theblock.co/newsletters/the-daily/2026-11-14-meta-prediction-market-app-doj-binance-hack-more-crypto-news-440304
+  published: '2026-11-14'
+  retrieved: '2026-11-14'
 - source: Cointelegraph
   category: regulatory
-  title: 'Binance to plan UK relaunch with FCA license application: Report'
-  url: https://cointelegraph.com/news/binance-uk-launch-plans-fca-license?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound
-  published: '2026-08-17'
-  retrieved: '2026-08-17'
-- source: Cointelegraph
-  category: general
-  title: 'Binance gave Russian authorities client data used in terrorism financing case: Report'
-  url: https://cointelegraph.com/news/binance-russia-client-data-used-ukraine-case-report?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound
-  published: '2026-08-17'
-  retrieved: '2026-08-17'
+  title: DOJ moves to seize $1.2B from Binance hack, disrupts FaceStealer scam
+  url: https://cointelegraph.com/news/doj-12b-north-korean-crypto-seizure-400m-facestealer-scheme?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound
+  published: '2026-11-13'
+  retrieved: '2026-11-14'
 - source: The Block
+  category: regulatory
+  title: DOJ moves to seize $1.2 billion from Binance hack, disrupts North Korean deepfake scheme
+  url: https://www.theblock.co/news/business/2026-11-12-doj-seize-1-2-billion-binance-hack-north-korea-facestealer-439065
+  published: '2026-11-12'
+  retrieved: '2026-11-14'
+- source: The Guardian
   category: general
-  title: Tokenized equities triple market share as Ondo, Binance and xStocks dominate
-  url: https://www.theblock.co/news/defi/2026-08-17-tokenized-equities-triple-market-share-ondo-binance-xstocks-dominate-411996
-  published: '2026-08-17'
-  retrieved: '2026-08-17'
+  title: Hackers behind $6.3bn Binance heist ‘used malware and bogus job interviews’
+  url: https://www.theguardian.com/business/2026/nov/03/hackers-63bn-binance-heist-malware-bogus-job-interviews-cryptocurrency
+  published: '2026-11-03'
+  retrieved: '2026-11-14'
+- source: The Guardian
+  category: general
+  title: Binance battles to save its brand after record $6.3bn crypto hack
+  url: https://www.theguardian.com/technology/2026/nov/02/binance-cryptocurrency-exchange-hack
+  published: '2026-11-03'
+  retrieved: '2026-11-14'
+- source: The Guardian
+  category: general
+  title: Investors pull billions in funds from Binance after record $6.3bn hack
+  url: https://www.theguardian.com/business/2026/nov/01/investors-take-out-36bn-from-binance-after-record-hack-that-stole-billions
+  published: '2026-11-01'
+  retrieved: '2026-11-14'
+- source: The Guardian
+  category: general
+  title: Binance resumes customer withdrawals after record $6.3bn hack
+  url: https://www.theguardian.com/business/2026/nov/01/binance-losses-covered-hack-fbi-north-korea-cryptocurrency
+  published: '2026-11-01'
+  retrieved: '2026-11-14'
+- source: The Guardian
+  category: general
+  title: How big a deal is the $6.3bn Binance crypto heist, who did it, and are investments safe?
+  url: https://www.theguardian.com/business/2026/oct/30/crypto-heist-binance-who-did-it-are-investments-safe
+  published: '2026-10-30'
+  retrieved: '2026-11-14'
 notable_incidents:
 - type: settlement
   date: '2023-11-21'
