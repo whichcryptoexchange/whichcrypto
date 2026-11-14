@@ -15,6 +15,12 @@ countries:
     entity: Mastercard Transaction Services (US) LLC
     since: 2026-05
 news_mentions:
+- source: Cointelegraph
+  category: general
+  title: OpenAI launches AI payments in ChatGPT with Visa, Mastercard and Amex
+  url: https://cointelegraph.com/news/openai-ai-payments-chatgpt-wallet-visa-mastercard-amex?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound
+  published: '2026-11-13'
+  retrieved: '2026-11-14'
 - source: The Block
   category: general
   title: Mastercard opens early access to AI agent payments following pilots with Coinbase, Base and Cloudflare

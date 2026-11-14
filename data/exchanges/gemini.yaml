@@ -270,6 +270,18 @@ third_party_reviews:
 news_mentions:
 - source: Cointelegraph
   category: general
+  title: Gemini’s quarterly retail trading volume sinks to 3-year low
+  url: https://cointelegraph.com/markets/geminis-quarterly-retail-trading-volume-sinks-to-3-year-low?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound
+  published: '2026-11-13'
+  retrieved: '2026-11-14'
+- source: The Block
+  category: general
+  title: Gemini trading volume drops 73% as Q3 revenue falls to $41 million
+  url: https://www.theblock.co/news/markets/2026-11-12-gemini-trading-volume-drops-q3-revenue-falls-to-41-million-439050
+  published: '2026-11-12'
+  retrieved: '2026-11-14'
+- source: Cointelegraph
+  category: general
   title: Gemini posts $108M Q2 net loss despite 37% revenue growth
   url: https://cointelegraph.com/news/gemini-45m-q2-revenue-financial-services?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound
   published: '2026-08-14'
