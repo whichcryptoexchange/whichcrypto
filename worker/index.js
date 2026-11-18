@@ -1,4 +1,4 @@
-// whichcryptoexchange worker: serves static assets (automatic) and handles
+// Cryptantia worker: serves static assets (automatic) and handles
 // the user-report API, the contact form, affiliate links, and admin views.
 //
 // Affiliate links are deliberately NOT in data/exchanges/*.yaml (the
@@ -14,7 +14,7 @@
 //                     works fine on the free Workers plan)
 //   RESEND_API_KEY  - secret: Resend API key, for watcher/digest/provider-
 //                     submission confirm emails and the weekly digest send to arbitrary
-//                     addresses (needs whichcryptoexchange.com verified as a
+//                     addresses (needs Cryptantia verified as a
 //                     sending domain in the Resend dashboard -- Cloudflare's
 //                     own send_email binding can only reach pre-verified
 //                     destinations without Workers Paid)
@@ -206,9 +206,9 @@ async function handleProviderSubmission(request, env) {
 }
 
 async function sendProviderSubmissionConfirmEmail(env, email, companyName, token) {
-  const confirmUrl = `https://whichcryptoexchange.com/api/submit-provider/confirm?token=${token}`;
+  const confirmUrl = `https://cryptantia.com/api/submit-provider/confirm?token=${token}`;
   const text = [
-    `Someone (hopefully you, on behalf of ${companyName}) submitted a Technology Provider Profile request to whichcryptoexchange.com.`,
+    `Someone (hopefully you, on behalf of ${companyName}) submitted a Technology Provider Profile request to Cryptantia.`,
     '',
     'Confirm this email address to move the submission into our review queue:',
     confirmUrl,
@@ -253,7 +253,7 @@ async function handleContact(request, env) {
   if (!message) return json({ error: 'message is required' }, 400);
 
   const raw = [
-    'From: whichcryptoexchange contact form <contact@whichcryptoexchange.com>',
+    'From: Cryptantia contact form <contact@cryptantia.com>',
     `Reply-To: ${email}`,
     'To: jim@maxrespect.co.uk',
     `Subject: Contact form: ${name}`,
@@ -266,7 +266,7 @@ async function handleContact(request, env) {
 
   try {
     await env.SEND_EMAIL.send(new EmailMessage(
-      'contact@whichcryptoexchange.com',
+      'contact@cryptantia.com',
       'jim@maxrespect.co.uk',
       raw,
     ));
@@ -294,7 +294,7 @@ function randomToken() {
 // the latter can only reach pre-verified destination addresses on the free
 // Workers plan (Email Sending requires Workers Paid), which is unworkable
 // for a public signup form emailing arbitrary addresses. Needs RESEND_API_KEY
-// as a secret and whichcryptoexchange.com verified as a sending domain in
+// as a secret and Cryptantia verified as a sending domain in
 // the Resend dashboard -- no binding/wrangler.jsonc entry required, just an
 // HTTPS call.
 async function sendResendEmail(env, to, subject, text) {
@@ -305,7 +305,7 @@ async function sendResendEmail(env, to, subject, text) {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({
-      from: 'whichcryptoexchange.com <alerts@whichcryptoexchange.com>',
+      from: 'Cryptantia <alerts@cryptantia.com>',
       to: [to],
       subject,
       text,
@@ -315,9 +315,9 @@ async function sendResendEmail(env, to, subject, text) {
 }
 
 async function sendWatchConfirmEmail(env, email, brand, token) {
-  const confirmUrl = `https://whichcryptoexchange.com/api/watch/confirm?token=${token}`;
+  const confirmUrl = `https://cryptantia.com/api/watch/confirm?token=${token}`;
   const text = [
-    `Someone (hopefully you) asked to be emailed if ${brand}'s regulatory status changes on whichcryptoexchange.com.`,
+    `Someone (hopefully you) asked to be emailed if ${brand}'s regulatory status changes on Cryptantia.`,
     '',
     `Confirm and start watching ${brand}:`,
     confirmUrl,
@@ -378,14 +378,14 @@ async function handleWatchSignup(request, env) {
 }
 
 const watchPage = (title, body) => new Response(
-  `<!doctype html><meta charset="utf-8"><title>${esc(title)} | whichcryptoexchange.com</title>
+  `<!doctype html><meta charset="utf-8"><title>${esc(title)} | Cryptantia</title>
    <meta name="viewport" content="width=device-width, initial-scale=1">
    <meta name="robots" content="noindex">
    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
    <style>body{font:16px/1.5 system-ui,sans-serif;max-width:520px;margin:80px auto;padding:0 20px;color:#14202e}
      a{color:#177245}h1{font-size:22px}</style>
    <h1>${esc(title)}</h1>${body}
-   <p><a href="/">← back to whichcryptoexchange.com</a></p>`,
+   <p><a href="/">← back to Cryptantia</a></p>`,
   { headers: { 'Content-Type': 'text/html; charset=utf-8' } },
 );
 
@@ -400,7 +400,7 @@ async function handleWatchConfirm(env, request, token) {
     ).bind(token).run();
   }
   return watchPage(`Watching ${brand}`,
-    `<p>You'll get an email if ${esc(brand)}'s regulatory status changes on whichcryptoexchange.com.</p>
+    `<p>You'll get an email if ${esc(brand)}'s regulatory status changes on Cryptantia.</p>
      <p><a href="/api/watch/unsubscribe?token=${esc(token)}">Unsubscribe</a> any time, no login needed.</p>`);
 }
 
@@ -417,9 +417,9 @@ async function handleWatchUnsubscribe(env, token) {
 // send (diffing the register and mailing confirmed subscribers) is a
 // separate follow-up; this is just collecting and confirming signups.
 async function sendDigestConfirmEmail(env, email, token) {
-  const confirmUrl = `https://whichcryptoexchange.com/api/digest/confirm?token=${token}`;
+  const confirmUrl = `https://cryptantia.com/api/digest/confirm?token=${token}`;
   const text = [
-    'Someone (hopefully you) asked to get the weekly regulatory roundup email from whichcryptoexchange.com -- every change across every tracked exchange, once a week.',
+    'Someone (hopefully you) asked to get the weekly regulatory roundup email from Cryptantia -- every change across every tracked exchange, once a week.',
     '',
     'Confirm and subscribe:',
     confirmUrl,
@@ -482,7 +482,7 @@ async function handleDigestConfirm(env, token) {
     ).bind(token).run();
   }
   return watchPage('Subscribed',
-    `<p>You'll get the weekly regulatory roundup from whichcryptoexchange.com.</p>
+    `<p>You'll get the weekly regulatory roundup from Cryptantia.</p>
      <p><a href="/api/digest/unsubscribe?token=${esc(token)}">Unsubscribe</a> any time, no login needed.</p>`);
 }
 
@@ -517,7 +517,7 @@ async function handleDigestSend(request, env, url) {
   let sent = 0;
   let failed = 0;
   for (const sub of subscribers) {
-    const unsubUrl = `https://whichcryptoexchange.com/api/digest/unsubscribe?token=${sub.token}`;
+    const unsubUrl = `https://cryptantia.com/api/digest/unsubscribe?token=${sub.token}`;
     try {
       await sendResendEmail(env, sub.email, subject, `${text}\n\n---\nUnsubscribe: ${unsubUrl}`);
       sent++;
@@ -532,9 +532,9 @@ async function handleDigestSend(request, env, url) {
 // same double opt-in mechanism as digest_subscribers, but a separate list
 // (different content, different cadence/triggers; see migrations/0011).
 async function sendTaxReminderConfirmEmail(env, email, token) {
-  const confirmUrl = `https://whichcryptoexchange.com/api/tax-reminders/confirm?token=${token}`;
+  const confirmUrl = `https://cryptantia.com/api/tax-reminders/confirm?token=${token}`;
   const text = [
-    'Someone (hopefully you) asked to get UK crypto tax deadline reminders from whichcryptoexchange.com -- a heads-up before Self Assessment dates relevant to crypto holders, plus occasional emails if the rules actually change.',
+    'Someone (hopefully you) asked to get UK crypto tax deadline reminders from Cryptantia -- a heads-up before Self Assessment dates relevant to crypto holders, plus occasional emails if the rules actually change.',
     '',
     'This is not personalised tax advice -- just dated, sourced reminders of what\'s coming up and why it matters.',
     '',
@@ -599,7 +599,7 @@ async function handleTaxReminderConfirm(env, token) {
     ).bind(token).run();
   }
   return watchPage('Subscribed',
-    `<p>You'll get UK crypto tax deadline reminders from whichcryptoexchange.com -- not personalised advice, just dated, sourced heads-ups.</p>
+    `<p>You'll get UK crypto tax deadline reminders from Cryptantia -- not personalised advice, just dated, sourced heads-ups.</p>
      <p><a href="/api/tax-reminders/unsubscribe?token=${esc(token)}">Unsubscribe</a> any time, no login needed.</p>`);
 }
 
@@ -635,7 +635,7 @@ async function handleTaxReminderSend(request, env, url) {
   let sent = 0;
   let failed = 0;
   for (const sub of subscribers) {
-    const unsubUrl = `https://whichcryptoexchange.com/api/tax-reminders/unsubscribe?token=${sub.token}`;
+    const unsubUrl = `https://cryptantia.com/api/tax-reminders/unsubscribe?token=${sub.token}`;
     try {
       await sendResendEmail(env, sub.email, subject, `${text}\n\n---\nUnsubscribe: ${unsubUrl}`);
       sent++;
@@ -972,9 +972,9 @@ async function handleExchangeClaim(request, env) {
 }
 
 async function sendExchangeClaimConfirmEmail(env, email, brandName, token) {
-  const confirmUrl = `https://whichcryptoexchange.com/api/claim-exchange/confirm?token=${token}`;
+  const confirmUrl = `https://cryptantia.com/api/claim-exchange/confirm?token=${token}`;
   const text = [
-    `Someone (hopefully you, on behalf of ${brandName}) asked to claim ${brandName}'s listing on whichcryptoexchange.com.`,
+    `Someone (hopefully you, on behalf of ${brandName}) asked to claim ${brandName}'s listing on Cryptantia.`,
     '',
     'Confirm this email address to move the claim into our review queue:',
     confirmUrl,

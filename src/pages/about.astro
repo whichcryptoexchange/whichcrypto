@@ -26,8 +26,8 @@ const SOURCES = [
   { name: 'Malaysia SC List of Registered Digital Asset Exchanges', label: 'Malaysia SC List of Registered Digital Asset Exchanges', url: 'https://www.sc.com.my/regulation/guidelines/recognizedmarkets/list-of-registered-digital-asset-exchanges' },
   { name: 'Korea FIU VASP Registration Disclosure', label: 'Korea FIU VASP Registration Disclosure', url: 'https://www.kofiu.go.kr/kor/notification/notice.do' },
 ].map((s) => ({ ...s, retrieved: sourceRetrieved(s.name) }));
-const PAGE_TITLE = 'How This Crypto Exchange Register Works | whichcryptoexchange.com';
-const PAGE_DESC = "How whichcryptoexchange.com works: which official registers we draw from, how brands are curated, and what 'licensed' does and doesn't mean in each jurisdiction.";
+const PAGE_TITLE = 'How This Crypto Exchange Register Works | Cryptantia';
+const PAGE_DESC = "How Cryptantia works: which official registers we draw from, how brands are curated, and what 'licensed' does and doesn't mean in each jurisdiction.";
 ---
 <html lang="en">
 <head>
@@ -39,16 +39,16 @@ const PAGE_DESC = "How whichcryptoexchange.com works: which official registers w
   <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site)} />
   <meta property="og:type" content="website" />
   <meta property="og:url" content={new URL(Astro.url.pathname, Astro.site)} />
-  <meta property="og:site_name" content="whichcryptoexchange.com" />
+  <meta property="og:site_name" content="Cryptantia" />
   <meta property="og:title" content={PAGE_TITLE} />
   <meta property="og:description" content={PAGE_DESC} />
-  <meta property="og:image" content="https://whichcryptoexchange.com/og-image.jpg" />
+  <meta property="og:image" content={new URL('/og-image.jpg', Astro.site)} />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content={PAGE_TITLE} />
   <meta name="twitter:description" content={PAGE_DESC} />
-  <meta name="twitter:image" content="https://whichcryptoexchange.com/og-image.jpg" />
+  <meta name="twitter:image" content={new URL('/og-image.jpg', Astro.site)} />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet" />
   <script src="https://analytics.ahrefs.com/analytics.js" data-key="QTM3lN9yt0oU0rxrj5zadA" async></script>
@@ -67,7 +67,7 @@ const PAGE_DESC = "How whichcryptoexchange.com works: which official registers w
 <body>
   <header class="site">
     <div class="wrap">
-      <a class="logo" href="/">which<em>crypto</em>exchange</a>
+      <a class="logo" href="/">Cryptantia</a>
       <div class="header-right">
         <div class="site-search">
           <input type="search" id="site-search" placeholder="Search exchanges or countries…" autocomplete="off" aria-label="Search exchanges" />
@@ -94,8 +94,8 @@ const PAGE_DESC = "How whichcryptoexchange.com works: which official registers w
     influenced by commercial relationships. Receipts.</p>
 
     <h3>What this is</h3>
-    <p>whichcryptoexchange.com is an independent register of which crypto exchanges and related
-    firms hold which regulatory status, in which country, through which legal entity, and since
+    <p>Cryptantia is an independent register of crypto exchanges and related firms — what
+    regulatory status each one holds, in which country, through which legal entity, and since
     when. Every status shown here traces back to a specific official source — click through and
     verify it yourself.</p>
 

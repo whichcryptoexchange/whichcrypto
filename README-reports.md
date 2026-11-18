@@ -16,7 +16,7 @@ npx wrangler d1 execute wce-reports --remote --file=migrations/0001_reports.sql
 
 ## 2. Create a Turnstile widget
 Cloudflare dashboard -> Turnstile -> Add site -> domain
-`whichcryptoexchange.com`, mode Managed. It gives you a **site key**
+`cryptantia.com`, mode Managed. It gives you a **site key**
 (public) and a **secret key**.
 
 ## 3. Set the secrets
@@ -41,7 +41,7 @@ npm run build && npx wrangler deploy
 ```
 
 ## Moderation
-`https://whichcryptoexchange.com/admin/reports?key=YOUR_ADMIN_KEY` --
+`https://cryptantia.com/admin/reports?key=YOUR_ADMIN_KEY` --
 tabs for pending/approved/rejected (`&status=` in the URL). Every field
 (country, outcome, date, detail) is editable inline, not just
 approve/reject: edit-then-approve is how a report's free-text `detail`

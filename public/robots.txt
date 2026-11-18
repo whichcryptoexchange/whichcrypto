@@ -51,4 +51,4 @@ User-agent: CCBot
 Allow: /
 Content-Signal: search=yes, ai-train=no, use=reference
 
-Sitemap: https://whichcryptoexchange.com/sitemap-index.xml
+Sitemap: https://cryptantia.com/sitemap-index.xml

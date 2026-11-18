@@ -26,6 +26,6 @@ jobs:
             echo "No changes this week -- skipping send."
             exit 0
           fi
-          curl -sf -X POST "https://whichcryptoexchange.com/api/admin/digest-send?key=${{ secrets.DIGEST_SEND_KEY }}" \
+          curl -sf -X POST "https://cryptantia.com/api/admin/digest-send?key=${{ secrets.DIGEST_SEND_KEY }}" \
             -H 'Content-Type: application/json' \
             --data-binary @digest.json

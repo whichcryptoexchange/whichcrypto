@@ -30,7 +30,7 @@ DEADLINES_FILE = ROOT / "data" / "uk_tax_deadlines.yaml"
 # A heads-up and a last-call, not a barrage -- easy to tune later.
 LEAD_TIMES = [14, 1]
 
-LANDING_PAGE = "https://whichcryptoexchange.com/tax-reminders/"
+LANDING_PAGE = "https://cryptantia.com/tax-reminders/"
 
 
 def next_occurrence(today, month, day):

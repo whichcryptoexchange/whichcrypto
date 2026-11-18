@@ -4,7 +4,7 @@
 // time, not have items jump around as new entries arrive.
 import { loadExchanges } from '../lib/data.js';
 
-const SITE = 'https://whichcryptoexchange.com';
+const SITE = 'https://cryptantia.com';
 
 function escapeXml(s) {
   return String(s ?? '').replace(/[<>&'"]/g, (c) => ({
@@ -33,7 +33,7 @@ export function GET() {
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0">
   <channel>
-    <title>whichcryptoexchange.com — Crypto Exchange News and Regulation Updates</title>
+    <title>Cryptantia — Crypto Exchange News and Regulation Updates</title>
     <link>${SITE}/news/</link>
     <description>Headlines naming a tracked crypto exchange, tagged Regulatory or General — see /news/ for what those tags mean.</description>
     <language>en</language>

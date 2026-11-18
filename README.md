@@ -1,4 +1,4 @@
-# whichcryptoexchange.com
+# cryptantia.com
 
 An independent, machine-readable register answering one question: **which crypto
 exchanges are licensed in your country?** Built from official regulator

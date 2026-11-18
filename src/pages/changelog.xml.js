@@ -3,7 +3,7 @@
 // pattern as the other src/pages/api/*.{csv,json}.js endpoints.
 import { loadChangelog } from '../lib/data.js';
 
-const SITE = 'https://whichcryptoexchange.com';
+const SITE = 'https://cryptantia.com';
 
 function escapeXml(s) {
   return String(s ?? '').replace(/[<>&'"]/g, (c) => ({
@@ -25,7 +25,7 @@ export function GET() {
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0">
   <channel>
-    <title>whichcryptoexchange.com — Changelog</title>
+    <title>Cryptantia — Changelog</title>
     <link>${SITE}/changelog/</link>
     <description>Changes to the independent crypto-exchange regulatory register.</description>
     <language>en</language>

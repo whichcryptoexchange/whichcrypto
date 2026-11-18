@@ -23,6 +23,6 @@ jobs:
             echo "Nothing due today -- skipping send."
             exit 0
           fi
-          curl -sf -X POST "https://whichcryptoexchange.com/api/admin/tax-reminder-send?key=${{ secrets.TAX_REMINDER_SEND_KEY }}" \
+          curl -sf -X POST "https://cryptantia.com/api/admin/tax-reminder-send?key=${{ secrets.TAX_REMINDER_SEND_KEY }}" \
             -H 'Content-Type: application/json' \
             --data-binary @reminder.json

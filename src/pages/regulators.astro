@@ -106,7 +106,7 @@ const scamClones = exchanges
   .sort((a, b) => a.clone_name.localeCompare(b.clone_name));
 
 const SITEKEY = import.meta.env.PUBLIC_TURNSTILE_SITEKEY || '0x4AAAAAAD84t4OWkoouLP3Y';
-const PAGE_TITLE = 'Crypto Regulators Compared | whichcryptoexchange.com';
+const PAGE_TITLE = 'Crypto Regulators Compared | Cryptantia';
 const PAGE_DESC = 'What each crypto regulator actually checks -- capital, fit-and-proper, AML -- compared side by side, plus how many tracked brands hold each status right now.';
 ---
 <html lang="en">
@@ -119,16 +119,16 @@ const PAGE_DESC = 'What each crypto regulator actually checks -- capital, fit-an
   <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site)} />
   <meta property="og:type" content="website" />
   <meta property="og:url" content={new URL(Astro.url.pathname, Astro.site)} />
-  <meta property="og:site_name" content="whichcryptoexchange.com" />
+  <meta property="og:site_name" content="Cryptantia" />
   <meta property="og:title" content={PAGE_TITLE} />
   <meta property="og:description" content={PAGE_DESC} />
-  <meta property="og:image" content="https://whichcryptoexchange.com/og-image.jpg" />
+  <meta property="og:image" content={new URL('/og-image.jpg', Astro.site)} />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content={PAGE_TITLE} />
   <meta name="twitter:description" content={PAGE_DESC} />
-  <meta name="twitter:image" content="https://whichcryptoexchange.com/og-image.jpg" />
+  <meta name="twitter:image" content={new URL('/og-image.jpg', Astro.site)} />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet" />
   <script src="https://analytics.ahrefs.com/analytics.js" data-key="QTM3lN9yt0oU0rxrj5zadA" async></script>
@@ -152,13 +152,13 @@ const PAGE_DESC = 'What each crypto regulator actually checks -- capital, fit-an
         '@type': 'ListItem',
         position: i + 1,
         name: s.regulator,
-        url: `https://whichcryptoexchange.com/${s.cc.toLowerCase()}/`,
+        url: `https://cryptantia.com/${s.cc.toLowerCase()}/`,
       })),
       ...eeaRows.map((r, i) => ({
         '@type': 'ListItem',
         position: NON_EEA_SOURCES.length + i + 1,
         name: r.regulator,
-        url: `https://whichcryptoexchange.com/${r.cc.toLowerCase()}/`,
+        url: `https://cryptantia.com/${r.cc.toLowerCase()}/`,
       })),
     ],
   })} />
@@ -166,7 +166,7 @@ const PAGE_DESC = 'What each crypto regulator actually checks -- capital, fit-an
 <body>
   <header class="site">
     <div class="wrap">
-      <a class="logo" href="/">which<em>crypto</em>exchange</a>
+      <a class="logo" href="/">Cryptantia</a>
       <div class="header-right">
         <div class="site-search">
           <input type="search" id="site-search" placeholder="Search exchanges or countries…" autocomplete="off" aria-label="Search exchanges" />

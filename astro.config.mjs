@@ -31,7 +31,7 @@ for (const ex of exchanges) {
 }
 
 export default defineConfig({
-  site: 'https://whichcryptoexchange.com',
+  site: 'https://cryptantia.com',
   trailingSlash: 'always',
   integrations: [
     sitemap({

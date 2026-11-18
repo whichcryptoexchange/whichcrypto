@@ -30,7 +30,7 @@ export function GET() {
   return new Response(lines.join('\n') + '\n', {
     headers: {
       'Content-Type': 'text/csv; charset=utf-8',
-      'Content-Disposition': `attachment; filename="whichcryptoexchange-register-snapshot-${asOf}.csv"`,
+      'Content-Disposition': `attachment; filename="cryptantia-register-snapshot-${asOf}.csv"`,
     },
   });
 }

@@ -4,7 +4,7 @@ import { loadExchanges } from '../../lib/data.js';
 export function GET() {
   const exchanges = loadExchanges();
   return new Response(JSON.stringify({
-    source: 'https://whichcryptoexchange.com',
+    source: 'https://cryptantia.com',
     licence: 'Data derived from official public registers; attribution appreciated.',
     generated: new Date().toISOString().slice(0, 10),
     exchanges,

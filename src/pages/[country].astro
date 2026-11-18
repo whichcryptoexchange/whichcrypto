@@ -118,32 +118,32 @@ const tierCounts = isNonEEA
   : {};
 const YEAR = new Date().getFullYear();
 const PAGE_TITLE = isGB
-  ? `UK Crypto Exchanges: Registered or Authorised | whichcryptoexchange.com`
+  ? `UK Crypto Exchanges: Registered or Authorised | Cryptantia`
   : isCA
-  ? `Crypto exchanges registered in Canada (${YEAR}) | whichcryptoexchange.com`
+  ? `Crypto exchanges registered in Canada (${YEAR}) | Cryptantia`
   : isAE
-  ? `Crypto exchanges licensed in Dubai or Abu Dhabi (${YEAR}) | whichcryptoexchange.com`
+  ? `Crypto exchanges licensed in Dubai or Abu Dhabi (${YEAR}) | Cryptantia`
   : isSG
-  ? `Crypto exchanges licensed in Singapore (${YEAR}) | whichcryptoexchange.com`
+  ? `Crypto exchanges licensed in Singapore (${YEAR}) | Cryptantia`
   : isUS
-  ? `US Crypto Exchanges: FinCEN Registered or NY DFS Licensed | whichcryptoexchange.com`
+  ? `US Crypto Exchanges: FinCEN Registered or NY DFS Licensed | Cryptantia`
   : isHK
-  ? `Crypto exchanges licensed in Hong Kong (${YEAR}) | whichcryptoexchange.com`
+  ? `Crypto exchanges licensed in Hong Kong (${YEAR}) | Cryptantia`
   : isGI
-  ? `Crypto exchanges licensed in Gibraltar (${YEAR}) | whichcryptoexchange.com`
+  ? `Crypto exchanges licensed in Gibraltar (${YEAR}) | Cryptantia`
   : isJP
-  ? `Crypto exchanges licensed in Japan (${YEAR}) | whichcryptoexchange.com`
+  ? `Crypto exchanges licensed in Japan (${YEAR}) | Cryptantia`
   : isMY
-  ? `Crypto exchanges licensed in Malaysia (${YEAR}) | whichcryptoexchange.com`
+  ? `Crypto exchanges licensed in Malaysia (${YEAR}) | Cryptantia`
   : isKR
-  ? `Crypto exchanges registered in South Korea (${YEAR}) | whichcryptoexchange.com`
+  ? `Crypto exchanges registered in South Korea (${YEAR}) | Cryptantia`
   : isNZ
-  ? `Crypto exchanges registered in New Zealand (${YEAR}) | whichcryptoexchange.com`
+  ? `Crypto exchanges registered in New Zealand (${YEAR}) | Cryptantia`
   : isBVI
-  ? `Crypto exchanges licensed in the British Virgin Islands (${YEAR}) | whichcryptoexchange.com`
+  ? `Crypto exchanges licensed in the British Virgin Islands (${YEAR}) | Cryptantia`
   : isAU
-  ? `Crypto exchanges registered in Australia (${YEAR}) | whichcryptoexchange.com`
-  : `Crypto exchanges licensed in ${name} (${YEAR}) | whichcryptoexchange.com`;
+  ? `Crypto exchanges registered in Australia (${YEAR}) | Cryptantia`
+  : `Crypto exchanges licensed in ${name} (${YEAR}) | Cryptantia`;
 const PAGE_DESC = isGB
   ? `${rows.length} crypto exchanges hold a UK FCA registration or authorisation, according to the official FCA Register. See which entity, which regime, and since when.`
   : isCA
@@ -182,16 +182,16 @@ const PAGE_DESC = isGB
   <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site)} />
   <meta property="og:type" content="website" />
   <meta property="og:url" content={new URL(Astro.url.pathname, Astro.site)} />
-  <meta property="og:site_name" content="whichcryptoexchange.com" />
+  <meta property="og:site_name" content="Cryptantia" />
   <meta property="og:title" content={PAGE_TITLE} />
   <meta property="og:description" content={PAGE_DESC} />
-  <meta property="og:image" content="https://whichcryptoexchange.com/og-image.jpg" />
+  <meta property="og:image" content={new URL('/og-image.jpg', Astro.site)} />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content={PAGE_TITLE} />
   <meta name="twitter:description" content={PAGE_DESC} />
-  <meta name="twitter:image" content="https://whichcryptoexchange.com/og-image.jpg" />
+  <meta name="twitter:image" content={new URL('/og-image.jpg', Astro.site)} />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet" />
   <script src="https://analytics.ahrefs.com/analytics.js" data-key="QTM3lN9yt0oU0rxrj5zadA" async></script>
@@ -210,8 +210,8 @@ const PAGE_DESC = isGB
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'whichcryptoexchange.com', item: 'https://whichcryptoexchange.com/' },
-      { '@type': 'ListItem', position: 2, name, item: `https://whichcryptoexchange.com/${code.toLowerCase()}/` },
+      { '@type': 'ListItem', position: 1, name: 'Cryptantia', item: 'https://cryptantia.com/' },
+      { '@type': 'ListItem', position: 2, name, item: `https://cryptantia.com/${code.toLowerCase()}/` },
     ],
   })} />
   {faqEntry && (
@@ -229,7 +229,7 @@ const PAGE_DESC = isGB
 <body>
   <header class="site">
     <div class="wrap">
-      <a class="logo" href="/">which<em>crypto</em>exchange</a>
+      <a class="logo" href="/">Cryptantia</a>
       <div class="header-right">
         <div class="site-search">
           <input type="search" id="site-search" placeholder="Search exchanges or countries…" autocomplete="off" aria-label="Search exchanges" />

@@ -8,7 +8,7 @@ const stats = footerStats(exchanges);
 const regulatorDetails = loadRegulatorDetails();
 const entries = buildFaqEntries(exchanges, regulatorDetails);
 const generalEntries = entries.filter((e) => e.category === 'general');
-const PAGE_TITLE = 'Crypto Exchange FAQ: Licensing, Regulation & Custody | whichcryptoexchange.com';
+const PAGE_TITLE = 'Crypto Exchange FAQ: Licensing, Regulation & Custody | Cryptantia';
 const PAGE_DESC = `Search ${entries.length} questions and answers about crypto exchange licensing, built entirely from our own regulator-sourced register -- by brand, by country, or in general.`;
 ---
 <html lang="en">
@@ -21,16 +21,16 @@ const PAGE_DESC = `Search ${entries.length} questions and answers about crypto e
   <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site)} />
   <meta property="og:type" content="website" />
   <meta property="og:url" content={new URL(Astro.url.pathname, Astro.site)} />
-  <meta property="og:site_name" content="whichcryptoexchange.com" />
+  <meta property="og:site_name" content="Cryptantia" />
   <meta property="og:title" content={PAGE_TITLE} />
   <meta property="og:description" content={PAGE_DESC} />
-  <meta property="og:image" content="https://whichcryptoexchange.com/og-image.jpg" />
+  <meta property="og:image" content={new URL('/og-image.jpg', Astro.site)} />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content={PAGE_TITLE} />
   <meta name="twitter:description" content={PAGE_DESC} />
-  <meta name="twitter:image" content="https://whichcryptoexchange.com/og-image.jpg" />
+  <meta name="twitter:image" content={new URL('/og-image.jpg', Astro.site)} />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet" />
   <script src="https://analytics.ahrefs.com/analytics.js" data-key="QTM3lN9yt0oU0rxrj5zadA" async></script>
@@ -58,7 +58,7 @@ const PAGE_DESC = `Search ${entries.length} questions and answers about crypto e
 <body>
   <header class="site">
     <div class="wrap">
-      <a class="logo" href="/">which<em>crypto</em>exchange</a>
+      <a class="logo" href="/">Cryptantia</a>
       <div class="header-right">
         <div class="site-search">
           <input type="search" id="site-search" placeholder="Search exchanges or countries…" autocomplete="off" aria-label="Search exchanges" />

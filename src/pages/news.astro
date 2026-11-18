@@ -17,10 +17,10 @@ const rows = exchanges
   .sort((a, b) => (b.published || '').localeCompare(a.published || ''));
 
 const SITEKEY = import.meta.env.PUBLIC_TURNSTILE_SITEKEY || '0x4AAAAAAD84t4OWkoouLP3Y';
-const PAGE_TITLE = `Crypto Exchange News and Regulation Updates | whichcryptoexchange.com`;
+const PAGE_TITLE = `Crypto Exchange News and Regulation Updates | Cryptantia`;
 const PAGE_DESC = `Headlines that name-match a tracked crypto exchange, from The Guardian, BBC, Cointelegraph, The Block, and the SEC and DOJ's own press releases -- newest first, tagged Regulatory when the source or the headline itself is regulatory in nature.`;
 
-const PAGE_URL = 'https://whichcryptoexchange.com/news/';
+const PAGE_URL = 'https://cryptantia.com/news/';
 const SHARE_TEXT = 'Crypto exchange news and regulation updates, tagged by source (SEC/DOJ direct vs. general coverage) — not just headlines.';
 const SHARE_LINKS = [
   { name: 'X', href: `https://twitter.com/intent/tweet?text=${encodeURIComponent(SHARE_TEXT)}&url=${encodeURIComponent(PAGE_URL)}` },
@@ -36,19 +36,19 @@ const SHARE_LINKS = [
   <title>{PAGE_TITLE}</title>
   <meta name="description" content={PAGE_DESC} />
   <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site)} />
-  <link rel="alternate" type="application/rss+xml" title="whichcryptoexchange.com — Crypto Exchange News and Regulation Updates" href="/news.xml" />
+  <link rel="alternate" type="application/rss+xml" title="Cryptantia — Crypto Exchange News and Regulation Updates" href="/news.xml" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content={new URL(Astro.url.pathname, Astro.site)} />
-  <meta property="og:site_name" content="whichcryptoexchange.com" />
+  <meta property="og:site_name" content="Cryptantia" />
   <meta property="og:title" content={PAGE_TITLE} />
   <meta property="og:description" content={PAGE_DESC} />
-  <meta property="og:image" content="https://whichcryptoexchange.com/og-image.jpg" />
+  <meta property="og:image" content={new URL('/og-image.jpg', Astro.site)} />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content={PAGE_TITLE} />
   <meta name="twitter:description" content={PAGE_DESC} />
-  <meta name="twitter:image" content="https://whichcryptoexchange.com/og-image.jpg" />
+  <meta name="twitter:image" content={new URL('/og-image.jpg', Astro.site)} />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet" />
   <script src="https://analytics.ahrefs.com/analytics.js" data-key="QTM3lN9yt0oU0rxrj5zadA" async></script>
@@ -67,7 +67,7 @@ const SHARE_LINKS = [
 <body>
   <header class="site">
     <div class="wrap">
-      <a class="logo" href="/">which<em>crypto</em>exchange</a>
+      <a class="logo" href="/">Cryptantia</a>
       <div class="header-right">
         <div class="site-search">
           <input type="search" id="site-search" placeholder="Search exchanges or countries…" autocomplete="off" aria-label="Search exchanges" />

@@ -6,6 +6,14 @@
 # link row under the body. Genuine internal linking, not just narration --
 # omit it when a change is site-wide (search, sort controls) and there's no
 # single honest page to point at, rather than force a link that doesn't fit.
+- date: "2026-11-18"
+  title: "whichcryptoexchange.com is now Cryptantia"
+  body: >
+    Same register, same sourcing discipline, new name. We've moved to cryptantia.com --
+    nothing about how the site works has changed: every status still traces back to the
+    same official regulator registers, with the same sources and dates shown on every page.
+    Links to the old domain will keep working and redirect automatically, so bookmarks,
+    inbound links, and any confirmation email you've already received stay valid.
 - date: "2026-09-02"
   title: "Exchanges can now claim their own listing"
   body: >

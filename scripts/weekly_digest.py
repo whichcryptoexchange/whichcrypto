@@ -177,7 +177,7 @@ def main():
     else:
         ordered_keys = GROUP_ORDER + sorted(k for k in sections if k not in GROUP_ORDER)
         lines = [
-            f"{count} change{'s' if count != 1 else ''} on whichcryptoexchange.com this week:",
+            f"{count} change{'s' if count != 1 else ''} on Cryptantia this week:",
         ]
         for key in ordered_keys:
             items = sections.get(key)
@@ -188,8 +188,8 @@ def main():
             lines += [f"- {item}" for item in items]
         lines += [
             "",
-            "Full register: https://whichcryptoexchange.com/exchanges/",
-            "Changelog: https://whichcryptoexchange.com/changelog/",
+            "Full register: https://cryptantia.com/exchanges/",
+            "Changelog: https://cryptantia.com/changelog/",
         ]
         text = "\n".join(lines)
 
