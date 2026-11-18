@@ -253,9 +253,9 @@ countries:
 third_party_reviews:
 - source: App Store
   rating: 4.58
-  count: 23013
+  count: 23049
   url: https://apps.apple.com/us/app/okx-buy-bitcoin-btc-crypto/id1327268470?uo=4
-  retrieved: '2026-11-11'
+  retrieved: '2026-11-18'
 company_facts:
 - lei: 54930069NLWEIGLHXU42
   registered_office:
