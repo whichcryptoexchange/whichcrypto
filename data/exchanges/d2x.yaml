@@ -4,11 +4,11 @@ eu_status: authorised
 sources:
 - name: ESMA interim MiCA register (CASPS.csv)
   url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
-  retrieved: '2026-10-22'
+  retrieved: '2026-11-18'
 entities:
 - lei: 7245002DD3GNFXPGPP93
   legal_name: D2X Group N.V
-  commercial_name: D2X
+  commercial_name: D2X Group N.V
   home_state: NL
   regulator: Netherlands Authority for the Financial Markets (AFM)
   website: https://d2x.com/
@@ -20,7 +20,7 @@ entities:
     - a
     passported_to:
     - NL
-    last_update: '2026-03-26'
+    last_update: '2026-11-02'
 countries:
   NL:
     status: licensed

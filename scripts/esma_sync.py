@@ -89,6 +89,8 @@ SERVICE_NAMES = {
 # whitespace so words containing the letter are untouched.
 LIST_SPLIT = re.compile(r"\s*\|\s*|\n+|\s+I\s+")
 
+ISO_DATE_RE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
+
 
 def clean(s: str) -> str:
     return (s or "").replace("\ufeff", "").strip().strip(".").strip()
@@ -96,7 +98,14 @@ def clean(s: str) -> str:
 
 def primary_alias(raw: str):
     """Some rows list multiple trading names in one field (e.g. "Amdax B.V.|Amdax
-    Group|Novelist"). Take the first as the primary commercial name."""
+    Group|Novelist"). Take the first as the primary commercial name.
+    Deliberately does NOT split on "/" or "," -- tried that (2026-11-18) to
+    catch cases like "BLUE EMI / Checkout.com", but it also false-positives
+    on real single names that legitimately contain either character (e.g.
+    "Frankfurter Volksbank Rhein/Main eG", "Vereinigte Volksbank
+    Raiffeisenbank eG, Reinheim" -- a place-name suffix, not a second alias).
+    Handle genuine multi-alias "/"/","" cases via brand_map.yaml pins
+    instead, same as any other entity whose auto-slug needs to stay stable."""
     for tok in LIST_SPLIT.split(raw or ""):
         tok = clean(tok)
         if tok:
@@ -230,7 +239,18 @@ def main():
         if dummy_website:
             ent["website"] = None  # covers a dummy-link comment arriving on a later row than the one that set website
 
-        end_date = parse_date(row.get("ac_authorisationEndDate", ""))
+        # A genuine end date always parses to ISO. Guard against ac_authorisationEndDate
+        # occasionally containing unrelated leaked text (observed: a legal name, e.g.
+        # "Payhound Limited" -- a one-off data-entry error on ESMA's side, not a real
+        # end date) silently flipping status to "withdrawn" on a brand that's still
+        # fully authorised. parse_date() already warns and returns such values as-is,
+        # for visibility elsewhere; here that non-ISO text must NOT count as a real
+        # end date.
+        end_date_raw = parse_date(row.get("ac_authorisationEndDate", ""))
+        end_date = end_date_raw if end_date_raw and ISO_DATE_RE.match(end_date_raw) else None
+        if end_date_raw and not end_date:
+            print(f"  WARNING: ac_authorisationEndDate {end_date_raw!r} for {legal_name} "
+                  "doesn't look like a real date -- not treating as withdrawn", file=sys.stderr)
         record = {
             "authorised": parse_date(row.get("ac_authorisationNotificationDate", "")),
             "withdrawn": end_date,
