@@ -1,7 +1,7 @@
 {
-  "generated": "2026-11-18",
+  "generated": "2026-11-19",
   "source": "https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv",
-  "brand_count": 398,
+  "brand_count": 399,
   "brands": [
     "21bitcoin",
     "abanca",
@@ -175,7 +175,6 @@
     "ig-europe-gmbh",
     "ihre-volksbank-eg-neckar-odenwald-main-tauber",
     "ilavo-group-a-s",
-    "ilirika",
     "in-kapital",
     "incrementum",
     "interactive-brokers",
@@ -323,6 +322,7 @@
     "twino",
     "tyr-markets",
     "unlimit-crypto",
+    "uphold-digital-assets-europe-unipessoal-lda",
     "v-bank",
     "validvent",
     "vbu-volksbank-im-unterland-eg",
@@ -345,6 +345,7 @@
     "volksbank-in-der-hohen-mark-eg",
     "volksbank-in-der-region-eg",
     "volksbank-in-ostwestfalen-eg",
+    "volksbank-magdeburg-eg",
     "volksbank-mittlerer-neckar-eg",
     "volksbank-mittlerer-schwarzwald-eg",
     "volksbank-niederrhein-eg",
