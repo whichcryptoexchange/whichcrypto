@@ -297,3 +297,18 @@ company_facts:
   registration_status: issued
   entity_creation_date: '2025-04-03'
   retrieved: '2026-08-12'
+news_mentions:
+- source: The Block
+  category: regulatory
+  title: CFTC Chair on Hyperliquid and onchain venues, Ripple CLO doubts Elizabeth Warren will set crypto
+    policy, and more
+  url: https://www.theblock.co/newsletters/the-daily/2026-11-20-cftc-chair-hyperliquid-ripple-clo-elizabeth-warren-crypto-policy-more-news-444143
+  published: '2026-11-20'
+  retrieved: '2026-11-20'
+- source: The Block
+  category: general
+  title: Ripple’s Alderoty doubts Elizabeth Warren will ‘set crypto policy in this country,’ backs durable
+    agency rules
+  url: https://www.theblock.co/news/regulation/2026-11-19-ripple-alderoty-elizabeth-warren-wont-set-crypto-policy-backs-durable-agency-rules-444105
+  published: '2026-11-19'
+  retrieved: '2026-11-20'

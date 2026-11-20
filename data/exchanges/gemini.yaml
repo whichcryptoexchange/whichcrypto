@@ -270,6 +270,12 @@ third_party_reviews:
 news_mentions:
 - source: Cointelegraph
   category: general
+  title: VanEck to end Gemini ETF custody deals, keeps Coinbase
+  url: https://cointelegraph.com/news/vaneck-gemini-etf-custody-end-keep-coinbase?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound
+  published: '2026-11-20'
+  retrieved: '2026-11-20'
+- source: Cointelegraph
+  category: general
   title: Gemini posts $108M Q2 net loss despite 37% revenue growth
   url: https://cointelegraph.com/news/gemini-45m-q2-revenue-financial-services?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound
   published: '2026-08-14'
