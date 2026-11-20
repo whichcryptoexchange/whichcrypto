@@ -260,6 +260,18 @@ countries:
 news_mentions:
 - source: The Block
   category: general
+  title: MoonPay applies for national trust bank charter to expand stablecoin services
+  url: https://www.theblock.co/news/business/2026-11-20-moonpay-applies-occ-national-bank-charter-444198
+  published: '2026-11-20'
+  retrieved: '2026-11-20'
+- source: Cointelegraph
+  category: general
+  title: MoonPay seeks US bank charter for stablecoin, custody services
+  url: https://cointelegraph.com/news/moonpay-seeks-us-bank-charter-for-stablecoin-custody-services?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound
+  published: '2026-11-19'
+  retrieved: '2026-11-20'
+- source: The Block
+  category: general
   title: MoonPay, Upbit parent Dunamu explore collaboration on stablecoin payments, GIWA expansion
   url: https://www.theblock.co/news/business/2026-10-20-moonpay-upbit-dunamu-421476
   published: '2026-10-21'
