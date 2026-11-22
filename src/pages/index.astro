@@ -21,10 +21,11 @@ const myExchanges = exchanges.filter((e) => e.countries?.MY);
 const krExchanges = exchanges.filter((e) => e.countries?.KR);
 const nzExchanges = exchanges.filter((e) => e.countries?.NZ);
 const bviExchanges = exchanges.filter((e) => e.countries?.VG);
+const auExchanges = exchanges.filter((e) => e.countries?.AU);
 const nyDfsCount = exchanges.filter((e) => (e.countries?.US ?? []).some((entry) => entry.via === 'ny_dfs_register')).length;
 const SITEKEY = import.meta.env.PUBLIC_TURNSTILE_SITEKEY || '0x4AAAAAAD84t4OWkoouLP3Y';
 const PAGE_TITLE = 'Is Your Crypto Exchange Licensed? | Cryptantia';
-const PAGE_DESC = 'Check which crypto exchanges are licensed in your country -- built from 15 official regulator registers (MiCA, FCA, VARA & more). No rankings, just receipts.';
+const PAGE_DESC = 'Check which crypto exchanges are licensed in your country -- built from 16 official regulator registers (MiCA, FCA, VARA & more). No rankings, just receipts.';
 ---
 <html lang="en">
 <head>
@@ -192,12 +193,15 @@ const PAGE_DESC = 'Check which crypto exchanges are licensed in your country -- 
       <li><strong>{bviExchanges.length}</strong> hold a British Virgin Islands VASP registration
       from the FSC — a genuine crypto-specific regime, manually verified, not automatically synced.
       <a href="/vg/">See the BVI page</a>.</li>
+      <li><strong>{auExchanges.length}</strong> have an Australian entity on the <a href="https://online.apps.austrac.gov.au/vaspr">AUSTRAC Virtual Asset Service Provider Register</a>
+      — AML/CTF Act registration only, not a licence; Australia's first dedicated crypto-specific
+      regime is still phasing in. <a href="/au/">See the Australia page</a>.</li>
     </ul>
 
     <h3>How to read the badges</h3>
     <div class="legend">
       <span class="stamp licensed">MiCA / VARA / ADGM / MAS / SFC / DLT / FSA / SC / NY DFS / BVI — Licensed</span>
-      <span class="stamp gb-registered">UK/CA/US/KR/NZ · Registered</span>
+      <span class="stamp gb-registered">UK/CA/US/KR/NZ/AU · Registered</span>
       <span class="stamp gb-authorised">UK · Authorised</span>
     </div>
     <ul class="sourced legend-note">
@@ -208,11 +212,12 @@ const PAGE_DESC = 'Check which crypto exchanges are licensed in your country -- 
       bot protection our scripts can't get through, so both are manually verified rather than
       automatically synced — see the Gibraltar and Dubai/Abu Dhabi pages. New York's is the only US
       state-level regime we track — see the US page.</li>
-      <li><strong>Registered</strong> (UK, Canada, US, South Korea) means anti-money-laundering
+      <li><strong>Registered</strong> (UK, Canada, US, South Korea, Australia) means anti-money-laundering
       supervision only, not a licence. The UK's own cryptoasset licensing regime doesn't open for
-      applications until 30 Sep 2026, and none of Canada, the US, or South Korea has a dedicated
-      cryptoasset licence at all — the US also has separate, unmapped state-level money transmitter
-      regimes.</li>
+      applications until 30 Sep 2026, and none of Canada, the US, South Korea, or Australia has a
+      dedicated cryptoasset licence yet — the US also has separate, unmapped state-level money
+      transmitter regimes, and Australia's own crypto-specific regime (ASIC AFSL cover under the
+      Corporations Amendment (Digital Assets Framework) Act 2026) is still phasing in.</li>
       <li><strong>UK Authorised</strong> means a group entity is separately, fully FCA-authorised,
       usually for a different, non-crypto regulated activity.</li>
       <li>Some Singapore-licensed brands (Anchorage Digital, HashKey, Paxos, Upbit, Independent
