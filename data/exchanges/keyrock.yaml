@@ -7,7 +7,7 @@ sources:
   retrieved: '2026-11-18'
 - name: UK FCA Register
   url: https://register.fca.org.uk/
-  retrieved: '2026-11-17'
+  retrieved: '2026-11-24'
 entities:
 - lei: 9845001BAFC53ODN8C90
   legal_name: KEYROCK FR SAS
