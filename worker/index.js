@@ -416,17 +416,28 @@ async function handleWatchUnsubscribe(env, token) {
 // one subscription covers every brand, not just one. The actual weekly
 // send (diffing the register and mailing confirmed subscribers) is a
 // separate follow-up; this is just collecting and confirming signups.
-async function sendDigestConfirmEmail(env, email, token) {
+// A subscription with a `countries` list is a per-jurisdiction licence alert
+// (signed up from a country page); NULL is the full roundup.
+const COUNTRY_CODE_RE = /^[A-Z]{2}$/;
+
+function parseCountries(s) {
+  return (s || '').split(',').filter((c) => COUNTRY_CODE_RE.test(c));
+}
+
+async function sendDigestConfirmEmail(env, email, token, countries) {
   const confirmUrl = `https://cryptantia.com/api/digest/confirm?token=${token}`;
+  const what = countries
+    ? `licence alerts from Cryptantia -- a weekly email when crypto firms are newly licensed, registered, or removed in: ${countries.split(',').join(', ')}.`
+    : 'the weekly regulatory roundup email from Cryptantia -- every change across every tracked exchange, once a week.';
   const text = [
-    'Someone (hopefully you) asked to get the weekly regulatory roundup email from Cryptantia -- every change across every tracked exchange, once a week.',
+    `Someone (hopefully you) asked to get ${what}`,
     '',
     'Confirm and subscribe:',
     confirmUrl,
     '',
     "If you didn't request this, ignore this email -- nothing is created unless you click the link above.",
   ].join('\n');
-  await sendResendEmail(env, email, 'Confirm: weekly regulatory roundup', text);
+  await sendResendEmail(env, email, countries ? 'Confirm: crypto licence alerts' : 'Confirm: weekly regulatory roundup', text);
 }
 
 async function handleDigestSignup(request, env) {
@@ -441,6 +452,8 @@ async function handleDigestSignup(request, env) {
   const email = sanitizeHeader(body.email, 200);
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return json({ error: 'a valid email is required' }, 400);
   if (!body.consent) return json({ error: 'consent is required to subscribe' }, 400);
+  const country = String(body.country || '').toUpperCase();
+  if (country && !COUNTRY_CODE_RE.test(country)) return json({ error: 'invalid country' }, 400);
 
   const ip_hash = await sha256hex(env.IP_SALT + ip);
   const { results: recent } = await env.DB.prepare(
@@ -449,22 +462,44 @@ async function handleDigestSignup(request, env) {
   if (recent[0].n >= 10) return json({ error: 'rate limit reached — try again later' }, 429);
 
   const existing = await env.DB.prepare(
-    'SELECT token, confirmed FROM digest_subscribers WHERE email = ?'
+    'SELECT token, confirmed, countries FROM digest_subscribers WHERE email = ?'
   ).bind(email).first();
 
-  if (existing?.confirmed) {
-    return json({ ok: true, message: "You're already subscribed to the weekly roundup." });
+  // A full-roundup subscriber (countries NULL) already gets every country,
+  // so a country signup never narrows it. A country subscriber signing up
+  // again from another country page gets that country added to their list.
+  let countries = country || null;
+  if (existing) {
+    const current = parseCountries(existing.countries);
+    countries = existing.countries === null || !country
+      ? null
+      : [...new Set([...current, country])].sort().join(',');
+    if (existing.confirmed) {
+      if (countries === existing.countries) {
+        return json({ ok: true, message: country && existing.countries !== null
+          ? `You're already getting licence alerts for ${country}.`
+          : "You're already subscribed to the weekly roundup." });
+      }
+      await env.DB.prepare('UPDATE digest_subscribers SET countries = ? WHERE email = ?')
+        .bind(countries, email).run();
+      return json({ ok: true, message: countries
+        ? `Added ${country} — you'll now get licence alerts for ${countries.split(',').join(', ')}.`
+        : "You're now subscribed to the full weekly roundup." });
+    }
   }
 
   const token = existing?.token ?? randomToken();
   if (!existing) {
     await env.DB.prepare(
-      'INSERT INTO digest_subscribers (email, token, ip_hash) VALUES (?,?,?)'
-    ).bind(email, token, ip_hash).run();
+      'INSERT INTO digest_subscribers (email, token, ip_hash, countries) VALUES (?,?,?,?)'
+    ).bind(email, token, ip_hash, countries).run();
+  } else {
+    await env.DB.prepare('UPDATE digest_subscribers SET countries = ? WHERE email = ?')
+      .bind(countries, email).run();
   }
 
   try {
-    await sendDigestConfirmEmail(env, email, token);
+    await sendDigestConfirmEmail(env, email, token, countries);
   } catch {
     return json({ error: 'could not send confirmation email — please try again later' }, 502);
   }
@@ -481,8 +516,11 @@ async function handleDigestConfirm(env, token) {
       "UPDATE digest_subscribers SET confirmed = 1, confirmed_at = datetime('now') WHERE token = ?"
     ).bind(token).run();
   }
+  const countries = parseCountries(row.countries);
   return watchPage('Subscribed',
-    `<p>You'll get the weekly regulatory roundup from Cryptantia.</p>
+    `<p>${countries.length
+      ? `You'll get weekly licence alerts from Cryptantia for ${esc(countries.join(', '))} — only in weeks when something changes there.`
+      : "You'll get the weekly regulatory roundup from Cryptantia."}</p>
      <p><a href="/api/digest/unsubscribe?token=${esc(token)}">Unsubscribe</a> any time, no login needed.</p>`);
 }
 
@@ -510,22 +548,59 @@ async function handleDigestSend(request, env, url) {
   const text = String(body.text || '').slice(0, 20000);
   if (!subject || !text) return json({ error: 'subject and text are required' }, 400);
 
+  const sections = Array.isArray(body.sections) ? body.sections : [];
+
   const { results: subscribers } = await env.DB.prepare(
-    'SELECT email, token FROM digest_subscribers WHERE confirmed = 1'
+    'SELECT email, token, countries FROM digest_subscribers WHERE confirmed = 1'
   ).all();
 
   let sent = 0;
   let failed = 0;
+  let skipped = 0;
   for (const sub of subscribers) {
+    const countries = parseCountries(sub.countries);
+    let subSubject = subject;
+    let subText = text;
+    if (countries.length) {
+      const filtered = filterDigestSections(sections, new Set(countries));
+      if (!filtered) { skipped++; continue; }
+      ({ subject: subSubject, text: subText } = filtered);
+    }
     const unsubUrl = `https://cryptantia.com/api/digest/unsubscribe?token=${sub.token}`;
     try {
-      await sendResendEmail(env, sub.email, subject, `${text}\n\n---\nUnsubscribe: ${unsubUrl}`);
+      await sendResendEmail(env, sub.email, subSubject, `${subText}\n\n---\nUnsubscribe: ${unsubUrl}`);
       sent++;
     } catch {
       failed++;
     }
   }
-  return json({ total: subscribers.length, sent, failed });
+  return json({ total: subscribers.length, sent, failed, skipped });
+}
+
+// Same layout as weekly_digest.py's full text, keeping only items tagged
+// with one of the subscriber's countries. Returns null when nothing matched,
+// so country subscribers are never sent a "no changes" email.
+function filterDigestSections(sections, countries) {
+  const lines = [];
+  let count = 0;
+  for (const sec of sections) {
+    const items = (sec.items || []).filter((it) => (it.codes || []).some((c) => countries.has(c)));
+    if (!items.length) continue;
+    count += items.length;
+    lines.push('', `-- ${String(sec.label).slice(0, 100)} --`, ...items.map((it) => `- ${String(it.text).slice(0, 500)}`));
+  }
+  if (!count) return null;
+  const plural = count === 1 ? '' : 's';
+  const where = [...countries].sort().join(', ');
+  return {
+    subject: `Crypto licence alerts (${where}): ${count} change${plural} this week`,
+    text: [
+      `${count} change${plural} this week affecting ${where}:`,
+      ...lines,
+      '',
+      ...[...countries].sort().map((c) => `${c} register: https://cryptantia.com/${c.toLowerCase()}/`),
+    ].join('\n'),
+  };
 }
 
 // UK crypto tax deadline reminders + occasional "rules changed" alerts --

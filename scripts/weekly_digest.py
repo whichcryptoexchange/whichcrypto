@@ -22,9 +22,15 @@ list.
 Usage:
   python3 scripts/weekly_digest.py [--since-days 7]
 
-Prints {"subject": ..., "text": ..., "count": N} as JSON on stdout. count is
-the number of individual changes detected; the caller (the weekly-digest
-GitHub Actions workflow) skips sending when count is 0.
+Prints {"subject": ..., "text": ..., "count": N, "sections": [...]} as JSON
+on stdout. count is the number of individual changes detected; the caller
+(the weekly-digest GitHub Actions workflow) skips sending when count is 0.
+
+sections repeats the same changes, each item tagged with the country codes
+it affects, so the worker can build a filtered email for per-jurisdiction
+licence-alert subscribers. A new or removed EU entry is tagged with every
+country it passports to, so a Slovakia subscriber hears about a firm newly
+authorised in Germany that can now serve Slovakia.
 """
 import argparse
 import json
@@ -103,12 +109,13 @@ def country_signature(entries):
 
 
 def diff_brand(old, new):
-    """Returns a list of (group_key, description) tuples."""
+    """Returns a list of (group_key, description, country_codes) tuples."""
     changes = []
     old_eu = old.get("eu_status") if old else None
     new_eu = new.get("eu_status")
     if old is not None and old_eu != new_eu:
-        changes.append((EEA_GROUP, f"EU MiCA status changed: {old_eu or 'none'} -> {new_eu or 'none'}"))
+        eea_touched = (set((old or {}).get("countries") or {}) | set(new.get("countries") or {})) & EEA_CODES
+        changes.append((EEA_GROUP, f"EU MiCA status changed: {old_eu or 'none'} -> {new_eu or 'none'}", eea_touched))
 
     old_countries = (old or {}).get("countries") or {}
     new_countries = new.get("countries") or {}
@@ -120,11 +127,11 @@ def diff_brand(old, new):
             continue
         if cc not in old_countries:
             for status, regime, _entity in sorted(new_sig, key=lambda t: t[1] or ""):
-                changes.append((cc, f"new entry -- {status} under {regime}"))
+                changes.append((cc, f"new entry -- {status} under {regime}", {cc}))
         elif cc not in new_countries:
-            changes.append((cc, "entry removed"))
+            changes.append((cc, "entry removed", {cc}))
         else:
-            changes.append((cc, "entry updated"))
+            changes.append((cc, "entry updated", {cc}))
     return changes
 
 
@@ -152,8 +159,8 @@ def main():
 
     sections = {}
 
-    def add(group, line):
-        sections.setdefault(group, []).append(line)
+    def add(group, line, codes):
+        sections.setdefault(group, []).append((line, sorted(codes)))
 
     for bid, new in sorted(new_state.items(), key=lambda kv: kv[1].get("brand", kv[0])):
         old = old_state.get(bid)
@@ -163,19 +170,19 @@ def main():
             genuine = genuine_licence_summary(new)
             if genuine:
                 summary += " -- " + ", ".join(genuine)
-            add(NEW_ENTRIES, summary)
+            add(NEW_ENTRIES, summary, (new.get("countries") or {}).keys())
             continue
-        for group, desc in diff_brand(old, new):
-            add(group, f"{brand}: {desc}")
+        for group, desc, codes in diff_brand(old, new):
+            add(group, f"{brand}: {desc}", codes)
 
     for bid in sorted(set(old_state) - set(new_state)):
-        add(REMOVED, old_state[bid].get("brand", bid))
+        add(REMOVED, old_state[bid].get("brand", bid), (old_state[bid].get("countries") or {}).keys())
 
     count = sum(len(v) for v in sections.values())
+    ordered_keys = GROUP_ORDER + sorted(k for k in sections if k not in GROUP_ORDER)
     if count == 0:
         text = "No regulatory changes to report this week."
     else:
-        ordered_keys = GROUP_ORDER + sorted(k for k in sections if k not in GROUP_ORDER)
         lines = [
             f"{count} change{'s' if count != 1 else ''} on Cryptantia this week:",
         ]
@@ -185,7 +192,7 @@ def main():
                 continue
             lines.append("")
             lines.append(f"-- {group_label(key)} --")
-            lines += [f"- {item}" for item in items]
+            lines += [f"- {line}" for line, _codes in items]
         lines += [
             "",
             "Full register: https://cryptantia.com/exchanges/",
@@ -197,7 +204,11 @@ def main():
         f"Weekly regulatory roundup: {count} change{'s' if count != 1 else ''}"
         if count else "Weekly regulatory roundup: no changes this week"
     )
-    print(json.dumps({"subject": subject, "text": text, "count": count}))
+    structured = [
+        {"label": group_label(key), "items": [{"text": line, "codes": codes} for line, codes in sections[key]]}
+        for key in ordered_keys if sections.get(key)
+    ]
+    print(json.dumps({"subject": subject, "text": text, "count": count, "sections": structured}))
 
 
 if __name__ == "__main__":

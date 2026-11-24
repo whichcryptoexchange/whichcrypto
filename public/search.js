@@ -107,6 +107,8 @@
 
 // Weekly digest signup -- shared across every top-level page so the form
 // markup + Turnstile widget don't need a duplicated inline handler on each.
+// Country pages set data-country, which makes it a per-jurisdiction licence
+// alert instead of the full roundup.
 (() => {
   const form = document.getElementById('digest-form');
   if (!form) return;
@@ -123,6 +125,7 @@
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           email: fd.get('email'), consent: fd.get('consent') === 'on', turnstile_token: token,
+          country: form.dataset.country,
         }),
       });
       const data = await res.json();

@@ -738,6 +738,15 @@ footer.site .trustpilot-widget iframe { margin: 0 !important; }
 .digest-cta-row button:hover { background: #0f5a35; }
 .digest-cta .consent-label { margin-bottom: 10px; }
 
+/* Country-page "Getting a crypto licence in X" section, aimed at business
+   visitors -- reuses .record/.stamp for each regime. */
+.licensing-guide { margin: 40px 0; }
+.licensing-guide .record { margin-bottom: 16px; }
+.licensing-guide .record dd ul { margin: 0; padding-left: 18px; }
+.recent-approvals { list-style: none; padding: 0; margin: 0 0 16px; }
+.recent-approvals li { padding: 4px 0; border-bottom: 1px solid var(--rule); }
+.licensing-guide .digest-cta { margin-top: 24px; }
+
 /* /faq/ hub: a search box + category chips above a filtered accordion,
    deliberately not a static list of 445 items -- see public/faq.js. */
 .faq-search-box { margin: 0 0 24px; }

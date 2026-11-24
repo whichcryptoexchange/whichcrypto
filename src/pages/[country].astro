@@ -116,6 +116,28 @@ const passportedCount = !isNonEEA ? rows.length - homeStateCount : 0;
 const tierCounts = isNonEEA
   ? Object.fromEntries(tiersOnPage.map((t) => [t, rows.filter(({ c }) => c.some((e) => e.status === t)).length]))
   : {};
+// "Getting a crypto licence in X" section, for business visitors (Search
+// Console shows most impressions on these pages are licence/registration
+// queries, not "which exchange" ones). Built only from data already on the
+// site: regulator_details.yaml for the regime, and the register rows above
+// for who grants it here and who was most recently approved.
+// EEA: the national authority comes from the ESMA register's own
+// competent-authority field on firms authorised directly in this state --
+// if none are, we don't name one rather than guess it.
+const homeEntities = !isNonEEA
+  ? exchanges.flatMap((ex) => (ex.entities ?? [])
+      .filter((ent) => ent.home_state === code)
+      .map((ent) => ({ ex, ent })))
+  : [];
+const nationalAuthorities = [...new Set(homeEntities.map(({ ent }) => ent.regulator).filter(Boolean))];
+const recentApprovals = (isNonEEA
+  ? rows.flatMap(({ ex, c }) => c.filter((e) => e.since).map((e) => ({ ex, entity: e.entity, since: e.since, label: e.regime })))
+  : homeEntities.flatMap(({ ex, ent }) => ent.records
+      .filter((r) => r.status === 'authorised' && r.authorised)
+      .map((r) => ({ ex, entity: ent.legal_name, since: r.authorised, label: 'MiCA' }))))
+  .sort((a, b) => b.since.localeCompare(a.since))
+  .slice(0, 5);
+
 const YEAR = new Date().getFullYear();
 const PAGE_TITLE = isGB
   ? `UK Crypto Exchanges: Registered or Authorised | Cryptantia`
@@ -646,6 +668,81 @@ const PAGE_DESC = isGB
       retrieved {exchanges[0]?.sources?.[0]?.retrieved}. An exchange missing from this list either
       holds no authorisation covering {name} or is not yet in our register.</p>
     )}
+
+    <section class="licensing-guide" id="licensing">
+      <h2>{hasGenuineLicenceHere ? `Getting a crypto licence in ${name}` : `Getting a crypto licence or registration in ${name}`}</h2>
+      <p class="lede lede-wide">For businesses: which regime applies in {name}, who grants it, what
+      the regulator checks, and who has most recently been approved — summarised from the same
+      official sources as the table above.</p>
+
+      {!isNonEEA && (
+        <p class="lede lede-wide">Crypto-asset service providers in {name} fall under the EU's
+        Markets in Crypto-Assets Regulation (MiCA).{' '}
+        {nationalAuthorities.length > 0 ? (
+          <>The {homeStateCount} firm{homeStateCount === 1 ? '' : 's'} in our register authorised
+          directly in {name}{' '}{homeStateCount === 1 ? 'was' : 'were'} authorised by {listJoin(nationalAuthorities)},
+          per the ESMA register. The other {passportedCount} reach {name} by passporting an
+          authorisation from another EU/EEA state.</>
+        ) : (
+          <>None of the firms in our register holds its MiCA authorisation directly in {name} —
+          all {rows.length} reach it by passporting an authorisation from another EU/EEA state.</>
+        )}</p>
+      )}
+
+      {regDetails.map((d) => (
+        <div class={`record ${d.tier === 'licensed' ? 'non-eea-licensed' : 'non-eea-registered'}`}>
+          <h3>{d.name}</h3>
+          <span class={`stamp ${d.tier === 'licensed' ? 'licensed' : 'gb-registered'}`}>{d.tier_label}</span>
+          <dl>
+            {d.scope && (<><dt>Scope</dt><dd>{d.scope}</dd></>)}
+            {d.capital && (<><dt>Capital</dt><dd>{d.capital}</dd></>)}
+            {d.checks?.length > 0 && (
+              <><dt>What's checked</dt><dd><ul>{d.checks.map((c) => <li>{c}</li>)}</ul></dd></>
+            )}
+            <dt>Source</dt>
+            <dd><a href={d.source_url}>{new URL(d.source_url).hostname}</a>, reviewed {d.verified}</dd>
+          </dl>
+        </div>
+      ))}
+
+      {recentApprovals.length > 0 && (
+        <>
+          <h3>Most recent approvals{!isNonEEA && <> directly in {name}</>}</h3>
+          <ul class="recent-approvals">
+            {recentApprovals.map(({ ex, entity, since, label }) => (
+              <li><span class="datum">{since}</span> — <a href={`/exchange/${ex.id}/`}>{ex.brand}</a>
+              <span class="sourced">({entity}, {label})</span></li>
+            ))}
+          </ul>
+        </>
+      )}
+
+      <p class="sourced">A summary of public regulator information, not legal advice. Capital
+      requirements and processes change, so confirm the current position with the regulator or a
+      qualified adviser before applying.</p>
+
+      {SITEKEY && (
+        <div class="digest-cta">
+          <h3>Get crypto licence alerts for {name}</h3>
+          <p>A weekly email when firms are newly licensed, registered, or removed in {name}, straight
+          from the official registers. Sent only in weeks when something changes. Free, and you can
+          unsubscribe any time.</p>
+          <form id="digest-form" data-country={code}>
+            <div class="digest-cta-row">
+              <input type="email" name="email" placeholder="you@company.com" required maxlength="200" aria-label="Email address" />
+              <button type="submit">Get alerts</button>
+            </div>
+            <label class="consent-label">
+              <input type="checkbox" name="consent" required />
+              I want weekly email alerts about licence changes in {name}. Unsubscribe any time, no
+              login needed.
+            </label>
+            <div class="cf-turnstile" data-sitekey={SITEKEY}></div>
+            <p class="form-msg sourced" role="status"></p>
+          </form>
+        </div>
+      )}
+    </section>
 
     <section class="country-guidance">
       <h3>Which crypto exchange is right for you in {name}?</h3>
