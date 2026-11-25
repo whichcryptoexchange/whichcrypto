@@ -776,13 +776,26 @@ async function handleAdminIndex(request, env, url) {
   if (key !== env.ADMIN_KEY || !env.ADMIN_KEY) {
     return new Response('forbidden', { status: 403 });
   }
-  const [reports, submissions, providerSubmissions, exchangeClaims, taxReminders] = await Promise.all([
+  const [reports, submissions, providerSubmissions, exchangeClaims, taxReminders, digest] = await Promise.all([
     env.DB.prepare("SELECT COUNT(*) AS n FROM reports WHERE status = 'pending'").first(),
     env.DB.prepare("SELECT COUNT(*) AS n FROM submissions WHERE status = 'pending'").first(),
     env.DB.prepare("SELECT COUNT(*) AS n FROM provider_submissions WHERE status = 'pending'").first(),
     env.DB.prepare("SELECT COUNT(*) AS n FROM exchange_claims WHERE status = 'pending'").first(),
     env.DB.prepare("SELECT COUNT(*) AS n FROM tax_reminder_subscribers WHERE confirmed = 1").first(),
+    env.DB.prepare('SELECT countries FROM digest_subscribers WHERE confirmed = 1').all(),
   ]);
+  // Licence-alert subscribers can follow several countries ('CZ,SK'), so
+  // count per country in JS rather than GROUP BY on the raw string.
+  let fullRoundup = 0;
+  const perCountry = {};
+  for (const { countries } of digest.results) {
+    const codes = parseCountries(countries);
+    if (!codes.length) fullRoundup++;
+    for (const c of codes) perCountry[c] = (perCountry[c] || 0) + 1;
+  }
+  const alertBreakdown = Object.entries(perCountry)
+    .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
+    .map(([c, n]) => `${c} ${n}`).join(', ');
   const q = `?key=${encodeURIComponent(key)}`;
   return new Response(
     `<!doctype html><meta charset="utf-8"><title>Admin</title>
@@ -796,6 +809,8 @@ async function handleAdminIndex(request, env, url) {
        <li><a href="/admin/exchange-claims${q}">Exchange claims</a> <span class="n">(${exchangeClaims.n} pending)</span></li>
        <li><a href="/admin/links${q}">Affiliate links</a> <span class="n">(live management, not a queue)</span></li>
        <li>Tax reminder subscribers <span class="n">(${taxReminders.n} confirmed)</span></li>
+       <li>Weekly roundup subscribers <span class="n">(${fullRoundup} confirmed)</span></li>
+       <li>Licence alert subscribers <span class="n">(${digest.results.length - fullRoundup} confirmed${alertBreakdown ? `: ${alertBreakdown}` : ''})</span></li>
      </ul>`,
     { headers: { 'Content-Type': 'text/html; charset=utf-8' } });
 }
