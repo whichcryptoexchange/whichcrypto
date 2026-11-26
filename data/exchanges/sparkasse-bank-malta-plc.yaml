@@ -4,7 +4,7 @@ eu_status: authorised
 sources:
 - name: ESMA interim MiCA register (CASPS.csv)
   url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
-  retrieved: '2026-11-18'
+  retrieved: '2026-11-26'
 entities:
 - lei: 21380099RT73NFBYS559
   legal_name: Sparkasse Bank Malta Plc
@@ -22,7 +22,7 @@ entities:
     - g
     passported_to:
     - MT
-    last_update: '2026-10-02'
+    last_update: '2026-11-18'
 countries:
   MT:
     status: licensed
