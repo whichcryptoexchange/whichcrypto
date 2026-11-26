@@ -4,7 +4,7 @@ eu_status: authorised
 sources:
 - name: ESMA interim MiCA register (CASPS.csv)
   url: https://www.esma.europa.eu/sites/default/files/2024-12/CASPS.csv
-  retrieved: '2026-11-18'
+  retrieved: '2026-11-26'
 entities:
 - lei: 213800HP6KZ9XS1D1U57
   legal_name: VSMARKETS LTD
