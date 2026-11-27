@@ -42,6 +42,7 @@ import pathlib
 import re
 import sys
 import time
+import urllib.error
 import urllib.parse
 import urllib.request
 
@@ -152,7 +153,17 @@ def main():
     as_of = dt.date.today().isoformat()
     reg_map = yaml.safe_load((DATA / "fincen_reg_map.yaml").read_text()) or {}
     exch_dir = DATA / "exchanges"
-    opener = make_opener()
+    # msb.fincen.gov has refused HTTPS connections since around August 2026
+    # (www.fincen.gov's own search page just iframes the same dead host).
+    # An unreachable source isn't a bug here, so warn and leave every file
+    # untouched -- no PR, no failed run -- and let the US page's staleness
+    # notice (driven by the unchanged `retrieved` dates) tell visitors.
+    try:
+        opener = make_opener()
+    except (urllib.error.URLError, TimeoutError, ConnectionError) as e:
+        print(f"::warning title=FinCEN unreachable::{FORM_URL} could not be reached ({e}); "
+              "no data changed, existing entries keep their last retrieved date.")
+        return
 
     for brand_id, regs in sorted(reg_map.items()):
         path = exch_dir / f"{brand_id}.yaml"

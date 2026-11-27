@@ -93,6 +93,7 @@ const adgmRetrieved = sourceRetrieved('ADGM FSRA Public Register');
 const masRetrieved = sourceRetrieved('Singapore MAS Financial Institutions Directory');
 const fincenRetrieved = sourceRetrieved('US FinCEN MSB Registrant Search');
 const nyDfsRetrieved = sourceRetrieved('NY DFS List of Licensed Virtual Currency Entities');
+const fincenStale = fincenRetrieved && (Date.now() - Date.parse(fincenRetrieved)) > 30 * 864e5;
 const sfcRetrieved = sourceRetrieved('Hong Kong SFC VATP List');
 const gfscRetrieved = sourceRetrieved('Gibraltar GFSC DLT Providers List');
 const jpFsaRetrieved = sourceRetrieved('Japan FSA Registered Crypto-asset Exchange Service Providers List');
@@ -374,6 +375,12 @@ const PAGE_DESC = isGB
         licence from the New York Department of Financial Services — either a Virtual Currency
         License ("BitLicense") or a Limited Purpose Trust Charter — which <em>is</em> a real
         crypto-specific licence, not an AML-only registration.</p>
+        {fincenStale && (
+          <p class="lede lede-wide caveat">The FinCEN entries below were last checked on
+          {fincenRetrieved}, more than 30 days ago. Our weekly check hasn't been able to reach
+          FinCEN's MSB Registrant Search since then, so treat them as possibly out of date and
+          confirm on <a href="https://www.fincen.gov/msb-registrant-search">FinCEN's site</a>.</p>
+        )}
         <p class="lede lede-wide caveat">Crypto firms serving US customers may also need separate
         money transmitter licensing in the other 49 states, which isn't covered here, since none of
         them publish a single, checkable public register the way NYDFS does.</p>
