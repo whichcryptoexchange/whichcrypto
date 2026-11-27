@@ -747,6 +747,30 @@ footer.site .trustpilot-widget iframe { margin: 0 !important; }
 .recent-approvals li { padding: 4px 0; border-bottom: 1px solid var(--rule); }
 .licensing-guide .digest-cta { margin-top: 24px; }
 
+/* /licensing/<code>/ step-by-step guides: numbered citations into the
+   Sources list at the bottom of the page. */
+.guide-section { margin: 32px 0; max-width: 72ch; }
+.guide-section li { margin-bottom: 8px; }
+.guide-alert { border-left: 4px solid var(--caution); padding-left: 16px; }
+.cite { font: 12px var(--mono); text-decoration: none; white-space: nowrap; }
+.guide-sources { margin-top: 40px; font-size: 14px; }
+.guide-sources li { margin-bottom: 6px; }
+.guide-index li { margin-bottom: 10px; }
+
+/* /learn/<slug>/ long-form articles. Citations are GFM footnotes rendered
+   by @astrojs/markdown-remark (see src/lib/articles.js). */
+.article-byline { margin-top: -8px; }
+.article-tldr { max-width: 72ch; margin: 24px 0; }
+.article-tldr ul { margin: 8px 0 0; padding-left: 18px; }
+.article-body { max-width: 72ch; }
+.article-body h2 { margin-top: 36px; }
+.article-body table { border-collapse: collapse; margin: 16px 0; font-size: 14px; display: block; overflow-x: auto; }
+.article-body th, .article-body td { border-bottom: 1px solid var(--rule); padding: 6px 12px 6px 0; text-align: left; vertical-align: top; }
+.article-body sup a { font: 11px var(--mono); text-decoration: none; }
+.article-body .footnotes { margin-top: 40px; font-size: 13px; border-top: 1px solid var(--rule); }
+.article-body .footnotes .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+.article-faq, .article-related { max-width: 72ch; margin-top: 36px; }
+
 /* /faq/ hub: a search box + category chips above a filtered accordion,
    deliberately not a static list of 445 items -- see public/faq.js. */
 .faq-search-box { margin: 0 0 24px; }

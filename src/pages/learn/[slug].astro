@@ -1,0 +1,163 @@
+---
+import { loadExchanges, footerStats } from '../../lib/data.js';
+import { loadArticles } from '../../lib/articles.js';
+import '../../styles/global.css';
+const SITEKEY = import.meta.env.PUBLIC_TURNSTILE_SITEKEY || '0x4AAAAAAD84t4OWkoouLP3Y';
+
+export async function getStaticPaths() {
+  const exchanges = loadExchanges();
+  const stats = footerStats(exchanges);
+  const articles = await loadArticles(exchanges);
+  return articles.map((article) => ({
+    params: { slug: article.slug },
+    props: { article, stats, related: articles.filter((a) => (article.related ?? []).includes(a.slug)) },
+  }));
+}
+
+const { article, stats, related } = Astro.props;
+const PAGE_TITLE = `${article.title} | Cryptantia`;
+const PAGE_DESC = article.description;
+---
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{PAGE_TITLE}</title>
+  <meta name="description" content={PAGE_DESC} />
+  <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site)} />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content={new URL(Astro.url.pathname, Astro.site)} />
+  <meta property="og:site_name" content="Cryptantia" />
+  <meta property="og:title" content={PAGE_TITLE} />
+  <meta property="og:description" content={PAGE_DESC} />
+  <meta property="og:image" content={new URL('/og-image.jpg', Astro.site)} />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={PAGE_TITLE} />
+  <meta name="twitter:description" content={PAGE_DESC} />
+  <meta name="twitter:image" content={new URL('/og-image.jpg', Astro.site)} />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <script src="https://analytics.ahrefs.com/analytics.js" data-key="QTM3lN9yt0oU0rxrj5zadA" async></script>
+  <!-- X conversion tracking base code -->
+  <script>
+  !function(e,t,n,s,u,a){e.twq||(s=e.twq=function(){s.exe?s.exe.apply(s,arguments):s.queue.push(arguments);
+  },s.version='1.1',s.queue=[],u=t.createElement(n),u.async=!0,u.src='https://static.ads-twitter.com/uwt.js',
+  a=t.getElementsByTagName(n)[0],a.parentNode.insertBefore(u,a))}(window,document,'script');
+  twq('config','ref28');
+  </script>
+  <!-- End X conversion tracking base code -->
+  <!-- TrustBox script -->
+  <script type="text/javascript" src="//widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js" async></script>
+  <!-- End TrustBox script -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: article.title,
+    description: article.description,
+    dateModified: article.updated,
+    author: { '@type': 'Organization', name: 'Cryptantia research team', url: 'https://cryptantia.com/about/' },
+    publisher: { '@type': 'Organization', name: 'Cryptantia', url: 'https://cryptantia.com/' },
+  })} />
+  {article.faq?.length > 0 && (
+    <script type="application/ld+json" set:html={JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: article.faq.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
+    })} />
+  )}
+</head>
+<body>
+  <header class="site">
+    <div class="wrap">
+      <a class="logo" href="/">Cryptantia</a>
+      <div class="header-right">
+        <div class="site-search">
+          <input type="search" id="site-search" placeholder="Search exchanges or countries…" autocomplete="off" aria-label="Search exchanges" />
+          <div class="site-search-results" id="site-search-results" hidden></div>
+        </div>
+        <span class="sourced">source: official regulator registers</span>
+      </div>
+    </div>
+    <nav class="site-nav"><div class="wrap">
+      <a href="/exchanges/">Exchanges</a>
+      <a href="/regulators/">Regulators</a>
+      <a href="/learn/">Learn</a>
+      <a href="/providers/">Providers</a>
+      <a href="/faq/">FAQ</a>
+      <a href="/stats/">Stats</a>
+      <a href="/reviews/">Reviews</a>
+      <a href="/news/">News</a>
+    </div></nav>
+  </header>
+
+  <main class="wrap article-page">
+    <p class="sourced orientation"><a href="/learn/">Learn</a> / {article.audience === 'business' ? 'For businesses' : 'For consumers'}</p>
+    <h1>{article.title}</h1>
+    <p class="sourced article-byline">By the Cryptantia research team · Updated {article.updated} ·
+    Every regulatory point is linked to the regulator or the law itself. Not legal advice.</p>
+
+    {article.tldr?.length > 0 && (
+      <div class="record article-tldr">
+        <h3>In short</h3>
+        <ul>{article.tldr.map((t) => <li>{t}</li>)}</ul>
+      </div>
+    )}
+
+    <article class="article-body" set:html={article.html} />
+
+    {article.faq?.length > 0 && (
+      <section class="article-faq">
+        <h2>Frequently asked questions</h2>
+        {article.faq.map((f) => (<><h3>{f.q}</h3><p>{f.a}</p></>))}
+      </section>
+    )}
+
+    {SITEKEY && article.alert_country && (
+      <div class="digest-cta">
+        <h3>Get crypto licence alerts</h3>
+        <p>A weekly email when firms are newly licensed, registered, or removed in the country you
+        choose, straight from the official registers. Sent only in weeks when something changes.</p>
+        <form id="digest-form" data-country={article.alert_country}>
+          <div class="digest-cta-row">
+            <input type="email" name="email" placeholder="you@company.com" required maxlength="200" aria-label="Email address" />
+            <button type="submit">Get alerts</button>
+          </div>
+          <label class="consent-label">
+            <input type="checkbox" name="consent" required />
+            I want weekly email alerts about licence changes in {article.alert_country}. Unsubscribe
+            any time, no login needed.
+          </label>
+          <div class="cf-turnstile" data-sitekey={SITEKEY}></div>
+          <p class="form-msg sourced" role="status"></p>
+        </form>
+      </div>
+    )}
+
+    {related.length > 0 && (
+      <section class="article-related">
+        <h2>Related</h2>
+        <ul>{related.map((r) => <li><a href={`/learn/${r.slug}/`}>{r.title}</a></li>)}</ul>
+      </section>
+    )}
+  </main>
+
+  <footer class="site"><div class="wrap">
+    <div class="footer-top">
+      <p><a href="/about/">About</a> · <a href="/contact/">Contact</a> · <a href="/changelog/">Changelog</a> · <a href="/exchanges/">Exchanges</a> · <a href="/regulators/">Regulators</a> · <a href="/stats/">Stats</a> · <a href="/reviews/">Reviews</a> · <a href="/news/">News</a> · <a href="/providers/">Providers</a> · <a href="/faq/">FAQ</a> · <a href="https://x.com/whichcex">X</a></p>
+      <!-- TrustBox widget - Review Collector -->
+      <div class="trustpilot-widget" data-locale="en-US" data-template-id="56278e9abfbbba0bdcd568bc" data-businessunit-id="6a79a88069053747f3a86e5d" data-style-height="52px" data-style-width="100%" data-token="4446dd34-abb7-486d-9d18-4cb40eab0921">
+        <a href="https://www.trustpilot.com/review/whichcryptoexchange.com" target="_blank" rel="noopener">Trustpilot</a>
+      </div>
+      <!-- End TrustBox widget -->
+    </div>
+    <p class="footer-meta">{stats.brandCount} brands tracked across {stats.jurisdictionCount} jurisdictions · Data last synced {stats.lastSynced} · <a href="/changelog.xml">RSS</a></p>
+    <p>Independent register. Not affiliated with any regulator. Not financial advice.</p>
+  </div></footer>
+
+  {SITEKEY && <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>}
+  <script src="/search.js" defer></script>
+</body>
+</html>

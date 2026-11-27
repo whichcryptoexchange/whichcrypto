@@ -1,0 +1,109 @@
+---
+import { loadExchanges, footerStats } from '../../lib/data.js';
+import { loadArticles } from '../../lib/articles.js';
+import '../../styles/global.css';
+
+const exchanges = loadExchanges();
+const stats = footerStats(exchanges);
+const articles = await loadArticles(exchanges);
+const business = articles.filter((a) => a.audience === 'business');
+const consumer = articles.filter((a) => a.audience !== 'business');
+const PAGE_TITLE = 'Learn: Crypto Licensing Explained, by Jurisdiction | Cryptantia';
+const PAGE_DESC = 'Where to get a crypto licence, what each regulator expects, and what the evidence says about each regime, with every point sourced to the regulator.';
+---
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{PAGE_TITLE}</title>
+  <meta name="description" content={PAGE_DESC} />
+  <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site)} />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content={new URL(Astro.url.pathname, Astro.site)} />
+  <meta property="og:site_name" content="Cryptantia" />
+  <meta property="og:title" content={PAGE_TITLE} />
+  <meta property="og:description" content={PAGE_DESC} />
+  <meta property="og:image" content={new URL('/og-image.jpg', Astro.site)} />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={PAGE_TITLE} />
+  <meta name="twitter:description" content={PAGE_DESC} />
+  <meta name="twitter:image" content={new URL('/og-image.jpg', Astro.site)} />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <script src="https://analytics.ahrefs.com/analytics.js" data-key="QTM3lN9yt0oU0rxrj5zadA" async></script>
+  <!-- X conversion tracking base code -->
+  <script>
+  !function(e,t,n,s,u,a){e.twq||(s=e.twq=function(){s.exe?s.exe.apply(s,arguments):s.queue.push(arguments);
+  },s.version='1.1',s.queue=[],u=t.createElement(n),u.async=!0,u.src='https://static.ads-twitter.com/uwt.js',
+  a=t.getElementsByTagName(n)[0],a.parentNode.insertBefore(u,a))}(window,document,'script');
+  twq('config','ref28');
+  </script>
+  <!-- End X conversion tracking base code -->
+  <!-- TrustBox script -->
+  <script type="text/javascript" src="//widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js" async></script>
+  <!-- End TrustBox script -->
+</head>
+<body>
+  <header class="site">
+    <div class="wrap">
+      <a class="logo" href="/">Cryptantia</a>
+      <div class="header-right">
+        <div class="site-search">
+          <input type="search" id="site-search" placeholder="Search exchanges or countries…" autocomplete="off" aria-label="Search exchanges" />
+          <div class="site-search-results" id="site-search-results" hidden></div>
+        </div>
+        <span class="sourced">source: official regulator registers</span>
+      </div>
+    </div>
+    <nav class="site-nav"><div class="wrap">
+      <a href="/exchanges/">Exchanges</a>
+      <a href="/regulators/">Regulators</a>
+      <a href="/learn/">Learn</a>
+      <a href="/providers/">Providers</a>
+      <a href="/faq/">FAQ</a>
+      <a href="/stats/">Stats</a>
+      <a href="/reviews/">Reviews</a>
+      <a href="/news/">News</a>
+    </div></nav>
+  </header>
+
+  <main class="wrap">
+    <h1>Learn</h1>
+    <p class="lede lede-wide">Guides to crypto licensing across the jurisdictions we track. Every
+    regulatory point links to the regulator or the law itself, and figures about who holds which
+    licence come live from our register.</p>
+
+    {business.length > 0 && (
+      <section class="guide-index-section">
+        <h2>For businesses: choosing and getting a licence</h2>
+        <ul class="guide-index">{business.map((a) => <li><a href={`/learn/${a.slug}/`}>{a.title}</a> <span class="sourced">(updated {a.updated})</span><br /><span class="sourced">{a.description}</span></li>)}</ul>
+        <p class="sourced">Step-by-step application checklists: <a href="/licensing/">licensing guides</a>.</p>
+      </section>
+    )}
+    {consumer.length > 0 && (
+      <section class="guide-index-section">
+        <h2>For consumers</h2>
+        <ul class="guide-index">{consumer.map((a) => <li><a href={`/learn/${a.slug}/`}>{a.title}</a> <span class="sourced">(updated {a.updated})</span></li>)}</ul>
+      </section>
+    )}
+  </main>
+
+  <footer class="site"><div class="wrap">
+    <div class="footer-top">
+      <p><a href="/about/">About</a> · <a href="/contact/">Contact</a> · <a href="/changelog/">Changelog</a> · <a href="/exchanges/">Exchanges</a> · <a href="/regulators/">Regulators</a> · <a href="/stats/">Stats</a> · <a href="/reviews/">Reviews</a> · <a href="/news/">News</a> · <a href="/providers/">Providers</a> · <a href="/faq/">FAQ</a> · <a href="https://x.com/whichcex">X</a></p>
+      <!-- TrustBox widget - Review Collector -->
+      <div class="trustpilot-widget" data-locale="en-US" data-template-id="56278e9abfbbba0bdcd568bc" data-businessunit-id="6a79a88069053747f3a86e5d" data-style-height="52px" data-style-width="100%" data-token="4446dd34-abb7-486d-9d18-4cb40eab0921">
+        <a href="https://www.trustpilot.com/review/whichcryptoexchange.com" target="_blank" rel="noopener">Trustpilot</a>
+      </div>
+      <!-- End TrustBox widget -->
+    </div>
+    <p class="footer-meta">{stats.brandCount} brands tracked across {stats.jurisdictionCount} jurisdictions · Data last synced {stats.lastSynced} · <a href="/changelog.xml">RSS</a></p>
+    <p>Independent register. Not affiliated with any regulator. Not financial advice.</p>
+  </div></footer>
+
+  <script src="/search.js" defer></script>
+</body>
+</html>

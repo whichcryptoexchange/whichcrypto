@@ -1,0 +1,142 @@
+# How-to-apply guide for one jurisdiction -- rendered at /licensing/<code>/.
+# Manually researched, like regulator_details.yaml: every item cites a key
+# in `sources`, and only facts stated in that source's own (verbatim) text
+# go in. Nothing from memory, nothing from secondary summaries. Re-check
+# each source's page and bump `reviewed` when revisiting.
+code: GB
+country: GB
+regulator: Financial Conduct Authority (FCA)
+title: How to register a cryptoasset business with the UK FCA
+heading: Registering a cryptoasset business in the UK
+intro: >-
+  Cryptoasset exchanges and custodian wallet providers doing business in the UK
+  must register with the Financial Conduct Authority under the Money Laundering
+  Regulations 2017 (MLRs). This is an anti-money-laundering registration, not a
+  licence. A full FCA authorisation regime for cryptoassets is on its way, so read
+  the first section before starting anything.
+reviewed: '2026-11-25'
+
+sources:
+  new_regime:
+    title: FCA, New regime for cryptoasset regulation
+    url: https://www.fca.org.uk/firms/new-regime-cryptoasset-regulation
+    updated: '2026-11-23'
+  mlr_ahead_of_fsma:
+    title: FCA, Registration under the MLRs ahead of the new FSMA regime
+    url: https://www.fca.org.uk/firms/new-regime-cryptoasset-regulation/registration-under-mlrs-ahead-new-fsma-regime
+    updated: '2026-09-16'
+  who_needs:
+    title: FCA, Cryptoasset registration, who needs to register
+    url: https://www.fca.org.uk/firms/cryptoassets/who-needs-register
+    updated: '2026-11-04'
+  how_apply:
+    title: FCA, How to apply for cryptoasset registration
+    url: https://www.fca.org.uk/firms/cryptoassets/how-apply-registration
+    updated: '2026-07-20'
+  application:
+    title: FCA, Cryptoasset AML/CTF registration, what we expect in applications
+    url: https://www.fca.org.uk/firms/cryptoassets/application-registration
+    updated: '2026-06-30'
+  fincrime:
+    title: FCA, Cryptoassets AML/CTF regime
+    url: https://www.fca.org.uk/firms/financial-crime/cryptoassets-aml-ctf-regime
+    updated: '2026-02-12'
+  cryptoassets:
+    title: FCA, Cryptoassets (firms)
+    url: https://www.fca.org.uk/firms/cryptoassets
+    updated: '2026-06-30'
+  fee_categories:
+    title: FCA, Application fees (pricing categories)
+    url: https://www.fca.org.uk/firms/authorisation/apply/fees
+    updated: '2026-11-19'
+  fees:
+    title: FCA, Fees
+    url: https://www.fca.org.uk/firms/fees
+    updated: '2026-03-26'
+
+sections:
+  - heading: The regime is changing — read this first
+    alert: true
+    items:
+      - text: The Financial Services and Markets Act 2000 (Cryptoassets) Regulations 2026 were made on 4 February 2026.
+        source: new_regime
+      - text: Applications for authorisation under FSMA opened on 30 September 2026. The new regime is expected to come into force on 25 October 2027.
+        source: new_regime
+      - text: Firms carrying out regulated cryptoasset activities will need FSMA authorisation, including firms that are already registered under the MLRs.
+        source: new_regime
+      - text: Being registered under the MLRs does not guarantee authorisation under FSMA.
+        source: mlr_ahead_of_fsma
+      - text: The FCA encourages firms to focus on FSMA authorisation rather than MLR registration. To apply for MLR registration now, you first contact the FCA's pre-application support team (PASS) to make your case, and you pay a single fee, the higher of the MLR registration fee and the FSMA authorisation fee.
+        source: mlr_ahead_of_fsma
+      - text: The FCA says it is unlikely to determine an MLR application made after 31 July 2027 before the new regime starts, so firms should not apply for registration after that date.
+        source: mlr_ahead_of_fsma
+
+  - heading: Who needs to register
+    items:
+      - text: Cryptoasset businesses must register with the FCA under the MLRs if they provide certain cryptoasset services by way of business in the course of business carried on in the UK.
+        source: fincrime
+      - text: "Regulation 14A of the MLRs defines the services in scope: cryptoasset exchange providers (exchanging cryptoassets for money or other cryptoassets, or operating a crypto ATM) and custodian wallet providers (safeguarding cryptoassets or private keys for customers)."
+        source: fincrime
+      - text: The requirement comes from Regulations 8L and 9 of the MLRs, and you must register before you begin.
+        source: who_needs
+      - text: Firms already registered or authorised by the FCA for other services must also register under the MLRs if they intend to provide in-scope cryptoasset services.
+        source: fincrime
+
+  - heading: Before you apply
+    items:
+      - text: Review the MLRs, and review the application forms in Connect, which you access by signing in to My FCA.
+        source: how_apply
+      - text: Consider requesting a pre-application meeting. These are free of charge.
+        source: how_apply
+      - text: Appoint a Money Laundering Reporting Officer (MLRO), as Regulation 21(3) of the MLRs requires.
+        source: how_apply
+      - text: Consider getting independent professional advice.
+        source: how_apply
+
+  - heading: What your application must include
+    items:
+      - text: A business plan covering your products, customers, fee structure, management structure, a detailed flow of funds for the full transaction flow, IT systems, outsourcing, business continuity plan and marketing strategy.
+        source: application
+      - text: A Business-Wide Risk Assessment (BWRA) and its methodology, as required by Regulations 18 and 18A of the MLRs.
+        source: application
+      - text: Customer Risk Assessments covering the factors in Regulations 28(13) and 33(6).
+        source: application
+      - text: Your full suite of AML policies and operational procedures.
+        source: application
+      - text: The rules and thresholds you have set in your transaction monitoring tools, not just the name of the tool.
+        source: application
+      - text: Details of your MLRO, whose fitness and propriety the FCA assesses as part of the application.
+        source: application
+      - text: The application must be complete when you submit it, with all supporting documents. The FCA does not review draft documents. Submit through Connect.
+        source: how_apply
+
+  - heading: Fees and timeline
+    items:
+      - text: Cryptoasset registration falls into the FCA's Category 6 pricing category.
+        source: how_apply
+      - text: The Category 6 application fee is £11,260.
+        source: fee_categories
+      - text: The fee is not refundable, even if your application is unsuccessful.
+        source: fees
+      - text: Once the FCA has all the information it needs to make a determination, it has 3 months to decide.
+        source: how_apply
+
+  - heading: What happens to applications
+    items:
+      - text: There are four possible outcomes. The application is approved, rejected (the FCA won't assess it because minimum information is missing), withdrawn, or refused.
+        source: how_apply
+      - text: "Common reasons firms withdraw: they can't show they meet the required standards at the point of submission, they need time to gather missing information, or they understand registration is likely to be refused."
+        source: how_apply
+      - text: "Since January 2020 the FCA has received 428 applications and determined 395. Of those, 68 were registered (17%), 266 withdrawn (67%), 47 rejected (12%) and 14 refused (4%). Figures as at 1 November 2026."
+        source: who_needs
+
+  - heading: Once you're registered
+    items:
+      - text: Submit an annual financial crime return (REP-CRIM) through RegData, within 60 business days of your accounting reference date.
+        source: fincrime
+      - text: Any change in control needs a notification and FCA approval before the transaction completes. Acquiring control of a registered cryptoasset firm without approval is a criminal offence.
+        source: fincrime
+      - text: If customers aren't protected by the Financial Ombudsman Service or the FSCS, you must tell them before starting a business relationship or transaction (Regulation 60A).
+        source: fincrime
+      - text: Cryptoasset financial promotions have been within the FCA's remit since 8 October 2023. An MLR-registered firm can communicate its own promotions under the Article 73ZA exemption in the Financial Promotion Order.
+        source: cryptoassets

@@ -1,0 +1,165 @@
+---
+import { loadExchanges, loadLicensingGuides, footerStats, COUNTRY_NAMES } from '../../lib/data.js';
+import '../../styles/global.css';
+const SITEKEY = import.meta.env.PUBLIC_TURNSTILE_SITEKEY || '0x4AAAAAAD84t4OWkoouLP3Y';
+
+export function getStaticPaths() {
+  const stats = footerStats(loadExchanges());
+  return loadLicensingGuides().map((guide) => ({
+    params: { code: guide.code.toLowerCase() },
+    props: { guide, stats },
+  }));
+}
+
+const { guide, stats } = Astro.props;
+const name = COUNTRY_NAMES[guide.country] ?? guide.country;
+// Sources are numbered in order of first citation, so [1] is always the
+// first footnote a reader meets, regardless of the YAML's map order.
+const sourceOrder = [];
+for (const sec of guide.sections) for (const item of sec.items) {
+  if (!sourceOrder.includes(item.source)) sourceOrder.push(item.source);
+}
+const ref = (key) => sourceOrder.indexOf(key) + 1;
+const PAGE_TITLE = `${guide.title} (${guide.reviewed.slice(0, 4)}) | Cryptantia`;
+const PAGE_DESC = `Step-by-step: who needs it, what to submit, fees, timelines and ongoing obligations, with every point linked to official guidance from the ${guide.regulator}. Last reviewed ${guide.reviewed}.`;
+---
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{PAGE_TITLE}</title>
+  <meta name="description" content={PAGE_DESC} />
+  <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site)} />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content={new URL(Astro.url.pathname, Astro.site)} />
+  <meta property="og:site_name" content="Cryptantia" />
+  <meta property="og:title" content={PAGE_TITLE} />
+  <meta property="og:description" content={PAGE_DESC} />
+  <meta property="og:image" content={new URL('/og-image.jpg', Astro.site)} />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={PAGE_TITLE} />
+  <meta name="twitter:description" content={PAGE_DESC} />
+  <meta name="twitter:image" content={new URL('/og-image.jpg', Astro.site)} />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <script src="https://analytics.ahrefs.com/analytics.js" data-key="QTM3lN9yt0oU0rxrj5zadA" async></script>
+  <!-- X conversion tracking base code -->
+  <script>
+  !function(e,t,n,s,u,a){e.twq||(s=e.twq=function(){s.exe?s.exe.apply(s,arguments):s.queue.push(arguments);
+  },s.version='1.1',s.queue=[],u=t.createElement(n),u.async=!0,u.src='https://static.ads-twitter.com/uwt.js',
+  a=t.getElementsByTagName(n)[0],a.parentNode.insertBefore(u,a))}(window,document,'script');
+  twq('config','ref28');
+  </script>
+  <!-- End X conversion tracking base code -->
+  <!-- TrustBox script -->
+  <script type="text/javascript" src="//widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js" async></script>
+  <!-- End TrustBox script -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Cryptantia', item: 'https://cryptantia.com/' },
+      { '@type': 'ListItem', position: 2, name: 'Licensing guides', item: 'https://cryptantia.com/licensing/' },
+      { '@type': 'ListItem', position: 3, name, item: `https://cryptantia.com/licensing/${guide.code.toLowerCase()}/` },
+    ],
+  })} />
+</head>
+<body>
+  <header class="site">
+    <div class="wrap">
+      <a class="logo" href="/">Cryptantia</a>
+      <div class="header-right">
+        <div class="site-search">
+          <input type="search" id="site-search" placeholder="Search exchanges or countries…" autocomplete="off" aria-label="Search exchanges" />
+          <div class="site-search-results" id="site-search-results" hidden></div>
+        </div>
+        <span class="sourced">source: official regulator registers</span>
+      </div>
+    </div>
+    <nav class="site-nav"><div class="wrap">
+      <a href="/exchanges/">Exchanges</a>
+      <a href="/regulators/">Regulators</a>
+      <a href="/learn/">Learn</a>
+      <a href="/providers/">Providers</a>
+      <a href="/faq/">FAQ</a>
+      <a href="/stats/">Stats</a>
+      <a href="/reviews/">Reviews</a>
+      <a href="/news/">News</a>
+    </div></nav>
+  </header>
+
+  <main class="wrap licensing-page">
+    <p class="sourced orientation"><a href="/licensing/">Licensing guides</a> / {name}</p>
+    <h1>{guide.heading}</h1>
+    <p class="lede lede-wide">{guide.intro}</p>
+    <p class="sourced">Every point below links to official guidance from the {guide.regulator}.
+    Last reviewed {guide.reviewed}. A summary of public regulator information, not legal advice.
+    Confirm the current position with the regulator or a qualified adviser before applying.</p>
+
+    {guide.sections.map((sec) => (
+      <section class={sec.alert ? 'guide-section guide-alert' : 'guide-section'}>
+        <h2>{sec.heading}</h2>
+        <ul>
+          {sec.items.map((item) => (
+            <li>{item.text}{' '}<a class="cite" href={`#source-${ref(item.source)}`}>[{ref(item.source)}]</a></li>
+          ))}
+        </ul>
+      </section>
+    ))}
+
+    <p>See <a href={`/${guide.country.toLowerCase()}/`}>which firms currently hold this status in {name}</a>,
+    straight from the official register.</p>
+
+    {SITEKEY && (
+      <div class="digest-cta">
+        <h3>Get crypto licence alerts for {name}</h3>
+        <p>A weekly email when firms are newly licensed, registered, or removed in {name}, straight
+        from the official registers. Sent only in weeks when something changes. Free, and you can
+        unsubscribe any time.</p>
+        <form id="digest-form" data-country={guide.country}>
+          <div class="digest-cta-row">
+            <input type="email" name="email" placeholder="you@company.com" required maxlength="200" aria-label="Email address" />
+            <button type="submit">Get alerts</button>
+          </div>
+          <label class="consent-label">
+            <input type="checkbox" name="consent" required />
+            I want weekly email alerts about licence changes in {name}. Unsubscribe any time, no
+            login needed.
+          </label>
+          <div class="cf-turnstile" data-sitekey={SITEKEY}></div>
+          <p class="form-msg sourced" role="status"></p>
+        </form>
+      </div>
+    )}
+
+    <section class="guide-sources">
+      <h2>Sources</h2>
+      <ol>
+        {sourceOrder.map((key, i) => {
+          const s = guide.sources[key];
+          return <li id={`source-${i + 1}`}><a href={s.url}>{s.title}</a>{s.updated && <span class="sourced"> (page last updated {s.updated})</span>}</li>;
+        })}
+      </ol>
+    </section>
+  </main>
+
+  <footer class="site"><div class="wrap">
+    <div class="footer-top">
+      <p><a href="/about/">About</a> · <a href="/contact/">Contact</a> · <a href="/changelog/">Changelog</a> · <a href="/exchanges/">Exchanges</a> · <a href="/regulators/">Regulators</a> · <a href="/stats/">Stats</a> · <a href="/reviews/">Reviews</a> · <a href="/news/">News</a> · <a href="/providers/">Providers</a> · <a href="/faq/">FAQ</a> · <a href="https://x.com/whichcex">X</a></p>
+      <!-- TrustBox widget - Review Collector -->
+      <div class="trustpilot-widget" data-locale="en-US" data-template-id="56278e9abfbbba0bdcd568bc" data-businessunit-id="6a79a88069053747f3a86e5d" data-style-height="52px" data-style-width="100%" data-token="4446dd34-abb7-486d-9d18-4cb40eab0921">
+        <a href="https://www.trustpilot.com/review/whichcryptoexchange.com" target="_blank" rel="noopener">Trustpilot</a>
+      </div>
+      <!-- End TrustBox widget -->
+    </div>
+    <p class="footer-meta">{stats.brandCount} brands tracked across {stats.jurisdictionCount} jurisdictions · Data last synced {stats.lastSynced} · <a href="/changelog.xml">RSS</a></p>
+    <p>Independent register. Not affiliated with any regulator. Not financial advice.</p>
+  </div></footer>
+
+  {SITEKEY && <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>}
+  <script src="/search.js" defer></script>
+</body>
+</html>

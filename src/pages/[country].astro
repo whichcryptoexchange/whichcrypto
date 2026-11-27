@@ -1,6 +1,7 @@
 ---
-import { loadExchanges, loadRegulatorDetails, countriesInData, COUNTRY_NAMES, SERVICE_NAMES, footerStats, listJoin } from '../lib/data.js';
+import { loadExchanges, loadRegulatorDetails, loadLicensingGuides, countriesInData, COUNTRY_NAMES, SERVICE_NAMES, footerStats, listJoin } from '../lib/data.js';
 import { buildFaqEntries, midSentenceLabel } from '../lib/faq.js';
+import fs from 'node:fs';
 import '../styles/global.css';
 // Turnstile site keys are public by design (embedded in client HTML), so hardcoding
 // this as a fallback is safe. The env var still wins if the build environment sets it.
@@ -24,6 +25,7 @@ export function getStaticPaths() {
 }
 
 const { code, exchanges, regulatorDetails, faqEntry, stats } = Astro.props;
+const licensingGuide = loadLicensingGuides().find((g) => g.country === code);
 const name = COUNTRY_NAMES[code] ?? code;
 // Non-EEA jurisdictions store a LIST of entries per country (a brand can have
 // more than one relevant entity/tier), unlike the single-object EEA/MiCA shape.
@@ -41,6 +43,16 @@ const isNZ = code === 'NZ';
 const isBVI = code === 'VG';
 const isAU = code === 'AU';
 const isNonEEA = isGB || isCA || isAE || isSG || isUS || isHK || isGI || isJP || isMY || isKR || isNZ || isBVI || isAU;
+// Point business visitors at the long-form /learn/ article for this country,
+// falling back to the general MiCA explainer for EEA countries without one.
+const learnArticles = fs.readdirSync('data/articles').map((f) => f.replace(/\.md$/, ''));
+const countryArticle = (() => {
+  for (const slug of learnArticles) {
+    const head = fs.readFileSync(`data/articles/${slug}.md`, 'utf8').split('\n---')[0];
+    if (slug.startsWith('crypto-licence-') && head.includes(`alert_country: ${code}\n`)) return slug;
+  }
+  return !isNonEEA ? 'mica-casp-authorisation-explained' : null;
+})();
 const rows = exchanges
   .map((ex) => ({ ex, c: ex.countries?.[code] }))
   .filter((r) => r.c);
@@ -263,6 +275,7 @@ const PAGE_DESC = isGB
     <nav class="site-nav"><div class="wrap">
       <a href="/exchanges/">Exchanges</a>
       <a href="/regulators/">Regulators</a>
+      <a href="/learn/">Learn</a>
       <a href="/providers/">Providers</a>
       <a href="/faq/">FAQ</a>
       <a href="/stats/">Stats</a>
@@ -715,6 +728,18 @@ const PAGE_DESC = isGB
             ))}
           </ul>
         </>
+      )}
+
+      {countryArticle && (
+        <p class="lede lede-wide"><a href={`/learn/${countryArticle}/`}>{countryArticle === 'mica-casp-authorisation-explained'
+          ? 'How MiCA authorisation works, step by step →'
+          : `Pros, cons and what to expect from a licence in ${name} →`}</a>{' '}
+        · <a href="/learn/crypto-licence-jurisdictions-compared/">Compare jurisdictions →</a></p>
+      )}
+
+      {licensingGuide && (
+        <p class="lede lede-wide"><strong><a href={`/licensing/${licensingGuide.code.toLowerCase()}/`}>Read
+        the step-by-step guide: {licensingGuide.title} →</a></strong></p>
       )}
 
       <p class="sourced">A summary of public regulator information, not legal advice. Capital

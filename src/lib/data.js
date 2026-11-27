@@ -66,6 +66,25 @@ export function loadRegulatorDetails() {
   return yaml.load(fs.readFileSync(file, 'utf8')) || [];
 }
 
+// Step-by-step "how to apply" guides, one file per jurisdiction -- manually
+// researched like regulator_details.yaml, with every item citing a key in
+// that file's own `sources` map. Rendered at /licensing/<code>/.
+const GUIDES_DIR = path.resolve('data/licensing_guides');
+
+export function loadLicensingGuides() {
+  if (!fs.existsSync(GUIDES_DIR)) return [];
+  return fs.readdirSync(GUIDES_DIR)
+    .filter((f) => f.endsWith('.yaml'))
+    .map((f) => yaml.load(fs.readFileSync(path.join(GUIDES_DIR, f), 'utf8')))
+    .map((g) => {
+      for (const sec of g.sections) for (const item of sec.items) {
+        if (!g.sources[item.source]) throw new Error(`licensing guide ${g.code}: unknown source "${item.source}"`);
+      }
+      return g;
+    })
+    .sort((a, b) => (COUNTRY_NAMES[a.country] ?? a.code).localeCompare(COUNTRY_NAMES[b.country] ?? b.code));
+}
+
 export function countriesInData(exchanges) {
   const set = new Set();
   for (const ex of exchanges) for (const c of Object.keys(ex.countries || {})) set.add(c);
