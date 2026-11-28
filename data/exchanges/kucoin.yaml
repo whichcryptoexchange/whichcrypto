@@ -251,3 +251,10 @@ audits:
   - name: KuCoin — Proof of Reserves & Audit (official page)
     url: https://www.kucoin.com/proof-of-reserves
   retrieved: '2026-08-14'
+news_mentions:
+- source: Cointelegraph
+  category: general
+  title: Privacy coins face diverging fortunes as KuCoin moves to drop Monero
+  url: https://cointelegraph.com/news/privacy-coins-kucoin-drop-monero-grayscale-zcash?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound
+  published: '2026-11-27'
+  retrieved: '2026-11-28'
