@@ -17,6 +17,12 @@ countries:
 news_mentions:
 - source: The Block
   category: general
+  title: Galaxy walks back bitcoin’s June-bottom call, warns of deeper losses below $58,525
+  url: https://www.theblock.co/news/markets/2026-11-26-galaxy-walks-back-bitcoin-bottom-call-446786
+  published: '2026-11-26'
+  retrieved: '2026-11-28'
+- source: The Block
+  category: general
   title: Coldcard exploiter moves 45% of funds stolen from ‘Wave 3’ attacks, Galaxy says
   url: https://www.theblock.co/news/defi/2026-09-07-coldcard-exploiter-moves-wave-3-413661
   published: '2026-09-07'
